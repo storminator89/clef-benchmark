@@ -106,3 +106,32 @@ Ein zusätzlicher DOM-Test prüft die tatsächlich eingebundenen Überschriftenw
 51/60 Entscheidung, 58/60 Evidenz und 50/60 vollständig richtig sowie die acht
 Fälle mit richtiger Evidenz und falscher Entscheidung. Die Belegquote wird nicht
 als Gesamtverständnisquote bezeichnet.
+
+## Bank-Support-Endintegration
+
+Die zusätzliche Suite ist vollständig freigegeben: 80 synthetische Fälle,
+240 native Auswahlfelder, keine Kürzung. Alle eingefrorenen Eingaben/Quellen und bewerteten Ergebnisse unter
+`experiments/bank-support` sind unverändert übernommen; nicht eingefrorene private
+Wiederherstellungs-/Hostdiagnostik und redundante Betriebsprotokolle sind
+ausdrücklich ausgelassen und im Exportmanifest dokumentiert; alle 34 eingefrorenen
+Quellhashes, das vollständige Exportmanifest und die finalen unabhängigen
+QA-Bindungen sind geprüft. Die UI bewahrt sämtliche Nachrichten, Feldregeln,
+240 Vorhersagen und ungerundeten Wahrscheinlichkeitsvektoren exakt.
+
+- 134 Python-Tests bestanden, darunter 15 Bank-Importer-Tests
+- 53 JavaScript-/DOM-Tests bestanden
+- Original-, Follow-up- und Bank-Integritätsgates bestanden
+- Alle fünf UI-Datensätze byte-identisch rekonstruierbar
+- Beide Bank-Scorer unabhängig erneut in temporären Kopien ausgeführt
+- Alle 80 tatsächlichen Bank-Requests passen unverändert in bestehende UI-/API-Grenzen
+- 212 vorbestehende Daten-/Laufzeitdateien unverändert
+
+Die Ergebnisdarstellung unterscheidet 76/80 Anliegen, 77/80 Prioritäten,
+75/80 nächste Schritte und 68/80 vollständig richtige Fälle. Insbesondere sind
+8/10 vollständig richtige kritische Fälle von 0/10 kritischen Prioritäts- und
+Handoff-Fehlern getrennt; die 80-%-Routine-Baseline wird ausdrücklich gezeigt.
+
+Die Browser-Darstellungsgrenze bleibt bestehen. Für diese UI-Integration wurde
+keine zusätzliche Modellinferenz gestartet und keine visuelle Abnahme behauptet.
+Die eigentlichen 80 Bank-Messungen und ihre Laufprovenienz stehen im separaten
+[Bankbericht](../experiments/bank-support/REPORT.md).

@@ -1,0 +1,55 @@
+{
+  "status": "pass",
+  "base_commit": "1b899c5900a74ad0406bd6a25ad2ab87eec2e26d",
+  "bank_export_manifest_sha256": "babc2c4968d32a8b159590c095eae64fa5cd8e4ead95aa782638f0d38e02ca39",
+  "bank_freeze_manifest_sha256": "11e895f000ada7286dc8ae5fabd00b63a862f81e57de1692ff86990e72a895d3",
+  "bank_independent_report_sha256": "d12091a76de012842ca80bcbf5035d2eed1025900a31398b2e8b53eb69819081",
+  "web_dataset_sha256": "d219b98b0716dd3efaee828ccd7bd8c8d6d12c235c499c29e0efd5dbc562e4fe",
+  "historical_protected_files_unchanged": 212,
+  "native_cases_verified": 80,
+  "native_fields_verified": 240,
+  "tests": {
+    "python": 134,
+    "javascript_dom": 53,
+    "bank_importer_in_python_total": 15
+  },
+  "checks": {
+    "original_gate": "pass",
+    "followup_gate": "pass",
+    "bank_gate": "pass",
+    "five_dataset_deterministic_rebuilds": "pass",
+    "all80_actual_request_editor_api_limits": "pass",
+    "independent_ui_importer_review": "pass"
+  },
+  "browser_visual_qa": "not performed; previous restriction retained; DOM tests do not verify layout",
+  "integration_model_inference": false,
+  "metrics": {
+    "intent": {
+      "correct": 76,
+      "total": 80,
+      "accuracy": 0.95
+    },
+    "priority": {
+      "correct": 77,
+      "total": 80,
+      "accuracy": 0.9625
+    },
+    "next_step": {
+      "correct": 75,
+      "total": 80,
+      "accuracy": 0.9375
+    },
+    "all_fields_exact": {
+      "correct": 68,
+      "total": 80,
+      "accuracy": 0.85
+    },
+    "all_field_decisions": {
+      "correct": 228,
+      "total": 240,
+      "accuracy": 0.95
+    }
+  },
+  "bank_frozen_inputs_and_scored_results_changed": false,
+  "public_export_revision": "Private nonfrozen restoration/host diagnostics and redundant operational telemetry omitted; exact scope/hash mapping is in portable_export.json"
+}

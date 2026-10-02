@@ -10,6 +10,9 @@ Es gibt keine externen Fonts, Skripte, Bilder, Trackingdienste oder Cloud-API.
   Gold- und Modell-Evidenz sind getrennt markiert; alle Markierungen beziehen sich
   auf vollständige, tatsächlich angebotene Klauseln. Die Gold-Referenzbegründung
   ist eine Annotation, keine generierte Modellbegründung.
+- **Bank-Kundensupport:** eigene Suite mit Kundennachricht und fiktiver
+  Servicerichtlinie; Anliegen, Priorität und nächster Schritt als drei getrennte
+  Antwortfelder. [Datengrenzen und Bedienung](BANK_SUPPORT_UI_DATA.md).
 - **Ergebnisse:** Entscheidungen, Evidenzauswahl und vollständig richtige Fälle
   mit eigenen Nennern. Frühere Suiten behalten ihre Sprachkontrollen und Ergebnisse.
 - **Live testen:** eigenständiger Text-/Schemaeditor, 1–8 native Choice-Felder und
@@ -27,7 +30,9 @@ Hauptnavigation liegt auf dem Smartphone unten. Die lokale Browserprüfung für
 - Eine Fallkarte öffnet das zugehörige Dokument; auf dem Smartphone wechselt die
   Ansicht zum Dokument. Die Pfeile im Dokumentkopf öffnen den vorherigen/nächsten
   Fall innerhalb der aktuellen Filter.
-- **Entscheidung** und **Evidenz** sind getrennte Prüffelder. Beide zeigen Gold,
+- Die Prüffelder richten sich nach der Suite. **Entscheidung** und **Evidenz**
+  gehören zur Versicherungsprüfung; Bank-Kundensupport verwendet **Anliegen**,
+  **Priorität** und **Nächster Schritt**. Alle zeigen Gold,
   tatsächliche Modellwahl und alle Wahrscheinlichkeiten. Die Evidenzbuttons
   springen direkt zu den annotierten bzw. tatsächlich gewählten Klauseln.
 - Kategorien-, Sprach-, Tag- und Ergebnisfilter lassen sich kombinieren. Es gibt

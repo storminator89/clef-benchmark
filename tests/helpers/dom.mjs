@@ -8,7 +8,7 @@ const html = await readFile(
 );
 export const datasets = Object.fromEntries(
   await Promise.all(
-    ["insurance", "benchmark", "finance", "clean72"].map(async (id) => [
+    ["insurance", "benchmark", "finance", "clean72", "bank-support"].map(async (id) => [
       id,
       JSON.parse(
         await readFile(new URL(`../../web/data/${id}.json`, import.meta.url)),
@@ -238,5 +238,42 @@ export async function harness({
     calls,
     downloads,
     storage,
+  };
+}
+
+/** Test-only three-field fixture, never used as shipped benchmark output. */
+export function bankFixture({ completed = true } = {}) {
+  const options = {
+    intent: ["cards","transfers","standing_orders","direct_debits","access_tan","fees","security","cash","account_documents","unclear"],
+    priority: ["critical","urgent","routine"],
+    next_step: ["security_handoff","specialist_review","clarify","guidance"],
+  };
+  const questions = Object.fromEntries(Object.entries(options).map(([id, keys]) => [id, {
+    type: "choice", instructions: `Test-only ${id} rule`,
+    criteria: Object.fromEntries(keys.map(key => [key, `Test-only ${key} option`])),
+  }]));
+  return {
+    status: completed ? "completed" : "test_data_only",
+    verification: { status: "pass", n_present: 80, test_fixture_only: true },
+    suite: { id: "bank-support", primary_split: "german_bank_support_primary",
+      categories: { test: "Test-only bank topic" } },
+    ...(completed ? { summary: { test_fixture_only: true } } : {}),
+    cases: Array.from({length: 80}, (_, i) => {
+      const expected = { intent: "cards", priority: i < 10 ? "critical" : i < 16 ? "urgent" : "routine", next_step: i < 10 ? "security_handoff" : "guidance" };
+      const fields = Object.fromEntries(Object.keys(questions).map((id) => {
+        const prediction = i === 0 && id === "priority" ? "routine" : expected[id];
+        return [id, { prediction, correct: prediction === expected[id], schema_valid: true,
+          probabilities: Object.fromEntries(options[id].map(key => [key,
+            key === prediction ? 0.9 : 0.1 / (options[id].length - 1)])),
+        }];
+      }));
+      return { id: `bank_fixture_${i+1}`, split: "german_bank_support_primary", category: "test",
+        title: `Test-only bank case ${i+1}`, tags: [], synthetic: true, manipulation: false,
+        message: `Test-only customer message ${i+1}`, service_policy: Object.values(questions).map(q=>q.instructions).join("\n\n"),
+        input: `Synthetische Kundennachricht:\nTest-only customer message ${i+1}`,
+        questions: structuredClone(questions), expected, gold_rationale: "Test-only gold rationale",
+        ...(completed ? { result: { fields, correct: i !== 0, schema_valid: true }, input_tokens: 100, latency_ms: 1000 } : {}),
+      };
+    }),
   };
 }

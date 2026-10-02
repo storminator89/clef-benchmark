@@ -1,0 +1,1351 @@
+{
+  "passed": true,
+  "checked_at_utc": "2026-10-02T12:37:03.971424+00:00",
+  "checker_sha256": "cd05206420d058056d323027326aa37cde7e43020c85fe8ccbe30b08ffa6ec6b",
+  "freeze_manifest_sha256": "11e895f000ada7286dc8ae5fabd00b63a862f81e57de1692ff86990e72a895d3",
+  "verified_frozen_file_count": 34,
+  "prediction_count": 80,
+  "run_metadata_sha256": "49b9f1349f38066df94bbb75a07d15e12c068a24d2d3b6c2a02e9042ed7d3d52",
+  "summary_sha256": "0adee2bc0e9245a75506518ae29ad4e1dce99b0bbb3196812c8b0844839dd516",
+  "errors_sha256": "f20a0586fb600fa93249fbb88e9e085c238d2da4507132670e2d5a8e6326068c",
+  "mismatches": [],
+  "method": "Independent computations; no import or invocation of score.py; only completed outputs read",
+  "independently_recomputed": {
+    "metrics": {
+      "intent": {
+        "correct": 76,
+        "total": 80,
+        "accuracy": 0.95
+      },
+      "priority": {
+        "correct": 77,
+        "total": 80,
+        "accuracy": 0.9625
+      },
+      "next_step": {
+        "correct": 75,
+        "total": 80,
+        "accuracy": 0.9375
+      },
+      "all_fields_exact": {
+        "correct": 68,
+        "total": 80,
+        "accuracy": 0.85
+      },
+      "all_field_decisions": {
+        "correct": 228,
+        "total": 240,
+        "accuracy": 0.95
+      }
+    },
+    "safety": {
+      "critical_cases": {
+        "count": 10,
+        "ids": [
+          "bank_cards_03",
+          "bank_security_07",
+          "bank_security_08",
+          "bank_security_02",
+          "bank_ambiguous_multi_04",
+          "bank_security_06",
+          "bank_ambiguous_multi_05",
+          "bank_security_01",
+          "bank_direct_debits_03",
+          "bank_security_04"
+        ]
+      },
+      "critical_priority_misses": {
+        "count": 0,
+        "ids": []
+      },
+      "critical_handoff_misses": {
+        "count": 0,
+        "ids": []
+      },
+      "critical_safety_case_errors": {
+        "count": 0,
+        "ids": []
+      },
+      "urgent_cases": {
+        "count": 6,
+        "ids": [
+          "bank_standing_orders_07",
+          "bank_ambiguous_multi_07",
+          "bank_access_tan_04",
+          "bank_transfers_05",
+          "bank_transfers_02",
+          "bank_cash_08"
+        ]
+      },
+      "urgent_undertriage": {
+        "count": 0,
+        "ids": []
+      },
+      "unnecessary_critical_priority": {
+        "count": 0,
+        "ids": []
+      },
+      "unnecessary_security_handoffs": {
+        "count": 1,
+        "ids": [
+          "bank_access_tan_02"
+        ]
+      },
+      "non_escalation_reference_cases": {
+        "count": 45,
+        "ids": [
+          "bank_cash_07",
+          "bank_transfers_07",
+          "bank_account_documents_02",
+          "bank_fees_04",
+          "bank_ambiguous_multi_06",
+          "bank_standing_orders_08",
+          "bank_ambiguous_multi_03",
+          "bank_standing_orders_04",
+          "bank_cards_07",
+          "bank_security_03",
+          "bank_cards_01",
+          "bank_account_documents_05",
+          "bank_access_tan_07",
+          "bank_cash_04",
+          "bank_ambiguous_multi_07",
+          "bank_direct_debits_01",
+          "bank_ambiguous_multi_02",
+          "bank_account_documents_01",
+          "bank_direct_debits_08",
+          "bank_transfers_08",
+          "bank_access_tan_06",
+          "bank_direct_debits_07",
+          "bank_ambiguous_multi_08",
+          "bank_standing_orders_01",
+          "bank_direct_debits_04",
+          "bank_fees_05",
+          "bank_cards_05",
+          "bank_standing_orders_06",
+          "bank_transfers_01",
+          "bank_cash_01",
+          "bank_transfers_06",
+          "bank_ambiguous_multi_01",
+          "bank_account_documents_04",
+          "bank_cards_08",
+          "bank_account_documents_08",
+          "bank_access_tan_01",
+          "bank_cards_06",
+          "bank_access_tan_05",
+          "bank_cash_06",
+          "bank_fees_01",
+          "bank_transfers_04",
+          "bank_fees_06",
+          "bank_fees_08",
+          "bank_account_documents_06",
+          "bank_standing_orders_05"
+        ]
+      },
+      "unnecessary_escalations": {
+        "count": 3,
+        "ids": [
+          "bank_ambiguous_multi_07",
+          "bank_fees_05",
+          "bank_transfers_04"
+        ]
+      },
+      "missed_clarifications": {
+        "count": 3,
+        "ids": [
+          "bank_ambiguous_multi_07",
+          "bank_ambiguous_multi_02",
+          "bank_fees_05"
+        ]
+      }
+    },
+    "confusion_matrices": {
+      "intent": {
+        "access_tan": {
+          "access_tan": 9
+        },
+        "account_documents": {
+          "account_documents": 9
+        },
+        "cards": {
+          "cards": 8,
+          "unclear": 1
+        },
+        "cash": {
+          "cash": 8
+        },
+        "direct_debits": {
+          "direct_debits": 7
+        },
+        "fees": {
+          "fees": 8
+        },
+        "security": {
+          "security": 8,
+          "access_tan": 1,
+          "direct_debits": 1
+        },
+        "standing_orders": {
+          "standing_orders": 8
+        },
+        "transfers": {
+          "transfers": 7,
+          "standing_orders": 1
+        },
+        "unclear": {
+          "unclear": 4
+        }
+      },
+      "priority": {
+        "critical": {
+          "critical": 10
+        },
+        "routine": {
+          "routine": 61,
+          "urgent": 3
+        },
+        "urgent": {
+          "urgent": 6
+        }
+      },
+      "next_step": {
+        "clarify": {
+          "clarify": 11,
+          "specialist_review": 2,
+          "guidance": 1
+        },
+        "guidance": {
+          "guidance": 30,
+          "specialist_review": 1
+        },
+        "security_handoff": {
+          "security_handoff": 10
+        },
+        "specialist_review": {
+          "specialist_review": 24,
+          "security_handoff": 1
+        }
+      }
+    },
+    "strata": {
+      "topic": {
+        "access_tan": {
+          "case_count": 8,
+          "all_fields_exact": {
+            "correct": 7,
+            "total": 8,
+            "accuracy": 0.875
+          },
+          "intent": {
+            "correct": 8,
+            "total": 8,
+            "accuracy": 1.0
+          },
+          "priority": {
+            "correct": 8,
+            "total": 8,
+            "accuracy": 1.0
+          },
+          "next_step": {
+            "correct": 7,
+            "total": 8,
+            "accuracy": 0.875
+          }
+        },
+        "account_documents": {
+          "case_count": 8,
+          "all_fields_exact": {
+            "correct": 8,
+            "total": 8,
+            "accuracy": 1.0
+          },
+          "intent": {
+            "correct": 8,
+            "total": 8,
+            "accuracy": 1.0
+          },
+          "priority": {
+            "correct": 8,
+            "total": 8,
+            "accuracy": 1.0
+          },
+          "next_step": {
+            "correct": 8,
+            "total": 8,
+            "accuracy": 1.0
+          }
+        },
+        "ambiguous_multi": {
+          "case_count": 8,
+          "all_fields_exact": {
+            "correct": 6,
+            "total": 8,
+            "accuracy": 0.75
+          },
+          "intent": {
+            "correct": 8,
+            "total": 8,
+            "accuracy": 1.0
+          },
+          "priority": {
+            "correct": 8,
+            "total": 8,
+            "accuracy": 1.0
+          },
+          "next_step": {
+            "correct": 6,
+            "total": 8,
+            "accuracy": 0.75
+          }
+        },
+        "cards": {
+          "case_count": 8,
+          "all_fields_exact": {
+            "correct": 7,
+            "total": 8,
+            "accuracy": 0.875
+          },
+          "intent": {
+            "correct": 7,
+            "total": 8,
+            "accuracy": 0.875
+          },
+          "priority": {
+            "correct": 8,
+            "total": 8,
+            "accuracy": 1.0
+          },
+          "next_step": {
+            "correct": 8,
+            "total": 8,
+            "accuracy": 1.0
+          }
+        },
+        "cash": {
+          "case_count": 8,
+          "all_fields_exact": {
+            "correct": 8,
+            "total": 8,
+            "accuracy": 1.0
+          },
+          "intent": {
+            "correct": 8,
+            "total": 8,
+            "accuracy": 1.0
+          },
+          "priority": {
+            "correct": 8,
+            "total": 8,
+            "accuracy": 1.0
+          },
+          "next_step": {
+            "correct": 8,
+            "total": 8,
+            "accuracy": 1.0
+          }
+        },
+        "direct_debits": {
+          "case_count": 8,
+          "all_fields_exact": {
+            "correct": 6,
+            "total": 8,
+            "accuracy": 0.75
+          },
+          "intent": {
+            "correct": 7,
+            "total": 8,
+            "accuracy": 0.875
+          },
+          "priority": {
+            "correct": 7,
+            "total": 8,
+            "accuracy": 0.875
+          },
+          "next_step": {
+            "correct": 8,
+            "total": 8,
+            "accuracy": 1.0
+          }
+        },
+        "fees": {
+          "case_count": 8,
+          "all_fields_exact": {
+            "correct": 7,
+            "total": 8,
+            "accuracy": 0.875
+          },
+          "intent": {
+            "correct": 8,
+            "total": 8,
+            "accuracy": 1.0
+          },
+          "priority": {
+            "correct": 8,
+            "total": 8,
+            "accuracy": 1.0
+          },
+          "next_step": {
+            "correct": 7,
+            "total": 8,
+            "accuracy": 0.875
+          }
+        },
+        "security": {
+          "case_count": 8,
+          "all_fields_exact": {
+            "correct": 7,
+            "total": 8,
+            "accuracy": 0.875
+          },
+          "intent": {
+            "correct": 7,
+            "total": 8,
+            "accuracy": 0.875
+          },
+          "priority": {
+            "correct": 8,
+            "total": 8,
+            "accuracy": 1.0
+          },
+          "next_step": {
+            "correct": 8,
+            "total": 8,
+            "accuracy": 1.0
+          }
+        },
+        "standing_orders": {
+          "case_count": 8,
+          "all_fields_exact": {
+            "correct": 8,
+            "total": 8,
+            "accuracy": 1.0
+          },
+          "intent": {
+            "correct": 8,
+            "total": 8,
+            "accuracy": 1.0
+          },
+          "priority": {
+            "correct": 8,
+            "total": 8,
+            "accuracy": 1.0
+          },
+          "next_step": {
+            "correct": 8,
+            "total": 8,
+            "accuracy": 1.0
+          }
+        },
+        "transfers": {
+          "case_count": 8,
+          "all_fields_exact": {
+            "correct": 4,
+            "total": 8,
+            "accuracy": 0.5
+          },
+          "intent": {
+            "correct": 7,
+            "total": 8,
+            "accuracy": 0.875
+          },
+          "priority": {
+            "correct": 6,
+            "total": 8,
+            "accuracy": 0.75
+          },
+          "next_step": {
+            "correct": 7,
+            "total": 8,
+            "accuracy": 0.875
+          }
+        }
+      },
+      "style": {
+        "colloquial_typo": {
+          "case_count": 8,
+          "all_fields_exact": {
+            "correct": 6,
+            "total": 8,
+            "accuracy": 0.75
+          },
+          "intent": {
+            "correct": 7,
+            "total": 8,
+            "accuracy": 0.875
+          },
+          "priority": {
+            "correct": 7,
+            "total": 8,
+            "accuracy": 0.875
+          },
+          "next_step": {
+            "correct": 8,
+            "total": 8,
+            "accuracy": 1.0
+          }
+        },
+        "multi_intent": {
+          "case_count": 5,
+          "all_fields_exact": {
+            "correct": 3,
+            "total": 5,
+            "accuracy": 0.6
+          },
+          "intent": {
+            "correct": 5,
+            "total": 5,
+            "accuracy": 1.0
+          },
+          "priority": {
+            "correct": 5,
+            "total": 5,
+            "accuracy": 1.0
+          },
+          "next_step": {
+            "correct": 3,
+            "total": 5,
+            "accuracy": 0.6
+          }
+        },
+        "negation_context": {
+          "case_count": 15,
+          "all_fields_exact": {
+            "correct": 14,
+            "total": 15,
+            "accuracy": 0.9333333333333333
+          },
+          "intent": {
+            "correct": 15,
+            "total": 15,
+            "accuracy": 1.0
+          },
+          "priority": {
+            "correct": 15,
+            "total": 15,
+            "accuracy": 1.0
+          },
+          "next_step": {
+            "correct": 14,
+            "total": 15,
+            "accuracy": 0.9333333333333333
+          }
+        },
+        "plain": {
+          "case_count": 40,
+          "all_fields_exact": {
+            "correct": 34,
+            "total": 40,
+            "accuracy": 0.85
+          },
+          "intent": {
+            "correct": 37,
+            "total": 40,
+            "accuracy": 0.925
+          },
+          "priority": {
+            "correct": 38,
+            "total": 40,
+            "accuracy": 0.95
+          },
+          "next_step": {
+            "correct": 39,
+            "total": 40,
+            "accuracy": 0.975
+          }
+        },
+        "uncertain": {
+          "case_count": 12,
+          "all_fields_exact": {
+            "correct": 11,
+            "total": 12,
+            "accuracy": 0.9166666666666666
+          },
+          "intent": {
+            "correct": 12,
+            "total": 12,
+            "accuracy": 1.0
+          },
+          "priority": {
+            "correct": 12,
+            "total": 12,
+            "accuracy": 1.0
+          },
+          "next_step": {
+            "correct": 11,
+            "total": 12,
+            "accuracy": 0.9166666666666666
+          }
+        }
+      },
+      "answerability": {
+        "clarification_needed": {
+          "case_count": 14,
+          "all_fields_exact": {
+            "correct": 10,
+            "total": 14,
+            "accuracy": 0.7142857142857143
+          },
+          "intent": {
+            "correct": 14,
+            "total": 14,
+            "accuracy": 1.0
+          },
+          "priority": {
+            "correct": 13,
+            "total": 14,
+            "accuracy": 0.9285714285714286
+          },
+          "next_step": {
+            "correct": 11,
+            "total": 14,
+            "accuracy": 0.7857142857142857
+          }
+        },
+        "route_ready": {
+          "case_count": 66,
+          "all_fields_exact": {
+            "correct": 58,
+            "total": 66,
+            "accuracy": 0.8787878787878788
+          },
+          "intent": {
+            "correct": 62,
+            "total": 66,
+            "accuracy": 0.9393939393939394
+          },
+          "priority": {
+            "correct": 64,
+            "total": 66,
+            "accuracy": 0.9696969696969697
+          },
+          "next_step": {
+            "correct": 64,
+            "total": 66,
+            "accuracy": 0.9696969696969697
+          }
+        }
+      },
+      "priority": {
+        "critical": {
+          "case_count": 10,
+          "all_fields_exact": {
+            "correct": 8,
+            "total": 10,
+            "accuracy": 0.8
+          },
+          "intent": {
+            "correct": 8,
+            "total": 10,
+            "accuracy": 0.8
+          },
+          "priority": {
+            "correct": 10,
+            "total": 10,
+            "accuracy": 1.0
+          },
+          "next_step": {
+            "correct": 10,
+            "total": 10,
+            "accuracy": 1.0
+          }
+        },
+        "routine": {
+          "case_count": 64,
+          "all_fields_exact": {
+            "correct": 56,
+            "total": 64,
+            "accuracy": 0.875
+          },
+          "intent": {
+            "correct": 63,
+            "total": 64,
+            "accuracy": 0.984375
+          },
+          "priority": {
+            "correct": 61,
+            "total": 64,
+            "accuracy": 0.953125
+          },
+          "next_step": {
+            "correct": 60,
+            "total": 64,
+            "accuracy": 0.9375
+          }
+        },
+        "urgent": {
+          "case_count": 6,
+          "all_fields_exact": {
+            "correct": 4,
+            "total": 6,
+            "accuracy": 0.6666666666666666
+          },
+          "intent": {
+            "correct": 5,
+            "total": 6,
+            "accuracy": 0.8333333333333334
+          },
+          "priority": {
+            "correct": 6,
+            "total": 6,
+            "accuracy": 1.0
+          },
+          "next_step": {
+            "correct": 5,
+            "total": 6,
+            "accuracy": 0.8333333333333334
+          }
+        }
+      },
+      "next_step": {
+        "clarify": {
+          "case_count": 14,
+          "all_fields_exact": {
+            "correct": 10,
+            "total": 14,
+            "accuracy": 0.7142857142857143
+          },
+          "intent": {
+            "correct": 14,
+            "total": 14,
+            "accuracy": 1.0
+          },
+          "priority": {
+            "correct": 13,
+            "total": 14,
+            "accuracy": 0.9285714285714286
+          },
+          "next_step": {
+            "correct": 11,
+            "total": 14,
+            "accuracy": 0.7857142857142857
+          }
+        },
+        "guidance": {
+          "case_count": 31,
+          "all_fields_exact": {
+            "correct": 29,
+            "total": 31,
+            "accuracy": 0.9354838709677419
+          },
+          "intent": {
+            "correct": 30,
+            "total": 31,
+            "accuracy": 0.967741935483871
+          },
+          "priority": {
+            "correct": 31,
+            "total": 31,
+            "accuracy": 1.0
+          },
+          "next_step": {
+            "correct": 30,
+            "total": 31,
+            "accuracy": 0.967741935483871
+          }
+        },
+        "security_handoff": {
+          "case_count": 10,
+          "all_fields_exact": {
+            "correct": 8,
+            "total": 10,
+            "accuracy": 0.8
+          },
+          "intent": {
+            "correct": 8,
+            "total": 10,
+            "accuracy": 0.8
+          },
+          "priority": {
+            "correct": 10,
+            "total": 10,
+            "accuracy": 1.0
+          },
+          "next_step": {
+            "correct": 10,
+            "total": 10,
+            "accuracy": 1.0
+          }
+        },
+        "specialist_review": {
+          "case_count": 25,
+          "all_fields_exact": {
+            "correct": 21,
+            "total": 25,
+            "accuracy": 0.84
+          },
+          "intent": {
+            "correct": 24,
+            "total": 25,
+            "accuracy": 0.96
+          },
+          "priority": {
+            "correct": 23,
+            "total": 25,
+            "accuracy": 0.92
+          },
+          "next_step": {
+            "correct": 24,
+            "total": 25,
+            "accuracy": 0.96
+          }
+        }
+      }
+    },
+    "technical": {
+      "schema_valid_cases": 80,
+      "truncated_cases": 0,
+      "input_tokens_min": 1549,
+      "input_tokens_max": 1595,
+      "forward_seconds_median": 40.87685009449706,
+      "forward_seconds_p95": 45.107909917605134,
+      "peak_observed_rss_bytes": 6240157696
+    },
+    "errors_count": 12,
+    "provenance": {
+      "requests_sha256": "a4ee04381c9d98e7d0365d487fadbe54a6f8c0e3dd751c1a08ebab14c0919562",
+      "gold_sha256": "cf93ec9032c3e8bbf5f14f88122cb7531f1c0a07268c5035e66f8532e06ea83f",
+      "predictions_sha256": "8be55f8cdc1a3d37cd8815ef6e2fee85993d40fb5ea4c2c3567ad12018875d10"
+    }
+  },
+  "independently_recomputed_errors": [
+    {
+      "id": "bank_transfers_03",
+      "topic": "transfers",
+      "message": "Die von mir freigegebene Überweisung vom Montag steht als ausgeführt da, beim Empfänger fehlt sie noch. Bitte prüfen Sie diesen Auftrag.",
+      "expected": {
+        "intent": "transfers",
+        "priority": "routine",
+        "next_step": "specialist_review"
+      },
+      "predicted": {
+        "intent": "transfers",
+        "priority": "urgent",
+        "next_step": "specialist_review"
+      },
+      "incorrect_fields": [
+        "priority"
+      ],
+      "rationale": "Bestimmter Überweisungsstatus zur Prüfung, keine genannte heutige/morgige Fälligkeit.",
+      "clarification_target": null,
+      "probabilities_unrounded": {
+        "intent": {
+          "access_tan": 0.01736598275601864,
+          "account_documents": 0.004898300394415855,
+          "cards": 0.0069077108055353165,
+          "cash": 0.00807593297213316,
+          "direct_debits": 0.024875624105334282,
+          "fees": 0.005053789354860783,
+          "security": 0.031445734202861786,
+          "standing_orders": 0.03975113108754158,
+          "transfers": 0.8046849370002747,
+          "unclear": 0.056940872222185135
+        },
+        "priority": {
+          "critical": 0.006463797762989998,
+          "routine": 0.12007205933332443,
+          "urgent": 0.8734641075134277
+        },
+        "next_step": {
+          "clarify": 0.058426856994628906,
+          "guidance": 0.01488848589360714,
+          "security_handoff": 0.012734796851873398,
+          "specialist_review": 0.9139498472213745
+        }
+      }
+    },
+    {
+      "id": "bank_security_06",
+      "topic": "security",
+      "message": "Grad kommt eine TAN-Freigabe aufs Handy, obwohl ich gar nichts beauftragt habe. Soll ich die bestätigen?",
+      "expected": {
+        "intent": "security",
+        "priority": "critical",
+        "next_step": "security_handoff"
+      },
+      "predicted": {
+        "intent": "access_tan",
+        "priority": "critical",
+        "next_step": "security_handoff"
+      },
+      "incorrect_fields": [
+        "intent"
+      ],
+      "rationale": "Unerwartete TAN-Anforderung; nicht freigeben.",
+      "clarification_target": null,
+      "probabilities_unrounded": {
+        "intent": {
+          "access_tan": 0.5297691822052002,
+          "account_documents": 0.0059778825379908085,
+          "cards": 0.01676538586616516,
+          "cash": 0.0063634226098656654,
+          "direct_debits": 0.0063634226098656654,
+          "fees": 0.007439594715833664,
+          "security": 0.352902352809906,
+          "standing_orders": 0.007210702635347843,
+          "transfers": 0.010491509921848774,
+          "unclear": 0.056716568768024445
+        },
+        "priority": {
+          "critical": 0.8919697403907776,
+          "routine": 0.09094265103340149,
+          "urgent": 0.01708761788904667
+        },
+        "next_step": {
+          "clarify": 0.028899628669023514,
+          "guidance": 0.013866192661225796,
+          "security_handoff": 0.9495766162872314,
+          "specialist_review": 0.007657638750970364
+        }
+      }
+    },
+    {
+      "id": "bank_ambiguous_multi_07",
+      "topic": "ambiguous_multi",
+      "message": "Es geht um meinen Dauerauftrag und eine Kontogebühr. Beide sollen Sie prüfen, ohne dass einer wichtiger ist. Der Dauerauftrag für die morgen fällige Miete wird als abgelehnt angezeigt.",
+      "expected": {
+        "intent": "unclear",
+        "priority": "urgent",
+        "next_step": "clarify"
+      },
+      "predicted": {
+        "intent": "unclear",
+        "priority": "urgent",
+        "next_step": "specialist_review"
+      },
+      "incorrect_fields": [
+        "next_step"
+      ],
+      "rationale": "Zwei gleichrangige Routen ohne Sicherheitsvorrang; globale Priorität urgent wegen blockierter Miete morgen.",
+      "clarification_target": "Welches Anliegen sollen wir zuerst bearbeiten: den abgelehnten Dauerauftrag oder die Kontogebühr?",
+      "probabilities_unrounded": {
+        "intent": {
+          "access_tan": 0.008656797930598259,
+          "account_documents": 0.007065471727401018,
+          "cards": 0.003723242087289691,
+          "cash": 0.0028996639885008335,
+          "direct_debits": 0.030215192586183548,
+          "fees": 0.05139777064323425,
+          "security": 0.008390455506742,
+          "standing_orders": 0.3027878403663635,
+          "transfers": 0.005766670219600201,
+          "unclear": 0.5790969133377075
+        },
+        "priority": {
+          "critical": 0.007541023660451174,
+          "routine": 0.03889956325292587,
+          "urgent": 0.953559398651123
+        },
+        "next_step": {
+          "clarify": 0.18240556120872498,
+          "guidance": 0.025469522923231125,
+          "security_handoff": 0.06503870338201523,
+          "specialist_review": 0.7270861864089966
+        }
+      }
+    },
+    {
+      "id": "bank_transfers_05",
+      "topic": "transfers",
+      "message": "Die heute fällige Miete kann ich nicht überweisen: Nach meiner Freigabe kommt jedes Mal „Auftrag fehlgeschlagen“. Bitte prüfen Sie den Fehler.",
+      "expected": {
+        "intent": "transfers",
+        "priority": "urgent",
+        "next_step": "specialist_review"
+      },
+      "predicted": {
+        "intent": "standing_orders",
+        "priority": "urgent",
+        "next_step": "specialist_review"
+      },
+      "incorrect_fields": [
+        "intent"
+      ],
+      "rationale": "Freigegebener Zahlungsvorgang scheitert, notwendige Zahlung heute.",
+      "clarification_target": null,
+      "probabilities_unrounded": {
+        "intent": {
+          "access_tan": 0.10656590759754181,
+          "account_documents": 0.014422127045691013,
+          "cards": 0.023778067901730537,
+          "cash": 0.020338458940386772,
+          "direct_debits": 0.12458816170692444,
+          "fees": 0.013131496496498585,
+          "security": 0.05033816769719124,
+          "standing_orders": 0.27857884764671326,
+          "transfers": 0.18412938714027405,
+          "unclear": 0.18412938714027405
+        },
+        "priority": {
+          "critical": 0.00907078105956316,
+          "routine": 0.02882688120007515,
+          "urgent": 0.9621023535728455
+        },
+        "next_step": {
+          "clarify": 0.1323489397764206,
+          "guidance": 0.01998170092701912,
+          "security_handoff": 0.038515735417604446,
+          "specialist_review": 0.8091536164283752
+        }
+      }
+    },
+    {
+      "id": "bank_ambiguous_multi_02",
+      "topic": "ambiguous_multi",
+      "message": "Ich hätte gern eine Anleitung zur neuen Karte und außerdem zum Download der Kontoauszüge. Beides ist mir gleich wichtig. Womit fangen wir an?",
+      "expected": {
+        "intent": "unclear",
+        "priority": "routine",
+        "next_step": "clarify"
+      },
+      "predicted": {
+        "intent": "unclear",
+        "priority": "routine",
+        "next_step": "guidance"
+      },
+      "incorrect_fields": [
+        "next_step"
+      ],
+      "rationale": "Zwei gleichrangige unterschiedliche offene Routen.",
+      "clarification_target": "Möchten Sie zuerst die Kartenanleitung oder den Kontoauszug-Download besprechen?",
+      "probabilities_unrounded": {
+        "intent": {
+          "access_tan": 0.0735471099615097,
+          "account_documents": 0.16900992393493652,
+          "cards": 0.04674938693642616,
+          "cash": 0.0018126704962924123,
+          "direct_debits": 0.0016504551749676466,
+          "fees": 0.0024013982620090246,
+          "security": 0.002988588297739625,
+          "standing_orders": 0.0020540247205644846,
+          "transfers": 0.0019908288959413767,
+          "unclear": 0.697795569896698
+        },
+        "priority": {
+          "critical": 0.003955392632633448,
+          "routine": 0.9908045530319214,
+          "urgent": 0.00524004315957427
+        },
+        "next_step": {
+          "clarify": 0.05046895891427994,
+          "guidance": 0.9375156760215759,
+          "security_handoff": 0.003381209447979927,
+          "specialist_review": 0.00863422080874443
+        }
+      }
+    },
+    {
+      "id": "bank_direct_debits_02",
+      "topic": "direct_debits",
+      "message": "Mein bekannter Stromanbieter hat seine Lastschrift diesen Monat zweimal eingezogen. Das Mandat stammt von mir. Bitte prüfen Sie die Doppelbelastung.",
+      "expected": {
+        "intent": "direct_debits",
+        "priority": "routine",
+        "next_step": "specialist_review"
+      },
+      "predicted": {
+        "intent": "direct_debits",
+        "priority": "urgent",
+        "next_step": "specialist_review"
+      },
+      "incorrect_fields": [
+        "priority"
+      ],
+      "rationale": "Autorisierter bekannter Einzug mit konkreter Betragsreklamation.",
+      "clarification_target": null,
+      "probabilities_unrounded": {
+        "intent": {
+          "access_tan": 0.0068831960670650005,
+          "account_documents": 0.0068831960670650005,
+          "cards": 0.00269549828954041,
+          "cash": 0.00269549828954041,
+          "direct_debits": 0.9265118837356567,
+          "fees": 0.002612566575407982,
+          "security": 0.014345812611281872,
+          "standing_orders": 0.01575579307973385,
+          "transfers": 0.005360638722777367,
+          "unclear": 0.01625593565404415
+        },
+        "priority": {
+          "critical": 0.07317517697811127,
+          "routine": 0.3601808249950409,
+          "urgent": 0.566644012928009
+        },
+        "next_step": {
+          "clarify": 0.07887537032365799,
+          "guidance": 0.011186906136572361,
+          "security_handoff": 0.04859370365738869,
+          "specialist_review": 0.861344039440155
+        }
+      }
+    },
+    {
+      "id": "bank_fees_05",
+      "topic": "fees",
+      "message": "Da ist irgendwo so eine Bankgebühr. Ich weiß gerade weder, wie sie heißt, noch auf welchem Auszug sie steht. Können Sie genau diese Gebühr prüfen?",
+      "expected": {
+        "intent": "fees",
+        "priority": "routine",
+        "next_step": "clarify"
+      },
+      "predicted": {
+        "intent": "fees",
+        "priority": "routine",
+        "next_step": "specialist_review"
+      },
+      "incorrect_fields": [
+        "next_step"
+      ],
+      "rationale": "Konkrete Prüfbitte ohne zuordenbare Gebührenposition.",
+      "clarification_target": "Wie heißt die Gebührenposition und auf welchem Auszug steht sie?",
+      "probabilities_unrounded": {
+        "intent": {
+          "access_tan": 0.003532911418005824,
+          "account_documents": 0.005916513502597809,
+          "cards": 0.0026667811907827854,
+          "cash": 0.0020768914837390184,
+          "direct_debits": 0.006600347347557545,
+          "fees": 0.9568865299224854,
+          "security": 0.005140356253832579,
+          "standing_orders": 0.0026667811907827854,
+          "transfers": 0.002928886329755187,
+          "unclear": 0.011583970859646797
+        },
+        "priority": {
+          "critical": 0.008404850959777832,
+          "routine": 0.9848417043685913,
+          "urgent": 0.006753487512469292
+        },
+        "next_step": {
+          "clarify": 0.3041863441467285,
+          "guidance": 0.06476500630378723,
+          "security_handoff": 0.021357234567403793,
+          "specialist_review": 0.6096914410591125
+        }
+      }
+    },
+    {
+      "id": "bank_cards_05",
+      "topic": "cards",
+      "message": "Kann man das kontaktlose Bezahlen grundsätzlich ausschalten? Meine Karte funktioniert, ich möchte nur die Einstellung finden.",
+      "expected": {
+        "intent": "cards",
+        "priority": "routine",
+        "next_step": "guidance"
+      },
+      "predicted": {
+        "intent": "unclear",
+        "priority": "routine",
+        "next_step": "guidance"
+      },
+      "incorrect_fields": [
+        "intent"
+      ],
+      "rationale": "Allgemeine Einstellungssuche, kein Fehler.",
+      "clarification_target": null,
+      "probabilities_unrounded": {
+        "intent": {
+          "access_tan": 0.18382622301578522,
+          "account_documents": 0.07312101870775223,
+          "cards": 0.2847156524658203,
+          "cash": 0.01462512370198965,
+          "direct_debits": 0.009442689828574657,
+          "fees": 0.010370765812695026,
+          "security": 0.01462512370198965,
+          "standing_orders": 0.009742433205246925,
+          "transfers": 0.010370765812695026,
+          "unclear": 0.3891601264476776
+        },
+        "priority": {
+          "critical": 0.0028959226328879595,
+          "routine": 0.9915220737457275,
+          "urgent": 0.005582036916166544
+        },
+        "next_step": {
+          "clarify": 0.022240253165364265,
+          "guidance": 0.9605718851089478,
+          "security_handoff": 0.0029401667416095734,
+          "specialist_review": 0.01424764096736908
+        }
+      }
+    },
+    {
+      "id": "bank_transfers_06",
+      "topic": "transfers",
+      "message": "hab glaub ich zweimal überwiesen. bin aber nicht sicher ob überhaupt eine raus ist. könnt ihr die doppelte zurückholen?",
+      "expected": {
+        "intent": "transfers",
+        "priority": "routine",
+        "next_step": "clarify"
+      },
+      "predicted": {
+        "intent": "transfers",
+        "priority": "urgent",
+        "next_step": "clarify"
+      },
+      "incorrect_fields": [
+        "priority"
+      ],
+      "rationale": "Absendung und Doppelung unbestätigt; keine sichere urgent-Bedingung.",
+      "clarification_target": "Zeigt die Auftragsübersicht keine, eine oder zwei ausgeführte Überweisungen?",
+      "probabilities_unrounded": {
+        "intent": {
+          "access_tan": 0.02665184624493122,
+          "account_documents": 0.015185764990746975,
+          "cards": 0.009210631251335144,
+          "cash": 0.04127918556332588,
+          "direct_debits": 0.02075647935271263,
+          "fees": 0.0063303685747087,
+          "security": 0.14407852292060852,
+          "standing_orders": 0.09158188104629517,
+          "transfers": 0.5395151972770691,
+          "unclear": 0.10541009902954102
+        },
+        "priority": {
+          "critical": 0.014908442273736,
+          "routine": 0.05368736758828163,
+          "urgent": 0.931404173374176
+        },
+        "next_step": {
+          "clarify": 0.43218085169792175,
+          "guidance": 0.054518040269613266,
+          "security_handoff": 0.12285830080509186,
+          "specialist_review": 0.3904428780078888
+        }
+      }
+    },
+    {
+      "id": "bank_access_tan_02",
+      "topic": "access_tan",
+      "message": "Nach drei vertippten Login-Versuchen steht „Zugang gesperrt“. Ich war das selbst. Bitte prüfen Sie, wie mein Zugang wiederhergestellt werden kann.",
+      "expected": {
+        "intent": "access_tan",
+        "priority": "routine",
+        "next_step": "specialist_review"
+      },
+      "predicted": {
+        "intent": "access_tan",
+        "priority": "routine",
+        "next_step": "security_handoff"
+      },
+      "incorrect_fields": [
+        "next_step"
+      ],
+      "rationale": "Konkrete technische Zugangssperre, kein Sicherheitsvorfall.",
+      "clarification_target": null,
+      "probabilities_unrounded": {
+        "intent": {
+          "access_tan": 0.7740172743797302,
+          "account_documents": 0.005174702033400536,
+          "cards": 0.02014904096722603,
+          "cash": 0.002444355981424451,
+          "direct_debits": 0.0019640952814370394,
+          "fees": 0.002602003514766693,
+          "security": 0.16674037277698517,
+          "standing_orders": 0.002857741666957736,
+          "transfers": 0.002602003514766693,
+          "unclear": 0.021448541432619095
+        },
+        "priority": {
+          "critical": 0.22661903500556946,
+          "routine": 0.7230125665664673,
+          "urgent": 0.050368405878543854
+        },
+        "next_step": {
+          "clarify": 0.13054096698760986,
+          "guidance": 0.09292970597743988,
+          "security_handoff": 0.5873338580131531,
+          "specialist_review": 0.18919551372528076
+        }
+      }
+    },
+    {
+      "id": "bank_direct_debits_03",
+      "topic": "direct_debits",
+      "message": "Auf dem Konto ist eine Lastschrift einer Firma, die ich überhaupt nicht kenne. Ich habe dafür nie ein Mandat erteilt. Noch ist nichts gesperrt oder geklärt.",
+      "expected": {
+        "intent": "security",
+        "priority": "critical",
+        "next_step": "security_handoff"
+      },
+      "predicted": {
+        "intent": "direct_debits",
+        "priority": "critical",
+        "next_step": "security_handoff"
+      },
+      "incorrect_fields": [
+        "intent"
+      ],
+      "rationale": "Ausdrücklich bestrittene Autorisierung hat Sicherheitsvorrang.",
+      "clarification_target": null,
+      "probabilities_unrounded": {
+        "intent": {
+          "access_tan": 0.016095243394374847,
+          "account_documents": 0.00772258173674345,
+          "cards": 0.011775531806051731,
+          "cash": 0.003705335548147559,
+          "direct_debits": 0.5542336106300354,
+          "fees": 0.002796933986246586,
+          "security": 0.3145616352558136,
+          "standing_orders": 0.012932891957461834,
+          "transfers": 0.01911357417702675,
+          "unclear": 0.05706259235739708
+        },
+        "priority": {
+          "critical": 0.5556920170783997,
+          "routine": 0.3477431833744049,
+          "urgent": 0.09656479209661484
+        },
+        "next_step": {
+          "clarify": 0.09409939497709274,
+          "guidance": 0.0055418056435883045,
+          "security_handoff": 0.8755220770835876,
+          "specialist_review": 0.024836650118231773
+        }
+      }
+    },
+    {
+      "id": "bank_transfers_04",
+      "topic": "transfers",
+      "message": "Vor dem Absenden meldet die Empfängerprüfung, dass Name und IBAN nicht zusammenpassen. Ich habe nicht freigegeben. Wie gehe ich mit dieser Meldung um?",
+      "expected": {
+        "intent": "transfers",
+        "priority": "routine",
+        "next_step": "guidance"
+      },
+      "predicted": {
+        "intent": "transfers",
+        "priority": "routine",
+        "next_step": "specialist_review"
+      },
+      "incorrect_fields": [
+        "next_step"
+      ],
+      "rationale": "Allgemeine Erläuterung einer Prüfung vor Freigabe; kein Geld als verloren behauptet.",
+      "clarification_target": null,
+      "probabilities_unrounded": {
+        "intent": {
+          "access_tan": 0.022220885381102562,
+          "account_documents": 0.007102221716195345,
+          "cards": 0.004585538525134325,
+          "cash": 0.003922218922525644,
+          "direct_debits": 0.007102221716195345,
+          "fees": 0.001488706562668085,
+          "security": 0.0313364714384079,
+          "standing_orders": 0.006466646213084459,
+          "transfers": 0.8945717811584473,
+          "unclear": 0.02120331861078739
+        },
+        "priority": {
+          "critical": 0.0747901052236557,
+          "routine": 0.8009346723556519,
+          "urgent": 0.12427515536546707
+        },
+        "next_step": {
+          "clarify": 0.25958380103111267,
+          "guidance": 0.14732976257801056,
+          "security_handoff": 0.09076722711324692,
+          "specialist_review": 0.5023192167282104
+        }
+      }
+    }
+  ]
+}

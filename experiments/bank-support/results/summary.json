@@ -1,0 +1,810 @@
+{
+  "suite_id": "bank-support",
+  "split": "german_bank_support_primary",
+  "case_count": 80,
+  "field_count": 3,
+  "language": "de",
+  "scope": "Synthetic purposive fictional bank support triage; no traffic representativeness or production-safety claim",
+  "metrics": {
+    "intent": {
+      "correct": 76,
+      "total": 80,
+      "accuracy": 0.95
+    },
+    "priority": {
+      "correct": 77,
+      "total": 80,
+      "accuracy": 0.9625
+    },
+    "next_step": {
+      "correct": 75,
+      "total": 80,
+      "accuracy": 0.9375
+    },
+    "all_fields_exact": {
+      "correct": 68,
+      "total": 80,
+      "accuracy": 0.85
+    },
+    "all_field_decisions": {
+      "correct": 228,
+      "total": 240,
+      "accuracy": 0.95
+    }
+  },
+  "safety": {
+    "critical_cases": {
+      "count": 10,
+      "ids": [
+        "bank_cards_03",
+        "bank_security_07",
+        "bank_security_08",
+        "bank_security_02",
+        "bank_ambiguous_multi_04",
+        "bank_security_06",
+        "bank_ambiguous_multi_05",
+        "bank_security_01",
+        "bank_direct_debits_03",
+        "bank_security_04"
+      ]
+    },
+    "non_escalation_reference_cases": {
+      "count": 45,
+      "ids": [
+        "bank_cash_07",
+        "bank_transfers_07",
+        "bank_account_documents_02",
+        "bank_fees_04",
+        "bank_ambiguous_multi_06",
+        "bank_standing_orders_08",
+        "bank_ambiguous_multi_03",
+        "bank_standing_orders_04",
+        "bank_cards_07",
+        "bank_security_03",
+        "bank_cards_01",
+        "bank_account_documents_05",
+        "bank_access_tan_07",
+        "bank_cash_04",
+        "bank_ambiguous_multi_07",
+        "bank_direct_debits_01",
+        "bank_ambiguous_multi_02",
+        "bank_account_documents_01",
+        "bank_direct_debits_08",
+        "bank_transfers_08",
+        "bank_access_tan_06",
+        "bank_direct_debits_07",
+        "bank_ambiguous_multi_08",
+        "bank_standing_orders_01",
+        "bank_direct_debits_04",
+        "bank_fees_05",
+        "bank_cards_05",
+        "bank_standing_orders_06",
+        "bank_transfers_01",
+        "bank_cash_01",
+        "bank_transfers_06",
+        "bank_ambiguous_multi_01",
+        "bank_account_documents_04",
+        "bank_cards_08",
+        "bank_account_documents_08",
+        "bank_access_tan_01",
+        "bank_cards_06",
+        "bank_access_tan_05",
+        "bank_cash_06",
+        "bank_fees_01",
+        "bank_transfers_04",
+        "bank_fees_06",
+        "bank_fees_08",
+        "bank_account_documents_06",
+        "bank_standing_orders_05"
+      ]
+    },
+    "urgent_cases": {
+      "count": 6,
+      "ids": [
+        "bank_standing_orders_07",
+        "bank_ambiguous_multi_07",
+        "bank_access_tan_04",
+        "bank_transfers_05",
+        "bank_transfers_02",
+        "bank_cash_08"
+      ]
+    },
+    "unnecessary_escalations": {
+      "count": 3,
+      "ids": [
+        "bank_ambiguous_multi_07",
+        "bank_fees_05",
+        "bank_transfers_04"
+      ]
+    },
+    "missed_clarifications": {
+      "count": 3,
+      "ids": [
+        "bank_ambiguous_multi_07",
+        "bank_ambiguous_multi_02",
+        "bank_fees_05"
+      ]
+    },
+    "unnecessary_security_handoffs": {
+      "count": 1,
+      "ids": [
+        "bank_access_tan_02"
+      ]
+    },
+    "critical_priority_misses": {
+      "count": 0,
+      "ids": []
+    },
+    "critical_handoff_misses": {
+      "count": 0,
+      "ids": []
+    },
+    "critical_safety_case_errors": {
+      "count": 0,
+      "ids": []
+    },
+    "urgent_undertriage": {
+      "count": 0,
+      "ids": []
+    },
+    "unnecessary_critical_priority": {
+      "count": 0,
+      "ids": []
+    }
+  },
+  "safety_definitions": {
+    "critical_priority_misses": "gold critical, predicted urgent or routine",
+    "critical_handoff_misses": "gold critical, predicted next_step other than security_handoff",
+    "critical_safety_case_errors": "union of the two critical miss sets",
+    "urgent_undertriage": "gold urgent, predicted routine",
+    "unnecessary_security_handoffs": "gold next_step other than security_handoff, predicted security_handoff",
+    "unnecessary_escalations": "gold next_step guidance or clarify, predicted specialist_review or security_handoff; does not equate all specialist cases with avoidable escalation"
+  },
+  "confusion_matrices": {
+    "intent": {
+      "cards": {
+        "cards": 8,
+        "unclear": 1
+      },
+      "cash": {
+        "cash": 8
+      },
+      "fees": {
+        "fees": 8
+      },
+      "transfers": {
+        "transfers": 7,
+        "standing_orders": 1
+      },
+      "account_documents": {
+        "account_documents": 9
+      },
+      "security": {
+        "security": 8,
+        "access_tan": 1,
+        "direct_debits": 1
+      },
+      "standing_orders": {
+        "standing_orders": 8
+      },
+      "access_tan": {
+        "access_tan": 9
+      },
+      "direct_debits": {
+        "direct_debits": 7
+      },
+      "unclear": {
+        "unclear": 4
+      }
+    },
+    "priority": {
+      "critical": {
+        "critical": 10
+      },
+      "routine": {
+        "routine": 61,
+        "urgent": 3
+      },
+      "urgent": {
+        "urgent": 6
+      }
+    },
+    "next_step": {
+      "security_handoff": {
+        "security_handoff": 10
+      },
+      "guidance": {
+        "guidance": 30,
+        "specialist_review": 1
+      },
+      "specialist_review": {
+        "specialist_review": 24,
+        "security_handoff": 1
+      },
+      "clarify": {
+        "clarify": 11,
+        "specialist_review": 2,
+        "guidance": 1
+      }
+    }
+  },
+  "strata": {
+    "topic": {
+      "cards": {
+        "case_count": 8,
+        "all_fields_exact": {
+          "correct": 7,
+          "total": 8,
+          "accuracy": 0.875
+        },
+        "intent": {
+          "correct": 7,
+          "total": 8,
+          "accuracy": 0.875
+        },
+        "priority": {
+          "correct": 8,
+          "total": 8,
+          "accuracy": 1.0
+        },
+        "next_step": {
+          "correct": 8,
+          "total": 8,
+          "accuracy": 1.0
+        }
+      },
+      "cash": {
+        "case_count": 8,
+        "all_fields_exact": {
+          "correct": 8,
+          "total": 8,
+          "accuracy": 1.0
+        },
+        "intent": {
+          "correct": 8,
+          "total": 8,
+          "accuracy": 1.0
+        },
+        "priority": {
+          "correct": 8,
+          "total": 8,
+          "accuracy": 1.0
+        },
+        "next_step": {
+          "correct": 8,
+          "total": 8,
+          "accuracy": 1.0
+        }
+      },
+      "fees": {
+        "case_count": 8,
+        "all_fields_exact": {
+          "correct": 7,
+          "total": 8,
+          "accuracy": 0.875
+        },
+        "intent": {
+          "correct": 8,
+          "total": 8,
+          "accuracy": 1.0
+        },
+        "priority": {
+          "correct": 8,
+          "total": 8,
+          "accuracy": 1.0
+        },
+        "next_step": {
+          "correct": 7,
+          "total": 8,
+          "accuracy": 0.875
+        }
+      },
+      "transfers": {
+        "case_count": 8,
+        "all_fields_exact": {
+          "correct": 4,
+          "total": 8,
+          "accuracy": 0.5
+        },
+        "intent": {
+          "correct": 7,
+          "total": 8,
+          "accuracy": 0.875
+        },
+        "priority": {
+          "correct": 6,
+          "total": 8,
+          "accuracy": 0.75
+        },
+        "next_step": {
+          "correct": 7,
+          "total": 8,
+          "accuracy": 0.875
+        }
+      },
+      "account_documents": {
+        "case_count": 8,
+        "all_fields_exact": {
+          "correct": 8,
+          "total": 8,
+          "accuracy": 1.0
+        },
+        "intent": {
+          "correct": 8,
+          "total": 8,
+          "accuracy": 1.0
+        },
+        "priority": {
+          "correct": 8,
+          "total": 8,
+          "accuracy": 1.0
+        },
+        "next_step": {
+          "correct": 8,
+          "total": 8,
+          "accuracy": 1.0
+        }
+      },
+      "security": {
+        "case_count": 8,
+        "all_fields_exact": {
+          "correct": 7,
+          "total": 8,
+          "accuracy": 0.875
+        },
+        "intent": {
+          "correct": 7,
+          "total": 8,
+          "accuracy": 0.875
+        },
+        "priority": {
+          "correct": 8,
+          "total": 8,
+          "accuracy": 1.0
+        },
+        "next_step": {
+          "correct": 8,
+          "total": 8,
+          "accuracy": 1.0
+        }
+      },
+      "standing_orders": {
+        "case_count": 8,
+        "all_fields_exact": {
+          "correct": 8,
+          "total": 8,
+          "accuracy": 1.0
+        },
+        "intent": {
+          "correct": 8,
+          "total": 8,
+          "accuracy": 1.0
+        },
+        "priority": {
+          "correct": 8,
+          "total": 8,
+          "accuracy": 1.0
+        },
+        "next_step": {
+          "correct": 8,
+          "total": 8,
+          "accuracy": 1.0
+        }
+      },
+      "ambiguous_multi": {
+        "case_count": 8,
+        "all_fields_exact": {
+          "correct": 6,
+          "total": 8,
+          "accuracy": 0.75
+        },
+        "intent": {
+          "correct": 8,
+          "total": 8,
+          "accuracy": 1.0
+        },
+        "priority": {
+          "correct": 8,
+          "total": 8,
+          "accuracy": 1.0
+        },
+        "next_step": {
+          "correct": 6,
+          "total": 8,
+          "accuracy": 0.75
+        }
+      },
+      "direct_debits": {
+        "case_count": 8,
+        "all_fields_exact": {
+          "correct": 6,
+          "total": 8,
+          "accuracy": 0.75
+        },
+        "intent": {
+          "correct": 7,
+          "total": 8,
+          "accuracy": 0.875
+        },
+        "priority": {
+          "correct": 7,
+          "total": 8,
+          "accuracy": 0.875
+        },
+        "next_step": {
+          "correct": 8,
+          "total": 8,
+          "accuracy": 1.0
+        }
+      },
+      "access_tan": {
+        "case_count": 8,
+        "all_fields_exact": {
+          "correct": 7,
+          "total": 8,
+          "accuracy": 0.875
+        },
+        "intent": {
+          "correct": 8,
+          "total": 8,
+          "accuracy": 1.0
+        },
+        "priority": {
+          "correct": 8,
+          "total": 8,
+          "accuracy": 1.0
+        },
+        "next_step": {
+          "correct": 7,
+          "total": 8,
+          "accuracy": 0.875
+        }
+      }
+    },
+    "style": {
+      "colloquial_typo": {
+        "case_count": 8,
+        "all_fields_exact": {
+          "correct": 6,
+          "total": 8,
+          "accuracy": 0.75
+        },
+        "intent": {
+          "correct": 7,
+          "total": 8,
+          "accuracy": 0.875
+        },
+        "priority": {
+          "correct": 7,
+          "total": 8,
+          "accuracy": 0.875
+        },
+        "next_step": {
+          "correct": 8,
+          "total": 8,
+          "accuracy": 1.0
+        }
+      },
+      "negation_context": {
+        "case_count": 15,
+        "all_fields_exact": {
+          "correct": 14,
+          "total": 15,
+          "accuracy": 0.9333333333333333
+        },
+        "intent": {
+          "correct": 15,
+          "total": 15,
+          "accuracy": 1.0
+        },
+        "priority": {
+          "correct": 15,
+          "total": 15,
+          "accuracy": 1.0
+        },
+        "next_step": {
+          "correct": 14,
+          "total": 15,
+          "accuracy": 0.9333333333333333
+        }
+      },
+      "plain": {
+        "case_count": 40,
+        "all_fields_exact": {
+          "correct": 34,
+          "total": 40,
+          "accuracy": 0.85
+        },
+        "intent": {
+          "correct": 37,
+          "total": 40,
+          "accuracy": 0.925
+        },
+        "priority": {
+          "correct": 38,
+          "total": 40,
+          "accuracy": 0.95
+        },
+        "next_step": {
+          "correct": 39,
+          "total": 40,
+          "accuracy": 0.975
+        }
+      },
+      "uncertain": {
+        "case_count": 12,
+        "all_fields_exact": {
+          "correct": 11,
+          "total": 12,
+          "accuracy": 0.9166666666666666
+        },
+        "intent": {
+          "correct": 12,
+          "total": 12,
+          "accuracy": 1.0
+        },
+        "priority": {
+          "correct": 12,
+          "total": 12,
+          "accuracy": 1.0
+        },
+        "next_step": {
+          "correct": 11,
+          "total": 12,
+          "accuracy": 0.9166666666666666
+        }
+      },
+      "multi_intent": {
+        "case_count": 5,
+        "all_fields_exact": {
+          "correct": 3,
+          "total": 5,
+          "accuracy": 0.6
+        },
+        "intent": {
+          "correct": 5,
+          "total": 5,
+          "accuracy": 1.0
+        },
+        "priority": {
+          "correct": 5,
+          "total": 5,
+          "accuracy": 1.0
+        },
+        "next_step": {
+          "correct": 3,
+          "total": 5,
+          "accuracy": 0.6
+        }
+      }
+    },
+    "answerability": {
+      "route_ready": {
+        "case_count": 66,
+        "all_fields_exact": {
+          "correct": 58,
+          "total": 66,
+          "accuracy": 0.8787878787878788
+        },
+        "intent": {
+          "correct": 62,
+          "total": 66,
+          "accuracy": 0.9393939393939394
+        },
+        "priority": {
+          "correct": 64,
+          "total": 66,
+          "accuracy": 0.9696969696969697
+        },
+        "next_step": {
+          "correct": 64,
+          "total": 66,
+          "accuracy": 0.9696969696969697
+        }
+      },
+      "clarification_needed": {
+        "case_count": 14,
+        "all_fields_exact": {
+          "correct": 10,
+          "total": 14,
+          "accuracy": 0.7142857142857143
+        },
+        "intent": {
+          "correct": 14,
+          "total": 14,
+          "accuracy": 1.0
+        },
+        "priority": {
+          "correct": 13,
+          "total": 14,
+          "accuracy": 0.9285714285714286
+        },
+        "next_step": {
+          "correct": 11,
+          "total": 14,
+          "accuracy": 0.7857142857142857
+        }
+      }
+    },
+    "priority": {
+      "critical": {
+        "case_count": 10,
+        "all_fields_exact": {
+          "correct": 8,
+          "total": 10,
+          "accuracy": 0.8
+        },
+        "intent": {
+          "correct": 8,
+          "total": 10,
+          "accuracy": 0.8
+        },
+        "priority": {
+          "correct": 10,
+          "total": 10,
+          "accuracy": 1.0
+        },
+        "next_step": {
+          "correct": 10,
+          "total": 10,
+          "accuracy": 1.0
+        }
+      },
+      "routine": {
+        "case_count": 64,
+        "all_fields_exact": {
+          "correct": 56,
+          "total": 64,
+          "accuracy": 0.875
+        },
+        "intent": {
+          "correct": 63,
+          "total": 64,
+          "accuracy": 0.984375
+        },
+        "priority": {
+          "correct": 61,
+          "total": 64,
+          "accuracy": 0.953125
+        },
+        "next_step": {
+          "correct": 60,
+          "total": 64,
+          "accuracy": 0.9375
+        }
+      },
+      "urgent": {
+        "case_count": 6,
+        "all_fields_exact": {
+          "correct": 4,
+          "total": 6,
+          "accuracy": 0.6666666666666666
+        },
+        "intent": {
+          "correct": 5,
+          "total": 6,
+          "accuracy": 0.8333333333333334
+        },
+        "priority": {
+          "correct": 6,
+          "total": 6,
+          "accuracy": 1.0
+        },
+        "next_step": {
+          "correct": 5,
+          "total": 6,
+          "accuracy": 0.8333333333333334
+        }
+      }
+    },
+    "next_step": {
+      "security_handoff": {
+        "case_count": 10,
+        "all_fields_exact": {
+          "correct": 8,
+          "total": 10,
+          "accuracy": 0.8
+        },
+        "intent": {
+          "correct": 8,
+          "total": 10,
+          "accuracy": 0.8
+        },
+        "priority": {
+          "correct": 10,
+          "total": 10,
+          "accuracy": 1.0
+        },
+        "next_step": {
+          "correct": 10,
+          "total": 10,
+          "accuracy": 1.0
+        }
+      },
+      "guidance": {
+        "case_count": 31,
+        "all_fields_exact": {
+          "correct": 29,
+          "total": 31,
+          "accuracy": 0.9354838709677419
+        },
+        "intent": {
+          "correct": 30,
+          "total": 31,
+          "accuracy": 0.967741935483871
+        },
+        "priority": {
+          "correct": 31,
+          "total": 31,
+          "accuracy": 1.0
+        },
+        "next_step": {
+          "correct": 30,
+          "total": 31,
+          "accuracy": 0.967741935483871
+        }
+      },
+      "specialist_review": {
+        "case_count": 25,
+        "all_fields_exact": {
+          "correct": 21,
+          "total": 25,
+          "accuracy": 0.84
+        },
+        "intent": {
+          "correct": 24,
+          "total": 25,
+          "accuracy": 0.96
+        },
+        "priority": {
+          "correct": 23,
+          "total": 25,
+          "accuracy": 0.92
+        },
+        "next_step": {
+          "correct": 24,
+          "total": 25,
+          "accuracy": 0.96
+        }
+      },
+      "clarify": {
+        "case_count": 14,
+        "all_fields_exact": {
+          "correct": 10,
+          "total": 14,
+          "accuracy": 0.7142857142857143
+        },
+        "intent": {
+          "correct": 14,
+          "total": 14,
+          "accuracy": 1.0
+        },
+        "priority": {
+          "correct": 13,
+          "total": 14,
+          "accuracy": 0.9285714285714286
+        },
+        "next_step": {
+          "correct": 11,
+          "total": 14,
+          "accuracy": 0.7857142857142857
+        }
+      }
+    }
+  },
+  "technical": {
+    "schema_valid_cases": 80,
+    "truncated_cases": 0,
+    "input_tokens_min": 1549,
+    "input_tokens_max": 1595,
+    "forward_seconds_median": 40.87685009449706,
+    "forward_seconds_p95": 45.10790991760514,
+    "peak_observed_rss_bytes": 6240157696
+  },
+  "errors_count": 12,
+  "provenance": {
+    "requests_sha256": "a4ee04381c9d98e7d0365d487fadbe54a6f8c0e3dd751c1a08ebab14c0919562",
+    "gold_sha256": "cf93ec9032c3e8bbf5f14f88122cb7531f1c0a07268c5035e66f8532e06ea83f",
+    "predictions_sha256": "8be55f8cdc1a3d37cd8815ef6e2fee85993d40fb5ea4c2c3567ad12018875d10"
+  }
+}

@@ -1,0 +1,571 @@
+{
+  "purpose": "Tokenizer-only pre-inference shape/cap check, no model loaded or outputs generated",
+  "requests_sha256": "a4ee04381c9d98e7d0365d487fadbe54a6f8c0e3dd751c1a08ebab14c0919562",
+  "count": 80,
+  "min_tokens": 1549,
+  "max_tokens": 1595,
+  "max_state_characters": 276,
+  "max_request_bytes": 5819,
+  "cases": [
+    {
+      "id": "bank_cards_03",
+      "input_tokens": 1561,
+      "state_characters": 117,
+      "request_bytes": 5651,
+      "truncated": false
+    },
+    {
+      "id": "bank_cash_07",
+      "input_tokens": 1565,
+      "state_characters": 158,
+      "request_bytes": 5693,
+      "truncated": false
+    },
+    {
+      "id": "bank_fees_07",
+      "input_tokens": 1571,
+      "state_characters": 180,
+      "request_bytes": 5717,
+      "truncated": false
+    },
+    {
+      "id": "bank_transfers_07",
+      "input_tokens": 1560,
+      "state_characters": 133,
+      "request_bytes": 5669,
+      "truncated": false
+    },
+    {
+      "id": "bank_account_documents_02",
+      "input_tokens": 1563,
+      "state_characters": 152,
+      "request_bytes": 5688,
+      "truncated": false
+    },
+    {
+      "id": "bank_security_07",
+      "input_tokens": 1574,
+      "state_characters": 191,
+      "request_bytes": 5725,
+      "truncated": false
+    },
+    {
+      "id": "bank_security_05",
+      "input_tokens": 1584,
+      "state_characters": 250,
+      "request_bytes": 5787,
+      "truncated": false
+    },
+    {
+      "id": "bank_fees_04",
+      "input_tokens": 1561,
+      "state_characters": 138,
+      "request_bytes": 5675,
+      "truncated": false
+    },
+    {
+      "id": "bank_fees_03",
+      "input_tokens": 1568,
+      "state_characters": 166,
+      "request_bytes": 5702,
+      "truncated": false
+    },
+    {
+      "id": "bank_security_08",
+      "input_tokens": 1574,
+      "state_characters": 187,
+      "request_bytes": 5724,
+      "truncated": false
+    },
+    {
+      "id": "bank_transfers_03",
+      "input_tokens": 1566,
+      "state_characters": 166,
+      "request_bytes": 5704,
+      "truncated": false
+    },
+    {
+      "id": "bank_standing_orders_07",
+      "input_tokens": 1575,
+      "state_characters": 170,
+      "request_bytes": 5710,
+      "truncated": false
+    },
+    {
+      "id": "bank_ambiguous_multi_06",
+      "input_tokens": 1580,
+      "state_characters": 209,
+      "request_bytes": 5744,
+      "truncated": false
+    },
+    {
+      "id": "bank_standing_orders_08",
+      "input_tokens": 1569,
+      "state_characters": 165,
+      "request_bytes": 5704,
+      "truncated": false
+    },
+    {
+      "id": "bank_ambiguous_multi_03",
+      "input_tokens": 1564,
+      "state_characters": 162,
+      "request_bytes": 5698,
+      "truncated": false
+    },
+    {
+      "id": "bank_standing_orders_04",
+      "input_tokens": 1562,
+      "state_characters": 129,
+      "request_bytes": 5665,
+      "truncated": false
+    },
+    {
+      "id": "bank_cards_07",
+      "input_tokens": 1550,
+      "state_characters": 86,
+      "request_bytes": 5620,
+      "truncated": false
+    },
+    {
+      "id": "bank_standing_orders_02",
+      "input_tokens": 1570,
+      "state_characters": 190,
+      "request_bytes": 5728,
+      "truncated": false
+    },
+    {
+      "id": "bank_direct_debits_05",
+      "input_tokens": 1578,
+      "state_characters": 195,
+      "request_bytes": 5732,
+      "truncated": false
+    },
+    {
+      "id": "bank_account_documents_03",
+      "input_tokens": 1563,
+      "state_characters": 155,
+      "request_bytes": 5692,
+      "truncated": false
+    },
+    {
+      "id": "bank_cash_05",
+      "input_tokens": 1568,
+      "state_characters": 162,
+      "request_bytes": 5697,
+      "truncated": false
+    },
+    {
+      "id": "bank_security_02",
+      "input_tokens": 1571,
+      "state_characters": 186,
+      "request_bytes": 5720,
+      "truncated": false
+    },
+    {
+      "id": "bank_ambiguous_multi_04",
+      "input_tokens": 1560,
+      "state_characters": 144,
+      "request_bytes": 5681,
+      "truncated": false
+    },
+    {
+      "id": "bank_security_03",
+      "input_tokens": 1568,
+      "state_characters": 177,
+      "request_bytes": 5713,
+      "truncated": false
+    },
+    {
+      "id": "bank_cards_01",
+      "input_tokens": 1555,
+      "state_characters": 116,
+      "request_bytes": 5650,
+      "truncated": false
+    },
+    {
+      "id": "bank_account_documents_05",
+      "input_tokens": 1571,
+      "state_characters": 180,
+      "request_bytes": 5715,
+      "truncated": false
+    },
+    {
+      "id": "bank_access_tan_07",
+      "input_tokens": 1567,
+      "state_characters": 168,
+      "request_bytes": 5704,
+      "truncated": false
+    },
+    {
+      "id": "bank_security_06",
+      "input_tokens": 1563,
+      "state_characters": 134,
+      "request_bytes": 5669,
+      "truncated": false
+    },
+    {
+      "id": "bank_cash_04",
+      "input_tokens": 1553,
+      "state_characters": 114,
+      "request_bytes": 5651,
+      "truncated": false
+    },
+    {
+      "id": "bank_ambiguous_multi_07",
+      "input_tokens": 1584,
+      "state_characters": 214,
+      "request_bytes": 5752,
+      "truncated": false
+    },
+    {
+      "id": "bank_access_tan_04",
+      "input_tokens": 1575,
+      "state_characters": 199,
+      "request_bytes": 5733,
+      "truncated": false
+    },
+    {
+      "id": "bank_ambiguous_multi_05",
+      "input_tokens": 1574,
+      "state_characters": 195,
+      "request_bytes": 5733,
+      "truncated": false
+    },
+    {
+      "id": "bank_transfers_05",
+      "input_tokens": 1571,
+      "state_characters": 172,
+      "request_bytes": 5713,
+      "truncated": false
+    },
+    {
+      "id": "bank_direct_debits_01",
+      "input_tokens": 1558,
+      "state_characters": 115,
+      "request_bytes": 5650,
+      "truncated": false
+    },
+    {
+      "id": "bank_ambiguous_multi_02",
+      "input_tokens": 1568,
+      "state_characters": 171,
+      "request_bytes": 5708,
+      "truncated": false
+    },
+    {
+      "id": "bank_account_documents_01",
+      "input_tokens": 1551,
+      "state_characters": 90,
+      "request_bytes": 5625,
+      "truncated": false
+    },
+    {
+      "id": "bank_direct_debits_02",
+      "input_tokens": 1571,
+      "state_characters": 178,
+      "request_bytes": 5713,
+      "truncated": false
+    },
+    {
+      "id": "bank_direct_debits_08",
+      "input_tokens": 1565,
+      "state_characters": 145,
+      "request_bytes": 5681,
+      "truncated": false
+    },
+    {
+      "id": "bank_transfers_08",
+      "input_tokens": 1567,
+      "state_characters": 170,
+      "request_bytes": 5707,
+      "truncated": false
+    },
+    {
+      "id": "bank_access_tan_06",
+      "input_tokens": 1573,
+      "state_characters": 186,
+      "request_bytes": 5724,
+      "truncated": false
+    },
+    {
+      "id": "bank_direct_debits_07",
+      "input_tokens": 1562,
+      "state_characters": 159,
+      "request_bytes": 5694,
+      "truncated": false
+    },
+    {
+      "id": "bank_ambiguous_multi_08",
+      "input_tokens": 1564,
+      "state_characters": 141,
+      "request_bytes": 5677,
+      "truncated": false
+    },
+    {
+      "id": "bank_standing_orders_01",
+      "input_tokens": 1554,
+      "state_characters": 94,
+      "request_bytes": 5629,
+      "truncated": false
+    },
+    {
+      "id": "bank_direct_debits_04",
+      "input_tokens": 1568,
+      "state_characters": 172,
+      "request_bytes": 5709,
+      "truncated": false
+    },
+    {
+      "id": "bank_direct_debits_06",
+      "input_tokens": 1569,
+      "state_characters": 183,
+      "request_bytes": 5718,
+      "truncated": false
+    },
+    {
+      "id": "bank_access_tan_08",
+      "input_tokens": 1571,
+      "state_characters": 183,
+      "request_bytes": 5719,
+      "truncated": false
+    },
+    {
+      "id": "bank_transfers_02",
+      "input_tokens": 1567,
+      "state_characters": 174,
+      "request_bytes": 5712,
+      "truncated": false
+    },
+    {
+      "id": "bank_cards_04",
+      "input_tokens": 1573,
+      "state_characters": 184,
+      "request_bytes": 5720,
+      "truncated": false
+    },
+    {
+      "id": "bank_fees_05",
+      "input_tokens": 1571,
+      "state_characters": 176,
+      "request_bytes": 5716,
+      "truncated": false
+    },
+    {
+      "id": "bank_cards_05",
+      "input_tokens": 1560,
+      "state_characters": 155,
+      "request_bytes": 5691,
+      "truncated": false
+    },
+    {
+      "id": "bank_standing_orders_06",
+      "input_tokens": 1562,
+      "state_characters": 133,
+      "request_bytes": 5669,
+      "truncated": false
+    },
+    {
+      "id": "bank_transfers_01",
+      "input_tokens": 1564,
+      "state_characters": 156,
+      "request_bytes": 5692,
+      "truncated": false
+    },
+    {
+      "id": "bank_cash_01",
+      "input_tokens": 1560,
+      "state_characters": 135,
+      "request_bytes": 5670,
+      "truncated": false
+    },
+    {
+      "id": "bank_cash_03",
+      "input_tokens": 1569,
+      "state_characters": 177,
+      "request_bytes": 5712,
+      "truncated": false
+    },
+    {
+      "id": "bank_fees_02",
+      "input_tokens": 1566,
+      "state_characters": 151,
+      "request_bytes": 5689,
+      "truncated": false
+    },
+    {
+      "id": "bank_transfers_06",
+      "input_tokens": 1564,
+      "state_characters": 149,
+      "request_bytes": 5687,
+      "truncated": false
+    },
+    {
+      "id": "bank_ambiguous_multi_01",
+      "input_tokens": 1574,
+      "state_characters": 187,
+      "request_bytes": 5725,
+      "truncated": false
+    },
+    {
+      "id": "bank_account_documents_04",
+      "input_tokens": 1563,
+      "state_characters": 137,
+      "request_bytes": 5673,
+      "truncated": false
+    },
+    {
+      "id": "bank_cards_08",
+      "input_tokens": 1572,
+      "state_characters": 197,
+      "request_bytes": 5732,
+      "truncated": false
+    },
+    {
+      "id": "bank_account_documents_08",
+      "input_tokens": 1558,
+      "state_characters": 123,
+      "request_bytes": 5657,
+      "truncated": false
+    },
+    {
+      "id": "bank_access_tan_01",
+      "input_tokens": 1567,
+      "state_characters": 145,
+      "request_bytes": 5680,
+      "truncated": false
+    },
+    {
+      "id": "bank_cards_06",
+      "input_tokens": 1567,
+      "state_characters": 163,
+      "request_bytes": 5699,
+      "truncated": false
+    },
+    {
+      "id": "bank_access_tan_02",
+      "input_tokens": 1574,
+      "state_characters": 176,
+      "request_bytes": 5715,
+      "truncated": false
+    },
+    {
+      "id": "bank_security_01",
+      "input_tokens": 1573,
+      "state_characters": 189,
+      "request_bytes": 5723,
+      "truncated": false
+    },
+    {
+      "id": "bank_access_tan_05",
+      "input_tokens": 1555,
+      "state_characters": 109,
+      "request_bytes": 5643,
+      "truncated": false
+    },
+    {
+      "id": "bank_direct_debits_03",
+      "input_tokens": 1576,
+      "state_characters": 186,
+      "request_bytes": 5723,
+      "truncated": false
+    },
+    {
+      "id": "bank_cash_02",
+      "input_tokens": 1572,
+      "state_characters": 193,
+      "request_bytes": 5730,
+      "truncated": false
+    },
+    {
+      "id": "bank_cards_02",
+      "input_tokens": 1570,
+      "state_characters": 172,
+      "request_bytes": 5707,
+      "truncated": false
+    },
+    {
+      "id": "bank_account_documents_07",
+      "input_tokens": 1568,
+      "state_characters": 160,
+      "request_bytes": 5696,
+      "truncated": false
+    },
+    {
+      "id": "bank_cash_06",
+      "input_tokens": 1561,
+      "state_characters": 137,
+      "request_bytes": 5671,
+      "truncated": false
+    },
+    {
+      "id": "bank_access_tan_03",
+      "input_tokens": 1565,
+      "state_characters": 151,
+      "request_bytes": 5692,
+      "truncated": false
+    },
+    {
+      "id": "bank_fees_01",
+      "input_tokens": 1549,
+      "state_characters": 92,
+      "request_bytes": 5627,
+      "truncated": false
+    },
+    {
+      "id": "bank_cash_08",
+      "input_tokens": 1595,
+      "state_characters": 276,
+      "request_bytes": 5819,
+      "truncated": false
+    },
+    {
+      "id": "bank_transfers_04",
+      "input_tokens": 1571,
+      "state_characters": 180,
+      "request_bytes": 5716,
+      "truncated": false
+    },
+    {
+      "id": "bank_fees_06",
+      "input_tokens": 1569,
+      "state_characters": 174,
+      "request_bytes": 5711,
+      "truncated": false
+    },
+    {
+      "id": "bank_security_04",
+      "input_tokens": 1561,
+      "state_characters": 129,
+      "request_bytes": 5663,
+      "truncated": false
+    },
+    {
+      "id": "bank_fees_08",
+      "input_tokens": 1570,
+      "state_characters": 170,
+      "request_bytes": 5708,
+      "truncated": false
+    },
+    {
+      "id": "bank_account_documents_06",
+      "input_tokens": 1564,
+      "state_characters": 181,
+      "request_bytes": 5717,
+      "truncated": false
+    },
+    {
+      "id": "bank_standing_orders_03",
+      "input_tokens": 1575,
+      "state_characters": 210,
+      "request_bytes": 5747,
+      "truncated": false
+    },
+    {
+      "id": "bank_standing_orders_05",
+      "input_tokens": 1566,
+      "state_characters": 153,
+      "request_bytes": 5690,
+      "truncated": false
+    }
+  ]
+}

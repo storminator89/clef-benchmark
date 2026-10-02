@@ -6,7 +6,7 @@
     <meta name="color-scheme" content="light dark" />
     <meta
       name="description"
-      content="Clef Lab: Versicherungsdokumente nachvollziehbar testen. Dokumente, Sollantworten, Evidenz und echte Modellresultate in einem lokalen Workbench."
+      content="Clef Lab: deutsche Auswahlaufgaben nachvollziehbar testen. Dokumente, Kundennachrichten, Sollantworten und echte Modellresultate in einer lokalen Workbench."
     />
     <title>Clef Lab · Document Intelligence</title>
     <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
@@ -68,6 +68,9 @@
           ><select id="suite-select">
             <option value="insurance" disabled>
               Versicherungsdokumente · wird geladen
+            </option>
+            <option value="bank-support" disabled>
+              Bank-Kundensupport · wird geladen
             </option>
             <option value="general" disabled>
               Allgemeine Entscheidungen · wird geladen
@@ -186,7 +189,7 @@
             ></div>
             <div id="document-footer" class="document-footer"></div>
           </section>
-          <aside class="inspection-panel" aria-label="Antworten und Evidenz">
+          <aside class="inspection-panel" aria-label="Antwortfelder und Sollreferenzen">
             <div id="inspection-header" class="inspection-header"></div>
             <div
               id="case-detail"
@@ -483,7 +486,7 @@
           <article class="surface">
             <span class="step-number">03</span>
             <h2>Getrennte Maßstäbe</h2>
-            <p>
+            <p id="method-measures">
               Antwort, Evidenz und vollständig richtige Fälle werden getrennt
               ausgewiesen. Ein richtiger Beleg ersetzt keine richtige Antwort.
             </p>
@@ -501,13 +504,13 @@
             <h2>Synthetisch.<br />Kontrolliert.<br />Begrenzt.</h2>
           </div>
           <div>
-            <p>
+            <p id="method-synthetic">
               Die Fälle sind KI-verfasst und keine repräsentative Stichprobe aus
               dem Versicherungsalltag. Eine zweite KI-Prüfung ersetzt kein
               menschliches Annotationsteam. Fiktive Klauseln sind keine echte
               Versicherungs- oder Rechtsauskunft.
             </p>
-            <p>
+            <p id="method-reference">
               Die Auswahl einer vorgegebenen Evidenzstelle belegt keine freie
               Dokumentanalyse. Gold-Referenzbegründungen sind KI-verfasste und
               von einer zweiten KI geprüfte Annotationen, keine aus dem Modell
@@ -550,6 +553,13 @@
               target="_blank"
               rel="noreferrer"
               >Versicherungsverständnis: vollständiger Bericht <span>↗</span></a
+            >
+            <a
+              class="source-link"
+              href="https://github.com/storminator89/clef-benchmark/blob/main/experiments/bank-support/REPORT.md"
+              target="_blank"
+              rel="noreferrer"
+              >Bank-Kundensupport: vollständiger Bericht <span>↗</span></a
             >
             <a
               class="source-link"

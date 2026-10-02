@@ -18,6 +18,7 @@ Dann **http://127.0.0.1:8765** öffnen. Unter Windows heißt der Befehl gegebene
 
 - **Dokument-Workbench:** dreigeteilter Desktop-Arbeitsplatz mit Fallbibliothek, Klauselleser und Antwortprüfung; auf dem Smartphone eigene Ansichten für Fälle, Dokument und Prüfung
 - **Versicherungsverständnis:** 60 synthetische Fälle aus 12 fiktiven Dokumenten. Entscheidung und angebotene Evidenzmenge werden getrennt geprüft. Solange der Lauf nicht vollständig unabhängig geprüft ist, zeigt die UI nur Testdaten und keine Messwerte
+- **Bank-Kundensupport:** eigener Test mit 80 synthetischen Anfragen, fiktiver Servicerichtlinie und drei getrennten Feldern: Anliegen, Priorität, nächster Schritt. 68/80 Fälle vollständig richtig; Fehlpriorisierungen und Eskalationen separat
 - **Evidenz im Kontext:** direkte Gold-/Modellvergleiche, Navigation zu Klauseln, vollständige Belegmengen und alle Modellwahrscheinlichkeiten
 - **Frühere Texttests:** allgemeine Entscheidungen, Finanzen/Makler und clean72 bleiben getrennt verfügbar; eigene Nenner, Fehlerfilter und Sprachkontrollen
 - **Lokaler Playground:** 1–8 native `choice`-Fragen in einer Anfrage. Alle Felder werden angezeigt; unveränderte gespeicherte Antworten bleiben strikt von neuer Inferenz getrennt
@@ -71,6 +72,44 @@ Diese experimentelle CPU-Quantisierung ist nicht die BF16-/GPU-Herstellerkonfigu
 - Keine echten Gesundheits-, Finanz- oder Kundendaten für diese Demo verwenden
 
 Das genaue Live-API-Schema und seine Grenzen sind in [`docs/LIVE_API.md`](docs/LIVE_API.md) beschrieben. Beim Versicherungsdatensatz wird der strukturierte Zustand deterministisch in exakt denselben Text umgewandelt, den der gepinnte Modell-Renderer verwendet; siehe [`docs/INSURANCE_UI_DATA.md`](docs/INSURANCE_UI_DATA.md).
+
+## Bank-Kundensupport: Anliegen, Priorität und nächster Schritt
+
+**80 synthetische deutsche Kundenanfragen**, zehn gestaltete Themenbereiche,
+keine Manipulationsanweisungen. Maßgeblich ist eine ausdrücklich fiktive,
+mitgelieferte Servicerichtlinie. Eigener Pilot, kein BANKING77 und keine
+repräsentative Stichprobe von Bank-Traffic.
+
+| Prüffeld | Korrekt | Anteil |
+|---|---:|---:|
+| Anliegen (`intent`) | 76 / 80 | 95,0 % |
+| Priorität (`priority`) | 77 / 80 | 96,3 % |
+| Nächster Schritt (`next_step`) | 75 / 80 | 93,8 % |
+| Alle drei Felder richtig | 68 / 80 | 85,0 % |
+
+**Priorität braucht mehr als die Gesamtquote:** Immer `routine` ergäbe bereits
+64/80 = 80 %. Es gab 0/10 kritische Prioritätsfehler, 0/10 fehlende kritische
+Security-Handoffs und 0/6 dringende Fälle, die als Routine eingeordnet wurden.
+Dennoch waren nur **8/10 kritische Fälle vollständig richtig**, weil zwei das
+falsche Anliegen erhielten. Ein unnötiger Security-Handoff und drei unnötige
+Eskalationen unter 45 Goldfällen ohne Eskalationsbedarf wurden festgestellt.
+Null beobachtete kritische Prioritätsfehler bei zehn Beispielen sind kein
+Sicherheitsnachweis.
+
+Die Fälle mit notwendiger Rückfrage haben 11/14 richtige `next_step`-Werte,
+aber nur 10/14 vollständig richtige Fälle. Alle 80 Requests bzw. 240 Felder sind
+schema-gültig und ungekürzt. Der CPU-NF4-Forward dauerte im Median 40,88 s;
+Laden und Warm-up sind darin nicht enthalten. Andere Suiten werden nicht gepoolt.
+
+Die Workbench zeigt Originalnachricht, tatsächlich mitgelieferte Feldregeln,
+Goldannotation, Modellwahl und alle ungerundeten Wahrscheinlichkeiten getrennt.
+Der neue Import und die CI prüfen vollständige Hash-/Laufherkunft sowie
+unabhängig nachgerechnete Metriken, Safety-Fallmengen und Fehler.
+
+[Ergebnisbericht](experiments/bank-support/REPORT.md) ·
+[Alle zwölf Fehlerfälle](experiments/bank-support/ERRORS.md) ·
+[Quellen und Reproduktion](experiments/bank-support/README.md) ·
+[UI-Datengrenzen](docs/BANK_SUPPORT_UI_DATA.md)
 
 ## Versicherungsdokumente: Entscheidung und Evidenz getrennt
 

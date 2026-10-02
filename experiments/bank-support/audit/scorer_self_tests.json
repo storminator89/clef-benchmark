@@ -1,0 +1,15 @@
+{
+  "constructed_fixtures_only": true,
+  "no_model_inference": true,
+  "passed": [
+    "perfect_fixture",
+    "critical_union_not_double_counted",
+    "avoidable_specialist_escalation",
+    "urgent_undertriage",
+    "reject_missing",
+    "reject_duplicate",
+    "reject_truncated",
+    "reject_invalid_probability"
+  ],
+  "count": 8
+}

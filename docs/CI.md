@@ -55,3 +55,12 @@ und ausdrücklich testinternen Request-/Fehlerfixtures. Es wird dabei weder eine
 Modellantwort erzeugt noch ein Browser gestartet. Die optionale Browserabnahme
 ist davon klar getrennt. `audit_public.py` wird nur auf einen bereinigten
 Veröffentlichungsbaum ohne installierte Entwicklungsabhängigkeiten angewendet.
+
+## Bank-Kundensupport
+
+`check_bank_support.py` prüft die abgeschlossene eigenständige Bank-Suite,
+Export-/Freeze-/QA-Hashes, beide erneut ausgeführten Scorer, exakte Fall-/Feld- und
+Safety-Metriken und alle 80 nativen Requests gegen die vorhandenen Live-Grenzen.
+212 vorbestehende Daten-/Runtime-Artefakte bleiben byte-identisch geschützt.
+CI baut nun alle fünf UI-Datensätze deterministisch neu. Es wird kein Modell
+geladen und keine Aussage über Browserdarstellung oder AMD-Ausführung abgeleitet.

@@ -1,0 +1,27 @@
+{
+  "passed": true,
+  "constructed_fixtures_only": true,
+  "model_outputs_read": false,
+  "model_inference": false,
+  "test_count": 17,
+  "tests": [
+    "perfect_predictions_and_reference_denominators",
+    "combined_errors_all_safety_sets_confusions_and_strata",
+    "reject_missing_id",
+    "reject_duplicate_id",
+    "reject_extra_id",
+    "reject_changed_order",
+    "reject_truncation",
+    "reject_wrong_token_count",
+    "reject_boolean_token_count",
+    "reject_extra_probability_field",
+    "reject_missing_option",
+    "reject_nan_probability",
+    "reject_bad_probability_sum",
+    "reject_wrong_rounded_probability",
+    "reject_wrong_confidence",
+    "reject_nonmaximal_choice",
+    "comparison_detects_safety_count_mismatch"
+  ],
+  "checker_sha256": "cd05206420d058056d323027326aa37cde7e43020c85fe8ccbe30b08ffa6ec6b"
+}

@@ -1,0 +1,58 @@
+{
+  "approved_for_freeze": true,
+  "reviewed_at_utc": "2026-10-02T11:38:24.239148+00:00",
+  "files": {
+    "data/cases.jsonl": "f65f179d11c5ead7a770f271d694aa8065ab5859893db400a4dfbea8ee3ed29b",
+    "data/gold.jsonl": "cf93ec9032c3e8bbf5f14f88122cb7531f1c0a07268c5035e66f8532e06ea83f",
+    "data/requests.jsonl": "a4ee04381c9d98e7d0365d487fadbe54a6f8c0e3dd751c1a08ebab14c0919562",
+    "data/policy.json": "2c13a461c9a5393174c2c37638c7a7fc12551de4923b0069f556be33cb9641b3"
+  },
+  "additional_sha256": {
+    "data/metadata.jsonl": "ad5771986f85c1764fa8eeab70aed121f48c347d48ad9422415df59ec46cf478",
+    "scripts/build_dataset.py": "fb6d4d3aca03c24dd47a0f5bb1fbfd14e1a982171a3fe3189dc3206b95b8c111",
+    "audit/pre_inference_review.jsonl": "a7f306e184b91588cf99b7cabc92fa17799cad4e0adc84706068f74f2a3424d4"
+  },
+  "case_count": 80,
+  "label_count": 240,
+  "full_case_agreement": 80,
+  "label_agreement": 240,
+  "reviewer_type": "independent AI reviewer; not a human bank-domain expert",
+  "blind_to_gold": false,
+  "model_outputs_inspected": false,
+  "pre_inference": true,
+  "gold_changed_during_review": false,
+  "reproduction_check": "All five data files reproduced byte-for-byte from the construction script in isolated temporary directory",
+  "blocking_issues": [],
+  "nonblocking_caveats": [
+    "Synthetic controlled set; not representative live-bank data",
+    "Gold-visible review, not blinded human annotation",
+    "bank_ambiguous_multi_07 is a deliberately designed global-urgency/route-ambiguity edge case",
+    "Inference must consume inner request only, without topic-bearing row ID or metadata",
+    "Approval covers the exact listed bytes only; later changes require renewed review"
+  ],
+  "gold_distributions": {
+    "intent": {
+      "cards": 9,
+      "cash": 8,
+      "fees": 8,
+      "transfers": 8,
+      "account_documents": 9,
+      "security": 10,
+      "standing_orders": 8,
+      "access_tan": 9,
+      "direct_debits": 7,
+      "unclear": 4
+    },
+    "priority": {
+      "critical": 10,
+      "routine": 64,
+      "urgent": 6
+    },
+    "next_step": {
+      "security_handoff": 10,
+      "guidance": 31,
+      "specialist_review": 25,
+      "clarify": 14
+    }
+  }
+}

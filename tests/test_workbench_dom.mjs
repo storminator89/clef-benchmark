@@ -6,9 +6,11 @@ import {
   datasets,
   completeFixture,
   liveFixture,
+  bankFixture,
 } from "./helpers/dom.mjs";
 import {
   fieldsForCase,
+  fieldLabel,
   outcome,
   filterCases,
   parseJSONStrict,
@@ -16,6 +18,8 @@ import {
   validateLiveResult,
   requestFingerprint,
   suiteStats,
+  bankPriorityCounts,
+  bankServicePolicy,
   validateDataset,
   evidenceIDs,
 } from "../web/core.js";
@@ -292,7 +296,7 @@ test("unavailable suite falls back honestly, complete load failure gives a usefu
   assert.equal(h.$("app-error").hidden, false);
   assert.match(h.$("app-error").textContent, /Versicherungsdokumente/);
   const all = await harness({
-    failFiles: ["insurance", "benchmark", "finance", "clean72"],
+    failFiles: ["insurance", "benchmark", "finance", "clean72", "bank-support"],
   });
   assert.equal(all.app.getState().suite, null);
   assert.match(all.$("app-error").textContent, /python server.py/);
@@ -628,4 +632,181 @@ test("final insurance data shows decision/evidence/whole-case truth separately w
 
 test('skip link focuses the active workspace without changing the current route',async()=>{
  const h=await harness({hash:'#method'});h.click('.skip');assert.equal(h.window.location.hash,'#method');assert.equal(h.$('method').hidden,false);assert.equal(h.document.__focused,h.$('main'));
+});
+
+test("bank suite shows three field metrics and message/policy, without insurance terminology", async () => {
+  const data = bankFixture();
+  const h = await harness({ hash: "#explorer?suite=bank-support", overrides: { "bank-support": data } });
+  assert.equal(h.app.getState().suite, "bank-support");
+  assert.equal(h.document.querySelectorAll(".case-item").length, 80);
+  assert.equal(h.document.querySelectorAll("[data-field]").length, 3);
+  assert.equal(h.document.querySelectorAll("#document-content .document-section").length, 2);
+  assert.match(h.$("document-content").textContent, /Kundennachricht/);
+  assert.match(h.$("document-content").textContent, /fiktive Servicerichtlinie/);
+  assert.doesNotMatch(h.$("document-content").textContent, /VERSICHERUNGSUNTERLAGEN/);
+  assert.match(h.$("method-measures").textContent,/Anliegen, Priorität und nächster Schritt/);
+  assert.doesNotMatch(h.$("method-synthetic").textContent,/Versicherungsalltag/);
+  assert.match(h.$("method-synthetic").textContent,/kein BANKING77/);
+  assert.equal(h.document.querySelectorAll("[data-evidence]").length, 0);
+  assert.deepEqual([...h.document.querySelectorAll(".stat-label")].map(el => el.textContent),
+    ["Anliegen", "Priorität", "Nächster Schritt", "Vollständig richtig"]);
+  assert.deepEqual([...h.document.querySelectorAll(".stat-value")].map(el => el.textContent.replaceAll("\u00a0", " ")),
+    ["100 %", "98,8 %", "100 %", "98,8 %"]);
+  h.change("filter-outcome", "priority");
+  assert.equal(h.document.querySelectorAll(".case-item").length, 1);
+  h.change("filter-outcome", "intent");
+  assert.equal(h.document.querySelectorAll(".case-item").length, 0);
+  h.change("filter-outcome", "next_step");
+  assert.equal(h.document.querySelectorAll(".case-item").length, 0);
+});
+
+test("bank pending data cannot pretend to be results and all three fields stay visible", async () => {
+  const data = bankFixture({completed: false});
+  const h = await harness({hash: "#explorer?suite=bank-support", overrides: {"bank-support":data}});
+  assert.equal(h.document.querySelectorAll("[data-field]").length, 3);
+  assert.ok([...h.document.querySelectorAll(".stat-value")].every(el => el.textContent === "—"));
+  assert.equal(h.document.querySelectorAll("#case-detail .prob-row").length, 0);
+  assert.equal(h.$("show-saved").disabled, true);
+  assert.match(h.$("result-banner").textContent, /ausstehend/);
+});
+
+test("bank data admission rejects partial fields, reordered input, false truth and policy loss", () => {
+  const base = bankFixture();
+  assert.equal(validateDataset(base, "bank-support"), base);
+  for (const mutate of [
+    d => delete d.cases[0].questions.next_step,
+    d => delete d.cases[0].result.fields.next_step,
+    d => delete d.cases[0].service_policy,
+    d => d.cases[0].message = "different from native state",
+    d => d.cases[0].synthetic = false,
+    d => d.cases[0].manipulation = true,
+    d => d.cases[0].result.fields.priority.correct = true,
+    d => d.cases[0].questions = {priority:d.cases[0].questions.priority,intent:d.cases[0].questions.intent,next_step:d.cases[0].questions.next_step},
+    d => d.cases[0].expected = {decision: "first"},
+    d => d.cases.pop(),
+  ]) {
+    const value = structuredClone(base); mutate(value);
+    assert.throws(() => validateDataset(value, "bank-support"));
+  }
+});
+
+test("bank replay uses all three fields and edits to message, policy or question order invalidate it", async () => {
+  const h = await harness({hash:"#explorer?suite=bank-support",overrides:{"bank-support":bankFixture()}});
+  assert.equal(h.app.saved(), true);
+  assert.equal(h.document.querySelectorAll("[data-output-field]").length, 3);
+  const input = h.$("input-state").value, schema = JSON.parse(h.$("input-schema").value);
+  h.change("input-state", input + " changed message", "input");
+  assert.equal(h.app.saved(), false);
+  assert.equal(h.document.querySelectorAll("[data-output-field]").length, 0);
+  h.change("input-state", input, "input");
+  h.change("input-schema", JSON.stringify({priority:schema.priority,intent:schema.intent,next_step:schema.next_step}), "input");
+  assert.equal(h.app.saved(), false);
+  h.change("input-schema", JSON.stringify(schema), "input");
+  assert.equal(h.app.saved(), true);
+  const changedPolicy = structuredClone(schema);
+  changedPolicy.priority.instructions += " Changed policy.";
+  h.change("input-schema", JSON.stringify(changedPolicy), "input");
+  assert.equal(h.app.saved(), false);
+  assert.equal(h.document.querySelectorAll("[data-output-field]").length, 0);
+});
+
+test("bank pending live request retains its three-field snapshot through navigation and rejects missing third response", async () => {
+  let resolve;
+  const h = await harness({hash:"#explorer?suite=bank-support",enabled:true,
+    overrides:{"bank-support":bankFixture()},requestHandler:()=>new Promise(r=>resolve=r)});
+  const initial = h.$("input-state").value, run = h.app.runLive();
+  assert.equal(h.app.selectSuite("insurance"), false);
+  h.app.selectCase("bank_fixture_2");
+  h.window.location.hash = "#method";
+  h.window.location.hash = "#playground";
+  h.window.history.back(); h.window.history.forward();
+  assert.equal(h.$("input-state").value, initial);
+  assert.equal(await h.app.runLive(), false);
+  const request = JSON.parse(h.calls.find(c=>c.url==="/api/infer").options.body);
+  assert.deepEqual(Object.keys(request.questions), ["intent","priority","next_step"]);
+  const response = liveFixture(request); delete response.answers.next_step;
+  resolve({ok:true,json:async()=>response});
+  assert.equal(await run, false);
+  assert.equal(h.document.querySelectorAll("[data-output-field]").length, 0);
+  assert.equal(h.app.getState().busy, false);
+  assert.match(h.$("editor-message").textContent, /unvollständig/);
+});
+
+test("bank priority undertriage is derived from case labels and includes critical-to-urgent misses", () => {
+  const rows = [["critical","urgent"],["critical","routine"],["urgent","routine"],["routine","critical"],["routine","routine"]].map(([gold,prediction]) => ({
+    expected:{priority:gold},questions:{priority:{type:"choice",criteria:{critical:"Critical",urgent:"Urgent",routine:"Routine"}}},
+    result:{fields:{priority:{prediction,correct:prediction===gold,schema_valid:true,probabilities:{}}}},
+  }));
+  assert.deepEqual(bankPriorityCounts(rows), {gold_non_escalation:0,unnecessary_escalations:0,critical_handoff_misses:2,unnecessary_critical:1,critical_all_fields_correct:0,gold_routine:2,excess_security_handoffs:0,gold_critical:2,missed_critical:2,gold_urgent:1,missed_urgent:1,undertriage:3,overtriage:1});
+  delete rows[0].result;
+  assert.equal(bankPriorityCounts(rows),null);
+});
+
+test("field labels do not inherit Object prototype properties", () => {
+  assert.equal(fieldLabel("constructor"),"constructor");
+  assert.equal(fieldLabel("toString"),"toString");
+  assert.equal(fieldLabel("next_step"),"Nächster Schritt");
+});
+
+test("stored and live choices must match the maximum unrounded probability", () => {
+  const data = bankFixture();
+  data.cases[0].result.fields.intent.probabilities = Object.fromEntries(Object.keys(data.cases[0].questions.intent.criteria).map(key=>[key,key==="transfers"?1:0]));
+  assert.throws(()=>validateDataset(data,"bank-support"));
+  const request = {state:"Test-only",questions:{intent:{type:"choice",instructions:"Test-only",criteria:{first:"First",second:"Second"}}}};
+  const response = liveFixture(request);
+  response.probabilities_unrounded.intent = {first:0.01,second:0.99};
+  assert.throws(()=>validateLiveResult(response,request));
+});
+
+test("prototype-property suite routes fall back safely without corrupting navigation", async () => {
+  for (const invalid of ["constructor","toString","__proto__"]) {
+    const h = await harness({hash:`#explorer?suite=${invalid}`});
+    assert.equal(h.app.getState().suite,"insurance");
+    h.window.location.hash=`#explorer?suite=${invalid}`;
+    assert.equal(h.app.getState().suite,"insurance");
+    assert.equal(h.app.selectSuite(invalid),false);
+    assert.equal(h.document.querySelectorAll("[data-field]").length,2);
+  }
+});
+
+test("bank-specific message and supplied policy remain inert text and urgency ignores supplied summary counters", async () => {
+  const bank = bankFixture();
+  const literal = '<img src=x onerror="throw new Error(1)">';
+  bank.cases[0].message = literal;
+  bank.cases[0].input = `Synthetische Kundennachricht:\n${literal}`;
+  bank.cases[0].questions.intent.instructions = literal;
+  bank.cases[0].service_policy = bankServicePolicy(bank.cases[0].questions);
+  bank.summary.urgent_routing = {missed_urgent:999,false_urgent:-20,gold_urgent:1,gold_non_urgent:0};
+  const h = await harness({hash:"#explorer?suite=bank-support",overrides:{"bank-support":bank}});
+  assert.equal(h.document.querySelectorAll("#document-content img").length,0);
+  assert.ok(h.$("document-content").textContent.includes(literal));
+  assert.doesNotMatch(h.$("diagnosis-content").textContent,/999|-20/);
+  assert.match(h.$("diagnosis-content").textContent,/1 \/ 10/);
+  assert.match(h.$("diagnosis-content").textContent,/64 \/ 80/);
+});
+
+test("final bank results keep field, exact-case and critical-case truths separate", async () => {
+  const data = datasets["bank-support"];
+  assert.equal(validateDataset(data,"bank-support"),data);
+  const stats = suiteStats(data), risk = bankPriorityCounts(data.cases);
+  assert.equal(stats.total,80);assert.equal(stats.exact,68);
+  assert.deepEqual(Object.values(stats.fields).map(v=>v.correct),[76,77,75]);
+  assert.equal(risk.missed_critical,0);assert.equal(risk.critical_handoff_misses,0);
+  assert.equal(risk.missed_urgent,0);assert.equal(risk.critical_all_fields_correct,8);
+  assert.equal(risk.excess_security_handoffs,1);assert.equal(risk.unnecessary_escalations,3);
+  assert.equal(risk.gold_non_escalation,45);assert.equal(risk.gold_routine,64);
+  const h=await harness({hash:"#explorer?suite=bank-support"});
+  assert.equal(h.$("app-error").hidden,true);
+  assert.deepEqual([...h.document.querySelectorAll(".stat-value")].map(el=>el.textContent.replaceAll("\u00a0"," ")),
+    ["95 %","96,3 %","93,8 %","85 %"]);
+  assert.match(h.$("diagnosis-content").textContent,/8 \/ 10/);
+  for(const [field,n] of [["intent",4],["priority",3],["next_step",5],["errors",12]]){
+    h.change("filter-outcome",field);assert.equal(h.document.querySelectorAll(".case-item").length,n);
+  }
+  h.click("#reset-filters");h.app.saved();
+  assert.equal(h.document.querySelectorAll("[data-output-field]").length,3);
+  for(const field of ["intent","priority","next_step"]){
+    h.click(`[data-field="${field}"]`);
+    assert.equal(h.document.querySelectorAll("#case-detail .prob-row").length,Object.keys(data.cases[0].questions[field].criteria).length);
+  }
 });

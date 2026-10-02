@@ -1,0 +1,5 @@
+{
+  "status": "superseded_before_inference",
+  "reason": "Post-freeze validator rewrote design_summary.json with nondeterministic field-key order from a Python set. Request/gold/cases/policy bytes remained unchanged. Fixed deterministic read-only validation and refroze before any bank model inference.",
+  "model_inference_before_correction": false
+}

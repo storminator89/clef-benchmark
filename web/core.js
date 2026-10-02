@@ -12,6 +12,7 @@ export const SPLIT = {
   mixed_schema_diagnostic: "Deutsch / Englisch",
   german_clean_primary: "Deutsch · ohne Manipulation",
   german_insurance_primary: "Deutsch · Dokumente",
+  german_bank_support_primary: "Deutsch · Bank-Kundensupport",
 };
 export const LIMITS = Object.freeze({
   state: 6000,
@@ -43,12 +44,10 @@ export const decimal = (value, digits = 2) =>
     : "—";
 export const isObject = (value) =>
   value !== null && typeof value === "object" && !Array.isArray(value);
-export const fieldLabel = (id) =>
-  id === "decision"
-    ? "Entscheidung"
-    : id === "evidence"
-      ? "Evidenz"
-      : id.replace(/_/g, " ");
+const FIELD_LABELS = Object.freeze({ decision: "Entscheidung", evidence: "Evidenz",
+  intent: "Anliegen", priority: "Priorität", next_step: "Nächster Schritt" });
+export const fieldLabel = (id) => Object.hasOwn(FIELD_LABELS, id)
+  ? FIELD_LABELS[id] : id.replace(/_/g, " ");
 export const choiceLabel = (field, key, criteria = {}) =>
   field === "decision" && ["ja", "nein", "offen", "konflikt"].includes(key)
     ? {
@@ -119,8 +118,7 @@ export function filterCases(cases, filters = {}) {
       (kind === "errors" && ["partial", "wrong"].includes(o)) ||
       (kind === "correct" && o === "correct") ||
       (kind === "unscored" && o === "unscored") ||
-      (["decision", "evidence"].includes(kind) &&
-        fields.some((f) => f.id === kind && f.result?.correct === false));
+      fields.some((f) => f.id === kind && f.result?.correct === false);
     return (
       (!filters.split || c.split === filters.split) &&
       (!filters.category || c.category === filters.category) &&
@@ -132,6 +130,8 @@ export function filterCases(cases, filters = {}) {
           c.title,
           c.input,
           c.scenario,
+          c.message,
+          c.service_policy,
           c.claim,
           c.document_id,
           c.area,
@@ -330,7 +330,8 @@ export function validateLiveResult(result, request) {
     const values = Object.values(probs);
     if (
       values.some((v) => !Number.isFinite(v) || v < 0 || v > 1) ||
-      Math.abs(values.reduce((a, b) => a + b, 0) - 1) > 1e-5
+      Math.abs(values.reduce((a, b) => a + b, 0) - 1) > 1e-5 ||
+      probs[answer.choice] !== Math.max(...values)
     )
       fail();
   }
@@ -374,6 +375,33 @@ export function suiteStats(data) {
           fieldsForCase(c).every((f) => f.result?.schema_valid),
         ).length
       : null,
+  };
+}
+export const bankServicePolicy = (questions) =>
+  ["intent", "priority", "next_step"].map((id) => questions[id]?.instructions || "").join("\n\n");
+/** Defined priority ordering, recomputed from admitted case fields, never a supplied KPI. */
+export function bankPriorityCounts(cases) {
+  const rank = { routine: 0, urgent: 1, critical: 2 };
+  const values = cases.map((c) => ({ gold: c.expected?.priority,
+    predicted: fieldsForCase(c).find((f) => f.id === "priority")?.result?.prediction }));
+  if (values.some((v) => !Object.hasOwn(rank, v.gold) || !Object.hasOwn(rank, v.predicted))) return null;
+  const next = (c) => fieldsForCase(c).find((f) => f.id === "next_step")?.result?.prediction;
+  return {
+    gold_non_escalation: cases.filter((c) => ["guidance", "clarify"].includes(c.expected?.next_step)).length,
+    unnecessary_escalations: cases.filter((c) => ["guidance", "clarify"].includes(c.expected?.next_step) &&
+      ["specialist_review", "security_handoff"].includes(next(c))).length,
+    critical_handoff_misses: cases.filter((c) => c.expected?.priority === "critical" && next(c) !== "security_handoff").length,
+    unnecessary_critical: values.filter((v) => v.gold !== "critical" && v.predicted === "critical").length,
+    critical_all_fields_correct: cases.filter((c) => c.expected?.priority === "critical" && outcome(c) === "correct").length,
+    gold_routine: values.filter((v) => v.gold === "routine").length,
+    excess_security_handoffs: cases.filter((c) => c.expected?.next_step !== "security_handoff" &&
+      fieldsForCase(c).find((f) => f.id === "next_step")?.result?.prediction === "security_handoff").length,
+    gold_critical: values.filter((v) => v.gold === "critical").length,
+    missed_critical: values.filter((v) => v.gold === "critical" && v.predicted !== "critical").length,
+    gold_urgent: values.filter((v) => v.gold === "urgent").length,
+    missed_urgent: values.filter((v) => v.gold === "urgent" && v.predicted === "routine").length,
+    undertriage: values.filter((v) => rank[v.predicted] < rank[v.gold]).length,
+    overtriage: values.filter((v) => rank[v.predicted] > rank[v.gold]).length,
   };
 }
 export function evidenceIDs(c, kind) {
@@ -437,6 +465,7 @@ export function validateDataset(data, expectedID) {
     general: [180, 120, "german_primary"],
     finance: [100, 80, "german_primary"],
     clean72: [72, 72, "german_clean_primary"],
+    "bank-support": [80, 80, "german_bank_support_primary"],
   };
   const plan = plans[expectedID];
   if (
@@ -523,10 +552,23 @@ export function validateDataset(data, expectedID) {
     )
       fail();
     if (
-      expectedID !== "insurance" &&
+      !["insurance", "bank-support"].includes(expectedID) &&
       Object.keys(c.questions).join("|") !== "decision"
     )
       fail();
+    if (
+      expectedID === "bank-support" &&
+      (Object.keys(c.questions).join("|") !== "intent|priority|next_step" ||
+        Object.keys(c.questions.priority?.criteria || {}).sort().join("|") !== "critical|routine|urgent" ||
+        Object.keys(c.questions.next_step?.criteria || {}).sort().join("|") !== "clarify|guidance|security_handoff|specialist_review" ||
+        Object.keys(c.expected).sort().join("|") !== "intent|next_step|priority" ||
+        typeof c.message !== "string" || !c.message.trim() || c.input !== `Synthetische Kundennachricht:\n${c.message}` ||
+        typeof c.service_policy !== "string" || !c.service_policy.trim() ||
+        c.service_policy !== bankServicePolicy(c.questions) ||
+        typeof c.gold_rationale !== "string" || !c.gold_rationale.trim() ||
+        c.synthetic !== true || c.manipulation !== false ||
+        c.document_id !== undefined)
+    ) fail();
     if (!complete && c.result !== undefined) fail();
     const fields = fieldsForCase(c),
       questionIDs = Object.keys(c.questions).sort();
@@ -555,7 +597,8 @@ export function validateDataset(data, expectedID) {
         const probs = Object.values(result.probabilities);
         if (
           probs.some((p) => !Number.isFinite(p) || p < 0 || p > 1) ||
-          Math.abs(probs.reduce((a, b) => a + b, 0) - 1) > 1e-5
+          Math.abs(probs.reduce((a, b) => a + b, 0) - 1) > 1e-5 ||
+          result.probabilities[result.prediction] !== Math.max(...probs)
         )
           fail();
       }

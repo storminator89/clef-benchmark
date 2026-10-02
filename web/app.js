@@ -16,6 +16,7 @@ import {
   validateDataset,
   requestFingerprint,
   suiteStats,
+  bankPriorityCounts,
   evidenceIDs,
   documentForCase,
   InferenceSession,
@@ -27,6 +28,7 @@ const SUITES = {
   general: { file: "benchmark", label: "Allgemeine Entscheidungen" },
   finance: { file: "finance", label: "Finanzen & Makler" },
   clean72: { file: "clean72", label: "Alltagsnah ohne Manipulation" },
+  "bank-support": { file: "bank-support", label: "Bank-Kundensupport" },
 };
 const EMPTY_SCHEMA = {
   decision: {
@@ -74,7 +76,7 @@ export function createWorkbench({
   fetch: fetcher = globalThis.fetch,
 } = {}) {
   const $ = (id) => doc.getElementById(id),
-    suites = {},
+    suites = Object.create(null),
     session = new InferenceSession();
   let suite = null,
     data = null,
@@ -237,9 +239,11 @@ export function createWorkbench({
         .sort()
         .map((t) => `<option value="${e(t)}">${e(t)}</option>`)
         .join("");
-    const hasEvidence = data.cases.some((c) => "evidence" in c.questions);
-    $("filter-outcome").querySelector('[value="evidence"]').disabled =
-      !hasEvidence;
+    const fieldIDs = [...new Set(data.cases.flatMap((c) => Object.keys(c.questions)))];
+    $("filter-outcome").innerHTML =
+      '<option value="">Alle Ergebnisse</option><option value="errors">Alle Fehler</option>' +
+      fieldIDs.map((id) => `<option value="${e(id)}">${e(fieldLabel(id))} falsch</option>`).join("") +
+      '<option value="correct">Alles richtig</option><option value="unscored">Ohne Ergebnis</option>';
     resetFilters(false);
   }
   function resetFilters(render = true) {
@@ -276,7 +280,7 @@ export function createWorkbench({
       ? rows
           .map(
             (c) =>
-              `<button class="case-item ${c.id === selected ? "selected" : ""}" data-case="${e(c.id)}" aria-pressed="${c.id === selected}" aria-label="${e(c.id)}: ${e(shortened(caseTitle(c), 110))}"><div class="case-top"><span class="case-index">${e(c.id.replace(/^de_|^german_/, ""))}</span>${chip(c)}</div><h3>${e(shortened(caseTitle(c), 120))}</h3><p>${e(shortened(c.scenario || c.input, 160))}</p><small>${e(data.suite.categories?.[c.category] || c.category)}</small></button>`,
+              `<button class="case-item ${c.id === selected ? "selected" : ""}" data-case="${e(c.id)}" aria-pressed="${c.id === selected}" aria-label="${e(c.id)}: ${e(shortened(caseTitle(c), 110))}"><div class="case-top"><span class="case-index">${e(c.id.replace(/^de_|^german_/, ""))}</span>${chip(c)}</div><h3>${e(shortened(caseTitle(c), 120))}</h3><p>${e(shortened(c.message || c.scenario || c.input, 160))}</p><small>${e(data.suite.categories?.[c.category] || c.category)}</small></button>`,
           )
           .join("")
       : `<div class="empty-state">${icon("search")}<h3>Keine passenden Fälle</h3><p>Ändere den Suchbegriff oder setze die Filter zurück.</p></div>`;
@@ -315,8 +319,11 @@ export function createWorkbench({
       index = rows.findIndex((r) => r.id === c.id),
       gold = evidenceIDs(c, "gold"),
       model = evidenceIDs(c, "model");
-    const clauses =
-      d?.clauses ||
+    const isBank = suite === "bank-support";
+    const clauses = isBank
+      ? [{ id: "Nachricht", title: "Kundennachricht", text: c.message },
+         { id: "Servicerichtlinie", title: "Mitgelieferte fiktive Servicerichtlinie", text: c.service_policy }]
+      : d?.clauses ||
       c.input
         .split(/\n\s*\n/)
         .filter(Boolean)
@@ -325,9 +332,11 @@ export function createWorkbench({
       `<span class="document-icon">${icon("document")}</span><div class="document-heading-text"><h2 tabindex="-1">${e(d?.title || data.suite.categories?.[c.category] || "Originaleingabe")}</h2><p>${e(d?.id || c.id)} · ${d ? `${clauses.length} Klauseln · synthetischer Auszug` : "Originaltext · synthetischer Fall"}</p></div><div class="case-nav"><button data-direction="-1" ${index < 1 ? "disabled" : ""} aria-label="Vorheriger Fall" title="Vorheriger Fall">‹</button><button data-direction="1" ${index >= rows.length - 1 ? "disabled" : ""} aria-label="Nächster Fall" title="Nächster Fall">›</button></div>`;
     $("document-toolbar").innerHTML =
       `<div class="document-tool-row"><label>Markierung <select id="highlight-select" aria-label="Evidenzmarkierung" ${!d ? "disabled" : ""}><option value="both">Gold &amp; Modell</option><option value="gold">Nur Goldreferenz</option><option value="model">Nur Modellwahl</option><option value="none">Keine</option></select></label><div class="evidence-legend"><span><i></i>Gold</span><span><i></i>Modell</span></div></div><nav class="clause-nav" aria-label="${d ? "Klauseln" : "Absätze"}">${clauses.map((cl) => `<button data-clause="${e(cl.id)}" class="${activeClause === cl.id ? "active" : ""}" title="${e(cl.id)} im Dokument anzeigen">${e(cl.id)}</button>`).join("")}</nav>`;
-    $("highlight-select").value = highlight;
+    if (isBank) $("document-toolbar").innerHTML =
+      `<nav class="clause-nav" aria-label="Nachricht und Richtlinie">${clauses.map((cl) => `<button data-clause="${e(cl.id)}" class="${activeClause === cl.id ? "active" : ""}">${e(cl.id)}</button>`).join("")}</nav>`;
+    else $("highlight-select").value = highlight;
     $("document-content").innerHTML =
-      `<article class="document-page"><div class="document-kicker"><span>${e(d?.id || c.id)}</span><span>${d ? "FIKTIVE VERSICHERUNGSUNTERLAGEN" : "SYNTHETISCHER EINGABETEXT"}</span></div><h2 tabindex="-1">${e(d?.title || data.suite.categories?.[c.category] || "Dokument & Sachverhalt")}</h2><p class="document-deck">${d ? "Ausschließlich die hier bereitgestellten Klauseln sind maßgeblich. Keine reale Police oder Rechtsauskunft." : "Unveränderter Eingabetext des ausgewählten Benchmark-Falls. Gold und Modellantwort stehen getrennt in der Prüfung."}</p>${d ? `<div class="scenario-card"><div class="eyebrow">DER SACHVERHALT · ${e(c.id)}</div><p>${e(c.scenario)}</p></div>` : ""}${clauses
+      `<article class="document-page"><div class="document-kicker"><span>${e(d?.id || c.id)}</span><span>${isBank ? "FIKTIVER BANK-KUNDENSUPPORT" : d ? "FIKTIVE VERSICHERUNGSUNTERLAGEN" : "SYNTHETISCHER EINGABETEXT"}</span></div><h2 tabindex="-1">${e(d?.title || data.suite.categories?.[c.category] || "Dokument & Sachverhalt")}</h2><p class="document-deck">${isBank ? "Synthetische Kundennachricht mit fiktiver Servicerichtlinie in den Feldanweisungen. Keine reale Bankvorgabe oder Kundenakte. Anliegen, Priorität und nächster Schritt werden getrennt bewertet." : d ? "Ausschließlich die hier bereitgestellten Klauseln sind maßgeblich. Keine reale Police oder Rechtsauskunft." : "Unveränderter Eingabetext des ausgewählten Benchmark-Falls. Gold und Modellantwort stehen getrennt in der Prüfung."}</p>${d ? `<div class="scenario-card"><div class="eyebrow">DER SACHVERHALT · ${e(c.id)}</div><p>${e(c.scenario)}</p></div>` : ""}${clauses
         .map((cl) => {
           const g =
               gold.includes(cl.id) && ["both", "gold"].includes(highlight),
@@ -344,7 +353,7 @@ export function createWorkbench({
         })
         .join(
           "",
-        )}<details class="document-original"><summary>Exakte Modelleingabe anzeigen</summary><pre>${e(c.input)}</pre></details></article>`;
+        )}<details class="document-original"><summary>${isBank ? "Exakten Nachrichtentext (state) anzeigen" : "Exakte Modelleingabe anzeigen"}</summary><pre>${e(c.input)}</pre></details>${isBank ? `<details class="document-original"><summary>Alle nativen Feldanweisungen und Auswahloptionen</summary><pre>${e(JSON.stringify(c.questions, null, 2))}</pre></details>` : ""}</article>`;
     $("document-footer").innerHTML =
       `<span>${d ? "Markiert werden ganze, angebotene Klauseln." : "Zeilenumbrüche und Wortlaut bleiben erhalten."}</span><span>${Number.isInteger(c.input_tokens) ? `${c.input_tokens} Tokens` : "Noch keine Tokenmessung"}</span>`;
   }
@@ -354,7 +363,7 @@ export function createWorkbench({
       $("inspection-header").innerHTML =
         '<div class="inspection-title"><h2>Prüfung</h2></div>';
       $("case-detail").innerHTML =
-        '<div class="empty-state">Antwort und Evidenz erscheinen nach der Fallauswahl.</div>';
+        '<div class="empty-state">Antwortfelder und Sollreferenzen erscheinen nach der Fallauswahl.</div>';
       return;
     }
     const fields = fieldsForCase(c);
@@ -401,19 +410,24 @@ export function createWorkbench({
     if (!data) return;
     const s = suiteStats(data),
       isInsurance = suite === "insurance",
+      isBank = suite === "bank-support",
       rows = s.primary,
       done = s.complete,
       summary = data.summary;
     $("overview-title").innerHTML = isInsurance
       ? "Was versteht Clef<br><em>im Dokument?</em>"
-      : suite === "clean72"
+      : isBank
+        ? "Was erkennt Clef<br><em>im Bank-Support?</em>"
+        : suite === "clean72"
         ? "Was entscheidet Clef<br><em>ohne Manipulation?</em>"
         : suite === "finance"
           ? "Was entscheidet Clef<br><em>im Makleralltag?</em>"
           : "Was entscheidet Clef<br><em>auf Deutsch?</em>";
     $("hero-copy").textContent = isInsurance
       ? "Eine Aussage einordnen und die passende Klauselmenge finden. Antworten und Evidenz getrennt prüfen, Fehler im Dokument nachvollziehen."
-      : suite === "clean72"
+      : isBank
+        ? "Typische deutschsprachige Kundenanfragen: Anliegen, Priorität und nächster Schritt nach mitgelieferten fiktiven Serviceregeln. Eigene, kleine synthetische Stichprobe ohne Manipulation."
+        : suite === "clean72"
         ? "Alltagsnahe Bürofragen mit mehreren Anliegen, Dokumentabgleich, Rechenschritten und echten Informationslücken. Ein eigenständiger Test."
         : "Explizite Regeln, feste Auswahloptionen und nachvollziehbare Resultate. Sprachkontrollen werden nur auf den passenden Szenarien verglichen.";
     $("study-count").textContent = s.total;
@@ -426,7 +440,14 @@ export function createWorkbench({
       ? "<strong>Abgeschlossener Lauf · unabhängig gegengeprüft</strong><br>Experimentelle CPU-NF4-Konfiguration. Synthetische Auswahlaufgaben, kein Produktionstauglichkeitsnachweis."
       : "<strong>Testdaten verfügbar · Ergebnisse noch ausstehend</strong><br>Goldreferenzen lassen sich bereits prüfen. Bis zum vollständigen Lauf und seiner unabhängigen Verifikation werden keine Scores oder Modellantworten angezeigt.";
     let stats;
-    if (isInsurance) {
+    if (isBank) {
+      stats = Object.entries(s.fields).map(([id, metric]) => [
+        fieldLabel(id), done ? percent(metric.correct / metric.total) : "—",
+        done ? `${metric.correct} / ${metric.total} Felder richtig${id === "priority" ? ` · Routine-Baseline ${percent(rows.filter((c) => c.expected.priority === "routine").length / s.total)}` : ""}` : `${metric.total} geplante Felder`, "check",
+      ]);
+      stats.push(["Vollständig richtig", done ? percent(s.exact / s.total) : "—",
+        done ? `${s.exact} / ${s.total} Fälle: alle drei Felder richtig` : "Anliegen, Priorität UND nächster Schritt", "layers"]);
+    } else if (isInsurance) {
       stats = [
         [
           "Entscheidung",
@@ -518,7 +539,9 @@ export function createWorkbench({
       .join("");
     $("category-note").textContent = isInsurance
       ? "Vollständig richtige Fälle: Entscheidung UND Evidenzauswahl müssen stimmen. Je fünf Fälle teilen sich ein Dokument und sind deshalb nicht unabhängig."
-      : `Korrekte Entscheidungen auf allen ${s.total} geplanten deutschen Hauptfällen. Andere Suiten und Sprachvarianten werden nicht addiert.`;
+      : isBank
+        ? `Vollständig richtige Fälle: alle drei Felder müssen stimmen. ${s.total} synthetische Fälle nach fiktiven Serviceregeln; keine repräsentative Stichprobe. Andere Suiten werden nicht addiert.`
+        : `Korrekte Entscheidungen auf allen ${s.total} geplanten deutschen Hauptfällen. Andere Suiten und Sprachvarianten werden nicht addiert.`;
     const errors = rows.filter((c) =>
         ["partial", "wrong"].includes(outcome(c)),
       ),
@@ -532,6 +555,21 @@ export function createWorkbench({
     $("diagnosis-content").innerHTML = done
       ? `<div class="diagnosis-item"><span>Fälle mit mindestens einem Fehler</span><strong>${errors.length} / ${s.total}</strong></div>${isInsurance ? `<div class="diagnosis-item"><span>Evidenz richtig, Entscheidung falsch</span><strong>${rows.filter((c) => fieldsForCase(c).find((f) => f.id === "evidence")?.result?.correct && fieldsForCase(c).find((f) => f.id === "decision")?.result?.correct === false).length}</strong></div><div class="diagnosis-item"><span>Entscheidung richtig, Evidenz falsch</span><strong>${rows.filter((c) => fieldsForCase(c).find((f) => f.id === "decision")?.result?.correct && fieldsForCase(c).find((f) => f.id === "evidence")?.result?.correct === false).length}</strong></div>` : ""}<div class="diagnosis-item"><span>Fehlerfall mit einem falschen Feld > 90 %</span><strong>${high.length}</strong></div><p>Konfidenz allein reicht nicht für eine Freigabe. Vergleiche die Modellwahl mit der Goldreferenz und dem genauen Wortlaut.</p>`
       : "<p>Ein Schema kann formal gültig sein und inhaltlich danebenliegen. Der Workbench trennt Antwortqualität, Evidenzauswahl und technische Gültigkeit.</p>";
+    if (isBank && done) {
+      const urgency = bankPriorityCounts(rows);
+      const diagnostic = (label, value) => `<div class="diagnosis-item"><span>${e(label)}</span><strong>${e(value)}</strong></div>`;
+      $("diagnosis-content").insertAdjacentHTML("afterbegin",
+        diagnostic("Schema-gültige Requests", `${s.valid} / ${s.total}`) +
+        (urgency ? diagnostic("Kritische Fälle: alle drei Felder richtig", `${urgency.critical_all_fields_correct} / ${urgency.gold_critical}`) +
+         diagnostic("Kritische Fälle zu niedrig priorisiert", `${urgency.missed_critical} / ${urgency.gold_critical}`) +
+         diagnostic("Kritische Fälle ohne Security-Handoff", `${urgency.critical_handoff_misses} / ${urgency.gold_critical}`) +
+         diagnostic("Dringende Fälle als Routine eingestuft", `${urgency.missed_urgent} / ${urgency.gold_urgent}`) +
+         diagnostic("Unnötig als kritisch eingestuft", `${urgency.unnecessary_critical} / ${s.total - urgency.gold_critical}`) +
+         diagnostic("Unnötige Security-Handoffs", `${urgency.excess_security_handoffs} / ${rows.filter((c) => c.expected.next_step !== "security_handoff").length}`) +
+         diagnostic("Unnötige Eskalationen", `${urgency.unnecessary_escalations} / ${urgency.gold_non_escalation}`) +
+         diagnostic("Baseline: immer Routine", `${urgency.gold_routine} / ${s.total} · ${percent(urgency.gold_routine / s.total)}`) +
+         '<p>Prioritätsfolge: critical &gt; urgent &gt; routine. Eine kritische Anfrage zählt auch bei urgent als zu niedrig priorisiert. Ein Security-Handoff ist unnötig, wenn die Goldreferenz einen anderen nächsten Schritt verlangt. Unnötige Eskalationen: Gold guidance/clarify, Modell specialist_review/security_handoff. Die Baseline gilt für diese gestaltete Stichprobe, nicht für Bank-Traffic.</p>' : ""));
+    }
     $("inspect-errors").disabled = !done || !errors.length;
     const pairs = Object.values(data.scores?.paired_all_planned || {});
     $("paired-panel").hidden = !pairs.length;
@@ -548,9 +586,25 @@ export function createWorkbench({
       .join("");
     $("method-scope").textContent = isInsurance
       ? "Diese Suite prüft das Verständnis kurzer, fiktiver Versicherungsunterlagen: eine Aussage anhand des Sachverhalts einordnen und aus fünf angebotenen Belegmengen wählen. Keine vollständigen Policen, OCR, Recherche, freie Antwortgenerierung oder arithmetische Leistungsprüfung."
-      : suite === "clean72"
+      : isBank
+        ? "Separater deutschsprachiger Test mit typischen, synthetischen Bank-Kundenanfragen ohne Manipulation. Drei native Auswahlfelder werden nach einer fiktiven, mitgelieferten Servicerichtlinie bewertet. Kein realer Kundendatenbestand, keine freie Antwortgenerierung, keine Ausführung von Bankvorgängen und kein Produktionsnachweis. Die kleine Stichprobe erlaubt keine belastbare Aussage über seltene Risiken; Fehlpriorisierungen werden gesondert gezeigt."
+        : suite === "clean72"
         ? "Separater synthetischer Bürotest ohne Manipulationsanweisungen. Andere Aufgaben und Schwierigkeiten als die früheren Tests; Quotendifferenzen belegen keinen kausalen Manipulationseffekt."
         : "Synthetische, vorab definierte Auswahlaufgaben mit expliziten Regeln. Explorative Sprachkontrollen, keine repräsentative Feldstudie und keine Bewertung freier Beratung.";
+    $("method-measures").textContent = isBank
+      ? "Anliegen, Priorität und nächster Schritt werden getrennt bewertet. Vollständig richtig ist ein Fall nur mit allen drei richtigen Feldern. Eine hohe Prioritätsquote allein genügt nicht: Routine-Baseline und Fehlpriorisierungen gehören dazu."
+      : isInsurance
+        ? "Antwort, Evidenz und vollständig richtige Fälle werden getrennt ausgewiesen. Ein richtiger Beleg ersetzt keine richtige Antwort."
+        : "Antwortqualität und technische Schema-Gültigkeit werden getrennt ausgewiesen. Jede Suite und Sprachvariante behält ihren eigenen Nenner.";
+    $("method-synthetic").textContent = isBank
+      ? "Die 80 Fälle sind KI-verfasst und gezielt gestaltet, keine repräsentative Stichprobe aus realem Bank-Traffic und kein BANKING77. Eine zweite KI-Prüfung ersetzt kein menschliches Annotationsteam. Die Serviceregeln sind fiktiv, keine Bank-, Finanz- oder Rechtsauskunft."
+      : isInsurance
+        ? "Die Fälle sind KI-verfasst und keine repräsentative Stichprobe aus dem Versicherungsalltag. Eine zweite KI-Prüfung ersetzt kein menschliches Annotationsteam. Fiktive Klauseln sind keine echte Versicherungs- oder Rechtsauskunft."
+        : "Die Fälle sind KI-verfasst und keine repräsentative Feldstudie. Eine zweite KI-Prüfung ersetzt kein menschliches Annotationsteam. Die vorgegebenen Regeln gehören zu diesem synthetischen Test.";
+    $("method-reference").textContent = (isInsurance
+      ? "Die Auswahl einer vorgegebenen Evidenzstelle belegt keine freie Dokumentanalyse. "
+      : "Die Auswahl fester Antwortoptionen belegt keine sichere Ausführung realer Vorgänge. ") +
+      "Gold-Referenzbegründungen sind KI-verfasste und von einer zweiten KI geprüfte Annotationen, keine aus dem Modell gewonnenen Gedanken. Hohe Modellwahrscheinlichkeit ist keine kalibrierte Richtigkeitsgarantie.";
     $("method-scenarios").textContent =
       `${s.total} deutsche Hauptfälle · ${data.cases.length} Requests`;
     $("method-categories").textContent =
@@ -815,6 +869,7 @@ export function createWorkbench({
     highlight = "both";
     activeClause = null;
     $("suite-select").value = id;
+    $("search").placeholder = id === "bank-support" ? "Fall, Thema, Nachricht …" : "Fall, Thema, Klausel …";
     const stats = suiteStats(data);
     $("suite-description").textContent =
       `${stats.total} deutsche Hauptfälle · ${data.cases.length} Requests · eigener Nenner`;
