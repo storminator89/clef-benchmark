@@ -15,6 +15,7 @@ class Links(HTMLParser):
 class LinkTests(unittest.TestCase):
  def test_markdown_local_paths(self):
   for path in ROOT.rglob('*.md'):
+   if any(part in {'node_modules','.git','.venv','venv'} for part in path.relative_to(ROOT).parts):continue
    for target in re.findall(r'\]\(([^\s)]+)',path.read_text()):
     if target.startswith(('https:','http:','mailto:','#')):continue
     target=unquote(target.split('#')[0])

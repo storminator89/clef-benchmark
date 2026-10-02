@@ -29,7 +29,8 @@ class ValidationTests(unittest.TestCase):
     def test_lazy(self):
         calls=[]
         class Stub:
-            def infer(self,request): return {'answers':{},'test_fixture_only':True}
+            def infer(self,request): return {'answers':{'decision':{'type':'choice','choice':'identity'}},
+                'probabilities_unrounded':{'decision':{'identity':0.75,'other':0.25}},'test_fixture_only':True}
         app=Workbench(True,Path('.'),lambda p:calls.append(p) or Stub())
         self.assertEqual(calls,[])
         self.assertEqual(app.infer(REQUEST)[0],200);self.assertEqual(app.infer(REQUEST)[0],200)

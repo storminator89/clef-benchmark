@@ -1,0 +1,12 @@
+{
+  "status": "pass",
+  "cases": 60,
+  "documents": 12,
+  "native_choice_fields": 2,
+  "no_gold_in_requests": true,
+  "matching_docs_and_requests": true,
+  "unique_equal_cardinality_evidence_options": true,
+  "version_date_subset_count": 3,
+  "benchmark_sha256": "8a0b1a6c4227b90b20c92de012c5d02a037e4ae4a79dac614b150345ed45c1bc",
+  "requests_sha256": "03066c91f05878efcb7f3c358e91e0cfa9087091b205728c2788e61b0b8e1eba"
+}

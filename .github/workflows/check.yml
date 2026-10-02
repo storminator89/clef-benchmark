@@ -42,12 +42,15 @@ jobs:
         run: python scripts/check_followups.py
       - name: Run standard-library server, importer and adapter tests
         run: python -m unittest discover -s tests -p 'test_*.py' -v
-      - name: Rebuild all three completed-result UI datasets
+      - name: Rebuild all four completed-result UI datasets
         run: |
-          git ls-files --error-unmatch web/data/benchmark.json web/data/finance.json web/data/clean72.json
+          git ls-files --error-unmatch web/data/benchmark.json web/data/finance.json web/data/clean72.json web/data/insurance.json
           python scripts/build_web_data.py --suite general
           python scripts/build_web_data.py --suite finance
           python scripts/build_clean_web_data.py
+          python scripts/build_insurance_web_data.py
           git diff --exit-code -- web/data/
-      - name: Run Node built-in UI logic tests
-        run: node --test tests/test_web.mjs
+      - name: Install pinned DOM test dependency (no runtime dependency)
+        run: npm ci --ignore-scripts --no-audit --no-fund
+      - name: Run UI logic and pure DOM regressions (no browser or model)
+        run: npm test

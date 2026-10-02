@@ -1,0 +1,87 @@
+# Dokument-Workbench
+
+Die Oberfläche ist ein neuer dokumentzentrierter Arbeitsplatz. Sie benötigt nur
+den lokalen Python-Server; weder ein Build-Schritt noch npm ist zum Starten nötig.
+Es gibt keine externen Fonts, Skripte, Bilder, Trackingdienste oder Cloud-API.
+
+## Ansichten
+
+- **Workbench:** Fallbibliothek, Originaldokument und Antwortprüfung nebeneinander.
+  Gold- und Modell-Evidenz sind getrennt markiert; alle Markierungen beziehen sich
+  auf vollständige, tatsächlich angebotene Klauseln. Die Gold-Referenzbegründung
+  ist eine Annotation, keine generierte Modellbegründung.
+- **Ergebnisse:** Entscheidungen, Evidenzauswahl und vollständig richtige Fälle
+  mit eigenen Nennern. Frühere Suiten behalten ihre Sprachkontrollen und Ergebnisse.
+- **Live testen:** eigenständiger Text-/Schemaeditor, 1–8 native Choice-Felder und
+  ausdrückliches lokales Backend-Opt-in. Jedes Feld wird vollständig angezeigt.
+- **Methodik:** Datengrundlage, Modellkonfiguration, Referenzannotation und Grenzen.
+
+Ab 1081 Pixeln bleibt die Desktopansicht dreigeteilt. Zwischen 761 und 1080 Pixeln
+steht die Prüfung unter dem Dokument; die Fallliste bleibt daneben. Bis 760 Pixel
+wird bewusst zwischen **Fälle**, **Dokument** und **Prüfung** umgeschaltet. Die
+Hauptnavigation liegt auf dem Smartphone unten. Die lokale Browserprüfung für
+320 und 390 Pixel ist vorbereitet, aber hier nicht ausgeführt.
+
+## Bedienung
+
+- Eine Fallkarte öffnet das zugehörige Dokument; auf dem Smartphone wechselt die
+  Ansicht zum Dokument. Die Pfeile im Dokumentkopf öffnen den vorherigen/nächsten
+  Fall innerhalb der aktuellen Filter.
+- **Entscheidung** und **Evidenz** sind getrennte Prüffelder. Beide zeigen Gold,
+  tatsächliche Modellwahl und alle Wahrscheinlichkeiten. Die Evidenzbuttons
+  springen direkt zu den annotierten bzw. tatsächlich gewählten Klauseln.
+- Kategorien-, Sprach-, Tag- und Ergebnisfilter lassen sich kombinieren. Es gibt
+  eigene Filter für falsche Entscheidungen und falsche Evidenz. Eine leere Liste
+  entfernt auch den vorherigen Dokument-/Ergebnisinhalt.
+- `/` fokussiert die Suche, sofern der Fokus nicht in einem Eingabefeld steht.
+  Pfeiltasten in der Fallliste wechseln zwischen Fällen. Neu gerenderte Ziele
+  erhalten bewusst den Fokus; Farbzustände haben zusätzliche Textlabels.
+- Deep-Links erhalten Suite, Fall und Feld, beispielsweise
+  `#explorer?suite=insurance&case=fall_031&field=evidence`. Sprachkontrollfälle
+  schalten auf ihren passenden Split um. Back/Forward bleiben nutzbar.
+- Das Theme wird, sofern erlaubt, lokal gespeichert. Ohne verfügbaren Browser-
+  Speicher funktioniert das Umschalten weiterhin für den offenen Tab.
+
+## Ergebniswahrheit
+
+1. Ausstehende Datensätze zeigen **keine** Scores, Wahrscheinlichkeiten oder
+   vorgetäuschten Modellantworten. Goldreferenzen bleiben als solche sichtbar.
+2. Abgeschlossene Daten werden zusätzlich im Browser strukturell geprüft:
+   Verifikationsstatus, geplante Fallzahlen, jedes Antwortfeld, Optionen,
+   Wahrscheinlichkeitsvektoren, Schema-Gültigkeit und Evidenzzuordnung. Die harte
+   Hash-/Rohdatenprüfung bleibt im Datenimporter; der Browser ersetzt sie nicht.
+3. Eine gespeicherte Antwort gehört nur zu ihrem unveränderten Modellinput.
+   Textänderungen, geänderte Regeln und eine geänderte **Fragenreihenfolge**
+   invalidieren Replay sofort. Die Vendor-Implementierung erhält die Reihenfolge
+   der Fragen, während sie Options-IDs sortiert.
+4. Während einer Live-Anfrage besitzt genau diese Anfrage ihren Editorsnapshot.
+   Dokumentnavigation ist erlaubt; Suitewechsel, Beispielersetzung und Bearbeitung
+   sind gesperrt. Ein älteres oder unvollständiges Ergebnis wird nie angehängt.
+5. Ein Fehler zeigt weder alte Antworten noch ein scheinbar plausibles Teilergebnis.
+   Es gibt keine simulierte Ersatzinferenz. Ein Tabwechsel beendet eine laufende
+   Serverberechnung nicht.
+6. Profile kommen vom Server. CPU/ROCm werden erst nach tatsächlichem Laden als
+   verwendetes Gerät dargestellt. Es gibt keinen funktionslosen GPU-Umschalter.
+
+## Testen
+
+```sh
+# Ohne npm: Logik und unveränderte historische Daten
+node --test tests/test_web.mjs
+
+# Zusätzlich: tatsächliche DOM-Interaktionen, ohne Browser/Netzwerksocket/Modell
+npm ci --ignore-scripts --no-audit --no-fund
+npm test
+```
+
+Die reine DOM-Regression verwendet die gepinnte Entwicklungsabhängigkeit
+LinkeDOM 0.18.13. Sie prüft tatsächlich gerenderte DOM-Knoten und Events. Die
+Testausgaben für Live-/Fehlerszenarien sind ausschließlich ausdrücklich markierte
+Testfixtures, nie Messdaten der ausgelieferten Website.
+
+LinkeDOM besitzt keine CSS-Layoutengine. Mobile Bereichszustände, CSS-Breakpoints,
+Kontrastwerte und Fokusaufrufe sind modellfrei geprüft; tatsächliche Pixel,
+Überlauf, visuelle Fokusringe und Screenreaderverhalten sind damit **nicht**
+verifiziert. Der optionale echte Browsertest steht in `tests/test_browser.py`.
+Es wurden keine Vorschau-Mockups als Screenshots ausgegeben. Weitere Einzelheiten:
+[VALIDATION.md](VALIDATION.md).

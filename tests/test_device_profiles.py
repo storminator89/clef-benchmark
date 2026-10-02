@@ -146,14 +146,18 @@ class AdapterProfileTests(unittest.TestCase):
         runtime._runtime_info = resolve_profile(torch, 'rocm-bf16', 1)
         runtime._torch = torch
         runtime._processor = SimpleNamespace(tokenizer=SimpleNamespace(pad_token_id=0))
-        encoded = SimpleNamespace(input_ids=[1, 2], questions=[SimpleNamespace(question_id='decision', option_ids=['a', 'b'])])
+        encoded = SimpleNamespace(input_ids=[1, 2], questions=[
+            SimpleNamespace(question_id='decision', option_ids=['a', 'b']),
+            SimpleNamespace(question_id='evidence', option_ids=['a', 'b'])])
         values = MagicMock()
         values.float.return_value.softmax.return_value.tolist.return_value = [0.7, 0.3]
-        runtime._model = lambda batch: events.append(('forward', batch)) or [[values]]
+        runtime._model = lambda batch: events.append(('forward', batch)) or [[values, values]]
         runtime._vendor = SimpleNamespace(encode_record=lambda *args, **kwargs: encoded,
             collate_records=lambda records, pad, device: events.append(('collate', device)) or 'batch',
-            systemone_answer=lambda question, probs: {'choice': 'a'})
-        request = {'state': 'test', 'questions': {'decision': {'type': 'choice', 'criteria': {'a': 'A', 'b': 'B'}}}}
+            systemone_answer=lambda question, probs: {'type': 'choice', 'choice': 'a'})
+        request = {'state': 'test', 'questions': {
+            'decision': {'type': 'choice', 'criteria': {'a': 'A', 'b': 'B'}},
+            'evidence': {'type': 'choice', 'criteria': {'a': 'A', 'b': 'B'}}}}
         with patch.object(runtime, '_ensure_loaded'):
             result = runtime.infer(request)
         self.assertEqual(events, [('collate', 'cuda:1'), ('sync', 'cuda:1'), ('forward', 'batch'), ('sync', 'cuda:1')])
@@ -161,6 +165,8 @@ class AdapterProfileTests(unittest.TestCase):
         self.assertEqual(result['runtime']['profile'], 'rocm-bf16')
         self.assertFalse(result['benchmark_result'])
         self.assertEqual(result['probabilities_unrounded']['decision'], {'a': 0.7, 'b': 0.3})
+        self.assertEqual(list(result['answers']), ['decision', 'evidence'])
+        self.assertEqual(result['probabilities_unrounded']['evidence'], {'a': 0.7, 'b': 0.3})
 
 
 class ServerProfileTests(unittest.TestCase):
@@ -172,11 +178,15 @@ class ServerProfileTests(unittest.TestCase):
 
     def test_profile_forwarded_once_and_health_reports_actual_runtime(self):
         info = resolve_profile(fake_torch(), 'rocm-fp16', 1)
-        runtime = SimpleNamespace(infer=lambda request: {'runtime': info}, status=lambda: {'state': 'ready', 'runtime': info})
+        request = {'state': 'test', 'questions': {'decision': {'type': 'choice', 'criteria': {'a': 'A', 'b': 'B'}}}}
+        runtime = SimpleNamespace(infer=lambda request: {'runtime': info,
+            'answers': {'decision': {'type': 'choice', 'choice': 'a'}},
+            'probabilities_unrounded': {'decision': {'a': 0.7, 'b': 0.3}}},
+            status=lambda: {'state': 'ready', 'runtime': info})
         factory = MagicMock(return_value=runtime)
         app = Workbench(True, Path('.'), factory, profile='rocm-fp16', device_index=1)
-        self.assertEqual(app.infer({})[0], 200)
-        self.assertEqual(app.infer({})[0], 200)
+        self.assertEqual(app.infer(request)[0], 200)
+        self.assertEqual(app.infer(request)[0], 200)
         factory.assert_called_once_with(Path('.'), profile='rocm-fp16', device_index=1)
         self.assertEqual(app.health()['runtime']['device'], 'cuda:1')
 

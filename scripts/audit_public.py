@@ -27,6 +27,8 @@ EXCLUDED = {'provenance/publication_audit.json', 'provenance/package_inventory.j
 # Reviewed immutable offline QA evidence included in the signed image package.
 SAFE_QA_LOGS = {'experiments/images/qa/build_summary.log': 'd59fd141ef568221126535efd6779a233559e75d1200d9d882ea72b370bfe1b5', 'experiments/images/qa/test_scorer.log': 'b52fd2030bf92de4dd39dd804082b2d46694302b3e58cf9795e8231d2f98f7c2'}
 
+SAFE_QA_LOGS['experiments/insurance/results/run.log'] = '2d0386f6098184ac51c78d962ecf02882c1d774a073598af36b0d175fccd9ee2'
+
 def extracted_text(path):
     if path.suffix == '.docx':
         with zipfile.ZipFile(path) as archive:

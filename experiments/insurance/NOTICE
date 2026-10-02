@@ -1,0 +1,4 @@
+Clef insurance document understanding experiment, 2 October 2026.
+Synthetic policy excerpts and scenarios are original test fixtures and do not describe any real insurer or insurance product. No legal or insurance advice is provided.
+The benchmark uses Cloudflare/clef-flash revision 17f0b0ad64efb65d273590632833508766b2aae6 under its upstream Apache-2.0 license. Model weights and its runtime dependencies are not redistributed here. Reproduction retrieves the official release separately. See upstream model repository for applicable notices.
+The original benchmark runner is retained unchanged from the earlier Clef text evaluation. The new data generator, scorer, documentation and scripts are published under this project's Apache-2.0 license.

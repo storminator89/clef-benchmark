@@ -38,3 +38,6 @@ test-results/
 experiments/*/reproduced/
 experiments/images/source/images/
 experiments/images/source/labels/
+
+# Reviewed immutable insurance-run log in the approved public export
+!experiments/insurance/results/run.log

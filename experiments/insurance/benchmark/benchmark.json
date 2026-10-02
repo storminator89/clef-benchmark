@@ -1,0 +1,2916 @@
+{
+  "metadata": {
+    "name": "Clef Versicherungsverständnis 60",
+    "version": "1.0.0",
+    "language": "de",
+    "synthetic": true,
+    "source": "Newly authored synthetic German insurance excerpts and fictitious scenarios; no real insurer policy reproduced.",
+    "areas": [
+      "Deckungsumfang und Definitionen",
+      "Ausschlüsse und Rückausnahmen",
+      "Voraussetzungen und Obliegenheiten",
+      "Nachweise und Verfahrensstatus",
+      "Nachträge und Dokumentvorrang",
+      "Unvollständige und widersprüchliche Akten"
+    ],
+    "case_count": 60,
+    "document_count": 12,
+    "cases_per_document": 5,
+    "fields": [
+      "decision",
+      "evidence"
+    ],
+    "seed": 202610021,
+    "limitations": [
+      "Purposive synthetic challenge set, not a random production sample.",
+      "Five cases share each document; cases and decisions are correlated.",
+      "No real legal interpretation, full policy PDFs, OCR, retrieval, arithmetic, generation, robustness or calibration test.",
+      "Evidence selection tests offered clause sets, not free-form citation generation.",
+      "Three conflict cases; small per-class samples."
+    ]
+  },
+  "documents": [
+    {
+      "id": "paket_01",
+      "title": "Hausrat · Versicherte Sachen und Orte",
+      "area": "Deckungsumfang und Definitionen",
+      "synthetic": true,
+      "clauses": [
+        {
+          "id": "H1",
+          "text": "Versichert sind bewegliche Sachen, die der versicherten Person gehören und ihrem privaten Haushalt dienen. Auch beruflich genutzte Arbeitsmittel sind versichert, soweit H2 sie einschließt."
+        },
+        {
+          "id": "H2",
+          "text": "Für berufliche Arbeitsmittel sind ausschließlich tragbare Computer und Bildschirme eingeschlossen. Warenbestände, Bargeld und Werkzeuge sind als berufliche Sachen nicht versichert."
+        },
+        {
+          "id": "H3",
+          "text": "Versicherungsort ist die im Schein genannte Wohnung einschließlich eines ausschließlich dieser Wohnung zugeordneten, abschließbaren Kellerraums. Gemeinschaftliche Abstellräume gehören nicht dazu."
+        },
+        {
+          "id": "H4",
+          "text": "Die Außenversicherung erfasst private Haushaltsgegenstände während vorübergehender Reisen. Ein dauerhafter Umzug gilt nicht als Reise. Berufliche Arbeitsmittel sind von der Außenversicherung ausgenommen."
+        },
+        {
+          "id": "H5",
+          "text": "Gegenstände fremder Personen sind nicht versichert. Abweichend davon sind privat geliehene Sachen eingeschlossen, wenn sie sich am Versicherungsort befinden."
+        },
+        {
+          "id": "H6",
+          "text": "Für die Einordnung einer Sache zählt die tatsächliche Nutzung am Schadentag, nicht die ursprüngliche Kaufabsicht."
+        },
+        {
+          "id": "H7",
+          "text": "Diese Auszüge regeln nur die versicherten Sachen und Orte. Ob eine bestimmte Schadenursache versichert ist, wird damit nicht festgestellt."
+        }
+      ]
+    },
+    {
+      "id": "paket_02",
+      "title": "Reise · Begriffe und versicherte Ereignisse",
+      "area": "Deckungsumfang und Definitionen",
+      "synthetic": true,
+      "clauses": [
+        {
+          "id": "R1",
+          "text": "Versicherte Reise ist ein privater Aufenthalt außerhalb des gewöhnlichen Wohnorts, der vor Reisebeginn verbindlich gebucht wurde. Reine Geschäftsreisen sind nicht versichert."
+        },
+        {
+          "id": "R2",
+          "text": "Reiserücktritt liegt vor, wenn die versicherte Person vor dem ersten gebuchten Beförderungs- oder Unterkunftssegment vollständig auf die Reise verzichtet. Ein bloßer Abbruch nach Reisebeginn ist kein Rücktritt."
+        },
+        {
+          "id": "R3",
+          "text": "Reisebeginn ist der Antritt des ersten gebuchten Segments. Die Fahrt von zu Hause zum Flughafen zählt nicht dazu, sofern sie nicht selbst ein gebuchtes Segment ist."
+        },
+        {
+          "id": "R4",
+          "text": "Als versichertes Rücktrittsereignis gilt eine unerwartete schwere Erkrankung der versicherten Person oder einer Risikoperson. Andere Ereignisse sind durch diesen Auszug nicht eingeschlossen."
+        },
+        {
+          "id": "R5",
+          "text": "Risikopersonen sind Ehepartner, eingetragene Lebenspartner und minderjährige eigene Kinder. Freunde und Arbeitskollegen sind keine Risikopersonen."
+        },
+        {
+          "id": "R6",
+          "text": "Die bloße Sorge vor einer Erkrankung ist keine Erkrankung im Sinne von R4. Eine bestätigte Diagnose allein belegt noch nicht, dass die Erkrankung schwer und unerwartet war."
+        },
+        {
+          "id": "R7",
+          "text": "Dieser Auszug enthält keine Bestimmung über Leistungen bei Reiseabbruch."
+        }
+      ]
+    },
+    {
+      "id": "paket_03",
+      "title": "Privathaftpflicht · Geliehene Sachen",
+      "area": "Ausschlüsse und Rückausnahmen",
+      "synthetic": true,
+      "clauses": [
+        {
+          "id": "L1",
+          "text": "Der Grundschutz erfasst gesetzliche Haftpflicht wegen fahrlässig verursachter Sachschäden im privaten Alltag, soweit kein Ausschluss greift."
+        },
+        {
+          "id": "L2",
+          "text": "Schäden an gemieteten, geliehenen oder zur Verwahrung übernommenen beweglichen Sachen sind ausgeschlossen."
+        },
+        {
+          "id": "L3",
+          "text": "Abweichend von L2 sind Schäden an privat geliehenen Musikinstrumenten eingeschlossen. Dieser Einschluss gilt nicht für berufliche Nutzung oder für den Verlust der Sache."
+        },
+        {
+          "id": "L4",
+          "text": "Schäden an Kraftfahrzeugen bleiben auch dann ausgeschlossen, wenn eine andere Bestimmung geliehene Sachen einschließt."
+        },
+        {
+          "id": "L5",
+          "text": "Vorsätzlich herbeigeführte Schäden sind ausgeschlossen. Ein absichtliches Benutzen einer Sache ist für sich allein keine vorsätzliche Herbeiführung des Schadens."
+        },
+        {
+          "id": "L6",
+          "text": "Der bloße Umstand, dass ein Gegenstand einem Freund gehört, beweist keine Leihe; eine Leihe setzt die vereinbarte zeitweise Überlassung zur Nutzung voraus."
+        },
+        {
+          "id": "L7",
+          "text": "Die folgenden Aussagen sind ausschließlich auf die jeweilige ausdrücklich benannte Ausschlussregel zu beziehen; weitere Voraussetzungen werden hierdurch nicht ersetzt."
+        }
+      ]
+    },
+    {
+      "id": "paket_04",
+      "title": "Gebäude · Wasser und Frost",
+      "area": "Ausschlüsse und Rückausnahmen",
+      "synthetic": true,
+      "clauses": [
+        {
+          "id": "W1",
+          "text": "Versichert sind Schäden durch bestimmungswidrig ausgetretenes Leitungswasser aus fest verlegten Trinkwasserleitungen oder angeschlossenen Haushaltsgeräten."
+        },
+        {
+          "id": "W2",
+          "text": "Niederschlagswasser und aufsteigendes Grundwasser sind vom Leitungswasserschutz ausgeschlossen, auch wenn sie durch eine beschädigte Gebäudestelle eindringen."
+        },
+        {
+          "id": "W3",
+          "text": "Frostbedingte Brüche an fest verlegten Trinkwasserleitungen sind eingeschlossen. Frostschäden an mobilen Gartenschläuchen sind nicht eingeschlossen."
+        },
+        {
+          "id": "W4",
+          "text": "Schimmel ist grundsätzlich ausgeschlossen. Abweichend davon ist er eingeschlossen, wenn er unmittelbare Folge eines nach W1 versicherten Leitungswasserschadens ist und kein anderer selbstständiger Schimmelauslöser vorliegt."
+        },
+        {
+          "id": "W5",
+          "text": "Bei mehreren Ursachen genügt für die Rückausnahme W4 nicht, dass Leitungswasser lediglich eine mögliche Ursache ist. Die unmittelbare Folge und das Fehlen eines anderen selbstständigen Auslösers müssen feststehen."
+        },
+        {
+          "id": "W6",
+          "text": "Schäden durch planmäßig zur Reinigung ausgeschüttetes Wasser gelten nicht als bestimmungswidriger Austritt aus einer Leitung oder einem Gerät."
+        },
+        {
+          "id": "W7",
+          "text": "Die Bezeichnung Wasserschaden in einer Meldung legt die Herkunft des Wassers nicht fest."
+        }
+      ]
+    },
+    {
+      "id": "paket_05",
+      "title": "Fahrrad · Sicherungsvoraussetzungen",
+      "area": "Voraussetzungen und Obliegenheiten",
+      "synthetic": true,
+      "clauses": [
+        {
+          "id": "F1",
+          "text": "Ein einfacher Diebstahl des Fahrrads außerhalb der Wohnung ist genau dann eingeschlossen, wenn das Rad im Schadentatbestand nach F2 gesichert war. Einbruchdiebstahl aus der Wohnung wird hier nicht geregelt."
+        },
+        {
+          "id": "F2",
+          "text": "Das Fahrrad muss mit einem eigenständigen Schloss an einen ortsfesten Gegenstand angeschlossen sein. Ein reines Rahmenschloss oder ein lediglich durch das Rad geführtes loses Schloss genügt nicht."
+        },
+        {
+          "id": "F3",
+          "text": "Innerhalb eines abgeschlossenen, ausschließlich vom Versicherungsnehmer genutzten Fahrradkellers entfällt das Anschließen an einen ortsfesten Gegenstand. Ein eigenständiges verschlossenes Schloss am Rad bleibt erforderlich."
+        },
+        {
+          "id": "F4",
+          "text": "Ein gemeinschaftlicher Fahrradkeller fällt nicht unter F3, auch wenn seine Tür abgeschlossen ist."
+        },
+        {
+          "id": "F5",
+          "text": "Die Sicherungsregeln F2 bis F4 gelten zu jeder Tageszeit. Aus nächtlichem Abstellen allein folgt kein zusätzlicher Ausschluss."
+        },
+        {
+          "id": "F6",
+          "text": "Für den Einschluss nach F1 sind außer der Sicherung keine weiteren Voraussetzungen in diesem Dokument geregelt."
+        },
+        {
+          "id": "F7",
+          "text": "Ein Kaufbeleg weist das Eigentum nach, nicht die Sicherung am Schadenort."
+        }
+      ]
+    },
+    {
+      "id": "paket_06",
+      "title": "Schadenverfahren · Meldung und Folgen",
+      "area": "Voraussetzungen und Obliegenheiten",
+      "synthetic": true,
+      "clauses": [
+        {
+          "id": "O1",
+          "text": "Ein Schaden soll unverzüglich nach seiner Entdeckung gemeldet werden. Die verspätete Meldung führt nicht automatisch zum Verlust des Leistungsanspruchs."
+        },
+        {
+          "id": "O2",
+          "text": "Eine vollständige Leistungsablehnung wegen verspäteter Meldung ist nach diesen Bedingungen genau dann zulässig, wenn die Verspätung vorsätzlich war und die Feststellung des Versicherungsfalls tatsächlich erschwert hat."
+        },
+        {
+          "id": "O3",
+          "text": "Bei nur fahrlässiger Verspätung ist eine vollständige Ablehnung aus diesem Grund nicht zulässig. Eine andere Leistungsfolge wird hier nicht geregelt."
+        },
+        {
+          "id": "O4",
+          "text": "Notwendige Sofortmaßnahmen zur Abwendung größerer Schäden dürfen vor Rücksprache erfolgen. Ihr Umfang soll soweit möglich dokumentiert werden."
+        },
+        {
+          "id": "O5",
+          "text": "Nicht dringende Reparaturen dürfen erst nach Freigabe beauftragt werden. Ein Kostenvoranschlag ist noch kein Reparaturauftrag."
+        },
+        {
+          "id": "O6",
+          "text": "Eine Freigabe zur Besichtigung ist keine Freigabe zur Reparatur. Eine Freigabe zur Reparatur ist keine Zusage der Kostenerstattung."
+        },
+        {
+          "id": "O7",
+          "text": "Ob der Schaden dem Grunde nach versichert ist, wird unabhängig von den hier beschriebenen Verfahrensschritten geprüft."
+        }
+      ]
+    },
+    {
+      "id": "paket_07",
+      "title": "Hausrat · Nachweisalternativen",
+      "area": "Nachweise und Verfahrensstatus",
+      "synthetic": true,
+      "clauses": [
+        {
+          "id": "N1",
+          "text": "Für den Eigentumsnachweis genügt entweder eine auf die versicherte Person ausgestellte Rechnung oder gemeinsam ein Foto des Gegenstands und ein zugehöriger, eindeutig zuordenbarer Kontoauszug. Andere Nachweiswege sind in diesem Paket nicht vereinbart."
+        },
+        {
+          "id": "N2",
+          "text": "Bei Diebstahl ist zusätzlich eine polizeiliche Anzeigenbestätigung erforderlich. Sie ersetzt den Eigentumsnachweis nicht."
+        },
+        {
+          "id": "N3",
+          "text": "Für den Nachweis der Beschädigung genügt ein aussagekräftiges Schadenfoto oder ein Reparaturbericht, der den Gegenstand eindeutig bezeichnet. Beide Dokumente müssen nicht gleichzeitig vorliegen."
+        },
+        {
+          "id": "N4",
+          "text": "Bei Verlust ohne Beschädigung ist N3 nicht anzuwenden. Diebstahl und Verlust sind für die Anzeigenpflicht N2 nicht gleichgestellt."
+        },
+        {
+          "id": "N5",
+          "text": "Eine Zahlungsbestätigung ohne Bezeichnung oder Zuordnung des gekauften Gegenstands ist kein zugehöriger Kontoauszug im Sinne von N1."
+        },
+        {
+          "id": "N6",
+          "text": "Die Vollständigkeit der Unterlagen ist keine Anerkennung der Deckung oder der geforderten Schadenhöhe."
+        },
+        {
+          "id": "N7",
+          "text": "Eine Nachforderung muss benennen, welcher der vereinbarten Nachweise fehlt; sie darf nicht aus einer Oder-Verknüpfung eine Pflicht zu beiden Alternativen machen."
+        }
+      ]
+    },
+    {
+      "id": "paket_08",
+      "title": "Leistungsprüfung · Medizinische Bescheinigung",
+      "area": "Nachweise und Verfahrensstatus",
+      "synthetic": true,
+      "clauses": [
+        {
+          "id": "M1",
+          "text": "Für den vertraglichen Nachweis einer Reiseunfähigkeit ist eine ärztliche Bescheinigung erforderlich, die die versicherte Person, den Untersuchungszeitpunkt und eine konkrete Reiseunfähigkeit für die gebuchte Reise bestätigt."
+        },
+        {
+          "id": "M2",
+          "text": "Eine Arbeitsunfähigkeitsbescheinigung ohne Aussage zur konkreten Reise ersetzt den Nachweis nach M1 nicht."
+        },
+        {
+          "id": "M3",
+          "text": "Die Diagnose muss in dieser Bescheinigung nicht genannt werden. Das Fehlen der Diagnose ist allein kein formaler Mangel."
+        },
+        {
+          "id": "M4",
+          "text": "Ein Attest kann digital eingereicht werden. Ein Original auf Papier ist nur erforderlich, wenn seine Vorlage unter Angabe eines konkreten Echtheitszweifels ausdrücklich angefordert wurde."
+        },
+        {
+          "id": "M5",
+          "text": "Ein Eingangshinweis des Portals bestätigt nur den Empfang. Er bestätigt weder die formale Vollständigkeit noch die materielle Berechtigung des Anspruchs."
+        },
+        {
+          "id": "M6",
+          "text": "Eine Bescheinigung nach M1 betrifft allein den Nachweis der Reiseunfähigkeit. Ob ein versichertes Ereignis und alle übrigen Leistungsvoraussetzungen vorliegen, wird gesondert geprüft."
+        },
+        {
+          "id": "M7",
+          "text": "Ein Ausstellungsdatum ist kein ausdrücklich benannter Untersuchungszeitpunkt, wenn die Bescheinigung beides nicht gleichsetzt."
+        }
+      ]
+    },
+    {
+      "id": "paket_09",
+      "title": "Elektronik · Vertrag und Nachtrag",
+      "area": "Nachträge und Dokumentvorrang",
+      "synthetic": true,
+      "clauses": [
+        {
+          "id": "V1",
+          "text": "Rangfolge: Ein zum Schadentag wirksamer individueller Nachtrag geht dem Versicherungsschein und den allgemeinen Bedingungen vor. Der Schein geht den allgemeinen Bedingungen vor. Broschüren ändern den Vertrag nicht."
+        },
+        {
+          "id": "V2",
+          "text": "Allgemeine Bedingungen, Fassung A: Beschädigungen durch versehentliches Fallenlassen tragbarer Computer sind nicht versichert."
+        },
+        {
+          "id": "V3",
+          "text": "Versicherungsschein: Versicherte Geräte sind die im Verzeichnis genannten tragbaren Computer. Das Verzeichnis enthält Gerät Delta."
+        },
+        {
+          "id": "V4",
+          "text": "Individueller Nachtrag, gültig ab 1. Juli 2026: Für Gerät Delta sind versehentliche Sturzschäden eingeschlossen. Für andere Geräte bleibt der Ausschluss unverändert."
+        },
+        {
+          "id": "V5",
+          "text": "Broschüre, Ausgabe August 2026: Unser Geräteschutz begleitet alle Ihre Computer auch bei Missgeschicken."
+        },
+        {
+          "id": "V6",
+          "text": "Der Nachtrag wirkt nicht rückwirkend; maßgeblich ist der Schadentag, nicht der Meldetag."
+        },
+        {
+          "id": "V7",
+          "text": "Weitere Änderungen sind in diesem vollständigen Paket nicht enthalten."
+        }
+      ]
+    },
+    {
+      "id": "paket_10",
+      "title": "Wohngebäude · Geltung mehrerer Nachträge",
+      "area": "Nachträge und Dokumentvorrang",
+      "synthetic": true,
+      "clauses": [
+        {
+          "id": "Z1",
+          "text": "Individuelle Nachträge gehen allgemeinen Bedingungen vor. Eine spätere Unterzeichnung verdrängt frühere Nachträge nur, wenn der spätere Text die ersetzte Regel ausdrücklich nennt. Gleiche Rangstufe ohne solche Auflösung wird nicht durch das Dateidatum entschieden."
+        },
+        {
+          "id": "Z2",
+          "text": "Allgemeine Bedingungen: Überschwemmungsschäden sind nicht versichert."
+        },
+        {
+          "id": "Z3",
+          "text": "Nachtrag Alpha, von beiden Parteien unterzeichnet und für den ganzen Prüfzeitraum wirksam: Überschwemmungsschäden am Wohngebäude sind eingeschlossen."
+        },
+        {
+          "id": "Z4",
+          "text": "Nachtrag Beta, ebenfalls unterzeichnet und für denselben Prüfzeitraum wirksam: Überschwemmungsschäden am Wohngebäude sind ausgeschlossen. Beta enthält keine Aufhebung von Alpha."
+        },
+        {
+          "id": "Z5",
+          "text": "Nachtrag Gamma, für den ganzen Prüfzeitraum wirksam: Für Schäden an der Garage ersetzt Gamma die Regel aus Beta; Überschwemmungsschäden an der Garage sind eingeschlossen. Gamma trifft keine Regel über das Wohngebäude."
+        },
+        {
+          "id": "Z6",
+          "text": "Der Anhang Entwurf Delta wurde von keiner Partei unterzeichnet und ist als unverbindlicher Verhandlungsvorschlag gekennzeichnet; er erweitert keinen Schutz."
+        },
+        {
+          "id": "Z7",
+          "text": "Wohngebäude und Garage sind in diesem Paket getrennte versicherte Objekte. Aussagen über eines gelten nicht automatisch für das andere."
+        }
+      ]
+    },
+    {
+      "id": "paket_11",
+      "title": "Gewerbe · Fehlende Vertragsangaben",
+      "area": "Unvollständige und widersprüchliche Akten",
+      "synthetic": true,
+      "clauses": [
+        {
+          "id": "U1",
+          "text": "Versichert ist nur die Betriebsstätte, deren Anschrift im verbindlichen Versicherungsschein genannt ist. Eine Angebotsanschrift beweist den vereinbarten Versicherungsort nicht."
+        },
+        {
+          "id": "U2",
+          "text": "Die Akte enthält ein Angebot für Standort Nord, aber keinen Versicherungsschein und keine bestätigte Annahme dieses Angebots."
+        },
+        {
+          "id": "U3",
+          "text": "Elektronikschutz besteht nur, wenn der Baustein im Versicherungsschein ausdrücklich als aktiv ausgewiesen ist. In dieser Akte fehlt eine solche Ausweisung ebenso wie eine verbindliche Deaktivierung."
+        },
+        {
+          "id": "U4",
+          "text": "Ein Beratungsvermerk empfiehlt Elektronikschutz. Eine Empfehlung aktiviert den Baustein nicht."
+        },
+        {
+          "id": "U5",
+          "text": "Schäden aus vorsätzlicher Herbeiführung durch den Versicherungsnehmer sind ausgeschlossen; fahrlässige Herbeiführung fällt nicht unter diesen Ausschluss."
+        },
+        {
+          "id": "U6",
+          "text": "Die Schadenaufnahme beschreibt das Geschehen, enthält aber keine Feststellung dazu, ob der Versicherungsnehmer vorsätzlich oder fahrlässig handelte."
+        },
+        {
+          "id": "U7",
+          "text": "Fehlende Dokumente dürfen nicht als Beleg für den gegenteiligen Vertragsinhalt gewertet werden. Ein Angebotsstatus ist weder Deckungszusage noch verbindliche Ablehnung."
+        }
+      ]
+    },
+    {
+      "id": "paket_12",
+      "title": "Reiseschutz · Widersprüchliche Bestätigungen",
+      "area": "Unvollständige und widersprüchliche Akten",
+      "synthetic": true,
+      "clauses": [
+        {
+          "id": "K1",
+          "text": "Für den Prüfzeitraum liegen zwei von beiden Parteien unterzeichnete Vertragsbestätigungen gleicher Rangstufe vor. Keine ist als Ersatz der anderen bezeichnet. Es existiert keine vereinbarte Regel, die eine davon vorzieht."
+        },
+        {
+          "id": "K2",
+          "text": "Bestätigung Epsilon: Der Schutz gilt weltweit einschließlich Kanada. Reine Geschäftsreisen sind eingeschlossen."
+        },
+        {
+          "id": "K3",
+          "text": "Bestätigung Zeta: Kanada ist vom räumlichen Geltungsbereich ausgeschlossen. Reine Geschäftsreisen sind ausgeschlossen."
+        },
+        {
+          "id": "K4",
+          "text": "Beide Bestätigungen stimmen darin überein, dass private Reisen nach Portugal räumlich eingeschlossen sind."
+        },
+        {
+          "id": "K5",
+          "text": "Die Informationskarte ist unverbindlich und nennt nur Europa. Sie hat keinen Vorrang vor einer unterzeichneten Bestätigung."
+        },
+        {
+          "id": "K6",
+          "text": "Die eingereichte Buchung ist eine Reise nach Kanada. Ob sie privat oder geschäftlich ist, ist in der Buchung nicht angegeben."
+        },
+        {
+          "id": "K7",
+          "text": "Keine Unterlage regelt, ob Wintersport als Tätigkeit eingeschlossen oder ausgeschlossen ist. Aus dem räumlichen Geltungsbereich allein lässt sich keine Tätigkeitsdeckung ableiten."
+        }
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "document_id": "paket_03",
+      "area": "Ausschlüsse und Rückausnahmen",
+      "scenario": "Die versicherte Person spielt absichtlich Klavier, beschädigt es dabei aber nachweislich nur fahrlässig.",
+      "claim": "Allein das absichtliche Spielen löst den Vorsatzausschluss L5 aus.",
+      "expected": {
+        "decision": "nein",
+        "evidence_clauses": [
+          "L5"
+        ],
+        "evidence": "b1"
+      },
+      "rationale": "Absichtliches Benutzen ist nicht gleich absichtliches Schädigen.",
+      "id": "fall_001",
+      "tags": [],
+      "evidence_options": {
+        "b1": [
+          "L5"
+        ],
+        "b2": [
+          "L3"
+        ],
+        "b3": [
+          "L4"
+        ],
+        "b4": [
+          "L6"
+        ],
+        "b5": [
+          "L2"
+        ]
+      },
+      "decision_options": {
+        "offen": "Weder Aussage noch Gegenteil sind entscheidbar: notwendige Information fehlt; kein unaufgelöster maßgeblicher Regelwiderspruch.",
+        "ja": "Die Aussage ist durch die maßgeblichen Unterlagen und den Sachverhalt gestützt.",
+        "konflikt": "Die für diese Aussage maßgeblichen Unterlagen widersprechen sich ausdrücklich und der Widerspruch ist durch keinen vereinbarten Vorrang auflösbar.",
+        "nein": "Die Aussage wird durch die maßgeblichen Unterlagen und den Sachverhalt widerlegt."
+      }
+    },
+    {
+      "document_id": "paket_05",
+      "area": "Voraussetzungen und Obliegenheiten",
+      "scenario": "Das Rad steht im abgeschlossenen, ausschließlich vom Versicherungsnehmer genutzten Fahrradkeller. Ein eigenständiges geschlossenes Schloss sichert das Rad ohne ortsfeste Verbindung.",
+      "claim": "Die Sicherung genügt nach den Bedingungen.",
+      "expected": {
+        "decision": "ja",
+        "evidence_clauses": [
+          "F3"
+        ],
+        "evidence": "b1"
+      },
+      "rationale": "Privatkeller-Ausnahme beseitigt Anschließpflicht, eigenes Schloss bleibt erfüllt.",
+      "id": "fall_002",
+      "tags": [],
+      "evidence_options": {
+        "b1": [
+          "F3"
+        ],
+        "b2": [
+          "F7"
+        ],
+        "b3": [
+          "F5"
+        ],
+        "b4": [
+          "F6"
+        ],
+        "b5": [
+          "F1"
+        ]
+      },
+      "decision_options": {
+        "offen": "Weder Aussage noch Gegenteil sind entscheidbar: notwendige Information fehlt; kein unaufgelöster maßgeblicher Regelwiderspruch.",
+        "ja": "Die Aussage ist durch die maßgeblichen Unterlagen und den Sachverhalt gestützt.",
+        "konflikt": "Die für diese Aussage maßgeblichen Unterlagen widersprechen sich ausdrücklich und der Widerspruch ist durch keinen vereinbarten Vorrang auflösbar.",
+        "nein": "Die Aussage wird durch die maßgeblichen Unterlagen und den Sachverhalt widerlegt."
+      }
+    },
+    {
+      "document_id": "paket_01",
+      "area": "Deckungsumfang und Definitionen",
+      "scenario": "Ein der versicherten Person gehörender Laptop wird ausschließlich beruflich genutzt und steht in der versicherten Wohnung.",
+      "claim": "Der Laptop gehört dort zu den versicherten Sachen.",
+      "expected": {
+        "decision": "ja",
+        "evidence_clauses": [
+          "H2"
+        ],
+        "evidence": "b5"
+      },
+      "rationale": "H1 öffnet berufliche Arbeitsmittel; H2 schließt tragbare Computer ein.",
+      "id": "fall_003",
+      "tags": [],
+      "evidence_options": {
+        "b1": [
+          "H3"
+        ],
+        "b2": [
+          "H6"
+        ],
+        "b3": [
+          "H7"
+        ],
+        "b4": [
+          "H1"
+        ],
+        "b5": [
+          "H2"
+        ]
+      },
+      "decision_options": {
+        "nein": "Die Aussage wird durch die maßgeblichen Unterlagen und den Sachverhalt widerlegt.",
+        "ja": "Die Aussage ist durch die maßgeblichen Unterlagen und den Sachverhalt gestützt.",
+        "konflikt": "Die für diese Aussage maßgeblichen Unterlagen widersprechen sich ausdrücklich und der Widerspruch ist durch keinen vereinbarten Vorrang auflösbar.",
+        "offen": "Weder Aussage noch Gegenteil sind entscheidbar: notwendige Information fehlt; kein unaufgelöster maßgeblicher Regelwiderspruch."
+      }
+    },
+    {
+      "document_id": "paket_12",
+      "area": "Unvollständige und widersprüchliche Akten",
+      "scenario": "Die unterzeichneten Bestätigungen widersprechen sich für Kanada. Die unverbindliche Informationskarte nennt nur Europa.",
+      "claim": "Die Informationskarte löst den Vertragswiderspruch verbindlich zugunsten des Ausschlusses von Kanada auf.",
+      "expected": {
+        "decision": "nein",
+        "evidence_clauses": [
+          "K5"
+        ],
+        "evidence": "b3"
+      },
+      "rationale": "Informationskarte ist unverbindlich und ohne Vorrang.",
+      "id": "fall_004",
+      "tags": [],
+      "evidence_options": {
+        "b1": [
+          "K7"
+        ],
+        "b2": [
+          "K3"
+        ],
+        "b3": [
+          "K5"
+        ],
+        "b4": [
+          "K4"
+        ],
+        "b5": [
+          "K2"
+        ]
+      },
+      "decision_options": {
+        "nein": "Die Aussage wird durch die maßgeblichen Unterlagen und den Sachverhalt widerlegt.",
+        "konflikt": "Die für diese Aussage maßgeblichen Unterlagen widersprechen sich ausdrücklich und der Widerspruch ist durch keinen vereinbarten Vorrang auflösbar.",
+        "offen": "Weder Aussage noch Gegenteil sind entscheidbar: notwendige Information fehlt; kein unaufgelöster maßgeblicher Regelwiderspruch.",
+        "ja": "Die Aussage ist durch die maßgeblichen Unterlagen und den Sachverhalt gestützt."
+      }
+    },
+    {
+      "document_id": "paket_11",
+      "area": "Unvollständige und widersprüchliche Akten",
+      "scenario": "Aus dem fehlenden Versicherungsschein wird geschlossen, es gebe verbindlich keinen Elektronikschutz.",
+      "claim": "Das Fehlen des Scheins beweist die verbindliche Deaktivierung des Elektronikbausteins.",
+      "expected": {
+        "decision": "nein",
+        "evidence_clauses": [
+          "U7"
+        ],
+        "evidence": "b5"
+      },
+      "rationale": "Fehlen beweist ausdrücklich keinen gegenteiligen Vertragsinhalt.",
+      "id": "fall_005",
+      "tags": [],
+      "evidence_options": {
+        "b1": [
+          "U2"
+        ],
+        "b2": [
+          "U5"
+        ],
+        "b3": [
+          "U6"
+        ],
+        "b4": [
+          "U1"
+        ],
+        "b5": [
+          "U7"
+        ]
+      },
+      "decision_options": {
+        "konflikt": "Die für diese Aussage maßgeblichen Unterlagen widersprechen sich ausdrücklich und der Widerspruch ist durch keinen vereinbarten Vorrang auflösbar.",
+        "nein": "Die Aussage wird durch die maßgeblichen Unterlagen und den Sachverhalt widerlegt.",
+        "ja": "Die Aussage ist durch die maßgeblichen Unterlagen und den Sachverhalt gestützt.",
+        "offen": "Weder Aussage noch Gegenteil sind entscheidbar: notwendige Information fehlt; kein unaufgelöster maßgeblicher Regelwiderspruch."
+      }
+    },
+    {
+      "document_id": "paket_09",
+      "area": "Nachträge und Dokumentvorrang",
+      "scenario": "Gerät Delta wird am 10. August 2026 durch versehentliches Fallenlassen beschädigt.",
+      "claim": "Dieser Sturzschaden ist trotz V2 eingeschlossen.",
+      "expected": {
+        "decision": "ja",
+        "evidence_clauses": [
+          "V1",
+          "V4"
+        ],
+        "evidence": "b5"
+      },
+      "rationale": "Wirksamer individueller Nachtrag geht dem allgemeinen Ausschluss vor.",
+      "id": "fall_006",
+      "tags": [
+        "date_version_application"
+      ],
+      "evidence_options": {
+        "b1": [
+          "V3",
+          "V7"
+        ],
+        "b2": [
+          "V6",
+          "V7"
+        ],
+        "b3": [
+          "V1",
+          "V3"
+        ],
+        "b4": [
+          "V4",
+          "V5"
+        ],
+        "b5": [
+          "V1",
+          "V4"
+        ]
+      },
+      "decision_options": {
+        "ja": "Die Aussage ist durch die maßgeblichen Unterlagen und den Sachverhalt gestützt.",
+        "offen": "Weder Aussage noch Gegenteil sind entscheidbar: notwendige Information fehlt; kein unaufgelöster maßgeblicher Regelwiderspruch.",
+        "nein": "Die Aussage wird durch die maßgeblichen Unterlagen und den Sachverhalt widerlegt.",
+        "konflikt": "Die für diese Aussage maßgeblichen Unterlagen widersprechen sich ausdrücklich und der Widerspruch ist durch keinen vereinbarten Vorrang auflösbar."
+      }
+    },
+    {
+      "document_id": "paket_10",
+      "area": "Nachträge und Dokumentvorrang",
+      "scenario": "Beta wurde später als Alpha unterzeichnet, enthält aber keine ausdrückliche Ersetzung von Alpha.",
+      "claim": "Allein die spätere Unterzeichnung löst den Widerspruch zugunsten von Beta auf.",
+      "expected": {
+        "decision": "nein",
+        "evidence_clauses": [
+          "Z1"
+        ],
+        "evidence": "b3"
+      },
+      "rationale": "Spätere Unterzeichnung allein genügt nach der speziellen Rangfolgeregel nicht.",
+      "id": "fall_007",
+      "tags": [],
+      "evidence_options": {
+        "b1": [
+          "Z6"
+        ],
+        "b2": [
+          "Z5"
+        ],
+        "b3": [
+          "Z1"
+        ],
+        "b4": [
+          "Z7"
+        ],
+        "b5": [
+          "Z4"
+        ]
+      },
+      "decision_options": {
+        "konflikt": "Die für diese Aussage maßgeblichen Unterlagen widersprechen sich ausdrücklich und der Widerspruch ist durch keinen vereinbarten Vorrang auflösbar.",
+        "offen": "Weder Aussage noch Gegenteil sind entscheidbar: notwendige Information fehlt; kein unaufgelöster maßgeblicher Regelwiderspruch.",
+        "ja": "Die Aussage ist durch die maßgeblichen Unterlagen und den Sachverhalt gestützt.",
+        "nein": "Die Aussage wird durch die maßgeblichen Unterlagen und den Sachverhalt widerlegt."
+      }
+    },
+    {
+      "document_id": "paket_03",
+      "area": "Ausschlüsse und Rückausnahmen",
+      "scenario": "Ein Freund besitzt die beschädigte Kamera. Ob sie zur Nutzung überlassen wurde, ist nicht dokumentiert.",
+      "claim": "Die Kamera ist als geliehene Sache im Sinne von L2 einzuordnen.",
+      "expected": {
+        "decision": "offen",
+        "evidence_clauses": [
+          "L6"
+        ],
+        "evidence": "b5"
+      },
+      "rationale": "Fremdes Eigentum genügt nicht; Vereinbarung über Überlassung fehlt.",
+      "id": "fall_008",
+      "tags": [],
+      "evidence_options": {
+        "b1": [
+          "L5"
+        ],
+        "b2": [
+          "L1"
+        ],
+        "b3": [
+          "L4"
+        ],
+        "b4": [
+          "L7"
+        ],
+        "b5": [
+          "L6"
+        ]
+      },
+      "decision_options": {
+        "ja": "Die Aussage ist durch die maßgeblichen Unterlagen und den Sachverhalt gestützt.",
+        "offen": "Weder Aussage noch Gegenteil sind entscheidbar: notwendige Information fehlt; kein unaufgelöster maßgeblicher Regelwiderspruch.",
+        "konflikt": "Die für diese Aussage maßgeblichen Unterlagen widersprechen sich ausdrücklich und der Widerspruch ist durch keinen vereinbarten Vorrang auflösbar.",
+        "nein": "Die Aussage wird durch die maßgeblichen Unterlagen und den Sachverhalt widerlegt."
+      }
+    },
+    {
+      "document_id": "paket_06",
+      "area": "Voraussetzungen und Obliegenheiten",
+      "scenario": "Die Verspätung war nachweislich vorsätzlich und hat die Feststellung des Versicherungsfalls tatsächlich erschwert.",
+      "claim": "O2 erlaubt eine vollständige Ablehnung wegen dieser Verspätung.",
+      "expected": {
+        "decision": "ja",
+        "evidence_clauses": [
+          "O2"
+        ],
+        "evidence": "b1"
+      },
+      "rationale": "Beide kumulativen Bedingungen sind erfüllt.",
+      "id": "fall_009",
+      "tags": [],
+      "evidence_options": {
+        "b1": [
+          "O2"
+        ],
+        "b2": [
+          "O5"
+        ],
+        "b3": [
+          "O3"
+        ],
+        "b4": [
+          "O6"
+        ],
+        "b5": [
+          "O1"
+        ]
+      },
+      "decision_options": {
+        "nein": "Die Aussage wird durch die maßgeblichen Unterlagen und den Sachverhalt widerlegt.",
+        "konflikt": "Die für diese Aussage maßgeblichen Unterlagen widersprechen sich ausdrücklich und der Widerspruch ist durch keinen vereinbarten Vorrang auflösbar.",
+        "offen": "Weder Aussage noch Gegenteil sind entscheidbar: notwendige Information fehlt; kein unaufgelöster maßgeblicher Regelwiderspruch.",
+        "ja": "Die Aussage ist durch die maßgeblichen Unterlagen und den Sachverhalt gestützt."
+      }
+    },
+    {
+      "document_id": "paket_05",
+      "area": "Voraussetzungen und Obliegenheiten",
+      "scenario": "Ein Rad steht in einem abgeschlossenen gemeinschaftlichen Keller. Ein eigenständiges Schloss blockiert das Rad, ist aber nirgends angeschlossen.",
+      "claim": "Die Sicherung erfüllt die Bedingungen durch die Keller-Ausnahme.",
+      "expected": {
+        "decision": "nein",
+        "evidence_clauses": [
+          "F4"
+        ],
+        "evidence": "b1"
+      },
+      "rationale": "Gemeinschaftskeller ist keine Ausnahme; ortsfeste Verbindung fehlt.",
+      "id": "fall_010",
+      "tags": [],
+      "evidence_options": {
+        "b1": [
+          "F4"
+        ],
+        "b2": [
+          "F1"
+        ],
+        "b3": [
+          "F6"
+        ],
+        "b4": [
+          "F5"
+        ],
+        "b5": [
+          "F7"
+        ]
+      },
+      "decision_options": {
+        "ja": "Die Aussage ist durch die maßgeblichen Unterlagen und den Sachverhalt gestützt.",
+        "nein": "Die Aussage wird durch die maßgeblichen Unterlagen und den Sachverhalt widerlegt.",
+        "offen": "Weder Aussage noch Gegenteil sind entscheidbar: notwendige Information fehlt; kein unaufgelöster maßgeblicher Regelwiderspruch.",
+        "konflikt": "Die für diese Aussage maßgeblichen Unterlagen widersprechen sich ausdrücklich und der Widerspruch ist durch keinen vereinbarten Vorrang auflösbar."
+      }
+    },
+    {
+      "document_id": "paket_07",
+      "area": "Nachweise und Verfahrensstatus",
+      "scenario": "Nach einem Diebstahl liegen nur ein Foto des Gegenstands und eine polizeiliche Anzeigenbestätigung vor. Es gibt weder Rechnung noch zuordenbaren Kontoauszug.",
+      "claim": "Eigentumsnachweis und zusätzlicher Diebstahlnachweis sind vollständig.",
+      "expected": {
+        "decision": "nein",
+        "evidence_clauses": [
+          "N1"
+        ],
+        "evidence": "b1"
+      },
+      "rationale": "Foto allein erfüllt N1 nicht; Polizeibestätigung ersetzt es nicht.",
+      "id": "fall_011",
+      "tags": [],
+      "evidence_options": {
+        "b1": [
+          "N1"
+        ],
+        "b2": [
+          "N2"
+        ],
+        "b3": [
+          "N7"
+        ],
+        "b4": [
+          "N4"
+        ],
+        "b5": [
+          "N5"
+        ]
+      },
+      "decision_options": {
+        "konflikt": "Die für diese Aussage maßgeblichen Unterlagen widersprechen sich ausdrücklich und der Widerspruch ist durch keinen vereinbarten Vorrang auflösbar.",
+        "offen": "Weder Aussage noch Gegenteil sind entscheidbar: notwendige Information fehlt; kein unaufgelöster maßgeblicher Regelwiderspruch.",
+        "nein": "Die Aussage wird durch die maßgeblichen Unterlagen und den Sachverhalt widerlegt.",
+        "ja": "Die Aussage ist durch die maßgeblichen Unterlagen und den Sachverhalt gestützt."
+      }
+    },
+    {
+      "document_id": "paket_09",
+      "area": "Nachträge und Dokumentvorrang",
+      "scenario": "Ein anderes tragbares Gerät als Delta fällt am 10. August 2026 versehentlich herunter.",
+      "claim": "V4 hebt den Sturzausschluss für dieses andere Gerät auf.",
+      "expected": {
+        "decision": "nein",
+        "evidence_clauses": [
+          "V4"
+        ],
+        "evidence": "b4"
+      },
+      "rationale": "Der Nachtrag beschränkt sich auf Delta und lässt andere Ausschlüsse unverändert.",
+      "id": "fall_012",
+      "tags": [],
+      "evidence_options": {
+        "b1": [
+          "V7"
+        ],
+        "b2": [
+          "V1"
+        ],
+        "b3": [
+          "V6"
+        ],
+        "b4": [
+          "V4"
+        ],
+        "b5": [
+          "V5"
+        ]
+      },
+      "decision_options": {
+        "offen": "Weder Aussage noch Gegenteil sind entscheidbar: notwendige Information fehlt; kein unaufgelöster maßgeblicher Regelwiderspruch.",
+        "nein": "Die Aussage wird durch die maßgeblichen Unterlagen und den Sachverhalt widerlegt.",
+        "konflikt": "Die für diese Aussage maßgeblichen Unterlagen widersprechen sich ausdrücklich und der Widerspruch ist durch keinen vereinbarten Vorrang auflösbar.",
+        "ja": "Die Aussage ist durch die maßgeblichen Unterlagen und den Sachverhalt gestützt."
+      }
+    },
+    {
+      "document_id": "paket_05",
+      "area": "Voraussetzungen und Obliegenheiten",
+      "scenario": "Draußen wird ein Rad nur mit dem eingebauten Rahmenschloss verschlossen.",
+      "claim": "Die Sicherungsvoraussetzung F2 ist erfüllt.",
+      "expected": {
+        "decision": "nein",
+        "evidence_clauses": [
+          "F2"
+        ],
+        "evidence": "b1"
+      },
+      "rationale": "Rahmenschloss allein ist ausdrücklich ungenügend.",
+      "id": "fall_013",
+      "tags": [],
+      "evidence_options": {
+        "b1": [
+          "F2"
+        ],
+        "b2": [
+          "F7"
+        ],
+        "b3": [
+          "F1"
+        ],
+        "b4": [
+          "F6"
+        ],
+        "b5": [
+          "F4"
+        ]
+      },
+      "decision_options": {
+        "offen": "Weder Aussage noch Gegenteil sind entscheidbar: notwendige Information fehlt; kein unaufgelöster maßgeblicher Regelwiderspruch.",
+        "konflikt": "Die für diese Aussage maßgeblichen Unterlagen widersprechen sich ausdrücklich und der Widerspruch ist durch keinen vereinbarten Vorrang auflösbar.",
+        "ja": "Die Aussage ist durch die maßgeblichen Unterlagen und den Sachverhalt gestützt.",
+        "nein": "Die Aussage wird durch die maßgeblichen Unterlagen und den Sachverhalt widerlegt."
+      }
+    },
+    {
+      "document_id": "paket_08",
+      "area": "Nachweise und Verfahrensstatus",
+      "scenario": "Eine ärztliche Bescheinigung nennt Person, ausdrücklichen Untersuchungszeitpunkt und konkrete Reiseunfähigkeit für die gebuchte Reise.",
+      "claim": "Der in M1 beschriebene Nachweis ist inhaltlich vollständig.",
+      "expected": {
+        "decision": "ja",
+        "evidence_clauses": [
+          "M1"
+        ],
+        "evidence": "b4"
+      },
+      "rationale": "Alle drei vertraglich verlangten Angaben sind vorhanden.",
+      "id": "fall_014",
+      "tags": [],
+      "evidence_options": {
+        "b1": [
+          "M6"
+        ],
+        "b2": [
+          "M2"
+        ],
+        "b3": [
+          "M4"
+        ],
+        "b4": [
+          "M1"
+        ],
+        "b5": [
+          "M5"
+        ]
+      },
+      "decision_options": {
+        "ja": "Die Aussage ist durch die maßgeblichen Unterlagen und den Sachverhalt gestützt.",
+        "offen": "Weder Aussage noch Gegenteil sind entscheidbar: notwendige Information fehlt; kein unaufgelöster maßgeblicher Regelwiderspruch.",
+        "nein": "Die Aussage wird durch die maßgeblichen Unterlagen und den Sachverhalt widerlegt.",
+        "konflikt": "Die für diese Aussage maßgeblichen Unterlagen widersprechen sich ausdrücklich und der Widerspruch ist durch keinen vereinbarten Vorrang auflösbar."
+      }
+    },
+    {
+      "document_id": "paket_07",
+      "area": "Nachweise und Verfahrensstatus",
+      "scenario": "Ein Foto des Gegenstands und ein eindeutig zugehöriger Kontoauszug liegen vor; eine Rechnung fehlt.",
+      "claim": "Der Eigentumsnachweis nach N1 ist vollständig.",
+      "expected": {
+        "decision": "ja",
+        "evidence_clauses": [
+          "N1"
+        ],
+        "evidence": "b3"
+      },
+      "rationale": "Die zweite Nachweisalternative ist vollständig.",
+      "id": "fall_015",
+      "tags": [],
+      "evidence_options": {
+        "b1": [
+          "N7"
+        ],
+        "b2": [
+          "N3"
+        ],
+        "b3": [
+          "N1"
+        ],
+        "b4": [
+          "N6"
+        ],
+        "b5": [
+          "N2"
+        ]
+      },
+      "decision_options": {
+        "nein": "Die Aussage wird durch die maßgeblichen Unterlagen und den Sachverhalt widerlegt.",
+        "ja": "Die Aussage ist durch die maßgeblichen Unterlagen und den Sachverhalt gestützt.",
+        "offen": "Weder Aussage noch Gegenteil sind entscheidbar: notwendige Information fehlt; kein unaufgelöster maßgeblicher Regelwiderspruch.",
+        "konflikt": "Die für diese Aussage maßgeblichen Unterlagen widersprechen sich ausdrücklich und der Widerspruch ist durch keinen vereinbarten Vorrang auflösbar."
+      }
+    },
+    {
+      "document_id": "paket_09",
+      "area": "Nachträge und Dokumentvorrang",
+      "scenario": "Es wird nur die aktuelle Broschüre V5 als Argument für die Erweiterung des Vertrags angeführt.",
+      "claim": "Die Broschüre kann nach der vereinbarten Rangfolge den vertraglichen Ausschluss ändern.",
+      "expected": {
+        "decision": "nein",
+        "evidence_clauses": [
+          "V1"
+        ],
+        "evidence": "b5"
+      },
+      "rationale": "Broschüren ändern den Vertrag ausdrücklich nicht.",
+      "id": "fall_016",
+      "tags": [],
+      "evidence_options": {
+        "b1": [
+          "V2"
+        ],
+        "b2": [
+          "V7"
+        ],
+        "b3": [
+          "V3"
+        ],
+        "b4": [
+          "V6"
+        ],
+        "b5": [
+          "V1"
+        ]
+      },
+      "decision_options": {
+        "ja": "Die Aussage ist durch die maßgeblichen Unterlagen und den Sachverhalt gestützt.",
+        "nein": "Die Aussage wird durch die maßgeblichen Unterlagen und den Sachverhalt widerlegt.",
+        "offen": "Weder Aussage noch Gegenteil sind entscheidbar: notwendige Information fehlt; kein unaufgelöster maßgeblicher Regelwiderspruch.",
+        "konflikt": "Die für diese Aussage maßgeblichen Unterlagen widersprechen sich ausdrücklich und der Widerspruch ist durch keinen vereinbarten Vorrang auflösbar."
+      }
+    },
+    {
+      "document_id": "paket_08",
+      "area": "Nachweise und Verfahrensstatus",
+      "scenario": "Eine digitale ärztliche Bescheinigung nennt Person, Untersuchungszeitpunkt und konkrete Reiseunfähigkeit für die gebuchte Reise. Die Diagnose fehlt; ein Papieroriginal wurde nicht angefordert.",
+      "claim": "Das fehlende Diagnosefeld macht den Nachweis formal unzureichend.",
+      "expected": {
+        "decision": "nein",
+        "evidence_clauses": [
+          "M3"
+        ],
+        "evidence": "b2"
+      },
+      "rationale": "Diagnose ist nicht erforderlich und fehlt nur als einzelnes betrachtetes Merkmal.",
+      "id": "fall_017",
+      "tags": [],
+      "evidence_options": {
+        "b1": [
+          "M5"
+        ],
+        "b2": [
+          "M3"
+        ],
+        "b3": [
+          "M2"
+        ],
+        "b4": [
+          "M1"
+        ],
+        "b5": [
+          "M7"
+        ]
+      },
+      "decision_options": {
+        "ja": "Die Aussage ist durch die maßgeblichen Unterlagen und den Sachverhalt gestützt.",
+        "nein": "Die Aussage wird durch die maßgeblichen Unterlagen und den Sachverhalt widerlegt.",
+        "offen": "Weder Aussage noch Gegenteil sind entscheidbar: notwendige Information fehlt; kein unaufgelöster maßgeblicher Regelwiderspruch.",
+        "konflikt": "Die für diese Aussage maßgeblichen Unterlagen widersprechen sich ausdrücklich und der Widerspruch ist durch keinen vereinbarten Vorrang auflösbar."
+      }
+    },
+    {
+      "document_id": "paket_04",
+      "area": "Ausschlüsse und Rückausnahmen",
+      "scenario": "In der Schadenmeldung steht nur Wasserschaden. Über Herkunft oder Austrittsort gibt es keine Angaben.",
+      "claim": "Der Schaden erfüllt die Wasseraustrittsdefinition W1.",
+      "expected": {
+        "decision": "offen",
+        "evidence_clauses": [
+          "W1"
+        ],
+        "evidence": "b5"
+      },
+      "rationale": "Der Meldungstitel belegt keine erforderliche Herkunft.",
+      "id": "fall_018",
+      "tags": [],
+      "evidence_options": {
+        "b1": [
+          "W5"
+        ],
+        "b2": [
+          "W2"
+        ],
+        "b3": [
+          "W6"
+        ],
+        "b4": [
+          "W3"
+        ],
+        "b5": [
+          "W1"
+        ]
+      },
+      "decision_options": {
+        "offen": "Weder Aussage noch Gegenteil sind entscheidbar: notwendige Information fehlt; kein unaufgelöster maßgeblicher Regelwiderspruch.",
+        "konflikt": "Die für diese Aussage maßgeblichen Unterlagen widersprechen sich ausdrücklich und der Widerspruch ist durch keinen vereinbarten Vorrang auflösbar.",
+        "nein": "Die Aussage wird durch die maßgeblichen Unterlagen und den Sachverhalt widerlegt.",
+        "ja": "Die Aussage ist durch die maßgeblichen Unterlagen und den Sachverhalt gestützt."
+      }
+    },
+    {
+      "document_id": "paket_02",
+      "area": "Deckungsumfang und Definitionen",
+      "scenario": "Für die versicherte Person liegt eine Diagnose vor. Angaben zu Schwere und Unerwartetheit fehlen.",
+      "claim": "Die Erkrankung erfüllt die in R4 geforderten Ereignismerkmale.",
+      "expected": {
+        "decision": "offen",
+        "evidence_clauses": [
+          "R4"
+        ],
+        "evidence": "b1"
+      },
+      "rationale": "Ob die diagnostizierte Erkrankung schwer und unerwartet ist, bleibt unbekannt; R4 verlangt beides.",
+      "id": "fall_019",
+      "tags": [],
+      "evidence_options": {
+        "b1": [
+          "R4"
+        ],
+        "b2": [
+          "R2"
+        ],
+        "b3": [
+          "R3"
+        ],
+        "b4": [
+          "R7"
+        ],
+        "b5": [
+          "R5"
+        ]
+      },
+      "decision_options": {
+        "ja": "Die Aussage ist durch die maßgeblichen Unterlagen und den Sachverhalt gestützt.",
+        "offen": "Weder Aussage noch Gegenteil sind entscheidbar: notwendige Information fehlt; kein unaufgelöster maßgeblicher Regelwiderspruch.",
+        "nein": "Die Aussage wird durch die maßgeblichen Unterlagen und den Sachverhalt widerlegt.",
+        "konflikt": "Die für diese Aussage maßgeblichen Unterlagen widersprechen sich ausdrücklich und der Widerspruch ist durch keinen vereinbarten Vorrang auflösbar."
+      }
+    },
+    {
+      "document_id": "paket_11",
+      "area": "Unvollständige und widersprüchliche Akten",
+      "scenario": "Die Angaben zum Verschulden entsprechen ausschließlich U6.",
+      "claim": "Der Vorsatzausschluss U5 greift.",
+      "expected": {
+        "decision": "offen",
+        "evidence_clauses": [
+          "U5",
+          "U6"
+        ],
+        "evidence": "b3"
+      },
+      "rationale": "Der für den Ausschluss nötige Vorsatz ist weder belegt noch widerlegt.",
+      "id": "fall_020",
+      "tags": [],
+      "evidence_options": {
+        "b1": [
+          "U1",
+          "U2"
+        ],
+        "b2": [
+          "U2",
+          "U4"
+        ],
+        "b3": [
+          "U5",
+          "U6"
+        ],
+        "b4": [
+          "U6",
+          "U7"
+        ],
+        "b5": [
+          "U1",
+          "U7"
+        ]
+      },
+      "decision_options": {
+        "offen": "Weder Aussage noch Gegenteil sind entscheidbar: notwendige Information fehlt; kein unaufgelöster maßgeblicher Regelwiderspruch.",
+        "ja": "Die Aussage ist durch die maßgeblichen Unterlagen und den Sachverhalt gestützt.",
+        "konflikt": "Die für diese Aussage maßgeblichen Unterlagen widersprechen sich ausdrücklich und der Widerspruch ist durch keinen vereinbarten Vorrang auflösbar.",
+        "nein": "Die Aussage wird durch die maßgeblichen Unterlagen und den Sachverhalt widerlegt."
+      }
+    },
+    {
+      "document_id": "paket_02",
+      "area": "Deckungsumfang und Definitionen",
+      "scenario": "Der Ehepartner erkrankt nachweislich unerwartet schwer. Die privat gebuchte Reise wird noch vor Beginn vollständig storniert.",
+      "claim": "Die Erkrankung des Ehepartners zählt zu den in R4 eingeschlossenen Rücktrittsereignissen.",
+      "expected": {
+        "decision": "ja",
+        "evidence_clauses": [
+          "R4",
+          "R5"
+        ],
+        "evidence": "b1"
+      },
+      "rationale": "Ehepartner sind Risikopersonen; Erkrankungsmerkmale stehen fest.",
+      "id": "fall_021",
+      "tags": [],
+      "evidence_options": {
+        "b1": [
+          "R4",
+          "R5"
+        ],
+        "b2": [
+          "R1",
+          "R2"
+        ],
+        "b3": [
+          "R2",
+          "R3"
+        ],
+        "b4": [
+          "R5",
+          "R7"
+        ],
+        "b5": [
+          "R5",
+          "R6"
+        ]
+      },
+      "decision_options": {
+        "nein": "Die Aussage wird durch die maßgeblichen Unterlagen und den Sachverhalt widerlegt.",
+        "offen": "Weder Aussage noch Gegenteil sind entscheidbar: notwendige Information fehlt; kein unaufgelöster maßgeblicher Regelwiderspruch.",
+        "konflikt": "Die für diese Aussage maßgeblichen Unterlagen widersprechen sich ausdrücklich und der Widerspruch ist durch keinen vereinbarten Vorrang auflösbar.",
+        "ja": "Die Aussage ist durch die maßgeblichen Unterlagen und den Sachverhalt gestützt."
+      }
+    },
+    {
+      "document_id": "paket_01",
+      "area": "Deckungsumfang und Definitionen",
+      "scenario": "Eigene privat genutzte Koffer liegen im gemeinschaftlichen Abstellraum des Wohnhauses.",
+      "claim": "Dieser Abstellraum gehört zum Versicherungsort.",
+      "expected": {
+        "decision": "nein",
+        "evidence_clauses": [
+          "H3"
+        ],
+        "evidence": "b1"
+      },
+      "rationale": "Gemeinschaftlicher Abstellraum ist ausdrücklich ausgeschlossen.",
+      "id": "fall_022",
+      "tags": [],
+      "evidence_options": {
+        "b1": [
+          "H3"
+        ],
+        "b2": [
+          "H7"
+        ],
+        "b3": [
+          "H2"
+        ],
+        "b4": [
+          "H4"
+        ],
+        "b5": [
+          "H5"
+        ]
+      },
+      "decision_options": {
+        "ja": "Die Aussage ist durch die maßgeblichen Unterlagen und den Sachverhalt gestützt.",
+        "konflikt": "Die für diese Aussage maßgeblichen Unterlagen widersprechen sich ausdrücklich und der Widerspruch ist durch keinen vereinbarten Vorrang auflösbar.",
+        "offen": "Weder Aussage noch Gegenteil sind entscheidbar: notwendige Information fehlt; kein unaufgelöster maßgeblicher Regelwiderspruch.",
+        "nein": "Die Aussage wird durch die maßgeblichen Unterlagen und den Sachverhalt widerlegt."
+      }
+    },
+    {
+      "document_id": "paket_02",
+      "area": "Deckungsumfang und Definitionen",
+      "scenario": "Ein Arbeitskollege erkrankt unerwartet schwer. Ausschließlich deshalb sagt die versicherte Person die Reise ab.",
+      "claim": "Die Erkrankung dieses Kollegen ist ein in R4 eingeschlossenes Ereignis.",
+      "expected": {
+        "decision": "nein",
+        "evidence_clauses": [
+          "R4",
+          "R5"
+        ],
+        "evidence": "b1"
+      },
+      "rationale": "R4 erfasst nur versicherte Person oder Risikoperson, Kollegen sind keine.",
+      "id": "fall_023",
+      "tags": [],
+      "evidence_options": {
+        "b1": [
+          "R4",
+          "R5"
+        ],
+        "b2": [
+          "R6",
+          "R7"
+        ],
+        "b3": [
+          "R3",
+          "R4"
+        ],
+        "b4": [
+          "R1",
+          "R5"
+        ],
+        "b5": [
+          "R4",
+          "R6"
+        ]
+      },
+      "decision_options": {
+        "offen": "Weder Aussage noch Gegenteil sind entscheidbar: notwendige Information fehlt; kein unaufgelöster maßgeblicher Regelwiderspruch.",
+        "ja": "Die Aussage ist durch die maßgeblichen Unterlagen und den Sachverhalt gestützt.",
+        "nein": "Die Aussage wird durch die maßgeblichen Unterlagen und den Sachverhalt widerlegt.",
+        "konflikt": "Die für diese Aussage maßgeblichen Unterlagen widersprechen sich ausdrücklich und der Widerspruch ist durch keinen vereinbarten Vorrang auflösbar."
+      }
+    },
+    {
+      "document_id": "paket_08",
+      "area": "Nachweise und Verfahrensstatus",
+      "scenario": "Das Portal bestätigt nur den Eingang der ärztlichen Bescheinigung. Sonstige Prüfergebnisse fehlen.",
+      "claim": "Die Bescheinigung ist formal vollständig.",
+      "expected": {
+        "decision": "offen",
+        "evidence_clauses": [
+          "M5"
+        ],
+        "evidence": "b3"
+      },
+      "rationale": "Eingangsstatus lässt Vollständigkeit offen; kein positiver oder negativer Prüfbefund.",
+      "id": "fall_024",
+      "tags": [],
+      "evidence_options": {
+        "b1": [
+          "M6"
+        ],
+        "b2": [
+          "M2"
+        ],
+        "b3": [
+          "M5"
+        ],
+        "b4": [
+          "M3"
+        ],
+        "b5": [
+          "M7"
+        ]
+      },
+      "decision_options": {
+        "nein": "Die Aussage wird durch die maßgeblichen Unterlagen und den Sachverhalt widerlegt.",
+        "konflikt": "Die für diese Aussage maßgeblichen Unterlagen widersprechen sich ausdrücklich und der Widerspruch ist durch keinen vereinbarten Vorrang auflösbar.",
+        "ja": "Die Aussage ist durch die maßgeblichen Unterlagen und den Sachverhalt gestützt.",
+        "offen": "Weder Aussage noch Gegenteil sind entscheidbar: notwendige Information fehlt; kein unaufgelöster maßgeblicher Regelwiderspruch."
+      }
+    },
+    {
+      "document_id": "paket_12",
+      "area": "Unvollständige und widersprüchliche Akten",
+      "scenario": "Eine Reise ist nachweislich rein geschäftlich. Beide Bestätigungen sind wirksam und gleichrangig. Gefragt ist nur der Reisezweck.",
+      "claim": "Reine Geschäftsreisen sind eingeschlossen.",
+      "expected": {
+        "decision": "konflikt",
+        "evidence_clauses": [
+          "K1",
+          "K2",
+          "K3"
+        ],
+        "evidence": "b4"
+      },
+      "rationale": "Gleichrangige Dokumente geben entgegengesetzte Zweckdeckung an.",
+      "id": "fall_025",
+      "tags": [],
+      "evidence_options": {
+        "b1": [
+          "K2",
+          "K3",
+          "K4"
+        ],
+        "b2": [
+          "K3",
+          "K4",
+          "K6"
+        ],
+        "b3": [
+          "K1",
+          "K2",
+          "K5"
+        ],
+        "b4": [
+          "K1",
+          "K2",
+          "K3"
+        ],
+        "b5": [
+          "K3",
+          "K6",
+          "K7"
+        ]
+      },
+      "decision_options": {
+        "offen": "Weder Aussage noch Gegenteil sind entscheidbar: notwendige Information fehlt; kein unaufgelöster maßgeblicher Regelwiderspruch.",
+        "nein": "Die Aussage wird durch die maßgeblichen Unterlagen und den Sachverhalt widerlegt.",
+        "ja": "Die Aussage ist durch die maßgeblichen Unterlagen und den Sachverhalt gestützt.",
+        "konflikt": "Die für diese Aussage maßgeblichen Unterlagen widersprechen sich ausdrücklich und der Widerspruch ist durch keinen vereinbarten Vorrang auflösbar."
+      }
+    },
+    {
+      "document_id": "paket_12",
+      "area": "Unvollständige und widersprüchliche Akten",
+      "scenario": "Eine private Reise nach Portugal enthält Wintersport. Gefragt ist ausschließlich die Deckung der Tätigkeit Wintersport.",
+      "claim": "Wintersport ist als Tätigkeit eingeschlossen.",
+      "expected": {
+        "decision": "offen",
+        "evidence_clauses": [
+          "K7"
+        ],
+        "evidence": "b1"
+      },
+      "rationale": "Keine Tätigkeitsregel vorhanden; räumliche Deckung ersetzt sie nicht.",
+      "id": "fall_026",
+      "tags": [],
+      "evidence_options": {
+        "b1": [
+          "K7"
+        ],
+        "b2": [
+          "K3"
+        ],
+        "b3": [
+          "K2"
+        ],
+        "b4": [
+          "K5"
+        ],
+        "b5": [
+          "K4"
+        ]
+      },
+      "decision_options": {
+        "offen": "Weder Aussage noch Gegenteil sind entscheidbar: notwendige Information fehlt; kein unaufgelöster maßgeblicher Regelwiderspruch.",
+        "konflikt": "Die für diese Aussage maßgeblichen Unterlagen widersprechen sich ausdrücklich und der Widerspruch ist durch keinen vereinbarten Vorrang auflösbar.",
+        "ja": "Die Aussage ist durch die maßgeblichen Unterlagen und den Sachverhalt gestützt.",
+        "nein": "Die Aussage wird durch die maßgeblichen Unterlagen und den Sachverhalt widerlegt."
+      }
+    },
+    {
+      "document_id": "paket_01",
+      "area": "Deckungsumfang und Definitionen",
+      "scenario": "Eine eigene Kamera liegt in der versicherten Wohnung. Ihre tatsächliche Nutzung am Schadentag ist nicht dokumentiert.",
+      "claim": "Die Kamera ist als privat genutzte Sache einzuordnen.",
+      "expected": {
+        "decision": "offen",
+        "evidence_clauses": [
+          "H6"
+        ],
+        "evidence": "b3"
+      },
+      "rationale": "Die maßgebliche tatsächliche Nutzung fehlt; Eigentum und Ort belegen sie nicht.",
+      "id": "fall_027",
+      "tags": [],
+      "evidence_options": {
+        "b1": [
+          "H3"
+        ],
+        "b2": [
+          "H7"
+        ],
+        "b3": [
+          "H6"
+        ],
+        "b4": [
+          "H1"
+        ],
+        "b5": [
+          "H5"
+        ]
+      },
+      "decision_options": {
+        "ja": "Die Aussage ist durch die maßgeblichen Unterlagen und den Sachverhalt gestützt.",
+        "nein": "Die Aussage wird durch die maßgeblichen Unterlagen und den Sachverhalt widerlegt.",
+        "konflikt": "Die für diese Aussage maßgeblichen Unterlagen widersprechen sich ausdrücklich und der Widerspruch ist durch keinen vereinbarten Vorrang auflösbar.",
+        "offen": "Weder Aussage noch Gegenteil sind entscheidbar: notwendige Information fehlt; kein unaufgelöster maßgeblicher Regelwiderspruch."
+      }
+    },
+    {
+      "document_id": "paket_09",
+      "area": "Nachträge und Dokumentvorrang",
+      "scenario": "Gerät Delta fällt am 15. Juni 2026 herunter; der Schaden wird erst im August gemeldet.",
+      "claim": "Der Nachtrag V4 schließt diesen Sturzschaden ein.",
+      "expected": {
+        "decision": "nein",
+        "evidence_clauses": [
+          "V4",
+          "V6"
+        ],
+        "evidence": "b3"
+      },
+      "rationale": "Schaden vor Geltungsbeginn; Meldetag macht Nachtrag nicht rückwirkend.",
+      "id": "fall_028",
+      "tags": [
+        "date_version_application"
+      ],
+      "evidence_options": {
+        "b1": [
+          "V1",
+          "V6"
+        ],
+        "b2": [
+          "V3",
+          "V5"
+        ],
+        "b3": [
+          "V4",
+          "V6"
+        ],
+        "b4": [
+          "V2",
+          "V3"
+        ],
+        "b5": [
+          "V6",
+          "V7"
+        ]
+      },
+      "decision_options": {
+        "ja": "Die Aussage ist durch die maßgeblichen Unterlagen und den Sachverhalt gestützt.",
+        "konflikt": "Die für diese Aussage maßgeblichen Unterlagen widersprechen sich ausdrücklich und der Widerspruch ist durch keinen vereinbarten Vorrang auflösbar.",
+        "offen": "Weder Aussage noch Gegenteil sind entscheidbar: notwendige Information fehlt; kein unaufgelöster maßgeblicher Regelwiderspruch.",
+        "nein": "Die Aussage wird durch die maßgeblichen Unterlagen und den Sachverhalt widerlegt."
+      }
+    },
+    {
+      "document_id": "paket_10",
+      "area": "Nachträge und Dokumentvorrang",
+      "scenario": "Gamma hat für die Garage die Regel aus Beta ersetzt. Am Wohngebäude entsteht ein Überschwemmungsschaden.",
+      "claim": "Der Widerspruch zwischen Alpha und Beta über das Wohngebäude ist durch Gamma zugunsten eines Einschlusses aufgelöst.",
+      "expected": {
+        "decision": "nein",
+        "evidence_clauses": [
+          "Z5"
+        ],
+        "evidence": "b5"
+      },
+      "rationale": "Gamma betrifft nur die getrennte Garage und löst den Wohngebäudekonflikt nicht.",
+      "id": "fall_029",
+      "tags": [],
+      "evidence_options": {
+        "b1": [
+          "Z1"
+        ],
+        "b2": [
+          "Z4"
+        ],
+        "b3": [
+          "Z2"
+        ],
+        "b4": [
+          "Z3"
+        ],
+        "b5": [
+          "Z5"
+        ]
+      },
+      "decision_options": {
+        "nein": "Die Aussage wird durch die maßgeblichen Unterlagen und den Sachverhalt widerlegt.",
+        "konflikt": "Die für diese Aussage maßgeblichen Unterlagen widersprechen sich ausdrücklich und der Widerspruch ist durch keinen vereinbarten Vorrang auflösbar.",
+        "ja": "Die Aussage ist durch die maßgeblichen Unterlagen und den Sachverhalt gestützt.",
+        "offen": "Weder Aussage noch Gegenteil sind entscheidbar: notwendige Information fehlt; kein unaufgelöster maßgeblicher Regelwiderspruch."
+      }
+    },
+    {
+      "document_id": "paket_07",
+      "area": "Nachweise und Verfahrensstatus",
+      "scenario": "Es liegt ein Foto und ein Kontoauszug vor. Ob der Kontoauszug dem Gegenstand eindeutig zuzuordnen ist, geht aus der Akte nicht hervor.",
+      "claim": "Der alternative Eigentumsnachweis nach N1 ist vollständig.",
+      "expected": {
+        "decision": "offen",
+        "evidence_clauses": [
+          "N1"
+        ],
+        "evidence": "b3"
+      },
+      "rationale": "Eindeutige Zuordnung ist erforderlich, aber unbekannt.",
+      "id": "fall_030",
+      "tags": [],
+      "evidence_options": {
+        "b1": [
+          "N2"
+        ],
+        "b2": [
+          "N3"
+        ],
+        "b3": [
+          "N1"
+        ],
+        "b4": [
+          "N4"
+        ],
+        "b5": [
+          "N6"
+        ]
+      },
+      "decision_options": {
+        "nein": "Die Aussage wird durch die maßgeblichen Unterlagen und den Sachverhalt widerlegt.",
+        "ja": "Die Aussage ist durch die maßgeblichen Unterlagen und den Sachverhalt gestützt.",
+        "konflikt": "Die für diese Aussage maßgeblichen Unterlagen widersprechen sich ausdrücklich und der Widerspruch ist durch keinen vereinbarten Vorrang auflösbar.",
+        "offen": "Weder Aussage noch Gegenteil sind entscheidbar: notwendige Information fehlt; kein unaufgelöster maßgeblicher Regelwiderspruch."
+      }
+    },
+    {
+      "document_id": "paket_05",
+      "area": "Voraussetzungen und Obliegenheiten",
+      "scenario": "Ein Fahrrad wurde außerhalb der Wohnung gestohlen. Ein Kaufbeleg ist vorhanden; wie es am Schadenort gesichert war, ist unbekannt.",
+      "claim": "Die Sicherungsvoraussetzung F2 war am Schadenort erfüllt.",
+      "expected": {
+        "decision": "offen",
+        "evidence_clauses": [
+          "F2"
+        ],
+        "evidence": "b4"
+      },
+      "rationale": "F2 verlangt eine bestimmte Sicherung; die tatsächliche Sicherung ist unbekannt.",
+      "id": "fall_031",
+      "tags": [],
+      "evidence_options": {
+        "b1": [
+          "F3"
+        ],
+        "b2": [
+          "F5"
+        ],
+        "b3": [
+          "F6"
+        ],
+        "b4": [
+          "F2"
+        ],
+        "b5": [
+          "F4"
+        ]
+      },
+      "decision_options": {
+        "nein": "Die Aussage wird durch die maßgeblichen Unterlagen und den Sachverhalt widerlegt.",
+        "offen": "Weder Aussage noch Gegenteil sind entscheidbar: notwendige Information fehlt; kein unaufgelöster maßgeblicher Regelwiderspruch.",
+        "ja": "Die Aussage ist durch die maßgeblichen Unterlagen und den Sachverhalt gestützt.",
+        "konflikt": "Die für diese Aussage maßgeblichen Unterlagen widersprechen sich ausdrücklich und der Widerspruch ist durch keinen vereinbarten Vorrang auflösbar."
+      }
+    },
+    {
+      "document_id": "paket_06",
+      "area": "Voraussetzungen und Obliegenheiten",
+      "scenario": "Eine undichte Leitung muss sofort abgestellt werden, um weiteren Wasseraustritt zu verhindern. Die Maßnahme ist notwendig; Rücksprache ist noch nicht erfolgt.",
+      "claim": "Die notwendige Sofortmaßnahme darf bereits durchgeführt werden.",
+      "expected": {
+        "decision": "ja",
+        "evidence_clauses": [
+          "O4"
+        ],
+        "evidence": "b2"
+      },
+      "rationale": "Notwendige Schadensabwendung ist vor Rücksprache erlaubt.",
+      "id": "fall_032",
+      "tags": [],
+      "evidence_options": {
+        "b1": [
+          "O1"
+        ],
+        "b2": [
+          "O4"
+        ],
+        "b3": [
+          "O3"
+        ],
+        "b4": [
+          "O2"
+        ],
+        "b5": [
+          "O5"
+        ]
+      },
+      "decision_options": {
+        "offen": "Weder Aussage noch Gegenteil sind entscheidbar: notwendige Information fehlt; kein unaufgelöster maßgeblicher Regelwiderspruch.",
+        "konflikt": "Die für diese Aussage maßgeblichen Unterlagen widersprechen sich ausdrücklich und der Widerspruch ist durch keinen vereinbarten Vorrang auflösbar.",
+        "ja": "Die Aussage ist durch die maßgeblichen Unterlagen und den Sachverhalt gestützt.",
+        "nein": "Die Aussage wird durch die maßgeblichen Unterlagen und den Sachverhalt widerlegt."
+      }
+    },
+    {
+      "document_id": "paket_09",
+      "area": "Nachträge und Dokumentvorrang",
+      "scenario": "Gerät Delta wurde versehentlich fallen gelassen. Der Schadentag ist nicht bekannt; die Meldung erfolgt im August 2026.",
+      "claim": "Der Schaden fällt unter den zeitlich wirksamen Einschluss V4.",
+      "expected": {
+        "decision": "offen",
+        "evidence_clauses": [
+          "V4",
+          "V6"
+        ],
+        "evidence": "b1"
+      },
+      "rationale": "Wirksamkeit hängt vom unbekannten Schadentag ab, nicht vom Meldetag.",
+      "id": "fall_033",
+      "tags": [
+        "date_version_application"
+      ],
+      "evidence_options": {
+        "b1": [
+          "V4",
+          "V6"
+        ],
+        "b2": [
+          "V5",
+          "V7"
+        ],
+        "b3": [
+          "V5",
+          "V6"
+        ],
+        "b4": [
+          "V3",
+          "V5"
+        ],
+        "b5": [
+          "V3",
+          "V6"
+        ]
+      },
+      "decision_options": {
+        "nein": "Die Aussage wird durch die maßgeblichen Unterlagen und den Sachverhalt widerlegt.",
+        "ja": "Die Aussage ist durch die maßgeblichen Unterlagen und den Sachverhalt gestützt.",
+        "offen": "Weder Aussage noch Gegenteil sind entscheidbar: notwendige Information fehlt; kein unaufgelöster maßgeblicher Regelwiderspruch.",
+        "konflikt": "Die für diese Aussage maßgeblichen Unterlagen widersprechen sich ausdrücklich und der Widerspruch ist durch keinen vereinbarten Vorrang auflösbar."
+      }
+    },
+    {
+      "document_id": "paket_10",
+      "area": "Nachträge und Dokumentvorrang",
+      "scenario": "Ein nicht unterzeichneter Entwurf Delta sieht zusätzlichen Schutz vor.",
+      "claim": "Dieser Entwurf erweitert bereits den verbindlichen Versicherungsschutz.",
+      "expected": {
+        "decision": "nein",
+        "evidence_clauses": [
+          "Z6"
+        ],
+        "evidence": "b4"
+      },
+      "rationale": "Der Anhang ist ausdrücklich unverbindlich.",
+      "id": "fall_034",
+      "tags": [],
+      "evidence_options": {
+        "b1": [
+          "Z4"
+        ],
+        "b2": [
+          "Z2"
+        ],
+        "b3": [
+          "Z3"
+        ],
+        "b4": [
+          "Z6"
+        ],
+        "b5": [
+          "Z5"
+        ]
+      },
+      "decision_options": {
+        "offen": "Weder Aussage noch Gegenteil sind entscheidbar: notwendige Information fehlt; kein unaufgelöster maßgeblicher Regelwiderspruch.",
+        "nein": "Die Aussage wird durch die maßgeblichen Unterlagen und den Sachverhalt widerlegt.",
+        "ja": "Die Aussage ist durch die maßgeblichen Unterlagen und den Sachverhalt gestützt.",
+        "konflikt": "Die für diese Aussage maßgeblichen Unterlagen widersprechen sich ausdrücklich und der Widerspruch ist durch keinen vereinbarten Vorrang auflösbar."
+      }
+    },
+    {
+      "document_id": "paket_03",
+      "area": "Ausschlüsse und Rückausnahmen",
+      "scenario": "Eine privat geliehene Geige wird bei einem bezahlten beruflichen Konzert fahrlässig beschädigt.",
+      "claim": "L3 hebt den Ausschluss L2 für diesen Schaden auf.",
+      "expected": {
+        "decision": "nein",
+        "evidence_clauses": [
+          "L3"
+        ],
+        "evidence": "b1"
+      },
+      "rationale": "Die berufliche Nutzung ist von der Rückausnahme ausgenommen.",
+      "id": "fall_035",
+      "tags": [],
+      "evidence_options": {
+        "b1": [
+          "L3"
+        ],
+        "b2": [
+          "L5"
+        ],
+        "b3": [
+          "L4"
+        ],
+        "b4": [
+          "L7"
+        ],
+        "b5": [
+          "L6"
+        ]
+      },
+      "decision_options": {
+        "ja": "Die Aussage ist durch die maßgeblichen Unterlagen und den Sachverhalt gestützt.",
+        "offen": "Weder Aussage noch Gegenteil sind entscheidbar: notwendige Information fehlt; kein unaufgelöster maßgeblicher Regelwiderspruch.",
+        "nein": "Die Aussage wird durch die maßgeblichen Unterlagen und den Sachverhalt widerlegt.",
+        "konflikt": "Die für diese Aussage maßgeblichen Unterlagen widersprechen sich ausdrücklich und der Widerspruch ist durch keinen vereinbarten Vorrang auflösbar."
+      }
+    },
+    {
+      "document_id": "paket_06",
+      "area": "Voraussetzungen und Obliegenheiten",
+      "scenario": "Die Meldung war vorsätzlich verspätet. Die Feststellung des Versicherungsfalls wurde dadurch nachweislich nicht erschwert.",
+      "claim": "O2 erlaubt die vollständige Ablehnung wegen der Verspätung.",
+      "expected": {
+        "decision": "nein",
+        "evidence_clauses": [
+          "O2"
+        ],
+        "evidence": "b1"
+      },
+      "rationale": "Kumulative Voraussetzung der tatsächlichen Erschwerung fehlt.",
+      "id": "fall_036",
+      "tags": [],
+      "evidence_options": {
+        "b1": [
+          "O2"
+        ],
+        "b2": [
+          "O7"
+        ],
+        "b3": [
+          "O5"
+        ],
+        "b4": [
+          "O1"
+        ],
+        "b5": [
+          "O4"
+        ]
+      },
+      "decision_options": {
+        "nein": "Die Aussage wird durch die maßgeblichen Unterlagen und den Sachverhalt widerlegt.",
+        "offen": "Weder Aussage noch Gegenteil sind entscheidbar: notwendige Information fehlt; kein unaufgelöster maßgeblicher Regelwiderspruch.",
+        "konflikt": "Die für diese Aussage maßgeblichen Unterlagen widersprechen sich ausdrücklich und der Widerspruch ist durch keinen vereinbarten Vorrang auflösbar.",
+        "ja": "Die Aussage ist durch die maßgeblichen Unterlagen und den Sachverhalt gestützt."
+      }
+    },
+    {
+      "document_id": "paket_04",
+      "area": "Ausschlüsse und Rückausnahmen",
+      "scenario": "Regen dringt durch ein vom Sturm geöffnetes Dach ein. Es tritt kein Wasser aus Leitungen oder Geräten aus.",
+      "claim": "Der Schaden fällt unter den Leitungswasserschutz W1.",
+      "expected": {
+        "decision": "nein",
+        "evidence_clauses": [
+          "W2"
+        ],
+        "evidence": "b1"
+      },
+      "rationale": "Niederschlagswasser bleibt ausgeschlossen, auch durch beschädigtes Dach.",
+      "id": "fall_037",
+      "tags": [],
+      "evidence_options": {
+        "b1": [
+          "W2"
+        ],
+        "b2": [
+          "W6"
+        ],
+        "b3": [
+          "W4"
+        ],
+        "b4": [
+          "W7"
+        ],
+        "b5": [
+          "W5"
+        ]
+      },
+      "decision_options": {
+        "offen": "Weder Aussage noch Gegenteil sind entscheidbar: notwendige Information fehlt; kein unaufgelöster maßgeblicher Regelwiderspruch.",
+        "ja": "Die Aussage ist durch die maßgeblichen Unterlagen und den Sachverhalt gestützt.",
+        "nein": "Die Aussage wird durch die maßgeblichen Unterlagen und den Sachverhalt widerlegt.",
+        "konflikt": "Die für diese Aussage maßgeblichen Unterlagen widersprechen sich ausdrücklich und der Widerspruch ist durch keinen vereinbarten Vorrang auflösbar."
+      }
+    },
+    {
+      "document_id": "paket_04",
+      "area": "Ausschlüsse und Rückausnahmen",
+      "scenario": "Es gibt Schimmel; als Ursachen kommen ein früherer Leitungswasserschaden und bauliche Feuchte in Betracht. Die Ursache ist ungeklärt.",
+      "claim": "Der Schimmel ist unmittelbare Folge eines nach W1 versicherten Leitungswasserschadens und hat keinen anderen selbstständigen Auslöser.",
+      "expected": {
+        "decision": "offen",
+        "evidence_clauses": [
+          "W4"
+        ],
+        "evidence": "b5"
+      },
+      "rationale": "Die tatsächlichen Ursachen sind ungeklärt; weder beide Voraussetzungen aus W4 noch ihr Gegenteil sind feststellbar.",
+      "id": "fall_038",
+      "tags": [],
+      "evidence_options": {
+        "b1": [
+          "W3"
+        ],
+        "b2": [
+          "W6"
+        ],
+        "b3": [
+          "W2"
+        ],
+        "b4": [
+          "W1"
+        ],
+        "b5": [
+          "W4"
+        ]
+      },
+      "decision_options": {
+        "nein": "Die Aussage wird durch die maßgeblichen Unterlagen und den Sachverhalt widerlegt.",
+        "offen": "Weder Aussage noch Gegenteil sind entscheidbar: notwendige Information fehlt; kein unaufgelöster maßgeblicher Regelwiderspruch.",
+        "konflikt": "Die für diese Aussage maßgeblichen Unterlagen widersprechen sich ausdrücklich und der Widerspruch ist durch keinen vereinbarten Vorrang auflösbar.",
+        "ja": "Die Aussage ist durch die maßgeblichen Unterlagen und den Sachverhalt gestützt."
+      }
+    },
+    {
+      "document_id": "paket_11",
+      "area": "Unvollständige und widersprüchliche Akten",
+      "scenario": "Die Schadenursache wurde nun eindeutig als fahrlässiges Handeln des Versicherungsnehmers festgestellt.",
+      "claim": "Dieser Schaden fällt unter den Vorsatzausschluss U5.",
+      "expected": {
+        "decision": "nein",
+        "evidence_clauses": [
+          "U5"
+        ],
+        "evidence": "b2"
+      },
+      "rationale": "Fahrlässigkeit ist ausdrücklich nicht vom Vorsatzausschluss erfasst.",
+      "id": "fall_039",
+      "tags": [],
+      "evidence_options": {
+        "b1": [
+          "U1"
+        ],
+        "b2": [
+          "U5"
+        ],
+        "b3": [
+          "U3"
+        ],
+        "b4": [
+          "U2"
+        ],
+        "b5": [
+          "U4"
+        ]
+      },
+      "decision_options": {
+        "konflikt": "Die für diese Aussage maßgeblichen Unterlagen widersprechen sich ausdrücklich und der Widerspruch ist durch keinen vereinbarten Vorrang auflösbar.",
+        "offen": "Weder Aussage noch Gegenteil sind entscheidbar: notwendige Information fehlt; kein unaufgelöster maßgeblicher Regelwiderspruch.",
+        "nein": "Die Aussage wird durch die maßgeblichen Unterlagen und den Sachverhalt widerlegt.",
+        "ja": "Die Aussage ist durch die maßgeblichen Unterlagen und den Sachverhalt gestützt."
+      }
+    },
+    {
+      "document_id": "paket_04",
+      "area": "Ausschlüsse und Rückausnahmen",
+      "scenario": "Eine fest verlegte Trinkwasserleitung bricht nachweislich durch Frost.",
+      "claim": "Der Rohrbruch ist nach W3 eingeschlossen.",
+      "expected": {
+        "decision": "ja",
+        "evidence_clauses": [
+          "W3"
+        ],
+        "evidence": "b1"
+      },
+      "rationale": "W3 erfasst gerade diesen frostbedingten Leitungsbruch.",
+      "id": "fall_040",
+      "tags": [],
+      "evidence_options": {
+        "b1": [
+          "W3"
+        ],
+        "b2": [
+          "W6"
+        ],
+        "b3": [
+          "W4"
+        ],
+        "b4": [
+          "W1"
+        ],
+        "b5": [
+          "W5"
+        ]
+      },
+      "decision_options": {
+        "offen": "Weder Aussage noch Gegenteil sind entscheidbar: notwendige Information fehlt; kein unaufgelöster maßgeblicher Regelwiderspruch.",
+        "nein": "Die Aussage wird durch die maßgeblichen Unterlagen und den Sachverhalt widerlegt.",
+        "konflikt": "Die für diese Aussage maßgeblichen Unterlagen widersprechen sich ausdrücklich und der Widerspruch ist durch keinen vereinbarten Vorrang auflösbar.",
+        "ja": "Die Aussage ist durch die maßgeblichen Unterlagen und den Sachverhalt gestützt."
+      }
+    },
+    {
+      "document_id": "paket_03",
+      "area": "Ausschlüsse und Rückausnahmen",
+      "scenario": "Ein privat geliehenes Musikinstrument wird verloren und nicht beschädigt.",
+      "claim": "Der Verlust ist durch die Rückausnahme L3 eingeschlossen.",
+      "expected": {
+        "decision": "nein",
+        "evidence_clauses": [
+          "L3"
+        ],
+        "evidence": "b3"
+      },
+      "rationale": "L3 gilt ausdrücklich nicht für Verlust.",
+      "id": "fall_041",
+      "tags": [],
+      "evidence_options": {
+        "b1": [
+          "L4"
+        ],
+        "b2": [
+          "L2"
+        ],
+        "b3": [
+          "L3"
+        ],
+        "b4": [
+          "L7"
+        ],
+        "b5": [
+          "L1"
+        ]
+      },
+      "decision_options": {
+        "offen": "Weder Aussage noch Gegenteil sind entscheidbar: notwendige Information fehlt; kein unaufgelöster maßgeblicher Regelwiderspruch.",
+        "ja": "Die Aussage ist durch die maßgeblichen Unterlagen und den Sachverhalt gestützt.",
+        "konflikt": "Die für diese Aussage maßgeblichen Unterlagen widersprechen sich ausdrücklich und der Widerspruch ist durch keinen vereinbarten Vorrang auflösbar.",
+        "nein": "Die Aussage wird durch die maßgeblichen Unterlagen und den Sachverhalt widerlegt."
+      }
+    },
+    {
+      "document_id": "paket_07",
+      "area": "Nachweise und Verfahrensstatus",
+      "scenario": "Bei einem Beschädigungsschaden liegen eine Rechnung auf die versicherte Person und ein eindeutiger Reparaturbericht vor; ein Schadenfoto fehlt.",
+      "claim": "Die Nachweise für Eigentum und Beschädigung sind nach N1 und N3 vollständig.",
+      "expected": {
+        "decision": "ja",
+        "evidence_clauses": [
+          "N1",
+          "N3"
+        ],
+        "evidence": "b3"
+      },
+      "rationale": "Rechnung erfüllt Eigentum, Reparaturbericht die alternative Beschädigungsdokumentation.",
+      "id": "fall_042",
+      "tags": [],
+      "evidence_options": {
+        "b1": [
+          "N1",
+          "N6"
+        ],
+        "b2": [
+          "N5",
+          "N6"
+        ],
+        "b3": [
+          "N1",
+          "N3"
+        ],
+        "b4": [
+          "N3",
+          "N7"
+        ],
+        "b5": [
+          "N2",
+          "N7"
+        ]
+      },
+      "decision_options": {
+        "ja": "Die Aussage ist durch die maßgeblichen Unterlagen und den Sachverhalt gestützt.",
+        "offen": "Weder Aussage noch Gegenteil sind entscheidbar: notwendige Information fehlt; kein unaufgelöster maßgeblicher Regelwiderspruch.",
+        "konflikt": "Die für diese Aussage maßgeblichen Unterlagen widersprechen sich ausdrücklich und der Widerspruch ist durch keinen vereinbarten Vorrang auflösbar.",
+        "nein": "Die Aussage wird durch die maßgeblichen Unterlagen und den Sachverhalt widerlegt."
+      }
+    },
+    {
+      "document_id": "paket_07",
+      "area": "Nachweise und Verfahrensstatus",
+      "scenario": "Die Unterlagen sind formal vollständig. Eine Prüfung der Deckung oder Schadenhöhe ist noch nicht erfolgt.",
+      "claim": "Mit der Vollständigkeit ist die Deckung anerkannt.",
+      "expected": {
+        "decision": "nein",
+        "evidence_clauses": [
+          "N6"
+        ],
+        "evidence": "b1"
+      },
+      "rationale": "Vollständigkeit ist ausdrücklich keine Deckungsanerkennung.",
+      "id": "fall_043",
+      "tags": [],
+      "evidence_options": {
+        "b1": [
+          "N6"
+        ],
+        "b2": [
+          "N3"
+        ],
+        "b3": [
+          "N7"
+        ],
+        "b4": [
+          "N4"
+        ],
+        "b5": [
+          "N2"
+        ]
+      },
+      "decision_options": {
+        "offen": "Weder Aussage noch Gegenteil sind entscheidbar: notwendige Information fehlt; kein unaufgelöster maßgeblicher Regelwiderspruch.",
+        "ja": "Die Aussage ist durch die maßgeblichen Unterlagen und den Sachverhalt gestützt.",
+        "nein": "Die Aussage wird durch die maßgeblichen Unterlagen und den Sachverhalt widerlegt.",
+        "konflikt": "Die für diese Aussage maßgeblichen Unterlagen widersprechen sich ausdrücklich und der Widerspruch ist durch keinen vereinbarten Vorrang auflösbar."
+      }
+    },
+    {
+      "document_id": "paket_04",
+      "area": "Ausschlüsse und Rückausnahmen",
+      "scenario": "Nach einem versicherten Leitungswasseraustritt entsteht unmittelbar Schimmel. Ein anderer selbstständiger Auslöser ist nachweislich nicht vorhanden.",
+      "claim": "Die Rückausnahme vom Schimmelausschluss ist erfüllt.",
+      "expected": {
+        "decision": "ja",
+        "evidence_clauses": [
+          "W4"
+        ],
+        "evidence": "b1"
+      },
+      "rationale": "Beide ausdrücklich verlangten Voraussetzungen stehen fest.",
+      "id": "fall_044",
+      "tags": [],
+      "evidence_options": {
+        "b1": [
+          "W4"
+        ],
+        "b2": [
+          "W5"
+        ],
+        "b3": [
+          "W2"
+        ],
+        "b4": [
+          "W7"
+        ],
+        "b5": [
+          "W3"
+        ]
+      },
+      "decision_options": {
+        "nein": "Die Aussage wird durch die maßgeblichen Unterlagen und den Sachverhalt widerlegt.",
+        "ja": "Die Aussage ist durch die maßgeblichen Unterlagen und den Sachverhalt gestützt.",
+        "offen": "Weder Aussage noch Gegenteil sind entscheidbar: notwendige Information fehlt; kein unaufgelöster maßgeblicher Regelwiderspruch.",
+        "konflikt": "Die für diese Aussage maßgeblichen Unterlagen widersprechen sich ausdrücklich und der Widerspruch ist durch keinen vereinbarten Vorrang auflösbar."
+      }
+    },
+    {
+      "document_id": "paket_10",
+      "area": "Nachträge und Dokumentvorrang",
+      "scenario": "Eine Überschwemmung beschädigt das Wohngebäude im gemeinsamen Geltungszeitraum von Alpha und Beta.",
+      "claim": "Überschwemmungsschäden am Wohngebäude sind eingeschlossen.",
+      "expected": {
+        "decision": "konflikt",
+        "evidence_clauses": [
+          "Z1",
+          "Z3",
+          "Z4"
+        ],
+        "evidence": "b4"
+      },
+      "rationale": "Gleichrangige wirksame Nachträge widersprechen sich ohne vertragliche Auflösung.",
+      "id": "fall_045",
+      "tags": [],
+      "evidence_options": {
+        "b1": [
+          "Z1",
+          "Z2",
+          "Z6"
+        ],
+        "b2": [
+          "Z4",
+          "Z5",
+          "Z7"
+        ],
+        "b3": [
+          "Z1",
+          "Z2",
+          "Z7"
+        ],
+        "b4": [
+          "Z1",
+          "Z3",
+          "Z4"
+        ],
+        "b5": [
+          "Z1",
+          "Z2",
+          "Z5"
+        ]
+      },
+      "decision_options": {
+        "ja": "Die Aussage ist durch die maßgeblichen Unterlagen und den Sachverhalt gestützt.",
+        "nein": "Die Aussage wird durch die maßgeblichen Unterlagen und den Sachverhalt widerlegt.",
+        "offen": "Weder Aussage noch Gegenteil sind entscheidbar: notwendige Information fehlt; kein unaufgelöster maßgeblicher Regelwiderspruch.",
+        "konflikt": "Die für diese Aussage maßgeblichen Unterlagen widersprechen sich ausdrücklich und der Widerspruch ist durch keinen vereinbarten Vorrang auflösbar."
+      }
+    },
+    {
+      "document_id": "paket_12",
+      "area": "Unvollständige und widersprüchliche Akten",
+      "scenario": "Eine private Reise führt nach Portugal. Gefragt ist ausschließlich der räumliche Schutz, keine bestimmte Tätigkeit.",
+      "claim": "Portugal liegt im räumlichen Geltungsbereich.",
+      "expected": {
+        "decision": "ja",
+        "evidence_clauses": [
+          "K4"
+        ],
+        "evidence": "b3"
+      },
+      "rationale": "Hier stimmen die beiden Bestätigungen ausdrücklich überein.",
+      "id": "fall_046",
+      "tags": [],
+      "evidence_options": {
+        "b1": [
+          "K7"
+        ],
+        "b2": [
+          "K5"
+        ],
+        "b3": [
+          "K4"
+        ],
+        "b4": [
+          "K6"
+        ],
+        "b5": [
+          "K3"
+        ]
+      },
+      "decision_options": {
+        "ja": "Die Aussage ist durch die maßgeblichen Unterlagen und den Sachverhalt gestützt.",
+        "nein": "Die Aussage wird durch die maßgeblichen Unterlagen und den Sachverhalt widerlegt.",
+        "offen": "Weder Aussage noch Gegenteil sind entscheidbar: notwendige Information fehlt; kein unaufgelöster maßgeblicher Regelwiderspruch.",
+        "konflikt": "Die für diese Aussage maßgeblichen Unterlagen widersprechen sich ausdrücklich und der Widerspruch ist durch keinen vereinbarten Vorrang auflösbar."
+      }
+    },
+    {
+      "document_id": "paket_11",
+      "area": "Unvollständige und widersprüchliche Akten",
+      "scenario": "Zu Elektronikschutz sind nur die in U3 und U4 beschriebenen Informationen vorhanden.",
+      "claim": "Der Elektronikbaustein ist verbindlich aktiv.",
+      "expected": {
+        "decision": "offen",
+        "evidence_clauses": [
+          "U3"
+        ],
+        "evidence": "b3"
+      },
+      "rationale": "Empfehlung genügt nicht; verbindliche Ausweisung fehlt ohne Gegenbeweis.",
+      "id": "fall_047",
+      "tags": [],
+      "evidence_options": {
+        "b1": [
+          "U5"
+        ],
+        "b2": [
+          "U6"
+        ],
+        "b3": [
+          "U3"
+        ],
+        "b4": [
+          "U2"
+        ],
+        "b5": [
+          "U7"
+        ]
+      },
+      "decision_options": {
+        "nein": "Die Aussage wird durch die maßgeblichen Unterlagen und den Sachverhalt widerlegt.",
+        "konflikt": "Die für diese Aussage maßgeblichen Unterlagen widersprechen sich ausdrücklich und der Widerspruch ist durch keinen vereinbarten Vorrang auflösbar.",
+        "offen": "Weder Aussage noch Gegenteil sind entscheidbar: notwendige Information fehlt; kein unaufgelöster maßgeblicher Regelwiderspruch.",
+        "ja": "Die Aussage ist durch die maßgeblichen Unterlagen und den Sachverhalt gestützt."
+      }
+    },
+    {
+      "document_id": "paket_05",
+      "area": "Voraussetzungen und Obliegenheiten",
+      "scenario": "Ein Rad wird nachts außerhalb der Wohnung gestohlen. Es war mit einem eigenständigen Schloss an einem fest eingebauten Bügel angeschlossen.",
+      "claim": "Der einfache Diebstahl ist nach F1 eingeschlossen.",
+      "expected": {
+        "decision": "ja",
+        "evidence_clauses": [
+          "F1",
+          "F2"
+        ],
+        "evidence": "b2"
+      },
+      "rationale": "Sicherung erfüllt; Nacht ändert dies nicht.",
+      "id": "fall_048",
+      "tags": [],
+      "evidence_options": {
+        "b1": [
+          "F3",
+          "F7"
+        ],
+        "b2": [
+          "F1",
+          "F2"
+        ],
+        "b3": [
+          "F2",
+          "F5"
+        ],
+        "b4": [
+          "F1",
+          "F7"
+        ],
+        "b5": [
+          "F5",
+          "F6"
+        ]
+      },
+      "decision_options": {
+        "ja": "Die Aussage ist durch die maßgeblichen Unterlagen und den Sachverhalt gestützt.",
+        "nein": "Die Aussage wird durch die maßgeblichen Unterlagen und den Sachverhalt widerlegt.",
+        "offen": "Weder Aussage noch Gegenteil sind entscheidbar: notwendige Information fehlt; kein unaufgelöster maßgeblicher Regelwiderspruch.",
+        "konflikt": "Die für diese Aussage maßgeblichen Unterlagen widersprechen sich ausdrücklich und der Widerspruch ist durch keinen vereinbarten Vorrang auflösbar."
+      }
+    },
+    {
+      "document_id": "paket_12",
+      "area": "Unvollständige und widersprüchliche Akten",
+      "scenario": "Für eine Reise nach Kanada sind beide Bestätigungen wirksam und gleichrangig. Gefragt ist ausschließlich der räumliche Schutz.",
+      "claim": "Kanada liegt im vereinbarten räumlichen Geltungsbereich.",
+      "expected": {
+        "decision": "konflikt",
+        "evidence_clauses": [
+          "K1",
+          "K2",
+          "K3"
+        ],
+        "evidence": "b5"
+      },
+      "rationale": "Epsilon schließt Kanada ein, Zeta aus; kein Vorrang.",
+      "id": "fall_049",
+      "tags": [],
+      "evidence_options": {
+        "b1": [
+          "K1",
+          "K4",
+          "K6"
+        ],
+        "b2": [
+          "K4",
+          "K5",
+          "K7"
+        ],
+        "b3": [
+          "K2",
+          "K5",
+          "K6"
+        ],
+        "b4": [
+          "K2",
+          "K3",
+          "K6"
+        ],
+        "b5": [
+          "K1",
+          "K2",
+          "K3"
+        ]
+      },
+      "decision_options": {
+        "nein": "Die Aussage wird durch die maßgeblichen Unterlagen und den Sachverhalt widerlegt.",
+        "ja": "Die Aussage ist durch die maßgeblichen Unterlagen und den Sachverhalt gestützt.",
+        "offen": "Weder Aussage noch Gegenteil sind entscheidbar: notwendige Information fehlt; kein unaufgelöster maßgeblicher Regelwiderspruch.",
+        "konflikt": "Die für diese Aussage maßgeblichen Unterlagen widersprechen sich ausdrücklich und der Widerspruch ist durch keinen vereinbarten Vorrang auflösbar."
+      }
+    },
+    {
+      "document_id": "paket_01",
+      "area": "Deckungsumfang und Definitionen",
+      "scenario": "Eigene berufliche Werkzeuge befinden sich in der versicherten Wohnung.",
+      "claim": "Die Werkzeuge gehören zu den versicherten Sachen.",
+      "expected": {
+        "decision": "nein",
+        "evidence_clauses": [
+          "H2"
+        ],
+        "evidence": "b2"
+      },
+      "rationale": "Berufliche Werkzeuge sind ausdrücklich nicht versichert.",
+      "id": "fall_050",
+      "tags": [],
+      "evidence_options": {
+        "b1": [
+          "H3"
+        ],
+        "b2": [
+          "H2"
+        ],
+        "b3": [
+          "H7"
+        ],
+        "b4": [
+          "H1"
+        ],
+        "b5": [
+          "H5"
+        ]
+      },
+      "decision_options": {
+        "nein": "Die Aussage wird durch die maßgeblichen Unterlagen und den Sachverhalt widerlegt.",
+        "offen": "Weder Aussage noch Gegenteil sind entscheidbar: notwendige Information fehlt; kein unaufgelöster maßgeblicher Regelwiderspruch.",
+        "ja": "Die Aussage ist durch die maßgeblichen Unterlagen und den Sachverhalt gestützt.",
+        "konflikt": "Die für diese Aussage maßgeblichen Unterlagen widersprechen sich ausdrücklich und der Widerspruch ist durch keinen vereinbarten Vorrang auflösbar."
+      }
+    },
+    {
+      "document_id": "paket_06",
+      "area": "Voraussetzungen und Obliegenheiten",
+      "scenario": "Der Versicherer hat schriftlich eine Besichtigung freigegeben, aber nichts zur Reparatur erklärt. Es besteht keine Dringlichkeit.",
+      "claim": "Eine nicht dringende Reparatur darf auf Grundlage dieser Freigabe beauftragt werden.",
+      "expected": {
+        "decision": "nein",
+        "evidence_clauses": [
+          "O5",
+          "O6"
+        ],
+        "evidence": "b4"
+      },
+      "rationale": "Besichtigung ist keine erforderliche Reparaturfreigabe.",
+      "id": "fall_051",
+      "tags": [],
+      "evidence_options": {
+        "b1": [
+          "O3",
+          "O6"
+        ],
+        "b2": [
+          "O1",
+          "O7"
+        ],
+        "b3": [
+          "O2",
+          "O3"
+        ],
+        "b4": [
+          "O5",
+          "O6"
+        ],
+        "b5": [
+          "O1",
+          "O6"
+        ]
+      },
+      "decision_options": {
+        "ja": "Die Aussage ist durch die maßgeblichen Unterlagen und den Sachverhalt gestützt.",
+        "nein": "Die Aussage wird durch die maßgeblichen Unterlagen und den Sachverhalt widerlegt.",
+        "konflikt": "Die für diese Aussage maßgeblichen Unterlagen widersprechen sich ausdrücklich und der Widerspruch ist durch keinen vereinbarten Vorrang auflösbar.",
+        "offen": "Weder Aussage noch Gegenteil sind entscheidbar: notwendige Information fehlt; kein unaufgelöster maßgeblicher Regelwiderspruch."
+      }
+    },
+    {
+      "document_id": "paket_02",
+      "area": "Deckungsumfang und Definitionen",
+      "scenario": "Eine privat gebuchte Reise beginnt laut Buchung mit dem Flug. Auf der ungebuchten Fahrt zum Flughafen wird vollständig auf die Reise verzichtet.",
+      "claim": "Es handelt sich um einen Rücktritt vor Reisebeginn im Sinne der Bedingungen.",
+      "expected": {
+        "decision": "ja",
+        "evidence_clauses": [
+          "R2"
+        ],
+        "evidence": "b1"
+      },
+      "rationale": "Der ungebuchte Zubringer ist noch kein Reisebeginn; vollständiger Verzicht erfüllt Rücktritt.",
+      "id": "fall_052",
+      "tags": [],
+      "evidence_options": {
+        "b1": [
+          "R2"
+        ],
+        "b2": [
+          "R7"
+        ],
+        "b3": [
+          "R4"
+        ],
+        "b4": [
+          "R1"
+        ],
+        "b5": [
+          "R3"
+        ]
+      },
+      "decision_options": {
+        "ja": "Die Aussage ist durch die maßgeblichen Unterlagen und den Sachverhalt gestützt.",
+        "nein": "Die Aussage wird durch die maßgeblichen Unterlagen und den Sachverhalt widerlegt.",
+        "offen": "Weder Aussage noch Gegenteil sind entscheidbar: notwendige Information fehlt; kein unaufgelöster maßgeblicher Regelwiderspruch.",
+        "konflikt": "Die für diese Aussage maßgeblichen Unterlagen widersprechen sich ausdrücklich und der Widerspruch ist durch keinen vereinbarten Vorrang auflösbar."
+      }
+    },
+    {
+      "document_id": "paket_03",
+      "area": "Ausschlüsse und Rückausnahmen",
+      "scenario": "Eine privat geliehene Geige wird bei privatem Spielen fahrlässig beschädigt; sie geht nicht verloren.",
+      "claim": "Der Ausschluss für geliehene Sachen L2 greift wegen L3 für diesen Schaden nicht.",
+      "expected": {
+        "decision": "ja",
+        "evidence_clauses": [
+          "L3"
+        ],
+        "evidence": "b2"
+      },
+      "rationale": "Die Rückausnahme erfasst privat geliehenes Musikinstrument ohne Verlust.",
+      "id": "fall_053",
+      "tags": [],
+      "evidence_options": {
+        "b1": [
+          "L1"
+        ],
+        "b2": [
+          "L3"
+        ],
+        "b3": [
+          "L7"
+        ],
+        "b4": [
+          "L2"
+        ],
+        "b5": [
+          "L6"
+        ]
+      },
+      "decision_options": {
+        "offen": "Weder Aussage noch Gegenteil sind entscheidbar: notwendige Information fehlt; kein unaufgelöster maßgeblicher Regelwiderspruch.",
+        "ja": "Die Aussage ist durch die maßgeblichen Unterlagen und den Sachverhalt gestützt.",
+        "nein": "Die Aussage wird durch die maßgeblichen Unterlagen und den Sachverhalt widerlegt.",
+        "konflikt": "Die für diese Aussage maßgeblichen Unterlagen widersprechen sich ausdrücklich und der Widerspruch ist durch keinen vereinbarten Vorrang auflösbar."
+      }
+    },
+    {
+      "document_id": "paket_06",
+      "area": "Voraussetzungen und Obliegenheiten",
+      "scenario": "Ein Schaden wurde verspätet gemeldet. Weitere Angaben zu Verschulden und Folgen der Verzögerung liegen nicht vor.",
+      "claim": "Eine vollständige Ablehnung wegen der verspäteten Meldung ist nach O2 zulässig.",
+      "expected": {
+        "decision": "offen",
+        "evidence_clauses": [
+          "O2"
+        ],
+        "evidence": "b4"
+      },
+      "rationale": "Verspätung allein reicht nicht; beide Ablehnungsvoraussetzungen sind unbekannt.",
+      "id": "fall_054",
+      "tags": [],
+      "evidence_options": {
+        "b1": [
+          "O3"
+        ],
+        "b2": [
+          "O6"
+        ],
+        "b3": [
+          "O7"
+        ],
+        "b4": [
+          "O2"
+        ],
+        "b5": [
+          "O5"
+        ]
+      },
+      "decision_options": {
+        "nein": "Die Aussage wird durch die maßgeblichen Unterlagen und den Sachverhalt widerlegt.",
+        "konflikt": "Die für diese Aussage maßgeblichen Unterlagen widersprechen sich ausdrücklich und der Widerspruch ist durch keinen vereinbarten Vorrang auflösbar.",
+        "offen": "Weder Aussage noch Gegenteil sind entscheidbar: notwendige Information fehlt; kein unaufgelöster maßgeblicher Regelwiderspruch.",
+        "ja": "Die Aussage ist durch die maßgeblichen Unterlagen und den Sachverhalt gestützt."
+      }
+    },
+    {
+      "document_id": "paket_11",
+      "area": "Unvollständige und widersprüchliche Akten",
+      "scenario": "Ein Schaden tritt am Standort Nord ein. Es liegen ausschließlich die in U2 genannten Unterlagen vor.",
+      "claim": "Standort Nord ist der verbindlich vereinbarte Versicherungsort.",
+      "expected": {
+        "decision": "offen",
+        "evidence_clauses": [
+          "U1",
+          "U2"
+        ],
+        "evidence": "b5"
+      },
+      "rationale": "Angebot ohne Schein oder Annahme belegt keine vereinbarte Adresse.",
+      "id": "fall_055",
+      "tags": [],
+      "evidence_options": {
+        "b1": [
+          "U5",
+          "U7"
+        ],
+        "b2": [
+          "U1",
+          "U4"
+        ],
+        "b3": [
+          "U3",
+          "U6"
+        ],
+        "b4": [
+          "U5",
+          "U6"
+        ],
+        "b5": [
+          "U1",
+          "U2"
+        ]
+      },
+      "decision_options": {
+        "ja": "Die Aussage ist durch die maßgeblichen Unterlagen und den Sachverhalt gestützt.",
+        "nein": "Die Aussage wird durch die maßgeblichen Unterlagen und den Sachverhalt widerlegt.",
+        "konflikt": "Die für diese Aussage maßgeblichen Unterlagen widersprechen sich ausdrücklich und der Widerspruch ist durch keinen vereinbarten Vorrang auflösbar.",
+        "offen": "Weder Aussage noch Gegenteil sind entscheidbar: notwendige Information fehlt; kein unaufgelöster maßgeblicher Regelwiderspruch."
+      }
+    },
+    {
+      "document_id": "paket_01",
+      "area": "Deckungsumfang und Definitionen",
+      "scenario": "Ein privat geliehener Fotoapparat befindet sich bei einem dauerhaften Umzug bereits in der neuen, nicht im Schein genannten Wohnung.",
+      "claim": "Der Fotoapparat ist nach der Fremdsachenregel H5 an diesem Ort eingeschlossen.",
+      "expected": {
+        "decision": "nein",
+        "evidence_clauses": [
+          "H3",
+          "H5"
+        ],
+        "evidence": "b5"
+      },
+      "rationale": "Einschluss privat geliehener Sachen setzt den Versicherungsort voraus; laut Sachverhalt liegt dieser nicht vor.",
+      "id": "fall_056",
+      "tags": [],
+      "evidence_options": {
+        "b1": [
+          "H2",
+          "H6"
+        ],
+        "b2": [
+          "H1",
+          "H4"
+        ],
+        "b3": [
+          "H1",
+          "H5"
+        ],
+        "b4": [
+          "H1",
+          "H7"
+        ],
+        "b5": [
+          "H3",
+          "H5"
+        ]
+      },
+      "decision_options": {
+        "nein": "Die Aussage wird durch die maßgeblichen Unterlagen und den Sachverhalt widerlegt.",
+        "ja": "Die Aussage ist durch die maßgeblichen Unterlagen und den Sachverhalt gestützt.",
+        "offen": "Weder Aussage noch Gegenteil sind entscheidbar: notwendige Information fehlt; kein unaufgelöster maßgeblicher Regelwiderspruch.",
+        "konflikt": "Die für diese Aussage maßgeblichen Unterlagen widersprechen sich ausdrücklich und der Widerspruch ist durch keinen vereinbarten Vorrang auflösbar."
+      }
+    },
+    {
+      "document_id": "paket_08",
+      "area": "Nachweise und Verfahrensstatus",
+      "scenario": "Ein inhaltlich vollständiges Attest liegt digital vor. Es gab keine Anforderung eines Papieroriginals.",
+      "claim": "Für diesen Nachweis muss zusätzlich ein Papieroriginal eingereicht werden.",
+      "expected": {
+        "decision": "nein",
+        "evidence_clauses": [
+          "M4"
+        ],
+        "evidence": "b1"
+      },
+      "rationale": "Papieroriginal nur nach qualifizierter Anforderung.",
+      "id": "fall_057",
+      "tags": [],
+      "evidence_options": {
+        "b1": [
+          "M4"
+        ],
+        "b2": [
+          "M7"
+        ],
+        "b3": [
+          "M2"
+        ],
+        "b4": [
+          "M5"
+        ],
+        "b5": [
+          "M3"
+        ]
+      },
+      "decision_options": {
+        "offen": "Weder Aussage noch Gegenteil sind entscheidbar: notwendige Information fehlt; kein unaufgelöster maßgeblicher Regelwiderspruch.",
+        "konflikt": "Die für diese Aussage maßgeblichen Unterlagen widersprechen sich ausdrücklich und der Widerspruch ist durch keinen vereinbarten Vorrang auflösbar.",
+        "nein": "Die Aussage wird durch die maßgeblichen Unterlagen und den Sachverhalt widerlegt.",
+        "ja": "Die Aussage ist durch die maßgeblichen Unterlagen und den Sachverhalt gestützt."
+      }
+    },
+    {
+      "document_id": "paket_08",
+      "area": "Nachweise und Verfahrensstatus",
+      "scenario": "Eingereicht ist ausschließlich eine Arbeitsunfähigkeitsbescheinigung ohne Reisebezug.",
+      "claim": "Der Nachweis der Reiseunfähigkeit nach M1 liegt vor.",
+      "expected": {
+        "decision": "nein",
+        "evidence_clauses": [
+          "M2"
+        ],
+        "evidence": "b5"
+      },
+      "rationale": "Arbeitsunfähigkeit ohne Reisebezug ersetzt die verlangte Bescheinigung nicht.",
+      "id": "fall_058",
+      "tags": [],
+      "evidence_options": {
+        "b1": [
+          "M5"
+        ],
+        "b2": [
+          "M3"
+        ],
+        "b3": [
+          "M4"
+        ],
+        "b4": [
+          "M7"
+        ],
+        "b5": [
+          "M2"
+        ]
+      },
+      "decision_options": {
+        "offen": "Weder Aussage noch Gegenteil sind entscheidbar: notwendige Information fehlt; kein unaufgelöster maßgeblicher Regelwiderspruch.",
+        "nein": "Die Aussage wird durch die maßgeblichen Unterlagen und den Sachverhalt widerlegt.",
+        "ja": "Die Aussage ist durch die maßgeblichen Unterlagen und den Sachverhalt gestützt.",
+        "konflikt": "Die für diese Aussage maßgeblichen Unterlagen widersprechen sich ausdrücklich und der Widerspruch ist durch keinen vereinbarten Vorrang auflösbar."
+      }
+    },
+    {
+      "document_id": "paket_02",
+      "area": "Deckungsumfang und Definitionen",
+      "scenario": "Der erste gebuchte Flug wurde angetreten. Am Ziel wird die restliche Reise abgebrochen.",
+      "claim": "Der Vorgang ist ein Reiserücktritt im Sinne der Bedingungen.",
+      "expected": {
+        "decision": "nein",
+        "evidence_clauses": [
+          "R2"
+        ],
+        "evidence": "b4"
+      },
+      "rationale": "Das erste Segment wurde angetreten; danach liegt kein Rücktritt vor.",
+      "id": "fall_059",
+      "tags": [],
+      "evidence_options": {
+        "b1": [
+          "R4"
+        ],
+        "b2": [
+          "R6"
+        ],
+        "b3": [
+          "R7"
+        ],
+        "b4": [
+          "R2"
+        ],
+        "b5": [
+          "R1"
+        ]
+      },
+      "decision_options": {
+        "konflikt": "Die für diese Aussage maßgeblichen Unterlagen widersprechen sich ausdrücklich und der Widerspruch ist durch keinen vereinbarten Vorrang auflösbar.",
+        "nein": "Die Aussage wird durch die maßgeblichen Unterlagen und den Sachverhalt widerlegt.",
+        "ja": "Die Aussage ist durch die maßgeblichen Unterlagen und den Sachverhalt gestützt.",
+        "offen": "Weder Aussage noch Gegenteil sind entscheidbar: notwendige Information fehlt; kein unaufgelöster maßgeblicher Regelwiderspruch."
+      }
+    },
+    {
+      "document_id": "paket_10",
+      "area": "Nachträge und Dokumentvorrang",
+      "scenario": "Die Garage wird durch Überschwemmung beschädigt. Gamma ist wirksam.",
+      "claim": "Überschwemmungsschäden an der Garage sind nach Gamma eingeschlossen.",
+      "expected": {
+        "decision": "ja",
+        "evidence_clauses": [
+          "Z5"
+        ],
+        "evidence": "b2"
+      },
+      "rationale": "Gamma enthält einen ausdrücklich auf die Garage bezogenen Einschluss.",
+      "id": "fall_060",
+      "tags": [],
+      "evidence_options": {
+        "b1": [
+          "Z1"
+        ],
+        "b2": [
+          "Z5"
+        ],
+        "b3": [
+          "Z2"
+        ],
+        "b4": [
+          "Z6"
+        ],
+        "b5": [
+          "Z7"
+        ]
+      },
+      "decision_options": {
+        "konflikt": "Die für diese Aussage maßgeblichen Unterlagen widersprechen sich ausdrücklich und der Widerspruch ist durch keinen vereinbarten Vorrang auflösbar.",
+        "offen": "Weder Aussage noch Gegenteil sind entscheidbar: notwendige Information fehlt; kein unaufgelöster maßgeblicher Regelwiderspruch.",
+        "ja": "Die Aussage ist durch die maßgeblichen Unterlagen und den Sachverhalt gestützt.",
+        "nein": "Die Aussage wird durch die maßgeblichen Unterlagen und den Sachverhalt widerlegt."
+      }
+    }
+  ]
+}

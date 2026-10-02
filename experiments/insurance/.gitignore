@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+venv/
+model/
+hf_cache/
+*.log

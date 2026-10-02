@@ -1,42 +1,614 @@
 export const CATEGORY = {
-  it_routing: 'IT- & M365-Routing', urgency: 'Priorität & Negation',
-  tool_selection: 'Werkzeugauswahl', document_classification: 'Dokumentfunktion',
-  admin_intent: 'Verwaltungsabsicht', ambiguity_abstain: 'Mehrdeutigkeit'
+  it_routing: "IT- & M365-Routing",
+  urgency: "Priorität & Negation",
+  tool_selection: "Werkzeugauswahl",
+  document_classification: "Dokumentfunktion",
+  admin_intent: "Verwaltungsabsicht",
+  ambiguity_abstain: "Mehrdeutigkeit",
 };
-export const SPLIT = {german_primary:'Deutsch / Deutsch',english_control:'Englisch / Englisch',mixed_schema_diagnostic:'Deutsch / Englisch'};
-export const escapeHTML = (value) => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-export const percent = (value, digits=1) => Number.isFinite(value) ? new Intl.NumberFormat('de-DE',{style:'percent',maximumFractionDigits:digits}).format(value) : '—';
-export const decimal = (value, digits=2) => Number.isFinite(value) ? new Intl.NumberFormat('de-DE',{maximumFractionDigits:digits}).format(value) : '—';
-/** A requested profile alone must never be shown as verified GPU execution. */
+export const SPLIT = {
+  german_primary: "Deutsch / Deutsch",
+  english_control: "Englisch / Englisch",
+  mixed_schema_diagnostic: "Deutsch / Englisch",
+  german_clean_primary: "Deutsch · ohne Manipulation",
+  german_insurance_primary: "Deutsch · Dokumente",
+};
+export const LIMITS = Object.freeze({
+  state: 6000,
+  questions: 8,
+  options: 12,
+  bodyBytes: 32768,
+  tokens: 2048,
+});
+export const escapeHTML = (value) =>
+  String(value ?? "").replace(
+    /[&<>"']/g,
+    (c) =>
+      ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[
+        c
+      ],
+  );
+export const percent = (value, digits = 1) =>
+  Number.isFinite(value)
+    ? new Intl.NumberFormat("de-DE", {
+        style: "percent",
+        maximumFractionDigits: digits,
+      }).format(value)
+    : "—";
+export const decimal = (value, digits = 2) =>
+  Number.isFinite(value)
+    ? new Intl.NumberFormat("de-DE", { maximumFractionDigits: digits }).format(
+        value,
+      )
+    : "—";
+export const isObject = (value) =>
+  value !== null && typeof value === "object" && !Array.isArray(value);
+export const fieldLabel = (id) =>
+  id === "decision"
+    ? "Entscheidung"
+    : id === "evidence"
+      ? "Evidenz"
+      : id.replace(/_/g, " ");
+export const choiceLabel = (field, key, criteria = {}) =>
+  field === "decision" && ["ja", "nein", "offen", "konflikt"].includes(key)
+    ? {
+        ja: "Aussage gestützt",
+        nein: "Aussage widerlegt",
+        offen: "Information fehlt",
+        konflikt: "Regelwiderspruch",
+      }[key]
+    : criteria[key] || key || "Nicht verfügbar";
 export function runtimeLabel(runtime) {
-  if (!runtime?.device || !runtime?.precision) return 'Gerät und Präzision noch nicht geprüft';
-  const backend=runtime.backend==='rocm'?'AMD ROCm':runtime.backend==='cpu'?'CPU':'Lokales Backend';
-  return `${backend} · ${runtime.device_name||runtime.device} (${runtime.device}) · ${runtime.precision}`;
+  if (!runtime?.device || !runtime?.precision)
+    return "Gerät und Präzision noch nicht geprüft";
+  const backend =
+    runtime.backend === "rocm"
+      ? "AMD ROCm"
+      : runtime.backend === "cpu"
+        ? "CPU"
+        : "Lokales Backend";
+  return `${backend} · ${runtime.device_name || runtime.device} (${runtime.device}) · ${runtime.precision}`;
 }
-export function filterCases(cases, filters={}) {
-  const query = (filters.query || '').trim().toLocaleLowerCase('de');
-  return cases.filter(c => (!filters.split || c.split === filters.split) && (!filters.category || c.category === filters.category) && (!filters.tag || c.tags.includes(filters.tag)) && (!filters.errors || c.result?.correct === false) && (!query || [c.id,c.input,c.expected?.decision,c.result?.prediction,...c.tags].join(' ').toLocaleLowerCase('de').includes(query)));
+export function fieldsForCase(c) {
+  if (!c) return [];
+  return Object.entries(c.questions || {}).map(([id, schema]) => {
+    const result =
+      c.result?.fields?.[id] ||
+      (id === "decision" && c.result?.prediction !== undefined
+        ? c.result
+        : null);
+    return {
+      id,
+      schema,
+      expected: c.expected?.[id],
+      result: result
+        ? {
+            prediction: result.prediction,
+            correct: result.correct === true,
+            probabilities: result.probabilities || {},
+            schema_valid: result.schema_valid === true,
+          }
+        : null,
+    };
+  });
 }
-export function probabilities(c) { return Object.entries(c?.probabilities || {}).sort((a,b)=>b[1]-a[1]); }
-export function validatePlayground(state, questions) {
-  if (!state.trim() || state.length>6000) throw new Error('Bitte gib einen Text mit 1 bis 6.000 Zeichen ein.');
-  if (!questions || typeof questions!=='object' || Array.isArray(questions) || Object.keys(questions).length!==1) throw new Error('Das Schema muss genau eine choice-Frage enthalten.');
-  const id=/^[A-Za-z][A-Za-z0-9_-]{0,63}$/;
-  for (const [name,q] of Object.entries(questions)) {
-    if (!id.test(name) || !q || Object.keys(q).sort().join(',')!=='criteria,instructions,type' || q.type!=='choice') throw new Error('Erwartet: eine choice-Frage mit type, instructions und criteria.');
-    if (typeof q.instructions!=='string' || !q.instructions.trim() || q.instructions.length>4000) throw new Error('Die Richtlinie muss 1 bis 4.000 Zeichen enthalten.');
-    if (!q.criteria || Array.isArray(q.criteria) || typeof q.criteria!=='object' || Object.keys(q.criteria).length<2 || Object.keys(q.criteria).length>12) throw new Error('Bitte definiere 2 bis 12 Auswahlklassen.');
-    for (const [key,text] of Object.entries(q.criteria)) if (!id.test(key) || typeof text!=='string' || !text.trim() || text.length>300) throw new Error('Jede Klasse braucht eine ID und eine Beschreibung (1–300 Zeichen).');
+export function outcome(c) {
+  const fields = fieldsForCase(c);
+  if (!c?.result) return "unscored";
+  if (!fields.length)
+    return c.result.correct === true
+      ? "correct"
+      : c.result.correct === false
+        ? "wrong"
+        : "unscored";
+  if (fields.some((f) => !f.result)) return "unscored";
+  return fields.every((f) => f.result.correct)
+    ? "correct"
+    : fields.some((f) => f.result.correct)
+      ? "partial"
+      : "wrong";
+}
+export function filterCases(cases, filters = {}) {
+  const query = (filters.query || "").trim().toLocaleLowerCase("de");
+  return cases.filter((c) => {
+    const fields = fieldsForCase(c),
+      o = outcome(c),
+      kind = filters.outcome || (filters.errors ? "errors" : "");
+    const matches =
+      !kind ||
+      (kind === "errors" && ["partial", "wrong"].includes(o)) ||
+      (kind === "correct" && o === "correct") ||
+      (kind === "unscored" && o === "unscored") ||
+      (["decision", "evidence"].includes(kind) &&
+        fields.some((f) => f.id === kind && f.result?.correct === false));
+    return (
+      (!filters.split || c.split === filters.split) &&
+      (!filters.category || c.category === filters.category) &&
+      (!filters.tag || (c.tags || []).includes(filters.tag)) &&
+      matches &&
+      (!query ||
+        [
+          c.id,
+          c.title,
+          c.input,
+          c.scenario,
+          c.claim,
+          c.document_id,
+          c.area,
+          ...(c.tags || []),
+          ...fields.flatMap((f) => [f.expected, f.result?.prediction]),
+        ]
+          .join(" ")
+          .toLocaleLowerCase("de")
+          .includes(query))
+    );
+  });
+}
+export function probabilities(c) {
+  return Object.entries(c?.probabilities || {})
+    .filter(([, v]) => Number.isFinite(v))
+    .sort((a, b) => b[1] - a[1]);
+}
+export function canonicalJSON(value) {
+  if (Array.isArray(value))
+    return "[" + value.map(canonicalJSON).join(",") + "]";
+  if (isObject(value))
+    return (
+      "{" +
+      Object.keys(value)
+        .sort()
+        .map((k) => JSON.stringify(k) + ":" + canonicalJSON(value[k]))
+        .join(",") +
+      "}"
+    );
+  return JSON.stringify(value);
+}
+/** Vendor encodes question fields in insertion order but sorts option IDs. */
+export function requestFingerprint(request) {
+  return request
+    ? canonicalJSON({
+        state: request.state,
+        questions: Object.entries(request.questions),
+      })
+    : null;
+}
+/** JSON.parse gives syntax validation; this additional walk rejects ambiguous duplicate object keys. */
+export function parseJSONStrict(text) {
+  const value = JSON.parse(text);
+  let i = 0;
+  const ws = () => {
+    while (/\s/.test(text[i] || "") && i < text.length) i++;
+  };
+  function str() {
+    const start = i++;
+    while (i < text.length) {
+      if (text[i] === "\\") {
+        i += 2;
+        continue;
+      }
+      if (text[i++] === '"') break;
+    }
+    return JSON.parse(text.slice(start, i));
   }
-  return {state,questions};
+  function walk() {
+    ws();
+    if (text[i] === "{") {
+      i++;
+      ws();
+      const keys = new Set();
+      if (text[i] === "}") {
+        i++;
+        return;
+      }
+      while (i < text.length) {
+        ws();
+        const key = str();
+        if (keys.has(key)) throw Error(`Doppelter JSON-Schlüssel: ${key}`);
+        keys.add(key);
+        ws();
+        i++;
+        walk();
+        ws();
+        if (text[i++] === "}") return;
+      }
+    } else if (text[i] === "[") {
+      i++;
+      ws();
+      if (text[i] === "]") {
+        i++;
+        return;
+      }
+      while (i < text.length) {
+        walk();
+        ws();
+        if (text[i++] === "]") return;
+      }
+    } else if (text[i] === '"') {
+      str();
+    } else {
+      while (i < text.length && !/[\s,}\]]/.test(text[i])) i++;
+    }
+  }
+  walk();
+  return value;
 }
-/** Own one in-flight request; navigation must not replace its editor snapshot. */
+export function validatePlayground(state, questions) {
+  if (
+    typeof state !== "string" ||
+    !state.trim() ||
+    [...state].length > LIMITS.state
+  )
+    throw Error("Bitte gib einen Text mit 1 bis 6.000 Zeichen ein.");
+  if (
+    !isObject(questions) ||
+    Object.keys(questions).length < 1 ||
+    Object.keys(questions).length > LIMITS.questions
+  )
+    throw Error("Das Schema muss 1 bis 8 choice-Fragen enthalten.");
+  const id = /^[A-Za-z][A-Za-z0-9_-]{0,63}$/;
+  for (const [name, q] of Object.entries(questions)) {
+    if (
+      !id.test(name) ||
+      !isObject(q) ||
+      Object.keys(q).sort().join(",") !== "criteria,instructions,type" ||
+      q.type !== "choice"
+    )
+      throw Error(
+        "Jede Frage braucht type: choice, instructions und criteria.",
+      );
+    if (
+      typeof q.instructions !== "string" ||
+      !q.instructions.trim() ||
+      [...q.instructions].length > 4000
+    )
+      throw Error("Jede Richtlinie muss 1 bis 4.000 Zeichen enthalten.");
+    if (
+      !isObject(q.criteria) ||
+      Object.keys(q.criteria).length < 2 ||
+      Object.keys(q.criteria).length > LIMITS.options
+    )
+      throw Error("Jede Frage braucht 2 bis 12 Auswahloptionen.");
+    for (const [key, description] of Object.entries(q.criteria))
+      if (
+        !id.test(key) ||
+        typeof description !== "string" ||
+        !description.trim() ||
+        [...description].length > 300
+      )
+        throw Error(
+          "Jede Option braucht eine ID und eine Beschreibung (1–300 Zeichen).",
+        );
+  }
+  const request = { state, questions };
+  if (
+    new TextEncoder().encode(JSON.stringify(request)).length > LIMITS.bodyBytes
+  )
+    throw Error(
+      "Die gesamte Anfrage ist größer als 32 KiB. Bitte Text oder Schema kürzen.",
+    );
+  return request;
+}
+/** Refuse partial, unknown or malformed fields instead of displaying a plausible first answer. */
+export function validateLiveResult(result, request) {
+  const fail = () => {
+    throw Error(
+      "Die Antwort ist unvollständig oder passt nicht zum angefragten Schema. Es wird kein Teilergebnis angezeigt.",
+    );
+  };
+  if (
+    !isObject(result) ||
+    result.source !== "live_local_inference" ||
+    result.truncated !== false ||
+    !Number.isInteger(result.input_tokens) ||
+    result.input_tokens < 1 ||
+    result.input_tokens > LIMITS.tokens ||
+    !Number.isFinite(result.latency_ms) ||
+    result.latency_ms < 0
+  )
+    fail();
+  const ids = Object.keys(request.questions).sort();
+  if (
+    !isObject(result.answers) ||
+    !isObject(result.probabilities_unrounded) ||
+    Object.keys(result.answers).sort().join("|") !== ids.join("|") ||
+    Object.keys(result.probabilities_unrounded).sort().join("|") !==
+      ids.join("|")
+  )
+    fail();
+  for (const [id, q] of Object.entries(request.questions)) {
+    const answer = result.answers[id],
+      probs = result.probabilities_unrounded[id],
+      options = Object.keys(q.criteria).sort();
+    if (
+      !isObject(answer) ||
+      answer.type !== "choice" ||
+      !options.includes(answer.choice) ||
+      !isObject(probs) ||
+      Object.keys(probs).sort().join("|") !== options.join("|")
+    )
+      fail();
+    const values = Object.values(probs);
+    if (
+      values.some((v) => !Number.isFinite(v) || v < 0 || v > 1) ||
+      Math.abs(values.reduce((a, b) => a + b, 0) - 1) > 1e-5
+    )
+      fail();
+  }
+  return result;
+}
+export function suiteStats(data) {
+  const primary = data.cases.filter(
+      (c) => c.split === data.suite.primary_split,
+    ),
+    complete = data.status === "completed",
+    fieldIDs = [
+      ...new Set(primary.flatMap((c) => Object.keys(c.questions || {}))),
+    ];
+  const fields = Object.fromEntries(
+    fieldIDs.map((id) => {
+      const rows = primary.filter((c) => id in c.questions);
+      return [
+        id,
+        {
+          correct: complete
+            ? rows.filter(
+                (c) =>
+                  fieldsForCase(c).find((f) => f.id === id)?.result?.correct,
+              ).length
+            : null,
+          total: rows.length,
+        },
+      ];
+    }),
+  );
+  return {
+    primary,
+    complete,
+    fields,
+    exact: complete
+      ? primary.filter((c) => outcome(c) === "correct").length
+      : null,
+    total: primary.length,
+    valid: complete
+      ? primary.filter((c) =>
+          fieldsForCase(c).every((f) => f.result?.schema_valid),
+        ).length
+      : null,
+  };
+}
+export function evidenceIDs(c, kind) {
+  const field = fieldsForCase(c).find((f) => f.id === "evidence");
+  if (!field) return [];
+  return kind === "gold"
+    ? c.expected?.evidence_clauses || c.evidence_options?.[field.expected] || []
+    : field.result
+      ? c.result.actual_evidence_clauses ||
+        c.evidence_options?.[field.result.prediction] ||
+        []
+      : [];
+}
+export function documentForCase(c, data) {
+  return data.documents?.find((d) => d.id === c?.document_id) || null;
+}
+/** One request owns its editor snapshot, even when the explorer navigates elsewhere. */
 export class InferenceSession {
-  #active=null;
-  #serial=0;
-  get busy(){return this.#active!==null;}
-  begin(){if(this.busy)throw new Error('Eine Inferenz läuft bereits.');this.#active=++this.#serial;return this.#active;}
-  isCurrent(token){return this.#active===token;}
-  finish(token){if(!this.isCurrent(token))return false;this.#active=null;return true;}
-  edit(callback){if(this.busy)return false;callback();return true;}
+  #active = null;
+  #serial = 0;
+  get busy() {
+    return this.#active !== null;
+  }
+  begin() {
+    if (this.busy) throw Error("Eine Inferenz läuft bereits.");
+    this.#active = ++this.#serial;
+    return this.#active;
+  }
+  isCurrent(token) {
+    return this.#active === token;
+  }
+  finish(token) {
+    if (!this.isCurrent(token)) return false;
+    this.#active = null;
+    return true;
+  }
+  edit(callback) {
+    if (this.busy) return false;
+    callback();
+    return true;
+  }
+}
+/** Admit a stored suite only after full local structural checks. This supplements,
+ * rather than replaces, the frozen-file/independent-hash importer gate. */
+export function validateDataset(data, expectedID) {
+  const fail = () => {
+    throw Error("Der Datensatz ist unvollständig oder nicht verifiziert.");
+  };
+  if (
+    !isObject(data) ||
+    !["completed", "test_data_only"].includes(data.status) ||
+    !isObject(data.suite) ||
+    data.suite.id !== expectedID ||
+    typeof data.suite.primary_split !== "string" ||
+    !Array.isArray(data.cases) ||
+    !data.cases.length
+  )
+    fail();
+  const plans = {
+    insurance: [60, 60, "german_insurance_primary"],
+    general: [180, 120, "german_primary"],
+    finance: [100, 80, "german_primary"],
+    clean72: [72, 72, "german_clean_primary"],
+  };
+  const plan = plans[expectedID];
+  if (
+    !plan ||
+    data.cases.length !== plan[0] ||
+    data.suite.primary_split !== plan[2] ||
+    data.cases.filter((c) => c.split === plan[2]).length !== plan[1]
+  )
+    fail();
+  if (
+    data.verification?.n_present !== undefined &&
+    data.verification.n_present !== plan[0]
+  )
+    fail();
+  const complete = data.status === "completed",
+    ids = new Set(),
+    documentIDs = new Set();
+  if (
+    complete &&
+    data.verification?.status !==
+      (expectedID === "insurance" ? "verified" : "pass")
+  )
+    fail();
+  if (!complete && (data.summary !== undefined || data.scores !== undefined))
+    fail();
+  if (
+    expectedID === "insurance" &&
+    (!Array.isArray(data.documents) || data.documents.length !== 12)
+  )
+    fail();
+  if (data.documents !== undefined) {
+    if (!Array.isArray(data.documents)) fail();
+    for (const d of data.documents) {
+      if (
+        !isObject(d) ||
+        typeof d.id !== "string" ||
+        documentIDs.has(d.id) ||
+        typeof d.title !== "string" ||
+        !Array.isArray(d.clauses) ||
+        !d.clauses.length
+      )
+        fail();
+      documentIDs.add(d.id);
+      const clauseIDs = new Set();
+      for (const cl of d.clauses) {
+        if (
+          !isObject(cl) ||
+          typeof cl.id !== "string" ||
+          !cl.id ||
+          clauseIDs.has(cl.id) ||
+          typeof cl.text !== "string"
+        )
+          fail();
+        clauseIDs.add(cl.id);
+      }
+    }
+  }
+  for (const c of data.cases) {
+    if (
+      !isObject(c) ||
+      typeof c.id !== "string" ||
+      !/^[A-Za-z][A-Za-z0-9_-]{0,100}$/.test(c.id) ||
+      ids.has(c.id) ||
+      typeof c.split !== "string" ||
+      typeof c.category !== "string" ||
+      !Array.isArray(c.tags) ||
+      c.tags.some((t) => typeof t !== "string") ||
+      !isObject(c.expected)
+    )
+      fail();
+    ids.add(c.id);
+    try {
+      validatePlayground(c.input, c.questions);
+    } catch {
+      fail();
+    }
+    if (
+      expectedID === "insurance" &&
+      (typeof c.document_id !== "string" ||
+        !documentIDs.has(c.document_id) ||
+        Object.keys(c.questions).sort().join("|") !== "decision|evidence" ||
+        Object.keys(c.questions.decision.criteria).length !== 4 ||
+        Object.keys(c.questions.evidence.criteria).length !== 5)
+    )
+      fail();
+    if (
+      expectedID !== "insurance" &&
+      Object.keys(c.questions).join("|") !== "decision"
+    )
+      fail();
+    if (!complete && c.result !== undefined) fail();
+    const fields = fieldsForCase(c),
+      questionIDs = Object.keys(c.questions).sort();
+    if (
+      c.result?.fields &&
+      Object.keys(c.result.fields).sort().join("|") !== questionIDs.join("|")
+    )
+      fail();
+    for (const f of fields) {
+      const choices = Object.keys(f.schema.criteria).sort();
+      if (!choices.includes(f.expected)) fail();
+      if (complete) {
+        const result =
+          c.result?.fields?.[f.id] || (f.id === "decision" ? c.result : null);
+        if (
+          !isObject(result) ||
+          result.schema_valid !== true ||
+          typeof result.correct !== "boolean" ||
+          !choices.includes(result.prediction) ||
+          result.correct !== (result.prediction === f.expected) ||
+          !isObject(result.probabilities) ||
+          Object.keys(result.probabilities).sort().join("|") !==
+            choices.join("|")
+        )
+          fail();
+        const probs = Object.values(result.probabilities);
+        if (
+          probs.some((p) => !Number.isFinite(p) || p < 0 || p > 1) ||
+          Math.abs(probs.reduce((a, b) => a + b, 0) - 1) > 1e-5
+        )
+          fail();
+      }
+    }
+    if (
+      complete &&
+      (c.result.correct !== fields.every((f) => f.result?.correct) ||
+        !Number.isInteger(c.input_tokens) ||
+        c.input_tokens < 1 ||
+        c.input_tokens > LIMITS.tokens ||
+        !Number.isFinite(c.latency_ms) ||
+        c.latency_ms < 0)
+    )
+      fail();
+    if (c.document_id) {
+      const d = data.documents?.find((d) => d.id === c.document_id);
+      if (
+        !d ||
+        !isObject(c.evidence_options) ||
+        !Array.isArray(c.expected.evidence_clauses)
+      )
+        fail();
+      const allowed = new Set(d.clauses.map((cl) => cl.id));
+      for (const clauseSet of Object.values(c.evidence_options)) {
+        if (
+          !Array.isArray(clauseSet) ||
+          !clauseSet.length ||
+          clauseSet.some((id) => !allowed.has(id))
+        )
+          fail();
+      }
+      const equal = (a, b) =>
+        Array.isArray(a) &&
+        Array.isArray(b) &&
+        a.length === b.length &&
+        [...a].sort().join("|") === [...b].sort().join("|");
+      if (
+        !equal(
+          c.expected.evidence_clauses,
+          c.evidence_options[c.expected.evidence],
+        )
+      )
+        fail();
+      if (
+        complete &&
+        !equal(
+          c.result.actual_evidence_clauses,
+          c.evidence_options[c.result.fields.evidence.prediction],
+        )
+      )
+        fail();
+    }
+  }
+  if (!data.cases.some((c) => c.split === data.suite.primary_split)) fail();
+  return data;
 }

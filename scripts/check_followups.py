@@ -11,9 +11,27 @@ def run(*args,cwd=ROOT):return subprocess.run([sys.executable,*map(str,args)],cw
 def module(name,p):
     spec=importlib.util.spec_from_file_location(name,p);m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m);return m
 
+def verify_protected_files(root=ROOT):
+    """Preserve the historical baseline; allow only exact reviewed live-API evolution."""
+    protected=load(root/'provenance/followup_baseline.json')
+    evolution_path=root/'provenance/workbench_evolution.json'
+    evolution=load(evolution_path) if evolution_path.is_file() else {'changes':{}}
+    changes=evolution['changes']
+    allowed={'server.py','runtime/live_adapter.py','tests/test_device_profiles.py'}
+    assert isinstance(changes,dict) and set(changes)<=allowed,'Unexpected protected-file evolution'
+    for name,change in changes.items():
+        assert name in protected['protected_files_sha256'],name
+        assert change['from_sha256']==protected['protected_files_sha256'][name],name
+        assert isinstance(change.get('reason'),str) and change['reason'],name
+    for name,expected in protected['protected_files_sha256'].items():
+        actual=sha(root/name)
+        if name in changes:
+            assert actual==changes[name]['to_sha256'],name
+        else:
+            assert actual==expected,name
+
 def main():
-    protected=load(ROOT/'provenance/followup_baseline.json')
-    for name,expected in protected['protected_files_sha256'].items():assert sha(ROOT/name)==expected,name
+    verify_protected_files()
     for suite in ('clean72','attack_ablation14'):
         base=ROOT/'experiments'/suite
         export=load(base/'provenance/portable_export.json')
@@ -50,5 +68,5 @@ def main():
     saved=load(image/'results/scores.json');saved.pop('provenance',None)
     assert fresh==saved,'Image metrics differ'
     run(image/'qa/test_scorer.py')
-    print('PASS: original 280 text results and AMD files preserved; clean72, image90 and seven-pair ablation complete, hash-checked and scores recomputed; no model or network used')
+    print('PASS: original 280 text results, pinned model/source and AMD profiles preserved; exact bounded live-API evolution verified; clean72, image90 and seven-pair ablation complete, hash-checked and scores recomputed; no model or network used')
 if __name__=='__main__':main()

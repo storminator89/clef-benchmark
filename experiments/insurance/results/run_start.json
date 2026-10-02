@@ -1,0 +1,7 @@
+{
+  "started_at": "2026-10-02T09:25:20.255608+00:00",
+  "primary_prediction_attempt": 1,
+  "requests_sha256": "03066c91f05878efcb7f3c358e91e0cfa9087091b205728c2788e61b0b8e1eba",
+  "freeze_manifest_sha256": "3339e1a2e7fb6efcc308a4520891f9674a8226062bb6ccbe2e2309cc99f4bdc5",
+  "runner_unchanged_from_text_pilot": true
+}

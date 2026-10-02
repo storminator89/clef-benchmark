@@ -16,3 +16,5 @@ Third-party attribution:
 The wordmarks Cloudflare and Clef are used to identify the tested model, without an endorsement claim.
 
 Image follow-up datasets and report excerpts are third-party material, not covered by the project's blanket license grant. See experiments/images/NOTICE, experiments/images/licenses/, and experiments/images/source/provenance.json for exact dataset attribution and conditions. Raw source images and full original invoice labels are not redistributed. The image report includes two explicitly attributed cropped examples under the documented permission.
+
+Development-only DOM tests use LinkeDOM 0.18.13 (MIT) and its lockfile-pinned dependencies. These packages are not bundled into the workbench's runtime assets. Their licenses are recorded in package-lock.json and distributed package metadata.

@@ -68,5 +68,6 @@ test('follow-up report links and clean selector exist without an image upload co
  const html=await readFile(new URL('../web/index.html',import.meta.url),'utf8');
  assert.match(html,/value="clean72"/);assert.match(html,/experiments\/images\/README.md/);
  assert.match(html,/experiments\/attack_ablation14\/RESULTS.md/);assert.doesNotMatch(html,/<input[^>]+type=["']file/i);
- const app=await readFile(new URL('../web/app.js',import.meta.url),'utf8');assert.match(app,/\$\('paired-panel'\)\.hidden=id==='clean72'/);
+ // Separate-pair visibility is behavior-tested in test_workbench_dom.mjs.
+
 });

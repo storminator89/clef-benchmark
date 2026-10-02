@@ -184,6 +184,18 @@ class ClefRuntime:
         if self.profile != 'cpu-nf4':
             self._torch.cuda.synchronize(self._runtime_info['device'])
 
+    @staticmethod
+    def _validate_encoded_questions(encoded, questions):
+        # Dict/zip construction would otherwise hide dropped or repeated fields.
+        if [question.question_id for question in encoded.questions] != list(questions):
+            raise RuntimeError('Encoded questions do not exactly match the request')
+        for question in encoded.questions:
+            original = questions[question.question_id]
+            # The pinned vendor question_options() sorts choice IDs; request
+            # insertion order remains meaningful only for the question fields.
+            if original['type'] == 'choice' and list(question.option_ids) != sorted(original['criteria']):
+                raise RuntimeError('Encoded choice options do not exactly match the request')
+
     def infer(self, request: dict[str, Any]) -> dict[str, Any]:
         """Return answers plus unrounded probabilities and forward-only latency."""
         if not isinstance(request, dict) or 'state' not in request:
@@ -199,11 +211,13 @@ class ClefRuntime:
             torch, vendor, processor = self._torch, self._vendor, self._processor
             started = time.perf_counter()
             full = vendor.encode_record(processor.tokenizer, clean, processor=processor, max_length=1_000_000)
+            self._validate_encoded_questions(full, questions)
             if len(full.input_ids) > self.max_length:
                 raise ValueError(f'Input is {len(full.input_ids)} tokens; maximum is {self.max_length}. Nothing was truncated or inferred')
             encoded = vendor.encode_record(processor.tokenizer, clean, processor=processor, max_length=self.max_length)
             if encoded.input_ids != full.input_ids:
                 raise RuntimeError('Input truncation detected; inference was refused')
+            self._validate_encoded_questions(encoded, questions)
             batch = vendor.collate_records([encoded], processor.tokenizer.pad_token_id, torch.device(self._runtime_info['device']))
             # HIP work is asynchronous. Exclude pending uploads from the timed
             # forward, and wait for completion before recording its duration.
@@ -211,17 +225,28 @@ class ClefRuntime:
             encode_seconds = time.perf_counter() - started
             started = time.perf_counter()
             with torch.inference_mode():
-                logits = self._model(batch)[0]
+                output = self._model(batch)
             self._synchronize()
             inference_seconds = time.perf_counter() - started
-            probabilities = {
-                q.question_id: dict(zip(q.option_ids, values.float().softmax(-1).tolist()))
-                for q, values in zip(encoded.questions, logits)
-            }
-            for values in probabilities.values():
-                if not all(math.isfinite(v) and 0 <= v <= 1 for v in values.values()) or abs(sum(values.values()) - 1) > 1e-5:
+            if not isinstance(output, (list, tuple)) or len(output) != 1:
+                raise RuntimeError('Model returned an unexpected batch count')
+            logits = output[0]
+            if not isinstance(logits, (list, tuple)) or len(logits) != len(encoded.questions):
+                raise RuntimeError('Model returned an incomplete or unexpected question count')
+            probabilities = {}
+            for question, values in zip(encoded.questions, logits, strict=True):
+                values = values.float().softmax(-1).tolist()
+                if not isinstance(values, list) or len(values) != len(question.option_ids):
+                    raise RuntimeError('Model returned an incomplete or unexpected option count')
+                if not all(isinstance(value, (int, float)) and not isinstance(value, bool)
+                           and math.isfinite(value) and 0 <= value <= 1 for value in values) or abs(sum(values) - 1) > 1e-5:
                     raise RuntimeError('Model returned invalid probabilities')
+                probabilities[question.question_id] = dict(zip(question.option_ids, values, strict=True))
             answers = {qid: vendor.systemone_answer(questions[qid], probs) for qid, probs in probabilities.items()}
+            for qid, answer in answers.items():
+                if questions[qid]['type'] == 'choice' and (not isinstance(answer, dict)
+                        or answer.get('type') != 'choice' or answer.get('choice') not in probabilities[qid]):
+                    raise RuntimeError('Model returned an invalid choice answer')
             self._successful_requests += 1
             return {
                 'answers': answers,

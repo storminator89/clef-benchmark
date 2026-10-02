@@ -1,111 +1,120 @@
-"""Optional real-browser regression test; start python server.py first.
-Requires Python Playwright 1.62.0 and a Chromium executable.
-Never requests inference. No model results are mocked or simulated.
+"""Optional real-browser regression; start python server.py first.
+
+Run only in an environment where Chromium and loopback browsing are permitted.
+This script is NOT part of Python unittest discovery and was NOT executed in the
+creation environment. It never calls /api/infer or loads a model. Screenshots are
+created only by a genuine, successful browser run; never by a design mockup.
 """
 import json
 import os
 from pathlib import Path
-ROOT=Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[1]
+
+
 def main():
     from playwright.sync_api import sync_playwright
-    (ROOT/'docs/screenshots').mkdir(parents=True,exist_ok=True)
-    errors=[];checks=[]
+    output = ROOT / 'docs' / 'screenshots'
+    output.mkdir(parents=True, exist_ok=True)
+    checks, errors, inference_calls = [], [], []
     with sync_playwright() as p:
-        browser=p.chromium.launch(executable_path=os.environ.get('CHROMIUM_PATH','/usr/bin/chromium'),headless=True,chromium_sandbox=True)
-        page=browser.new_page(viewport={'width':1440,'height':1200},device_scale_factor=1)
-        page.on('pageerror',lambda error:errors.append(str(error)))
-        page.goto('http://127.0.0.1:8765',wait_until='networkidle')
-        page.wait_for_function("document.querySelector('#result-banner').textContent.includes('Abgeschlossener')")
-        assert page.locator('.stat-value').first.inner_text().replace('\xa0',' ')=='96,7 %'
-        assert page.evaluate('document.documentElement.scrollWidth <= window.innerWidth')
-        page.screenshot(path=str(ROOT/'docs/screenshots/overview-desktop.png'),full_page=True)
-        checks.append('desktop overview: final scores and no horizontal overflow')
-        page.get_by_role('link',name='Fälle entdecken').click()
-        page.locator('#filter-errors').check()
-        assert page.locator('.case-item').count()==4
-        page.locator('#search').fill('no-match-xyz')
-        assert page.locator('.case-item').count()==0
-        assert 'Keine Fälle' in page.locator('#case-list').inner_text()
-        page.get_by_role('button',name='Zurücksetzen').click()
-        assert page.locator('.case-item').count()==120
-        page.locator('#filter-split').select_option('english_control')
-        assert page.locator('.case-item').count()==30
-        page.locator('#filter-split').select_option('mixed_schema_diagnostic')
-        assert page.locator('.case-item').count()==30
-        page.locator('#filter-split').select_option('german_primary')
-        page.locator('.case-item').nth(1).click()
-        page.locator('#case-detail summary').first.click()
-        assert page.locator('#case-detail pre').is_visible()
-        page.screenshot(path=str(ROOT/'docs/screenshots/explorer-desktop.png'),full_page=True)
-        checks.append('explorer: errors, search-empty/reset, language filters, detail and schema')
-        page.get_by_role('button',name='Im Playground öffnen').click()
-        assert page.locator('#run-live').is_disabled()
-        page.get_by_role('button',name='Gespeicherte Antwort').click()
-        assert page.locator('#output-kind').inner_text()=='Gespeicherte Inferenz'
-        assert page.locator('.output-choice').inner_text()
-        original=page.locator('#input-state').input_value()
-        page.locator('#input-state').fill(original+' Bearbeitet.')
-        assert page.locator('#show-saved').is_disabled()
-        page.locator('#input-state').fill(original)
-        assert page.locator('#show-saved').is_enabled()
+        browser = p.chromium.launch(
+            executable_path=os.environ.get('CHROMIUM_PATH', '/usr/bin/chromium'),
+            headless=True, chromium_sandbox=True,
+        )
+        page = browser.new_page(viewport={'width': 1440, 'height': 1000}, device_scale_factor=1)
+        page.on('pageerror', lambda error: errors.append(str(error)))
+        page.on('request', lambda request: inference_calls.append(request.url)
+                if request.url.endswith('/api/infer') else None)
+        page.goto('http://127.0.0.1:8765', wait_until='networkidle')
+        page.wait_for_function("document.querySelectorAll('.case-item').length === 60")
+        assert page.locator('#suite-select').input_value() == 'insurance'
+        assert page.locator('[data-field]').count() == 2
+        assert page.locator('.document-section').count() > 0
+        assert page.evaluate('document.documentElement.scrollWidth <= innerWidth')
+        page.screenshot(path=str(output / 'workbench-desktop.png'), full_page=True)
+        checks.append('1440px: real document workbench with 60 cases and two fields')
+
+        page.locator('[data-case="fall_002"]').click()
+        page.locator('[data-field="evidence"]').click()
+        page.locator('[data-evidence="gold"]').click()
+        assert page.locator('.highlight-gold').count() > 0
+        page.locator('#highlight-select').select_option('none')
+        assert page.locator('.highlight-gold,.highlight-model,.highlight-both').count() == 0
+        page.locator('#search').fill('not-a-real-case-xyz')
+        assert page.locator('.case-item').count() == 0
+        assert page.locator('.document-section').count() == 0
+        page.locator('#reset-filters').click()
+        assert page.locator('.case-item').count() == 60
+        checks.append('document: field switch, evidence navigation, highlighting and empty-filter reset')
+
+        # Only verified, actually recorded benchmark replay is used here.
+        insurance = json.loads((ROOT / 'web/data/insurance.json').read_text())
+        page.locator('#open-playground').click()
+        assert page.locator('#playground').is_visible()
+        if insurance['status'] == 'completed':
+            page.locator('#show-saved').click()
+            assert page.locator('[data-output-field]').count() == 2
+            assert page.locator('#output-kind').inner_text() == 'Gespeicherte Inferenz'
+            original = page.locator('#input-state').input_value()
+            page.locator('#input-state').fill(original + ' Bearbeitet.')
+            assert page.locator('#show-saved').is_disabled()
+            assert page.locator('[data-output-field]').count() == 0
+            page.locator('#input-state').fill(original)
+            assert page.locator('#show-saved').is_enabled()
+        else:
+            assert page.locator('#show-saved').is_disabled()
         page.locator('#input-schema').fill('{')
         assert page.locator('#show-saved').is_disabled()
-        page.locator('#example-select').select_option(index=2)
-        assert page.locator('#show-saved').is_enabled()
-        page.get_by_role('button',name='Gespeicherte Antwort').click()
-        page.get_by_role('button',name='Gespeicherte Antwort').click()
-        page.screenshot(path=str(ROOT/'docs/screenshots/playground-desktop.png'),full_page=True)
-        checks.append('playground: disabled live backend, real saved replay, edited input blocked, malformed JSON blocked, repeated replay')
-        page.get_by_role('link',name='Methodik',exact=True).click()
+        page.locator('#example-select').select_option('fall_003')
+        checks.append('editor: multi-field replay or explicit pending state; edited/malformed input invalidation')
+
+        for suite, count, errors_count, has_pairs in [('general', 120, 4, True), ('finance', 80, 4, True), ('clean72', 72, 11, False)]:
+            page.locator('#suite-select').select_option(suite)
+            page.locator('[data-nav="explorer"]').click()
+            assert page.locator('.case-item').count() == count
+            page.locator('#filter-outcome').select_option('errors')
+            assert page.locator('.case-item').count() == errors_count
+            page.locator('[data-nav="overview"]').click()
+            assert page.locator('#paired-panel').is_visible() == has_pairs
+        page.goto('http://127.0.0.1:8765/#explorer?suite=general&case=en_it_routing_003&field=decision', wait_until='networkidle')
+        assert page.locator('#filter-split').input_value() == 'english_control'
+        assert page.locator('[data-case="en_it_routing_003"]').get_attribute('aria-pressed') == 'true'
+        checks.append('suite denominators, error counts, independent pairs and control-case deep link')
+
+        page.locator('[data-nav="playground"]').click()
+        page.locator('[data-nav="method"]').click()
         page.go_back()
         assert page.locator('#playground').is_visible()
         page.go_forward()
         assert page.locator('#method').is_visible()
+        previous_theme = page.locator('html').get_attribute('data-theme')
         page.locator('#theme-toggle').click()
-        assert page.locator('html').get_attribute('data-theme')=='light'
+        expected_theme = 'dark' if previous_theme == 'light' else 'light'
         page.reload(wait_until='networkidle')
-        assert page.locator('html').get_attribute('data-theme')=='light'
-        checks.append('navigation: back/forward; light-theme persistence')
-        page.locator('a[data-nav="overview"]').click()
-        page.screenshot(path=str(ROOT/'docs/screenshots/overview-light.png'),full_page=True)
-        page.locator('#theme-toggle').click()
-        page.set_viewport_size({'width':390,'height':844})
-        for route in ['overview','explorer','playground','method']:
-            page.goto('http://127.0.0.1:8765/#'+route,wait_until='networkidle')
-            assert page.evaluate('document.documentElement.scrollWidth <= window.innerWidth'),route
-            assert page.locator('#'+route).is_visible()
-            page.screenshot(path=str(ROOT/f'docs/screenshots/{route}-mobile.png'),full_page=True)
-        checks.append('mobile 390px: all four views without horizontal overflow')
-        if (ROOT/'web/data/finance.json').is_file():
-            finance=json.loads((ROOT/'web/data/finance.json').read_text())
-            page.locator('#suite-select').select_option('finance')
-            assert '80 eigenständige' in page.locator('#suite-description').inner_text()
-            page.locator('a[data-nav="explorer"]').click()
-            assert page.locator('.case-item').count()==80
-            page.locator('#filter-errors').check()
-            expected=sum(not c['result']['correct'] for c in finance['cases'] if c['split']=='german_primary')
-            assert page.locator('.case-item').count()==expected
-            page.locator('#suite-select').select_option('general')
-            assert page.locator('.case-item').count()==120
-            checks.append('suite switching: finance80 vs general120, independent error counts and reset filters')
-        if (ROOT/'web/data/clean72.json').is_file():
-            page.locator('#suite-select').select_option('clean72')
-            assert '72 eigenständige' in page.locator('#suite-description').inner_text()
-            page.locator('a[data-nav="overview"]').click()
-            assert page.locator('#paired-panel').is_hidden()
-            assert page.locator('.stat-value').first.inner_text().replace('\xa0',' ')=='84,7 %'
-            page.locator('a[data-nav="explorer"]').click()
-            assert page.locator('.case-item').count()==72
-            page.locator('#filter-errors').check()
-            assert page.locator('.case-item').count()==11
-            page.locator('#suite-select').select_option('general')
-            assert page.locator('.case-item').count()==120
-            page.locator('a[data-nav="overview"]').click()
-            assert page.locator('#paired-panel').is_visible()
-            checks.append('clean72: verified 61/72, eleven errors, no language-pair panel, independent suite resets')
-        assert not errors,errors
+        assert page.locator('html').get_attribute('data-theme') == expected_theme
+        checks.append('history and persisted light/dark theme')
+
+        for width in (390, 320):
+            page.set_viewport_size({'width': width, 'height': 844})
+            page.goto('http://127.0.0.1:8765/#explorer?suite=insurance', wait_until='networkidle')
+            for pane in ('cases', 'document', 'result'):
+                page.locator(f'[data-pane="{pane}"]').click()
+                assert page.evaluate('document.documentElement.scrollWidth <= innerWidth'), (width, pane)
+                assert page.locator('#workbench-shell').get_attribute('data-mobile-pane') == pane
+                page.screenshot(path=str(output / f'workbench-{pane}-{width}.png'), full_page=True)
+            for route in ('overview', 'playground', 'method'):
+                page.locator(f'[data-nav="{route}"]').click()
+                assert page.evaluate('document.documentElement.scrollWidth <= innerWidth'), (width, route)
+                assert page.locator('#' + route).is_visible()
+            checks.append(f'{width}px: deliberate phone panes and three other views without viewport overflow')
+        assert not errors, errors
+        assert not inference_calls, inference_calls
         browser.close()
-    result={'status':'pass','checks':checks,'console_errors':errors,'model_inference_executed':False}
-    print(json.dumps(result,indent=2))
-    (ROOT/'docs/browser-test-results.json').write_text(json.dumps(result,indent=2)+'\n')
-if __name__=='__main__':main()
+    result = {'status': 'pass', 'checks': checks, 'console_errors': errors,
+              'model_inference_executed': False, 'real_browser_rendering': True}
+    print(json.dumps(result, indent=2))
+    (ROOT / 'docs/browser-test-results.json').write_text(json.dumps(result, indent=2) + '\n')
+
+
+if __name__ == '__main__':
+    main()

@@ -1,0 +1,315 @@
+{
+  "schema_version": 1,
+  "status": "pass",
+  "purpose": "One real new-input multiquestion HTTP integration smoke; excluded from every benchmark score.",
+  "input_origin": "Fresh assistant-authored synthetic material-desk scenario created only for this HTTP smoke; not an insurance benchmark case, replay, or test-double output.",
+  "benchmark_inclusion": false,
+  "started_at_utc": "2026-10-02T09:48:46.768022+00:00",
+  "completed_at_utc": "2026-10-02T09:50:21.707286+00:00",
+  "request": {
+    "state": "Vollständig synthetischer Funktionstest, kein realer Vorgang. Fiktive Materialausgabe. K1: Zur Ausgabe von Leihgeräten ist ein blauer Berechtigungsschein erforderlich. K2: Für Papierausdrucke genügt ein grüner Berechtigungsschein. Sachverhalt: Eine Person möchte ein Leihgerät erhalten und zeigt ausschließlich einen grünen Berechtigungsschein. Zu prüfende Aussage: Die genannte Voraussetzung für die Leihgeräteausgabe ist erfüllt.",
+    "questions": {
+      "decision": {
+        "type": "choice",
+        "instructions": "Prüfe die Aussage ausschließlich anhand der ausdrücklich genannten fiktiven Regeln und des Sachverhalts.",
+        "criteria": {
+          "ja": "Die genannte Voraussetzung ist erfüllt.",
+          "nein": "Die genannte Voraussetzung ist nicht erfüllt.",
+          "offen": "Der Text reicht nicht aus, um die Aussage zu beurteilen.",
+          "konflikt": "Die Angaben widersprechen sich und erlauben keine eindeutige Beurteilung."
+        }
+      },
+      "evidence": {
+        "type": "choice",
+        "instructions": "Welche Fundstelle enthält die für die Prüfung der Leihgeräteausgabe entscheidende Regel?",
+        "criteria": {
+          "b1": "K1: Blauer Berechtigungsschein für Leihgeräte.",
+          "b2": "K2: Grüner Berechtigungsschein für Papierausdrucke.",
+          "b3": "Keine passende Fundstelle vorhanden."
+        }
+      }
+    }
+  },
+  "request_serialization": "UTF-8 JSON, ensure_ascii=False, compact separators, insertion order retained",
+  "request_body_bytes": 1208,
+  "request_body_sha256": "f23664ab5106e2a75e4d2283cfd04fabc2d08294e937fe756ffa3e087c25815d",
+  "expected_answers_not_sent_to_model": {
+    "decision": "nein",
+    "evidence": "b1"
+  },
+  "response": {
+    "source": "live_local_inference",
+    "model": "Cloudflare/clef-flash",
+    "revision": "17f0b0ad64efb65d273590632833508766b2aae6",
+    "answers": {
+      "decision": {
+        "type": "choice",
+        "choice": "nein",
+        "confidence": 0.9118,
+        "probabilities": {
+          "ja": 0.0236,
+          "nein": 0.9118,
+          "offen": 0.0354,
+          "konflikt": 0.0293
+        }
+      },
+      "evidence": {
+        "type": "choice",
+        "choice": "b1",
+        "confidence": 0.9457,
+        "probabilities": {
+          "b1": 0.9457,
+          "b2": 0.0326,
+          "b3": 0.0217
+        }
+      }
+    },
+    "probabilities_unrounded": {
+      "decision": {
+        "ja": 0.023550698533654213,
+        "konflikt": 0.02930932119488716,
+        "nein": 0.9117861986160278,
+        "offen": 0.03535378724336624
+      },
+      "evidence": {
+        "b1": 0.9456627368927002,
+        "b2": 0.03261259198188782,
+        "b3": 0.021724671125411987
+      }
+    },
+    "input_tokens": 442,
+    "truncated": false,
+    "encode_seconds": 0.004300122000131523,
+    "inference_seconds": 19.33350027800043,
+    "latency_ms": 19333.50027800043,
+    "first_call_after_load": true,
+    "load_seconds": 57.58126436400198,
+    "verification_seconds": 14.263550618998124,
+    "device": "cpu",
+    "precision": "NF4 backbone; BF16 joint head and lexical output embeddings",
+    "runtime": {
+      "profile": "cpu-nf4",
+      "backend": "cpu",
+      "device": "cpu",
+      "device_name": "CPU",
+      "precision": "NF4 backbone; BF16 joint head and lexical output embeddings",
+      "quantization": "nf4-double",
+      "torch_version": "2.11.0+cpu",
+      "hip_version": null,
+      "gpu_architecture": null,
+      "gpu_free_gib_before_load": null,
+      "gpu_total_gib": null
+    },
+    "benchmark_result": false
+  },
+  "assertions": {
+    "http_status_200": true,
+    "source_is_live_local_inference": true,
+    "both_questions_in_request_order": true,
+    "every_option_has_unrounded_probability": true,
+    "native_answers_have_complete_fields": true,
+    "native_answers_have_all_options": true,
+    "decision_matches_prespecified_expectation": true,
+    "evidence_matches_prespecified_expectation": true,
+    "nothing_truncated": true,
+    "within_2048_token_limit": true,
+    "not_a_benchmark_result": true,
+    "correct_model_and_revision": true,
+    "cold_start_was_lazy": true,
+    "actual_runtime_is_ready": true,
+    "first_call_loaded_model": true,
+    "exactly_one_successful_request": true,
+    "cpu_nf4_profile_verified": true,
+    "memory_and_token_configuration": true,
+    "no_request_left_busy": true,
+    "security_headers_preserved": true,
+    "source_files_unchanged_during_run": true
+  },
+  "health_before": {
+    "inference_enabled": true,
+    "model_loaded": false,
+    "busy": false,
+    "mode": "local_cpu_nf4",
+    "requested_profile": "cpu-nf4",
+    "runtime_state": "unloaded",
+    "runtime": null,
+    "revision": "17f0b0ad64efb65d273590632833508766b2aae6"
+  },
+  "health_after": {
+    "inference_enabled": true,
+    "model_loaded": true,
+    "busy": false,
+    "mode": "local_cpu_nf4",
+    "requested_profile": "cpu-nf4",
+    "runtime_state": "ready",
+    "runtime": {
+      "profile": "cpu-nf4",
+      "backend": "cpu",
+      "device": "cpu",
+      "device_name": "CPU",
+      "precision": "NF4 backbone; BF16 joint head and lexical output embeddings",
+      "quantization": "nf4-double",
+      "torch_version": "2.11.0+cpu",
+      "hip_version": null,
+      "gpu_architecture": null,
+      "gpu_free_gib_before_load": null,
+      "gpu_total_gib": null
+    },
+    "revision": "17f0b0ad64efb65d273590632833508766b2aae6"
+  },
+  "runtime_status": {
+    "state": "ready",
+    "model": "Cloudflare/clef-flash",
+    "revision": "17f0b0ad64efb65d273590632833508766b2aae6",
+    "requested_profile": "cpu-nf4",
+    "device": "cpu",
+    "precision": "NF4 backbone; BF16 joint head and lexical output embeddings",
+    "runtime": {
+      "profile": "cpu-nf4",
+      "backend": "cpu",
+      "device": "cpu",
+      "device_name": "CPU",
+      "precision": "NF4 backbone; BF16 joint head and lexical output embeddings",
+      "quantization": "nf4-double",
+      "torch_version": "2.11.0+cpu",
+      "hip_version": null,
+      "gpu_architecture": null,
+      "gpu_free_gib_before_load": null,
+      "gpu_total_gib": null
+    },
+    "threads": 6,
+    "max_length": 2048,
+    "load_seconds": 57.58126436400198,
+    "verification_seconds": 14.263550618998124,
+    "successful_requests": 1,
+    "error": null
+  },
+  "http": {
+    "method": "POST",
+    "path": "/api/infer",
+    "loopback_only": true,
+    "status": 200,
+    "headers": {
+      "Server": "ClefWorkbench/1.0 Python/3.12.14",
+      "Date": "Fri, 02 Oct 2026 09:50:21 GMT",
+      "Content-Type": "application/json; charset=utf-8",
+      "Content-Length": "1400",
+      "Cache-Control": "no-store",
+      "X-Content-Type-Options": "nosniff",
+      "Referrer-Policy": "no-referrer",
+      "Content-Security-Policy": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'none'"
+    },
+    "elapsed_seconds": 94.93334570400111
+  },
+  "total_elapsed_seconds": 94.93927151899697,
+  "environment": {
+    "python": "3.12.14",
+    "system": "Linux",
+    "machine": "x86_64",
+    "packages": {
+      "torch": "2.11.0+cpu",
+      "torchvision": "0.26.0+cpu",
+      "transformers": "5.10.2",
+      "bitsandbytes": "0.50.2",
+      "tokenizers": "0.22.2",
+      "psutil": "7.2.2",
+      "accelerate": "1.15.0",
+      "safetensors": "0.8.0"
+    }
+  },
+  "source_files_sha256": {
+    "scripts/smoke_multifield_http.py": "13d85d3e62861af66bb8ab922438ca45eeb5a63b04209c919742a9c3c767df95",
+    "server.py": "4ac5a11e2bf2d92578581ad75af55565661e6c957a1438beed8fa73aff701448",
+    "runtime/live_adapter.py": "26777caed2bca7a13d743957efdb63cd727b0fce8d7ce9a6fff79e0b1069a103",
+    "runtime/device_profiles.py": "7127e16e473f77f92e61ae41e7da8de871e574cfb78cbcdc5de42ebef1beac5a",
+    "runtime/joint_schema_model.py": "0e304cf7c6500e8bb59bef7e2afd2c6373f82596dfb3b57d1aa93c175e2dc3a3",
+    "runtime/config.json": "66f87f6fb2616b46604daf2a9c67ddc87938296d07156efa34d59b5be49e3238",
+    "runtime/joint_head_config.json": "77efe959a38b5b17b241543e129e695f3c77465ece55a25985279bd8176279a0",
+    "runtime/requirements_frozen.txt": "840f4cfbedc4eb2af8e8c1d5d100a10f7ccd145032176bc3b3d833330b2a02f6",
+    "runtime/model_file_manifest.json": "09176750060287112e38af55684476e00255d2feb6edc3e5af7d16b11c6f728a"
+  },
+  "inference_configuration": {
+    "profile": "cpu-nf4",
+    "threads": 6,
+    "batch_size": 1,
+    "max_length": 2048,
+    "seed": 20261002,
+    "backbone_quantization": "NF4, double quantization",
+    "compute_dtype": "bfloat16",
+    "joint_head_and_output_embeddings_dtype": "bfloat16"
+  },
+  "model": {
+    "id": "Cloudflare/clef-flash",
+    "revision": "17f0b0ad64efb65d273590632833508766b2aae6",
+    "actual_loaded_vendor_source_sha256": "0e304cf7c6500e8bb59bef7e2afd2c6373f82596dfb3b57d1aa93c175e2dc3a3",
+    "verified_release_files": {
+      "chat_template.jinja": {
+        "bytes": 7756,
+        "sha256": "a4aee8afcf2e0711942cf848899be66016f8d14a889ff9ede07bca099c28f715"
+      },
+      "config.json": {
+        "bytes": 2832,
+        "sha256": "66f87f6fb2616b46604daf2a9c67ddc87938296d07156efa34d59b5be49e3238"
+      },
+      "generation_config.json": {
+        "bytes": 116,
+        "sha256": "45707f8467bf4e54e112c6095a1b2d1f2d63651cf86816344cfff21f02dda0d4"
+      },
+      "joint_head.safetensors": {
+        "bytes": 243538016,
+        "sha256": "19cdcec8c81dc9212be320fff47462ab342fbc1278be4368fb3da71241cf5ba0"
+      },
+      "joint_head_config.json": {
+        "bytes": 119,
+        "sha256": "77efe959a38b5b17b241543e129e695f3c77465ece55a25985279bd8176279a0"
+      },
+      "joint_schema_model.py": {
+        "bytes": 23263,
+        "sha256": "0e304cf7c6500e8bb59bef7e2afd2c6373f82596dfb3b57d1aa93c175e2dc3a3"
+      },
+      "model-00001-of-00004.safetensors": {
+        "bytes": 4942706120,
+        "sha256": "8b45a8e968141cdcc58fb71c9adfc258e2c77b5f062bc636c1fd5bc5d916b565"
+      },
+      "model-00002-of-00004.safetensors": {
+        "bytes": 4987757928,
+        "sha256": "7590856c713eed844a2dcf48e6c43c4de165b788bc3f80e328311183cdbc7db8"
+      },
+      "model-00003-of-00004.safetensors": {
+        "bytes": 4954810240,
+        "sha256": "e6eac2467952c33361ed7dcb3c7959d1086bbe57201cd3749c3d769fdc17fe63"
+      },
+      "model-00004-of-00004.safetensors": {
+        "bytes": 3934446832,
+        "sha256": "9fcecc6556b39171238373a465f409794b7f821fb4cd1e6459e3a9c0fe317af7"
+      },
+      "model.safetensors.index.json": {
+        "bytes": 69253,
+        "sha256": "941305ff9f77551e145a6cea976ef456cd5cb208cbece99f168376c752fcf96c"
+      },
+      "processor_config.json": {
+        "bytes": 1191,
+        "sha256": "d89ef49ce9cd37fbf510158e13c1ef063d9286411c1ec9049932dbe0487143b1"
+      },
+      "tokenizer.json": {
+        "bytes": 19989325,
+        "sha256": "06b9509352d2af50381ab2247e083b80d32d5c0aba91c272ca9ff729b6a0e523"
+      },
+      "tokenizer_config.json": {
+        "bytes": 1075,
+        "sha256": "91a08f825d370d085d692e04cf117cdd7faad7bf18e996f1e6031b6dab03db72"
+      }
+    }
+  },
+  "resources": {
+    "available_ram_before_bytes": 8590839808,
+    "available_ram_after_response_bytes": 2150772736,
+    "process_peak_rss_bytes": 6564712448
+  },
+  "scope_limits": [
+    "One cold-start request; no throughput or general quality claim.",
+    "Actual CPU-NF4 execution only; AMD ROCm remains model-free-tested.",
+    "Expected labels were never transmitted to the model.",
+    "Process exit and subsequent RAM release must be verified by the invoking caller."
+  ]
+}

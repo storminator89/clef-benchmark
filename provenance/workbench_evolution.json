@@ -1,0 +1,21 @@
+{
+  "baseline_commit": "d79294a94b835a265b8c02d1ef5999a01cfe3d1c",
+  "purpose": "Explicit reviewed evolution of live workbench code only. Historical followup_baseline.json remains unchanged; benchmark inputs, official vendor code, model manifests, recorded outputs, scoring and device profiles stay protected byte-for-byte.",
+  "changes": {
+    "server.py": {
+      "from_sha256": "d4076130d95ead0b272afbb96df335541b563626b276cd41b344e4e4b0ba28fb",
+      "to_sha256": "4ac5a11e2bf2d92578581ad75af55565661e6c957a1438beed8fa73aff701448",
+      "reason": "Bounded 1\u20138 question API validation and exact complete-response contract; loopback/origin/header protections retained."
+    },
+    "runtime/live_adapter.py": {
+      "from_sha256": "169e3122538057a1eeabed1422e3967213d520c9ac2086fba630bc9ea3ec60f1",
+      "to_sha256": "26777caed2bca7a13d743957efdb63cd727b0fce8d7ce9a6fff79e0b1069a103",
+      "reason": "Reject missing, duplicate or misaligned questions/options rather than silently truncating zip output; CPU/ROCm loading and token limits retained."
+    },
+    "tests/test_device_profiles.py": {
+      "from_sha256": "1ece735667aa0e5b9a23c6aad161acea1f04cf74406353d7a0db988e60b13bac",
+      "to_sha256": "859008c2811c0a02c0fac50ea187c88b2f051147d814919133fa5acd99f8e9d3",
+      "reason": "Update test-only runtime stubs for full native multi-field response validation; existing AMD profile assertions retained."
+    }
+  }
+}

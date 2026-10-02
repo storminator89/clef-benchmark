@@ -16,13 +16,14 @@ python3 server.py
 
 Dann **http://127.0.0.1:8765** öffnen. Unter Windows heißt der Befehl gegebenenfalls `python server.py`.
 
-- **Drei getrennte Texttests:** allgemeine Entscheidungen, Finanzen/Versicherungsmakler und 72 alltagsnahe Fälle ohne Manipulation, mit eigenständigen Ergebnissen
-- **Übersicht:** echte, abgeschlossene und unabhängig nachgerechnete Ergebnisse
-- **Fälle entdecken:** Filter nach Sprache, Kategorie, Herausforderung und Fehlern; Input, Sollantwort, Richtlinie und Wahrscheinlichkeiten
-- **Playground:** Eingabetext und natives `choice`-Schema bearbeiten; unveränderte gespeicherte Antworten ansehen
-- **Methodik:** Grenzen, Konfiguration und Primärquellen
-- Dunkles/helles Design, mobile Layouts, Tastaturbedienung, JSON-Export
+- **Dokument-Workbench:** dreigeteilter Desktop-Arbeitsplatz mit Fallbibliothek, Klauselleser und Antwortprüfung; auf dem Smartphone eigene Ansichten für Fälle, Dokument und Prüfung
+- **Versicherungsverständnis:** 60 synthetische Fälle aus 12 fiktiven Dokumenten. Entscheidung und angebotene Evidenzmenge werden getrennt geprüft. Solange der Lauf nicht vollständig unabhängig geprüft ist, zeigt die UI nur Testdaten und keine Messwerte
+- **Evidenz im Kontext:** direkte Gold-/Modellvergleiche, Navigation zu Klauseln, vollständige Belegmengen und alle Modellwahrscheinlichkeiten
+- **Frühere Texttests:** allgemeine Entscheidungen, Finanzen/Makler und clean72 bleiben getrennt verfügbar; eigene Nenner, Fehlerfilter und Sprachkontrollen
+- **Lokaler Playground:** 1–8 native `choice`-Fragen in einer Anfrage. Alle Felder werden angezeigt; unveränderte gespeicherte Antworten bleiben strikt von neuer Inferenz getrennt
+- Helles/dunkles Design, mobile Bereichsumschaltung, Tastaturbedienung, Fall-Deep-Links und JSON-Export
 
+Der Workbench braucht **kein npm** zum Starten. Nur die zusätzlichen entwicklungsseitigen DOM-Regressionstests verwenden die gepinnte Dev-Abhängigkeit LinkeDOM.
 Die Website funktioniert offline über den lokalen Server. Direktes Öffnen von `web/index.html` als `file://` wird wegen Modul-/Dateizugriffsbeschränkungen nicht unterstützt. Die statischen Dateien unter `web/` funktionieren auch auf einem gewöhnlichen Static-File-Server; echte Inferenz benötigt dagegen `server.py`.
 
 **Gespeicherte Antwort ≠ neue Inferenz:** Replay zeigt ausschließlich die unveränderte Antwort eines tatsächlichen Benchmark-Laufs. Sobald Text oder Schema verändert werden, wird Replay deaktiviert. Ohne aktives lokales Modell werden keine Antworten simuliert.
@@ -61,13 +62,31 @@ Diese experimentelle CPU-Quantisierung ist nicht die BF16-/GPU-Herstellerkonfigu
 - Bindet ausschließlich an `127.0.0.1`; keine öffentliche Modell-API
 - Validiert Host und Origin; kein CORS, kein URL-Proxy, kein Datei-Upload, keine API-Keys
 - Keine externen Skripte, Fonts, Analytics oder CDN-Abhängigkeiten
-- Maximal 32 KiB Request, 6.000 Eingabezeichen, eine `choice`-Frage, 2–12 Klassen
+- Maximal 32 KiB Request, 6.000 Eingabezeichen, 1–8 `choice`-Fragen, je 2–12 Klassen
 - Richtlinie maximal 4.000 Zeichen; Klassenbeschreibung maximal 300 Zeichen
 - Klassennamen: Buchstabe am Anfang, danach Buchstaben/Ziffern/`_`/`-`, maximal 64 Zeichen
-- Nur Text ist hier getestet und freigeschaltet; keine Bildinferenz
+- Nur Text ist im Live-Playground freigeschaltet; keine Bildinferenz
 - Eingaben werden vom Server nicht in Dateien oder Zugriffslogs geschrieben; sie werden für die Berechnung im RAM verarbeitet
 - Nicht als Mehrbenutzer- oder Produktionsdienst betreiben. Kein Reverse-Proxy oder Port-Forwarding ohne eigene Authentifizierung und Sicherheitsprüfung
 - Keine echten Gesundheits-, Finanz- oder Kundendaten für diese Demo verwenden
+
+Das genaue Live-API-Schema und seine Grenzen sind in [`docs/LIVE_API.md`](docs/LIVE_API.md) beschrieben. Beim Versicherungsdatensatz wird der strukturierte Zustand deterministisch in exakt denselben Text umgewandelt, den der gepinnte Modell-Renderer verwendet; siehe [`docs/INSURANCE_UI_DATA.md`](docs/INSURANCE_UI_DATA.md).
+
+## Versicherungsdokumente: Entscheidung und Evidenz getrennt
+
+Der neue Schwerpunkt enthält **60 synthetische deutsche Fälle zu 12 fiktiven Dokumenten** in sechs Bereichen. Je fünf Fälle teilen sich ein Dokument und sind daher korreliert. Pro Fall beantwortet Clef zwei native Fragen: Ist die Aussage gestützt, widerlegt, offen oder widersprüchlich, und welche angebotene Klauselmenge trägt die Entscheidung?
+
+| Prüfkriterium | Korrekt | Anteil |
+|---|---:|---:|
+| Entscheidung | 51 / 60 | 85,0 % |
+| Evidenzauswahl | 58 / 60 | 96,7 % |
+| Vollständig richtiger Fall: beide Felder | 50 / 60 | 83,3 % |
+
+**Acht der neun falschen Entscheidungen wählen trotzdem die richtige Evidenz.** Die Belegquote ist deshalb keine Gesamtgenauigkeit für Dokumentverständnis. Alle 120 Felder in 60 Requests sind schema-gültig, der unabhängige Nachprüfungsnachweis umfasst 1.811 erfolgreiche Prüfungen. Keine Resultate werden mit früheren Suiten vermischt.
+
+Die Referenzbegründungen sind KI-verfasst und von einer zweiten KI vor der Inferenz geprüft, keine externen menschlichen Fachgutachten und keine aus Clef gewonnenen Erklärungen. Kurze konstruierte Klauselauszüge und angebotene Belegmengen prüfen weder echte vollständige Policen, OCR, freie Zitatgenerierung noch Rechtsberatung oder Produktionsreife. Die Suite enthält keine arithmetischen Aufgaben.
+
+[Ergebnisbericht](experiments/insurance/REPORT.md) · [Alle Fehlerfälle](experiments/insurance/ERRORS.md) · [Methodik](experiments/insurance/METHODOLOGY.md) · [Quellen und Reproduktion](experiments/insurance/README.md)
 
 ## Ergebnisse des allgemeinen Benchmarks
 
@@ -110,7 +129,7 @@ Diese Suiten werden weder miteinander noch mit den ursprünglichen 280 Textreque
 ## Dateien
 
 ```text
-web/                 Dependency-freie Website mit geprüften Ergebnisdaten
+web/                 Buildfreie Website ohne Laufzeitabhängigkeiten
 server.py            Loopback-Server, Requestvalidierung und opt-in Live-API
 benchmark/           Eingefrorene allgemeine Fälle, Requests, Goldlabels und Scorer
 runtime/             Gepinnter Download, Original-Head, Runner und Lazy-Live-Adapter
@@ -119,7 +138,7 @@ results/             Abgeschlossene Originalresultate; Finance unter results/fin
 experiments/         Getrennte clean72-, Bild- und Sieben-Paar-Folgetests
 qa/                  Unabhängige Daten-/Scorerprüfungen
 scripts/             Prüfungen, UI-Datenimport und Public-Release-Audit
-tests/               Server-, UI-Logik- und optionale Browsertests
+tests/               Server-, UI-Logik-, DOM- und optionale Browsertests
 docs/                Reproduktion und Validierungsdokumentation
 licenses/            Upstream-Lizenz
 ```
@@ -133,21 +152,26 @@ Die folgenden Befehle laden kein Modell und führen keine Inferenz aus:
 ```bash
 PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p 'test_*.py' -v
 node --test tests/test_web.mjs
+# Optional: vollständige UI-DOM-Regressionen (kein Browser oder Modell)
+npm ci --ignore-scripts --no-audit --no-fund
+npm test
 python3 scripts/check_project.py
 python3 scripts/check_followups.py
 python3 scripts/build_web_data.py --suite general
 python3 scripts/build_web_data.py --suite finance
 python3 scripts/build_clean_web_data.py
+python3 scripts/build_insurance_web_data.py
+# Release-Audit nur im sauberen Export ohne node_modules/ oder lokale Caches:
 python3 scripts/audit_public.py
 ```
 
 Die gleichen modellfreien Prüfungen laufen in GitHub Actions; Details und gepinnte Action-Revisionen in [`docs/CI.md`](docs/CI.md). Eine lokale Prüfung ersetzt keinen Nachweis des späteren CI-Laufs.
 
-Node **22+** ist nur für die JavaScript-Tests erforderlich; getestet mit Node 24.19.0. Es gibt keine npm-Abhängigkeiten. `scripts/build_web_data.py` verweigert unvollständige Läufe, fehlende IDs, geänderte Freeze-Dateien oder eine unpassende unabhängige Gegenprüfung. `--cases-only` erzeugt ausdrücklich als ergebnisfrei markierte Testdaten für Entwicklung, niemals partielle Scores.
+Node **22+** ist nur für die JavaScript-Tests erforderlich; getestet mit Node 24.19.0. Es gibt keine npm-Laufzeitabhängigkeiten. Die vollständigen DOM-Tests verwenden LinkeDOM 0.18.13 aus der Lockdatei; `node --test tests/test_web.mjs` bleibt ohne npm-Installation ausführbar. `scripts/build_web_data.py` verweigert unvollständige Läufe, fehlende IDs, geänderte Freeze-Dateien oder eine unpassende unabhängige Gegenprüfung. `--cases-only` erzeugt ausdrücklich als ergebnisfrei markierte Testdaten für Entwicklung, niemals partielle Scores.
 
 Die Unit-Test-Discovery importiert das optionale Browserskript ohne Browserstart; der Start erfolgt nur beim direkten Aufruf.
 
-Optionale echte Browserregression: `tests/test_browser.py` verwendet **Playwright 1.62.0** und ein lokal verfügbares Chromium (`CHROMIUM_PATH` setzt den Pfad). Die optionale Abhängigkeit steht in `tests/requirements-browser.txt`. Server vorher starten; dann `python3 tests/test_browser.py` ausführen. Browserlaunch und visuelle QA waren in der Erstellungssandbox blockiert; diese Prüfung ist **nicht als bestanden** ausgewiesen. Details in [`docs/VALIDATION.md`](docs/VALIDATION.md).
+Optionale echte Browserregression: `tests/test_browser.py` verwendet **Playwright 1.62.0** und ein lokal verfügbares Chromium (`CHROMIUM_PATH` setzt den Pfad). Die optionale Abhängigkeit steht in `tests/requirements-browser.txt`. Server vorher starten; dann `python3 tests/test_browser.py` ausführen. Browserlaunch und visuelle QA waren in der Erstellungssandbox blockiert; diese Prüfung ist **nicht als bestanden** ausgewiesen. Details in [`docs/VALIDATION.md`](docs/VALIDATION.md). Architektur und Bedienung: [`docs/UI_WORKBENCH.md`](docs/UI_WORKBENCH.md).
 
 Für eine neue vollständige Modellreproduktion nach Einrichtung: `bash runtime/reproduce.sh`. Eigene Läufe in neue Dateien schreiben, niemals die archivierten Originalresultate überschreiben.
 

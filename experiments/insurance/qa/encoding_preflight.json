@@ -1,0 +1,433 @@
+{
+  "requests_sha256": "03066c91f05878efcb7f3c358e91e0cfa9087091b205728c2788e61b0b8e1eba",
+  "count": 60,
+  "min_tokens": 835,
+  "median_tokens": 864.5,
+  "max_tokens": 917,
+  "all_fit_without_truncation": true,
+  "max_state_characters": 1954,
+  "max_request_bytes": 3195,
+  "model_instantiated": false,
+  "items": [
+    {
+      "id": "fall_001",
+      "tokens": 852,
+      "state_characters": 1746,
+      "request_bytes": 2979,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "fall_002",
+      "tokens": 867,
+      "state_characters": 1815,
+      "request_bytes": 3042,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "fall_003",
+      "tokens": 862,
+      "state_characters": 1906,
+      "request_bytes": 3140,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "fall_004",
+      "tokens": 848,
+      "state_characters": 1767,
+      "request_bytes": 2998,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "fall_005",
+      "tokens": 859,
+      "state_characters": 1808,
+      "request_bytes": 3034,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "fall_006",
+      "tokens": 855,
+      "state_characters": 1587,
+      "request_bytes": 2838,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "fall_007",
+      "tokens": 886,
+      "state_characters": 1901,
+      "request_bytes": 3148,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "fall_008",
+      "tokens": 847,
+      "state_characters": 1742,
+      "request_bytes": 2974,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "fall_009",
+      "tokens": 859,
+      "state_characters": 1773,
+      "request_bytes": 3011,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "fall_010",
+      "tokens": 865,
+      "state_characters": 1800,
+      "request_bytes": 3026,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "fall_011",
+      "tokens": 886,
+      "state_characters": 1878,
+      "request_bytes": 3108,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "fall_012",
+      "tokens": 841,
+      "state_characters": 1599,
+      "request_bytes": 2832,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "fall_013",
+      "tokens": 851,
+      "state_characters": 1707,
+      "request_bytes": 2933,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "fall_014",
+      "tokens": 872,
+      "state_characters": 1852,
+      "request_bytes": 3082,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "fall_015",
+      "tokens": 866,
+      "state_characters": 1796,
+      "request_bytes": 3025,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "fall_016",
+      "tokens": 841,
+      "state_characters": 1638,
+      "request_bytes": 2872,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "fall_017",
+      "tokens": 883,
+      "state_characters": 1916,
+      "request_bytes": 3144,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "fall_018",
+      "tokens": 871,
+      "state_characters": 1841,
+      "request_bytes": 3075,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "fall_019",
+      "tokens": 877,
+      "state_characters": 1847,
+      "request_bytes": 3074,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "fall_020",
+      "tokens": 858,
+      "state_characters": 1712,
+      "request_bytes": 2959,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "fall_021",
+      "tokens": 903,
+      "state_characters": 1902,
+      "request_bytes": 3150,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "fall_022",
+      "tokens": 861,
+      "state_characters": 1867,
+      "request_bytes": 3099,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "fall_023",
+      "tokens": 895,
+      "state_characters": 1870,
+      "request_bytes": 3116,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "fall_024",
+      "tokens": 861,
+      "state_characters": 1798,
+      "request_bytes": 3027,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "fall_025",
+      "tokens": 874,
+      "state_characters": 1714,
+      "request_bytes": 2985,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "fall_026",
+      "tokens": 835,
+      "state_characters": 1707,
+      "request_bytes": 2939,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "fall_027",
+      "tokens": 867,
+      "state_characters": 1904,
+      "request_bytes": 3136,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "fall_028",
+      "tokens": 857,
+      "state_characters": 1592,
+      "request_bytes": 2844,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "fall_029",
+      "tokens": 898,
+      "state_characters": 1947,
+      "request_bytes": 3195,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "fall_030",
+      "tokens": 879,
+      "state_characters": 1843,
+      "request_bytes": 3071,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "fall_031",
+      "tokens": 864,
+      "state_characters": 1779,
+      "request_bytes": 3005,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "fall_032",
+      "tokens": 863,
+      "state_characters": 1817,
+      "request_bytes": 3054,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "fall_033",
+      "tokens": 862,
+      "state_characters": 1636,
+      "request_bytes": 2887,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "fall_034",
+      "tokens": 876,
+      "state_characters": 1868,
+      "request_bytes": 3111,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "fall_035",
+      "tokens": 843,
+      "state_characters": 1720,
+      "request_bytes": 2953,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "fall_036",
+      "tokens": 860,
+      "state_characters": 1777,
+      "request_bytes": 3014,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "fall_037",
+      "tokens": 873,
+      "state_characters": 1845,
+      "request_bytes": 3080,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "fall_038",
+      "tokens": 899,
+      "state_characters": 1954,
+      "request_bytes": 3190,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "fall_039",
+      "tokens": 855,
+      "state_characters": 1776,
+      "request_bytes": 3004,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "fall_040",
+      "tokens": 863,
+      "state_characters": 1798,
+      "request_bytes": 3030,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "fall_041",
+      "tokens": 835,
+      "state_characters": 1706,
+      "request_bytes": 2938,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "fall_042",
+      "tokens": 898,
+      "state_characters": 1870,
+      "request_bytes": 3121,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "fall_043",
+      "tokens": 863,
+      "state_characters": 1806,
+      "request_bytes": 3037,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "fall_044",
+      "tokens": 880,
+      "state_characters": 1887,
+      "request_bytes": 3123,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "fall_045",
+      "tokens": 917,
+      "state_characters": 1883,
+      "request_bytes": 3171,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "fall_046",
+      "tokens": 836,
+      "state_characters": 1703,
+      "request_bytes": 2936,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "fall_047",
+      "tokens": 850,
+      "state_characters": 1751,
+      "request_bytes": 2977,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "fall_048",
+      "tokens": 878,
+      "state_characters": 1781,
+      "request_bytes": 3028,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "fall_049",
+      "tokens": 875,
+      "state_characters": 1725,
+      "request_bytes": 2998,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "fall_050",
+      "tokens": 855,
+      "state_characters": 1853,
+      "request_bytes": 3085,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "fall_051",
+      "tokens": 879,
+      "state_characters": 1809,
+      "request_bytes": 3063,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "fall_052",
+      "tokens": 883,
+      "state_characters": 1908,
+      "request_bytes": 3135,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "fall_053",
+      "tokens": 852,
+      "state_characters": 1757,
+      "request_bytes": 2991,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "fall_054",
+      "tokens": 863,
+      "state_characters": 1788,
+      "request_bytes": 3026,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "fall_055",
+      "tokens": 868,
+      "state_characters": 1785,
+      "request_bytes": 3032,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "fall_056",
+      "tokens": 892,
+      "state_characters": 1944,
+      "request_bytes": 3195,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "fall_057",
+      "tokens": 865,
+      "state_characters": 1835,
+      "request_bytes": 3063,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "fall_058",
+      "tokens": 862,
+      "state_characters": 1796,
+      "request_bytes": 3024,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "fall_059",
+      "tokens": 876,
+      "state_characters": 1835,
+      "request_bytes": 3061,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "fall_060",
+      "tokens": 882,
+      "state_characters": 1862,
+      "request_bytes": 3108,
+      "fits_without_truncation": true
+    }
+  ]
+}

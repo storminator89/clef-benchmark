@@ -1,0 +1,4036 @@
+{
+  "audit_name": "Final pre-inference semantic audit: 60 synthetic German insurance comprehension cases",
+  "audit_version": "3.0",
+  "status": "pass",
+  "created_utc": "2026-10-02T09:24:49.061702+00:00",
+  "source": {
+    "benchmark_version": "1.0.0",
+    "benchmark_sha256": "8a0b1a6c4227b90b20c92de012c5d02a037e4ae4a79dac614b150345ed45c1bc",
+    "requests_sha256": "03066c91f05878efcb7f3c358e91e0cfa9087091b205728c2788e61b0b8e1eba"
+  },
+  "reviewer_disclosure": "A separate AI reviewer independently checked the authored gold labels and request choices before inference. This was not human or external insurance/legal expert review.",
+  "scope": "Read-only semantic review of all 60 cases, all 12 documents, all 300 offered evidence sets and actual model request records. No model predictions were read, no evaluated-model inference was performed, and the benchmark was not modified by this reviewer.",
+  "counts": {
+    "cases_reviewed": 60,
+    "documents_reviewed": 12,
+    "areas_reviewed": 6,
+    "evidence_options_reviewed": 300,
+    "decision_golds_confirmed": 60,
+    "evidence_golds_sufficient": 60,
+    "cases_with_one_sufficient_offered_option": 60,
+    "blocking_findings": 0,
+    "conservative_explicit_chain_golds": 2,
+    "decision_distribution": {
+      "nein": 27,
+      "ja": 16,
+      "offen": 14,
+      "konflikt": 3
+    },
+    "evidence_gold_key_distribution": {
+      "b1": 20,
+      "b5": 12,
+      "b3": 12,
+      "b4": 9,
+      "b2": 7
+    }
+  },
+  "pass_meaning": "The frozen offered-choice task has a supported decision gold and one complete, direct supporting evidence option per case under the stated evidence-chain standard. This is a benchmark quality gate, not a performance result or validation of real insurance law.",
+  "evidence_standard": "Use only the scenario and selected clauses for the complete direct proof. Do not import a needed policy rule from an unselected clause. For a conflict, cite the opposed rules and the fact that the documented priority/supersession scheme does not resolve them. For offen, cite a rule or status tying the claim to missing information, rather than treating absence as false. Refuting one conjunct is sufficient to refute a conjunction.",
+  "minimality_note": "Gold sets were reduced wherever a clearly dispensable clause produced another sufficient offered option. Cases 028 and 051 retain conservative explicit two-clause chains; shorter natural-language explanations are possible, but none is offered as a competing set. Case 028 also has the unoffered complete V1+V4 route. Passing uniqueness means uniqueness among the five offered options, not uniqueness among all imaginable explanations.",
+  "resolved_findings": [
+    "F1 and O2 now explicitly state exactly-if conditions, eliminating the unsupported converse in positive labels.",
+    "Case 019 now tests actual disease characteristics rather than the false assertion that a diagnosis has already proved them.",
+    "Case 038 now tests actual causal facts rather than proof-required exception applicability.",
+    "Case 031 now expressly asks about F2 with outdoor location and unknown security.",
+    "Case 056 now includes H3 as well as H5.",
+    "Random distractors that contained independent complete proof routes were removed, and every regenerated option was reread."
+  ],
+  "special_checks": {
+    "missing_information_vs_false_condition": {
+      "result": "pass",
+      "open_cases": [
+        "fall_008",
+        "fall_018",
+        "fall_019",
+        "fall_020",
+        "fall_024",
+        "fall_026",
+        "fall_027",
+        "fall_030",
+        "fall_031",
+        "fall_033",
+        "fall_038",
+        "fall_047",
+        "fall_054",
+        "fall_055"
+      ],
+      "known_failed_condition_examples": [
+        "fall_013",
+        "fall_036",
+        "fall_039",
+        "fall_058"
+      ]
+    },
+    "unresolved_material_conflicts": {
+      "result": "pass",
+      "cases": [
+        "fall_025",
+        "fall_045",
+        "fall_049"
+      ],
+      "note": "Equal-rank opposed terms plus explicit absence of supersession/priority; not mere incomplete facts."
+    },
+    "priority_resolved_or_scope_irrelevant_conflicts": {
+      "result": "pass",
+      "cases": [
+        "fall_004",
+        "fall_006",
+        "fall_007",
+        "fall_016",
+        "fall_029",
+        "fall_034",
+        "fall_046",
+        "fall_060"
+      ],
+      "note": "Nonbinding status, source priority and distinct object/scope are correctly distinguished."
+    },
+    "date_version_reasoning": {
+      "result": "pass",
+      "cases": [
+        "fall_006",
+        "fall_028",
+        "fall_033"
+      ],
+      "note": "Only source precedence and date order/effectivity; no numerical calculation. Loss date controls, not report date or brochure publication date."
+    },
+    "actual_request_leakage": {
+      "result": "pass",
+      "note": "No gold answers, rationales, filenames, document IDs or case IDs are in the model request object. An opaque case ID appears only in the transport wrapper. Class names in choice definitions and uniform instructions are not answer leakage. Thirty claims cite relevant clause IDs as legitimate task cues."
+    }
+  },
+  "structural_and_leakage_checks": {
+    "60_unique_case_ids": true,
+    "12_documents_with_five_cases_each": true,
+    "six_areas_with_ten_cases_each": true,
+    "60_request_records": true,
+    "complete_requests_match_benchmark": true,
+    "five_distinct_equal_cardinality_evidence_options_each": true,
+    "gold_keys_map_to_declared_clauses": true,
+    "no_gold_or_rationale_keys_in_model_payload": true,
+    "no_case_ids_document_ids_or_filenames_in_model_payload": true,
+    "files_unchanged_at_pass": true
+  },
+  "limitations": [
+    "Purposive synthetic challenge set, not a representative production sample.",
+    "Five cases share each document and are not independent observations.",
+    "Only three conflict cases; no precise per-class generalization is justified.",
+    "Guided document comprehension and offered evidence-set selection; no free-form citation generation, retrieval, OCR, long PDFs or arithmetic test.",
+    "Separate AI review does not replace human insurance/legal expert validation.",
+    "Evidence uniqueness is operational and among the offered choices; this review is not a formal theorem prover."
+  ],
+  "cases": [
+    {
+      "id": "fall_001",
+      "document_id": "paket_03",
+      "area": "Ausschlüsse und Rückausnahmen",
+      "verdict": "pass",
+      "decision_gold": "nein",
+      "decision_verdict": "confirmed",
+      "evidence_gold": "b1",
+      "evidence_gold_clauses": [
+        "L5"
+      ],
+      "evidence_gold_sufficient": true,
+      "unique_sufficient_offered_option": "b1",
+      "gold_minimality": "minimal_complete_direct_chain",
+      "recommended_minimal_explicit_evidence_sets": [
+        [
+          "L5"
+        ]
+      ],
+      "decision_and_evidence_reasoning": "L5 expressly distinguishes intentional use from intentional damage; the scenario establishes negligent damage.",
+      "option_reviews": [
+        {
+          "key": "b1",
+          "clauses": [
+            "L5"
+          ],
+          "verdict": "sufficient",
+          "reason": "Supports the decision by the per-case reasoning below."
+        },
+        {
+          "key": "b2",
+          "clauses": [
+            "L3"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b3",
+          "clauses": [
+            "L4"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b4",
+          "clauses": [
+            "L6"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b5",
+          "clauses": [
+            "L2"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        }
+      ]
+    },
+    {
+      "id": "fall_002",
+      "document_id": "paket_05",
+      "area": "Voraussetzungen und Obliegenheiten",
+      "verdict": "pass",
+      "decision_gold": "ja",
+      "decision_verdict": "confirmed",
+      "evidence_gold": "b1",
+      "evidence_gold_clauses": [
+        "F3"
+      ],
+      "evidence_gold_sufficient": true,
+      "unique_sufficient_offered_option": "b1",
+      "gold_minimality": "minimal_complete_direct_chain",
+      "recommended_minimal_explicit_evidence_sets": [
+        [
+          "F3"
+        ]
+      ],
+      "decision_and_evidence_reasoning": "F3 itself waives the fixed-object connection in an exclusive locked cellar and specifies the remaining separate-lock requirement, both satisfied here.",
+      "option_reviews": [
+        {
+          "key": "b1",
+          "clauses": [
+            "F3"
+          ],
+          "verdict": "sufficient",
+          "reason": "Supports the decision by the per-case reasoning below."
+        },
+        {
+          "key": "b2",
+          "clauses": [
+            "F7"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b3",
+          "clauses": [
+            "F5"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b4",
+          "clauses": [
+            "F6"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b5",
+          "clauses": [
+            "F1"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        }
+      ]
+    },
+    {
+      "id": "fall_003",
+      "document_id": "paket_01",
+      "area": "Deckungsumfang und Definitionen",
+      "verdict": "pass",
+      "decision_gold": "ja",
+      "decision_verdict": "confirmed",
+      "evidence_gold": "b5",
+      "evidence_gold_clauses": [
+        "H2"
+      ],
+      "evidence_gold_sufficient": true,
+      "unique_sufficient_offered_option": "b5",
+      "gold_minimality": "minimal_complete_direct_chain",
+      "recommended_minimal_explicit_evidence_sets": [
+        [
+          "H2"
+        ]
+      ],
+      "decision_and_evidence_reasoning": "H2 directly includes portable computers as professional equipment; the scenario establishes the laptop and professional use.",
+      "option_reviews": [
+        {
+          "key": "b1",
+          "clauses": [
+            "H3"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b2",
+          "clauses": [
+            "H6"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b3",
+          "clauses": [
+            "H7"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b4",
+          "clauses": [
+            "H1"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b5",
+          "clauses": [
+            "H2"
+          ],
+          "verdict": "sufficient",
+          "reason": "Supports the decision by the per-case reasoning below."
+        }
+      ]
+    },
+    {
+      "id": "fall_004",
+      "document_id": "paket_12",
+      "area": "Unvollständige und widersprüchliche Akten",
+      "verdict": "pass",
+      "decision_gold": "nein",
+      "decision_verdict": "confirmed",
+      "evidence_gold": "b3",
+      "evidence_gold_clauses": [
+        "K5"
+      ],
+      "evidence_gold_sufficient": true,
+      "unique_sufficient_offered_option": "b3",
+      "gold_minimality": "minimal_complete_direct_chain",
+      "recommended_minimal_explicit_evidence_sets": [
+        [
+          "K5"
+        ]
+      ],
+      "decision_and_evidence_reasoning": "K5 expressly makes the information card non-binding and denies it priority. The asserted resolution is false, rather than itself an unresolved conflict.",
+      "option_reviews": [
+        {
+          "key": "b1",
+          "clauses": [
+            "K7"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b2",
+          "clauses": [
+            "K3"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b3",
+          "clauses": [
+            "K5"
+          ],
+          "verdict": "sufficient",
+          "reason": "Supports the decision by the per-case reasoning below."
+        },
+        {
+          "key": "b4",
+          "clauses": [
+            "K4"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b5",
+          "clauses": [
+            "K2"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        }
+      ]
+    },
+    {
+      "id": "fall_005",
+      "document_id": "paket_11",
+      "area": "Unvollständige und widersprüchliche Akten",
+      "verdict": "pass",
+      "decision_gold": "nein",
+      "decision_verdict": "confirmed",
+      "evidence_gold": "b5",
+      "evidence_gold_clauses": [
+        "U7"
+      ],
+      "evidence_gold_sufficient": true,
+      "unique_sufficient_offered_option": "b5",
+      "gold_minimality": "minimal_complete_direct_chain",
+      "recommended_minimal_explicit_evidence_sets": [
+        [
+          "U7"
+        ]
+      ],
+      "decision_and_evidence_reasoning": "U7 expressly prohibits inferring the opposite contractual content from missing documents. No alternative option contains the competing electronics-status clause U3.",
+      "option_reviews": [
+        {
+          "key": "b1",
+          "clauses": [
+            "U2"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b2",
+          "clauses": [
+            "U5"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b3",
+          "clauses": [
+            "U6"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b4",
+          "clauses": [
+            "U1"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b5",
+          "clauses": [
+            "U7"
+          ],
+          "verdict": "sufficient",
+          "reason": "Supports the decision by the per-case reasoning below."
+        }
+      ]
+    },
+    {
+      "id": "fall_006",
+      "document_id": "paket_09",
+      "area": "Nachträge und Dokumentvorrang",
+      "verdict": "pass",
+      "decision_gold": "ja",
+      "decision_verdict": "confirmed",
+      "evidence_gold": "b5",
+      "evidence_gold_clauses": [
+        "V1",
+        "V4"
+      ],
+      "evidence_gold_sufficient": true,
+      "unique_sufficient_offered_option": "b5",
+      "gold_minimality": "minimal_complete_direct_chain",
+      "recommended_minimal_explicit_evidence_sets": [
+        [
+          "V1",
+          "V4"
+        ]
+      ],
+      "decision_and_evidence_reasoning": "V4 provides the effective Delta inclusion; V1 makes the operative individual amendment prevail over general terms. The August loss is after the July effectivity date.",
+      "option_reviews": [
+        {
+          "key": "b1",
+          "clauses": [
+            "V3",
+            "V7"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not supply both the operative inclusion and the rule making that source controlling."
+        },
+        {
+          "key": "b2",
+          "clauses": [
+            "V6",
+            "V7"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not supply both the operative inclusion and the rule making that source controlling."
+        },
+        {
+          "key": "b3",
+          "clauses": [
+            "V1",
+            "V3"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not supply both the operative inclusion and the rule making that source controlling."
+        },
+        {
+          "key": "b4",
+          "clauses": [
+            "V4",
+            "V5"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not supply both the operative inclusion and the rule making that source controlling."
+        },
+        {
+          "key": "b5",
+          "clauses": [
+            "V1",
+            "V4"
+          ],
+          "verdict": "sufficient",
+          "reason": "Supports the decision by the per-case reasoning below."
+        }
+      ]
+    },
+    {
+      "id": "fall_007",
+      "document_id": "paket_10",
+      "area": "Nachträge und Dokumentvorrang",
+      "verdict": "pass",
+      "decision_gold": "nein",
+      "decision_verdict": "confirmed",
+      "evidence_gold": "b3",
+      "evidence_gold_clauses": [
+        "Z1"
+      ],
+      "evidence_gold_sufficient": true,
+      "unique_sufficient_offered_option": "b3",
+      "gold_minimality": "minimal_complete_direct_chain",
+      "recommended_minimal_explicit_evidence_sets": [
+        [
+          "Z1"
+        ]
+      ],
+      "decision_and_evidence_reasoning": "Z1 expressly says later signature alone does not displace an earlier amendment.",
+      "option_reviews": [
+        {
+          "key": "b1",
+          "clauses": [
+            "Z6"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b2",
+          "clauses": [
+            "Z5"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b3",
+          "clauses": [
+            "Z1"
+          ],
+          "verdict": "sufficient",
+          "reason": "Supports the decision by the per-case reasoning below."
+        },
+        {
+          "key": "b4",
+          "clauses": [
+            "Z7"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b5",
+          "clauses": [
+            "Z4"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        }
+      ]
+    },
+    {
+      "id": "fall_008",
+      "document_id": "paket_03",
+      "area": "Ausschlüsse und Rückausnahmen",
+      "verdict": "pass",
+      "decision_gold": "offen",
+      "decision_verdict": "confirmed",
+      "evidence_gold": "b5",
+      "evidence_gold_clauses": [
+        "L6"
+      ],
+      "evidence_gold_sufficient": true,
+      "unique_sufficient_offered_option": "b5",
+      "gold_minimality": "minimal_complete_direct_chain",
+      "recommended_minimal_explicit_evidence_sets": [
+        [
+          "L6"
+        ]
+      ],
+      "decision_and_evidence_reasoning": "L6 supplies the loan definition and explains why ownership by a friend does not establish the missing agreed transfer for use.",
+      "option_reviews": [
+        {
+          "key": "b1",
+          "clauses": [
+            "L5"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b2",
+          "clauses": [
+            "L1"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b3",
+          "clauses": [
+            "L4"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b4",
+          "clauses": [
+            "L7"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b5",
+          "clauses": [
+            "L6"
+          ],
+          "verdict": "sufficient",
+          "reason": "Supports the decision by the per-case reasoning below."
+        }
+      ]
+    },
+    {
+      "id": "fall_009",
+      "document_id": "paket_06",
+      "area": "Voraussetzungen und Obliegenheiten",
+      "verdict": "pass",
+      "decision_gold": "ja",
+      "decision_verdict": "confirmed",
+      "evidence_gold": "b1",
+      "evidence_gold_clauses": [
+        "O2"
+      ],
+      "evidence_gold_sufficient": true,
+      "unique_sufficient_offered_option": "b1",
+      "gold_minimality": "minimal_complete_direct_chain",
+      "recommended_minimal_explicit_evidence_sets": [
+        [
+          "O2"
+        ]
+      ],
+      "decision_and_evidence_reasoning": "Revised O2 now explicitly states an if-and-only-if permission. Both intent and actual investigation impairment are established, so ja is unambiguous.",
+      "option_reviews": [
+        {
+          "key": "b1",
+          "clauses": [
+            "O2"
+          ],
+          "verdict": "sufficient",
+          "reason": "Supports the decision by the per-case reasoning below."
+        },
+        {
+          "key": "b2",
+          "clauses": [
+            "O5"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b3",
+          "clauses": [
+            "O3"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b4",
+          "clauses": [
+            "O6"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b5",
+          "clauses": [
+            "O1"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        }
+      ]
+    },
+    {
+      "id": "fall_010",
+      "document_id": "paket_05",
+      "area": "Voraussetzungen und Obliegenheiten",
+      "verdict": "pass",
+      "decision_gold": "nein",
+      "decision_verdict": "confirmed",
+      "evidence_gold": "b1",
+      "evidence_gold_clauses": [
+        "F4"
+      ],
+      "evidence_gold_sufficient": true,
+      "unique_sufficient_offered_option": "b1",
+      "gold_minimality": "minimal_complete_direct_chain",
+      "recommended_minimal_explicit_evidence_sets": [
+        [
+          "F4"
+        ]
+      ],
+      "decision_and_evidence_reasoning": "F4 directly excludes the shared cellar from the particular cellar exception asserted. The alternative F2/F3 proof routes are not offered.",
+      "option_reviews": [
+        {
+          "key": "b1",
+          "clauses": [
+            "F4"
+          ],
+          "verdict": "sufficient",
+          "reason": "Supports the decision by the per-case reasoning below."
+        },
+        {
+          "key": "b2",
+          "clauses": [
+            "F1"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b3",
+          "clauses": [
+            "F6"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b4",
+          "clauses": [
+            "F5"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b5",
+          "clauses": [
+            "F7"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        }
+      ]
+    },
+    {
+      "id": "fall_011",
+      "document_id": "paket_07",
+      "area": "Nachweise und Verfahrensstatus",
+      "verdict": "pass",
+      "decision_gold": "nein",
+      "decision_verdict": "confirmed",
+      "evidence_gold": "b1",
+      "evidence_gold_clauses": [
+        "N1"
+      ],
+      "evidence_gold_sufficient": true,
+      "unique_sufficient_offered_option": "b1",
+      "gold_minimality": "minimal_complete_direct_chain",
+      "recommended_minimal_explicit_evidence_sets": [
+        [
+          "N1"
+        ]
+      ],
+      "decision_and_evidence_reasoning": "N1 alone refutes the ownership component of the conjunction: neither an invoice nor a photo plus attributable statement is present. Refuting one conjunct is sufficient.",
+      "option_reviews": [
+        {
+          "key": "b1",
+          "clauses": [
+            "N1"
+          ],
+          "verdict": "sufficient",
+          "reason": "Supports the decision by the per-case reasoning below."
+        },
+        {
+          "key": "b2",
+          "clauses": [
+            "N2"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b3",
+          "clauses": [
+            "N7"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b4",
+          "clauses": [
+            "N4"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b5",
+          "clauses": [
+            "N5"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        }
+      ]
+    },
+    {
+      "id": "fall_012",
+      "document_id": "paket_09",
+      "area": "Nachträge und Dokumentvorrang",
+      "verdict": "pass",
+      "decision_gold": "nein",
+      "decision_verdict": "confirmed",
+      "evidence_gold": "b4",
+      "evidence_gold_clauses": [
+        "V4"
+      ],
+      "evidence_gold_sufficient": true,
+      "unique_sufficient_offered_option": "b4",
+      "gold_minimality": "minimal_complete_direct_chain",
+      "recommended_minimal_explicit_evidence_sets": [
+        [
+          "V4"
+        ]
+      ],
+      "decision_and_evidence_reasoning": "V4 expressly limits the amendment to Delta and leaves the exclusion for other devices unchanged.",
+      "option_reviews": [
+        {
+          "key": "b1",
+          "clauses": [
+            "V7"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b2",
+          "clauses": [
+            "V1"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b3",
+          "clauses": [
+            "V6"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b4",
+          "clauses": [
+            "V4"
+          ],
+          "verdict": "sufficient",
+          "reason": "Supports the decision by the per-case reasoning below."
+        },
+        {
+          "key": "b5",
+          "clauses": [
+            "V5"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        }
+      ]
+    },
+    {
+      "id": "fall_013",
+      "document_id": "paket_05",
+      "area": "Voraussetzungen und Obliegenheiten",
+      "verdict": "pass",
+      "decision_gold": "nein",
+      "decision_verdict": "confirmed",
+      "evidence_gold": "b1",
+      "evidence_gold_clauses": [
+        "F2"
+      ],
+      "evidence_gold_sufficient": true,
+      "unique_sufficient_offered_option": "b1",
+      "gold_minimality": "minimal_complete_direct_chain",
+      "recommended_minimal_explicit_evidence_sets": [
+        [
+          "F2"
+        ]
+      ],
+      "decision_and_evidence_reasoning": "F2 explicitly says a frame lock alone is insufficient. This is a known failed condition, not missing information.",
+      "option_reviews": [
+        {
+          "key": "b1",
+          "clauses": [
+            "F2"
+          ],
+          "verdict": "sufficient",
+          "reason": "Supports the decision by the per-case reasoning below."
+        },
+        {
+          "key": "b2",
+          "clauses": [
+            "F7"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b3",
+          "clauses": [
+            "F1"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b4",
+          "clauses": [
+            "F6"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b5",
+          "clauses": [
+            "F4"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        }
+      ]
+    },
+    {
+      "id": "fall_014",
+      "document_id": "paket_08",
+      "area": "Nachweise und Verfahrensstatus",
+      "verdict": "pass",
+      "decision_gold": "ja",
+      "decision_verdict": "confirmed",
+      "evidence_gold": "b4",
+      "evidence_gold_clauses": [
+        "M1"
+      ],
+      "evidence_gold_sufficient": true,
+      "unique_sufficient_offered_option": "b4",
+      "gold_minimality": "minimal_complete_direct_chain",
+      "recommended_minimal_explicit_evidence_sets": [
+        [
+          "M1"
+        ]
+      ],
+      "decision_and_evidence_reasoning": "The scenario contains all content elements described in M1, and the claim is expressly limited to that M1 content description.",
+      "option_reviews": [
+        {
+          "key": "b1",
+          "clauses": [
+            "M6"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b2",
+          "clauses": [
+            "M2"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b3",
+          "clauses": [
+            "M4"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b4",
+          "clauses": [
+            "M1"
+          ],
+          "verdict": "sufficient",
+          "reason": "Supports the decision by the per-case reasoning below."
+        },
+        {
+          "key": "b5",
+          "clauses": [
+            "M5"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        }
+      ]
+    },
+    {
+      "id": "fall_015",
+      "document_id": "paket_07",
+      "area": "Nachweise und Verfahrensstatus",
+      "verdict": "pass",
+      "decision_gold": "ja",
+      "decision_verdict": "confirmed",
+      "evidence_gold": "b3",
+      "evidence_gold_clauses": [
+        "N1"
+      ],
+      "evidence_gold_sufficient": true,
+      "unique_sufficient_offered_option": "b3",
+      "gold_minimality": "minimal_complete_direct_chain",
+      "recommended_minimal_explicit_evidence_sets": [
+        [
+          "N1"
+        ]
+      ],
+      "decision_and_evidence_reasoning": "N1 expressly permits the photo-plus-attributable-statement alternative without an invoice.",
+      "option_reviews": [
+        {
+          "key": "b1",
+          "clauses": [
+            "N7"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b2",
+          "clauses": [
+            "N3"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b3",
+          "clauses": [
+            "N1"
+          ],
+          "verdict": "sufficient",
+          "reason": "Supports the decision by the per-case reasoning below."
+        },
+        {
+          "key": "b4",
+          "clauses": [
+            "N6"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b5",
+          "clauses": [
+            "N2"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        }
+      ]
+    },
+    {
+      "id": "fall_016",
+      "document_id": "paket_09",
+      "area": "Nachträge und Dokumentvorrang",
+      "verdict": "pass",
+      "decision_gold": "nein",
+      "decision_verdict": "confirmed",
+      "evidence_gold": "b5",
+      "evidence_gold_clauses": [
+        "V1"
+      ],
+      "evidence_gold_sufficient": true,
+      "unique_sufficient_offered_option": "b5",
+      "gold_minimality": "minimal_complete_direct_chain",
+      "recommended_minimal_explicit_evidence_sets": [
+        [
+          "V1"
+        ]
+      ],
+      "decision_and_evidence_reasoning": "V1 expressly says brochures do not alter the contract; a newer publication date does not give contractual priority.",
+      "option_reviews": [
+        {
+          "key": "b1",
+          "clauses": [
+            "V2"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b2",
+          "clauses": [
+            "V7"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b3",
+          "clauses": [
+            "V3"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b4",
+          "clauses": [
+            "V6"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b5",
+          "clauses": [
+            "V1"
+          ],
+          "verdict": "sufficient",
+          "reason": "Supports the decision by the per-case reasoning below."
+        }
+      ]
+    },
+    {
+      "id": "fall_017",
+      "document_id": "paket_08",
+      "area": "Nachweise und Verfahrensstatus",
+      "verdict": "pass",
+      "decision_gold": "nein",
+      "decision_verdict": "confirmed",
+      "evidence_gold": "b2",
+      "evidence_gold_clauses": [
+        "M3"
+      ],
+      "evidence_gold_sufficient": true,
+      "unique_sufficient_offered_option": "b2",
+      "gold_minimality": "minimal_complete_direct_chain",
+      "recommended_minimal_explicit_evidence_sets": [
+        [
+          "M3"
+        ]
+      ],
+      "decision_and_evidence_reasoning": "M3 explicitly says no diagnosis is required and its absence alone is not a formal defect. M1 alone states required elements without expressly denying other requirements.",
+      "option_reviews": [
+        {
+          "key": "b1",
+          "clauses": [
+            "M5"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b2",
+          "clauses": [
+            "M3"
+          ],
+          "verdict": "sufficient",
+          "reason": "Supports the decision by the per-case reasoning below."
+        },
+        {
+          "key": "b3",
+          "clauses": [
+            "M2"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b4",
+          "clauses": [
+            "M1"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b5",
+          "clauses": [
+            "M7"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        }
+      ]
+    },
+    {
+      "id": "fall_018",
+      "document_id": "paket_04",
+      "area": "Ausschlüsse und Rückausnahmen",
+      "verdict": "pass",
+      "decision_gold": "offen",
+      "decision_verdict": "confirmed",
+      "evidence_gold": "b5",
+      "evidence_gold_clauses": [
+        "W1"
+      ],
+      "evidence_gold_sufficient": true,
+      "unique_sufficient_offered_option": "b5",
+      "gold_minimality": "minimal_complete_direct_chain",
+      "recommended_minimal_explicit_evidence_sets": [
+        [
+          "W1"
+        ]
+      ],
+      "decision_and_evidence_reasoning": "W1 identifies the required water origin and escape conditions. The scenario supplies neither, so the factual classification remains open. W7 is no longer a competing option.",
+      "option_reviews": [
+        {
+          "key": "b1",
+          "clauses": [
+            "W5"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b2",
+          "clauses": [
+            "W2"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b3",
+          "clauses": [
+            "W6"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b4",
+          "clauses": [
+            "W3"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b5",
+          "clauses": [
+            "W1"
+          ],
+          "verdict": "sufficient",
+          "reason": "Supports the decision by the per-case reasoning below."
+        }
+      ]
+    },
+    {
+      "id": "fall_019",
+      "document_id": "paket_02",
+      "area": "Deckungsumfang und Definitionen",
+      "verdict": "pass",
+      "decision_gold": "offen",
+      "decision_verdict": "confirmed",
+      "evidence_gold": "b1",
+      "evidence_gold_clauses": [
+        "R4"
+      ],
+      "evidence_gold_sufficient": true,
+      "unique_sufficient_offered_option": "b1",
+      "gold_minimality": "minimal_complete_direct_chain",
+      "recommended_minimal_explicit_evidence_sets": [
+        [
+          "R4"
+        ]
+      ],
+      "decision_and_evidence_reasoning": "The revised claim asks whether the illness meets the actual R4 event characteristics, not whether those characteristics are already proved. Severity and unexpectedness are unknown; R6 is not offered as a competing evidence route.",
+      "option_reviews": [
+        {
+          "key": "b1",
+          "clauses": [
+            "R4"
+          ],
+          "verdict": "sufficient",
+          "reason": "Supports the decision by the per-case reasoning below."
+        },
+        {
+          "key": "b2",
+          "clauses": [
+            "R2"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b3",
+          "clauses": [
+            "R3"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b4",
+          "clauses": [
+            "R7"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b5",
+          "clauses": [
+            "R5"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        }
+      ]
+    },
+    {
+      "id": "fall_020",
+      "document_id": "paket_11",
+      "area": "Unvollständige und widersprüchliche Akten",
+      "verdict": "pass",
+      "decision_gold": "offen",
+      "decision_verdict": "confirmed",
+      "evidence_gold": "b3",
+      "evidence_gold_clauses": [
+        "U5",
+        "U6"
+      ],
+      "evidence_gold_sufficient": true,
+      "unique_sufficient_offered_option": "b3",
+      "gold_minimality": "minimal_complete_direct_chain",
+      "recommended_minimal_explicit_evidence_sets": [
+        [
+          "U5",
+          "U6"
+        ]
+      ],
+      "decision_and_evidence_reasoning": "U5 supplies the intent condition; U6 supplies the missing-culpability fact because the scenario only refers to U6. Neither missing intent nor missing negligence is treated as the opposite fact.",
+      "option_reviews": [
+        {
+          "key": "b1",
+          "clauses": [
+            "U1",
+            "U2"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not supply both the intent condition and the actual missing-culpability record."
+        },
+        {
+          "key": "b2",
+          "clauses": [
+            "U2",
+            "U4"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not supply both the intent condition and the actual missing-culpability record."
+        },
+        {
+          "key": "b3",
+          "clauses": [
+            "U5",
+            "U6"
+          ],
+          "verdict": "sufficient",
+          "reason": "Supports the decision by the per-case reasoning below."
+        },
+        {
+          "key": "b4",
+          "clauses": [
+            "U6",
+            "U7"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not supply both the intent condition and the actual missing-culpability record."
+        },
+        {
+          "key": "b5",
+          "clauses": [
+            "U1",
+            "U7"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not supply both the intent condition and the actual missing-culpability record."
+        }
+      ]
+    },
+    {
+      "id": "fall_021",
+      "document_id": "paket_02",
+      "area": "Deckungsumfang und Definitionen",
+      "verdict": "pass",
+      "decision_gold": "ja",
+      "decision_verdict": "confirmed",
+      "evidence_gold": "b1",
+      "evidence_gold_clauses": [
+        "R4",
+        "R5"
+      ],
+      "evidence_gold_sufficient": true,
+      "unique_sufficient_offered_option": "b1",
+      "gold_minimality": "minimal_complete_direct_chain",
+      "recommended_minimal_explicit_evidence_sets": [
+        [
+          "R4",
+          "R5"
+        ]
+      ],
+      "decision_and_evidence_reasoning": "R4 supplies the covered-event rule and R5 establishes that the spouse is a risk person; both illness characteristics are stated as satisfied.",
+      "option_reviews": [
+        {
+          "key": "b1",
+          "clauses": [
+            "R4",
+            "R5"
+          ],
+          "verdict": "sufficient",
+          "reason": "Supports the decision by the per-case reasoning below."
+        },
+        {
+          "key": "b2",
+          "clauses": [
+            "R1",
+            "R2"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not supply both the insured event rule and the spouse-to-risk-person definition."
+        },
+        {
+          "key": "b3",
+          "clauses": [
+            "R2",
+            "R3"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not supply both the insured event rule and the spouse-to-risk-person definition."
+        },
+        {
+          "key": "b4",
+          "clauses": [
+            "R5",
+            "R7"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not supply both the insured event rule and the spouse-to-risk-person definition."
+        },
+        {
+          "key": "b5",
+          "clauses": [
+            "R5",
+            "R6"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not supply both the insured event rule and the spouse-to-risk-person definition."
+        }
+      ]
+    },
+    {
+      "id": "fall_022",
+      "document_id": "paket_01",
+      "area": "Deckungsumfang und Definitionen",
+      "verdict": "pass",
+      "decision_gold": "nein",
+      "decision_verdict": "confirmed",
+      "evidence_gold": "b1",
+      "evidence_gold_clauses": [
+        "H3"
+      ],
+      "evidence_gold_sufficient": true,
+      "unique_sufficient_offered_option": "b1",
+      "gold_minimality": "minimal_complete_direct_chain",
+      "recommended_minimal_explicit_evidence_sets": [
+        [
+          "H3"
+        ]
+      ],
+      "decision_and_evidence_reasoning": "H3 expressly excludes shared storage rooms from the insured location.",
+      "option_reviews": [
+        {
+          "key": "b1",
+          "clauses": [
+            "H3"
+          ],
+          "verdict": "sufficient",
+          "reason": "Supports the decision by the per-case reasoning below."
+        },
+        {
+          "key": "b2",
+          "clauses": [
+            "H7"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b3",
+          "clauses": [
+            "H2"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b4",
+          "clauses": [
+            "H4"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b5",
+          "clauses": [
+            "H5"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        }
+      ]
+    },
+    {
+      "id": "fall_023",
+      "document_id": "paket_02",
+      "area": "Deckungsumfang und Definitionen",
+      "verdict": "pass",
+      "decision_gold": "nein",
+      "decision_verdict": "confirmed",
+      "evidence_gold": "b1",
+      "evidence_gold_clauses": [
+        "R4",
+        "R5"
+      ],
+      "evidence_gold_sufficient": true,
+      "unique_sufficient_offered_option": "b1",
+      "gold_minimality": "minimal_complete_direct_chain",
+      "recommended_minimal_explicit_evidence_sets": [
+        [
+          "R4",
+          "R5"
+        ]
+      ],
+      "decision_and_evidence_reasoning": "R4 limits the eligible sick people and R5 expressly excludes colleagues from risk persons. The relationship is known, so nein rather than offen.",
+      "option_reviews": [
+        {
+          "key": "b1",
+          "clauses": [
+            "R4",
+            "R5"
+          ],
+          "verdict": "sufficient",
+          "reason": "Supports the decision by the per-case reasoning below."
+        },
+        {
+          "key": "b2",
+          "clauses": [
+            "R6",
+            "R7"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not supply both the eligible-person restriction and the colleague exclusion."
+        },
+        {
+          "key": "b3",
+          "clauses": [
+            "R3",
+            "R4"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not supply both the eligible-person restriction and the colleague exclusion."
+        },
+        {
+          "key": "b4",
+          "clauses": [
+            "R1",
+            "R5"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not supply both the eligible-person restriction and the colleague exclusion."
+        },
+        {
+          "key": "b5",
+          "clauses": [
+            "R4",
+            "R6"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not supply both the eligible-person restriction and the colleague exclusion."
+        }
+      ]
+    },
+    {
+      "id": "fall_024",
+      "document_id": "paket_08",
+      "area": "Nachweise und Verfahrensstatus",
+      "verdict": "pass",
+      "decision_gold": "offen",
+      "decision_verdict": "confirmed",
+      "evidence_gold": "b3",
+      "evidence_gold_clauses": [
+        "M5"
+      ],
+      "evidence_gold_sufficient": true,
+      "unique_sufficient_offered_option": "b3",
+      "gold_minimality": "minimal_complete_direct_chain",
+      "recommended_minimal_explicit_evidence_sets": [
+        [
+          "M5"
+        ]
+      ],
+      "decision_and_evidence_reasoning": "M5 limits the portal message to receipt. It neither confirms nor denies formal completeness; the actual certificate contents are not supplied. M1 is no longer a competing option.",
+      "option_reviews": [
+        {
+          "key": "b1",
+          "clauses": [
+            "M6"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b2",
+          "clauses": [
+            "M2"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b3",
+          "clauses": [
+            "M5"
+          ],
+          "verdict": "sufficient",
+          "reason": "Supports the decision by the per-case reasoning below."
+        },
+        {
+          "key": "b4",
+          "clauses": [
+            "M3"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b5",
+          "clauses": [
+            "M7"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        }
+      ]
+    },
+    {
+      "id": "fall_025",
+      "document_id": "paket_12",
+      "area": "Unvollständige und widersprüchliche Akten",
+      "verdict": "pass",
+      "decision_gold": "konflikt",
+      "decision_verdict": "confirmed",
+      "evidence_gold": "b4",
+      "evidence_gold_clauses": [
+        "K1",
+        "K2",
+        "K3"
+      ],
+      "evidence_gold_sufficient": true,
+      "unique_sufficient_offered_option": "b4",
+      "gold_minimality": "minimal_complete_direct_chain",
+      "recommended_minimal_explicit_evidence_sets": [
+        [
+          "K1",
+          "K2",
+          "K3"
+        ]
+      ],
+      "decision_and_evidence_reasoning": "K2 and K3 conflict on business travel. K1 establishes equal rank, no replacement and no agreed preference. The scenario itself does not supply the absence of replacement/preference, so K1 remains needed for the complete conflict proof.",
+      "option_reviews": [
+        {
+          "key": "b1",
+          "clauses": [
+            "K2",
+            "K3",
+            "K4"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not supply both opposed rules plus absence of contractual resolution."
+        },
+        {
+          "key": "b2",
+          "clauses": [
+            "K3",
+            "K4",
+            "K6"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not supply both opposed rules plus absence of contractual resolution."
+        },
+        {
+          "key": "b3",
+          "clauses": [
+            "K1",
+            "K2",
+            "K5"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not supply both opposed rules plus absence of contractual resolution."
+        },
+        {
+          "key": "b4",
+          "clauses": [
+            "K1",
+            "K2",
+            "K3"
+          ],
+          "verdict": "sufficient",
+          "reason": "Supports the decision by the per-case reasoning below."
+        },
+        {
+          "key": "b5",
+          "clauses": [
+            "K3",
+            "K6",
+            "K7"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not supply both opposed rules plus absence of contractual resolution."
+        }
+      ]
+    },
+    {
+      "id": "fall_026",
+      "document_id": "paket_12",
+      "area": "Unvollständige und widersprüchliche Akten",
+      "verdict": "pass",
+      "decision_gold": "offen",
+      "decision_verdict": "confirmed",
+      "evidence_gold": "b1",
+      "evidence_gold_clauses": [
+        "K7"
+      ],
+      "evidence_gold_sufficient": true,
+      "unique_sufficient_offered_option": "b1",
+      "gold_minimality": "minimal_complete_direct_chain",
+      "recommended_minimal_explicit_evidence_sets": [
+        [
+          "K7"
+        ]
+      ],
+      "decision_and_evidence_reasoning": "K7 expressly says no document settles winter-sports activity coverage. Spatial coverage cannot fill that missing subject-matter rule.",
+      "option_reviews": [
+        {
+          "key": "b1",
+          "clauses": [
+            "K7"
+          ],
+          "verdict": "sufficient",
+          "reason": "Supports the decision by the per-case reasoning below."
+        },
+        {
+          "key": "b2",
+          "clauses": [
+            "K3"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b3",
+          "clauses": [
+            "K2"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b4",
+          "clauses": [
+            "K5"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b5",
+          "clauses": [
+            "K4"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        }
+      ]
+    },
+    {
+      "id": "fall_027",
+      "document_id": "paket_01",
+      "area": "Deckungsumfang und Definitionen",
+      "verdict": "pass",
+      "decision_gold": "offen",
+      "decision_verdict": "confirmed",
+      "evidence_gold": "b3",
+      "evidence_gold_clauses": [
+        "H6"
+      ],
+      "evidence_gold_sufficient": true,
+      "unique_sufficient_offered_option": "b3",
+      "gold_minimality": "minimal_complete_direct_chain",
+      "recommended_minimal_explicit_evidence_sets": [
+        [
+          "H6"
+        ]
+      ],
+      "decision_and_evidence_reasoning": "H6 makes actual use at the loss date decisive; that use is undocumented. Ownership and location do not establish private use.",
+      "option_reviews": [
+        {
+          "key": "b1",
+          "clauses": [
+            "H3"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b2",
+          "clauses": [
+            "H7"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b3",
+          "clauses": [
+            "H6"
+          ],
+          "verdict": "sufficient",
+          "reason": "Supports the decision by the per-case reasoning below."
+        },
+        {
+          "key": "b4",
+          "clauses": [
+            "H1"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b5",
+          "clauses": [
+            "H5"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        }
+      ]
+    },
+    {
+      "id": "fall_028",
+      "document_id": "paket_09",
+      "area": "Nachträge und Dokumentvorrang",
+      "verdict": "pass",
+      "decision_gold": "nein",
+      "decision_verdict": "confirmed",
+      "evidence_gold": "b3",
+      "evidence_gold_clauses": [
+        "V4",
+        "V6"
+      ],
+      "evidence_gold_sufficient": true,
+      "unique_sufficient_offered_option": "b3",
+      "gold_minimality": "conservative_explicit_chain; plausible shorter exposition is not offered",
+      "recommended_minimal_explicit_evidence_sets": [
+        [
+          "V4",
+          "V6"
+        ],
+        [
+          "V1",
+          "V4"
+        ]
+      ],
+      "decision_and_evidence_reasoning": "V4 supplies the July commencement date and V6 expressly makes the June loss date control instead of the August report date, with no retroactivity. No other offered set contains V4; the complete time-and-scope proof is unique among the choices.",
+      "option_reviews": [
+        {
+          "key": "b1",
+          "clauses": [
+            "V1",
+            "V6"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not supply both the amendment commencement/scope and the explicit loss-date rule."
+        },
+        {
+          "key": "b2",
+          "clauses": [
+            "V3",
+            "V5"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not supply both the amendment commencement/scope and the explicit loss-date rule."
+        },
+        {
+          "key": "b3",
+          "clauses": [
+            "V4",
+            "V6"
+          ],
+          "verdict": "sufficient",
+          "reason": "Supports the decision by the per-case reasoning below."
+        },
+        {
+          "key": "b4",
+          "clauses": [
+            "V2",
+            "V3"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not supply both the amendment commencement/scope and the explicit loss-date rule."
+        },
+        {
+          "key": "b5",
+          "clauses": [
+            "V6",
+            "V7"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not supply both the amendment commencement/scope and the explicit loss-date rule."
+        }
+      ]
+    },
+    {
+      "id": "fall_029",
+      "document_id": "paket_10",
+      "area": "Nachträge und Dokumentvorrang",
+      "verdict": "pass",
+      "decision_gold": "nein",
+      "decision_verdict": "confirmed",
+      "evidence_gold": "b5",
+      "evidence_gold_clauses": [
+        "Z5"
+      ],
+      "evidence_gold_sufficient": true,
+      "unique_sufficient_offered_option": "b5",
+      "gold_minimality": "minimal_complete_direct_chain",
+      "recommended_minimal_explicit_evidence_sets": [
+        [
+          "Z5"
+        ]
+      ],
+      "decision_and_evidence_reasoning": "Z5 expressly says Gamma makes no rule about the main dwelling. Its garage inclusion therefore does not resolve the dwelling conflict.",
+      "option_reviews": [
+        {
+          "key": "b1",
+          "clauses": [
+            "Z1"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b2",
+          "clauses": [
+            "Z4"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b3",
+          "clauses": [
+            "Z2"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b4",
+          "clauses": [
+            "Z3"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b5",
+          "clauses": [
+            "Z5"
+          ],
+          "verdict": "sufficient",
+          "reason": "Supports the decision by the per-case reasoning below."
+        }
+      ]
+    },
+    {
+      "id": "fall_030",
+      "document_id": "paket_07",
+      "area": "Nachweise und Verfahrensstatus",
+      "verdict": "pass",
+      "decision_gold": "offen",
+      "decision_verdict": "confirmed",
+      "evidence_gold": "b3",
+      "evidence_gold_clauses": [
+        "N1"
+      ],
+      "evidence_gold_sufficient": true,
+      "unique_sufficient_offered_option": "b3",
+      "gold_minimality": "minimal_complete_direct_chain",
+      "recommended_minimal_explicit_evidence_sets": [
+        [
+          "N1"
+        ]
+      ],
+      "decision_and_evidence_reasoning": "N1 requires unique attribution of the account statement. That factual attribute is unknown; it is not affirmatively absent. N5 is not offered as a competing clarification.",
+      "option_reviews": [
+        {
+          "key": "b1",
+          "clauses": [
+            "N2"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b2",
+          "clauses": [
+            "N3"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b3",
+          "clauses": [
+            "N1"
+          ],
+          "verdict": "sufficient",
+          "reason": "Supports the decision by the per-case reasoning below."
+        },
+        {
+          "key": "b4",
+          "clauses": [
+            "N4"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b5",
+          "clauses": [
+            "N6"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        }
+      ]
+    },
+    {
+      "id": "fall_031",
+      "document_id": "paket_05",
+      "area": "Voraussetzungen und Obliegenheiten",
+      "verdict": "pass",
+      "decision_gold": "offen",
+      "decision_verdict": "confirmed",
+      "evidence_gold": "b4",
+      "evidence_gold_clauses": [
+        "F2"
+      ],
+      "evidence_gold_sufficient": true,
+      "unique_sufficient_offered_option": "b4",
+      "gold_minimality": "minimal_complete_direct_chain",
+      "recommended_minimal_explicit_evidence_sets": [
+        [
+          "F2"
+        ]
+      ],
+      "decision_and_evidence_reasoning": "The revised scenario specifies theft outside the dwelling and unknown actual security; the claim expressly asks whether F2 was fulfilled. F2 supplies the unknown requirements, while the receipt cannot establish them.",
+      "option_reviews": [
+        {
+          "key": "b1",
+          "clauses": [
+            "F3"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b2",
+          "clauses": [
+            "F5"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b3",
+          "clauses": [
+            "F6"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b4",
+          "clauses": [
+            "F2"
+          ],
+          "verdict": "sufficient",
+          "reason": "Supports the decision by the per-case reasoning below."
+        },
+        {
+          "key": "b5",
+          "clauses": [
+            "F4"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        }
+      ]
+    },
+    {
+      "id": "fall_032",
+      "document_id": "paket_06",
+      "area": "Voraussetzungen und Obliegenheiten",
+      "verdict": "pass",
+      "decision_gold": "ja",
+      "decision_verdict": "confirmed",
+      "evidence_gold": "b2",
+      "evidence_gold_clauses": [
+        "O4"
+      ],
+      "evidence_gold_sufficient": true,
+      "unique_sufficient_offered_option": "b2",
+      "gold_minimality": "minimal_complete_direct_chain",
+      "recommended_minimal_explicit_evidence_sets": [
+        [
+          "O4"
+        ]
+      ],
+      "decision_and_evidence_reasoning": "O4 expressly authorizes necessary immediate loss-mitigation before consultation.",
+      "option_reviews": [
+        {
+          "key": "b1",
+          "clauses": [
+            "O1"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b2",
+          "clauses": [
+            "O4"
+          ],
+          "verdict": "sufficient",
+          "reason": "Supports the decision by the per-case reasoning below."
+        },
+        {
+          "key": "b3",
+          "clauses": [
+            "O3"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b4",
+          "clauses": [
+            "O2"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b5",
+          "clauses": [
+            "O5"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        }
+      ]
+    },
+    {
+      "id": "fall_033",
+      "document_id": "paket_09",
+      "area": "Nachträge und Dokumentvorrang",
+      "verdict": "pass",
+      "decision_gold": "offen",
+      "decision_verdict": "confirmed",
+      "evidence_gold": "b1",
+      "evidence_gold_clauses": [
+        "V4",
+        "V6"
+      ],
+      "evidence_gold_sufficient": true,
+      "unique_sufficient_offered_option": "b1",
+      "gold_minimality": "minimal_complete_direct_chain",
+      "recommended_minimal_explicit_evidence_sets": [
+        [
+          "V4",
+          "V6"
+        ]
+      ],
+      "decision_and_evidence_reasoning": "V4 establishes the actual device/event inclusion and its temporal change point. V6 makes the unknown loss date, rather than the known report date, decisive. No other option contains V4.",
+      "option_reviews": [
+        {
+          "key": "b1",
+          "clauses": [
+            "V4",
+            "V6"
+          ],
+          "verdict": "sufficient",
+          "reason": "Supports the decision by the per-case reasoning below."
+        },
+        {
+          "key": "b2",
+          "clauses": [
+            "V5",
+            "V7"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not supply both the relevant amendment scope/change point and the loss-date criterion."
+        },
+        {
+          "key": "b3",
+          "clauses": [
+            "V5",
+            "V6"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not supply both the relevant amendment scope/change point and the loss-date criterion."
+        },
+        {
+          "key": "b4",
+          "clauses": [
+            "V3",
+            "V5"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not supply both the relevant amendment scope/change point and the loss-date criterion."
+        },
+        {
+          "key": "b5",
+          "clauses": [
+            "V3",
+            "V6"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not supply both the relevant amendment scope/change point and the loss-date criterion."
+        }
+      ]
+    },
+    {
+      "id": "fall_034",
+      "document_id": "paket_10",
+      "area": "Nachträge und Dokumentvorrang",
+      "verdict": "pass",
+      "decision_gold": "nein",
+      "decision_verdict": "confirmed",
+      "evidence_gold": "b4",
+      "evidence_gold_clauses": [
+        "Z6"
+      ],
+      "evidence_gold_sufficient": true,
+      "unique_sufficient_offered_option": "b4",
+      "gold_minimality": "minimal_complete_direct_chain",
+      "recommended_minimal_explicit_evidence_sets": [
+        [
+          "Z6"
+        ]
+      ],
+      "decision_and_evidence_reasoning": "Z6 explicitly makes the unsigned draft non-binding and says it expands no protection.",
+      "option_reviews": [
+        {
+          "key": "b1",
+          "clauses": [
+            "Z4"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b2",
+          "clauses": [
+            "Z2"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b3",
+          "clauses": [
+            "Z3"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b4",
+          "clauses": [
+            "Z6"
+          ],
+          "verdict": "sufficient",
+          "reason": "Supports the decision by the per-case reasoning below."
+        },
+        {
+          "key": "b5",
+          "clauses": [
+            "Z5"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        }
+      ]
+    },
+    {
+      "id": "fall_035",
+      "document_id": "paket_03",
+      "area": "Ausschlüsse und Rückausnahmen",
+      "verdict": "pass",
+      "decision_gold": "nein",
+      "decision_verdict": "confirmed",
+      "evidence_gold": "b1",
+      "evidence_gold_clauses": [
+        "L3"
+      ],
+      "evidence_gold_sufficient": true,
+      "unique_sufficient_offered_option": "b1",
+      "gold_minimality": "minimal_complete_direct_chain",
+      "recommended_minimal_explicit_evidence_sets": [
+        [
+          "L3"
+        ]
+      ],
+      "decision_and_evidence_reasoning": "L3 itself excludes professional use from the borrowed-instrument exception, so the exception does not override L2 for the professional concert.",
+      "option_reviews": [
+        {
+          "key": "b1",
+          "clauses": [
+            "L3"
+          ],
+          "verdict": "sufficient",
+          "reason": "Supports the decision by the per-case reasoning below."
+        },
+        {
+          "key": "b2",
+          "clauses": [
+            "L5"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b3",
+          "clauses": [
+            "L4"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b4",
+          "clauses": [
+            "L7"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b5",
+          "clauses": [
+            "L6"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        }
+      ]
+    },
+    {
+      "id": "fall_036",
+      "document_id": "paket_06",
+      "area": "Voraussetzungen und Obliegenheiten",
+      "verdict": "pass",
+      "decision_gold": "nein",
+      "decision_verdict": "confirmed",
+      "evidence_gold": "b1",
+      "evidence_gold_clauses": [
+        "O2"
+      ],
+      "evidence_gold_sufficient": true,
+      "unique_sufficient_offered_option": "b1",
+      "gold_minimality": "minimal_complete_direct_chain",
+      "recommended_minimal_explicit_evidence_sets": [
+        [
+          "O2"
+        ]
+      ],
+      "decision_and_evidence_reasoning": "O2 requires both conditions, and actual investigation impairment is expressly false. The refusal permission therefore fails despite proven intent.",
+      "option_reviews": [
+        {
+          "key": "b1",
+          "clauses": [
+            "O2"
+          ],
+          "verdict": "sufficient",
+          "reason": "Supports the decision by the per-case reasoning below."
+        },
+        {
+          "key": "b2",
+          "clauses": [
+            "O7"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b3",
+          "clauses": [
+            "O5"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b4",
+          "clauses": [
+            "O1"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b5",
+          "clauses": [
+            "O4"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        }
+      ]
+    },
+    {
+      "id": "fall_037",
+      "document_id": "paket_04",
+      "area": "Ausschlüsse und Rückausnahmen",
+      "verdict": "pass",
+      "decision_gold": "nein",
+      "decision_verdict": "confirmed",
+      "evidence_gold": "b1",
+      "evidence_gold_clauses": [
+        "W2"
+      ],
+      "evidence_gold_sufficient": true,
+      "unique_sufficient_offered_option": "b1",
+      "gold_minimality": "minimal_complete_direct_chain",
+      "recommended_minimal_explicit_evidence_sets": [
+        [
+          "W2"
+        ]
+      ],
+      "decision_and_evidence_reasoning": "W2 expressly excludes rain, including entry through damage to the building. The independent W1 definition-based proof is no longer offered.",
+      "option_reviews": [
+        {
+          "key": "b1",
+          "clauses": [
+            "W2"
+          ],
+          "verdict": "sufficient",
+          "reason": "Supports the decision by the per-case reasoning below."
+        },
+        {
+          "key": "b2",
+          "clauses": [
+            "W6"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b3",
+          "clauses": [
+            "W4"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b4",
+          "clauses": [
+            "W7"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b5",
+          "clauses": [
+            "W5"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        }
+      ]
+    },
+    {
+      "id": "fall_038",
+      "document_id": "paket_04",
+      "area": "Ausschlüsse und Rückausnahmen",
+      "verdict": "pass",
+      "decision_gold": "offen",
+      "decision_verdict": "confirmed",
+      "evidence_gold": "b5",
+      "evidence_gold_clauses": [
+        "W4"
+      ],
+      "evidence_gold_sufficient": true,
+      "unique_sufficient_offered_option": "b5",
+      "gold_minimality": "minimal_complete_direct_chain",
+      "recommended_minimal_explicit_evidence_sets": [
+        [
+          "W4"
+        ]
+      ],
+      "decision_and_evidence_reasoning": "The revised statement is about actual causation and absence of another cause. Those are unresolved, not established false. W4 specifies precisely these two factual conditions; W5 is not offered as a competing route.",
+      "option_reviews": [
+        {
+          "key": "b1",
+          "clauses": [
+            "W3"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b2",
+          "clauses": [
+            "W6"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b3",
+          "clauses": [
+            "W2"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b4",
+          "clauses": [
+            "W1"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b5",
+          "clauses": [
+            "W4"
+          ],
+          "verdict": "sufficient",
+          "reason": "Supports the decision by the per-case reasoning below."
+        }
+      ]
+    },
+    {
+      "id": "fall_039",
+      "document_id": "paket_11",
+      "area": "Unvollständige und widersprüchliche Akten",
+      "verdict": "pass",
+      "decision_gold": "nein",
+      "decision_verdict": "confirmed",
+      "evidence_gold": "b2",
+      "evidence_gold_clauses": [
+        "U5"
+      ],
+      "evidence_gold_sufficient": true,
+      "unique_sufficient_offered_option": "b2",
+      "gold_minimality": "minimal_complete_direct_chain",
+      "recommended_minimal_explicit_evidence_sets": [
+        [
+          "U5"
+        ]
+      ],
+      "decision_and_evidence_reasoning": "U5 expressly excludes negligence from the intent exclusion, and the scenario now positively establishes negligence.",
+      "option_reviews": [
+        {
+          "key": "b1",
+          "clauses": [
+            "U1"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b2",
+          "clauses": [
+            "U5"
+          ],
+          "verdict": "sufficient",
+          "reason": "Supports the decision by the per-case reasoning below."
+        },
+        {
+          "key": "b3",
+          "clauses": [
+            "U3"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b4",
+          "clauses": [
+            "U2"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b5",
+          "clauses": [
+            "U4"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        }
+      ]
+    },
+    {
+      "id": "fall_040",
+      "document_id": "paket_04",
+      "area": "Ausschlüsse und Rückausnahmen",
+      "verdict": "pass",
+      "decision_gold": "ja",
+      "decision_verdict": "confirmed",
+      "evidence_gold": "b1",
+      "evidence_gold_clauses": [
+        "W3"
+      ],
+      "evidence_gold_sufficient": true,
+      "unique_sufficient_offered_option": "b1",
+      "gold_minimality": "minimal_complete_direct_chain",
+      "recommended_minimal_explicit_evidence_sets": [
+        [
+          "W3"
+        ]
+      ],
+      "decision_and_evidence_reasoning": "W3 directly includes frost rupture of fixed drinking-water pipes. W1 cannot substitute because rupture does not itself establish escaped-water damage.",
+      "option_reviews": [
+        {
+          "key": "b1",
+          "clauses": [
+            "W3"
+          ],
+          "verdict": "sufficient",
+          "reason": "Supports the decision by the per-case reasoning below."
+        },
+        {
+          "key": "b2",
+          "clauses": [
+            "W6"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b3",
+          "clauses": [
+            "W4"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b4",
+          "clauses": [
+            "W1"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b5",
+          "clauses": [
+            "W5"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        }
+      ]
+    },
+    {
+      "id": "fall_041",
+      "document_id": "paket_03",
+      "area": "Ausschlüsse und Rückausnahmen",
+      "verdict": "pass",
+      "decision_gold": "nein",
+      "decision_verdict": "confirmed",
+      "evidence_gold": "b3",
+      "evidence_gold_clauses": [
+        "L3"
+      ],
+      "evidence_gold_sufficient": true,
+      "unique_sufficient_offered_option": "b3",
+      "gold_minimality": "minimal_complete_direct_chain",
+      "recommended_minimal_explicit_evidence_sets": [
+        [
+          "L3"
+        ]
+      ],
+      "decision_and_evidence_reasoning": "L3 directly excludes loss from the borrowed-musical-instrument exception.",
+      "option_reviews": [
+        {
+          "key": "b1",
+          "clauses": [
+            "L4"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b2",
+          "clauses": [
+            "L2"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b3",
+          "clauses": [
+            "L3"
+          ],
+          "verdict": "sufficient",
+          "reason": "Supports the decision by the per-case reasoning below."
+        },
+        {
+          "key": "b4",
+          "clauses": [
+            "L7"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b5",
+          "clauses": [
+            "L1"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        }
+      ]
+    },
+    {
+      "id": "fall_042",
+      "document_id": "paket_07",
+      "area": "Nachweise und Verfahrensstatus",
+      "verdict": "pass",
+      "decision_gold": "ja",
+      "decision_verdict": "confirmed",
+      "evidence_gold": "b3",
+      "evidence_gold_clauses": [
+        "N1",
+        "N3"
+      ],
+      "evidence_gold_sufficient": true,
+      "unique_sufficient_offered_option": "b3",
+      "gold_minimality": "minimal_complete_direct_chain",
+      "recommended_minimal_explicit_evidence_sets": [
+        [
+          "N1",
+          "N3"
+        ]
+      ],
+      "decision_and_evidence_reasoning": "The positive conjunction needs N1 for ownership via invoice and N3 for damage via a repair report; neither alone establishes the whole positive claim.",
+      "option_reviews": [
+        {
+          "key": "b1",
+          "clauses": [
+            "N1",
+            "N6"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not supply both ownership and damage-proof rules for the positive conjunction."
+        },
+        {
+          "key": "b2",
+          "clauses": [
+            "N5",
+            "N6"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not supply both ownership and damage-proof rules for the positive conjunction."
+        },
+        {
+          "key": "b3",
+          "clauses": [
+            "N1",
+            "N3"
+          ],
+          "verdict": "sufficient",
+          "reason": "Supports the decision by the per-case reasoning below."
+        },
+        {
+          "key": "b4",
+          "clauses": [
+            "N3",
+            "N7"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not supply both ownership and damage-proof rules for the positive conjunction."
+        },
+        {
+          "key": "b5",
+          "clauses": [
+            "N2",
+            "N7"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not supply both ownership and damage-proof rules for the positive conjunction."
+        }
+      ]
+    },
+    {
+      "id": "fall_043",
+      "document_id": "paket_07",
+      "area": "Nachweise und Verfahrensstatus",
+      "verdict": "pass",
+      "decision_gold": "nein",
+      "decision_verdict": "confirmed",
+      "evidence_gold": "b1",
+      "evidence_gold_clauses": [
+        "N6"
+      ],
+      "evidence_gold_sufficient": true,
+      "unique_sufficient_offered_option": "b1",
+      "gold_minimality": "minimal_complete_direct_chain",
+      "recommended_minimal_explicit_evidence_sets": [
+        [
+          "N6"
+        ]
+      ],
+      "decision_and_evidence_reasoning": "N6 expressly says complete documentation is not acknowledgement of coverage.",
+      "option_reviews": [
+        {
+          "key": "b1",
+          "clauses": [
+            "N6"
+          ],
+          "verdict": "sufficient",
+          "reason": "Supports the decision by the per-case reasoning below."
+        },
+        {
+          "key": "b2",
+          "clauses": [
+            "N3"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b3",
+          "clauses": [
+            "N7"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b4",
+          "clauses": [
+            "N4"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b5",
+          "clauses": [
+            "N2"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        }
+      ]
+    },
+    {
+      "id": "fall_044",
+      "document_id": "paket_04",
+      "area": "Ausschlüsse und Rückausnahmen",
+      "verdict": "pass",
+      "decision_gold": "ja",
+      "decision_verdict": "confirmed",
+      "evidence_gold": "b1",
+      "evidence_gold_clauses": [
+        "W4"
+      ],
+      "evidence_gold_sufficient": true,
+      "unique_sufficient_offered_option": "b1",
+      "gold_minimality": "minimal_complete_direct_chain",
+      "recommended_minimal_explicit_evidence_sets": [
+        [
+          "W4"
+        ]
+      ],
+      "decision_and_evidence_reasoning": "W4 grants the exception when both causal facts hold, and the scenario establishes both. W5 states necessary proof conditions but does not independently grant the exception.",
+      "option_reviews": [
+        {
+          "key": "b1",
+          "clauses": [
+            "W4"
+          ],
+          "verdict": "sufficient",
+          "reason": "Supports the decision by the per-case reasoning below."
+        },
+        {
+          "key": "b2",
+          "clauses": [
+            "W5"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b3",
+          "clauses": [
+            "W2"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b4",
+          "clauses": [
+            "W7"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b5",
+          "clauses": [
+            "W3"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        }
+      ]
+    },
+    {
+      "id": "fall_045",
+      "document_id": "paket_10",
+      "area": "Nachträge und Dokumentvorrang",
+      "verdict": "pass",
+      "decision_gold": "konflikt",
+      "decision_verdict": "confirmed",
+      "evidence_gold": "b4",
+      "evidence_gold_clauses": [
+        "Z1",
+        "Z3",
+        "Z4"
+      ],
+      "evidence_gold_sufficient": true,
+      "unique_sufficient_offered_option": "b4",
+      "gold_minimality": "minimal_complete_direct_chain",
+      "recommended_minimal_explicit_evidence_sets": [
+        [
+          "Z1",
+          "Z3",
+          "Z4"
+        ]
+      ],
+      "decision_and_evidence_reasoning": "Z3 and Z4 are opposite effective dwelling rules. Z1 establishes that later signature/date alone cannot resolve the same-rank conflict. Gamma has a separate garage scope.",
+      "option_reviews": [
+        {
+          "key": "b1",
+          "clauses": [
+            "Z1",
+            "Z2",
+            "Z6"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not supply both opposed dwelling rules plus the agreed no-automatic-priority rule."
+        },
+        {
+          "key": "b2",
+          "clauses": [
+            "Z4",
+            "Z5",
+            "Z7"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not supply both opposed dwelling rules plus the agreed no-automatic-priority rule."
+        },
+        {
+          "key": "b3",
+          "clauses": [
+            "Z1",
+            "Z2",
+            "Z7"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not supply both opposed dwelling rules plus the agreed no-automatic-priority rule."
+        },
+        {
+          "key": "b4",
+          "clauses": [
+            "Z1",
+            "Z3",
+            "Z4"
+          ],
+          "verdict": "sufficient",
+          "reason": "Supports the decision by the per-case reasoning below."
+        },
+        {
+          "key": "b5",
+          "clauses": [
+            "Z1",
+            "Z2",
+            "Z5"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not supply both opposed dwelling rules plus the agreed no-automatic-priority rule."
+        }
+      ]
+    },
+    {
+      "id": "fall_046",
+      "document_id": "paket_12",
+      "area": "Unvollständige und widersprüchliche Akten",
+      "verdict": "pass",
+      "decision_gold": "ja",
+      "decision_verdict": "confirmed",
+      "evidence_gold": "b3",
+      "evidence_gold_clauses": [
+        "K4"
+      ],
+      "evidence_gold_sufficient": true,
+      "unique_sufficient_offered_option": "b3",
+      "gold_minimality": "minimal_complete_direct_chain",
+      "recommended_minimal_explicit_evidence_sets": [
+        [
+          "K4"
+        ]
+      ],
+      "decision_and_evidence_reasoning": "K4 expressly states agreement on Portugal. The Canada and business-travel conflicts are irrelevant, and the independent worldwide K2 proof is no longer offered.",
+      "option_reviews": [
+        {
+          "key": "b1",
+          "clauses": [
+            "K7"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b2",
+          "clauses": [
+            "K5"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b3",
+          "clauses": [
+            "K4"
+          ],
+          "verdict": "sufficient",
+          "reason": "Supports the decision by the per-case reasoning below."
+        },
+        {
+          "key": "b4",
+          "clauses": [
+            "K6"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b5",
+          "clauses": [
+            "K3"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        }
+      ]
+    },
+    {
+      "id": "fall_047",
+      "document_id": "paket_11",
+      "area": "Unvollständige und widersprüchliche Akten",
+      "verdict": "pass",
+      "decision_gold": "offen",
+      "decision_verdict": "confirmed",
+      "evidence_gold": "b3",
+      "evidence_gold_clauses": [
+        "U3"
+      ],
+      "evidence_gold_sufficient": true,
+      "unique_sufficient_offered_option": "b3",
+      "gold_minimality": "minimal_complete_direct_chain",
+      "recommended_minimal_explicit_evidence_sets": [
+        [
+          "U3"
+        ]
+      ],
+      "decision_and_evidence_reasoning": "U3 already states the absence of both binding activation evidence and a binding deactivation. U2 concerns the general location/offer file and U7 is a generic missing-document rule; neither alone establishes the electronics activation criterion and its status.",
+      "option_reviews": [
+        {
+          "key": "b1",
+          "clauses": [
+            "U5"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b2",
+          "clauses": [
+            "U6"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b3",
+          "clauses": [
+            "U3"
+          ],
+          "verdict": "sufficient",
+          "reason": "Supports the decision by the per-case reasoning below."
+        },
+        {
+          "key": "b4",
+          "clauses": [
+            "U2"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b5",
+          "clauses": [
+            "U7"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        }
+      ]
+    },
+    {
+      "id": "fall_048",
+      "document_id": "paket_05",
+      "area": "Voraussetzungen und Obliegenheiten",
+      "verdict": "pass",
+      "decision_gold": "ja",
+      "decision_verdict": "confirmed",
+      "evidence_gold": "b2",
+      "evidence_gold_clauses": [
+        "F1",
+        "F2"
+      ],
+      "evidence_gold_sufficient": true,
+      "unique_sufficient_offered_option": "b2",
+      "gold_minimality": "minimal_complete_direct_chain",
+      "recommended_minimal_explicit_evidence_sets": [
+        [
+          "F1",
+          "F2"
+        ]
+      ],
+      "decision_and_evidence_reasoning": "Revised F1 explicitly supplies an if-and-only-if inclusion, and F2 supplies the security rule satisfied by the fixed bracket plus separate lock. F2+F5 lacks the inclusion rule and cannot replace the complete positive proof.",
+      "option_reviews": [
+        {
+          "key": "b1",
+          "clauses": [
+            "F3",
+            "F7"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not supply both the theft inclusion and the specified security condition."
+        },
+        {
+          "key": "b2",
+          "clauses": [
+            "F1",
+            "F2"
+          ],
+          "verdict": "sufficient",
+          "reason": "Supports the decision by the per-case reasoning below."
+        },
+        {
+          "key": "b3",
+          "clauses": [
+            "F2",
+            "F5"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not supply both the theft inclusion and the specified security condition."
+        },
+        {
+          "key": "b4",
+          "clauses": [
+            "F1",
+            "F7"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not supply both the theft inclusion and the specified security condition."
+        },
+        {
+          "key": "b5",
+          "clauses": [
+            "F5",
+            "F6"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not supply both the theft inclusion and the specified security condition."
+        }
+      ]
+    },
+    {
+      "id": "fall_049",
+      "document_id": "paket_12",
+      "area": "Unvollständige und widersprüchliche Akten",
+      "verdict": "pass",
+      "decision_gold": "konflikt",
+      "decision_verdict": "confirmed",
+      "evidence_gold": "b5",
+      "evidence_gold_clauses": [
+        "K1",
+        "K2",
+        "K3"
+      ],
+      "evidence_gold_sufficient": true,
+      "unique_sufficient_offered_option": "b5",
+      "gold_minimality": "minimal_complete_direct_chain",
+      "recommended_minimal_explicit_evidence_sets": [
+        [
+          "K1",
+          "K2",
+          "K3"
+        ]
+      ],
+      "decision_and_evidence_reasoning": "K2 and K3 conflict on Canada; K1 establishes equal rank with no replacement or agreed preference. Purpose is irrelevant to this exclusively spatial claim. A set containing K2/K3 but not K1 omits part of the unresolved-conflict proof.",
+      "option_reviews": [
+        {
+          "key": "b1",
+          "clauses": [
+            "K1",
+            "K4",
+            "K6"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not supply both opposed geographical rules plus absence of contractual resolution."
+        },
+        {
+          "key": "b2",
+          "clauses": [
+            "K4",
+            "K5",
+            "K7"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not supply both opposed geographical rules plus absence of contractual resolution."
+        },
+        {
+          "key": "b3",
+          "clauses": [
+            "K2",
+            "K5",
+            "K6"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not supply both opposed geographical rules plus absence of contractual resolution."
+        },
+        {
+          "key": "b4",
+          "clauses": [
+            "K2",
+            "K3",
+            "K6"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not supply both opposed geographical rules plus absence of contractual resolution."
+        },
+        {
+          "key": "b5",
+          "clauses": [
+            "K1",
+            "K2",
+            "K3"
+          ],
+          "verdict": "sufficient",
+          "reason": "Supports the decision by the per-case reasoning below."
+        }
+      ]
+    },
+    {
+      "id": "fall_050",
+      "document_id": "paket_01",
+      "area": "Deckungsumfang und Definitionen",
+      "verdict": "pass",
+      "decision_gold": "nein",
+      "decision_verdict": "confirmed",
+      "evidence_gold": "b2",
+      "evidence_gold_clauses": [
+        "H2"
+      ],
+      "evidence_gold_sufficient": true,
+      "unique_sufficient_offered_option": "b2",
+      "gold_minimality": "minimal_complete_direct_chain",
+      "recommended_minimal_explicit_evidence_sets": [
+        [
+          "H2"
+        ]
+      ],
+      "decision_and_evidence_reasoning": "H2 directly excludes professional tools, regardless of their location inside the dwelling.",
+      "option_reviews": [
+        {
+          "key": "b1",
+          "clauses": [
+            "H3"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b2",
+          "clauses": [
+            "H2"
+          ],
+          "verdict": "sufficient",
+          "reason": "Supports the decision by the per-case reasoning below."
+        },
+        {
+          "key": "b3",
+          "clauses": [
+            "H7"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b4",
+          "clauses": [
+            "H1"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b5",
+          "clauses": [
+            "H5"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        }
+      ]
+    },
+    {
+      "id": "fall_051",
+      "document_id": "paket_06",
+      "area": "Voraussetzungen und Obliegenheiten",
+      "verdict": "pass",
+      "decision_gold": "nein",
+      "decision_verdict": "confirmed",
+      "evidence_gold": "b4",
+      "evidence_gold_clauses": [
+        "O5",
+        "O6"
+      ],
+      "evidence_gold_sufficient": true,
+      "unique_sufficient_offered_option": "b4",
+      "gold_minimality": "conservative_explicit_chain; plausible shorter exposition is not offered",
+      "recommended_minimal_explicit_evidence_sets": [
+        [
+          "O5",
+          "O6"
+        ]
+      ],
+      "decision_and_evidence_reasoning": "O5 provides the prior-approval requirement for nonurgent repair; O6 explicitly distinguishes inspection approval from repair approval. No other option contains O5, so this direct two-step proof is unique among the choices.",
+      "option_reviews": [
+        {
+          "key": "b1",
+          "clauses": [
+            "O3",
+            "O6"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not supply both the repair-approval requirement and the explicit inspection/repair distinction."
+        },
+        {
+          "key": "b2",
+          "clauses": [
+            "O1",
+            "O7"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not supply both the repair-approval requirement and the explicit inspection/repair distinction."
+        },
+        {
+          "key": "b3",
+          "clauses": [
+            "O2",
+            "O3"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not supply both the repair-approval requirement and the explicit inspection/repair distinction."
+        },
+        {
+          "key": "b4",
+          "clauses": [
+            "O5",
+            "O6"
+          ],
+          "verdict": "sufficient",
+          "reason": "Supports the decision by the per-case reasoning below."
+        },
+        {
+          "key": "b5",
+          "clauses": [
+            "O1",
+            "O6"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not supply both the repair-approval requirement and the explicit inspection/repair distinction."
+        }
+      ]
+    },
+    {
+      "id": "fall_052",
+      "document_id": "paket_02",
+      "area": "Deckungsumfang und Definitionen",
+      "verdict": "pass",
+      "decision_gold": "ja",
+      "decision_verdict": "confirmed",
+      "evidence_gold": "b1",
+      "evidence_gold_clauses": [
+        "R2"
+      ],
+      "evidence_gold_sufficient": true,
+      "unique_sufficient_offered_option": "b1",
+      "gold_minimality": "minimal_complete_direct_chain",
+      "recommended_minimal_explicit_evidence_sets": [
+        [
+          "R2"
+        ]
+      ],
+      "decision_and_evidence_reasoning": "R2 defines withdrawal as complete abandonment before the first booked segment. The scenario itself identifies the flight as that segment and abandonment on the preceding unbooked ride.",
+      "option_reviews": [
+        {
+          "key": "b1",
+          "clauses": [
+            "R2"
+          ],
+          "verdict": "sufficient",
+          "reason": "Supports the decision by the per-case reasoning below."
+        },
+        {
+          "key": "b2",
+          "clauses": [
+            "R7"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b3",
+          "clauses": [
+            "R4"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b4",
+          "clauses": [
+            "R1"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b5",
+          "clauses": [
+            "R3"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        }
+      ]
+    },
+    {
+      "id": "fall_053",
+      "document_id": "paket_03",
+      "area": "Ausschlüsse und Rückausnahmen",
+      "verdict": "pass",
+      "decision_gold": "ja",
+      "decision_verdict": "confirmed",
+      "evidence_gold": "b2",
+      "evidence_gold_clauses": [
+        "L3"
+      ],
+      "evidence_gold_sufficient": true,
+      "unique_sufficient_offered_option": "b2",
+      "gold_minimality": "minimal_complete_direct_chain",
+      "recommended_minimal_explicit_evidence_sets": [
+        [
+          "L3"
+        ]
+      ],
+      "decision_and_evidence_reasoning": "L3 itself states the derogation from L2 and includes the private borrowed-instrument damage, with both professional-use and loss carve-outs absent.",
+      "option_reviews": [
+        {
+          "key": "b1",
+          "clauses": [
+            "L1"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b2",
+          "clauses": [
+            "L3"
+          ],
+          "verdict": "sufficient",
+          "reason": "Supports the decision by the per-case reasoning below."
+        },
+        {
+          "key": "b3",
+          "clauses": [
+            "L7"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b4",
+          "clauses": [
+            "L2"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b5",
+          "clauses": [
+            "L6"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        }
+      ]
+    },
+    {
+      "id": "fall_054",
+      "document_id": "paket_06",
+      "area": "Voraussetzungen und Obliegenheiten",
+      "verdict": "pass",
+      "decision_gold": "offen",
+      "decision_verdict": "confirmed",
+      "evidence_gold": "b4",
+      "evidence_gold_clauses": [
+        "O2"
+      ],
+      "evidence_gold_sufficient": true,
+      "unique_sufficient_offered_option": "b4",
+      "gold_minimality": "minimal_complete_direct_chain",
+      "recommended_minimal_explicit_evidence_sets": [
+        [
+          "O2"
+        ]
+      ],
+      "decision_and_evidence_reasoning": "O2 specifies the two relevant conditions; both are unknown. Neither missing condition is treated as false. O1 is no longer offered as a competing incomplete-status explanation.",
+      "option_reviews": [
+        {
+          "key": "b1",
+          "clauses": [
+            "O3"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b2",
+          "clauses": [
+            "O6"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b3",
+          "clauses": [
+            "O7"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b4",
+          "clauses": [
+            "O2"
+          ],
+          "verdict": "sufficient",
+          "reason": "Supports the decision by the per-case reasoning below."
+        },
+        {
+          "key": "b5",
+          "clauses": [
+            "O5"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        }
+      ]
+    },
+    {
+      "id": "fall_055",
+      "document_id": "paket_11",
+      "area": "Unvollständige und widersprüchliche Akten",
+      "verdict": "pass",
+      "decision_gold": "offen",
+      "decision_verdict": "confirmed",
+      "evidence_gold": "b5",
+      "evidence_gold_clauses": [
+        "U1",
+        "U2"
+      ],
+      "evidence_gold_sufficient": true,
+      "unique_sufficient_offered_option": "b5",
+      "gold_minimality": "minimal_complete_direct_chain",
+      "recommended_minimal_explicit_evidence_sets": [
+        [
+          "U1",
+          "U2"
+        ]
+      ],
+      "decision_and_evidence_reasoning": "U1 supplies the binding-location rule and non-binding status of an offer; U2 supplies the actual missing certificate and missing accepted offer. No other option includes U2.",
+      "option_reviews": [
+        {
+          "key": "b1",
+          "clauses": [
+            "U5",
+            "U7"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not supply both the binding-location rule and the actual missing-contract record."
+        },
+        {
+          "key": "b2",
+          "clauses": [
+            "U1",
+            "U4"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not supply both the binding-location rule and the actual missing-contract record."
+        },
+        {
+          "key": "b3",
+          "clauses": [
+            "U3",
+            "U6"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not supply both the binding-location rule and the actual missing-contract record."
+        },
+        {
+          "key": "b4",
+          "clauses": [
+            "U5",
+            "U6"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not supply both the binding-location rule and the actual missing-contract record."
+        },
+        {
+          "key": "b5",
+          "clauses": [
+            "U1",
+            "U2"
+          ],
+          "verdict": "sufficient",
+          "reason": "Supports the decision by the per-case reasoning below."
+        }
+      ]
+    },
+    {
+      "id": "fall_056",
+      "document_id": "paket_01",
+      "area": "Deckungsumfang und Definitionen",
+      "verdict": "pass",
+      "decision_gold": "nein",
+      "decision_verdict": "confirmed",
+      "evidence_gold": "b5",
+      "evidence_gold_clauses": [
+        "H3",
+        "H5"
+      ],
+      "evidence_gold_sufficient": true,
+      "unique_sufficient_offered_option": "b5",
+      "gold_minimality": "minimal_complete_direct_chain",
+      "recommended_minimal_explicit_evidence_sets": [
+        [
+          "H3",
+          "H5"
+        ]
+      ],
+      "decision_and_evidence_reasoning": "H3 defines the insured location as the named dwelling, which excludes the new unnamed dwelling. H5 then denies the borrowed-item inclusion at that place. Both clauses are now included in the gold.",
+      "option_reviews": [
+        {
+          "key": "b1",
+          "clauses": [
+            "H2",
+            "H6"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not supply both the insured-location definition and the borrowed-item restriction."
+        },
+        {
+          "key": "b2",
+          "clauses": [
+            "H1",
+            "H4"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not supply both the insured-location definition and the borrowed-item restriction."
+        },
+        {
+          "key": "b3",
+          "clauses": [
+            "H1",
+            "H5"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not supply both the insured-location definition and the borrowed-item restriction."
+        },
+        {
+          "key": "b4",
+          "clauses": [
+            "H1",
+            "H7"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not supply both the insured-location definition and the borrowed-item restriction."
+        },
+        {
+          "key": "b5",
+          "clauses": [
+            "H3",
+            "H5"
+          ],
+          "verdict": "sufficient",
+          "reason": "Supports the decision by the per-case reasoning below."
+        }
+      ]
+    },
+    {
+      "id": "fall_057",
+      "document_id": "paket_08",
+      "area": "Nachweise und Verfahrensstatus",
+      "verdict": "pass",
+      "decision_gold": "nein",
+      "decision_verdict": "confirmed",
+      "evidence_gold": "b1",
+      "evidence_gold_clauses": [
+        "M4"
+      ],
+      "evidence_gold_sufficient": true,
+      "unique_sufficient_offered_option": "b1",
+      "gold_minimality": "minimal_complete_direct_chain",
+      "recommended_minimal_explicit_evidence_sets": [
+        [
+          "M4"
+        ]
+      ],
+      "decision_and_evidence_reasoning": "M4 makes an original conditional on a qualified express request; the scenario expressly states there was no request.",
+      "option_reviews": [
+        {
+          "key": "b1",
+          "clauses": [
+            "M4"
+          ],
+          "verdict": "sufficient",
+          "reason": "Supports the decision by the per-case reasoning below."
+        },
+        {
+          "key": "b2",
+          "clauses": [
+            "M7"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b3",
+          "clauses": [
+            "M2"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b4",
+          "clauses": [
+            "M5"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b5",
+          "clauses": [
+            "M3"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        }
+      ]
+    },
+    {
+      "id": "fall_058",
+      "document_id": "paket_08",
+      "area": "Nachweise und Verfahrensstatus",
+      "verdict": "pass",
+      "decision_gold": "nein",
+      "decision_verdict": "confirmed",
+      "evidence_gold": "b5",
+      "evidence_gold_clauses": [
+        "M2"
+      ],
+      "evidence_gold_sufficient": true,
+      "unique_sufficient_offered_option": "b5",
+      "gold_minimality": "minimal_complete_direct_chain",
+      "recommended_minimal_explicit_evidence_sets": [
+        [
+          "M2"
+        ]
+      ],
+      "decision_and_evidence_reasoning": "M2 explicitly rejects a work-incapacity certificate without trip reference as a substitute for the requested travel-incapacity proof. M1 is not offered as an independent failure-of-requirements route.",
+      "option_reviews": [
+        {
+          "key": "b1",
+          "clauses": [
+            "M5"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b2",
+          "clauses": [
+            "M3"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b3",
+          "clauses": [
+            "M4"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b4",
+          "clauses": [
+            "M7"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b5",
+          "clauses": [
+            "M2"
+          ],
+          "verdict": "sufficient",
+          "reason": "Supports the decision by the per-case reasoning below."
+        }
+      ]
+    },
+    {
+      "id": "fall_059",
+      "document_id": "paket_02",
+      "area": "Deckungsumfang und Definitionen",
+      "verdict": "pass",
+      "decision_gold": "nein",
+      "decision_verdict": "confirmed",
+      "evidence_gold": "b4",
+      "evidence_gold_clauses": [
+        "R2"
+      ],
+      "evidence_gold_sufficient": true,
+      "unique_sufficient_offered_option": "b4",
+      "gold_minimality": "minimal_complete_direct_chain",
+      "recommended_minimal_explicit_evidence_sets": [
+        [
+          "R2"
+        ]
+      ],
+      "decision_and_evidence_reasoning": "R2 itself excludes an interruption after journey commencement and defines withdrawal before the first booked segment; the first booked flight has already been taken.",
+      "option_reviews": [
+        {
+          "key": "b1",
+          "clauses": [
+            "R4"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b2",
+          "clauses": [
+            "R6"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b3",
+          "clauses": [
+            "R7"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b4",
+          "clauses": [
+            "R2"
+          ],
+          "verdict": "sufficient",
+          "reason": "Supports the decision by the per-case reasoning below."
+        },
+        {
+          "key": "b5",
+          "clauses": [
+            "R1"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        }
+      ]
+    },
+    {
+      "id": "fall_060",
+      "document_id": "paket_10",
+      "area": "Nachträge und Dokumentvorrang",
+      "verdict": "pass",
+      "decision_gold": "ja",
+      "decision_verdict": "confirmed",
+      "evidence_gold": "b2",
+      "evidence_gold_clauses": [
+        "Z5"
+      ],
+      "evidence_gold_sufficient": true,
+      "unique_sufficient_offered_option": "b2",
+      "gold_minimality": "minimal_complete_direct_chain",
+      "recommended_minimal_explicit_evidence_sets": [
+        [
+          "Z5"
+        ]
+      ],
+      "decision_and_evidence_reasoning": "Z5 expressly includes garage flood damage and replaces Beta there. The separate dwelling conflict does not affect the garage statement.",
+      "option_reviews": [
+        {
+          "key": "b1",
+          "clauses": [
+            "Z1"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b2",
+          "clauses": [
+            "Z5"
+          ],
+          "verdict": "sufficient",
+          "reason": "Supports the decision by the per-case reasoning below."
+        },
+        {
+          "key": "b3",
+          "clauses": [
+            "Z2"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b4",
+          "clauses": [
+            "Z6"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        },
+        {
+          "key": "b5",
+          "clauses": [
+            "Z7"
+          ],
+          "verdict": "insufficient_as_complete_direct_support",
+          "reason": "Does not provide the decisive explicit rule/status needed for this claim; see the case-specific reasoning."
+        }
+      ]
+    }
+  ]
+}

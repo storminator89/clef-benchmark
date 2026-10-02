@@ -1,0 +1,25 @@
+{
+  "status": "verified",
+  "verified_at": "2026-10-02T09:52:05.698959+00:00",
+  "case_count": 60,
+  "field_count": 120,
+  "input_hashes": {
+    "benchmark.json": "8a0b1a6c4227b90b20c92de012c5d02a037e4ae4a79dac614b150345ed45c1bc",
+    "requests.jsonl": "03066c91f05878efcb7f3c358e91e0cfa9087091b205728c2788e61b0b8e1eba",
+    "results.json": "74db7ab1b256322c2254408e03e3bad2181f534c4fbe914107bce9c104c1b3fd",
+    "predictions.jsonl": "45f226339495118db39f7be48ba903158ee1d04f2698c5a1e2d6245f0f554930",
+    "predictions.metadata.json": "a9419b00ad71d7e0744bd3b5a435fd7c33c142bd6b6296aa947e59f47a2d738d"
+  },
+  "pre_inference_audit": "pass",
+  "post_inference_audit": "pass",
+  "no_truncation": true,
+  "single_primary_run": true,
+  "provenance": {
+    "freeze_manifest_sha256": "3339e1a2e7fb6efcc308a4520891f9674a8226062bb6ccbe2e2309cc99f4bdc5",
+    "pre_inference_audit_sha256": "5673ea70be5352b878a6729e0377b4b3737f12af1b3fd62b33b25d106125da41",
+    "post_inference_audit_sha256": "4ac781412d04fbe3292d00ef6140059401d257a7812c36f6e09a70ebd1d70f6d",
+    "report_sha256": "85e7c419c9cc57c30dc24934e5ce7cc37c80dafabc935badf5d866a1d9f6b7c0",
+    "independent_checks": 1811,
+    "independent_blockers": 0
+  }
+}
