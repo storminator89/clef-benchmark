@@ -1,0 +1,78 @@
+{
+  "review_date_utc": "2026-10-02",
+  "status": "historical_preparation_review",
+  "remaining_blockers": [],
+  "authorization_scope": "Independent offline review and verification. This approval does not authorize publication, credentials, paid API calls, workflow activation or a live benchmark.",
+  "reviewed_files": [
+    "scripts/jev_runner.py",
+    "scripts/compare.py",
+    "scripts/prepare_snapshot.py",
+    "scripts/check_bundle.py",
+    "workflow/jev-comparison.yml.in",
+    "tests/test_comparison.py",
+    "manifest.json",
+    "qa/offline_plan.json",
+    "README.md",
+    "SOURCES.md",
+    "NOTICE",
+    "CODE_SHA256.json"
+  ],
+  "checks": {
+    "unittest_passed": 23,
+    "unittest_failed": 0,
+    "offline_preflight": "passed",
+    "frozen_requests": 974,
+    "native_questions": 1362,
+    "locked_code_and_manifest_files_verified": 6,
+    "offline_plan_matches_regeneration": true,
+    "synthetic_transport_974_cases_complete": true,
+    "separate_scoring_partitions": 14,
+    "field_groups": 88,
+    "pending_baseline": [
+      "massive300"
+    ],
+    "altered_input_hash_rejected": true,
+    "attack_removal_pairs": 7,
+    "original_language_control_groups": 30,
+    "finance_language_control_pairs": 20,
+    "language_pair_label_and_option_compatibility": true
+  },
+  "resolved_findings": [
+    {
+      "finding": "Invalid instruction and criterion description root types could pass input validation; media checks omitted question content.",
+      "resolution": "Explicit root-type checks and media scanning now cover state, instructions and criteria; regression test passes."
+    },
+    {
+      "finding": "An empty Clef baseline marked complete could evade the exact-ID check.",
+      "resolution": "Every complete baseline must now match the exact frozen request ID set, including when empty; regression test passes."
+    },
+    {
+      "finding": "Retry-After accepted only numeric delay values.",
+      "resolution": "HTTP-date parsing added with bounded-wait handling; regression test passes."
+    },
+    {
+      "finding": "Prose called 65536 the documented exact token capacity.",
+      "resolution": "Now accurately identified as a conservative reservation interpretation of the documented 64k limit."
+    }
+  ],
+  "security_and_protocol_observations": [
+    "Fixed first-party endpoint, default TLS validation, redirects refused and proxy discovery disabled.",
+    "At most 974 initial calls plus 50 retries; reservations persist before sending; ambiguous transport outcomes are not retried.",
+    "Credential remains scoped to the live workflow step. Raw requests, response bodies, headers and exception text are not logged or uploaded.",
+    "Frozen inference inputs exclude scorer gold metadata, retain native question shapes, and change only the model identifier.",
+    "Native probability vectors are used for common scoring; vendor confidence is retained separately.",
+    "Input-body hashes bind valid Jev observations to the frozen requests.",
+    "MASSIVE Clef baseline remains pending rather than fabricated or partially imported.",
+    "Manual workflow template remains inactive and requires a separately reviewed immutable code commit and explicit bounded approval.",
+    "Seven attack-removal pairs and 30 original/20 finance language-control groups are explicitly retained; paired labels and option sets are compatible."
+  ],
+  "caveats": [
+    "All extra transport responses were synthetic and temporary. They are software tests, not Jev observations or benchmark results.",
+    "No live TypeSafe behavior, account balance, billing terms, ordinary retention duration or credentials were verified.",
+    "The USD 3 local reservation guard is not a provider-enforced account spending guarantee.",
+    "Frozen dependent synthetic cases support descriptive paired comparisons, not independent-sample or pooled ranking claims.",
+    "CPU-NF4 Clef and hosted Jev latency/hardware measurements have different boundaries.",
+    "Final MASSIVE head-to-head scoring requires its separately audited, pinned Clef baseline."
+  ],
+  "publication_scope_note": "The following records the original preparation review. A later curated-export review verifies current public metadata and immutable scientific content."
+}

@@ -1,0 +1,428 @@
+{
+  "hf_classlabel_order": [
+    "datetime_query",
+    "iot_hue_lightchange",
+    "transport_ticket",
+    "takeaway_query",
+    "qa_stock",
+    "general_greet",
+    "recommendation_events",
+    "music_dislikeness",
+    "iot_wemo_off",
+    "cooking_recipe",
+    "qa_currency",
+    "transport_traffic",
+    "general_quirky",
+    "weather_query",
+    "audio_volume_up",
+    "email_addcontact",
+    "takeaway_order",
+    "email_querycontact",
+    "iot_hue_lightup",
+    "recommendation_locations",
+    "play_audiobook",
+    "lists_createoradd",
+    "news_query",
+    "alarm_query",
+    "iot_wemo_on",
+    "general_joke",
+    "qa_definition",
+    "social_query",
+    "music_settings",
+    "audio_volume_other",
+    "calendar_remove",
+    "iot_hue_lightdim",
+    "calendar_query",
+    "email_sendemail",
+    "iot_cleaning",
+    "audio_volume_down",
+    "play_radio",
+    "cooking_query",
+    "datetime_convert",
+    "qa_maths",
+    "iot_hue_lightoff",
+    "iot_hue_lighton",
+    "transport_query",
+    "music_likeness",
+    "email_query",
+    "play_music",
+    "audio_volume_mute",
+    "social_post",
+    "alarm_set",
+    "qa_factoid",
+    "calendar_set",
+    "play_game",
+    "alarm_remove",
+    "lists_remove",
+    "transport_taxi",
+    "recommendation_movies",
+    "iot_coffee",
+    "music_query",
+    "play_podcasts",
+    "lists_query"
+  ],
+  "option_order": [
+    "alarm_query",
+    "alarm_remove",
+    "alarm_set",
+    "audio_volume_down",
+    "audio_volume_mute",
+    "audio_volume_other",
+    "audio_volume_up",
+    "calendar_query",
+    "calendar_remove",
+    "calendar_set",
+    "cooking_query",
+    "cooking_recipe",
+    "datetime_convert",
+    "datetime_query",
+    "email_addcontact",
+    "email_query",
+    "email_querycontact",
+    "email_sendemail",
+    "general_greet",
+    "general_joke",
+    "general_quirky",
+    "iot_cleaning",
+    "iot_coffee",
+    "iot_hue_lightchange",
+    "iot_hue_lightdim",
+    "iot_hue_lightoff",
+    "iot_hue_lighton",
+    "iot_hue_lightup",
+    "iot_wemo_off",
+    "iot_wemo_on",
+    "lists_createoradd",
+    "lists_query",
+    "lists_remove",
+    "music_dislikeness",
+    "music_likeness",
+    "music_query",
+    "music_settings",
+    "news_query",
+    "play_audiobook",
+    "play_game",
+    "play_music",
+    "play_podcasts",
+    "play_radio",
+    "qa_currency",
+    "qa_definition",
+    "qa_factoid",
+    "qa_maths",
+    "qa_stock",
+    "recommendation_events",
+    "recommendation_locations",
+    "recommendation_movies",
+    "social_post",
+    "social_query",
+    "takeaway_order",
+    "takeaway_query",
+    "transport_query",
+    "transport_taxi",
+    "transport_ticket",
+    "transport_traffic",
+    "weather_query"
+  ],
+  "mapping": [
+    {
+      "hf_classlabel_index": 0,
+      "intent": "datetime_query",
+      "description": "datetime query"
+    },
+    {
+      "hf_classlabel_index": 1,
+      "intent": "iot_hue_lightchange",
+      "description": "iot hue lightchange"
+    },
+    {
+      "hf_classlabel_index": 2,
+      "intent": "transport_ticket",
+      "description": "transport ticket"
+    },
+    {
+      "hf_classlabel_index": 3,
+      "intent": "takeaway_query",
+      "description": "takeaway query"
+    },
+    {
+      "hf_classlabel_index": 4,
+      "intent": "qa_stock",
+      "description": "qa stock"
+    },
+    {
+      "hf_classlabel_index": 5,
+      "intent": "general_greet",
+      "description": "general greet"
+    },
+    {
+      "hf_classlabel_index": 6,
+      "intent": "recommendation_events",
+      "description": "recommendation events"
+    },
+    {
+      "hf_classlabel_index": 7,
+      "intent": "music_dislikeness",
+      "description": "music dislikeness"
+    },
+    {
+      "hf_classlabel_index": 8,
+      "intent": "iot_wemo_off",
+      "description": "iot wemo off"
+    },
+    {
+      "hf_classlabel_index": 9,
+      "intent": "cooking_recipe",
+      "description": "cooking recipe"
+    },
+    {
+      "hf_classlabel_index": 10,
+      "intent": "qa_currency",
+      "description": "qa currency"
+    },
+    {
+      "hf_classlabel_index": 11,
+      "intent": "transport_traffic",
+      "description": "transport traffic"
+    },
+    {
+      "hf_classlabel_index": 12,
+      "intent": "general_quirky",
+      "description": "general quirky"
+    },
+    {
+      "hf_classlabel_index": 13,
+      "intent": "weather_query",
+      "description": "weather query"
+    },
+    {
+      "hf_classlabel_index": 14,
+      "intent": "audio_volume_up",
+      "description": "audio volume up"
+    },
+    {
+      "hf_classlabel_index": 15,
+      "intent": "email_addcontact",
+      "description": "email addcontact"
+    },
+    {
+      "hf_classlabel_index": 16,
+      "intent": "takeaway_order",
+      "description": "takeaway order"
+    },
+    {
+      "hf_classlabel_index": 17,
+      "intent": "email_querycontact",
+      "description": "email querycontact"
+    },
+    {
+      "hf_classlabel_index": 18,
+      "intent": "iot_hue_lightup",
+      "description": "iot hue lightup"
+    },
+    {
+      "hf_classlabel_index": 19,
+      "intent": "recommendation_locations",
+      "description": "recommendation locations"
+    },
+    {
+      "hf_classlabel_index": 20,
+      "intent": "play_audiobook",
+      "description": "play audiobook"
+    },
+    {
+      "hf_classlabel_index": 21,
+      "intent": "lists_createoradd",
+      "description": "lists createoradd"
+    },
+    {
+      "hf_classlabel_index": 22,
+      "intent": "news_query",
+      "description": "news query"
+    },
+    {
+      "hf_classlabel_index": 23,
+      "intent": "alarm_query",
+      "description": "alarm query"
+    },
+    {
+      "hf_classlabel_index": 24,
+      "intent": "iot_wemo_on",
+      "description": "iot wemo on"
+    },
+    {
+      "hf_classlabel_index": 25,
+      "intent": "general_joke",
+      "description": "general joke"
+    },
+    {
+      "hf_classlabel_index": 26,
+      "intent": "qa_definition",
+      "description": "qa definition"
+    },
+    {
+      "hf_classlabel_index": 27,
+      "intent": "social_query",
+      "description": "social query"
+    },
+    {
+      "hf_classlabel_index": 28,
+      "intent": "music_settings",
+      "description": "music settings"
+    },
+    {
+      "hf_classlabel_index": 29,
+      "intent": "audio_volume_other",
+      "description": "audio volume other"
+    },
+    {
+      "hf_classlabel_index": 30,
+      "intent": "calendar_remove",
+      "description": "calendar remove"
+    },
+    {
+      "hf_classlabel_index": 31,
+      "intent": "iot_hue_lightdim",
+      "description": "iot hue lightdim"
+    },
+    {
+      "hf_classlabel_index": 32,
+      "intent": "calendar_query",
+      "description": "calendar query"
+    },
+    {
+      "hf_classlabel_index": 33,
+      "intent": "email_sendemail",
+      "description": "email sendemail"
+    },
+    {
+      "hf_classlabel_index": 34,
+      "intent": "iot_cleaning",
+      "description": "iot cleaning"
+    },
+    {
+      "hf_classlabel_index": 35,
+      "intent": "audio_volume_down",
+      "description": "audio volume down"
+    },
+    {
+      "hf_classlabel_index": 36,
+      "intent": "play_radio",
+      "description": "play radio"
+    },
+    {
+      "hf_classlabel_index": 37,
+      "intent": "cooking_query",
+      "description": "cooking query"
+    },
+    {
+      "hf_classlabel_index": 38,
+      "intent": "datetime_convert",
+      "description": "datetime convert"
+    },
+    {
+      "hf_classlabel_index": 39,
+      "intent": "qa_maths",
+      "description": "qa maths"
+    },
+    {
+      "hf_classlabel_index": 40,
+      "intent": "iot_hue_lightoff",
+      "description": "iot hue lightoff"
+    },
+    {
+      "hf_classlabel_index": 41,
+      "intent": "iot_hue_lighton",
+      "description": "iot hue lighton"
+    },
+    {
+      "hf_classlabel_index": 42,
+      "intent": "transport_query",
+      "description": "transport query"
+    },
+    {
+      "hf_classlabel_index": 43,
+      "intent": "music_likeness",
+      "description": "music likeness"
+    },
+    {
+      "hf_classlabel_index": 44,
+      "intent": "email_query",
+      "description": "email query"
+    },
+    {
+      "hf_classlabel_index": 45,
+      "intent": "play_music",
+      "description": "play music"
+    },
+    {
+      "hf_classlabel_index": 46,
+      "intent": "audio_volume_mute",
+      "description": "audio volume mute"
+    },
+    {
+      "hf_classlabel_index": 47,
+      "intent": "social_post",
+      "description": "social post"
+    },
+    {
+      "hf_classlabel_index": 48,
+      "intent": "alarm_set",
+      "description": "alarm set"
+    },
+    {
+      "hf_classlabel_index": 49,
+      "intent": "qa_factoid",
+      "description": "qa factoid"
+    },
+    {
+      "hf_classlabel_index": 50,
+      "intent": "calendar_set",
+      "description": "calendar set"
+    },
+    {
+      "hf_classlabel_index": 51,
+      "intent": "play_game",
+      "description": "play game"
+    },
+    {
+      "hf_classlabel_index": 52,
+      "intent": "alarm_remove",
+      "description": "alarm remove"
+    },
+    {
+      "hf_classlabel_index": 53,
+      "intent": "lists_remove",
+      "description": "lists remove"
+    },
+    {
+      "hf_classlabel_index": 54,
+      "intent": "transport_taxi",
+      "description": "transport taxi"
+    },
+    {
+      "hf_classlabel_index": 55,
+      "intent": "recommendation_movies",
+      "description": "recommendation movies"
+    },
+    {
+      "hf_classlabel_index": 56,
+      "intent": "iot_coffee",
+      "description": "iot coffee"
+    },
+    {
+      "hf_classlabel_index": 57,
+      "intent": "music_query",
+      "description": "music query"
+    },
+    {
+      "hf_classlabel_index": 58,
+      "intent": "play_podcasts",
+      "description": "play podcasts"
+    },
+    {
+      "hf_classlabel_index": 59,
+      "intent": "lists_query",
+      "description": "lists query"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "model_loaded": false,
+  "synthetic_only": true,
+  "checks": [
+    "complete report rendering",
+    "partial report rendering",
+    "all-missing report rendering",
+    "all-invalid report rendering",
+    "unavailable timings safe",
+    "error-count and exactness figures",
+    "temporary-directory-only output"
+  ]
+}

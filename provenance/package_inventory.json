@@ -1,8 +1,8 @@
 {
   "format_version": 2,
-  "file_count": 785,
-  "total_bytes": 46696710,
-  "aggregate_sha256": "f2e8c21e8b69f0ebb99c19b485334a56a8f5a0a0df7614a0d16fbacaf19a57c5",
+  "file_count": 964,
+  "total_bytes": 53681885,
+  "aggregate_sha256": "8447efcb8995ffa041db4932d11ce1c4bc8da764ae67c160dd4e0b897431f80f",
   "digest_definition": "SHA-256 of UTF-8 compact sorted-key JSON for public file entries (path, bytes, sha256), sorted by path. The two audit self-reports are excluded to avoid recursive hashing.",
   "format_evolution": "Aggregate-only public summary replaces the redundant broad per-file inventory. Scientific freeze manifests and the Git tree retain their independent integrity proofs."
 }

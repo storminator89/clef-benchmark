@@ -31,6 +31,7 @@ SUITES = {
     'finance': ('finance', 80, 4, True),
     'clean72': ('clean72', 72, 11, False),
     'clarification': ('clarification', 72, 8, False),
+    'multidoc': ('multidoc', 48, 24, False),
 }
 GALLERY = (
     ('insurance-workbench-light.png', 'Versicherungsdokument: Originaltext, Goldreferenz und gespeicherte Modellantwort'),
@@ -250,7 +251,7 @@ class BrowserChecks:
         page, expect = self.page, self.expect
         self.nav('explorer')
         page.locator('#suite-catalog > summary').click()
-        expect(page.locator('[data-suite]')).to_have_count(6)
+        expect(page.locator('[data-suite]')).to_have_count(7)
         page.locator('[data-suite="bank-support"]').click()
         expect(page.locator('#suite-select')).to_have_value('bank-support')
         expect(page.locator('#suite-catalog')).not_to_have_attribute('open', '')
@@ -298,7 +299,7 @@ class BrowserChecks:
         page.keyboard.press('Enter')
         require(page.locator('html').get_attribute('data-theme') != prior, 'Theme button is not keyboard-operable.')
         page.keyboard.press('Enter')
-        self.check('All six suite denominators/errors, language controls, three bank fields, deep links, Back/Forward and keyboard')
+        self.check('All seven suite denominators/errors, language controls, three bank fields, deep links, Back/Forward and keyboard')
 
     def clarification(self):
         page, expect = self.page, self.expect
@@ -333,6 +334,40 @@ class BrowserChecks:
         page.set_viewport_size({'width': 1440, 'height': 1000})
         self.check('clarification72: complete source context, two native fields, error subtypes, honest denominators, 320/390px panels')
 
+    def multidoc(self):
+        page, expect = self.page, self.expect
+        self.suite('multidoc')
+        page.locator('[data-case="MD027"]').click()
+        case = next(c for c in self.datasets['multidoc']['cases'] if c['id'] == 'MD027')
+        for text in (case['precedence'], case['facts'], case['question']):
+            expect(page.locator('#document-content')).to_contain_text(text)
+        for document in case['documents']:
+            expect(page.locator('#document-content')).to_contain_text(document['title'])
+        expect(page.locator('[data-field]')).to_have_count(2)
+        expect(page.locator('[data-field="source"]')).to_have_count(1)
+        self.capture('multidoc-workbench-light.png', 'Three complete fictional rules, precedence and preserved native source/determination answers')
+        for choice, count in [('errors', 24), ('source', 6), ('determination', 24), ('multidoc:source_right_answer_wrong', 18), ('multidoc:missed_clarification', 8), ('multidoc:excess_clarification', 8), ('multidoc:same_answer_control', 9), ('multidoc:inconsistent_visible_rules', 15)]:
+            page.locator('#filter-outcome').select_option(choice)
+            expect(page.locator('.case-item')).to_have_count(count)
+        page.locator('#reset-filters').click()
+        page.locator('[data-case="MD016"]').click()
+        expect(page.locator('#inspection-header')).to_contain_text('not_unique und yes/no ist hier zulässig')
+        page.locator('[data-source-document]').first.click()
+        self.overflow('multidoc source link')
+        self.nav('overview')
+        for metric in ('42 / 48', '24 / 48', '48 / 48'):
+            expect(page.locator('#stats')).to_contain_text(metric)
+        self.capture('multidoc-dashboard-light.png', 'Correct source selection does not imply correct determination; distinct finite-set denominators')
+        for width in (320, 390):
+            page.set_viewport_size({'width': width, 'height': 844})
+            self.suite('multidoc')
+            for pane in ('cases', 'document', 'result'):
+                page.locator(f'[data-pane="{pane}"]').click()
+                self.overflow(f'multidoc {pane} {width}')
+            self.capture(f'multidoc-result-{width}.png', f'Source and determination inspection at {width} CSS pixels', full_page=False)
+        page.set_viewport_size({'width': 1440, 'height': 1000})
+        self.check('Multidoc48: complete three-document context, native source/determination, all error subtypes, same-answer control, source navigation and 320/390px panels')
+
     def minimal_pairs(self):
         page, expect = self.page, self.expect
         self.nav('pairs')
@@ -348,7 +383,7 @@ class BrowserChecks:
         page.locator('#pair-outcome').select_option('stable-wrong')
         expect(page.locator('[data-pair]')).to_have_count(2)
         page.locator('[data-pair="pair_report_delivery_target"]').click()
-        expect(page.locator('#pair-detail')).to_contain_text('zweimal falsch')
+        expect(page.locator('#pair-detail')).to_contain_text('Stabil, aber falsch')
         expect(page.locator('[data-pair="pair_report_delivery_target"]')).to_be_focused()
         expect(page.locator('.pair-field.bad')).to_have_count(4)
         self.capture('minimal-pairs-stable-wrong-light.png', 'Invariant report-title edit: two high-scoring wrong native endpoints remain visible')
@@ -397,7 +432,7 @@ class BrowserChecks:
         self.capture('reliability-determination-light.png', 'Minimal-pair determination: fixed threshold 0.90, four errors among 36 selected and separate coverage', full_page=False)
         page.locator('#reliability-field').select_option('action')
         expect(page.locator('.reliability-risk')).to_contain_text('2 / 7')
-        expect(page.locator('.reliability-caveats')).to_contain_text('Beide Fehler gehören zum selben Paar')
+        expect(page.locator('.reliability-caveats')).to_contain_text('2 ausgewählte Feldfehler aus 1 Paar')
         page.locator('#reliability-selected-errors').check()
         expect(page.locator('[data-reliability-error]')).to_have_count(2)
         page.locator('[data-reliability-error] summary').first.click()
@@ -415,7 +450,7 @@ class BrowserChecks:
             expect(page.locator('.reliability-risk')).to_contain_text(f"{row['incorrect']} / {row['selected_count']}")
             expect(page.locator('[data-reliability-bin]')).to_have_count(10)
             if group['suite_id'] == 'images90' and group['partition']['condition'] == 'blank':
-                expect(page.locator('.reliability-caveats')).to_contain_text('BLANK-DIAGNOSTIK')
+                expect(page.locator('.reliability-caveats')).to_contain_text('Leerbild')
             if group['suite_id'] == 'images90' and group['partition']['kind'] == 'chart':
                 expect(page.locator('.reliability-caveats')).to_contain_text('bar_line/vbar2')
         page.goto(BASE_URL + '/#reliability?suite=minimal_pairs48&field=action&threshold=.99', wait_until='networkidle')
@@ -431,7 +466,7 @@ class BrowserChecks:
             page.locator('#reliability-suite').select_option('minimal_pairs48')
             page.locator('#reliability-field').select_option('determination')
             expect(page.locator('.reliability-risk')).to_contain_text('4 / 36')
-            expect(page.locator('#reliability-title')).to_contain_text('bleibt bei')
+            expect(page.locator('#reliability-title')).to_contain_text('Score & Fehler')
             expect(page.locator('#reliability-scroll-hint')).to_be_visible()
             table = page.locator('.reliability-table-wrap')
             page.locator('#reliability-threshold').focus()
@@ -700,6 +735,8 @@ def capture_run(output, start_server):
                 checks.all_suites_and_navigation()
                 checks.replay('clarification', 'clarify_order_cancellation_02', 2)
                 checks.clarification()
+                checks.replay('multidoc', 'MD027', 2)
+                checks.multidoc()
                 checks.minimal_pairs()
                 checks.reliability()
                 checks.readiness()

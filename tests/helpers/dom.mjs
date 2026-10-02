@@ -8,7 +8,7 @@ const html = await readFile(
 );
 export const datasets = Object.fromEntries(
   await Promise.all(
-    ["insurance", "benchmark", "finance", "clean72", "bank-support", "clarification"].map(async (id) => [
+    ["insurance", "benchmark", "finance", "clean72", "bank-support", "clarification", "multidoc"].map(async (id) => [
       id,
       JSON.parse(
         await readFile(new URL(`../../web/data/${id}.json`, import.meta.url)),
@@ -101,6 +101,8 @@ export async function harness({
   theme = null,
   storageThrows = false,
   overrides = {},
+  dataHandler,
+  deferInit = false,
 } = {}) {
   const { document, window: dom } = parseHTML(html),
     listeners = new Map(),
@@ -220,6 +222,7 @@ export async function harness({
       };
     }
     const name = url.split("/").at(-1).replace(".json", "");
+    if (dataHandler) { const response = await dataHandler(name); if (response) return response; }
     if (failFiles.includes(name)) return { ok: false };
     const value =
       overrides[name] ||
@@ -227,7 +230,8 @@ export async function harness({
     return { ok: !!value, json: async () => structuredClone(value) };
   };
   const app = createWorkbench({ document, window: win, fetch });
-  await app.init();
+  const ready = app.init();
+  if (!deferInit) await ready;
   const click = (selector) => {
     const el = document.querySelector(selector);
     if (!el) throw Error("Missing " + selector);
@@ -240,6 +244,7 @@ export async function harness({
   };
   return {
     app,
+    ready,
     document,
     window: win,
     $,

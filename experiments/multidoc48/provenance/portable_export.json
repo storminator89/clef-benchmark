@@ -1,0 +1,9 @@
+{
+  "schema_version": 2,
+  "suite_id": "multidocument_precedence_2026_10_02",
+  "frozen_content_changed": false,
+  "frozen_manifest_sha256": "69713f59dfcd175413e7d8b07d8cd7295c39af06aa45c01e6fcbe247ee2ce32a",
+  "frozen_file_count": 61,
+  "public_scope": "All frozen scientific files, native outputs and scores, canonical reproducibility pins, compact final validation and complete semantic error review.",
+  "excluded_scope": "Redundant development diagnostics, duplicate runtime inventories and operational bookkeeping are outside the public package; no scored case or error was omitted."
+}

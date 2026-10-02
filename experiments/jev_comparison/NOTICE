@@ -1,0 +1,17 @@
+Clef Lab: Jev × Clef comparison preparation
+Copyright 2026 Clef German Benchmark contributors
+Original comparison scripts and synthetic fixtures: Apache License 2.0, see LICENSE.
+
+This independent benchmark is not affiliated with or endorsed by Cloudflare or TypeSafe.
+Clef identifies Cloudflare/clef-flash, revision 17f0b0ad64efb65d273590632833508766b2aae6.
+Jev identifies the TypeSafe hosted model jev-1.13.0; no Jev model weights are supplied.
+
+MASSIVE de-DE source data: Amazon MASSIVE 1.1, AmazonScience/massive,
+Hugging Face revision ff6bd8e4b27c3543e4f8fe2108f32bb95a6f8740.
+Copyright Amazon.com, Inc. or its affiliates. Licensed CC BY 4.0.
+License: licenses/MASSIVE-CC-BY-4.0.txt.
+Full source, sampling and citation information: inputs/massive300/SOURCES.md.
+Original source utterances are unchanged; selection and a separate scorer-only
+expected.intent wrapper are the benchmark transformations. All 60 label choices remain.
+
+No licensed source images, API credentials, model weights or Jev live results are included.

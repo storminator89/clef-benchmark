@@ -80,7 +80,7 @@ diagnostic views, not additional pooled suite metrics. Browser capture retains t
 installed Chrome channel, active sandbox, results-only server, ten-MiB artifact budget
 and one-day retention. Historical galleries remain bound to their source hashes.
 
-The current release passes **289 Python tests, 142 JavaScript/DOM tests, five
+The historical pair/reliability release passed **289 Python tests, 142 JavaScript/DOM tests, five
 integrity gates and eight byte-identical UI dataset rebuilds**. The public exports
 are exact allowlists: 81 paired files and 119 reliability files, preserving all
 50 paired frozen files, 73 reliability locks and 388 prior scientific artifacts.
@@ -92,3 +92,11 @@ passed 12 browser check groups and produced 30 source/hash-verified PNGs at
 `a21344f8c1d3ebc848a753c88f90ae257c36608d`. Its tests include every reliability
 field group, empty selection, dependent error context and narrow-table keyboard
 access. Browser evidence is source-versioned separately from final documentation CI.
+
+## Multi-document and inactive comparison integration
+
+The additional `check_multidoc.py` gate independently rescores all 48 archived native predictions and verifies its scientific freeze. A ninth deterministic UI rebuild adds the source/determination suite. The existing reliability analysis stays unchanged and does not silently absorb this new dataset.
+
+`check_jev.py` verifies the exact curated preparation allowlist, links retained request and native Clef baseline bytes to the source suites, checks the pending MASSIVE baseline and proves the workflow template remains inactive. CI runs its 23 offline mock tests separately. No secret, API execution or activation step is installed.
+
+The UI copy cleanup uses compact labels, consistent icons and progressive disclosure. Important error, privacy, pending-run and finite-set caveats remain at their relevant controls. Genuine browser checks and visual evidence remain bound to their exact captured source commit.

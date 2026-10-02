@@ -66,6 +66,14 @@ The protocol fixes thresholds at 0.50, 0.70, 0.80, 0.90, 0.95 and 0.99. Each fie
 
 **Keep the image limitations beside the image numbers.** The documented `bar_line`/`vbar2` chart-type descriptions overlap, so a frozen-gold mismatch need not establish a uniquely validated visual-recognition error. Blank controls keep the original-image gold while removing the original content; their mismatches are diagnostic, not ordinary answerable-image errors. The 50 original image files are not bundled, and this reanalysis did not reacquire pixels, relabel images or rerun vision inference. Invoice tax-footnote labels refer to the printed footnote and amount bands to the signed total. Insurance evidence slots are likewise case-local offered clause sets, not stable semantic classes. See the [source inventory](../experiments/probability_reliability/SOURCE_INVENTORY.json) and locally qualified [field details](../experiments/probability_reliability/FIELD_DETAILS.md).
 
+### Multi-document precedence
+
+The additional 48-case study scores native source and determination fields separately: **42/48 source choices**, **24/48 determinations**, **24/48 complete cases**. Eight of twelve required clarifications are missed; eight of 36 answerable cases are unnecessarily unresolved. The nine same-answer ambiguous-source controls explicitly permit `not_unique` with a definite answer; six are fully correct. All 24 errors and 15 case-defined inconsistent field pairs remain recorded.
+
+Twelve families and 16 cross-domain templates create dependence. Balanced IDs/positions do not replace a matched order-swap intervention, which was not run. This finite-set test chooses a complete fictional rule; it does not compose clauses or interpret actual contracts. [Report](../experiments/multidoc48/REPORT.md)
+
+The [Jev package](JEV_PREPARATION.md) is preparation-only. Mock transport/scorer checks, a frozen request inventory and an inactive workflow are not hosted-model accuracy, latency or billing evidence. No API run or ranking is included.
+
 ## 4. Uncertainty and comparisons
 
 - **Sampling:** all percentages describe their fixed constructed sets. They do not estimate a real bank's ticket mix or a client's error rate.

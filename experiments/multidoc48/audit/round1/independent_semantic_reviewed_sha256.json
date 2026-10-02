@@ -1,0 +1,9 @@
+{
+  "data/cases.jsonl": "879e6f79702b2ee81489d0909ef59fce417a9a4f0a1540dba7172b2326df9f4d",
+  "data/design_summary.json": "4a206685502c74b4effa367aac1b482e2517161c09096bea1b59c243b5124f8b",
+  "data/gold.jsonl": "fd5f0b38fd6480993790d392070b95694a8fd7efe94d69df0aea410d65d7ee89",
+  "data/metadata.jsonl": "0864aa059fa37cb69d2b896595e24253aa7086b48c364d8f1a222bb2c2cbb1a8",
+  "data/policy.json": "ceed56fb3dd95580ea923a5289e14e1236d50f375d754f7103bde5bff467bcab",
+  "data/requests.jsonl": "bb8fd0507c1b2ddf13ca5fe1a3ff2cdda1f35ace89d7dcf1b82f3bda1aab1e22",
+  "scripts/build_dataset.py": "6c39b9506a7e08c1454885c7310e5c7e5e8d5673d0b016c1ef7e3efbd354f65b"
+}

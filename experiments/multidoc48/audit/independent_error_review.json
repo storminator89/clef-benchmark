@@ -1,0 +1,851 @@
+{
+  "passed": true,
+  "no_unresolved_gold_or_scoring_issue": true,
+  "review_type": "Independent AI semantic review of every actual error against frozen visible text; no relabeling",
+  "reviewed_at_utc": "2026-10-02T16:39:43.005692+00:00",
+  "error_count": 24,
+  "reviewed_error_count": 24,
+  "error_ids": [
+    "MD002",
+    "MD003",
+    "MD006",
+    "MD008",
+    "MD010",
+    "MD011",
+    "MD012",
+    "MD013",
+    "MD014",
+    "MD019",
+    "MD022",
+    "MD024",
+    "MD028",
+    "MD029",
+    "MD030",
+    "MD034",
+    "MD035",
+    "MD038",
+    "MD040",
+    "MD042",
+    "MD043",
+    "MD044",
+    "MD045",
+    "MD046"
+  ],
+  "all_error_evidence_complete": true,
+  "source_errors": 6,
+  "determination_errors": 24,
+  "both_field_errors": 6,
+  "error_reviews": [
+    {
+      "id": "MD002",
+      "domain": "banking",
+      "template_id": "MDT02",
+      "stratum": "authority",
+      "frozen_state_sha256": "d1940eebbf3a66fd1c69dd6041948f721ec1f46b5e1e4bec481df585f1865304",
+      "expected": {
+        "source": "D1",
+        "determination": "no"
+      },
+      "predicted": {
+        "source": "D3",
+        "determination": "yes"
+      },
+      "plausible_source_ids": [
+        "D1"
+      ],
+      "visible_rule_error_review": "The visible signed-supplement > base-tariff > FAQ hierarchy uniquely selects D1. Its limit is 200 EUR, so 400 EUR gives no. The prediction selects lower-ranked D3 and gives its yes outcome; internally coherent for that wrong source, but both benchmark fields are wrong.",
+      "scoring_flags_verified": {
+        "missed_clarification": false,
+        "excess_clarification": false,
+        "wrong_definite_answer": true,
+        "wrong_concrete_source": true,
+        "unnecessary_source_uncertainty": false,
+        "invented_unique_source": false,
+        "field_pair_inconsistent_with_visible_rules": false
+      },
+      "native_output_valid": true,
+      "gold_upheld": true,
+      "scoring_upheld": true,
+      "post_outcome_relabeling": false,
+      "unresolved_issue": null
+    },
+    {
+      "id": "MD003",
+      "domain": "banking",
+      "template_id": "MDT03",
+      "stratum": "authority",
+      "frozen_state_sha256": "dcd67f9e312a72e0dbd6875b4e080513d9e90c140964f9db3af86a5ea7358796",
+      "expected": {
+        "source": "D3",
+        "determination": "no"
+      },
+      "predicted": {
+        "source": "D2",
+        "determination": "yes"
+      },
+      "plausible_source_ids": [
+        "D3"
+      ],
+      "visible_rule_error_review": "The explicit Fachfreigabe > Preisblatt > Übersicht hierarchy selects D3, whose 100 EUR limit gives no at 400 EUR. Predicted D2 is the lower-ranked Preisblatt, with a yes rule; the wrong source/outcome pair is not flagged by the limited own-source consistency diagnostic.",
+      "scoring_flags_verified": {
+        "missed_clarification": false,
+        "excess_clarification": false,
+        "wrong_definite_answer": true,
+        "wrong_concrete_source": true,
+        "unnecessary_source_uncertainty": false,
+        "invented_unique_source": false,
+        "field_pair_inconsistent_with_visible_rules": false
+      },
+      "native_output_valid": true,
+      "gold_upheld": true,
+      "scoring_upheld": true,
+      "post_outcome_relabeling": false,
+      "unresolved_issue": null
+    },
+    {
+      "id": "MD006",
+      "domain": "banking",
+      "template_id": "MDT06",
+      "stratum": "effective_date",
+      "frozen_state_sha256": "3b98b24df89bf79010b6dd214444e04641f4818a896ea4638e8dd20c8b7fedd7",
+      "expected": {
+        "source": "D2",
+        "determination": "no"
+      },
+      "predicted": {
+        "source": "D1",
+        "determination": "yes"
+      },
+      "plausible_source_ids": [
+        "D2"
+      ],
+      "visible_rule_error_review": "On 15 August, the March D2 version is the latest effective rule; September D3 is future and January D1 is superseded. D2 gives no at 400 > 300 EUR. The prediction chooses the older D1 and its yes outcome, so both fields are wrong.",
+      "scoring_flags_verified": {
+        "missed_clarification": false,
+        "excess_clarification": false,
+        "wrong_definite_answer": true,
+        "wrong_concrete_source": true,
+        "unnecessary_source_uncertainty": false,
+        "invented_unique_source": false,
+        "field_pair_inconsistent_with_visible_rules": false
+      },
+      "native_output_valid": true,
+      "gold_upheld": true,
+      "scoring_upheld": true,
+      "post_outcome_relabeling": false,
+      "unresolved_issue": null
+    },
+    {
+      "id": "MD008",
+      "domain": "banking",
+      "template_id": "MDT08",
+      "stratum": "effective_date",
+      "frozen_state_sha256": "16a1f8254d4e49132a45a37b351dc05329641498df0d608176ccffa27f0ca5c2",
+      "expected": {
+        "source": "D2",
+        "determination": "no"
+      },
+      "predicted": {
+        "source": "D2",
+        "determination": "unresolved"
+      },
+      "plausible_source_ids": [
+        "D2"
+      ],
+      "visible_rule_error_review": "The June D2 version is uniquely governing and gives no at 400 > 300 EUR. Its missing publication date is explicitly immaterial. The source is correctly selected, but unresolved is unnecessary and incompatible with the selected complete rule.",
+      "scoring_flags_verified": {
+        "missed_clarification": false,
+        "excess_clarification": true,
+        "wrong_definite_answer": false,
+        "wrong_concrete_source": false,
+        "unnecessary_source_uncertainty": false,
+        "invented_unique_source": false,
+        "field_pair_inconsistent_with_visible_rules": true
+      },
+      "native_output_valid": true,
+      "gold_upheld": true,
+      "scoring_upheld": true,
+      "post_outcome_relabeling": false,
+      "unresolved_issue": null
+    },
+    {
+      "id": "MD010",
+      "domain": "banking",
+      "template_id": "MDT10",
+      "stratum": "scope",
+      "frozen_state_sha256": "b284c848274f7a505b09ecff5f972bb907b04e9536686e2a9bfb613f7b297f94",
+      "expected": {
+        "source": "D3",
+        "determination": "no"
+      },
+      "predicted": {
+        "source": "D3",
+        "determination": "yes"
+      },
+      "plausible_source_ids": [
+        "D3"
+      ],
+      "visible_rule_error_review": "The withdrawal-only and Plus-tariff documents do not apply to the Basis-tariff transfer. D3 is correctly selected; its 350 EUR limit makes 400 EUR not free. The predicted yes contradicts its own selected rule.",
+      "scoring_flags_verified": {
+        "missed_clarification": false,
+        "excess_clarification": false,
+        "wrong_definite_answer": true,
+        "wrong_concrete_source": false,
+        "unnecessary_source_uncertainty": false,
+        "invented_unique_source": false,
+        "field_pair_inconsistent_with_visible_rules": true
+      },
+      "native_output_valid": true,
+      "gold_upheld": true,
+      "scoring_upheld": true,
+      "post_outcome_relabeling": false,
+      "unresolved_issue": null
+    },
+    {
+      "id": "MD011",
+      "domain": "banking",
+      "template_id": "MDT11",
+      "stratum": "scope",
+      "frozen_state_sha256": "0f3bfb3fe2d1e29be48616aaba5cacc58b62b0b3a578bd5424f7db00f12a57d2",
+      "expected": {
+        "source": "not_unique",
+        "determination": "unresolved"
+      },
+      "predicted": {
+        "source": "not_unique",
+        "determination": "yes"
+      },
+      "plausible_source_ids": [
+        "D1",
+        "D3"
+      ],
+      "visible_rule_error_review": "With tariff unknown, D1 Plus gives no at 400 > 200 and D3 Basis gives yes at 400 ≤ 500. The archive is explicitly excluded. not_unique is correct; yes misses a material ambiguity, so unresolved is required.",
+      "scoring_flags_verified": {
+        "missed_clarification": true,
+        "excess_clarification": false,
+        "wrong_definite_answer": false,
+        "wrong_concrete_source": false,
+        "unnecessary_source_uncertainty": false,
+        "invented_unique_source": false,
+        "field_pair_inconsistent_with_visible_rules": true
+      },
+      "native_output_valid": true,
+      "gold_upheld": true,
+      "scoring_upheld": true,
+      "post_outcome_relabeling": false,
+      "unresolved_issue": null
+    },
+    {
+      "id": "MD012",
+      "domain": "banking",
+      "template_id": "MDT12",
+      "stratum": "scope",
+      "frozen_state_sha256": "305e5e5b339e2590ef950a7d3b5755c374e1f50fb4288e8d525726ebb29a5b38",
+      "expected": {
+        "source": "not_unique",
+        "determination": "no"
+      },
+      "predicted": {
+        "source": "not_unique",
+        "determination": "unresolved"
+      },
+      "plausible_source_ids": [
+        "D3",
+        "D2"
+      ],
+      "visible_rule_error_review": "The unknown tariff leaves D3 Basis and D2 Plus possible, but 400 EUR exceeds both limits, 250 and 350. Source uncertainty is correct; the outcome is definitely no. unresolved is excess clarification, not an automatic source/outcome inconsistency under the preregistered diagnostic.",
+      "scoring_flags_verified": {
+        "missed_clarification": false,
+        "excess_clarification": true,
+        "wrong_definite_answer": false,
+        "wrong_concrete_source": false,
+        "unnecessary_source_uncertainty": false,
+        "invented_unique_source": false,
+        "field_pair_inconsistent_with_visible_rules": false
+      },
+      "native_output_valid": true,
+      "gold_upheld": true,
+      "scoring_upheld": true,
+      "post_outcome_relabeling": false,
+      "unresolved_issue": null
+    },
+    {
+      "id": "MD013",
+      "domain": "banking",
+      "template_id": "MDT13",
+      "stratum": "unresolved",
+      "frozen_state_sha256": "06b65866d9f7c3cf01f61899e11c7e7f9a048f4e4776632477821e55b476d7b3",
+      "expected": {
+        "source": "not_unique",
+        "determination": "unresolved"
+      },
+      "predicted": {
+        "source": "not_unique",
+        "determination": "yes"
+      },
+      "plausible_source_ids": [
+        "D2",
+        "D3"
+      ],
+      "visible_rule_error_review": "Applicable Alpha D2 says yes at 400 ≤ 500 and tied Beta D3 says no at 400 > 300. The archive is excluded and no tie-break exists. not_unique is correct but yes misses the unresolved outcome conflict.",
+      "scoring_flags_verified": {
+        "missed_clarification": true,
+        "excess_clarification": false,
+        "wrong_definite_answer": false,
+        "wrong_concrete_source": false,
+        "unnecessary_source_uncertainty": false,
+        "invented_unique_source": false,
+        "field_pair_inconsistent_with_visible_rules": true
+      },
+      "native_output_valid": true,
+      "gold_upheld": true,
+      "scoring_upheld": true,
+      "post_outcome_relabeling": false,
+      "unresolved_issue": null
+    },
+    {
+      "id": "MD014",
+      "domain": "banking",
+      "template_id": "MDT14",
+      "stratum": "unresolved",
+      "frozen_state_sha256": "08cf606d4259e4fcac96a69c4ea7251d82ff4464cb2de3e3e1e458c764cdf364",
+      "expected": {
+        "source": "not_unique",
+        "determination": "unresolved"
+      },
+      "predicted": {
+        "source": "not_unique",
+        "determination": "yes"
+      },
+      "plausible_source_ids": [
+        "D3",
+        "D1"
+      ],
+      "visible_rule_error_review": "Applicable tied Rot D3 says no at 400 > 250 and Blau D1 says yes at 400 ≤ 550; Grün D2 is excluded. Correct source uncertainty does not support the predicted definite yes, so material clarification is missed.",
+      "scoring_flags_verified": {
+        "missed_clarification": true,
+        "excess_clarification": false,
+        "wrong_definite_answer": false,
+        "wrong_concrete_source": false,
+        "unnecessary_source_uncertainty": false,
+        "invented_unique_source": false,
+        "field_pair_inconsistent_with_visible_rules": true
+      },
+      "native_output_valid": true,
+      "gold_upheld": true,
+      "scoring_upheld": true,
+      "post_outcome_relabeling": false,
+      "unresolved_issue": null
+    },
+    {
+      "id": "MD019",
+      "domain": "insurance",
+      "template_id": "MDT03",
+      "stratum": "authority",
+      "frozen_state_sha256": "ca261b2878f99a049f24bc071aacb6dc6b8aef37595ec18522e58db31f0070a9",
+      "expected": {
+        "source": "D1",
+        "determination": "no"
+      },
+      "predicted": {
+        "source": "D1",
+        "determination": "unresolved"
+      },
+      "plausible_source_ids": [
+        "D1"
+      ],
+      "visible_rule_error_review": "The explicitly highest-ranked Fachfreigabe is D1 and gives no at 400 > 100 EUR. D1 is correctly chosen, but unresolved is excessive and inconsistent with that complete rule.",
+      "scoring_flags_verified": {
+        "missed_clarification": false,
+        "excess_clarification": true,
+        "wrong_definite_answer": false,
+        "wrong_concrete_source": false,
+        "unnecessary_source_uncertainty": false,
+        "invented_unique_source": false,
+        "field_pair_inconsistent_with_visible_rules": true
+      },
+      "native_output_valid": true,
+      "gold_upheld": true,
+      "scoring_upheld": true,
+      "post_outcome_relabeling": false,
+      "unresolved_issue": null
+    },
+    {
+      "id": "MD022",
+      "domain": "insurance",
+      "template_id": "MDT06",
+      "stratum": "effective_date",
+      "frozen_state_sha256": "ed4a45f8d6e11667191abe6c79db8f85afdb97c9661b36393f44e38207859cdb",
+      "expected": {
+        "source": "D1",
+        "determination": "no"
+      },
+      "predicted": {
+        "source": "not_unique",
+        "determination": "unresolved"
+      },
+      "plausible_source_ids": [
+        "D1"
+      ],
+      "visible_rule_error_review": "At 15 August, March D1 uniquely supersedes January D2 while September D3 is not yet effective. D1 yields no at 400 > 300 EUR. Both predicted source uncertainty and unresolved outcome are unnecessary.",
+      "scoring_flags_verified": {
+        "missed_clarification": false,
+        "excess_clarification": true,
+        "wrong_definite_answer": false,
+        "wrong_concrete_source": false,
+        "unnecessary_source_uncertainty": true,
+        "invented_unique_source": false,
+        "field_pair_inconsistent_with_visible_rules": false
+      },
+      "native_output_valid": true,
+      "gold_upheld": true,
+      "scoring_upheld": true,
+      "post_outcome_relabeling": false,
+      "unresolved_issue": null
+    },
+    {
+      "id": "MD024",
+      "domain": "insurance",
+      "template_id": "MDT08",
+      "stratum": "effective_date",
+      "frozen_state_sha256": "a6e14ebec14366385e7e5ab299d94941ef78d7af0fc0619f3431144f8eea2436",
+      "expected": {
+        "source": "D2",
+        "determination": "no"
+      },
+      "predicted": {
+        "source": "D2",
+        "determination": "unresolved"
+      },
+      "plausible_source_ids": [
+        "D2"
+      ],
+      "visible_rule_error_review": "June D2 is the latest applicable version and yields no at 400 > 300 EUR. Publication date is explicitly irrelevant and the glass-damage archive is excluded. Correct source choice is paired with excess clarification.",
+      "scoring_flags_verified": {
+        "missed_clarification": false,
+        "excess_clarification": true,
+        "wrong_definite_answer": false,
+        "wrong_concrete_source": false,
+        "unnecessary_source_uncertainty": false,
+        "invented_unique_source": false,
+        "field_pair_inconsistent_with_visible_rules": true
+      },
+      "native_output_valid": true,
+      "gold_upheld": true,
+      "scoring_upheld": true,
+      "post_outcome_relabeling": false,
+      "unresolved_issue": null
+    },
+    {
+      "id": "MD028",
+      "domain": "insurance",
+      "template_id": "MDT12",
+      "stratum": "scope",
+      "frozen_state_sha256": "46f85bc446f1c2b12be8c0fcec52a26add16d599f46fde2d7df6742caa8f0959",
+      "expected": {
+        "source": "not_unique",
+        "determination": "no"
+      },
+      "predicted": {
+        "source": "not_unique",
+        "determination": "unresolved"
+      },
+      "plausible_source_ids": [
+        "D2",
+        "D3"
+      ],
+      "visible_rule_error_review": "The two possible tariff documents have limits 250 and 350 EUR, both below 400 EUR; the archive is excluded. not_unique is correct and no is certain. The predicted unresolved outcome is excess clarification on a same-answer control.",
+      "scoring_flags_verified": {
+        "missed_clarification": false,
+        "excess_clarification": true,
+        "wrong_definite_answer": false,
+        "wrong_concrete_source": false,
+        "unnecessary_source_uncertainty": false,
+        "invented_unique_source": false,
+        "field_pair_inconsistent_with_visible_rules": false
+      },
+      "native_output_valid": true,
+      "gold_upheld": true,
+      "scoring_upheld": true,
+      "post_outcome_relabeling": false,
+      "unresolved_issue": null
+    },
+    {
+      "id": "MD029",
+      "domain": "insurance",
+      "template_id": "MDT13",
+      "stratum": "unresolved",
+      "frozen_state_sha256": "8446fa035076c7d72d7f1d6d076adc45421c025ab6caaa867ef9ef7f4b70aa28",
+      "expected": {
+        "source": "not_unique",
+        "determination": "unresolved"
+      },
+      "predicted": {
+        "source": "not_unique",
+        "determination": "yes"
+      },
+      "plausible_source_ids": [
+        "D2",
+        "D3"
+      ],
+      "visible_rule_error_review": "The two tied applicable sources disagree: Alpha D2 permits 400 EUR under its 500 limit, Beta D3 rejects it under its 300 limit. The archive is excluded. Source uncertainty is correct but definite yes misses required clarification.",
+      "scoring_flags_verified": {
+        "missed_clarification": true,
+        "excess_clarification": false,
+        "wrong_definite_answer": false,
+        "wrong_concrete_source": false,
+        "unnecessary_source_uncertainty": false,
+        "invented_unique_source": false,
+        "field_pair_inconsistent_with_visible_rules": true
+      },
+      "native_output_valid": true,
+      "gold_upheld": true,
+      "scoring_upheld": true,
+      "post_outcome_relabeling": false,
+      "unresolved_issue": null
+    },
+    {
+      "id": "MD030",
+      "domain": "insurance",
+      "template_id": "MDT14",
+      "stratum": "unresolved",
+      "frozen_state_sha256": "89dc8f2558c2b6a36fba4042b6d219de3994cad4a143736bca935a61eb3e47d6",
+      "expected": {
+        "source": "not_unique",
+        "determination": "unresolved"
+      },
+      "predicted": {
+        "source": "not_unique",
+        "determination": "yes"
+      },
+      "plausible_source_ids": [
+        "D3",
+        "D1"
+      ],
+      "visible_rule_error_review": "Tied Blau D3 permits 400 EUR under 550; Rot D1 rejects it under 250. Grün D2 does not apply. The predicted not_unique is correct; yes is not determined and misses the material conflict.",
+      "scoring_flags_verified": {
+        "missed_clarification": true,
+        "excess_clarification": false,
+        "wrong_definite_answer": false,
+        "wrong_concrete_source": false,
+        "unnecessary_source_uncertainty": false,
+        "invented_unique_source": false,
+        "field_pair_inconsistent_with_visible_rules": true
+      },
+      "native_output_valid": true,
+      "gold_upheld": true,
+      "scoring_upheld": true,
+      "post_outcome_relabeling": false,
+      "unresolved_issue": null
+    },
+    {
+      "id": "MD034",
+      "domain": "finance",
+      "template_id": "MDT02",
+      "stratum": "authority",
+      "frozen_state_sha256": "c8ad555abaaa3c3c59757cec2b84155cd6fa2de3f825dc1804ae8a2b36c87f3f",
+      "expected": {
+        "source": "D1",
+        "determination": "no"
+      },
+      "predicted": {
+        "source": "D1",
+        "determination": "yes"
+      },
+      "plausible_source_ids": [
+        "D1"
+      ],
+      "visible_rule_error_review": "The signed supplement D1 has explicit priority and a 200 EUR limit, giving no for 400 EUR. The correct source is selected but its outcome is reversed to yes, making an own-rule inconsistent pair.",
+      "scoring_flags_verified": {
+        "missed_clarification": false,
+        "excess_clarification": false,
+        "wrong_definite_answer": true,
+        "wrong_concrete_source": false,
+        "unnecessary_source_uncertainty": false,
+        "invented_unique_source": false,
+        "field_pair_inconsistent_with_visible_rules": true
+      },
+      "native_output_valid": true,
+      "gold_upheld": true,
+      "scoring_upheld": true,
+      "post_outcome_relabeling": false,
+      "unresolved_issue": null
+    },
+    {
+      "id": "MD035",
+      "domain": "finance",
+      "template_id": "MDT03",
+      "stratum": "authority",
+      "frozen_state_sha256": "de0b557234ba105dd97c68b59f5c52905842cef869e637fe286315eaf51dfea3",
+      "expected": {
+        "source": "D1",
+        "determination": "no"
+      },
+      "predicted": {
+        "source": "D3",
+        "determination": "yes"
+      },
+      "plausible_source_ids": [
+        "D1"
+      ],
+      "visible_rule_error_review": "The visible hierarchy selects Fachfreigabe D1 over Preisblatt D3 and Übersicht D2. D1 gives no at 400 > 100 EUR. Predicted D3 and yes agree internally with the lower-ranked rule but are wrong for the governing-source task.",
+      "scoring_flags_verified": {
+        "missed_clarification": false,
+        "excess_clarification": false,
+        "wrong_definite_answer": true,
+        "wrong_concrete_source": true,
+        "unnecessary_source_uncertainty": false,
+        "invented_unique_source": false,
+        "field_pair_inconsistent_with_visible_rules": false
+      },
+      "native_output_valid": true,
+      "gold_upheld": true,
+      "scoring_upheld": true,
+      "post_outcome_relabeling": false,
+      "unresolved_issue": null
+    },
+    {
+      "id": "MD038",
+      "domain": "finance",
+      "template_id": "MDT06",
+      "stratum": "effective_date",
+      "frozen_state_sha256": "e7191400afd7ad6e20a7dc09accb126278e7d974cd8ed502cd20870ee92a825e",
+      "expected": {
+        "source": "D3",
+        "determination": "no"
+      },
+      "predicted": {
+        "source": "not_unique",
+        "determination": "yes"
+      },
+      "plausible_source_ids": [
+        "D3"
+      ],
+      "visible_rule_error_review": "March D3 is uniquely latest-effective on 15 August; January D1 is older and September D2 is future. D3 gives no at 400 > 300 EUR. Predicted not_unique and yes are both wrong. The preregistered limited consistency diagnostic does not flag this nonunique prediction on a unique-source-gold case.",
+      "scoring_flags_verified": {
+        "missed_clarification": false,
+        "excess_clarification": false,
+        "wrong_definite_answer": true,
+        "wrong_concrete_source": false,
+        "unnecessary_source_uncertainty": true,
+        "invented_unique_source": false,
+        "field_pair_inconsistent_with_visible_rules": false
+      },
+      "native_output_valid": true,
+      "gold_upheld": true,
+      "scoring_upheld": true,
+      "post_outcome_relabeling": false,
+      "unresolved_issue": null
+    },
+    {
+      "id": "MD040",
+      "domain": "finance",
+      "template_id": "MDT08",
+      "stratum": "effective_date",
+      "frozen_state_sha256": "dcc0bbd35041de0dcec27486d28260a26d135d6c023f798306b7ce3da1894991",
+      "expected": {
+        "source": "D3",
+        "determination": "no"
+      },
+      "predicted": {
+        "source": "D3",
+        "determination": "unresolved"
+      },
+      "plausible_source_ids": [
+        "D3"
+      ],
+      "visible_rule_error_review": "June D3 is uniquely effective later than January D2, independent of the missing publication date; the archive is excluded. At 400 > 300 EUR the result is no. Correct source selection plus unresolved is excess clarification and contradicts the own complete rule.",
+      "scoring_flags_verified": {
+        "missed_clarification": false,
+        "excess_clarification": true,
+        "wrong_definite_answer": false,
+        "wrong_concrete_source": false,
+        "unnecessary_source_uncertainty": false,
+        "invented_unique_source": false,
+        "field_pair_inconsistent_with_visible_rules": true
+      },
+      "native_output_valid": true,
+      "gold_upheld": true,
+      "scoring_upheld": true,
+      "post_outcome_relabeling": false,
+      "unresolved_issue": null
+    },
+    {
+      "id": "MD042",
+      "domain": "finance",
+      "template_id": "MDT10",
+      "stratum": "scope",
+      "frozen_state_sha256": "5a49a06cfbfd4d93d000bcd3fe56963733b36a7e1dd405ce43c3d843f9dbcd71",
+      "expected": {
+        "source": "D2",
+        "determination": "no"
+      },
+      "predicted": {
+        "source": "D2",
+        "determination": "yes"
+      },
+      "plausible_source_ids": [
+        "D2"
+      ],
+      "visible_rule_error_review": "The Basis tariff and target plan-change operation exclude the Plus supplement and transfer-only special rule. D2 is correctly selected; 400 > 350 EUR makes the result no. The yes prediction contradicts this complete governing rule.",
+      "scoring_flags_verified": {
+        "missed_clarification": false,
+        "excess_clarification": false,
+        "wrong_definite_answer": true,
+        "wrong_concrete_source": false,
+        "unnecessary_source_uncertainty": false,
+        "invented_unique_source": false,
+        "field_pair_inconsistent_with_visible_rules": true
+      },
+      "native_output_valid": true,
+      "gold_upheld": true,
+      "scoring_upheld": true,
+      "post_outcome_relabeling": false,
+      "unresolved_issue": null
+    },
+    {
+      "id": "MD043",
+      "domain": "finance",
+      "template_id": "MDT11",
+      "stratum": "scope",
+      "frozen_state_sha256": "49f9b12b4475c53baef6302264fb93c078c4f45d4ecccb46012f6ad89dae49b0",
+      "expected": {
+        "source": "not_unique",
+        "determination": "unresolved"
+      },
+      "predicted": {
+        "source": "not_unique",
+        "determination": "yes"
+      },
+      "plausible_source_ids": [
+        "D1",
+        "D3"
+      ],
+      "visible_rule_error_review": "The missing tariff changes the governing source and result: Plus D1 rejects 400 under 200, Basis D3 permits it under 500. The archive cannot settle the choice. not_unique is correct; yes misses required material clarification.",
+      "scoring_flags_verified": {
+        "missed_clarification": true,
+        "excess_clarification": false,
+        "wrong_definite_answer": false,
+        "wrong_concrete_source": false,
+        "unnecessary_source_uncertainty": false,
+        "invented_unique_source": false,
+        "field_pair_inconsistent_with_visible_rules": true
+      },
+      "native_output_valid": true,
+      "gold_upheld": true,
+      "scoring_upheld": true,
+      "post_outcome_relabeling": false,
+      "unresolved_issue": null
+    },
+    {
+      "id": "MD044",
+      "domain": "finance",
+      "template_id": "MDT12",
+      "stratum": "scope",
+      "frozen_state_sha256": "6f3b7b6f22c7006865dab3b7c7330f30a902f4a7d8aff0a8c7aad6442f30c767",
+      "expected": {
+        "source": "not_unique",
+        "determination": "no"
+      },
+      "predicted": {
+        "source": "not_unique",
+        "determination": "unresolved"
+      },
+      "plausible_source_ids": [
+        "D1",
+        "D3"
+      ],
+      "visible_rule_error_review": "The possible Basis D1 and Plus D3 sources both reject 400 EUR, with 250 and 350 EUR limits. The source remains unknown but the answer is no; predicted unresolved is an excess-clarification error on a same-answer control.",
+      "scoring_flags_verified": {
+        "missed_clarification": false,
+        "excess_clarification": true,
+        "wrong_definite_answer": false,
+        "wrong_concrete_source": false,
+        "unnecessary_source_uncertainty": false,
+        "invented_unique_source": false,
+        "field_pair_inconsistent_with_visible_rules": false
+      },
+      "native_output_valid": true,
+      "gold_upheld": true,
+      "scoring_upheld": true,
+      "post_outcome_relabeling": false,
+      "unresolved_issue": null
+    },
+    {
+      "id": "MD045",
+      "domain": "finance",
+      "template_id": "MDT13",
+      "stratum": "unresolved",
+      "frozen_state_sha256": "3f2580b17626aca6ff852f06ea9c07740aa856ab13f3ecdfab23359088cfeb52",
+      "expected": {
+        "source": "not_unique",
+        "determination": "unresolved"
+      },
+      "predicted": {
+        "source": "not_unique",
+        "determination": "yes"
+      },
+      "plausible_source_ids": [
+        "D1",
+        "D3"
+      ],
+      "visible_rule_error_review": "Tied Beta D1 rejects 400 under 300 while Alpha D3 permits it under 500; the archive is excluded and no tie-break exists. not_unique is correct; yes incorrectly resolves a material disagreement.",
+      "scoring_flags_verified": {
+        "missed_clarification": true,
+        "excess_clarification": false,
+        "wrong_definite_answer": false,
+        "wrong_concrete_source": false,
+        "unnecessary_source_uncertainty": false,
+        "invented_unique_source": false,
+        "field_pair_inconsistent_with_visible_rules": true
+      },
+      "native_output_valid": true,
+      "gold_upheld": true,
+      "scoring_upheld": true,
+      "post_outcome_relabeling": false,
+      "unresolved_issue": null
+    },
+    {
+      "id": "MD046",
+      "domain": "finance",
+      "template_id": "MDT14",
+      "stratum": "unresolved",
+      "frozen_state_sha256": "387f0e5176cb23b41d100a0861a7ae647934bb0049d9267f9568afda3443bbd8",
+      "expected": {
+        "source": "not_unique",
+        "determination": "unresolved"
+      },
+      "predicted": {
+        "source": "not_unique",
+        "determination": "yes"
+      },
+      "plausible_source_ids": [
+        "D1",
+        "D2"
+      ],
+      "visible_rule_error_review": "Applicable Rot D1 rejects 400 under 250 and tied Blau D2 permits it under 550; Grün D3 is explicitly excluded. Source uncertainty is correctly recognized, but yes misses the required unresolved determination.",
+      "scoring_flags_verified": {
+        "missed_clarification": true,
+        "excess_clarification": false,
+        "wrong_definite_answer": false,
+        "wrong_concrete_source": false,
+        "unnecessary_source_uncertainty": false,
+        "invented_unique_source": false,
+        "field_pair_inconsistent_with_visible_rules": true
+      },
+      "native_output_valid": true,
+      "gold_upheld": true,
+      "scoring_upheld": true,
+      "post_outcome_relabeling": false,
+      "unresolved_issue": null
+    }
+  ],
+  "files": {
+    "data/cases.jsonl": "a4f013943cd7a0945e0fcc1aaea9b28d5bf625b4869c049e59fb0dc182028ed5",
+    "data/gold.jsonl": "941800f8561510a8b92d2a8764bc1d0de607d2e7c5960a301295ded4e821895e",
+    "results/predictions.jsonl": "b3882af5059d597e7f2928d9881247deee81f470a9a15fe3bc6d3cdab624522c",
+    "results/errors.jsonl": "a32465a2db7e228cb30d708f1ab2946f4220da8265dfb796e6f80a1dce4219e3",
+    "results/case_scores.jsonl": "5dd2f9a020a0cb1bf04d2eb5ab37a6739331f94edeed67c1516ff35d906ef860",
+    "ERRORS.md": "1d9f4567e6549f3e6d7d023e0526ce7bab24f93d40f2e1a73476a36534ca0f0e"
+  }
+}

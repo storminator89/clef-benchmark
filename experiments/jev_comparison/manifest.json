@@ -1,0 +1,267 @@
+{
+  "version": 1,
+  "status": "prepared_not_executed",
+  "jev_model": "jev-1.13.0",
+  "clef_model": "Cloudflare/clef-flash",
+  "clef_revision": "17f0b0ad64efb65d273590632833508766b2aae6",
+  "suites": [
+    {
+      "id": "minimal_pairs48",
+      "count": 48,
+      "baseline": "complete",
+      "license": "Apache-2.0",
+      "source_scope": "public synthetic benchmark",
+      "origin": "experiments/probability_reliability/sources/minimal_pairs48"
+    },
+    {
+      "id": "clarification72",
+      "count": 72,
+      "baseline": "complete",
+      "license": "Apache-2.0",
+      "source_scope": "public synthetic benchmark",
+      "origin": "experiments/probability_reliability/sources/clarification72"
+    },
+    {
+      "id": "bank_support80",
+      "count": 80,
+      "baseline": "complete",
+      "license": "Apache-2.0",
+      "source_scope": "public synthetic benchmark",
+      "origin": "experiments/probability_reliability/sources/bank_support80"
+    },
+    {
+      "id": "original_text180",
+      "count": 180,
+      "baseline": "complete",
+      "license": "Apache-2.0",
+      "source_scope": "public synthetic benchmark",
+      "origin": "experiments/probability_reliability/sources/original_text180"
+    },
+    {
+      "id": "finance100",
+      "count": 100,
+      "baseline": "complete",
+      "license": "Apache-2.0",
+      "source_scope": "public synthetic benchmark",
+      "origin": "experiments/probability_reliability/sources/finance100"
+    },
+    {
+      "id": "insurance60",
+      "count": 60,
+      "baseline": "complete",
+      "license": "Apache-2.0",
+      "source_scope": "public synthetic benchmark",
+      "origin": "experiments/probability_reliability/sources/insurance60"
+    },
+    {
+      "id": "clean72",
+      "count": 72,
+      "baseline": "complete",
+      "license": "Apache-2.0",
+      "source_scope": "public synthetic benchmark",
+      "origin": "experiments/probability_reliability/sources/clean72"
+    },
+    {
+      "id": "attack_ablation14",
+      "count": 14,
+      "baseline": "complete",
+      "license": "Apache-2.0",
+      "source_scope": "public synthetic benchmark",
+      "origin": "experiments/probability_reliability/sources/attack_ablation14"
+    },
+    {
+      "id": "multidoc48",
+      "count": 48,
+      "baseline": "complete",
+      "license": "Apache-2.0",
+      "source_scope": "public synthetic benchmark",
+      "origin": "separate frozen multidoc48 artifact"
+    },
+    {
+      "id": "massive300",
+      "count": 300,
+      "baseline": "pending_owner_final_audit",
+      "license": "CC-BY-4.0",
+      "source_scope": "public MASSIVE de-DE test slice",
+      "origin": "separate frozen massive300 artifact"
+    }
+  ],
+  "excluded": [
+    {
+      "id": "images90",
+      "count": 90,
+      "status": "not_comparable",
+      "reason": "Jev has no native image support. No OCR conversion, image forwarding or image-license assumption."
+    },
+    {
+      "id": "probability_reliability",
+      "count": 0,
+      "status": "derived_analysis_only",
+      "reason": "Reuse evaluated text probabilities; no duplicate API suite."
+    },
+    {
+      "id": "historical_pilots_smokes_private_custom",
+      "count": 0,
+      "status": "not_a_frozen_benchmark",
+      "reason": "Setup probes, superseded pilots and private user cases are outside this run."
+    }
+  ],
+  "source_provenance": {
+    "minimal_pairs48": {
+      "requests.jsonl": "6e4e5c43853032bd09e72c3bd9d0331dd15ab4b28833a7f0fa290170cb6d85c8",
+      "gold.jsonl": "27979c66dce5261d12a8d51bc8dffb437c5c20f120888773a47dc0fce8f592d6",
+      "cases.jsonl": "8a69f69464d1df858a8761cdf085ccda75f2236154ae005ff0569212d26371e4",
+      "pairs.jsonl": "10ffcbbdc24288588598320b37b88276d046c7b44b57125906af546548b13fa1",
+      "metadata.jsonl": "0b9b9a28d5d746316e8e5a88e489ddbe33e90e0332865852591420e99e6f533a",
+      "policy.json": "009a7b01208134f45e8433fba7d58bc23bfcec5c823cdcef888a3c2620e92057",
+      "design_summary.json": "1f6afdd619b71f798a451ebecb11ea2650337c699794833a5768b0d48d3a9624",
+      "predictions.jsonl": "c3cf3aa50f66340c9b43a0b8cfc168e280f130b2282d92f47ec80dd6e8fe200e"
+    },
+    "clarification72": {
+      "requests.jsonl": "6dbe7ca4621e7e8350ca0c929383f782d3f56782ca8f79f48d1be6fdef75fb14",
+      "gold.jsonl": "10b4223eae817647d37b34669cf88225d170400cdc8f7742b5d61c4b76e59c39",
+      "cases.jsonl": "0d134c26a9b06733103b207586cdd77c4e35899c1711f923cfbae17bf6968ac0",
+      "metadata.jsonl": "cb4f2c6455236d8e8c24dba189997622dc6529095c5bae92360da424e404095c",
+      "policy.json": "f920a180fae80b29bf49ea882abad1bd3764cc4ececf73c8d82c639e42d16b15",
+      "design_summary.json": "3f8d064506f9d87e43fe73120466768ee886a31423875281e4d3504e8b683393",
+      "predictions.jsonl": "94256dd1931c19e73404bd9f84cc48f2593799a8622d685a90748f871ef769f4"
+    },
+    "bank_support80": {
+      "requests.jsonl": "a4ee04381c9d98e7d0365d487fadbe54a6f8c0e3dd751c1a08ebab14c0919562",
+      "gold.jsonl": "cf93ec9032c3e8bbf5f14f88122cb7531f1c0a07268c5035e66f8532e06ea83f",
+      "cases.jsonl": "f65f179d11c5ead7a770f271d694aa8065ab5859893db400a4dfbea8ee3ed29b",
+      "metadata.jsonl": "ad5771986f85c1764fa8eeab70aed121f48c347d48ad9422415df59ec46cf478",
+      "policy.json": "2c13a461c9a5393174c2c37638c7a7fc12551de4923b0069f556be33cb9641b3",
+      "design_summary.json": "85792f4099403c28ff482b3931a68c7115d5ca95e4f00a83e3c42c8cc642a1ea",
+      "predictions.jsonl": "8be55f8cdc1a3d37cd8815ef6e2fee85993d40fb5ea4c2c3567ad12018875d10"
+    },
+    "original_text180": {
+      "requests.jsonl": "1d02198e4940cfd8b4b4b1cb0eb55077e48b0f95129217bd787a972d38b44b84",
+      "gold.jsonl": "5199127584106e9f585695a05aa162e29a40afa546c5438d992c481cf92d0d95",
+      "cases.jsonl": "6907780080b820d7d8a1b48d70b76ff1975d542acb2c7f71b61753727de52b63",
+      "diagnostic_cases.jsonl": "18e7b4d6818849976c136b2a54dbd8e4bb226961f998b283ed46130a19faa2ad",
+      "pairs.jsonl": "613718e2f989ecccf81b391475db6bee0608ce75186391457d7bd4f9442f6250",
+      "policies.json": "44dbfe0a6072eaa3bc05231a2a7e0ccd042746ba68dc7a7e459b5633e9de4728",
+      "design_summary.json": "1ff54a2dee09f1063296d33e100ab4c2eca105e21445f5f5c8117e47bc581010",
+      "predictions.jsonl": "2ba1c7df48957da6bf863c32f5adc8e490aab74e9020517d45a01ac2b49a0229"
+    },
+    "finance100": {
+      "requests.jsonl": "543b90344f7c67e6b94d35bca548d4c0235d2879daee9ff46205f585fe45fedb",
+      "gold.jsonl": "240340f7df83b54bd9d41e8efec344dbde4c243fa4d9d1723f1fa272bffcf89d",
+      "cases.jsonl": "5ff3c198cc30f3b19d83ca65545bcf71f4cad48f84f098c2c96b0cf5c5c06497",
+      "diagnostic_cases.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "pairs.jsonl": "548f85152b0f3314883b08f9af53d8adee67c89fee0e41954e98ad652e48ecb4",
+      "policies.json": "7effaeec2ab4c0aaf6dd544b89c2b4316ba9484fff51a043d79b95195c2befbc",
+      "design_summary.json": "4d20f47023be0a7aebec2e0acc0f44f84b78635d2c931f02d935f3028693f1a3",
+      "predictions.jsonl": "0dba4e020d22ed770279a406f67e19e465eb12affc8f838fde165e1cc458d627"
+    },
+    "insurance60": {
+      "requests.jsonl": "03066c91f05878efcb7f3c358e91e0cfa9087091b205728c2788e61b0b8e1eba",
+      "benchmark.json": "8a0b1a6c4227b90b20c92de012c5d02a037e4ae4a79dac614b150345ed45c1bc",
+      "predictions.jsonl": "45f226339495118db39f7be48ba903158ee1d04f2698c5a1e2d6245f0f554930"
+    },
+    "clean72": {
+      "requests.jsonl": "3e94e7c8dcda74f58a5402cfe361591da6ee10f818175ec791a3d79856195d84",
+      "gold.jsonl": "c7e4389e90c50eb688e7b7c9a1fee48a11e041d68a043be794e54bfdaef51369",
+      "cases.jsonl": "47e8239762c69d602adfecd306a00503a9f06bacab5ee451f0d420bc18c2a231",
+      "policies.json": "36e7f1aa2f23928ebbfc39d51267143c858c6f04536f27e6113efbd9e49ef41e",
+      "design_summary.json": "83ba3349a5fb15d7faf7e52dcbc60b4ece240e3e394ff127971769b66a08f89c",
+      "predictions.jsonl": "240063f1480ff1a2f69e72f03c9d7a2b04fb337c924ebb6b2941610b4402dc1a"
+    },
+    "attack_ablation14": {
+      "requests.jsonl": "295710d90546d9a0aa5fa4dd465a62cb7e285deba8fa5ab5b8ec4f3dd45f04d7",
+      "gold.jsonl": "4a5528ebb993e3ea935576c14124a5a1795e9da71e3fa54f3dda026f77e3dc8e",
+      "cases.jsonl": "18f014c62653768478e236a7c4608613350c89f7527ec7bb5555a2a2667c2930",
+      "pairs.jsonl": "f7ef32713dcf4f110a600dacb46ab7cfda33e18740649b2448ce6c93df5c7831",
+      "policies.json": "7effaeec2ab4c0aaf6dd544b89c2b4316ba9484fff51a043d79b95195c2befbc",
+      "predictions.jsonl": "3a386120b9d7c4bcccd934ae962328fd12084f4d128d41de9ae45af8bdf0ba7c"
+    },
+    "multidoc48": {
+      "requests.jsonl": "7df0df7b0737ea847b0f8d5c3a844b95a42700e08f0178a981975e1c57cc2906",
+      "gold.jsonl": "941800f8561510a8b92d2a8764bc1d0de607d2e7c5960a301295ded4e821895e"
+    },
+    "massive300": {
+      "requests.jsonl": "c14bcea988fbb8f2191fc4f6d1e5469d8053316fc22abe6050542ce621d7aee5",
+      "gold.jsonl": "52fd4d3934fcdd5aa70d46a44608283fa0462857cc0ac2c7fe354c7100f61e17"
+    }
+  },
+  "files": {
+    "inputs/minimal_pairs48/requests.jsonl": "6e4e5c43853032bd09e72c3bd9d0331dd15ab4b28833a7f0fa290170cb6d85c8",
+    "inputs/minimal_pairs48/gold.jsonl": "27979c66dce5261d12a8d51bc8dffb437c5c20f120888773a47dc0fce8f592d6",
+    "inputs/minimal_pairs48/cases.jsonl": "8a69f69464d1df858a8761cdf085ccda75f2236154ae005ff0569212d26371e4",
+    "inputs/minimal_pairs48/pairs.jsonl": "10ffcbbdc24288588598320b37b88276d046c7b44b57125906af546548b13fa1",
+    "inputs/minimal_pairs48/predictions.jsonl": "c3cf3aa50f66340c9b43a0b8cfc168e280f130b2282d92f47ec80dd6e8fe200e",
+    "inputs/minimal_pairs48/design_summary.json": "1f6afdd619b71f798a451ebecb11ea2650337c699794833a5768b0d48d3a9624",
+    "inputs/minimal_pairs48/metadata.jsonl": "0b9b9a28d5d746316e8e5a88e489ddbe33e90e0332865852591420e99e6f533a",
+    "inputs/minimal_pairs48/policy.json": "009a7b01208134f45e8433fba7d58bc23bfcec5c823cdcef888a3c2620e92057",
+    "inputs/clarification72/requests.jsonl": "6dbe7ca4621e7e8350ca0c929383f782d3f56782ca8f79f48d1be6fdef75fb14",
+    "inputs/clarification72/gold.jsonl": "10b4223eae817647d37b34669cf88225d170400cdc8f7742b5d61c4b76e59c39",
+    "inputs/clarification72/cases.jsonl": "0d134c26a9b06733103b207586cdd77c4e35899c1711f923cfbae17bf6968ac0",
+    "inputs/clarification72/predictions.jsonl": "94256dd1931c19e73404bd9f84cc48f2593799a8622d685a90748f871ef769f4",
+    "inputs/clarification72/design_summary.json": "3f8d064506f9d87e43fe73120466768ee886a31423875281e4d3504e8b683393",
+    "inputs/clarification72/metadata.jsonl": "cb4f2c6455236d8e8c24dba189997622dc6529095c5bae92360da424e404095c",
+    "inputs/clarification72/policy.json": "f920a180fae80b29bf49ea882abad1bd3764cc4ececf73c8d82c639e42d16b15",
+    "inputs/bank_support80/requests.jsonl": "a4ee04381c9d98e7d0365d487fadbe54a6f8c0e3dd751c1a08ebab14c0919562",
+    "inputs/bank_support80/gold.jsonl": "cf93ec9032c3e8bbf5f14f88122cb7531f1c0a07268c5035e66f8532e06ea83f",
+    "inputs/bank_support80/cases.jsonl": "f65f179d11c5ead7a770f271d694aa8065ab5859893db400a4dfbea8ee3ed29b",
+    "inputs/bank_support80/predictions.jsonl": "8be55f8cdc1a3d37cd8815ef6e2fee85993d40fb5ea4c2c3567ad12018875d10",
+    "inputs/bank_support80/design_summary.json": "85792f4099403c28ff482b3931a68c7115d5ca95e4f00a83e3c42c8cc642a1ea",
+    "inputs/bank_support80/metadata.jsonl": "ad5771986f85c1764fa8eeab70aed121f48c347d48ad9422415df59ec46cf478",
+    "inputs/bank_support80/policy.json": "2c13a461c9a5393174c2c37638c7a7fc12551de4923b0069f556be33cb9641b3",
+    "inputs/original_text180/requests.jsonl": "1d02198e4940cfd8b4b4b1cb0eb55077e48b0f95129217bd787a972d38b44b84",
+    "inputs/original_text180/gold.jsonl": "5199127584106e9f585695a05aa162e29a40afa546c5438d992c481cf92d0d95",
+    "inputs/original_text180/cases.jsonl": "6907780080b820d7d8a1b48d70b76ff1975d542acb2c7f71b61753727de52b63",
+    "inputs/original_text180/pairs.jsonl": "613718e2f989ecccf81b391475db6bee0608ce75186391457d7bd4f9442f6250",
+    "inputs/original_text180/predictions.jsonl": "2ba1c7df48957da6bf863c32f5adc8e490aab74e9020517d45a01ac2b49a0229",
+    "inputs/original_text180/policies.json": "44dbfe0a6072eaa3bc05231a2a7e0ccd042746ba68dc7a7e459b5633e9de4728",
+    "inputs/original_text180/diagnostic_cases.jsonl": "18e7b4d6818849976c136b2a54dbd8e4bb226961f998b283ed46130a19faa2ad",
+    "inputs/original_text180/design_summary.json": "1ff54a2dee09f1063296d33e100ab4c2eca105e21445f5f5c8117e47bc581010",
+    "inputs/finance100/requests.jsonl": "543b90344f7c67e6b94d35bca548d4c0235d2879daee9ff46205f585fe45fedb",
+    "inputs/finance100/gold.jsonl": "240340f7df83b54bd9d41e8efec344dbde4c243fa4d9d1723f1fa272bffcf89d",
+    "inputs/finance100/cases.jsonl": "5ff3c198cc30f3b19d83ca65545bcf71f4cad48f84f098c2c96b0cf5c5c06497",
+    "inputs/finance100/pairs.jsonl": "548f85152b0f3314883b08f9af53d8adee67c89fee0e41954e98ad652e48ecb4",
+    "inputs/finance100/predictions.jsonl": "0dba4e020d22ed770279a406f67e19e465eb12affc8f838fde165e1cc458d627",
+    "inputs/finance100/policies.json": "7effaeec2ab4c0aaf6dd544b89c2b4316ba9484fff51a043d79b95195c2befbc",
+    "inputs/finance100/diagnostic_cases.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "inputs/finance100/design_summary.json": "4d20f47023be0a7aebec2e0acc0f44f84b78635d2c931f02d935f3028693f1a3",
+    "inputs/insurance60/requests.jsonl": "03066c91f05878efcb7f3c358e91e0cfa9087091b205728c2788e61b0b8e1eba",
+    "inputs/insurance60/gold.jsonl": "de8cdf9797f057c7604c0ad41aeb3bc339aed19d9c5a88b20048570ca230913d",
+    "inputs/insurance60/predictions.jsonl": "45f226339495118db39f7be48ba903158ee1d04f2698c5a1e2d6245f0f554930",
+    "inputs/insurance60/benchmark.json": "8a0b1a6c4227b90b20c92de012c5d02a037e4ae4a79dac614b150345ed45c1bc",
+    "inputs/clean72/requests.jsonl": "3e94e7c8dcda74f58a5402cfe361591da6ee10f818175ec791a3d79856195d84",
+    "inputs/clean72/gold.jsonl": "c7e4389e90c50eb688e7b7c9a1fee48a11e041d68a043be794e54bfdaef51369",
+    "inputs/clean72/cases.jsonl": "47e8239762c69d602adfecd306a00503a9f06bacab5ee451f0d420bc18c2a231",
+    "inputs/clean72/predictions.jsonl": "240063f1480ff1a2f69e72f03c9d7a2b04fb337c924ebb6b2941610b4402dc1a",
+    "inputs/clean72/policies.json": "36e7f1aa2f23928ebbfc39d51267143c858c6f04536f27e6113efbd9e49ef41e",
+    "inputs/clean72/design_summary.json": "83ba3349a5fb15d7faf7e52dcbc60b4ece240e3e394ff127971769b66a08f89c",
+    "inputs/attack_ablation14/requests.jsonl": "295710d90546d9a0aa5fa4dd465a62cb7e285deba8fa5ab5b8ec4f3dd45f04d7",
+    "inputs/attack_ablation14/gold.jsonl": "4a5528ebb993e3ea935576c14124a5a1795e9da71e3fa54f3dda026f77e3dc8e",
+    "inputs/attack_ablation14/cases.jsonl": "18f014c62653768478e236a7c4608613350c89f7527ec7bb5555a2a2667c2930",
+    "inputs/attack_ablation14/pairs.jsonl": "f7ef32713dcf4f110a600dacb46ab7cfda33e18740649b2448ce6c93df5c7831",
+    "inputs/attack_ablation14/predictions.jsonl": "3a386120b9d7c4bcccd934ae962328fd12084f4d128d41de9ae45af8bdf0ba7c",
+    "inputs/attack_ablation14/policies.json": "7effaeec2ab4c0aaf6dd544b89c2b4316ba9484fff51a043d79b95195c2befbc",
+    "inputs/multidoc48/requests.jsonl": "7df0df7b0737ea847b0f8d5c3a844b95a42700e08f0178a981975e1c57cc2906",
+    "inputs/multidoc48/gold.jsonl": "941800f8561510a8b92d2a8764bc1d0de607d2e7c5960a301295ded4e821895e",
+    "inputs/multidoc48/cases.jsonl": "a4f013943cd7a0945e0fcc1aaea9b28d5bf625b4869c049e59fb0dc182028ed5",
+    "inputs/multidoc48/predictions.jsonl": "b3882af5059d597e7f2928d9881247deee81f470a9a15fe3bc6d3cdab624522c",
+    "inputs/multidoc48/design_summary.json": "fcf7ae94f4a5fce42f48df6c559c53662ebfe71b140f7839d670ae443595261a",
+    "inputs/multidoc48/metadata.jsonl": "7d76b53ea049f3b828db65ea6f192834e2a0a7ac9680f538e4d593b7ace332fe",
+    "inputs/massive300/requests.jsonl": "c14bcea988fbb8f2191fc4f6d1e5469d8053316fc22abe6050542ce621d7aee5",
+    "inputs/massive300/gold.jsonl": "94b9fa07c59abb3dec728e5c6a969729f455669c6a0e2495115a2e655f56b2e3",
+    "inputs/massive300/schema.json": "a9215f128fd21f8ebdaba0db573be9174c3f1d1416b655313983e4e91da9f7d5",
+    "inputs/massive300/source_gold.jsonl": "52fd4d3934fcdd5aa70d46a44608283fa0462857cc0ac2c7fe354c7100f61e17",
+    "inputs/massive300/design_summary.json": "e4404a6d2a2b2b419c513384798f4450f12901c779281c22c1c055ee9bfa5943",
+    "inputs/massive300/labels.json": "7ca1431a2947ab73131e444efd16fa4ebb15d690c4387b95843eaa21f168ef84",
+    "inputs/massive300/SOURCES.md": "3538f79ff16a942c399bdcf0956134a3ddd75e1d6fd71b271a3636421d799cdc",
+    "baseline_provenance.json": "25321a1ea35c490f97b9298a77576b8c86198d2a1c30d33bbc002c34fb558492"
+  },
+  "base_public_commit": "74b9c52cf7fb2f09f3dc19caf448b6a4a40be9ba",
+  "base_public_commit_url": "https://github.com/storminator89/clef-benchmark/commit/74b9c52cf7fb2f09f3dc19caf448b6a4a40be9ba",
+  "publication_scope": {
+    "status": "prepared_not_executed",
+    "scientific_inputs_and_native_predictions_changed": false,
+    "public_scope": "Frozen public task content, gold, archived native Clef results, compact model/profile provenance, offline tooling and inactive workflow template.",
+    "excluded_scope": "Operational diagnostics and redundant development inventories.",
+    "integration_base_commit": "ae751e09ef383d0fca7126d35f19fc8670b80b08"
+  }
+}

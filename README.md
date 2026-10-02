@@ -6,7 +6,7 @@
 
 Eine lokale Workbench für **Cloudflare Clef**: deutsche Benchmarks, transparente Fehleranalyse und private Texttests mit dem **nativen Decision Head**.
 
-**Flash 9B als Standard · Sechs Textsuiten plus Paardiagnostik · Separate Scoreanalyse · Apache-2.0**
+**Flash 9B als Standard · Sieben Textsuiten plus Paardiagnostik · Separate Scoreanalyse · Apache-2.0**
 
 [CI und Prüfverlauf](https://github.com/storminator89/clef-benchmark/actions/workflows/check.yml) · [Echter CPU-Smoke](qa/setup_custom_smoke.json) · [Lizenz](LICENSE)
 
@@ -24,9 +24,23 @@ Clef Lab macht aus Modellantworten prüfbare Ergebnisse: Originaltext, Aufgabenr
 
 **English:** [Executive summary and project profile](docs/PROJECT_BRIEF.md#english) · [Evaluation methodology and evidence](docs/EVALUATION_GUIDE.md)
 
-## Neu: Minimalpaare und hohe Scores getrennt prüfen
+## Neu: mehrere Dokumente, eine Entscheidung
 
-Was passiert, wenn sich genau ein Textdetail ändert? **24 Minimalpaare mit 48 deutschen Fällen** ergänzen die sechs bestehenden Textsuiten als eigene Paardiagnostik. Die separate Wahrscheinlichkeitsanalyse wertet bereits gespeicherte Ergebnisse aus. In der Workbench öffnen **„Minimalpaare“ (`#pairs`)** und **„Score-Zuverlässigkeit“ (`#reliability`)** die beiden eigenen Ansichten.
+Die siebte Textsuite prüft **48 Fälle mit drei vollständigen fiktiven Regeln**. Das Modell findet die richtige Quelle in **42/48 Fällen**, aber entscheidet nur **24/48 Fälle vollständig richtig**. Eine passende Quelle genügt nicht für eine richtige Entscheidung.
+
+- **8/12** notwendige Klärungen übergangen; **8/36** beantwortbare Fälle unnötig offengelassen
+- **15/48** inhaltlich widersprüchliche Feldpaare, unverändert dokumentiert
+- Bei unklarer Quelle kann eine konkrete Antwort richtig sein, wenn alle möglichen Quellen zum selben Ergebnis führen: **6/9** solcher Kontrollfälle vollständig richtig
+
+Die Workbench zeigt Vorrangregel, alle Dokumente, Fakten, Soll und native Antwort nebeneinander. Zwölf Familien und 16 wiederverwendete Vorlagen begrenzen die Aussagekraft; kein Test echter Verträge oder Nachweis allgemeiner Reihenfolgerobustheit.
+
+[Multidokument-Bericht](experiments/multidoc48/REPORT.md) · [Alle 24 Fehlerfälle](experiments/multidoc48/ERRORS.md) · [Bedienung und Methodik](docs/MULTIDOC_UI_DATA.md)
+
+**Jev-Vergleich vorbereitet:** Ein inaktives Paket enthält 974 eingefrorene Textanfragen, Offline-Tests und einen begrenzten API-Runner. Es gibt noch keine Jev-Messung. Der Live-Lauf benötigt eine gesonderte Aktivierung und Freigabe; die endgültige MASSIVE-Clef-Baseline steht im Paket noch aus. [Vorbereitung und Voraussetzungen](docs/JEV_PREPARATION.md)
+
+## Minimalpaare und hohe Scores getrennt prüfen
+
+Was passiert, wenn sich genau ein Textdetail ändert? **24 Minimalpaare mit 48 deutschen Fällen** ergänzten die damals sechs bestehenden Textsuiten als eigene Paardiagnostik. Die separate Wahrscheinlichkeitsanalyse wertet bereits gespeicherte Ergebnisse aus. In der Workbench öffnen **„Minimalpaare“ (`#pairs`)** und **„Score-Zuverlässigkeit“ (`#reliability`)** die beiden eigenen Ansichten.
 
 - **39/48 Fälle** und **17/24 Paare** vollständig richtig. Alle zwölf gewünschten Ergebniswechsel lösen eine Änderung aus, aber nur **8/12** sind an beiden Endpunkten richtig
 - **11/12** Paare mit unverändertem Soll-Ergebnis bleiben stabil; darunter sind **zwei stabil falsche Paare**. Nur **9/12** sind auf beiden Seiten richtig; **1/12** ändert sich unbegründet
@@ -36,7 +50,9 @@ Die Scoreanalyse ist **post-hoc und deskriptiv**, ohne neue Inferenz, Kalibrieru
 
 [Befunde, Nenner und nächste Schritte auf Deutsch und Englisch](docs/PAIRS_RELIABILITY.md) · [Paarbericht](experiments/minimal_pairs/REPORT.md) · [Scorebericht](experiments/probability_reliability/REPORT_DE.md)
 
-## Neue Diagnostik: echte Browseraufnahmen
+## Versionierte Browseraufnahmen
+
+Die folgenden Galerien zeigen ihre jeweils angegebenen Quellstände. Die spätere, textlich gestraffte Oberfläche und die Multidokument-Suite sind darin noch nicht enthalten.
 
 Diese Ansichten wurden mit aktivierter Chrome-Sandbox tatsächlich geöffnet und geprüft. Es sind gespeicherte native Modellantworten, keine neue oder simulierte Inferenz.
 
@@ -159,7 +175,7 @@ Ein Agent benötigt Zugriff auf den gewünschten Rechner und deine Freigabe für
 
 | Bereich | Was du bekommst |
 |---|---|
-| **Ergebnisse erkunden** | Sechs getrennte Textsuiten, eigene Nenner, Suche, Fehlerfilter, Fall-Deep-Links und passende Sprachkontrollen |
+| **Ergebnisse erkunden** | Sieben getrennte Textsuiten, eigene Nenner, Suche, Fehlerfilter, Fall-Deep-Links und passende Sprachkontrollen |
 | **Minimalpaare vergleichen** | Eigene Paardiagnostik mit 24 dokumentierten Änderungen, beiden Endpunkten, korrekten Übergängen und stabil falschen Antworten |
 | **Score-Zuverlässigkeit untersuchen** | Eigene post-hoc Ansicht für getrennte Feldgruppen, feste Schwellen und transparente Fehlerbelege; Ganzfall-Heuristiken im separaten Bericht |
 | **Dokumente verstehen** | Fallbibliothek, Klauselleser und Antwortprüfung auf dem Desktop; getrennte Bereiche auf schmalen Displays |
@@ -172,7 +188,7 @@ Helles/dunkles Design, Tastaturbedienung, sichtbare Editoränderungen und mobile
 
 **Gespeicherte Antwort ≠ neue Inferenz:** Replay zeigt ausschließlich die unveränderte Antwort eines tatsächlichen Benchmark-Laufs. Eine Änderung an Text oder Schema deaktiviert Replay. Ohne aktives lokales Modell werden keine Antworten simuliert. „Status aktualisieren“ prüft nur das Backend und startet weder Download noch Inferenz.
 
-[Architektur und Bedienung](docs/UI_WORKBENCH.md) · [Live-API](docs/LIVE_API.md) · [Versicherungsdaten in der UI](docs/INSURANCE_UI_DATA.md) · [Bankdaten in der UI](docs/BANK_SUPPORT_UI_DATA.md) · [Rückfragen in der UI](docs/CLARIFICATION_UI_DATA.md)
+[Architektur und Bedienung](docs/UI_WORKBENCH.md) · [Live-API](docs/LIVE_API.md) · [Versicherungsdaten in der UI](docs/INSURANCE_UI_DATA.md) · [Bankdaten in der UI](docs/BANK_SUPPORT_UI_DATA.md) · [Rückfragen in der UI](docs/CLARIFICATION_UI_DATA.md) · [Mehrere Dokumente](docs/MULTIDOC_UI_DATA.md)
 
 ## Ergebnisse
 
@@ -180,6 +196,7 @@ Alle folgenden Werte stammen aus abgeschlossenen **Flash-9B-/CPU-NF4-Läufen**. 
 
 | Textsuite | Eigenständige Szenarien | Hauptmaß | Wichtigste Einordnung |
 |---|---:|---:|---|
+| **Mehrere Dokumente** | 48 | **24/48 · 50,0 %** beide Felder richtig | Quelle 42/48 richtig; 8/12 nötige Klärungen verpasst |
 | **Rückfragen statt Raten** | 72 | **64/72 · 88,9 %** beide Felder richtig | 4/36 nötige Rückfragen verpasst; drei inkonsistente Feldpaare |
 | **Bank-Kundensupport** | 80 | **68/80 · 85,0 %** alle drei Felder richtig | Anliegen, Priorität und nächster Schritt; nur 8/10 kritische Fälle vollständig richtig |
 | **Versicherungsdokumente** | 60 | **50/60 · 83,3 %** beide Felder richtig | Entscheidung und Evidenz; fünf korrelierte Fälle je Dokument |
@@ -479,19 +496,28 @@ node --test tests/test_web.mjs
 npm ci --ignore-scripts --no-audit --no-fund
 npm test
 
-# Vier getrennte Integritätsgates
+# Getrennte Integritätsgates
 python3 scripts/check_project.py
 python3 scripts/check_followups.py
 python3 scripts/check_bank_support.py
 python3 scripts/check_clarification.py
+python3 scripts/check_paired_reliability.py
+python3 scripts/check_multidoc.py
+python3 scripts/check_jev.py
 
-# Alle sechs Ergebnisdatensätze rekonstruieren
+# Sieben Ergebnisdatensätze und zwei Diagnoseansichten rekonstruieren
 python3 scripts/build_web_data.py --suite general
 python3 scripts/build_web_data.py --suite finance
 python3 scripts/build_clean_web_data.py
 python3 scripts/build_insurance_web_data.py
 python3 scripts/build_bank_web_data.py
 python3 scripts/build_clarification_web_data.py
+python3 scripts/build_minimal_pairs_web_data.py
+python3 scripts/build_reliability_web_data.py
+python3 scripts/build_multidoc_web_data.py
+
+# Ausschließlich Offline-Mocks des inaktiven Jev-Runners
+PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s experiments/jev_comparison/tests -v
 
 # Nur im sauberen Export ohne node_modules/ oder lokale Caches
 python3 scripts/audit_public.py
@@ -541,7 +567,7 @@ Die sinnvolle Richtung ist mehr belastbare Evidenz. Diese Punkte sind **offene V
 
 - [x] Echte Desktop-/Mobile-Browserprüfung und eine ausschließlich daraus erzeugte, visuell geprüfte Galerie
 - [x] Separate Minimalpaardiagnostik und deskriptive Scoreanalyse mit vollständigen Fehlern abschließen
-- [ ] Neue Paar- und Scoreansichten in einem eigenen versionierten echten Browserlauf prüfen
+- [x] Paar- und Scoreansichten in einem eigenen versionierten echten Browserlauf prüfen
 - [ ] Paarfamilien und Review-Regeln auf fachgeprüften, unangetasteten Daten testen; Scoregrenzen mit Abdeckung und Fehlerkosten validieren
 - [ ] Frische Installation mit dem neuen Setup auf einem dokumentierten Zielrechner vollständig ausführen
 - [ ] CPU-BF16, AMD-ROCm und 27B jeweils gesondert auf Hardware validieren; Qualität, Speicherbedarf und Zeiten getrennt messen
@@ -551,5 +577,7 @@ Die sinnvolle Richtung ist mehr belastbare Evidenz. Diese Punkte sind **offene V
 ## Lizenz und Attribution
 
 Eigener Code und synthetische Daten: **Apache-2.0**, siehe [LICENSE](LICENSE). Unveränderter Cloudflare-Code und Modell haben eigene Upstream-Attribution in [NOTICE](NOTICE) und [licenses/](licenses/). Modellgewichte werden nicht mitgeliefert.
+
+Die im inaktiven Jev-Paket enthaltenen **MASSIVE de-DE Testanfragen** stammen aus Amazons öffentlichem Datensatz und stehen unter **CC-BY-4.0**; [Quellen und Auswahl](experiments/jev_comparison/inputs/massive300/SOURCES.md), [Attribution](experiments/jev_comparison/NOTICE) und [Lizenz](experiments/jev_comparison/licenses/MASSIVE-CC-BY-4.0.txt) bleiben beigefügt. Sie sind keine eigenen synthetischen Testtexte.
 
 **Unabhängiges Projekt, ohne Zugehörigkeit zu oder Bestätigung durch Cloudflare.**

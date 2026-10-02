@@ -1,0 +1,12 @@
+{
+  "multidoc48": {
+    "scientific_freeze_verified": true,
+    "frozen_files_checked": 61
+  },
+  "massive300": {
+    "scientific_freeze_verified": true,
+    "frozen_files_checked": 56,
+    "baseline": "pending_owner_final_audit"
+  },
+  "scope": "Offline source verification before snapshot preparation. All retained request and gold bytes remain independently pinned."
+}

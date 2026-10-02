@@ -1,0 +1,8 @@
+{
+  "manifest.json": "c41b9b4308c692b64dc85c05d279c62faf74f7d24034a1e4ffaf651ec27d2386",
+  "scripts/check_bundle.py": "b3ce3439c760aead86d63ccc5a7cd2e84d0f64272bc00489e82128166ac4fe6e",
+  "scripts/compare.py": "3e21452db8674fcd3a33d39f81be42788586eb87b9311b392740f1f1c0eea2a7",
+  "scripts/jev_runner.py": "0cbd708b644944da642c645b09b2820266259e8233c1b73de2278d27fe56f733",
+  "scripts/prepare_snapshot.py": "3c57785c15c8e007b06363df1e3722bb9f088af723c1dc70b864f92764f899f5",
+  "tests/test_comparison.py": "204e2923e9328ef6d8246787459bac79a1d20f5daef8432dcbc1fd94b7c42c0f"
+}

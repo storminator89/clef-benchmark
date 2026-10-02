@@ -27,7 +27,9 @@ def protected_rows(root=ROOT):
     prefixes = ('benchmark', 'finance_benchmark', 'experiments', 'results', 'runtime',
                 'schemas', 'examples', 'licenses', 'web/data')
     additions = ('experiments/minimal_pairs/', 'experiments/probability_reliability/',
-                 'web/data/minimal_pairs.json', 'web/data/reliability.json')
+                 'web/data/minimal_pairs.json', 'web/data/reliability.json',
+                 # New independently gated stage only; the original 388-file digest is unchanged.
+                 'experiments/multidoc48/', 'experiments/jev_comparison/', 'web/data/multidoc.json')
     for prefix in prefixes:
         for path in (root / prefix).rglob('*'):
             name = path.relative_to(root).as_posix()

@@ -1,0 +1,209 @@
+{
+  "review_type": "independent AI review; exhaustive visible-state semantic audit; no human-expert validation",
+  "model_free": true,
+  "model_loaded": false,
+  "inference_performed": false,
+  "previous_benchmark_predictions_read": false,
+  "completed_at_utc": "2026-10-02T15:50:25.571965+00:00",
+  "input_sha256": {
+    "data/cases.jsonl": "879e6f79702b2ee81489d0909ef59fce417a9a4f0a1540dba7172b2326df9f4d",
+    "data/design_summary.json": "4a206685502c74b4effa367aac1b482e2517161c09096bea1b59c243b5124f8b",
+    "data/gold.jsonl": "fd5f0b38fd6480993790d392070b95694a8fd7efe94d69df0aea410d65d7ee89",
+    "data/metadata.jsonl": "0864aa059fa37cb69d2b896595e24253aa7086b48c364d8f1a222bb2c2cbb1a8",
+    "data/policy.json": "ceed56fb3dd95580ea923a5289e14e1236d50f375d754f7103bde5bff467bcab",
+    "data/requests.jsonl": "bb8fd0507c1b2ddf13ca5fe1a3ff2cdda1f35ace89d7dcf1b82f3bda1aab1e22",
+    "scripts/build_dataset.py": "6c39b9506a7e08c1454885c7310e5c7e5e8d5673d0b016c1ef7e3efbd354f65b"
+  },
+  "case_count": 48,
+  "document_count": 114,
+  "semantic_pass_count": 48,
+  "semantic_blockers": [],
+  "case_gold_request_metadata_consistency": "pass, 48/48",
+  "request_label_leakage": "No expected/rationale/document outcome/metadata keys enter request payload; row id is outside the payload. Visible Ja/Nein rule language is task evidence, not gold leakage. Static runner inspection confirms outer ids are not encoded.",
+  "source_label_counts": {
+    "D2": 9,
+    "not_unique": 21,
+    "D3": 9,
+    "D1": 9
+  },
+  "determination_counts": {
+    "yes": 18,
+    "unresolved": 12,
+    "no": 18
+  },
+  "joint_label_counts": {
+    "D2|yes": 6,
+    "not_unique|unresolved": 12,
+    "D3|no": 9,
+    "D1|yes": 6,
+    "not_unique|yes": 6,
+    "not_unique|no": 3,
+    "D2|no": 3,
+    "D1|no": 3
+  },
+  "unique_source_count": 27,
+  "nonunique_source_count": 21,
+  "material_clarification_denominator": 12,
+  "definite_answer_denominator": 36,
+  "source_uncertain_definite_denominator": 9,
+  "domains": {
+    "banking": 16,
+    "insurance": 16,
+    "finance": 16
+  },
+  "strata": {
+    "effective_date": 12,
+    "authority": 12,
+    "unresolved": 12,
+    "scope": 12
+  },
+  "families": {
+    "banking_effective_date": 4,
+    "insurance_effective_date": 4,
+    "banking_authority": 4,
+    "finance_authority": 4,
+    "finance_unresolved": 4,
+    "banking_unresolved": 4,
+    "finance_scope": 4,
+    "insurance_authority": 4,
+    "insurance_unresolved": 4,
+    "banking_scope": 4,
+    "insurance_scope": 4,
+    "finance_effective_date": 4
+  },
+  "source_position_counts_unique_only": {
+    "1": 11,
+    "3": 5,
+    "2": 11
+  },
+  "unique_source_position_by_document_count": {
+    "2": {
+      "1": 9,
+      "2": 6
+    },
+    "3": {
+      "3": 5,
+      "2": 5,
+      "1": 2
+    }
+  },
+  "semantic_archetype_count": 16,
+  "semantic_archetype_groups": [
+    [
+      "MD005",
+      "MD021",
+      "MD037"
+    ],
+    [
+      "MD007",
+      "MD023",
+      "MD039"
+    ],
+    [
+      "MD003",
+      "MD019",
+      "MD035"
+    ],
+    [
+      "MD004",
+      "MD020",
+      "MD036"
+    ],
+    [
+      "MD006",
+      "MD022",
+      "MD038"
+    ],
+    [
+      "MD016",
+      "MD032",
+      "MD048"
+    ],
+    [
+      "MD015",
+      "MD031",
+      "MD047"
+    ],
+    [
+      "MD012",
+      "MD028",
+      "MD044"
+    ],
+    [
+      "MD001",
+      "MD017",
+      "MD033"
+    ],
+    [
+      "MD002",
+      "MD018",
+      "MD034"
+    ],
+    [
+      "MD008",
+      "MD024",
+      "MD040"
+    ],
+    [
+      "MD014",
+      "MD030",
+      "MD046"
+    ],
+    [
+      "MD010",
+      "MD026",
+      "MD042"
+    ],
+    [
+      "MD009",
+      "MD025",
+      "MD041"
+    ],
+    [
+      "MD011",
+      "MD027",
+      "MD043"
+    ],
+    [
+      "MD013",
+      "MD029",
+      "MD045"
+    ]
+  ],
+  "paired_order_intervention": false,
+  "iid_claim_supported": false,
+  "all_27_unique_source_labels_are_subtype_fixed_across_domains": true,
+  "D3_unique_source_is_always_no": true,
+  "pre_freeze_reporting_corrections": [
+    {
+      "id": "R1",
+      "priority": "required",
+      "finding": "48 independently written cases is inaccurate: source code applies one list of 16 templates to three domain vocabularies. These are 48 template-generated instances in 12 descriptive domain×stratum families, with stronger cross-domain archetype dependence.",
+      "recommendation": "Use 48 AI-authored template-generated instances from 16 archetypes; do not call the rows independent observations or claim domain transfer from these lexical variants."
+    },
+    {
+      "id": "R2",
+      "priority": "required",
+      "finding": "Comments claiming exact balance/counterbalance of winner positions are false. Two-document unique cases: position 1=9, 2=6. Three-document unique cases: 1=2, 2=5, 3=5. Overall 1=11, 2=11, 3=5. No explicit position-counterbalance logic follows the random shuffle.",
+      "recommendation": "Replace claims with deterministic shuffled document order and report exact position counts. Never claim order robustness without a paired order intervention."
+    },
+    {
+      "id": "R3",
+      "priority": "design_limitation_or_pre_run_change",
+      "finding": "Unique source ID repeats by subtype in each domain. D3 is the correct source in nine cases, all no; D1 and D2 are each yes six/no three. Titles, thresholds and answers are also repeated across archetypes.",
+      "recommendation": "Either pre-run correct the source-ID schedule to break this avoidable association and re-review/refreeze, or retain the dataset with explicit shortcut/confounding caveats. No model-dependent adjustment is permitted."
+    },
+    {
+      "id": "R4",
+      "priority": "reporting",
+      "finding": "This corpus has 16 shared semantic archetypes, and the 12 domain×stratum families are not independent clusters because archetypes cross domains.",
+      "recommendation": "Report exact descriptive counts and family slices only; no IID confidence interval, statistical significance, robustness, or broad domain generalization claim."
+    }
+  ],
+  "minor_notes": [
+    "The design_summary key unique_source_labels includes not_unique and should be renamed source_label_counts for clarity.",
+    "Absent D labels remain schema-valid choices in two-document cases and must count as wrong source choices, not malformed outputs.",
+    "Nonapplicable banking/finance distractors retain target-amount terminology under a different scope. They are clearly excluded, so this is artificiality rather than a gold ambiguity.",
+    "The stratum named unresolved contains six definite-answer controls; compute clarification metrics from gold determination, never from stratum names."
+  ]
+}

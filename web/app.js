@@ -17,6 +17,7 @@ import {
   requestFingerprint,
   suiteStats,
   bankPriorityCounts,
+  multidocEvents,
   evidenceIDs,
   documentForCase,
   InferenceSession,
@@ -32,6 +33,7 @@ const SUITES = {
   finance: { file: "finance", label: "Finanzen & Makler" },
   clean72: { file: "clean72", label: "Alltagsnah ohne Manipulation" },
   "bank-support": { file: "bank-support", label: "Bank-Kundensupport" },
+  multidoc: { file: "multidoc", label: "Mehrere Dokumente" },
   clarification: { file: "clarification", label: "Rückfragen statt Raten" },
 };
 const EMPTY_SCHEMA = {
@@ -257,6 +259,7 @@ export function createWorkbench({
     $("filter-outcome").innerHTML =
       '<option value="">Alle Ergebnisse</option><option value="errors">Alle Fehler</option>' +
       fieldIDs.map((id) => `<option value="${e(id)}">${e(fieldLabel(id))} falsch</option>`).join("") +
+      (suite === "multidoc" ? '<option value="multidoc:source_right_answer_wrong">Quelle richtig, Feststellung falsch</option><option value="multidoc:missed_clarification">Nötige Klärung verpasst</option><option value="multidoc:excess_clarification">Unnötig unentschieden</option><option value="multidoc:wrong_definite_answer">Falsches Ja/Nein</option><option value="multidoc:same_answer_control">Mehrere Quellen, gleiche Antwort</option><option value="multidoc:inconsistent_visible_rules">Feldpaar widerspricht Regeln</option>' : "") +
       (suite === "clarification" ? '<option value="diagnostic:missed_required_clarifications">Erforderliche Rückfrage verpasst</option><option value="diagnostic:excess_clarifications">Unnötige Rückfrage</option><option value="diagnostic:wrong_clarification_kind">Falsche Rückfrageart</option><option value="diagnostic:inconsistent_fields">Inkonsistente Felder</option><option value="diagnostic:risky_wrong_answers">Riskante falsche Antwort</option>' : "") +
       '<option value="correct">Alles richtig</option><option value="unscored">Ohne Ergebnis</option>';
     resetFilters(false);
@@ -295,7 +298,7 @@ export function createWorkbench({
       ? rows
           .map(
             (c) =>
-              `<button class="case-item ${c.id === selected ? "selected" : ""}" data-case="${e(c.id)}" aria-pressed="${c.id === selected}" aria-label="${e(c.id)}: ${e(shortened(caseTitle(c), 110))}"><div class="case-top"><span class="case-index">${e(c.id.replace(/^de_|^german_/, ""))}</span>${chip(c)}</div><h3>${e(shortened(caseTitle(c), 120))}</h3><p>${e(shortened(c.message || c.scenario || c.input, 160))}</p><small>${e(data.suite.categories?.[c.category] || c.category)}</small></button>`,
+              `<button class="case-item ${c.id === selected ? "selected" : ""}" data-case="${e(c.id)}" aria-pressed="${c.id === selected}" aria-label="${e(c.id)}: ${e(shortened(caseTitle(c), 110))}"><div class="case-top"><span class="case-index">${e(c.id.replace(/^de_|^german_/, ""))}</span>${chip(c)}</div><h3>${e(shortened(caseTitle(c), 120))}</h3><p>${e(shortened(c.facts || c.message || c.scenario || c.input, 160))}</p><small>${e(data.suite.categories?.[c.category] || c.category)}</small></button>`,
           )
           .join("")
       : `<div class="empty-state">${icon("search")}<h3>Keine passenden Fälle</h3><p>Ändere den Suchbegriff oder setze die Filter zurück.</p></div>`;
@@ -325,7 +328,7 @@ export function createWorkbench({
       $("document-header").innerHTML = "<h2>Kein Fall ausgewählt</h2>";
       $("document-toolbar").innerHTML = "";
       $("document-content").innerHTML =
-        `<div class="empty-state">${icon("document")}<h3>Platz für einen genauen Blick</h3><p>Wähle einen Fall aus der Bibliothek.</p></div>`;
+        `<div class="empty-state">${icon("document")}<h3>Kein Fall ausgewählt</h3><p>Wähle links einen Fall.</p></div>`;
       $("document-footer").textContent = "";
       return;
     }
@@ -334,8 +337,13 @@ export function createWorkbench({
       index = rows.findIndex((r) => r.id === c.id),
       gold = evidenceIDs(c, "gold"),
       model = evidenceIDs(c, "model");
-    const isBank = suite === "bank-support", isClarification = suite === "clarification";
-    const clauses = isClarification
+    const isBank = suite === "bank-support", isClarification = suite === "clarification", isMultidoc = suite === "multidoc";
+    const clauses = isMultidoc
+      ? [{ id: "Vorrang", title: "Vorrang und Geltung", text: c.precedence },
+         ...c.documents.map(document => ({ id: document.id, title: document.title, text: c.document_texts[document.id].split("\n").slice(1).join("\n") })),
+         { id: "Fakten", title: "Bekannte Fakten", text: c.facts },
+         { id: "Frage", title: "Kundenfrage", text: c.question }]
+      : isClarification
       ? [{ id: "Regel", title: "Mitgelieferte fiktive Testregel", text: c.rule },
          { id: "Anfrage", title: "Synthetische Anfrage und Unterlagen", text: c.message },
          { id: "Frage", title: "Zu beurteilende Eigenschaft", text: c.question }]
@@ -351,11 +359,11 @@ export function createWorkbench({
       `<span class="document-icon">${icon("document")}</span><div class="document-heading-text"><h2 tabindex="-1">${e(d?.title || data.suite.categories?.[c.category] || "Originaleingabe")}</h2><p>${e(d?.id || c.id)} · ${d ? `${clauses.length} Klauseln · synthetischer Auszug` : "Originaltext · synthetischer Fall"}</p></div><div class="case-nav"><button data-direction="-1" ${index < 1 ? "disabled" : ""} aria-label="Vorheriger Fall" title="Vorheriger Fall">‹</button><button data-direction="1" ${index >= rows.length - 1 ? "disabled" : ""} aria-label="Nächster Fall" title="Nächster Fall">›</button></div>`;
     $("document-toolbar").innerHTML =
       `<div class="document-tool-row"><label>Markierung <select id="highlight-select" aria-label="Evidenzmarkierung" ${!d ? "disabled" : ""}><option value="both">Gold &amp; Modell</option><option value="gold">Nur Goldreferenz</option><option value="model">Nur Modellwahl</option><option value="none">Keine</option></select></label><div class="evidence-legend"><span><i></i>Gold</span><span><i></i>Modell</span></div></div><nav class="clause-nav" aria-label="${d ? "Klauseln" : "Absätze"}">${clauses.map((cl) => `<button data-clause="${e(cl.id)}" class="${activeClause === cl.id ? "active" : ""}" title="${e(cl.id)} im Dokument anzeigen">${e(cl.id)}</button>`).join("")}</nav>`;
-    if (isBank || isClarification) $("document-toolbar").innerHTML =
+    if (isBank || isClarification || isMultidoc) $("document-toolbar").innerHTML =
       `<nav class="clause-nav" aria-label="Originaltext und mitgelieferte Regeln">${clauses.map((cl) => `<button data-clause="${e(cl.id)}" class="${activeClause === cl.id ? "active" : ""}">${e(cl.id)}</button>`).join("")}</nav>`;
     else $("highlight-select").value = highlight;
     $("document-content").innerHTML =
-      `<article class="document-page"><div class="document-kicker"><span>${e(d?.id || c.id)}</span><span>${isClarification ? "RÜCKFRAGEN STATT RATEN · FIKTIVE REGELN" : isBank ? "FIKTIVER BANK-KUNDENSUPPORT" : d ? "FIKTIVE VERSICHERUNGSUNTERLAGEN" : "SYNTHETISCHER EINGABETEXT"}</span></div><h2 tabindex="-1">${e(d?.title || data.suite.categories?.[c.category] || "Dokument & Sachverhalt")}</h2><p class="document-deck">${isClarification ? "Regel, Anfrage und Frage gehören gemeinsam zum unveränderten Modelleingang. Die Felder werden getrennt bewertet; widersprüchliche Modellantworten bleiben sichtbar." : isBank ? "Synthetische Kundennachricht mit fiktiver Servicerichtlinie in den Feldanweisungen. Keine reale Bankvorgabe oder Kundenakte. Anliegen, Priorität und nächster Schritt werden getrennt bewertet." : d ? "Ausschließlich die hier bereitgestellten Klauseln sind maßgeblich. Keine reale Police oder Rechtsauskunft." : "Unveränderter Eingabetext des ausgewählten Benchmark-Falls. Gold und Modellantwort stehen getrennt in der Prüfung."}</p>${d ? `<div class="scenario-card"><div class="eyebrow">DER SACHVERHALT · ${e(c.id)}</div><p>${e(c.scenario)}</p></div>` : ""}${clauses
+      `<article class="document-page"><div class="document-kicker"><span>${e(d?.id || c.id)}</span><span>${isMultidoc ? "MEHRERE DOKUMENTE · FIKTIVE REGELN" : isClarification ? "RÜCKFRAGEN STATT RATEN · FIKTIVE REGELN" : isBank ? "FIKTIVER BANK-KUNDENSUPPORT" : d ? "FIKTIVE VERSICHERUNGSUNTERLAGEN" : "SYNTHETISCHER EINGABETEXT"}</span></div><h2 tabindex="-1">${e(d?.title || data.suite.categories?.[c.category] || "Dokument & Sachverhalt")}</h2><p class="document-deck">${isMultidoc ? "Drei vollständige Regeln, in Originalreihenfolge. Quelle und Feststellung werden getrennt geprüft." : isClarification ? "Fiktive Regel, Anfrage und Frage · unveränderter Modelleingang." : isBank ? "Synthetische Nachricht und fiktive Serviceregeln. Keine Kundenakte." : d ? "Ausschließlich die hier bereitgestellten Klauseln sind maßgeblich. Keine reale Police oder Rechtsauskunft." : "Unveränderter, synthetischer Eingabetext."}</p>${d ? `<div class="scenario-card"><div class="eyebrow">DER SACHVERHALT · ${e(c.id)}</div><p>${e(c.scenario)}</p></div>` : ""}${clauses
         .map((cl) => {
           const g =
               gold.includes(cl.id) && ["both", "gold"].includes(highlight),
@@ -372,7 +380,7 @@ export function createWorkbench({
         })
         .join(
           "",
-        )}<details class="document-original"><summary>${isBank ? "Exakten Nachrichtentext (state) anzeigen" : "Exakte Modelleingabe anzeigen"}</summary><pre>${e(c.input)}</pre></details>${isBank ? `<details class="document-original"><summary>Alle nativen Feldanweisungen und Auswahloptionen</summary><pre>${e(JSON.stringify(c.questions, null, 2))}</pre></details>` : ""}</article>`;
+        )}<details class="document-original"><summary>${isBank ? "Exakten Nachrichtentext (state) anzeigen" : "Exakte Modelleingabe anzeigen"}</summary><pre>${e(c.input)}</pre></details>${isBank || isMultidoc ? `<details class="document-original"><summary>Feldanweisungen &amp; Optionen</summary><pre>${e(JSON.stringify(c.questions, null, 2))}</pre></details>` : ""}</article>`;
     $("document-footer").innerHTML =
       `<span>${d ? "Markiert werden ganze, angebotene Klauseln." : "Zeilenumbrüche und Wortlaut bleiben erhalten."}</span><span>${Number.isInteger(c.input_tokens) ? `${c.input_tokens} Tokens` : "Noch keine Tokenmessung"}</span>`;
   }
@@ -389,7 +397,7 @@ export function createWorkbench({
     if (!fields.some((f) => f.id === field)) field = fields[0]?.id;
     const f = fields.find((f) => f.id === field);
     $("inspection-header").innerHTML =
-      `<div class="inspection-title"><h2>Antwortprüfung</h2>${chip(c)}</div><p>${fields.length} ${fields.length === 1 ? "Antwortfeld" : "Antwortfelder"} · ${c.result ? "gespeicherter Benchmark-Lauf" : "noch keine geprüften Resultate"}</p>`;
+      `<div class="inspection-title"><h2>Gold & Modell</h2>${chip(c)}</div><p>${fields.length} ${fields.length === 1 ? "Antwortfeld" : "Antwortfelder"} · ${c.result ? "gespeicherter Benchmark-Lauf" : "noch keine geprüften Resultate"}</p>`;
     if (suite === "clarification" && c.diagnostic_events?.includes("inconsistent_fields"))
       $("inspection-header").insertAdjacentHTML("beforeend", '<p class="notice">Inkonsistente Felder: Rückfrage mit Ja/Nein oder Antwort mit „unresolved“. Der native Output wird unverändert gezeigt.</p>');
     if (!f) {
@@ -403,7 +411,9 @@ export function createWorkbench({
       gold = evidenceIDs(c, "gold"),
       model = evidenceIDs(c, "model");
     const question =
-      suite === "clarification"
+      suite === "multidoc"
+        ? (f.id === "source" ? "Welches vollständige Dokument ist maßgeblich?" : c.question)
+        : suite === "clarification"
         ? (f.id === "action" ? "Welcher nächste Schritt ist angemessen?" : c.question)
         : f.id === "decision" && c.claim
         ? c.claim
@@ -411,7 +421,17 @@ export function createWorkbench({
           ? "Welche Klauseln tragen die Entscheidung?"
           : schema.instructions;
     $("case-detail").innerHTML =
-      `<div class="field-tabs" role="group" aria-label="Antwortfeld">${fields.map((item) => `<button data-field="${e(item.id)}" class="${item.id === field ? "active" : ""}" aria-pressed="${item.id === field}">${icon(item.id === "evidence" ? "evidence" : "check")}${e(fieldLabel(item.id))}${item.result ? `<span aria-label="${item.result.correct ? "richtig" : "falsch"}">${item.result.correct ? "✓" : "×"}</span>` : ""}</button>`).join("")}</div><div class="field-kind"><span class="eyebrow">${f.id === "decision" ? "ZU PRÜFENDE AUSSAGE" : e(fieldLabel(f.id))}</span><span class="badge">choice · ${Object.keys(schema.criteria).length} Optionen</span></div><h3 class="question-title">${e(question)}</h3><div class="answer-comparison"><div class="answer-cell"><span>GOLD · SOLLREFERENZ</span><strong>${e(choiceLabel(f.id, expected, schema.criteria))}</strong><small>${e(expected)}</small></div><div class="answer-cell ${result ? (correct ? "model-correct" : "model-wrong") : "model-pending"}"><span>CLEF · MODELLWAHL</span><strong>${result ? e(choiceLabel(f.id, pred, schema.criteria)) : "Noch unbewertet"}</strong><small>${result ? `${e(pred)} · ${correct ? "richtig" : "falsch"}` : "Kein Ergebnis simuliert"}</small></div></div><div class="probs-heading"><span>Modellwahrscheinlichkeiten</span><span>Alle ${Object.keys(schema.criteria).length} Optionen</span></div>${result ? probabilityBars(result.probabilities, { schema, field: f.id, selected: pred, gold: expected }) : '<p class="probability-note">Wahrscheinlichkeiten erscheinen erst nach einem vollständig geprüften Lauf.</p>'}<p class="probability-note">${result ? `${decimal(c.latency_ms / 1000)} s Forward · ${Number.isInteger(c.input_tokens) ? c.input_tokens + " Tokens · " : ""}` : ""}Modellwerte, keine kalibrierte Richtigkeitsgarantie.</p>${gold.length ? `<div class="evidence-block"><h3>Belegstellen im Dokument</h3><button class="evidence-link" data-evidence="gold">${icon("link")}<span><small>Goldreferenz · vorab annotiert</small>${e(gold.join(" + "))}</span><span aria-hidden="true">↗</span></button>${model.length ? `<button class="evidence-link model-evidence" data-evidence="model">${icon("link")}<span><small>Vom Modell gewählte Klauselmenge</small>${e(model.join(" + "))}</span><span aria-hidden="true">↗</span></button>` : '<p class="evidence-explanation">Modell-Evidenz noch nicht verfügbar.</p>'}<p class="evidence-explanation">Auswahl aus vorgegebenen Belegmengen. Die Markierung ist keine freie Zitatgenerierung oder Modellbegründung.</p></div>` : ""}<div class="rationale"><div class="eyebrow">GOLD-REFERENZBEGRÜNDUNG · ANNOTATION</div><p>${e(c.gold_rationale || "Für diesen Fall ist keine Referenzbegründung hinterlegt.")}</p></div><details class="field-schema"><summary>Richtlinie &amp; Antwortschema</summary><pre>${e(JSON.stringify(schema, null, 2))}</pre></details>`;
+      `<div class="field-tabs" role="group" aria-label="Antwortfeld">${fields.map((item) => `<button data-field="${e(item.id)}" class="${item.id === field ? "active" : ""}" aria-pressed="${item.id === field}">${icon(item.id === "evidence" ? "evidence" : "check")}${e(fieldLabel(item.id))}${item.result ? `<span aria-label="${item.result.correct ? "richtig" : "falsch"}">${item.result.correct ? "✓" : "×"}</span>` : ""}</button>`).join("")}</div><div class="field-kind"><span class="eyebrow">${f.id === "decision" ? "ZU PRÜFENDE AUSSAGE" : e(fieldLabel(f.id))}</span><span class="badge">choice · ${Object.keys(schema.criteria).length} Optionen</span></div><h3 class="question-title">${e(question)}</h3><div class="answer-comparison"><div class="answer-cell"><span>GOLD · SOLLREFERENZ</span><strong>${e(choiceLabel(f.id, expected, schema.criteria))}</strong><small>${e(expected)}</small></div><div class="answer-cell ${result ? (correct ? "model-correct" : "model-wrong") : "model-pending"}"><span>CLEF · MODELLWAHL</span><strong>${result ? e(choiceLabel(f.id, pred, schema.criteria)) : "Noch unbewertet"}</strong><small>${result ? `${e(pred)} · ${correct ? "richtig" : "falsch"}` : "Kein Ergebnis simuliert"}</small></div></div><div class="probs-heading"><span>Modellwahrscheinlichkeiten</span><span>Alle ${Object.keys(schema.criteria).length} Optionen</span></div>${result ? probabilityBars(result.probabilities, { schema, field: f.id, selected: pred, gold: expected }) : '<p class="probability-note">Wahrscheinlichkeiten erscheinen erst nach einem vollständig geprüften Lauf.</p>'}<p class="probability-note">${result ? `${decimal(c.latency_ms / 1000)} s Forward · ${Number.isInteger(c.input_tokens) ? c.input_tokens + " Tokens · " : ""}` : ""}Modellwerte, keine kalibrierte Richtigkeitsgarantie.</p>${gold.length ? `<div class="evidence-block"><h3>Belegstellen im Dokument</h3><button class="evidence-link" data-evidence="gold">${icon("link")}<span><small>Goldreferenz · vorab annotiert</small>${e(gold.join(" + "))}</span><span aria-hidden="true">↗</span></button>${model.length ? `<button class="evidence-link model-evidence" data-evidence="model">${icon("link")}<span><small>Vom Modell gewählte Klauselmenge</small>${e(model.join(" + "))}</span><span aria-hidden="true">↗</span></button>` : '<p class="evidence-explanation">Modell-Evidenz noch nicht verfügbar.</p>'}<p class="evidence-explanation">Auswahl aus vorgegebenen Belegmengen. Die Markierung ist keine freie Zitatgenerierung oder Modellbegründung.</p></div>` : ""}<div class="rationale"><div class="eyebrow">GOLD-BEGRÜNDUNG</div><p>${e(c.gold_rationale || "Für diesen Fall ist keine Referenzbegründung hinterlegt.")}</p></div><details class="field-schema"><summary>Richtlinie &amp; Antwortschema</summary><pre>${e(JSON.stringify(schema, null, 2))}</pre></details>`;
+    if (suite === "multidoc") renderMultidocContext(c);
+  }
+  function renderMultidocContext(c) {
+    const events = multidocEvents(c);
+    const source = c.result?.fields.source;
+    const note = c.source_uncertain_answer_definite
+      ? "Mehrere Quellen, gleiche Antwort: not_unique und yes/no ist hier zulässig."
+      : c.material_clarification ? "Die fehlende Klärung kann das Ja/Nein-Ergebnis ändern." : "Eine Quelle ist eindeutig maßgeblich.";
+    $("inspection-header").insertAdjacentHTML("beforeend", `<p class="source-summary">${e(note)}</p>${events.includes("source_right_answer_wrong") ? '<p class="notice danger compact-notice">Quelle richtig · Feststellung falsch</p>' : ""}${events.includes("inconsistent_visible_rules") ? '<p class="notice compact-notice">Feldpaar widerspricht den sichtbaren Regeln</p>' : ""}`);
+    $("case-detail").insertAdjacentHTML("beforeend", `<section class="source-reference"><h3>Mögliche Goldquellen</h3><div class="source-links">${c.plausible_source_ids.map(id => `<button class="quiet-button" data-source-document="${e(id)}" aria-label="Goldquelle ${e(id)} im Text ansehen">${icon("document")}${e(id)}</button>`).join("")}</div><p class="probability-note">${e(c.family)} · ${e(c.template_id)}</p></section>${source ? `<details class="field-schema"><summary>Native Wahrscheinlichkeiten · beide Felder</summary><p class="probability-note">Marginale Optionswerte, keine gemeinsame oder kalibrierte Richtigkeitswahrscheinlichkeit.</p><pre>${e(JSON.stringify(c.probabilities_unrounded, null, 2))}</pre></details><details class="field-schema"><summary>Native Antwort · Originalrundung</summary><pre>${e(JSON.stringify(c.native_answers, null, 2))}</pre></details>` : ""}`);
   }
   function goClause(id, kind) {
     if (kind) {
@@ -435,47 +455,56 @@ export function createWorkbench({
       isInsurance = suite === "insurance",
       isBank = suite === "bank-support",
       isClarification = suite === "clarification",
+      isMultidoc = suite === "multidoc",
       rows = s.primary,
       done = s.complete,
       summary = data.summary;
-    $("overview-title").innerHTML = isClarification
-      ? "Wann fragt Clef<br><em>erst einmal nach?</em>"
+    $("overview-title").innerHTML = isMultidoc
+      ? "Mehrere Dokumente"
+      : isClarification
+      ? "Rückfragen statt Raten"
       : isInsurance
-      ? "Was versteht Clef<br><em>im Dokument?</em>"
+      ? "Versicherungsdokumente"
       : isBank
-        ? "Was erkennt Clef<br><em>im Bank-Support?</em>"
+        ? "Bank-Kundensupport"
         : suite === "clean72"
-        ? "Was entscheidet Clef<br><em>ohne Manipulation?</em>"
+        ? "Alltag ohne Manipulation"
         : suite === "finance"
-          ? "Was entscheidet Clef<br><em>im Makleralltag?</em>"
-          : "Was entscheidet Clef<br><em>auf Deutsch?</em>";
-    $("hero-copy").textContent = isClarification
-      ? "36 Fälle brauchen eine Rückfrage, 36 sind entscheidbar. Zwei native Felder zeigen, ob Clef Unsicherheit erkennt und trotzdem beantwortbare Fragen beantwortet."
+          ? "Finanzen &amp; Makler"
+          : "Allgemeine Entscheidungen";
+    $("hero-copy").textContent = isMultidoc
+      ? "Quelle wählen. Ja, Nein oder offen entscheiden. Zwei getrennte Prüfungen."
+      : isClarification
+      ? "36 Fälle brauchen Klärung, 36 sind beantwortbar. Nächster Schritt und Feststellung getrennt prüfen."
       : isInsurance
-      ? "Eine Aussage einordnen und die passende Klauselmenge finden. Antworten und Evidenz getrennt prüfen, Fehler im Dokument nachvollziehen."
+      ? "Aussagen und Belegstellen getrennt prüfen."
       : isBank
-        ? "Typische deutschsprachige Kundenanfragen: Anliegen, Priorität und nächster Schritt nach mitgelieferten fiktiven Serviceregeln. Eigene, kleine synthetische Stichprobe ohne Manipulation."
+        ? "Anliegen, Priorität und nächster Schritt nach fiktiven Serviceregeln."
         : suite === "clean72"
-        ? "Alltagsnahe Bürofragen mit mehreren Anliegen, Dokumentabgleich, Rechenschritten und echten Informationslücken. Ein eigenständiger Test."
-        : "Explizite Regeln, feste Auswahloptionen und nachvollziehbare Resultate. Sprachkontrollen werden nur auf den passenden Szenarien verglichen.";
+        ? "Bürofragen, Dokumentabgleich und Informationslücken."
+        : "Feste Regeln und Auswahloptionen. Sprachkontrollen nur für gleiche Szenarien.";
     $("study-count").textContent = s.total;
     $("study-caption").textContent = "Synthetische deutsche Hauptfälle";
     const documents = data.documents?.length;
     $("study-details").innerHTML =
-      `<div><b>${data.cases.length}</b>Requests in dieser Suite</div><div><b>${Object.keys(data.suite.categories || {}).length}</b>Aufgabenbereiche</div>${documents ? `<div><b>${documents}</b>gemeinsam genutzte Dokumente</div>` : ""}`;
+      `${data.cases.length !== s.total ? `<div><b>${data.cases.length}</b>Requests inkl. Kontrollen</div>` : ""}<div><b>${Object.keys(data.suite.categories || {}).length}</b>Aufgabenbereiche</div>${documents ? `<div><b>${documents}</b>gemeinsam genutzte Dokumente</div>` : ""}${isMultidoc ? "<div><b>12</b>verwandte Familien · 16 Vorlagen</div>" : ""}`;
     $("result-banner").className = "notice " + (done ? "" : "neutral");
     $("result-banner").innerHTML = done
-      ? "<strong>Abgeschlossener Lauf · unabhängig gegengeprüft</strong><br>Experimentelle CPU-NF4-Konfiguration. Synthetische Auswahlaufgaben, kein Produktionstauglichkeitsnachweis."
+      ? "<strong>Geprüfter Lauf · CPU-NF4</strong><br>KI-verfasste, synthetische Auswahlaufgaben. Kein Produktionsnachweis."
       : "<strong>Testdaten verfügbar · Ergebnisse noch ausstehend</strong><br>Goldreferenzen lassen sich bereits prüfen. Bis zum vollständigen Lauf und seiner unabhängigen Verifikation werden keine Scores oder Modellantworten angezeigt.";
+    if (isMultidoc && done) {
+      $("result-banner").className = "notice danger";
+      $("result-banner").innerHTML = '<strong>Nur 24 / 48 Fälle vollständig richtig</strong><br>42 / 48 Quellen richtig, aber nur 24 / 48 Feststellungen. Eine richtige Quelle genügt nicht.<small class="benchmark-limits">KI-verfasst · experimentelle CPU-NF4 · kein Produktionsnachweis</small>';
+    }
     let stats;
-    if (isBank || isClarification) {
+    if (isBank || isClarification || isMultidoc) {
       stats = Object.entries(s.fields).map(([id, metric]) => [
         fieldLabel(id), done ? percent(metric.correct / metric.total) : "—",
         done ? `${metric.correct} / ${metric.total} Felder richtig${id === "priority" ? ` · Routine-Baseline ${percent(rows.filter((c) => c.expected.priority === "routine").length / s.total)}` : ""}` : `${metric.total} geplante Felder`, "check",
       ]);
       stats.push(["Vollständig richtig", done ? percent(s.exact / s.total) : "—",
-        done ? `${s.exact} / ${s.total} Fälle: ${isClarification ? "beide" : "alle drei"} Felder richtig` : "Alle Antwortfelder zusammen", "layers"]);
-      if (isClarification) stats.push(["Schema-Gültigkeit", done ? percent(s.valid / s.total) : "—", `${s.valid} / ${s.total} Requests gültig · Konsistenz separat`, "shield"]);
+        done ? `${s.exact} / ${s.total} Fälle: ${isClarification || isMultidoc ? "beide" : "alle drei"} Felder richtig` : "Alle Antwortfelder zusammen", "layers"]);
+      if (isClarification || isMultidoc) stats.push(["Schema-Gültigkeit", done ? percent(s.valid / s.total) : "—", done ? `${s.valid} / ${s.total} Requests gültig · Konsistenz separat` : "Gültigkeit noch nicht geprüft", "shield"]);
     } else if (isInsurance) {
       stats = [
         [
@@ -566,7 +595,9 @@ export function createWorkbench({
         return `<div class="category-row"><span>${e(label)}</span><div class="bar-track"><div class="bar-fill" style="width:${v !== null ? v * 100 : 0}%"></div></div><span class="category-value">${v !== null ? `${n}/${subset.length}` : "—"}</span></div>`;
       })
       .join("");
-    $("category-note").textContent = isClarification
+    $("category-note").textContent = isMultidoc
+      ? "Beide Felder müssen stimmen. 48 Fälle, 12 verwandte Familien, 16 gemeinsame Vorlagen. Kein gepoolter Suite-Score."
+      : isClarification
       ? "Beide Felder müssen stimmen. Je 24 Fälle aus drei Bereichen, zwölf verwandte Regelfamilien; keine unabhängige oder repräsentative Stichprobe. Kein gepoolter Gesamtscore."
       : isInsurance
       ? "Vollständig richtige Fälle: Entscheidung UND Evidenzauswahl müssen stimmen. Je fünf Fälle teilen sich ein Dokument und sind deshalb nicht unabhängig."
@@ -584,8 +615,23 @@ export function createWorkbench({
         ),
       );
     $("diagnosis-content").innerHTML = done
-      ? `<div class="diagnosis-item"><span>Fälle mit mindestens einem Fehler</span><strong>${errors.length} / ${s.total}</strong></div>${isInsurance ? `<div class="diagnosis-item"><span>Evidenz richtig, Entscheidung falsch</span><strong>${rows.filter((c) => fieldsForCase(c).find((f) => f.id === "evidence")?.result?.correct && fieldsForCase(c).find((f) => f.id === "decision")?.result?.correct === false).length}</strong></div><div class="diagnosis-item"><span>Entscheidung richtig, Evidenz falsch</span><strong>${rows.filter((c) => fieldsForCase(c).find((f) => f.id === "decision")?.result?.correct && fieldsForCase(c).find((f) => f.id === "evidence")?.result?.correct === false).length}</strong></div>` : ""}<div class="diagnosis-item"><span>Fehlerfall mit einem falschen Feld > 90 %</span><strong>${high.length}</strong></div><p>Konfidenz allein reicht nicht für eine Freigabe. Vergleiche die Modellwahl mit der Goldreferenz und dem genauen Wortlaut.</p>`
+      ? `<div class="diagnosis-item"><span>Fälle mit mindestens einem Fehler</span><strong>${errors.length} / ${s.total}</strong></div>${isInsurance ? `<div class="diagnosis-item"><span>Evidenz richtig, Entscheidung falsch</span><strong>${rows.filter((c) => fieldsForCase(c).find((f) => f.id === "evidence")?.result?.correct && fieldsForCase(c).find((f) => f.id === "decision")?.result?.correct === false).length}</strong></div><div class="diagnosis-item"><span>Entscheidung richtig, Evidenz falsch</span><strong>${rows.filter((c) => fieldsForCase(c).find((f) => f.id === "decision")?.result?.correct && fieldsForCase(c).find((f) => f.id === "evidence")?.result?.correct === false).length}</strong></div>` : ""}<div class="diagnosis-item"><span>Fehlerfall mit einem falschen Feld > 90 %</span><strong>${high.length}</strong></div><p>Hoher Score garantiert keine richtige Antwort.</p>`
       : "<p>Ein Schema kann formal gültig sein und inhaltlich danebenliegen. Der Workbench trennt Antwortqualität, Evidenzauswahl und technische Gültigkeit.</p>";
+    if (isMultidoc && done) {
+      const count = event => rows.filter(c => multidocEvents(c).includes(event)).length;
+      const diagnostic = (label, value) => `<div class="diagnosis-item"><span>${e(label)}</span><strong>${e(value)}</strong></div>`;
+      $("diagnosis-content").innerHTML =
+        diagnostic("Quelle richtig, Feststellung falsch", `${count("source_right_answer_wrong")} / ${s.total}`) +
+        diagnostic("Nötige Klärung verpasst", `${count("missed_clarification")} / 12`) +
+        diagnostic("Unnötig unentschieden", `${count("excess_clarification")} / 36`) +
+        diagnostic("Falsches Ja/Nein bei beantwortbaren Fällen", `${count("wrong_definite_answer")} / 36`) +
+        diagnostic("Mehrere Quellen, gleiche Antwort: beide Felder richtig", "6 / 9") +
+        `<details class="method-disclosure"><summary>Wie wird gezählt?</summary><p>12 Fälle brauchen Klärung, 36 sind beantwortbar. Unter 9 Fällen mit mehreren möglichen Quellen führen alle zum gleichen Ergebnis; not_unique mit yes/no ist dort zulässig.</p>${diagnostic("Feldpaar widerspricht sichtbaren Regeln", `${count("inconsistent_visible_rules")} / ${s.total}`)}<p>Konkrete Quelle mit unvereinbarem Ergebnis oder not_unique mit Ja/Nein trotz entscheidungswesentlichem Quellenkonflikt. Keine pauschale Inkonsistenzregel.</p></details>`;
+      $("category-chart").insertAdjacentHTML("beforeend", '<h3>Vorrangregeln</h3>' + Object.entries(data.suite.strata).map(([id, label]) => {
+        const group = summary.strata.stratum[id], metric = group.all_fields_exact;
+        return `<div class="category-row"><span>${e(label)}</span><div class="bar-track"><div class="bar-fill" style="width:${metric.rate * 100}%"></div></div><span class="category-value">${metric.numerator}/${group.count}</span></div>`;
+      }).join(""));
+    }
     if (isBank && done) {
       const urgency = bankPriorityCounts(rows);
       const diagnostic = (label, value) => `<div class="diagnosis-item"><span>${e(label)}</span><strong>${e(value)}</strong></div>`;
@@ -631,7 +677,9 @@ export function createWorkbench({
           `<div class="paired-row"><div><span>${e(pairLabels[p.left] || p.left)}</span><strong>${percent(p.left_accuracy_all_planned)}</strong></div><span class="paired-vs">${e(p.n_pairs_planned)} gleiche Fälle</span><div><span>${e(pairLabels[p.right] || p.right)}</span><strong>${percent(p.right_accuracy_all_planned)}</strong></div><small>${e(p.counts.both_correct)} beide richtig · ${e(p.counts.left_only_correct)} nur links · ${e(p.counts.right_only_correct)} nur rechts · ${e(p.counts.both_wrong)} beide falsch</small></div>`,
       )
       .join("");
-    $("method-scope").textContent = isClarification
+    $("method-scope").textContent = isMultidoc
+      ? "Drei vollständige fiktive Dokumente pro Fall. Vorrang, Geltung, Fakten und Frage sind explizit vorgegeben. Auswahl einer Quelle und eines Ergebnisses; keine freie Antwortgenerierung oder Kombination einzelner Klauseln."
+      : isClarification
       ? "Ein separater Test mit fiktiven Regeln: fehlende entscheidende Fakten, unklare Zielvorgänge, Konflikte, vollständiges Ja/Nein und trotz Lücke entscheidbare Fälle. Auswahl einer Rückfrageart, keine Bewertung frei formulierter deutscher Rückfragen."
       : isInsurance
       ? "Diese Suite prüft das Verständnis kurzer, fiktiver Versicherungsunterlagen: eine Aussage anhand des Sachverhalts einordnen und aus fünf angebotenen Belegmengen wählen. Keine vollständigen Policen, OCR, Recherche, freie Antwortgenerierung oder arithmetische Leistungsprüfung."
@@ -640,14 +688,18 @@ export function createWorkbench({
         : suite === "clean72"
         ? "Separater synthetischer Bürotest ohne Manipulationsanweisungen. Andere Aufgaben und Schwierigkeiten als die früheren Tests; Quotendifferenzen belegen keinen kausalen Manipulationseffekt."
         : "Synthetische, vorab definierte Auswahlaufgaben mit expliziten Regeln. Explorative Sprachkontrollen, keine repräsentative Feldstudie und keine Bewertung freier Beratung.";
-    $("method-measures").textContent = isClarification
+    $("method-measures").textContent = isMultidoc
+      ? "Quelle (D1/D2/D3/not_unique) und Feststellung (yes/no/unresolved) getrennt. Vollständig richtig nur mit beiden Feldern. not_unique und eindeutige Feststellung sind bei gleichem Ergebnis aller möglichen Quellen zulässig."
+      : isClarification
       ? "Nächster Schritt und Ja/Nein/offen-Feststellung separat; vollständig richtig nur bei beiden richtigen Feldern. 36 notwendige Rückfragen und 36 beantwortbare Fälle verhindern eine pauschale Nachfragen-Strategie. Drei inkonsistente Feldpaare bleiben unverändert sichtbar."
       : isBank
       ? "Anliegen, Priorität und nächster Schritt werden getrennt bewertet. Vollständig richtig ist ein Fall nur mit allen drei richtigen Feldern. Eine hohe Prioritätsquote allein genügt nicht: Routine-Baseline und Fehlpriorisierungen gehören dazu."
       : isInsurance
         ? "Antwort, Evidenz und vollständig richtige Fälle werden getrennt ausgewiesen. Ein richtiger Beleg ersetzt keine richtige Antwort."
         : "Antwortqualität und technische Schema-Gültigkeit werden getrennt ausgewiesen. Jede Suite und Sprachvariante behält ihren eigenen Nenner.";
-    $("method-synthetic").textContent = isClarification
+    $("method-synthetic").textContent = isMultidoc
+      ? "48 KI-verfasste und separat KI-geprüfte Fälle, 12 verwandte Familien und 16 bereichsübergreifende Vorlagen. Keine menschliche Fachvalidierung, keine unabhängige repräsentative Stichprobe. Keine gepaarte Reihenfolge-Intervention; keine Aussage zur kausalen Reihenfolge-Robustheit oder Produktionstauglichkeit."
+      : isClarification
       ? "72 KI-verfasste und separat KI-geprüfte Fälle, zwölf verwandte Regelfamilien, keine menschliche Fachvalidierung. Einfache UND-Regeln und teils ausdrücklich benannte Lücken erleichtern die Aufgabe; keine repräsentativen Kundengespräche oder Bevölkerungsgenauigkeit."
       : isBank
       ? "Die 80 Fälle sind KI-verfasst und gezielt gestaltet, keine repräsentative Stichprobe aus realem Bank-Traffic und kein BANKING77. Eine zweite KI-Prüfung ersetzt kein menschliches Annotationsteam. Die Serviceregeln sind fiktiv, keine Bank-, Finanz- oder Rechtsauskunft."
@@ -657,7 +709,7 @@ export function createWorkbench({
     $("method-reference").textContent = (isInsurance
       ? "Die Auswahl einer vorgegebenen Evidenzstelle belegt keine freie Dokumentanalyse. "
       : "Die Auswahl fester Antwortoptionen belegt keine sichere Ausführung realer Vorgänge. ") +
-      "Gold-Referenzbegründungen sind KI-verfasste und von einer zweiten KI geprüfte Annotationen, keine aus dem Modell gewonnenen Gedanken. Hohe Modellwahrscheinlichkeit ist keine kalibrierte Richtigkeitsgarantie.";
+      "Gold-Begründungen sind KI-verfasste und separat KI-geprüfte Annotationen, keine Modell-Erklärungen. Hohe Scores garantieren keine Richtigkeit.";
     $("method-scenarios").textContent =
       `${s.total} deutsche Hauptfälle · ${data.cases.length} Requests`;
     $("method-categories").textContent =
@@ -670,7 +722,7 @@ export function createWorkbench({
     $("method-dataset").textContent = `${SUITES[suite].label} · eigener Nenner`;
   }
   function emptyOutput(
-    title = "Bereit für einen neuen Blick",
+    title = "Noch kein Ergebnis",
     message = "Lade die unveränderte Benchmark-Antwort oder starte eine echte lokale Inferenz.",
     kind = "empty",
   ) {
@@ -737,7 +789,7 @@ export function createWorkbench({
     updateEditorState();
     $("output-kind").textContent = "Eingabe geändert";
     emptyOutput(
-      "Neue Eingabe. Neues Ergebnis.",
+      "Eingabe geändert",
       "Die vorherige Antwort ist ausgeblendet. Nur echte lokale Inferenz kann diese Anfrage neu beantworten.",
     );
     $("editor-message").classList.remove("error");
@@ -827,7 +879,8 @@ export function createWorkbench({
     const descriptions = {
       insurance: ["document", "Aussage und Beleg im Dokument"],
       "bank-support": ["panels", "Anliegen, Priorität und nächster Schritt"],
-      clarification: ["shield", "Nachfragen, entscheiden und Feldkonsistenz prüfen"],
+      multidoc: ["layers", "Quelle und Feststellung"],
+      clarification: ["shield", "Rückfrage und Feststellung"],
       general: ["layers", "Allgemeine Regeln und Sprachkontrollen"],
       finance: ["chart", "Finanzfragen und Maklerfälle"],
       clean72: ["shield", "Alltagstexte ohne Manipulationsanweisungen"],
@@ -964,13 +1017,13 @@ export function createWorkbench({
     highlight = "both";
     activeClause = null;
     $("suite-select").value = id;
-    $("search").placeholder = id === "bank-support" ? "Fall, Thema, Nachricht …" : "Fall, Thema, Klausel …";
+    $("search").placeholder = id === "multidoc" ? "Fall, Dokument, Regel …" : id === "bank-support" ? "Fall, Thema, Nachricht …" : "Fall, Thema, Klausel …";
     const stats = suiteStats(data);
     $("suite-description").textContent =
-      `${stats.total} deutsche Hauptfälle · ${data.cases.length} Requests · eigener Nenner`;
+      `${stats.total} Hauptfälle${data.cases.length !== stats.total ? ` · ${data.cases.length} Requests` : ""} · eigener Nenner`;
     $("workbench-source-title").textContent =
       data.status === "completed"
-        ? "Gespeicherte, echte Inferenz"
+        ? "Gespeicherter Lauf"
         : "Eingefrorene Testdaten";
     $("workbench-source-note").textContent =
       data.status === "completed"
@@ -1035,6 +1088,8 @@ export function createWorkbench({
         .querySelector(`[data-field="${field}"]`)
         ?.focus?.({ preventScroll: true });
     }
+    const sourceDocument = event.target.closest("[data-source-document]");
+    if (sourceDocument) goClause(sourceDocument.dataset.sourceDocument);
     if (ev) {
       const kind = ev.dataset.evidence,
         ids = evidenceIDs(selectedCase(), kind);
@@ -1128,6 +1183,7 @@ export function createWorkbench({
     }
   });
   async function init() {
+    $("suite-select").setAttribute("aria-busy", "true");
     const failures = [];
     await Promise.all(
       Object.entries(SUITES).map(async ([id, definition]) => {
@@ -1153,6 +1209,7 @@ export function createWorkbench({
         }
       }),
     );
+    $("suite-select").setAttribute("aria-busy", "false");
     const requested = route().params.get("suite"),
       initial = suites[requested]
         ? requested
@@ -1160,6 +1217,8 @@ export function createWorkbench({
           ? "insurance"
           : Object.keys(SUITES).find((id) => suites[id]);
     if (!initial) {
+      $("case-list").innerHTML = '<div class="empty-state"><h3>Keine Testdaten verfügbar</h3></div>';
+      $("workbench-source-title").textContent = "Testdaten nicht verfügbar";
       $("app-error").hidden = false;
       $("app-error").textContent =
         "Die Testdaten konnten nicht geladen werden. Starte python server.py im Repository und öffne die lokale Adresse. Das direkte Öffnen per file:// wird nicht unterstützt.";

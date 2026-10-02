@@ -1,0 +1,224 @@
+{
+  "status": "offline_plan_no_network_no_credential_read",
+  "endpoint": "https://api.typesafe.ai/v1/systemone",
+  "model": "jev-1.13.0",
+  "price_usd_per_million_input_tokens": "0.042",
+  "price_verified_utc": "2026-10-02",
+  "price_source": "https://docs.typesafe.ai/models",
+  "one_pass_requests": 974,
+  "question_count": 1362,
+  "utf8_json_bytes": 2400319,
+  "approx_input_tokens_range": [
+    600080,
+    1200160
+  ],
+  "approx_one_pass_usd_range": [
+    0.02520336,
+    0.05040672
+  ],
+  "estimate_caveat": "UTF-8 JSON bytes divided by 4 to 2 is an illustrative estimate, not an official tokenizer, confidence interval or billing guarantee. Structured/internal overhead can differ. Actual usage.input_tokens is logged.",
+  "max_total_attempts": 1024,
+  "max_global_retries": 50,
+  "max_retries_per_case": 1,
+  "capacity_tokens_reserved_per_attempt": 65536,
+  "reserved_usd_per_attempt": "0.002752512",
+  "all_attempts_capacity_reservation_usd": "2.818572288",
+  "proposed_max_api_usd": "3",
+  "cap_caveat": "Local attempt/reservation guard under dated published price/capacity. Not a provider-enforced account spend limit. No signup, top-up, subscription or paid CI authorized.",
+  "suites": [
+    {
+      "suite": "minimal_pairs48",
+      "requests": 48,
+      "questions": 96,
+      "utf8_json_bytes": 117331,
+      "approx_input_tokens_bytes_div_4": 29333,
+      "approx_input_tokens_bytes_div_2": 58666,
+      "estimated_usd_bytes_div_4": 0.001231986,
+      "baseline": "complete"
+    },
+    {
+      "suite": "clarification72",
+      "requests": 72,
+      "questions": 144,
+      "utf8_json_bytes": 183942,
+      "approx_input_tokens_bytes_div_4": 45986,
+      "approx_input_tokens_bytes_div_2": 91971,
+      "estimated_usd_bytes_div_4": 0.001931412,
+      "baseline": "complete"
+    },
+    {
+      "suite": "bank_support80",
+      "requests": 80,
+      "questions": 240,
+      "utf8_json_bytes": 451455,
+      "approx_input_tokens_bytes_div_4": 112864,
+      "approx_input_tokens_bytes_div_2": 225728,
+      "estimated_usd_bytes_div_4": 0.004740288,
+      "baseline": "complete"
+    },
+    {
+      "suite": "original_text180",
+      "requests": 180,
+      "questions": 180,
+      "utf8_json_bytes": 289484,
+      "approx_input_tokens_bytes_div_4": 72371,
+      "approx_input_tokens_bytes_div_2": 144742,
+      "estimated_usd_bytes_div_4": 0.003039582,
+      "baseline": "complete"
+    },
+    {
+      "suite": "finance100",
+      "requests": 100,
+      "questions": 100,
+      "utf8_json_bytes": 175422,
+      "approx_input_tokens_bytes_div_4": 43856,
+      "approx_input_tokens_bytes_div_2": 87711,
+      "estimated_usd_bytes_div_4": 0.001841952,
+      "baseline": "complete"
+    },
+    {
+      "suite": "insurance60",
+      "requests": 60,
+      "questions": 120,
+      "utf8_json_bytes": 178216,
+      "approx_input_tokens_bytes_div_4": 44554,
+      "approx_input_tokens_bytes_div_2": 89108,
+      "estimated_usd_bytes_div_4": 0.001871268,
+      "baseline": "complete"
+    },
+    {
+      "suite": "clean72",
+      "requests": 72,
+      "questions": 72,
+      "utf8_json_bytes": 169890,
+      "approx_input_tokens_bytes_div_4": 42473,
+      "approx_input_tokens_bytes_div_2": 84945,
+      "estimated_usd_bytes_div_4": 0.001783866,
+      "baseline": "complete"
+    },
+    {
+      "suite": "attack_ablation14",
+      "requests": 14,
+      "questions": 14,
+      "utf8_json_bytes": 24813,
+      "approx_input_tokens_bytes_div_4": 6204,
+      "approx_input_tokens_bytes_div_2": 12407,
+      "estimated_usd_bytes_div_4": 0.000260568,
+      "baseline": "complete"
+    },
+    {
+      "suite": "multidoc48",
+      "requests": 48,
+      "questions": 96,
+      "utf8_json_bytes": 137980,
+      "approx_input_tokens_bytes_div_4": 34495,
+      "approx_input_tokens_bytes_div_2": 68990,
+      "estimated_usd_bytes_div_4": 0.00144879,
+      "baseline": "complete"
+    },
+    {
+      "suite": "massive300",
+      "requests": 300,
+      "questions": 300,
+      "utf8_json_bytes": 671786,
+      "approx_input_tokens_bytes_div_4": 167947,
+      "approx_input_tokens_bytes_div_2": 335893,
+      "estimated_usd_bytes_div_4": 0.007053774,
+      "baseline": "pending_owner_final_audit"
+    }
+  ],
+  "exact_payload_repeats": [
+    [
+      [
+        "finance100",
+        "de_finance_finance_intent_010"
+      ],
+      [
+        "attack_ablation14",
+        "de_finance_finance_intent_010__attack"
+      ]
+    ],
+    [
+      [
+        "finance100",
+        "de_finance_insurance_intent_010"
+      ],
+      [
+        "attack_ablation14",
+        "de_finance_insurance_intent_010__attack"
+      ]
+    ],
+    [
+      [
+        "finance100",
+        "de_finance_claims_route_010"
+      ],
+      [
+        "attack_ablation14",
+        "de_finance_claims_route_010__attack"
+      ]
+    ],
+    [
+      [
+        "finance100",
+        "de_finance_synthetic_rule_check_004"
+      ],
+      [
+        "attack_ablation14",
+        "de_finance_synthetic_rule_check_004__attack"
+      ]
+    ],
+    [
+      [
+        "finance100",
+        "de_finance_broker_document_010"
+      ],
+      [
+        "attack_ablation14",
+        "de_finance_broker_document_010__attack"
+      ]
+    ],
+    [
+      [
+        "finance100",
+        "de_finance_advice_escalation_008"
+      ],
+      [
+        "attack_ablation14",
+        "de_finance_advice_escalation_008__attack"
+      ]
+    ],
+    [
+      [
+        "finance100",
+        "de_finance_broker_workflow_006"
+      ],
+      [
+        "attack_ablation14",
+        "de_finance_broker_workflow_006__attack"
+      ]
+    ]
+  ],
+  "pooled_accuracy": null,
+  "excluded": [
+    {
+      "id": "images90",
+      "count": 90,
+      "status": "not_comparable",
+      "reason": "Jev has no native image support. No OCR conversion, image forwarding or image-license assumption."
+    },
+    {
+      "id": "probability_reliability",
+      "count": 0,
+      "status": "derived_analysis_only",
+      "reason": "Reuse evaluated text probabilities; no duplicate API suite."
+    },
+    {
+      "id": "historical_pilots_smokes_private_custom",
+      "count": 0,
+      "status": "not_a_frozen_benchmark",
+      "reason": "Setup probes, superseded pilots and private user cases are outside this run."
+    }
+  ],
+  "manifest_sha256": "c41b9b4308c692b64dc85c05d279c62faf74f7d24034a1e4ffaf651ec27d2386"
+}

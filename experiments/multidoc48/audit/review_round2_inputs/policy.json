@@ -1,0 +1,21 @@
+{
+  "source": {
+    "type": "choice",
+    "instructions": "Bestimme anhand der ausdrücklich angegebenen Vorrang- und Geltungsregeln das eine maßgebliche vollständige Dokument. Kombiniere keine Klauseln aus verschiedenen Dokumenten. Die Reihenfolge, Dokument-ID und Textlänge geben keinen Vorrang. Wenn nach den bekannten Fakten mehrere Dokumente als maßgeblich möglich bleiben, wähle not_unique, auch wenn alle zum selben Ja/Nein-Ergebnis führen.",
+    "criteria": {
+      "D1": "Nur Dokument D1 ist eindeutig maßgeblich.",
+      "D2": "Nur Dokument D2 ist eindeutig maßgeblich.",
+      "D3": "Nur Dokument D3 ist eindeutig maßgeblich.",
+      "not_unique": "Das maßgebliche Dokument ist nicht eindeutig; mindestens zwei sind möglich."
+    }
+  },
+  "determination": {
+    "type": "choice",
+    "instructions": "Beurteile nur die angefragte Ja/Nein-Eigenschaft nach dem maßgeblichen vollständigen Dokument. Sind mehrere Dokumente möglich, gib yes oder no an, falls jedes mögliche Dokument sicher dasselbe Ergebnis liefert. Wähle unresolved nur, wenn die fehlende Angabe oder der ungelöste Konflikt das Ja/Nein-Ergebnis ändern kann; dann ist Klärung erforderlich. Keine echten Rechts-/Finanzregeln ergänzen.",
+    "criteria": {
+      "yes": "Die angefragte Eigenschaft ist sicher erfüllt.",
+      "no": "Die angefragte Eigenschaft ist sicher nicht erfüllt.",
+      "unresolved": "Ja und Nein bleiben möglich; die entscheidungswesentliche Unklarheit muss geklärt werden."
+    }
+  }
+}

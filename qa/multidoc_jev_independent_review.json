@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "review_date_utc": "2026-10-02",
+  "status": "passed",
+  "publication_ready_within_review_scope": true,
+  "review_scope": "Independent offline scientific-preservation, public-curation, documentation, UI-semantics, and inactive-comparison publication QA; not a formal security scan or live-model evaluation.",
+  "baseline_commit": "ae751e09ef383d0fca7126d35f19fc8670b80b08",
+  "reviewed_tree": {
+    "format_version": 2,
+    "file_count": 963,
+    "total_bytes": 53676141,
+    "aggregate_sha256": "7f991b523c5c5eea4d3c2212a689c9f9bf755050911d989e924ab00f7dc6d0b5",
+    "digest_definition": "SHA-256 of UTF-8 compact sorted-key JSON for public file entries (path, bytes, sha256), sorted by path. The two audit self-reports are excluded to avoid recursive hashing.",
+    "format_evolution": "Aggregate-only public summary replaces the redundant broad per-file inventory. Scientific freeze manifests and the Git tree retain their independent integrity proofs."
+  },
+  "scientific_preservation": {
+    "prior_scientific_files_byte_identical_to_base": 590,
+    "historical_protected_file_count": 388,
+    "historical_aggregate_sha256": "061b916d180ae5deb157c7514877923122da36479361e0f4da4bc51015a58c1e",
+    "historical_gate_change": "Only the two independently gated new experiment directories and derived multidoc dataset are admitted; the prior baseline manifest and digest are unchanged.",
+    "multidoc_public_files": 79,
+    "multidoc_frozen_files_byte_identical": 61,
+    "native_requests_gold_predictions_scores_errors_and_probabilities_unchanged": true,
+    "jev_exact_requests": 974,
+    "jev_native_questions": 1362,
+    "jev_retained_input_files_byte_identical": 67,
+    "jev_scientific_and_compact_provenance_files_verified": 68,
+    "previous_gallery_bytes_unchanged": true
+  },
+  "independent_multidoc_recomputation": {
+    "source_correct": 42,
+    "determination_correct": 24,
+    "both_fields_exact": 24,
+    "cases": 48,
+    "errors_retained": 24,
+    "same_answer_controls": 9,
+    "same_answer_controls_exact": 6,
+    "missed_clarifications": 8,
+    "required_clarifications": 12,
+    "excess_clarifications": 8,
+    "answerable_cases": 36,
+    "case_defined_inconsistent_pairs": 15,
+    "not_unique_with_definite_answer_allowed_when_plausible_sources_agree": true
+  },
+  "offline_checks": {
+    "integrity_gates_passed": 7,
+    "root_python_tests_passed": 310,
+    "jev_adapter_scorer_tests_passed": 23,
+    "javascript_dom_tests_passed": 154,
+    "multidoc_independent_synthetic_scenarios_passed": 68,
+    "primary_rescore_byte_exact": true,
+    "deterministic_exports_verified": true,
+    "additional_synthetic_jev_collector_cases": 974,
+    "synthetic_scoring_partitions": 14,
+    "synthetic_field_groups": 88,
+    "public_tree_heuristic_scan": "passed_zero_findings",
+    "no_dependency_installation_required": true
+  },
+  "curation": {
+    "scope_only_public_metadata": true,
+    "excluded_diagnostic_identities_or_hash_lineage_detected": false,
+    "compact_baseline_profile_facts_verified_against_source": true,
+    "snapshot_exporters_copy_only_reviewed_public_allowlists": true,
+    "unresolved_privacy_findings": []
+  },
+  "inactive_comparison_contract": {
+    "status": "prepared_not_executed",
+    "complete_archived_clef_baselines": 9,
+    "pending_baseline": "massive300_pending_owner_final_audit",
+    "live_results_present": false,
+    "template_outside_active_workflows": true,
+    "reviewed_code_commit_placeholder_unresolved": true,
+    "approval_inputs_default_false": true,
+    "credential_scope": "Future live step only; no credentials used or configured by this release or review",
+    "ordinary_ci_offline_only": true,
+    "fixed_first_party_https_endpoint": true,
+    "redirects_refused": true,
+    "proxy_discovery_disabled": true,
+    "initial_request_limit": 974,
+    "global_retry_limit": 50,
+    "wire_attempt_limit": 1024,
+    "per_case_retry_limit": 1,
+    "local_reservation_limit_usd": 3,
+    "reservation_not_provider_billing_guarantee": true,
+    "future_activation_requires_separate_review_and_authorization": true
+  },
+  "interpretation_review": {
+    "no_live_jev_result_claim": true,
+    "no_pooled_accuracy_or_overall_ranking": true,
+    "no_iid_population_or_causal_order_robustness_claim": true,
+    "no_calibrated_or_joint_correctness_claim": true,
+    "native_and_vendor_confidence_distinguished": true,
+    "cpu_forward_and_hosted_http_latency_boundaries_distinguished": true,
+    "ai_authorship_and_nonexpert_validation_disclosed": true,
+    "original_massive_source_document_boundary_qualified": true
+  },
+  "resolved_publication_observations": [
+    "Clarified that preserved MASSIVE source documentation describes the original full study, while this package retains the selected comparison inputs and attribution.",
+    "Generated local caches were removed before the final clean-tree scan."
+  ],
+  "not_performed": [
+    "Model loading or new inference",
+    "Live Jev requests, credential operations, workflow activation or external publication",
+    "Independent browser rendering/capture; DOM and static semantic checks were performed",
+    "Fresh verification of vendor prices, terms, account state or service behavior"
+  ],
+  "remaining_blockers": [],
+  "publication_summary": "Offline publication QA passed. The 61-file multidoc freeze and all native scientific evidence remain unchanged; independently recomputed results are 24/48 exact and 42/48 correct sources. Jev remains an inactive 974-request preparation with 23 passing adapter/scorer tests and a pending audited MASSIVE baseline. All prior scientific artifacts are preserved, public curation is scope-only, and no live-model, calibration or independent-sample conclusion is added."
+}

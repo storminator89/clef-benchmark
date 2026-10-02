@@ -1,0 +1,135 @@
+{
+  "model": "Cloudflare/clef-flash",
+  "revision": "17f0b0ad64efb65d273590632833508766b2aae6",
+  "mode": "CPU NF4 backbone, original BF16 joint head and BF16 output embeddings",
+  "quantization": {
+    "quant_method": "bitsandbytes",
+    "_load_in_8bit": false,
+    "_load_in_4bit": true,
+    "llm_int8_threshold": 6.0,
+    "llm_int8_skip_modules": [
+      "lm_head"
+    ],
+    "llm_int8_enable_fp32_cpu_offload": false,
+    "llm_int8_has_fp16_weight": false,
+    "bnb_4bit_quant_type": "nf4",
+    "bnb_4bit_use_double_quant": true,
+    "bnb_4bit_compute_dtype": "bfloat16",
+    "bnb_4bit_quant_storage": "uint8",
+    "load_in_4bit": true,
+    "load_in_8bit": false
+  },
+  "dtype": "bfloat16",
+  "device": "cpu",
+  "threads": 6,
+  "batch_size": 1,
+  "max_length": 2048,
+  "requests_sha256": "7df0df7b0737ea847b0f8d5c3a844b95a42700e08f0178a981975e1c57cc2906",
+  "source_code_sha256": "0e304cf7c6500e8bb59bef7e2afd2c6373f82596dfb3b57d1aa93c175e2dc3a3",
+  "runner_sha256": "d06f85b922e1e4d0e905a1ddc8846aedcafa93c29f502f48b1529a36a9eb5906",
+  "seed": 20261002,
+  "packages": {
+    "torch": "2.11.0+cpu",
+    "transformers": "5.10.2",
+    "bitsandbytes": "0.50.2",
+    "accelerate": "1.15.0",
+    "huggingface-hub": "1.33.0",
+    "safetensors": "0.8.0"
+  },
+  "started_at": "2026-10-02T16:09:16.783583+00:00",
+  "request_count": 48,
+  "request_order_ids": [
+    "MD027",
+    "MD016",
+    "MD042",
+    "MD047",
+    "MD031",
+    "MD009",
+    "MD037",
+    "MD002",
+    "MD013",
+    "MD022",
+    "MD020",
+    "MD011",
+    "MD024",
+    "MD025",
+    "MD017",
+    "MD007",
+    "MD021",
+    "MD004",
+    "MD014",
+    "MD046",
+    "MD023",
+    "MD044",
+    "MD028",
+    "MD034",
+    "MD039",
+    "MD043",
+    "MD040",
+    "MD026",
+    "MD018",
+    "MD045",
+    "MD030",
+    "MD015",
+    "MD005",
+    "MD008",
+    "MD038",
+    "MD029",
+    "MD033",
+    "MD048",
+    "MD012",
+    "MD010",
+    "MD019",
+    "MD036",
+    "MD041",
+    "MD035",
+    "MD006",
+    "MD001",
+    "MD032",
+    "MD003"
+  ],
+  "wrapper_prompt_language": "English (official release); user state and schema may be German",
+  "benchmark_requests_only_no_gold": true,
+  "load_seconds": 57.31906165699911,
+  "weight_memory_bytes": 7765103400,
+  "joint_head_parameter_count": 121762820,
+  "joint_head_dtypes": [
+    "torch.bfloat16"
+  ],
+  "rss_after_load_bytes": 5990772736,
+  "warmup": {
+    "answers": {
+      "decision": {
+        "type": "choice",
+        "choice": "technical",
+        "confidence": 0.9932,
+        "probabilities": {
+          "billing": 0.0068,
+          "technical": 0.9932
+        }
+      }
+    },
+    "probabilities_unrounded": {
+      "decision": {
+        "billing": 0.006797531619668007,
+        "technical": 0.9932025074958801
+      }
+    },
+    "input_tokens": 144,
+    "truncated": false,
+    "encode_seconds": 0.005111793005198706,
+    "inference_seconds": 11.92423161399347,
+    "latency_ms": 11924.23161399347,
+    "total_seconds": 11.929442455999379,
+    "rss_bytes": 6039568384
+  },
+  "repeatability_probe": {
+    "id": "MD027",
+    "repeat_max_absolute_probability_difference": 0.0,
+    "same_choice": true,
+    "single_case_only": true
+  },
+  "completed_at": "2026-10-02T16:32:48.837345+00:00",
+  "max_rss_bytes": 6338011136,
+  "status": "completed"
+}

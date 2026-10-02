@@ -1,0 +1,9 @@
+{
+  "status": "offline_preflight_passed",
+  "requests": 974,
+  "questions": 1362,
+  "code_and_manifest_sha256_verified": 6,
+  "scientific_files_sha256_verified": 68,
+  "network_calls": 0,
+  "credential_reads": 0
+}

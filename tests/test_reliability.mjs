@@ -115,11 +115,11 @@ test('view is lazy, defaults to 4/36 determination, and switches field with corr
   assert.equal(await h.view.show(), true); assert.equal(h.calls.length, 1); assert.equal(h.calls[0][0], './data/reliability.json');
   assert.equal(h.$('reliability-field').value, 'determination');
   assert.match(h.document.querySelector('[data-reliability-risk]').textContent, /11,1/);
-  assert.match(h.text(), /4 \/ 36/); assert.match(h.text(), /36 \/ 48/); assert.match(h.text(), /3 Paare/);
+  assert.match(h.text(), /4 \/ 36/); assert.match(h.text(), /36 \/ 48/); assert.match(h.text(), /3 Paaren/);
   assert.equal(h.document.querySelectorAll('[data-reliability-bin]').length, 10);
   assert.equal(h.document.querySelectorAll('[data-reliability-error]').length, 6);
   h.change('reliability-field', 'action');
-  assert.match(h.text(), /2 \/ 7/); assert.match(h.text(), /Beide Fehler gehören zum selben Paar/);
+  assert.match(h.text(), /2 \/ 7/); assert.match(h.text(), /2 ausgewählte Feldfehler aus 1 Paar/);
   assert.equal(h.document.querySelectorAll('[data-reliability-error]').length, 8);
   h.change('reliability-selected-errors', true);
   assert.equal(h.document.querySelectorAll('[data-reliability-error]').length, 2);
@@ -134,9 +134,9 @@ test('suite/group switching updates caveats and fixed threshold buttons; no stal
   h.change('reliability-field', 'legend_count');
   const blank = archived.field_groups.find(g => g.suite_id === 'images90' && g.field === 'legend_count' && g.partition.condition === 'blank');
   h.change('reliability-group', blank.group_id);
-  assert.match(h.text(), /BLANK-DIAGNOSTIK/); assert.match(h.text(), /bar_line\/vbar2/); assert.match(h.text(), /50 Quellbilder/);
+  assert.match(h.text(), /Leerbild/); assert.match(h.text(), /bar_line\/vbar2/); assert.match(h.text(), /50 Quellbilder/);
   h.change('reliability-suite', 'insurance60');
-  assert.match(h.text(), /falllokale Klauselmengen/); assert.doesNotMatch(h.document.querySelector('.reliability-caveats').textContent, /BLANK-DIAGNOSTIK/);
+  assert.match(h.text(), /falllokale Klauselmengen/); assert.doesNotMatch(h.document.querySelector('.reliability-caveats').textContent, /Leerbild/);
   h.click('[data-reliability-threshold="0.99"]'); assert.equal(h.$('reliability-threshold').value, '0.99');
   h.change('reliability-suite', 'minimal_pairs48');
   assert.equal(h.$('reliability-field').value, 'determination');
@@ -186,12 +186,43 @@ test('overlapping routes share a fetch; latest route wins and route-away cannot 
 });
 
 
-test('responsive heading preserves word spacing and horizontal table controls have explicit guidance', async () => {
+test('compact heading and horizontal table controls have explicit guidance', async () => {
   const h=harness(); await h.view.show();
-  assert.match(h.$('reliability-title').textContent,/bleibt bei hohen/);
+  assert.match(h.$('reliability-title').textContent,/^Score & Fehler$/);
   const table=h.document.querySelector('.reliability-table-wrap');
   assert.equal(table.getAttribute('tabindex'),'0');
   assert.equal(table.getAttribute('aria-describedby'),'reliability-scroll-hint');
   assert.match(h.$('reliability-scroll-hint').textContent,/seitlich scrollen/);
   assert.match(h.$('reliability-scroll-hint').textContent,/Pfeiltasten/);
+});
+
+
+test('concise labels preserve named actions, visible limits and closed method details', async () => {
+  const h=harness(); await h.view.show();
+  assert.equal(h.document.querySelectorAll('.reliability-heading br,.reliability-step,.reliability-notice,.reliability-mode').length,0);
+  assert.equal(h.document.querySelectorAll('.analysis-nav a .icon').length,2);
+  assert.equal(h.document.querySelector('#reliability-threshold-title').textContent,'Schwellen');
+  assert.equal(h.document.querySelector('#reliability-bin-title').textContent,'Score-Verteilung');
+  assert.equal(h.document.querySelector('#reliability-errors-title').textContent,'Fehler');
+  const limits=h.document.querySelector('.reliability-caveats');
+  assert.equal(limits.closest('details'),null);
+  assert.match(limits.textContent,/ohne Fachvalidierung/);
+  assert.match(limits.textContent,/weder Kalibrierung noch Sicherheit/);
+  assert.match(limits.textContent,/48 Feldantworten aus 24 abhängigen Paaren/);
+  for(const id of ['reliability-metrics','reliability-method']) assert.equal(h.$(id).hasAttribute('open'),false);
+  assert.match(h.$('reliability-method').textContent,/keine optimierte Produktionsschwelle/);
+  assert.match(h.$('reliability-metrics').textContent,/Untergrenze inklusive, Obergrenze exklusiv/);
+  for(const icon of h.document.querySelectorAll('.icon')) assert.equal(icon.getAttribute('aria-hidden'),'true');
+  h.$('reliability-method').open=true; h.$('reliability-metrics').open=true;
+  h.change('reliability-threshold','0.95');
+  assert.equal(h.$('reliability-method').open,true); assert.equal(h.$('reliability-metrics').open,true);
+});
+
+test('image limitations remain beside the metrics, including blank and annotation caveats',async()=>{
+  const h=harness();
+  const group=archived.field_groups.find(g=>g.suite_id==='images90' && g.partition.condition==='blank' && g.partition.kind==='chart');
+  await h.view.show({group:group.group_id});
+  const limits=h.document.querySelector('.reliability-caveats');
+  assert.equal(limits.closest('details'),null);
+  for(const phrase of ['50 Quellbilder fehlen','ohne Pixelprüfung, neues Bild-Gold oder OCR','Leerbild','Originalbild-Gold bleibt','keine gewöhnlichen Fehler','bar_line/vbar2','uneindeutige Annotationen']) assert.ok(limits.textContent.includes(phrase),phrase);
 });

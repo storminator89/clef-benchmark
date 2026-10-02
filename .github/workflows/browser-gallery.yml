@@ -48,6 +48,9 @@ jobs:
           python scripts/check_bank_support.py
           python scripts/check_clarification.py
           python scripts/check_paired_reliability.py
+          python scripts/check_multidoc.py
+          python scripts/check_jev.py
+          python -m unittest discover -s experiments/jev_comparison/tests -v
           python -m unittest discover -s tests -p 'test_*.py' -v
       - name: Rebuild every published UI dataset without changes
         run: |
@@ -59,6 +62,7 @@ jobs:
           python scripts/build_clarification_web_data.py
           python scripts/build_minimal_pairs_web_data.py
           python scripts/build_reliability_web_data.py
+          python scripts/build_multidoc_web_data.py
           git diff --exit-code -- web/data/
       - name: Run pinned DOM regressions
         run: |

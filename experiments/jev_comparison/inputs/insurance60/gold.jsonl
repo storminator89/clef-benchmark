@@ -1,0 +1,60 @@
+{"id": "fall_001", "expected": {"decision": "nein", "evidence": "b1"}, "document_id": "paket_03", "area": "Ausschlüsse und Rückausnahmen"}
+{"id": "fall_002", "expected": {"decision": "ja", "evidence": "b1"}, "document_id": "paket_05", "area": "Voraussetzungen und Obliegenheiten"}
+{"id": "fall_003", "expected": {"decision": "ja", "evidence": "b5"}, "document_id": "paket_01", "area": "Deckungsumfang und Definitionen"}
+{"id": "fall_004", "expected": {"decision": "nein", "evidence": "b3"}, "document_id": "paket_12", "area": "Unvollständige und widersprüchliche Akten"}
+{"id": "fall_005", "expected": {"decision": "nein", "evidence": "b5"}, "document_id": "paket_11", "area": "Unvollständige und widersprüchliche Akten"}
+{"id": "fall_006", "expected": {"decision": "ja", "evidence": "b5"}, "document_id": "paket_09", "area": "Nachträge und Dokumentvorrang"}
+{"id": "fall_007", "expected": {"decision": "nein", "evidence": "b3"}, "document_id": "paket_10", "area": "Nachträge und Dokumentvorrang"}
+{"id": "fall_008", "expected": {"decision": "offen", "evidence": "b5"}, "document_id": "paket_03", "area": "Ausschlüsse und Rückausnahmen"}
+{"id": "fall_009", "expected": {"decision": "ja", "evidence": "b1"}, "document_id": "paket_06", "area": "Voraussetzungen und Obliegenheiten"}
+{"id": "fall_010", "expected": {"decision": "nein", "evidence": "b1"}, "document_id": "paket_05", "area": "Voraussetzungen und Obliegenheiten"}
+{"id": "fall_011", "expected": {"decision": "nein", "evidence": "b1"}, "document_id": "paket_07", "area": "Nachweise und Verfahrensstatus"}
+{"id": "fall_012", "expected": {"decision": "nein", "evidence": "b4"}, "document_id": "paket_09", "area": "Nachträge und Dokumentvorrang"}
+{"id": "fall_013", "expected": {"decision": "nein", "evidence": "b1"}, "document_id": "paket_05", "area": "Voraussetzungen und Obliegenheiten"}
+{"id": "fall_014", "expected": {"decision": "ja", "evidence": "b4"}, "document_id": "paket_08", "area": "Nachweise und Verfahrensstatus"}
+{"id": "fall_015", "expected": {"decision": "ja", "evidence": "b3"}, "document_id": "paket_07", "area": "Nachweise und Verfahrensstatus"}
+{"id": "fall_016", "expected": {"decision": "nein", "evidence": "b5"}, "document_id": "paket_09", "area": "Nachträge und Dokumentvorrang"}
+{"id": "fall_017", "expected": {"decision": "nein", "evidence": "b2"}, "document_id": "paket_08", "area": "Nachweise und Verfahrensstatus"}
+{"id": "fall_018", "expected": {"decision": "offen", "evidence": "b5"}, "document_id": "paket_04", "area": "Ausschlüsse und Rückausnahmen"}
+{"id": "fall_019", "expected": {"decision": "offen", "evidence": "b1"}, "document_id": "paket_02", "area": "Deckungsumfang und Definitionen"}
+{"id": "fall_020", "expected": {"decision": "offen", "evidence": "b3"}, "document_id": "paket_11", "area": "Unvollständige und widersprüchliche Akten"}
+{"id": "fall_021", "expected": {"decision": "ja", "evidence": "b1"}, "document_id": "paket_02", "area": "Deckungsumfang und Definitionen"}
+{"id": "fall_022", "expected": {"decision": "nein", "evidence": "b1"}, "document_id": "paket_01", "area": "Deckungsumfang und Definitionen"}
+{"id": "fall_023", "expected": {"decision": "nein", "evidence": "b1"}, "document_id": "paket_02", "area": "Deckungsumfang und Definitionen"}
+{"id": "fall_024", "expected": {"decision": "offen", "evidence": "b3"}, "document_id": "paket_08", "area": "Nachweise und Verfahrensstatus"}
+{"id": "fall_025", "expected": {"decision": "konflikt", "evidence": "b4"}, "document_id": "paket_12", "area": "Unvollständige und widersprüchliche Akten"}
+{"id": "fall_026", "expected": {"decision": "offen", "evidence": "b1"}, "document_id": "paket_12", "area": "Unvollständige und widersprüchliche Akten"}
+{"id": "fall_027", "expected": {"decision": "offen", "evidence": "b3"}, "document_id": "paket_01", "area": "Deckungsumfang und Definitionen"}
+{"id": "fall_028", "expected": {"decision": "nein", "evidence": "b3"}, "document_id": "paket_09", "area": "Nachträge und Dokumentvorrang"}
+{"id": "fall_029", "expected": {"decision": "nein", "evidence": "b5"}, "document_id": "paket_10", "area": "Nachträge und Dokumentvorrang"}
+{"id": "fall_030", "expected": {"decision": "offen", "evidence": "b3"}, "document_id": "paket_07", "area": "Nachweise und Verfahrensstatus"}
+{"id": "fall_031", "expected": {"decision": "offen", "evidence": "b4"}, "document_id": "paket_05", "area": "Voraussetzungen und Obliegenheiten"}
+{"id": "fall_032", "expected": {"decision": "ja", "evidence": "b2"}, "document_id": "paket_06", "area": "Voraussetzungen und Obliegenheiten"}
+{"id": "fall_033", "expected": {"decision": "offen", "evidence": "b1"}, "document_id": "paket_09", "area": "Nachträge und Dokumentvorrang"}
+{"id": "fall_034", "expected": {"decision": "nein", "evidence": "b4"}, "document_id": "paket_10", "area": "Nachträge und Dokumentvorrang"}
+{"id": "fall_035", "expected": {"decision": "nein", "evidence": "b1"}, "document_id": "paket_03", "area": "Ausschlüsse und Rückausnahmen"}
+{"id": "fall_036", "expected": {"decision": "nein", "evidence": "b1"}, "document_id": "paket_06", "area": "Voraussetzungen und Obliegenheiten"}
+{"id": "fall_037", "expected": {"decision": "nein", "evidence": "b1"}, "document_id": "paket_04", "area": "Ausschlüsse und Rückausnahmen"}
+{"id": "fall_038", "expected": {"decision": "offen", "evidence": "b5"}, "document_id": "paket_04", "area": "Ausschlüsse und Rückausnahmen"}
+{"id": "fall_039", "expected": {"decision": "nein", "evidence": "b2"}, "document_id": "paket_11", "area": "Unvollständige und widersprüchliche Akten"}
+{"id": "fall_040", "expected": {"decision": "ja", "evidence": "b1"}, "document_id": "paket_04", "area": "Ausschlüsse und Rückausnahmen"}
+{"id": "fall_041", "expected": {"decision": "nein", "evidence": "b3"}, "document_id": "paket_03", "area": "Ausschlüsse und Rückausnahmen"}
+{"id": "fall_042", "expected": {"decision": "ja", "evidence": "b3"}, "document_id": "paket_07", "area": "Nachweise und Verfahrensstatus"}
+{"id": "fall_043", "expected": {"decision": "nein", "evidence": "b1"}, "document_id": "paket_07", "area": "Nachweise und Verfahrensstatus"}
+{"id": "fall_044", "expected": {"decision": "ja", "evidence": "b1"}, "document_id": "paket_04", "area": "Ausschlüsse und Rückausnahmen"}
+{"id": "fall_045", "expected": {"decision": "konflikt", "evidence": "b4"}, "document_id": "paket_10", "area": "Nachträge und Dokumentvorrang"}
+{"id": "fall_046", "expected": {"decision": "ja", "evidence": "b3"}, "document_id": "paket_12", "area": "Unvollständige und widersprüchliche Akten"}
+{"id": "fall_047", "expected": {"decision": "offen", "evidence": "b3"}, "document_id": "paket_11", "area": "Unvollständige und widersprüchliche Akten"}
+{"id": "fall_048", "expected": {"decision": "ja", "evidence": "b2"}, "document_id": "paket_05", "area": "Voraussetzungen und Obliegenheiten"}
+{"id": "fall_049", "expected": {"decision": "konflikt", "evidence": "b5"}, "document_id": "paket_12", "area": "Unvollständige und widersprüchliche Akten"}
+{"id": "fall_050", "expected": {"decision": "nein", "evidence": "b2"}, "document_id": "paket_01", "area": "Deckungsumfang und Definitionen"}
+{"id": "fall_051", "expected": {"decision": "nein", "evidence": "b4"}, "document_id": "paket_06", "area": "Voraussetzungen und Obliegenheiten"}
+{"id": "fall_052", "expected": {"decision": "ja", "evidence": "b1"}, "document_id": "paket_02", "area": "Deckungsumfang und Definitionen"}
+{"id": "fall_053", "expected": {"decision": "ja", "evidence": "b2"}, "document_id": "paket_03", "area": "Ausschlüsse und Rückausnahmen"}
+{"id": "fall_054", "expected": {"decision": "offen", "evidence": "b4"}, "document_id": "paket_06", "area": "Voraussetzungen und Obliegenheiten"}
+{"id": "fall_055", "expected": {"decision": "offen", "evidence": "b5"}, "document_id": "paket_11", "area": "Unvollständige und widersprüchliche Akten"}
+{"id": "fall_056", "expected": {"decision": "nein", "evidence": "b5"}, "document_id": "paket_01", "area": "Deckungsumfang und Definitionen"}
+{"id": "fall_057", "expected": {"decision": "nein", "evidence": "b1"}, "document_id": "paket_08", "area": "Nachweise und Verfahrensstatus"}
+{"id": "fall_058", "expected": {"decision": "nein", "evidence": "b5"}, "document_id": "paket_08", "area": "Nachweise und Verfahrensstatus"}
+{"id": "fall_059", "expected": {"decision": "nein", "evidence": "b4"}, "document_id": "paket_02", "area": "Deckungsumfang und Definitionen"}
+{"id": "fall_060", "expected": {"decision": "ja", "evidence": "b2"}, "document_id": "paket_10", "area": "Nachträge und Dokumentvorrang"}

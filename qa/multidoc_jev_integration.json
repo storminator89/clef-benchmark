@@ -1,0 +1,56 @@
+{
+  "status": "offline_verified_browser_pending",
+  "integration_base_commit": "ae751e09ef383d0fca7126d35f19fc8670b80b08",
+  "new_suites": {
+    "multidoc48": {
+      "case_count": 48,
+      "source_correct": 42,
+      "determination_correct": 24,
+      "all_fields_exact": 24,
+      "frozen_files_preserved": 61
+    },
+    "jev_comparison": {
+      "status": "prepared_not_executed",
+      "frozen_requests": 974,
+      "native_questions": 1362,
+      "baseline_pending": [
+        "massive300"
+      ],
+      "live_calls": 0,
+      "workflow_activated": false
+    }
+  },
+  "offline_checks": {
+    "python_root_tests": 310,
+    "javascript_dom_tests": 154,
+    "jev_mock_tests_separate": 23,
+    "integrity_gates": 7,
+    "byte_identical_ui_rebuilds": 9,
+    "prior_scientific_files_unchanged": 590,
+    "prior_gallery_files_unchanged": 74
+  },
+  "ui_copy_review": {
+    "pair_header_words_before": 27,
+    "pair_header_words_after": 9,
+    "reliability_header_words_before": 25,
+    "reliability_header_words_after": 10,
+    "default_pair_visible_words_before": 448,
+    "default_pair_visible_words_after": 375,
+    "default_reliability_visible_words_before": 534,
+    "default_reliability_visible_words_after": 402,
+    "count_method": "Rendered DOM text excluding closed detail bodies, hidden text, icons and unselected options; diagnostic view snapshots, not whole-site readability score.",
+    "changes": [
+      "Compact headings and labels",
+      "Shared labelled icons",
+      "Method details on demand",
+      "Finite-set and local error caveats retained"
+    ]
+  },
+  "scientific_limits": [
+    "48 dependent fictional multidoc cases,12 families,16 templates; no human-expert or population claim",
+    "Correct source choice does not certify determination",
+    "No calibration or joint-probability guarantee",
+    "Inactive Jev mocks are software tests, not model observations"
+  ],
+  "browser_status": "Pending exact-source genuine sandboxed Chrome regression; earlier galleries retain their original version labels."
+}

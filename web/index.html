@@ -71,6 +71,7 @@
         <div class="suite-control">
           <label for="suite-select">TESTSUITE</label
           ><select id="suite-select">
+            <option value="multidoc" disabled>Mehrere Dokumente · wird geladen</option>
             <option value="clarification" disabled>Rückfragen statt Raten</option>
             <option value="insurance" disabled>
               Versicherungsdokumente · wird geladen
@@ -100,7 +101,7 @@
         </button>
       </div>
       <details id="suite-catalog" class="suite-catalog">
-        <summary><span data-icon="layers"></span><span>Alle Tests entdecken</span><span class="catalog-hint">Jede Suite einzeln betrachten</span></summary>
+        <summary><span data-icon="layers"></span><span>Testsuiten</span><span class="catalog-hint">Getrennte Ergebnisse</span></summary>
         <div class="suite-grid" id="suite-grid" aria-label="Verfügbare Testsuiten"></div>
       </details>
       <div id="app-error" class="notice danger" role="alert" hidden></div>
@@ -112,9 +113,9 @@
       >
         <div class="view-heading">
           <div>
-            <div class="eyebrow">DOKUMENTE VERSTEHEN. ANTWORTEN PRÜFEN.</div>
+            <div class="eyebrow">BENCHMARK</div>
             <h1 id="workbench-title">
-              Der Blick hinter die Entscheidung<span class="title-dot">.</span>
+              Fälle prüfen
             </h1>
           </div>
           <div class="view-heading-note">
@@ -182,7 +183,7 @@
                 </button>
               </div>
             </div>
-            <div class="case-list" id="case-list" aria-label="Testfälle"></div>
+            <div class="case-list" id="case-list" aria-label="Testfälle"><div class="empty-state" role="status">Tests werden geladen …</div></div>
             <div class="library-footer">
               <span data-icon="lock"></span>Synthetische Fälle · keine
               Kundenakten
@@ -208,11 +209,11 @@
             ></div>
             <div class="inspection-footer">
               <button class="button primary" id="open-playground" disabled>
-                <span data-icon="flask"></span>Diesen Fall live testen<span
+                <span data-icon="flask"></span>Fall im Testeditor<span
                   aria-hidden="true"
                   >↗</span
                 ></button
-              ><small>Öffnet einen getrennten, lokalen Test</small>
+              ><small>Gespeicherte Antwort oder neue Inferenz</small>
             </div>
           </aside>
         </div>
@@ -230,9 +231,9 @@
       >
         <div class="overview-hero">
           <div>
-            <div class="eyebrow">EINE SUITE. EIN EIGENER NENNER.</div>
+            <div class="eyebrow">ERGEBNISSE</div>
             <h1 id="overview-title">
-              Was versteht Clef<br /><em>im Dokument?</em>
+              Versicherungsdokumente
             </h1>
             <p id="hero-copy" class="hero-copy">
               Antwort und Beleg getrennt betrachten. Fehler bis zur Textstelle
@@ -244,16 +245,13 @@
           </div>
           <aside class="study-card">
             <div class="study-card-top">
-              <span class="eyebrow">STUDIENPROFIL</span
+              <span class="eyebrow">TESTUMFANG</span
               ><span class="small-dot"></span>
             </div>
             <strong id="study-count">—</strong
-            ><span id="study-caption">Synthetische Szenarien</span>
+            ><span id="study-caption">Synthetische Fälle</span>
             <div id="study-details"></div>
-            <p>
-              Eng begrenzter Test. Kein Nachweis für Beratung, Deckungsprüfung
-              oder Produktionseinsatz.
-            </p>
+<p>KI-verfasst · kein Produktionsnachweis</p>
           </aside>
         </div>
         <div id="result-banner" class="notice" role="status">
@@ -264,20 +262,20 @@
           <article class="surface category-panel">
             <div class="panel-heading">
               <div>
-                <div class="eyebrow">AUFGABEN IM VERGLEICH</div>
+                <div class="eyebrow">VOLLSTÄNDIG RICHTIG</div>
                 <h2 id="categories-title">Wo entstehen Fehler?</h2>
               </div>
               <span class="badge" id="category-size"></span>
             </div>
             <div id="category-chart"></div>
-            <p class="panel-note" id="category-note"></p>
+            <details class="method-disclosure"><summary>Stichprobe &amp; Bewertung</summary><p class="panel-note" id="category-note"></p></details>
           </article>
           <article class="surface diagnosis-panel">
-            <div class="eyebrow">GENAU HINSEHEN</div>
-            <h2>Eine richtige Antwort<br />ist erst der Anfang.</h2>
+            <div class="eyebrow">FEHLER</div>
+            <h2>Fehlerbild</h2>
             <div id="diagnosis-content"></div>
             <button class="button" id="inspect-errors">
-              Fehler im Workbench öffnen <span aria-hidden="true">→</span>
+              Fehler ansehen <span aria-hidden="true">→</span>
             </button>
           </article>
         </div>
@@ -326,11 +324,11 @@
       </section>
 
       <section id="custom" class="view custom-view" aria-labelledby="custom-title" hidden>
-        <div class="view-heading"><div><div class="eyebrow">DEINE FÄLLE. DEINE SOLLANTWORTEN.</div>
-          <h1 id="custom-title">Eigene Tests<span class="title-dot">.</span></h1>
-          <p>Lokale Dateien prüfen, Texte bearbeiten und eine ganze Suite auswerten.</p></div>
+        <div class="view-heading"><div><div class="eyebrow">PRIVATE SUITE</div>
+          <h1 id="custom-title">Eigene Tests</h1>
+          <p>Datei importieren, prüfen und lokal auswerten.</p></div>
           <span class="badge text-only">Privat im Browser · nur Text</span></div>
-        <div class="notice privacy-notice"><span class="privacy-icon" data-icon="lock"></span><div><strong>Privat bis zum ausdrücklichen Export.</strong> Importierte Fälle bleiben im Arbeitsspeicher dieses Tabs. Erst „Suite lokal auswerten“ sendet Text und Fragen an deinen lokalen Clef-Server; Goldlabels bleiben hier. Keine externe Modell-API, kein automatisches Speichern oder Veröffentlichen. Neuladen entfernt die Suite. Bitte synthetische Daten verwenden.</div></div>
+        <div class="notice privacy-notice"><span class="privacy-icon" data-icon="lock"></span><div><strong>Privat bis zum ausdrücklichen Export.</strong> Nur im Arbeitsspeicher dieses Tabs; Neuladen löscht die Suite. „Suite lokal auswerten“ sendet Text und Fragen an den lokalen Server, keine Goldlabels. Keine externe Modell-API, kein automatisches Speichern oder Veröffentlichen. Bitte synthetische Daten verwenden.</div></div>
         <ol class="workflow-steps" aria-label="Ablauf eigener Tests">
           <li data-custom-step="import" aria-current="step"><span>01</span><div>Datei prüfen<small>Vorschau ohne Inferenz</small></div></li>
           <li data-custom-step="edit"><span>02</span><div>Fälle vorbereiten<small>Eigene Texte &amp; Goldlabels</small></div></li>
@@ -355,7 +353,7 @@
         </details>
         <div id="custom-confirm" class="notice confirm-panel" role="region" aria-label="Private Suite ersetzen oder entfernen" hidden><div><strong id="custom-confirm-title"></strong><p id="custom-confirm-copy"></p></div><div class="custom-actions"><button id="custom-confirm-cancel" class="button">Behalten</button><button id="custom-confirm-action" class="button danger-button"></button></div></div>
         <p id="custom-message" class="editor-message" role="status"></p>
-        <div id="custom-empty" class="custom-empty"><span class="eyebrow">NOCH KEINE PRIVATE SUITE</span><h2>Vom eigenen Beispiel<br />zur nachvollziehbaren Prüfung.</h2><p>Die Dateivorschau löst keine Inferenz aus. Goldlabels sind optional: ohne Sollantworten erhältst du echte Modellantworten, aber keinen erfundenen Qualitätsscore.</p></div>
+        <div id="custom-empty" class="custom-empty"><span class="eyebrow">NOCH KEINE PRIVATE SUITE</span><h2>Noch keine Suite geladen</h2><p>Vorschau ohne Inferenz. Ohne Goldlabels gibt es Modellantworten, aber keinen Qualitätsscore.</p></div>
         <section id="custom-workspace" hidden aria-labelledby="custom-suite-title">
           <div class="panel-heading"><div><span class="eyebrow">NUTZERDATEN · KEIN GEPRÜFTER BENCHMARK</span><h2 id="custom-suite-title" tabindex="-1"></h2></div><button id="custom-clear" class="quiet-button">Private Suite entfernen</button></div>
           <div class="runtime-strip"><div><span class="eyebrow">LOKALES MODELL</span><p id="custom-backend-summary" role="status">Modellstatus wird geprüft …</p><a class="text-button" href="#playground">Einrichtung &amp; Modellstatus ansehen →</a></div><button id="custom-refresh-backend" class="button">Status aktualisieren</button></div>
@@ -383,23 +381,20 @@
       >
         <div class="view-heading">
           <div>
-            <div class="eyebrow">DEIN TEXT. DEIN SCHEMA. EIN NEUER LAUF.</div>
+            <div class="eyebrow">LOKALER TEST</div>
             <h1 id="playground-title">
-              Die lokale Testumgebung<span class="title-dot">.</span>
+              Testeditor
             </h1>
-            <p>
-              Mehrere Fragen in einer Anfrage. Jedes Antwortfeld wird einzeln
-              angezeigt.
-            </p>
+
           </div>
           <span class="badge text-only"
             ><span data-icon="lock"></span>Nur Text · keine Cloud-API</span
           >
         </div>
         <section class="readiness-card" aria-label="Bereitschaft des lokalen Modells">
-          <div class="readiness-heading"><div><span class="eyebrow">EHRLICHER MODELLSTATUS</span><h2 id="backend-summary">Lokalen Server prüfen</h2></div><button id="refresh-backend" class="button"><span data-icon="refresh"></span>Status aktualisieren</button></div>
+          <div class="readiness-heading"><div><span class="eyebrow">MODELLSTATUS</span><h2 id="backend-summary">Lokalen Server prüfen</h2></div><button id="refresh-backend" class="button"><span data-icon="refresh"></span>Status aktualisieren</button></div>
           <ol id="backend-readiness" class="readiness-steps" aria-label="Server, Freigabe und Modell"></ol>
-          <p class="input-help">Eine Freigabe ist noch kein geladenes Modell. Der erste echte Request prüft die Dateien und lädt die Gewichte; das kann mehrere Minuten dauern.</p>
+<details class="method-disclosure"><summary>Beim ersten Lauf</summary><p class="input-help">Die Freigabe lädt das Modell noch nicht. Der erste Request prüft Dateien und lädt Gewichte; das kann mehrere Minuten dauern.</p></details>
         </section>
         <div id="playground-notice" class="notice"></div>
         <div class="playground-grid">
@@ -450,7 +445,7 @@
             </p>
             <div class="run-actions">
               <button class="button primary" id="run-live" aria-describedby="backend-summary editor-message" disabled>
-                <span data-icon="play"></span>Echte Inferenz starten</button
+                <span data-icon="play"></span>Lokal auswerten</button
               ><button class="button" id="show-saved" disabled>
                 <span data-icon="history"></span>Gespeicherte Antwort
               </button>
@@ -513,9 +508,9 @@
         aria-labelledby="method-title"
         hidden
       >
-        <div class="eyebrow">NACHVOLLZIEHBARKEIT IST TEIL DES ERGEBNISSES</div>
+        <div class="eyebrow">METHODIK</div>
         <h1 id="method-title">
-          Was gemessen wurde.<br /><em>Und was offenbleibt.</em>
+          Testaufbau &amp; Grenzen
         </h1>
         <p class="hero-copy" id="method-scope"></p>
         <div class="method-grid">
@@ -566,7 +561,7 @@
         <article class="surface limitations">
           <div>
             <div class="eyebrow">GRENZEN</div>
-            <h2>Synthetisch.<br />Kontrolliert.<br />Begrenzt.</h2>
+            <h2>Grenzen</h2>
           </div>
           <div>
             <p id="method-synthetic">

@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "frozen_run_verification": {
+    "status": "passed",
+    "failures": [],
+    "frozen_files_checked": 61,
+    "native_completed": true,
+    "recorded_predictions": 48,
+    "full_benchmark_count": 48,
+    "inference_started_after_freeze": true,
+    "warmup_and_repeat_probe_excluded_from_scores": true,
+    "completion_chronology": {
+      "started_at": "2026-10-02T16:09:16.783583+00:00",
+      "completed_at": "2026-10-02T16:32:48.837345+00:00",
+      "status": "completed"
+    },
+    "freeze_timestamp": "2026-10-02T16:07:28.638145+00:00"
+  },
+  "actual_result_recomputation": true,
+  "primary_scorer_imported": false,
+  "model_loaded": false,
+  "inference_performed": false,
+  "primary_comparison_mismatches": [],
+  "case_count": 48,
+  "valid_count": 48,
+  "error_count": 24,
+  "case_metrics": {
+    "source": {
+      "numerator": 42,
+      "denominator": 48,
+      "rate": 0.875
+    },
+    "determination": {
+      "numerator": 24,
+      "denominator": 48,
+      "rate": 0.5
+    },
+    "all_fields_exact": {
+      "numerator": 24,
+      "denominator": 48,
+      "rate": 0.5
+    },
+    "all_field_decisions": {
+      "numerator": 66,
+      "denominator": 96,
+      "rate": 0.6875
+    }
+  },
+  "error_case_ids": [
+    "MD042",
+    "MD002",
+    "MD013",
+    "MD022",
+    "MD011",
+    "MD024",
+    "MD014",
+    "MD046",
+    "MD044",
+    "MD028",
+    "MD034",
+    "MD043",
+    "MD040",
+    "MD045",
+    "MD030",
+    "MD008",
+    "MD038",
+    "MD029",
+    "MD012",
+    "MD010",
+    "MD019",
+    "MD035",
+    "MD006",
+    "MD003"
+  ],
+  "input_sha256": {
+    "data/cases.jsonl": "a4f013943cd7a0945e0fcc1aaea9b28d5bf625b4869c049e59fb0dc182028ed5",
+    "data/gold.jsonl": "941800f8561510a8b92d2a8764bc1d0de607d2e7c5960a301295ded4e821895e",
+    "data/requests.jsonl": "7df0df7b0737ea847b0f8d5c3a844b95a42700e08f0178a981975e1c57cc2906",
+    "results/predictions.jsonl": "b3882af5059d597e7f2928d9881247deee81f470a9a15fe3bc6d3cdab624522c",
+    "results/case_scores.jsonl": "5dd2f9a020a0cb1bf04d2eb5ab37a6739331f94edeed67c1516ff35d906ef860",
+    "results/errors.jsonl": "a32465a2db7e228cb30d708f1ab2946f4220da8265dfb796e6f80a1dce4219e3",
+    "results/summary.json": "a71ed9d31a846f9d40f9d67e08c5d1a6bda98b4b5dd39630ee248b9eca78e83e"
+  },
+  "independent_checker_sha256": "95fff43fadf6d99956f63c7d0d8d51655b6a960a473a4d71c67f7d4725845014",
+  "method": "Independent frozen standard-library checker recomputed every score, diagnostic, error record, confusion matrix and descriptive slice from native outputs; the public report stores concise conclusions rather than duplicate comparison inventories."
+}

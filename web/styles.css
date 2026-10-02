@@ -1431,13 +1431,13 @@ pre {
 .overview-hero {
   display: grid;
   grid-template-columns: 1.5fr 1fr;
-  gap: 70px;
-  padding: 12px 0 35px;
+  gap: 32px;
+  padding: 8px 0 24px;
   align-items: center;
 }
 .overview-hero h1,
 .method-view > h1 {
-  font-size: clamp(35px, 4vw, 58px);
+  font-size: clamp(28px, 3vw, 36px);
   line-height: 1.08;
   letter-spacing: -0.045em;
   margin: 17px 0;
@@ -1470,7 +1470,7 @@ h1 em {
 }
 .study-card > strong {
   display: block;
-  font-size: 52px;
+  font-size: 36px;
   font-weight: 500;
   letter-spacing: -0.06em;
   line-height: 1.1;
@@ -3030,3 +3030,28 @@ textarea:focus {
 @media (max-width: 720px) {
   .custom-list { max-height: 280px; }
 }
+
+/* Compact context: native disclosures retain detail without competing with results. */
+.method-disclosure { margin-top: 14px; color: var(--muted); font-size: 12px; }
+.method-disclosure > summary { min-height: 36px; cursor: pointer; display: list-item; }
+.method-disclosure p { line-height: 1.65; margin: 8px 0; }
+.source-summary { color: var(--muted); font-size: 12px; line-height: 1.5; margin-top: 10px; }
+.compact-notice { margin: 10px 0 0; padding: 10px 12px; font-size: 12px; }
+.source-reference { border-top: 1px solid var(--line); padding-top: 16px; margin-top: 16px; }
+.source-reference h3 { font-size: 13px; margin-bottom: 9px; }
+.source-links { display: flex; flex-wrap: wrap; gap: 8px; }
+.source-links button { min-width: 58px; min-height: 40px; justify-content: center; border: 1px solid var(--line); border-radius: 6px; }
+.source-links button:hover { border-color: var(--accent); background: var(--accent-soft); }
+.field-schema pre { overflow-wrap: anywhere; white-space: pre-wrap; }
+.category-chart h3, #category-chart > h3 { font-size: 13px; margin: 24px 0 10px; }
+.document-deck { margin-bottom: 18px; }
+.document-section h3 { line-height: 1.4; }
+.view-heading { margin-bottom: 20px; }
+.overview-hero { padding-top: 4px; }
+.overview-hero h1 { line-height: 1.12; }
+@media (max-width: 760px) {
+  .source-links button, .method-disclosure > summary { min-height: 44px; }
+  .document-kicker { flex-wrap: wrap; gap: 6px; }
+  .field-tabs { flex-wrap: wrap; }
+}
+.benchmark-limits { display: block; margin-top: 8px; font-size: 11px; font-weight: 400; color: var(--muted); }

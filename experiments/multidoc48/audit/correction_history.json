@@ -1,0 +1,60 @@
+{
+  "status": "pre_inference_corrections_only",
+  "model_outputs_used": false,
+  "corrections": [
+    {
+      "reason": "Independent review found deterministic source-ID/outcome association and document-count shortcut; design disclosure must state shared templates.",
+      "changes": [
+        "All inputs now contain three documents with explicitly scope-excluded distractors when needed",
+        "Unique source IDs and displayed positions independently counterbalanced within yes/no gold groups",
+        "Retained 16 shared templates / 12 domain\u00d7stratum families; no independently-written or IID claim"
+      ],
+      "determination_label_changes": 0,
+      "old_public_hash_record": "audit/round1_author_snapshot.json",
+      "new_public_files": {
+        "data/cases.jsonl": "ae89cfec3e99e4c0aa6e8a6ed22dbbed40753a9f74f679477a367a097b7e0aae",
+        "data/gold.jsonl": "941800f8561510a8b92d2a8764bc1d0de607d2e7c5960a301295ded4e821895e",
+        "data/requests.jsonl": "7df0df7b0737ea847b0f8d5c3a844b95a42700e08f0178a981975e1c57cc2906",
+        "scripts/build_dataset.py": "99d3795461adb574671fd4668c4d75d940a45504175fd8735edffe87e5740f4d"
+      }
+    },
+    {
+      "reason": "Pre-freeze reviewer native-output strictness correction and parent dependence-metadata request",
+      "changes": [
+        "Require confidence exactly equal to round(selected probability,4), bounded and finite",
+        "Add shared template_id to case/metadata records and scoring strata, beyond domain\u00d7stratum families"
+      ],
+      "model_visible_requests_changed": false,
+      "determination_label_changes": 0
+    },
+    {
+      "reason": "Independent reviewer partial-result rendering check",
+      "changes": [
+        "Render unavailable median/p95 timings without numeric-format crash",
+        "Synthetic report tests cover complete, partial, all-missing and all-invalid cases",
+        "Protocol explicitly names shared-template slices"
+      ],
+      "model_visible_requests_changed": false,
+      "determination_label_changes": 0
+    },
+    {
+      "reason": "Independent checker development before freeze",
+      "changes": [
+        "Added shared-template slices after the first independent comparison lacked that new primary slice",
+        "Changed actual-result hash keys to public scientific role names rather than invocation paths",
+        "Extended independent actual-result audit to frozen hashes, chronology, native configuration, request order, token preflight and completion"
+      ],
+      "model_visible_requests_changed": false,
+      "determination_label_changes": 0
+    }
+  ],
+  "current_public_files": {
+    "data/cases.jsonl": "a4f013943cd7a0945e0fcc1aaea9b28d5bf625b4869c049e59fb0dc182028ed5",
+    "data/gold.jsonl": "941800f8561510a8b92d2a8764bc1d0de607d2e7c5960a301295ded4e821895e",
+    "data/requests.jsonl": "7df0df7b0737ea847b0f8d5c3a844b95a42700e08f0178a981975e1c57cc2906",
+    "scripts/build_dataset.py": "98f2808eae1c80ace19e49c391430002c208822c766c89ffa0bd29ad65b83e1b",
+    "scripts/score.py": "e680e9100a77276b6169cfb8afc3cf58efb992b147755bb55b7fe0f758b7526d",
+    "scripts/build_reports.py": "2acb2b1d3185f833298582157db08438cd4f9d4672e9b24ee97b3d93a69acb40",
+    "PROTOCOL.md": "a8281a10dadacaddcd36de16d29c153e35c6daaf498a8fac61d8866013feaf7f"
+  }
+}

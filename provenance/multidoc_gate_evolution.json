@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "baseline_commit": "ae751e09ef383d0fca7126d35f19fc8670b80b08",
+  "purpose": "The historical aggregate gate retains exactly its 388 prior scientific files while the independently gated new stage adds two experiment directories and one derived UI dataset. No previous scientific bytes or baseline digest are changed.",
+  "gate": "scripts/check_paired_reliability.py",
+  "from_sha256": "746461aa603b32afe031b9f46601242314efc4e54841328b0ebdbbb7096c4b79",
+  "to_sha256": "06f91f8a2daf70ce6a86bf97fe5259773da0315efd709fbcf7c882ae91b3c995",
+  "new_stage_only": [
+    "experiments/multidoc48/",
+    "experiments/jev_comparison/",
+    "web/data/multidoc.json"
+  ]
+}

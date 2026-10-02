@@ -1,0 +1,52 @@
+{
+  "passed": true,
+  "no_unresolved_gold_or_scoring_issue": true,
+  "reviewed_at_utc": "2026-10-02T16:39:43.075509+00:00",
+  "review_type": "Independent AI actual-result, all-error, prose, provenance and public-scope review",
+  "actual_checker_status": "passed",
+  "primary_scoring_imported_by_independent_checker": false,
+  "primary_comparison_mismatches": [],
+  "frozen_file_count": 61,
+  "all_frozen_bytes_unchanged": true,
+  "freeze_manifest_sha256": "69713f59dfcd175413e7d8b07d8cd7295c39af06aa45c01e6fcbe247ee2ce32a",
+  "actual_records": 48,
+  "valid_records": 48,
+  "missing_records": 0,
+  "invalid_records": 0,
+  "error_count": 24,
+  "all_errors_reviewed": true,
+  "post_outcome_gold_changes": false,
+  "prose_numeric_claims_verified": true,
+  "readme_report_error_evidence_verified": true,
+  "report_sha256": "acff3323a7e838060e1173dd8d55d77899905a57eb48b864654ad8dfaf510679",
+  "errors_md_sha256": "1d9f4567e6549f3e6d7d023e0526ce7bab24f93d40f2e1a73476a36534ca0f0e",
+  "interpretation_limits": [
+    "48 dependent template-generated cases: 16 shared archetypes and 12 descriptive families, no IID/population claim",
+    "Bounded native source/determination fields; no generated-answer or clause-composition claim",
+    "No paired order intervention or causal order-robustness claim",
+    "Marginal option probabilities are not calibration or joint-confidence evidence",
+    "Experimental CPU NF4 with optional-kernel/attention fallback observations; timings are run-specific",
+    "Limited preregistered own-source/ambiguity pair-consistency diagnostic is not a complete reasoning-consistency measure"
+  ],
+  "finite_set_observations": {
+    "gold_yes_correct": {
+      "numerator": 18,
+      "denominator": 18
+    },
+    "gold_no_correct": {
+      "numerator": 2,
+      "denominator": 18
+    },
+    "gold_no_predicted_yes": 8,
+    "gold_no_predicted_unresolved": 8,
+    "gold_unresolved_correct": {
+      "numerator": 4,
+      "denominator": 12
+    },
+    "not_unique_gold_source_correct": {
+      "numerator": 21,
+      "denominator": 21
+    }
+  },
+  "public_scope": "Retained scientific conclusions from the completed independent review; current retained-file scope is bound by the public allowlist and independently verified offline."
+}

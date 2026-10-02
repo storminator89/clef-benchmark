@@ -1,0 +1,1219 @@
+{
+  "suite_id": "multidocument_precedence_2026_10_02",
+  "case_count": 48,
+  "family_count": 12,
+  "paired_order_intervention": false,
+  "case_metrics": {
+    "source": {
+      "numerator": 42,
+      "denominator": 48,
+      "rate": 0.875
+    },
+    "determination": {
+      "numerator": 24,
+      "denominator": 48,
+      "rate": 0.5
+    },
+    "all_fields_exact": {
+      "numerator": 24,
+      "denominator": 48,
+      "rate": 0.5
+    },
+    "all_field_decisions": {
+      "numerator": 66,
+      "denominator": 96,
+      "rate": 0.6875
+    }
+  },
+  "source_metrics": {
+    "unique_source_correct": {
+      "numerator": 21,
+      "denominator": 27,
+      "rate": 0.7777777777777778
+    },
+    "wrong_concrete_source": {
+      "numerator": 4,
+      "denominator": 27,
+      "rate": 0.14814814814814814
+    },
+    "unnecessary_source_uncertainty": {
+      "numerator": 2,
+      "denominator": 27,
+      "rate": 0.07407407407407407
+    },
+    "ambiguous_source_correct": {
+      "numerator": 21,
+      "denominator": 21,
+      "rate": 1.0
+    },
+    "invented_unique_source": {
+      "numerator": 0,
+      "denominator": 21,
+      "rate": 0.0
+    },
+    "same_answer_ambiguous_source_exact": {
+      "numerator": 6,
+      "denominator": 9,
+      "rate": 0.6666666666666666
+    }
+  },
+  "clarification_metrics": {
+    "missed": {
+      "numerator": 8,
+      "denominator": 12,
+      "rate": 0.6666666666666666
+    },
+    "excess": {
+      "numerator": 8,
+      "denominator": 36,
+      "rate": 0.2222222222222222
+    },
+    "wrong_definite_answer_on_answerable": {
+      "numerator": 8,
+      "denominator": 36,
+      "rate": 0.2222222222222222
+    },
+    "invalid_on_required": {
+      "numerator": 0,
+      "denominator": 12,
+      "rate": 0.0
+    },
+    "invalid_on_answerable": {
+      "numerator": 0,
+      "denominator": 36,
+      "rate": 0.0
+    },
+    "same_answer_control_excess": {
+      "numerator": 3,
+      "denominator": 9,
+      "rate": 0.3333333333333333
+    }
+  },
+  "consistency": {
+    "field_pair_inconsistent_with_visible_rules": {
+      "numerator": 15,
+      "denominator": 48,
+      "rate": 0.3125
+    },
+    "scope": "Concrete source with absent source or incompatible own complete-rule outcome; or not_unique plus definite output on a gold material-source-conflict case. not_unique plus definite answer is explicitly allowed on same-answer controls."
+  },
+  "strata": {
+    "domain": {
+      "insurance": {
+        "count": 16,
+        "all_fields_exact": {
+          "numerator": 10,
+          "denominator": 16,
+          "rate": 0.625
+        },
+        "source_correct": {
+          "numerator": 15,
+          "denominator": 16,
+          "rate": 0.9375
+        },
+        "determination_correct": {
+          "numerator": 10,
+          "denominator": 16,
+          "rate": 0.625
+        },
+        "invalid_or_missing": 0,
+        "wrong_source_including_unknown": 1
+      },
+      "banking": {
+        "count": 16,
+        "all_fields_exact": {
+          "numerator": 7,
+          "denominator": 16,
+          "rate": 0.4375
+        },
+        "source_correct": {
+          "numerator": 13,
+          "denominator": 16,
+          "rate": 0.8125
+        },
+        "determination_correct": {
+          "numerator": 7,
+          "denominator": 16,
+          "rate": 0.4375
+        },
+        "invalid_or_missing": 0,
+        "wrong_source_including_unknown": 3
+      },
+      "finance": {
+        "count": 16,
+        "all_fields_exact": {
+          "numerator": 7,
+          "denominator": 16,
+          "rate": 0.4375
+        },
+        "source_correct": {
+          "numerator": 14,
+          "denominator": 16,
+          "rate": 0.875
+        },
+        "determination_correct": {
+          "numerator": 7,
+          "denominator": 16,
+          "rate": 0.4375
+        },
+        "invalid_or_missing": 0,
+        "wrong_source_including_unknown": 2
+      }
+    },
+    "stratum": {
+      "scope": {
+        "count": 12,
+        "all_fields_exact": {
+          "numerator": 5,
+          "denominator": 12,
+          "rate": 0.4166666666666667
+        },
+        "source_correct": {
+          "numerator": 12,
+          "denominator": 12,
+          "rate": 1.0
+        },
+        "determination_correct": {
+          "numerator": 5,
+          "denominator": 12,
+          "rate": 0.4166666666666667
+        },
+        "invalid_or_missing": 0,
+        "wrong_source_including_unknown": 0
+      },
+      "unresolved": {
+        "count": 12,
+        "all_fields_exact": {
+          "numerator": 6,
+          "denominator": 12,
+          "rate": 0.5
+        },
+        "source_correct": {
+          "numerator": 12,
+          "denominator": 12,
+          "rate": 1.0
+        },
+        "determination_correct": {
+          "numerator": 6,
+          "denominator": 12,
+          "rate": 0.5
+        },
+        "invalid_or_missing": 0,
+        "wrong_source_including_unknown": 0
+      },
+      "effective_date": {
+        "count": 12,
+        "all_fields_exact": {
+          "numerator": 6,
+          "denominator": 12,
+          "rate": 0.5
+        },
+        "source_correct": {
+          "numerator": 9,
+          "denominator": 12,
+          "rate": 0.75
+        },
+        "determination_correct": {
+          "numerator": 6,
+          "denominator": 12,
+          "rate": 0.5
+        },
+        "invalid_or_missing": 0,
+        "wrong_source_including_unknown": 3
+      },
+      "authority": {
+        "count": 12,
+        "all_fields_exact": {
+          "numerator": 7,
+          "denominator": 12,
+          "rate": 0.5833333333333334
+        },
+        "source_correct": {
+          "numerator": 9,
+          "denominator": 12,
+          "rate": 0.75
+        },
+        "determination_correct": {
+          "numerator": 7,
+          "denominator": 12,
+          "rate": 0.5833333333333334
+        },
+        "invalid_or_missing": 0,
+        "wrong_source_including_unknown": 3
+      }
+    },
+    "family": {
+      "insurance_scope": {
+        "count": 4,
+        "all_fields_exact": {
+          "numerator": 3,
+          "denominator": 4,
+          "rate": 0.75
+        },
+        "source_correct": {
+          "numerator": 4,
+          "denominator": 4,
+          "rate": 1.0
+        },
+        "determination_correct": {
+          "numerator": 3,
+          "denominator": 4,
+          "rate": 0.75
+        },
+        "invalid_or_missing": 0,
+        "wrong_source_including_unknown": 0
+      },
+      "banking_unresolved": {
+        "count": 4,
+        "all_fields_exact": {
+          "numerator": 2,
+          "denominator": 4,
+          "rate": 0.5
+        },
+        "source_correct": {
+          "numerator": 4,
+          "denominator": 4,
+          "rate": 1.0
+        },
+        "determination_correct": {
+          "numerator": 2,
+          "denominator": 4,
+          "rate": 0.5
+        },
+        "invalid_or_missing": 0,
+        "wrong_source_including_unknown": 0
+      },
+      "finance_scope": {
+        "count": 4,
+        "all_fields_exact": {
+          "numerator": 1,
+          "denominator": 4,
+          "rate": 0.25
+        },
+        "source_correct": {
+          "numerator": 4,
+          "denominator": 4,
+          "rate": 1.0
+        },
+        "determination_correct": {
+          "numerator": 1,
+          "denominator": 4,
+          "rate": 0.25
+        },
+        "invalid_or_missing": 0,
+        "wrong_source_including_unknown": 0
+      },
+      "finance_unresolved": {
+        "count": 4,
+        "all_fields_exact": {
+          "numerator": 2,
+          "denominator": 4,
+          "rate": 0.5
+        },
+        "source_correct": {
+          "numerator": 4,
+          "denominator": 4,
+          "rate": 1.0
+        },
+        "determination_correct": {
+          "numerator": 2,
+          "denominator": 4,
+          "rate": 0.5
+        },
+        "invalid_or_missing": 0,
+        "wrong_source_including_unknown": 0
+      },
+      "insurance_unresolved": {
+        "count": 4,
+        "all_fields_exact": {
+          "numerator": 2,
+          "denominator": 4,
+          "rate": 0.5
+        },
+        "source_correct": {
+          "numerator": 4,
+          "denominator": 4,
+          "rate": 1.0
+        },
+        "determination_correct": {
+          "numerator": 2,
+          "denominator": 4,
+          "rate": 0.5
+        },
+        "invalid_or_missing": 0,
+        "wrong_source_including_unknown": 0
+      },
+      "banking_scope": {
+        "count": 4,
+        "all_fields_exact": {
+          "numerator": 1,
+          "denominator": 4,
+          "rate": 0.25
+        },
+        "source_correct": {
+          "numerator": 4,
+          "denominator": 4,
+          "rate": 1.0
+        },
+        "determination_correct": {
+          "numerator": 1,
+          "denominator": 4,
+          "rate": 0.25
+        },
+        "invalid_or_missing": 0,
+        "wrong_source_including_unknown": 0
+      },
+      "finance_effective_date": {
+        "count": 4,
+        "all_fields_exact": {
+          "numerator": 2,
+          "denominator": 4,
+          "rate": 0.5
+        },
+        "source_correct": {
+          "numerator": 3,
+          "denominator": 4,
+          "rate": 0.75
+        },
+        "determination_correct": {
+          "numerator": 2,
+          "denominator": 4,
+          "rate": 0.5
+        },
+        "invalid_or_missing": 0,
+        "wrong_source_including_unknown": 1
+      },
+      "banking_authority": {
+        "count": 4,
+        "all_fields_exact": {
+          "numerator": 2,
+          "denominator": 4,
+          "rate": 0.5
+        },
+        "source_correct": {
+          "numerator": 2,
+          "denominator": 4,
+          "rate": 0.5
+        },
+        "determination_correct": {
+          "numerator": 2,
+          "denominator": 4,
+          "rate": 0.5
+        },
+        "invalid_or_missing": 0,
+        "wrong_source_including_unknown": 2
+      },
+      "insurance_effective_date": {
+        "count": 4,
+        "all_fields_exact": {
+          "numerator": 2,
+          "denominator": 4,
+          "rate": 0.5
+        },
+        "source_correct": {
+          "numerator": 3,
+          "denominator": 4,
+          "rate": 0.75
+        },
+        "determination_correct": {
+          "numerator": 2,
+          "denominator": 4,
+          "rate": 0.5
+        },
+        "invalid_or_missing": 0,
+        "wrong_source_including_unknown": 1
+      },
+      "insurance_authority": {
+        "count": 4,
+        "all_fields_exact": {
+          "numerator": 3,
+          "denominator": 4,
+          "rate": 0.75
+        },
+        "source_correct": {
+          "numerator": 4,
+          "denominator": 4,
+          "rate": 1.0
+        },
+        "determination_correct": {
+          "numerator": 3,
+          "denominator": 4,
+          "rate": 0.75
+        },
+        "invalid_or_missing": 0,
+        "wrong_source_including_unknown": 0
+      },
+      "banking_effective_date": {
+        "count": 4,
+        "all_fields_exact": {
+          "numerator": 2,
+          "denominator": 4,
+          "rate": 0.5
+        },
+        "source_correct": {
+          "numerator": 3,
+          "denominator": 4,
+          "rate": 0.75
+        },
+        "determination_correct": {
+          "numerator": 2,
+          "denominator": 4,
+          "rate": 0.5
+        },
+        "invalid_or_missing": 0,
+        "wrong_source_including_unknown": 1
+      },
+      "finance_authority": {
+        "count": 4,
+        "all_fields_exact": {
+          "numerator": 2,
+          "denominator": 4,
+          "rate": 0.5
+        },
+        "source_correct": {
+          "numerator": 3,
+          "denominator": 4,
+          "rate": 0.75
+        },
+        "determination_correct": {
+          "numerator": 2,
+          "denominator": 4,
+          "rate": 0.5
+        },
+        "invalid_or_missing": 0,
+        "wrong_source_including_unknown": 1
+      }
+    },
+    "template_id": {
+      "MDT11": {
+        "count": 3,
+        "all_fields_exact": {
+          "numerator": 1,
+          "denominator": 3,
+          "rate": 0.3333333333333333
+        },
+        "source_correct": {
+          "numerator": 3,
+          "denominator": 3,
+          "rate": 1.0
+        },
+        "determination_correct": {
+          "numerator": 1,
+          "denominator": 3,
+          "rate": 0.3333333333333333
+        },
+        "invalid_or_missing": 0,
+        "wrong_source_including_unknown": 0
+      },
+      "MDT16": {
+        "count": 3,
+        "all_fields_exact": {
+          "numerator": 3,
+          "denominator": 3,
+          "rate": 1.0
+        },
+        "source_correct": {
+          "numerator": 3,
+          "denominator": 3,
+          "rate": 1.0
+        },
+        "determination_correct": {
+          "numerator": 3,
+          "denominator": 3,
+          "rate": 1.0
+        },
+        "invalid_or_missing": 0,
+        "wrong_source_including_unknown": 0
+      },
+      "MDT10": {
+        "count": 3,
+        "all_fields_exact": {
+          "numerator": 1,
+          "denominator": 3,
+          "rate": 0.3333333333333333
+        },
+        "source_correct": {
+          "numerator": 3,
+          "denominator": 3,
+          "rate": 1.0
+        },
+        "determination_correct": {
+          "numerator": 1,
+          "denominator": 3,
+          "rate": 0.3333333333333333
+        },
+        "invalid_or_missing": 0,
+        "wrong_source_including_unknown": 0
+      },
+      "MDT15": {
+        "count": 3,
+        "all_fields_exact": {
+          "numerator": 3,
+          "denominator": 3,
+          "rate": 1.0
+        },
+        "source_correct": {
+          "numerator": 3,
+          "denominator": 3,
+          "rate": 1.0
+        },
+        "determination_correct": {
+          "numerator": 3,
+          "denominator": 3,
+          "rate": 1.0
+        },
+        "invalid_or_missing": 0,
+        "wrong_source_including_unknown": 0
+      },
+      "MDT09": {
+        "count": 3,
+        "all_fields_exact": {
+          "numerator": 3,
+          "denominator": 3,
+          "rate": 1.0
+        },
+        "source_correct": {
+          "numerator": 3,
+          "denominator": 3,
+          "rate": 1.0
+        },
+        "determination_correct": {
+          "numerator": 3,
+          "denominator": 3,
+          "rate": 1.0
+        },
+        "invalid_or_missing": 0,
+        "wrong_source_including_unknown": 0
+      },
+      "MDT05": {
+        "count": 3,
+        "all_fields_exact": {
+          "numerator": 3,
+          "denominator": 3,
+          "rate": 1.0
+        },
+        "source_correct": {
+          "numerator": 3,
+          "denominator": 3,
+          "rate": 1.0
+        },
+        "determination_correct": {
+          "numerator": 3,
+          "denominator": 3,
+          "rate": 1.0
+        },
+        "invalid_or_missing": 0,
+        "wrong_source_including_unknown": 0
+      },
+      "MDT02": {
+        "count": 3,
+        "all_fields_exact": {
+          "numerator": 1,
+          "denominator": 3,
+          "rate": 0.3333333333333333
+        },
+        "source_correct": {
+          "numerator": 2,
+          "denominator": 3,
+          "rate": 0.6666666666666666
+        },
+        "determination_correct": {
+          "numerator": 1,
+          "denominator": 3,
+          "rate": 0.3333333333333333
+        },
+        "invalid_or_missing": 0,
+        "wrong_source_including_unknown": 1
+      },
+      "MDT13": {
+        "count": 3,
+        "all_fields_exact": {
+          "numerator": 0,
+          "denominator": 3,
+          "rate": 0.0
+        },
+        "source_correct": {
+          "numerator": 3,
+          "denominator": 3,
+          "rate": 1.0
+        },
+        "determination_correct": {
+          "numerator": 0,
+          "denominator": 3,
+          "rate": 0.0
+        },
+        "invalid_or_missing": 0,
+        "wrong_source_including_unknown": 0
+      },
+      "MDT06": {
+        "count": 3,
+        "all_fields_exact": {
+          "numerator": 0,
+          "denominator": 3,
+          "rate": 0.0
+        },
+        "source_correct": {
+          "numerator": 0,
+          "denominator": 3,
+          "rate": 0.0
+        },
+        "determination_correct": {
+          "numerator": 0,
+          "denominator": 3,
+          "rate": 0.0
+        },
+        "invalid_or_missing": 0,
+        "wrong_source_including_unknown": 3
+      },
+      "MDT04": {
+        "count": 3,
+        "all_fields_exact": {
+          "numerator": 3,
+          "denominator": 3,
+          "rate": 1.0
+        },
+        "source_correct": {
+          "numerator": 3,
+          "denominator": 3,
+          "rate": 1.0
+        },
+        "determination_correct": {
+          "numerator": 3,
+          "denominator": 3,
+          "rate": 1.0
+        },
+        "invalid_or_missing": 0,
+        "wrong_source_including_unknown": 0
+      },
+      "MDT08": {
+        "count": 3,
+        "all_fields_exact": {
+          "numerator": 0,
+          "denominator": 3,
+          "rate": 0.0
+        },
+        "source_correct": {
+          "numerator": 3,
+          "denominator": 3,
+          "rate": 1.0
+        },
+        "determination_correct": {
+          "numerator": 0,
+          "denominator": 3,
+          "rate": 0.0
+        },
+        "invalid_or_missing": 0,
+        "wrong_source_including_unknown": 0
+      },
+      "MDT01": {
+        "count": 3,
+        "all_fields_exact": {
+          "numerator": 3,
+          "denominator": 3,
+          "rate": 1.0
+        },
+        "source_correct": {
+          "numerator": 3,
+          "denominator": 3,
+          "rate": 1.0
+        },
+        "determination_correct": {
+          "numerator": 3,
+          "denominator": 3,
+          "rate": 1.0
+        },
+        "invalid_or_missing": 0,
+        "wrong_source_including_unknown": 0
+      },
+      "MDT07": {
+        "count": 3,
+        "all_fields_exact": {
+          "numerator": 3,
+          "denominator": 3,
+          "rate": 1.0
+        },
+        "source_correct": {
+          "numerator": 3,
+          "denominator": 3,
+          "rate": 1.0
+        },
+        "determination_correct": {
+          "numerator": 3,
+          "denominator": 3,
+          "rate": 1.0
+        },
+        "invalid_or_missing": 0,
+        "wrong_source_including_unknown": 0
+      },
+      "MDT14": {
+        "count": 3,
+        "all_fields_exact": {
+          "numerator": 0,
+          "denominator": 3,
+          "rate": 0.0
+        },
+        "source_correct": {
+          "numerator": 3,
+          "denominator": 3,
+          "rate": 1.0
+        },
+        "determination_correct": {
+          "numerator": 0,
+          "denominator": 3,
+          "rate": 0.0
+        },
+        "invalid_or_missing": 0,
+        "wrong_source_including_unknown": 0
+      },
+      "MDT12": {
+        "count": 3,
+        "all_fields_exact": {
+          "numerator": 0,
+          "denominator": 3,
+          "rate": 0.0
+        },
+        "source_correct": {
+          "numerator": 3,
+          "denominator": 3,
+          "rate": 1.0
+        },
+        "determination_correct": {
+          "numerator": 0,
+          "denominator": 3,
+          "rate": 0.0
+        },
+        "invalid_or_missing": 0,
+        "wrong_source_including_unknown": 0
+      },
+      "MDT03": {
+        "count": 3,
+        "all_fields_exact": {
+          "numerator": 0,
+          "denominator": 3,
+          "rate": 0.0
+        },
+        "source_correct": {
+          "numerator": 1,
+          "denominator": 3,
+          "rate": 0.3333333333333333
+        },
+        "determination_correct": {
+          "numerator": 0,
+          "denominator": 3,
+          "rate": 0.0
+        },
+        "invalid_or_missing": 0,
+        "wrong_source_including_unknown": 2
+      }
+    },
+    "subtype": {
+      "missing_tariff_material": {
+        "count": 3,
+        "all_fields_exact": {
+          "numerator": 1,
+          "denominator": 3,
+          "rate": 0.3333333333333333
+        },
+        "source_correct": {
+          "numerator": 3,
+          "denominator": 3,
+          "rate": 1.0
+        },
+        "determination_correct": {
+          "numerator": 1,
+          "denominator": 3,
+          "rate": 0.3333333333333333
+        },
+        "invalid_or_missing": 0,
+        "wrong_source_including_unknown": 0
+      },
+      "unknown_version_same_answer": {
+        "count": 3,
+        "all_fields_exact": {
+          "numerator": 3,
+          "denominator": 3,
+          "rate": 1.0
+        },
+        "source_correct": {
+          "numerator": 3,
+          "denominator": 3,
+          "rate": 1.0
+        },
+        "determination_correct": {
+          "numerator": 3,
+          "denominator": 3,
+          "rate": 1.0
+        },
+        "invalid_or_missing": 0,
+        "wrong_source_including_unknown": 0
+      },
+      "specific_mismatch": {
+        "count": 3,
+        "all_fields_exact": {
+          "numerator": 1,
+          "denominator": 3,
+          "rate": 0.3333333333333333
+        },
+        "source_correct": {
+          "numerator": 3,
+          "denominator": 3,
+          "rate": 1.0
+        },
+        "determination_correct": {
+          "numerator": 1,
+          "denominator": 3,
+          "rate": 0.3333333333333333
+        },
+        "invalid_or_missing": 0,
+        "wrong_source_including_unknown": 0
+      },
+      "equal_rank_same_answer": {
+        "count": 3,
+        "all_fields_exact": {
+          "numerator": 3,
+          "denominator": 3,
+          "rate": 1.0
+        },
+        "source_correct": {
+          "numerator": 3,
+          "denominator": 3,
+          "rate": 1.0
+        },
+        "determination_correct": {
+          "numerator": 3,
+          "denominator": 3,
+          "rate": 1.0
+        },
+        "invalid_or_missing": 0,
+        "wrong_source_including_unknown": 0
+      },
+      "specific_match": {
+        "count": 3,
+        "all_fields_exact": {
+          "numerator": 3,
+          "denominator": 3,
+          "rate": 1.0
+        },
+        "source_correct": {
+          "numerator": 3,
+          "denominator": 3,
+          "rate": 1.0
+        },
+        "determination_correct": {
+          "numerator": 3,
+          "denominator": 3,
+          "rate": 1.0
+        },
+        "invalid_or_missing": 0,
+        "wrong_source_including_unknown": 0
+      },
+      "publication_not_effective": {
+        "count": 3,
+        "all_fields_exact": {
+          "numerator": 3,
+          "denominator": 3,
+          "rate": 1.0
+        },
+        "source_correct": {
+          "numerator": 3,
+          "denominator": 3,
+          "rate": 1.0
+        },
+        "determination_correct": {
+          "numerator": 3,
+          "denominator": 3,
+          "rate": 1.0
+        },
+        "invalid_or_missing": 0,
+        "wrong_source_including_unknown": 0
+      },
+      "signed_supplement": {
+        "count": 3,
+        "all_fields_exact": {
+          "numerator": 1,
+          "denominator": 3,
+          "rate": 0.3333333333333333
+        },
+        "source_correct": {
+          "numerator": 2,
+          "denominator": 3,
+          "rate": 0.6666666666666666
+        },
+        "determination_correct": {
+          "numerator": 1,
+          "denominator": 3,
+          "rate": 0.3333333333333333
+        },
+        "invalid_or_missing": 0,
+        "wrong_source_including_unknown": 1
+      },
+      "equal_rank_conflict": {
+        "count": 3,
+        "all_fields_exact": {
+          "numerator": 0,
+          "denominator": 3,
+          "rate": 0.0
+        },
+        "source_correct": {
+          "numerator": 3,
+          "denominator": 3,
+          "rate": 1.0
+        },
+        "determination_correct": {
+          "numerator": 0,
+          "denominator": 3,
+          "rate": 0.0
+        },
+        "invalid_or_missing": 0,
+        "wrong_source_including_unknown": 0
+      },
+      "future_version": {
+        "count": 3,
+        "all_fields_exact": {
+          "numerator": 0,
+          "denominator": 3,
+          "rate": 0.0
+        },
+        "source_correct": {
+          "numerator": 0,
+          "denominator": 3,
+          "rate": 0.0
+        },
+        "determination_correct": {
+          "numerator": 0,
+          "denominator": 3,
+          "rate": 0.0
+        },
+        "invalid_or_missing": 0,
+        "wrong_source_including_unknown": 3
+      },
+      "reversed_named_hierarchy": {
+        "count": 3,
+        "all_fields_exact": {
+          "numerator": 3,
+          "denominator": 3,
+          "rate": 1.0
+        },
+        "source_correct": {
+          "numerator": 3,
+          "denominator": 3,
+          "rate": 1.0
+        },
+        "determination_correct": {
+          "numerator": 3,
+          "denominator": 3,
+          "rate": 1.0
+        },
+        "invalid_or_missing": 0,
+        "wrong_source_including_unknown": 0
+      },
+      "missing_publication_irrelevant": {
+        "count": 3,
+        "all_fields_exact": {
+          "numerator": 0,
+          "denominator": 3,
+          "rate": 0.0
+        },
+        "source_correct": {
+          "numerator": 3,
+          "denominator": 3,
+          "rate": 1.0
+        },
+        "determination_correct": {
+          "numerator": 0,
+          "denominator": 3,
+          "rate": 0.0
+        },
+        "invalid_or_missing": 0,
+        "wrong_source_including_unknown": 0
+      },
+      "higher_authority_older": {
+        "count": 3,
+        "all_fields_exact": {
+          "numerator": 3,
+          "denominator": 3,
+          "rate": 1.0
+        },
+        "source_correct": {
+          "numerator": 3,
+          "denominator": 3,
+          "rate": 1.0
+        },
+        "determination_correct": {
+          "numerator": 3,
+          "denominator": 3,
+          "rate": 1.0
+        },
+        "invalid_or_missing": 0,
+        "wrong_source_including_unknown": 0
+      },
+      "missing_event_date": {
+        "count": 3,
+        "all_fields_exact": {
+          "numerator": 3,
+          "denominator": 3,
+          "rate": 1.0
+        },
+        "source_correct": {
+          "numerator": 3,
+          "denominator": 3,
+          "rate": 1.0
+        },
+        "determination_correct": {
+          "numerator": 3,
+          "denominator": 3,
+          "rate": 1.0
+        },
+        "invalid_or_missing": 0,
+        "wrong_source_including_unknown": 0
+      },
+      "equal_rank_with_irrelevant": {
+        "count": 3,
+        "all_fields_exact": {
+          "numerator": 0,
+          "denominator": 3,
+          "rate": 0.0
+        },
+        "source_correct": {
+          "numerator": 3,
+          "denominator": 3,
+          "rate": 1.0
+        },
+        "determination_correct": {
+          "numerator": 0,
+          "denominator": 3,
+          "rate": 0.0
+        },
+        "invalid_or_missing": 0,
+        "wrong_source_including_unknown": 0
+      },
+      "missing_tariff_immaterial": {
+        "count": 3,
+        "all_fields_exact": {
+          "numerator": 0,
+          "denominator": 3,
+          "rate": 0.0
+        },
+        "source_correct": {
+          "numerator": 3,
+          "denominator": 3,
+          "rate": 1.0
+        },
+        "determination_correct": {
+          "numerator": 0,
+          "denominator": 3,
+          "rate": 0.0
+        },
+        "invalid_or_missing": 0,
+        "wrong_source_including_unknown": 0
+      },
+      "designated_approval": {
+        "count": 3,
+        "all_fields_exact": {
+          "numerator": 0,
+          "denominator": 3,
+          "rate": 0.0
+        },
+        "source_correct": {
+          "numerator": 1,
+          "denominator": 3,
+          "rate": 0.3333333333333333
+        },
+        "determination_correct": {
+          "numerator": 0,
+          "denominator": 3,
+          "rate": 0.0
+        },
+        "invalid_or_missing": 0,
+        "wrong_source_including_unknown": 2
+      }
+    }
+  },
+  "technical": {
+    "recorded_predictions": 48,
+    "valid_cases": 48,
+    "missing_predictions": 0,
+    "invalid_existing_predictions": 0,
+    "invalid_or_missing_case_ids": [],
+    "input_tokens_min": 888,
+    "input_tokens_max": 953,
+    "forward_seconds_median": 27.3191477520013,
+    "forward_seconds_p95": 32.4174101739005,
+    "forward_seconds_total": 1313.2460341789701,
+    "peak_observed_rss_bytes": 6055006208
+  },
+  "confusion_matrices": {
+    "source": {
+      "not_unique": {
+        "not_unique": 21
+      },
+      "D2": {
+        "D2": 8,
+        "D1": 1
+      },
+      "D3": {
+        "D3": 7,
+        "not_unique": 1,
+        "D2": 1
+      },
+      "D1": {
+        "D3": 2,
+        "not_unique": 1,
+        "D1": 6
+      }
+    },
+    "determination": {
+      "unresolved": {
+        "unresolved": 4,
+        "yes": 8
+      },
+      "yes": {
+        "yes": 18
+      },
+      "no": {
+        "yes": 8,
+        "unresolved": 8,
+        "no": 2
+      }
+    }
+  },
+  "error_case_ids": [
+    "MD042",
+    "MD002",
+    "MD013",
+    "MD022",
+    "MD011",
+    "MD024",
+    "MD014",
+    "MD046",
+    "MD044",
+    "MD028",
+    "MD034",
+    "MD043",
+    "MD040",
+    "MD045",
+    "MD030",
+    "MD008",
+    "MD038",
+    "MD029",
+    "MD012",
+    "MD010",
+    "MD019",
+    "MD035",
+    "MD006",
+    "MD003"
+  ],
+  "limitations": [
+    "AI-authored and separately AI-reviewed, not human-expert validated",
+    "Purposive 12 related domain/stratum families with shared cross-domain templates, not representative or IID",
+    "Bounded native source/outcome choices, not generated-answer quality or multi-clause composition",
+    "No randomized matched order-swap intervention; position-balanced descriptive results are not causal order-robustness estimates",
+    "Marginal option scores are not calibrated or joint probabilities",
+    "Experimental CPU NF4; no GPU or native unquantized precision claim"
+  ],
+  "provenance": {
+    "requests.jsonl_sha256": "7df0df7b0737ea847b0f8d5c3a844b95a42700e08f0178a981975e1c57cc2906",
+    "gold.jsonl_sha256": "941800f8561510a8b92d2a8764bc1d0de607d2e7c5960a301295ded4e821895e",
+    "predictions.jsonl_sha256": "b3882af5059d597e7f2928d9881247deee81f470a9a15fe3bc6d3cdab624522c"
+  }
+}

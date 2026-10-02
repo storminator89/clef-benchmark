@@ -1,0 +1,8 @@
+{
+  "status": "passed",
+  "test_count": 23,
+  "mocked_request_count": 974,
+  "real_jev_requests": 0,
+  "credentials_read": false,
+  "purpose": "Offline adapter, scorer and bounded workflow contract regression; no Jev quality measurement."
+}

@@ -1,0 +1,27 @@
+{
+  "schema_version": 2,
+  "baseline_commit": "ae751e09ef383d0fca7126d35f19fc8670b80b08",
+  "purpose": "Preserve every prior scientific suite, native result, runtime and schema artifact, and existing UI dataset while adding independently gated multidoc and external-comparison evidence.",
+  "selection": {
+    "directory_prefixes": [
+      "benchmark/",
+      "finance_benchmark/",
+      "experiments/",
+      "results/",
+      "runtime/",
+      "schemas/",
+      "examples/",
+      "licenses/",
+      "web/data/"
+    ],
+    "include_clarification_baseline_paths": true,
+    "stage_additions": [
+      "experiments/multidoc48/",
+      "experiments/jev_comparison/",
+      "web/data/multidoc.json"
+    ]
+  },
+  "file_count": 590,
+  "total_bytes": 32911982,
+  "aggregate_sha256": "5a92a3ccdcf6e08e09537455d7b7aa3960c7b565d7d028acce500cadad87de64"
+}

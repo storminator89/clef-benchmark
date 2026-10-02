@@ -1,0 +1,77 @@
+# TEMPLATE ONLY: not installed, dispatched or authorized by preparing this file.
+# Publish reviewed code first. Replace REVIEWED_CODE_COMMIT_SHA with that immutable
+# 40-character commit, then review/publish this workflow separately on main.
+name: Jev bounded frozen comparison
+on:
+  workflow_dispatch:
+    inputs:
+      approve_public_data:
+        description: 'Approve sending the frozen 974 public/synthetic text requests to TypeSafe'
+        type: boolean
+        required: true
+        default: false
+      approve_api_three_usd:
+        description: 'Approve one run, up to 1024 wire attempts and a local USD 3 API reservation guard'
+        type: boolean
+        required: true
+        default: false
+permissions:
+  contents: read
+concurrency:
+  group: jev-bounded-comparison
+  cancel-in-progress: false
+jobs:
+  compare:
+    if: >-
+      github.repository == 'storminator89/clef-benchmark' &&
+      github.ref == 'refs/heads/main' &&
+      github.run_attempt == 1 &&
+      inputs.approve_public_data && inputs.approve_api_three_usd
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - name: Checkout immutable reviewed code
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          ref: REVIEWED_CODE_COMMIT_SHA
+          persist-credentials: false
+          fetch-depth: 1
+      - name: Verify frozen inputs and test offline
+        env:
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: |
+          python3 experiments/jev_comparison/scripts/check_bundle.py
+          python3 -m unittest discover -s experiments/jev_comparison/tests -v
+          python3 experiments/jev_comparison/scripts/jev_runner.py --output "$RUNNER_TEMP/jev-plan.json"
+      - name: Run explicitly approved one-pass comparison
+        env:
+          JEV_API_KEY: ${{ secrets.JEV_API_KEY }}
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: |
+          python3 experiments/jev_comparison/scripts/jev_runner.py --execute --approval one-pass-public-text-974 --approved-api-usd 3 --output "$RUNNER_TEMP/jev-run"
+      - name: Score complete and missing cases offline
+        if: always()
+        env:
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: |
+          if test -f "$RUNNER_TEMP/jev-run/predictions.jsonl"; then
+            python3 experiments/jev_comparison/scripts/compare.py --run "$RUNNER_TEMP/jev-run" --output "$RUNNER_TEMP/jev-comparison"
+          fi
+      - name: Retain only sanitized bounded-run evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: jev-frozen-comparison-${{ github.run_id }}
+          retention-days: 7
+          if-no-files-found: error
+          include-hidden-files: false
+          path: |
+            ${{ runner.temp }}/jev-plan.json
+            ${{ runner.temp }}/jev-run/attempts.jsonl
+            ${{ runner.temp }}/jev-run/predictions.jsonl
+            ${{ runner.temp }}/jev-run/run_summary.json
+            ${{ runner.temp }}/jev-comparison/comparison_summary.json
+            ${{ runner.temp }}/jev-comparison/field_metrics.json
+            ${{ runner.temp }}/jev-comparison/special_diagnostics.json
+            ${{ runner.temp }}/jev-comparison/latency.json
+            ${{ runner.temp }}/jev-comparison/case_comparison.jsonl

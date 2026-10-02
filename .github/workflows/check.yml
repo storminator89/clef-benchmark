@@ -46,11 +46,16 @@ jobs:
         run: python scripts/check_clarification.py
       - name: Verify paired results and per-field reliability with original source preservation
         run: python scripts/check_paired_reliability.py
+      - name: Verify multidocument results and inactive Jev preparation
+        run: |
+          python scripts/check_multidoc.py
+          python scripts/check_jev.py
+          python -m unittest discover -s experiments/jev_comparison/tests -v
       - name: Run standard-library server, importer and adapter tests
         run: python -m unittest discover -s tests -p 'test_*.py' -v
-      - name: Rebuild six suite datasets and two separate diagnostic datasets
+      - name: Rebuild seven suite datasets and two separate diagnostic datasets
         run: |
-          git ls-files --error-unmatch web/data/benchmark.json web/data/finance.json web/data/clean72.json web/data/insurance.json web/data/bank-support.json web/data/clarification.json web/data/minimal_pairs.json web/data/reliability.json
+          git ls-files --error-unmatch web/data/benchmark.json web/data/finance.json web/data/clean72.json web/data/insurance.json web/data/bank-support.json web/data/clarification.json web/data/minimal_pairs.json web/data/reliability.json web/data/multidoc.json
           python scripts/build_web_data.py --suite general
           python scripts/build_web_data.py --suite finance
           python scripts/build_clean_web_data.py
@@ -59,6 +64,7 @@ jobs:
           python scripts/build_clarification_web_data.py
           python scripts/build_minimal_pairs_web_data.py
           python scripts/build_reliability_web_data.py
+          python scripts/build_multidoc_web_data.py
           git diff --exit-code -- web/data/
       - name: Install pinned DOM test dependency (no runtime dependency)
         run: npm ci --ignore-scripts --no-audit --no-fund

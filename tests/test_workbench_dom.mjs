@@ -20,6 +20,7 @@ import {
   suiteStats,
   bankPriorityCounts,
   bankServicePolicy,
+  multidocEvents,
   validateDataset,
   evidenceIDs,
 } from "../web/core.js";
@@ -296,7 +297,7 @@ test("unavailable suite falls back honestly, complete load failure gives a usefu
   assert.equal(h.$("app-error").hidden, false);
   assert.match(h.$("app-error").textContent, /Versicherungsdokumente/);
   const all = await harness({
-    failFiles: ["insurance", "benchmark", "finance", "clean72", "bank-support", "clarification"],
+    failFiles: ["insurance", "benchmark", "finance", "clean72", "bank-support", "clarification", "multidoc"],
   });
   assert.equal(all.app.getState().suite, null);
   assert.match(all.$("app-error").textContent, /python server.py/);
@@ -813,7 +814,7 @@ test("final bank results keep field, exact-case and critical-case truths separat
 
 test("suite catalog offers separate denominators, selects honestly and never sums scores", async () => {
   const h = await harness();
-  assert.equal(h.document.querySelectorAll('[data-suite]').length, 6);
+  assert.equal(h.document.querySelectorAll('[data-suite]').length, 7);
   const bank = h.document.querySelector('[data-suite="bank-support"]');
   assert.match(bank.textContent, /80 deutsche Hauptfälle/);
   assert.match(bank.textContent, /Gespeicherter Lauf/);
@@ -870,10 +871,10 @@ test("newer health refresh wins if an older check finishes last", async () => {
 });
 
 test("failed benchmark loading does not block independent backend readiness or custom import", async () => {
-  const h = await harness({ failFiles: ['insurance', 'benchmark', 'finance', 'clean72', 'bank-support', 'clarification'] });
+  const h = await harness({ failFiles: ['insurance', 'benchmark', 'finance', 'clean72', 'bank-support', 'clarification', 'multidoc'] });
   assert.equal(h.$('app-error').hidden, false);
   assert.match(h.$('backend-summary').textContent, /Ergebnismodus/);
-  assert.equal(h.document.querySelectorAll('[data-suite]:disabled').length, 6);
+  assert.equal(h.document.querySelectorAll('[data-suite]:disabled').length, 7);
   assert.equal(h.$('custom-example').disabled, false);
 });
 
@@ -1077,4 +1078,184 @@ test('clarification keeps native policies inspectable without burying answer com
   h.click('[data-field="determination"]');
   assert.equal(h.document.querySelector('.question-title').textContent, c.question);
   assert.ok(h.document.querySelector('.field-schema pre').textContent.includes(c.questions.determination.instructions));
+});
+
+test('multidoc stays a bounded separate suite with native fields and a visible negative result', async () => {
+  const data = datasets.multidoc, before = JSON.stringify(data);
+  assert.equal(validateDataset(data, 'multidoc'), data);
+  assert.equal(JSON.stringify(data), before);
+  const stats = suiteStats(data);
+  assert.equal(stats.total, 48); assert.equal(stats.exact, 24);
+  assert.equal(stats.fields.source.correct, 42); assert.equal(stats.fields.determination.correct, 24);
+  const h = await harness({hash:'#explorer?suite=multidoc&case=MD042&field=determination'});
+  assert.equal(h.app.getState().suite, 'multidoc');
+  assert.equal(h.app.getState().selected, 'MD042');
+  assert.equal(h.app.getState().field, 'determination');
+  assert.equal(h.document.querySelectorAll('.case-item').length, 48);
+  assert.equal(h.document.querySelectorAll('[data-field]').length, 2);
+  assert.match(h.$('result-banner').textContent, /Nur 24 \/ 48/);
+  assert.match(h.$('result-banner').textContent, /42 \/ 48/);
+  assert.match(h.$('stats').textContent, /24 \/ 48 Fälle: beide/);
+  assert.doesNotMatch(h.$('stats').textContent, /66 \/ 96/);
+  assert.equal(h.$('paired-panel').hidden,true);
+  assert.match(h.$('diagnosis-content').textContent,/18 \/ 48/);
+  assert.match(h.$('method-synthetic').textContent,/12 verwandte Familien und 16/);
+  assert.match(h.$('method-synthetic').textContent,/Keine gepaarte Reihenfolge-Intervention/);
+  assert.match(h.$('method-synthetic').textContent,/Keine menschliche Fachvalidierung/);
+});
+
+test('multidoc shows complete source prose, precedence, facts and question in original order', async () => {
+  const h = await harness({hash:'#explorer?suite=multidoc&case=MD027'});
+  const c = datasets.multidoc.cases.find(c => c.id === 'MD027');
+  const sections = [...h.document.querySelectorAll('.document-section')];
+  assert.deepEqual(sections.map(el => el.dataset.clauseId), ['Vorrang',...c.documents.map(d=>d.id),'Fakten','Frage']);
+  for (const value of [c.precedence,c.facts,c.question,c.input]) assert.ok(h.$('document-content').textContent.includes(value));
+  for (const d of c.documents) {
+    const section = h.$(`clause-${d.id}`);
+    assert.ok(section.textContent.includes(d.title));
+    assert.ok(section.textContent.includes(c.document_texts[d.id].split('\n').slice(1).join('\n')));
+  }
+  assert.equal(h.document.querySelector('#highlight-select'),null);
+  assert.ok(h.$('case-detail').textContent.includes(c.gold_rationale));
+  assert.deepEqual([...h.document.querySelectorAll('[data-source-document]')].map(el=>el.dataset.sourceDocument),c.plausible_source_ids);
+  h.click('[data-source-document="D2"]');
+  assert.equal(h.document.__focused.id, 'clause-D2');
+  assert.equal(h.app.getState().pane, 'document');
+  assert.ok(h.$('case-detail').textContent.includes(JSON.stringify(c.probabilities_unrounded, null, 2)));
+  assert.ok(h.$('case-detail').textContent.includes(JSON.stringify(c.native_answers, null, 2)));
+  assert.deepEqual([...h.document.querySelectorAll('#case-detail .prob-label > span:first-child')].map(el=>el.textContent.replace('Gold','')).sort(),['D1','D2','D3','not_unique']);
+});
+
+test('multidoc same-answer controls retain not_unique plus definite outputs without false inconsistency', async () => {
+  const controls = datasets.multidoc.cases.filter(c => c.source_uncertain_answer_definite);
+  assert.equal(controls.length,9);
+  const correct = controls.filter(c => c.result.correct);
+  assert.equal(correct.length,6);
+  for (const c of correct) {
+    assert.equal(c.result.fields.source.prediction,'not_unique');
+    assert.ok(['yes','no'].includes(c.result.fields.determination.prediction));
+    assert.equal(multidocEvents(c).includes('inconsistent_visible_rules'),false);
+    const h=await harness({hash:`#explorer?suite=multidoc&case=${c.id}`});
+    assert.match(h.$('inspection-header').textContent,/not_unique und yes\/no ist hier zulässig/);
+    assert.doesNotMatch(h.$('inspection-header').textContent,/Feldpaar widerspricht|Inkonsistente/);
+  }
+});
+
+test('multidoc filters separate source correctness from decision and clarification failures', async () => {
+  const h=await harness({hash:'#explorer?suite=multidoc'});
+  for(const [filter,count] of [['errors',24],['source',6],['determination',24],
+    ['multidoc:source_right_answer_wrong',18],['multidoc:missed_clarification',8],
+    ['multidoc:excess_clarification',8],['multidoc:wrong_definite_answer',8],
+    ['multidoc:same_answer_control',9],['multidoc:inconsistent_visible_rules',15]]) {
+    h.change('filter-outcome',filter);
+    assert.equal(h.document.querySelectorAll('.case-item').length,count,filter);
+  }
+  h.click('#reset-filters'); h.change('filter-tag','scope');
+  assert.equal(h.document.querySelectorAll('.case-item').length,12);
+  h.change('filter-category','insurance');
+  assert.equal(h.document.querySelectorAll('.case-item').length,4);
+  h.click('#reset-filters'); h.change('search','MDT16','input');
+  assert.equal(h.document.querySelectorAll('.case-item').length,3);
+  h.change('search','missing-exact-case','input');
+  assert.equal(h.document.querySelectorAll('.document-section').length,0);
+  assert.equal(h.document.querySelectorAll('[data-source-document]').length,0);
+  assert.equal(h.$('open-playground').disabled,true);
+});
+
+test('multidoc replay, export and deep links preserve native data across suite navigation', async () => {
+  const h=await harness({hash:'#explorer?suite=multidoc&case=MD016&field=determination'});
+  const c=datasets.multidoc.cases.find(c=>c.id==='MD016');
+  h.click('#download-results');
+  assert.deepEqual(JSON.parse(await h.downloads[0].text()),datasets.multidoc);
+  h.click('#open-playground');h.click('#show-saved');
+  assert.equal(h.$('input-state').value,c.input);
+  assert.deepEqual(JSON.parse(h.$('input-schema').value),c.questions);
+  assert.equal(h.document.querySelectorAll('[data-output-field]').length,2);
+  assert.match(h.$('playground-output').textContent,/not_unique/);
+  assert.equal(h.calls.filter(c=>c.url==='/api/infer').length,0);
+  h.change('input-state',c.input+' edit','input');
+  assert.equal(h.$('show-saved').disabled,true);
+  h.window.location.hash='#explorer?suite=insurance&case=fall_002&field=evidence';
+  assert.equal(h.app.getState().suite,'insurance');
+  assert.equal(h.document.querySelectorAll('[data-source-document]').length,0);
+  h.window.history.back();
+  h.window.location.hash='#explorer?suite=multidoc&case=MD016&field=source';
+  assert.equal(h.app.getState().field,'source');
+  assert.equal(h.app.getState().selected,'MD016');
+});
+
+test('multidoc malformed context, gold, native probabilities or score summaries fail closed', () => {
+  const edits = [d=>d.cases.pop(),d=>delete d.summary,d=>delete d.suite.strata,
+    d=>delete d.cases[0].precedence,d=>delete d.cases[0].facts,d=>delete d.cases[0].question,
+    d=>delete d.cases[0].document_texts,d=>d.cases[0].documents.reverse(),
+    d=>d.cases[0].documents[0].threshold++,d=>d.cases[0].input+='\nchanged',
+    d=>d.cases[0].plausible_source_ids=['D3'],d=>d.cases[0].source_position=1,
+    d=>d.cases[0].material_clarification=false,d=>d.cases[0].source_uncertain_answer_definite=true,
+    d=>delete d.cases[0].questions.source,d=>d.cases[0].result.fields.source.prediction='D4',
+    d=>d.cases[0].native_answers.source.choice='D1',d=>d.cases[0].native_answers.source.confidence=.9999,
+    d=>d.cases[0].probabilities_unrounded.source.D1=.9,d=>d.cases[0].tags=[],
+    d=>d.cases[0].family='unknown',d=>d.cases[0].template_id='unknown',
+    d=>d.summary.paired_order_intervention=true,d=>d.summary.error_case_ids.reverse(),
+    d=>d.summary.consistency.field_pair_inconsistent_with_visible_rules.numerator++,
+  ];
+  for (const section of ['case_metrics','source_metrics','clarification_metrics'])
+    for (const key of Object.keys(datasets.multidoc.summary[section]))
+      for (const part of ['numerator','denominator','rate'])
+        edits.push(d=>{d.summary[section][key][part]+=1;});
+  for (const [attribute,groups] of Object.entries(datasets.multidoc.summary.strata))
+    for (const key of Object.keys(groups)) edits.push(d=>{d.summary.strata[attribute][key].count++;});
+  for (const [i,edit] of edits.entries()) {
+    const data=structuredClone(datasets.multidoc);edit(data);
+    assert.throws(()=>validateDataset(data,'multidoc'),`mutation ${i}`);
+  }
+});
+
+test('multidoc loading navigation uses the latest route without a stale suite takeover', async () => {
+  let release;
+  const wait=new Promise(resolve=>release=resolve);
+  const h=await harness({hash:'#explorer?suite=multidoc&case=MD016&field=determination',deferInit:true,
+    dataHandler: name=>name==='multidoc'?wait:undefined});
+  assert.equal(h.$('suite-select').getAttribute('aria-busy'),'true');
+  assert.match(h.$('case-list').textContent,/geladen/);
+  h.window.location.hash='#custom';
+  release({ok:true,json:async()=>structuredClone(datasets.multidoc)});
+  await h.ready;
+  assert.equal(h.$('custom').hidden,false);
+  assert.equal(h.$('explorer').hidden,true);
+  assert.equal(h.window.location.hash,'#custom');
+  assert.equal(h.$('suite-select').getAttribute('aria-busy'),'false');
+  h.window.location.hash='#explorer?suite=multidoc&case=MD016&field=determination';
+  assert.equal(h.app.getState().selected,'MD016');
+  assert.equal(h.app.getState().field,'determination');
+});
+
+test('multidoc failure stays isolated and pending live requests retain their owning suite', async () => {
+  const bad=structuredClone(datasets.multidoc);delete bad.summary;
+  const h=await harness({hash:'#explorer?suite=multidoc',overrides:{multidoc:bad}});
+  assert.equal(h.app.getState().suite,'insurance');
+  assert.equal(h.document.querySelector('[value="multidoc"]').disabled,true);
+  assert.match(h.$('app-error').textContent,/Mehrere Dokumente/);
+  assert.equal(h.$('custom-example').disabled,false);
+  let release;
+  const wait=new Promise(resolve=>release=resolve);
+  const running=await harness({hash:'#explorer?suite=multidoc&case=MD016',enabled:true,requestHandler:()=>wait});
+  const before=running.$('input-state').value, run=running.app.runLive();
+  running.window.location.hash='#explorer?suite=insurance&case=fall_002';
+  assert.equal(running.app.getState().suite,'multidoc');
+  assert.equal(running.$('input-state').value,before);
+  assert.equal(running.$('suite-select').disabled,true);
+  release({ok:false,json:async()=>({error:'test-only interrupted request'})});await run;
+  assert.equal(running.$('suite-select').disabled,false);
+  assert.equal(running.app.selectSuite('insurance'),true);
+});
+
+test('multidoc pending fixture has no fabricated result or probability maps', async () => {
+  const pending=structuredClone(datasets.multidoc);pending.status='test_data_only';delete pending.summary;
+  for(const c of pending.cases){delete c.result;delete c.native_answers;delete c.probabilities_unrounded;delete c.input_tokens;delete c.latency_ms;}
+  const h=await harness({hash:'#explorer?suite=multidoc',overrides:{multidoc:pending}});
+  assert.equal(h.app.getState().suite,'multidoc');
+  assert.match(h.$('case-detail').textContent,/Noch unbewertet/);
+  assert.equal(h.document.querySelectorAll('#case-detail .prob-row').length,0);
+  assert.doesNotMatch(h.$('stats').textContent,/null|24 \/ 48|42 \/ 48/);
+  assert.equal(h.$('show-saved').disabled,true);
 });

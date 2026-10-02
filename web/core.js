@@ -12,6 +12,7 @@ export const SPLIT = {
   mixed_schema_diagnostic: "Deutsch / Englisch",
   german_clean_primary: "Deutsch · ohne Manipulation",
   german_insurance_primary: "Deutsch · Dokumente",
+  german_multidoc_primary: "Deutsch · Mehrere Dokumente",
   german_clarification_primary: "Deutsch · Rückfragen",
   german_bank_support_primary: "Deutsch · Bank-Kundensupport",
 };
@@ -45,7 +46,7 @@ export const decimal = (value, digits = 2) =>
     : "—";
 export const isObject = (value) =>
   value !== null && typeof value === "object" && !Array.isArray(value);
-const FIELD_LABELS = Object.freeze({ decision: "Entscheidung", evidence: "Evidenz",
+const FIELD_LABELS = Object.freeze({ source: "Maßgebliche Quelle", decision: "Entscheidung", evidence: "Evidenz",
   action: "Nächster Schritt", determination: "Feststellung",
   intent: "Anliegen", priority: "Priorität", next_step: "Nächster Schritt" });
 export const fieldLabel = (id) => Object.hasOwn(FIELD_LABELS, id)
@@ -121,7 +122,8 @@ export function filterCases(cases, filters = {}) {
       (kind === "correct" && o === "correct") ||
       (kind === "unscored" && o === "unscored") ||
       fields.some((f) => f.id === kind && f.result?.correct === false) ||
-      (kind.startsWith("diagnostic:") && (c.diagnostic_events || []).includes(kind.slice(11)));
+      (kind.startsWith("diagnostic:") && (c.diagnostic_events || []).includes(kind.slice(11))) ||
+      (kind.startsWith("multidoc:") && multidocEvents(c).includes(kind.slice(9)));
     return (
       (!filters.split || c.split === filters.split) &&
       (!filters.category || c.category === filters.category) &&
@@ -135,6 +137,8 @@ export function filterCases(cases, filters = {}) {
           c.scenario,
           c.message,
           c.service_policy,
+          c.precedence, c.facts, c.question, c.family, c.stratum, c.subtype, c.template_id,
+          ...Object.values(c.document_texts || {}),
           c.claim,
           c.document_id,
           c.area,
@@ -146,6 +150,127 @@ export function filterCases(cases, filters = {}) {
           .includes(query))
     );
   });
+}
+/** Field-pair diagnostics for this bounded suite, not a general consistency rule.
+ * In particular, source uncertainty does not imply answer uncertainty. */
+export function multidocEvents(c) {
+  if (!c?.result || !Array.isArray(c.documents)) return [];
+  const source = c.result.fields?.source, answer = c.result.fields?.determination;
+  if (!source || !answer) return [];
+  const concrete = answer.prediction !== "unresolved";
+  const own = c.documents.find(d => d.id === source.prediction);
+  return [
+    source.correct && !answer.correct && "source_right_answer_wrong",
+    c.material_clarification && concrete && "missed_clarification",
+    !c.material_clarification && !concrete && "excess_clarification",
+    !c.material_clarification && concrete && !answer.correct && "wrong_definite_answer",
+    c.source_uncertain_answer_definite && "same_answer_control",
+    (source.prediction === "not_unique"
+      ? c.material_clarification && concrete
+      : !own || own.outcome !== answer.prediction) && "inconsistent_visible_rules",
+  ].filter(Boolean);
+}
+function validateMultidocDataset(data, fail) {
+  const equal = (a, b) => canonicalJSON(a) === canonicalJSON(b);
+  const text = v => typeof v === "string" && v.trim().length > 0;
+  const labels = (map, keys) => isObject(map) && equal(Object.keys(map).sort(), keys.sort()) && Object.values(map).every(text);
+  const rows = data.cases;
+  if (!labels(data.suite.categories, ["banking", "insurance", "finance"]) ||
+      !labels(data.suite.strata, ["authority", "effective_date", "scope", "unresolved"])) fail();
+  for (const c of rows) {
+    if (Object.keys(c.questions).join("|") !== "source|determination" ||
+        Object.keys(c.questions.source.criteria).sort().join("|") !== "D1|D2|D3|not_unique" ||
+        Object.keys(c.questions.determination.criteria).sort().join("|") !== "no|unresolved|yes" ||
+        Object.keys(c.expected).sort().join("|") !== "determination|source" ||
+        [c.precedence, c.facts, c.question, c.family, c.stratum, c.subtype, c.template_id, c.gold_rationale].some(v => !text(v)) ||
+        !Object.hasOwn(data.suite.categories, c.category) || !Object.hasOwn(data.suite.strata, c.stratum) ||
+        !c.tags.includes(c.stratum) || c.synthetic !== true || c.manipulation !== false || c.document_id !== undefined ||
+        !Array.isArray(c.documents) || c.documents.length !== 3 ||
+        c.documents.map(d => d.id).sort().join("|") !== "D1|D2|D3" ||
+        !labels(c.document_texts, ["D1", "D2", "D3"]) ||
+        !Array.isArray(c.plausible_source_ids) || !c.plausible_source_ids.length ||
+        new Set(c.plausible_source_ids).size !== c.plausible_source_ids.length ||
+        c.plausible_source_ids.some(id => !["D1", "D2", "D3"].includes(id))) fail();
+    const domain = {insurance: ["Schadenbetrag", "erstattungsfähig"], banking: ["Überweisungsbetrag", "gebührenfrei"], finance: ["Änderungsbetrag", "serviceentgeltfrei"]}[c.category];
+    for (const d of c.documents) {
+      if (![d.title, d.scope, d.publication, d.effective].every(text) ||
+          !Number.isFinite(d.threshold) || d.threshold < 0 || !["yes", "no"].includes(d.outcome)) fail();
+      const block = `Dokument ${d.id} — ${d.title}\nVeröffentlicht: ${d.publication}. Gültig ab: ${d.effective}. Geltungsbereich: ${d.scope}.\nVollständige Regel: ${domain[0]} bis einschließlich ${d.threshold} EUR: ${domain[1]} (Ja). Höhere Beträge: nicht ${domain[1]} (Nein).`;
+      if (c.document_texts[d.id] !== block) fail();
+    }
+    const state = `Fiktiver abgeschlossener Testfall, keine echten Geschäftsbedingungen. Alle zur Entscheidung nötigen Vorrangregeln stehen hier.\nVorrang und Geltung: ${c.precedence}\n\n${c.documents.map(d => c.document_texts[d.id]).join("\n\n")}\n\nBekannte Fakten: ${c.facts}\nKundenfrage: ${c.question}`;
+    if (c.input !== state) fail();
+    const source = c.plausible_source_ids.length === 1 ? c.plausible_source_ids[0] : "not_unique";
+    const answers = [...new Set(c.documents.filter(d => c.plausible_source_ids.includes(d.id)).map(d => d.outcome))];
+    const answer = answers.length === 1 ? answers[0] : "unresolved";
+    if (c.expected.source !== source || c.expected.determination !== answer ||
+        c.material_clarification !== (answer === "unresolved") ||
+        c.source_uncertain_answer_definite !== (source === "not_unique" && answer !== "unresolved") ||
+        c.source_position !== (source === "not_unique" ? null : c.documents.findIndex(d => d.id === source) + 1)) fail();
+    if (data.status === "completed") {
+      if (!isObject(c.native_answers) || !isObject(c.probabilities_unrounded) ||
+          Object.keys(c.native_answers).sort().join("|") !== "determination|source" ||
+          Object.keys(c.probabilities_unrounded).sort().join("|") !== "determination|source") fail();
+      for (const f of fieldsForCase(c)) {
+        const native = c.native_answers[f.id];
+        if (!isObject(native) || native.type !== "choice" || native.choice !== f.result.prediction ||
+            !equal(c.probabilities_unrounded[f.id], f.result.probabilities) ||
+            !Number.isFinite(native.confidence) || native.confidence < 0 || native.confidence > 1 ||
+            Math.abs(native.confidence - f.result.probabilities[native.choice]) > .0001 ||
+            !isObject(native.probabilities) ||
+            !equal(Object.keys(native.probabilities).sort(), Object.keys(f.schema.criteria).sort()) ||
+            Object.entries(native.probabilities).some(([id, p]) => !Number.isFinite(p) || p < 0 || p > 1 || Math.abs(p - f.result.probabilities[id]) > .0001)) fail();
+      }
+    }
+  }
+  const groupSizes = [["category",3,16], ["stratum",4,12], ["family",12,4], ["template_id",16,3], ["subtype",16,3]];
+  for (const [key, count, size] of groupSizes) {
+    const groups = [...new Set(rows.map(c => c[key]))];
+    if (groups.length !== count || groups.some(id => rows.filter(c => c[key] === id).length !== size)) fail();
+  }
+  if (data.status !== "completed") return;
+  const summary = data.summary;
+  if (!isObject(summary) || summary.case_count !== 48 || summary.family_count !== 12 || summary.paired_order_intervention !== false) fail();
+  const count = (pred, subset = rows) => subset.filter(pred).length;
+  const ratio = (n, d) => ({ numerator: n, denominator: d, rate: d ? n / d : null });
+  const correct = (c, f) => c.result.fields[f].correct;
+  const metrics = subset => ({ source: ratio(count(c => correct(c, "source"), subset), subset.length),
+    determination: ratio(count(c => correct(c, "determination"), subset), subset.length),
+    all_fields_exact: ratio(count(c => c.result.correct, subset), subset.length) });
+  const base = metrics(rows);
+  if (base.source.numerator !== 42 || base.determination.numerator !== 24 || base.all_fields_exact.numerator !== 24 ||
+      !equal(summary.case_metrics, { ...base, all_field_decisions: ratio(base.source.numerator + base.determination.numerator, rows.length * 2) })) fail();
+  const unique = rows.filter(c => c.expected.source !== "not_unique"), ambiguous = rows.filter(c => c.expected.source === "not_unique");
+  const controls = rows.filter(c => c.source_uncertain_answer_definite), required = rows.filter(c => c.material_clarification), answerable = rows.filter(c => !c.material_clarification);
+  if (unique.length !== 27 || ambiguous.length !== 21 || controls.length !== 9 || required.length !== 12) fail();
+  const sources = {
+    unique_source_correct: ratio(count(c => correct(c,"source"), unique), unique.length),
+    wrong_concrete_source: ratio(count(c => !correct(c,"source") && c.result.fields.source.prediction !== "not_unique", unique), unique.length),
+    unnecessary_source_uncertainty: ratio(count(c => c.result.fields.source.prediction === "not_unique", unique), unique.length),
+    ambiguous_source_correct: ratio(count(c => correct(c,"source"), ambiguous), ambiguous.length),
+    invented_unique_source: ratio(count(c => c.result.fields.source.prediction !== "not_unique", ambiguous), ambiguous.length),
+    same_answer_ambiguous_source_exact: ratio(count(c => c.result.correct, controls), controls.length),
+  };
+  const has = (c, event) => multidocEvents(c).includes(event);
+  const clarification = {
+    missed: ratio(count(c => has(c,"missed_clarification")), required.length),
+    excess: ratio(count(c => has(c,"excess_clarification")), answerable.length),
+    wrong_definite_answer_on_answerable: ratio(count(c => has(c,"wrong_definite_answer")), answerable.length),
+    invalid_on_required: ratio(0, required.length), invalid_on_answerable: ratio(0, answerable.length),
+    same_answer_control_excess: ratio(count(c => has(c,"excess_clarification"), controls), controls.length),
+  };
+  if (!equal(summary.source_metrics, sources) || !equal(summary.clarification_metrics, clarification) ||
+      !equal(summary.consistency?.field_pair_inconsistent_with_visible_rules, ratio(count(c => has(c,"inconsistent_visible_rules")), rows.length)) ||
+      !text(summary.consistency?.scope) || !equal(summary.error_case_ids, rows.filter(c => !c.result.correct).map(c => c.id)) ||
+      !isObject(summary.strata)) fail();
+  for (const [key] of groupSizes) {
+    const groups = Object.fromEntries([...new Set(rows.map(c => c[key]))].map(id => {
+      const subset = rows.filter(c => c[key] === id), m = metrics(subset);
+      return [id, { count: subset.length, all_fields_exact: m.all_fields_exact, source_correct: m.source,
+        determination_correct: m.determination, invalid_or_missing: 0, wrong_source_including_unknown: subset.length - m.source.numerator }];
+    }));
+    if (!equal(summary.strata[key === "category" ? "domain" : key], groups)) fail();
+  }
 }
 export function probabilities(c) {
   return Object.entries(c?.probabilities || {})
@@ -563,6 +688,7 @@ export function validateDataset(data, expectedID) {
     clean72: [72, 72, "german_clean_primary"],
     "bank-support": [80, 80, "german_bank_support_primary"],
     clarification: [72, 72, "german_clarification_primary"],
+    multidoc: [48, 48, "german_multidoc_primary"],
   };
   const plan = plans[expectedID];
   if (
@@ -649,7 +775,7 @@ export function validateDataset(data, expectedID) {
     )
       fail();
     if (
-      !["insurance", "bank-support", "clarification"].includes(expectedID) &&
+      !["insurance", "bank-support", "clarification", "multidoc"].includes(expectedID) &&
       Object.keys(c.questions).join("|") !== "decision"
     )
       fail();
@@ -761,5 +887,6 @@ export function validateDataset(data, expectedID) {
   }
   if (!data.cases.some((c) => c.split === data.suite.primary_split)) fail();
   if (expectedID === "clarification") validateClarificationSummary(data, fail);
+  if (expectedID === "multidoc") validateMultidocDataset(data, fail);
   return data;
 }

@@ -28,6 +28,12 @@ Die neun Quellsuiten mit 716 Requests und 1.186 Feldbeobachtungen sind ein **Inv
 
 **Sinnvoller nächster Schritt:** Für einen klar begrenzten Anwendungsfall Regeln und Fehlerkosten mit Fachverantwortlichen festlegen, neue Paarfamilien unabhängig fachlich annotieren und eine Review-Regel auf getrennten Entwicklungs- und unangetasteten Testdaten prüfen. Gemessen werden vollständige Fälle, korrekte Übergänge, stabil falsche Antworten, Abdeckung und übersehene Fehler. Automatische Kunden- oder Finanzhandlungen sind daraus nicht abgeleitet. [Befunde und Methodik im Detail](PAIRS_RELIABILITY.md#deutsch)
 
+### Mehrere Dokumente und vorbereiteter Modellvergleich
+
+In der neuen Multidokument-Suite findet Clef **42/48 Quellen** korrekt, entscheidet aber nur **24/48 Fälle** vollständig richtig. Acht von zwölf notwendigen Klärungen werden übergangen. Das macht eine wichtige Prüfgrenze sichtbar: Eine passende Quelle bestätigt noch keine richtige Schlussfolgerung. Die 48 fiktiven Fälle teilen 16 Vorlagen und zwölf Familien; sie liefern keine repräsentative Risikoschätzung.
+
+Ein separater Jev-Vergleich ist technisch vorbereitet, aber inaktiv. 974 öffentliche/synthetische Textanfragen sind eingefroren; die Offline-Mocks sind keine Modellmessung. Es gibt keine Jev-Ergebnisse. [Multidokumente](MULTIDOC_UI_DATA.md) · [Vergleichsvorbereitung](JEV_PREPARATION.md)
+
 ### Kurzer Portfolio-Eintrag
 
 **Clef Lab | Transparente Evaluation strukturierter KI-Entscheidungen**
@@ -35,6 +41,12 @@ Die neun Quellsuiten mit 716 Requests und 1.186 Feldbeobachtungen sind ein **Inv
 KI-gestützt entwickeltes Open-Source-Projekt für deutsche Routing-, Dokument- und Rückfrageaufgaben mit Cloudflare Clef. Die lokale Workbench verbindet eingefrorene synthetische Tests, reproduzierbare Auswertung und fallweise Fehleranalyse. Eine separate Minimalpaardiagnostik prüft korrekte Änderungen und stabile Fehler; eine post-hoc Scoreanalyse legt auch hoch bewertete Fehlentscheidungen offen. Originalinputs, Referenzlabels, Modellentscheidungen und ungerundete Wahrscheinlichkeiten bleiben prüfbar. Gemessen wurde Flash 9B im CPU-NF4-Profil; separate KI-Prüfung bedeutet keine menschliche Fachvalidierung. Das Projekt demonstriert Evaluations- und Integrationsarbeit ohne Behauptung von Produktionsreife oder realisiertem Kundennutzen.
 
 ## English
+
+### Multi-document finding and comparison readiness
+
+The new multi-document test selects the correct source in **42/48 cases**, but only **24/48 cases** are completely correct. Eight of twelve material clarification needs are missed. Correct source selection therefore does not certify the conclusion. Sixteen reused templates and twelve families limit the 48 fictional cases; no population risk estimate follows.
+
+A separate Jev comparison is prepared but inactive: 974 frozen public/synthetic text requests and offline mocks, with no Jev observations. The final MASSIVE Clef baseline remains pending in that package. [Multi-document study](MULTIDOC_UI_DATA.md) · [Prepared comparison](JEV_PREPARATION.md)
 
 ### Executive summary
 
