@@ -1430,7 +1430,7 @@ pre {
 }
 .overview-hero {
   display: grid;
-  grid-template-columns: 1.5fr 1fr;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
   gap: 32px;
   padding: 8px 0 24px;
   align-items: center;
@@ -2222,7 +2222,7 @@ textarea:focus {
     font-size: 28px;
   }
   .overview-hero {
-    grid-template-columns: 1.4fr 1fr;
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
     gap: 25px;
   }
   .dashboard-grid {
@@ -2596,13 +2596,13 @@ textarea:focus {
     font-size: 8px;
   }
   .overview-hero {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 24px;
     padding: 0 0 23px;
   }
   .overview-hero h1,
   .method-view > h1 {
-    font-size: 39px;
+    font-size: 32px;
     margin: 14px 0;
   }
   .hero-copy {
@@ -2612,7 +2612,7 @@ textarea:focus {
     padding: 20px;
   }
   .study-card > strong {
-    font-size: 42px;
+    font-size: 36px;
   }
   .study-card-top {
     margin-bottom: 12px;
@@ -3033,7 +3033,8 @@ textarea:focus {
 
 /* Compact context: native disclosures retain detail without competing with results. */
 .method-disclosure { margin-top: 14px; color: var(--muted); font-size: 12px; }
-.method-disclosure > summary { min-height: 36px; cursor: pointer; display: list-item; }
+.method-disclosure > summary { min-height: 36px; cursor: pointer; display: flex; gap: 8px; }
+.method-disclosure > summary::after { margin-left: 0; }
 .method-disclosure p { line-height: 1.65; margin: 8px 0; }
 .source-summary { color: var(--muted); font-size: 12px; line-height: 1.5; margin-top: 10px; }
 .compact-notice { margin: 10px 0 0; padding: 10px 12px; font-size: 12px; }
@@ -3048,7 +3049,9 @@ textarea:focus {
 .document-section h3 { line-height: 1.4; }
 .view-heading { margin-bottom: 20px; }
 .overview-hero { padding-top: 4px; }
-.overview-hero h1 { line-height: 1.12; }
+/* Grid children must shrink below the min-content width of long suite names. */
+.overview-hero > * { min-width: 0; }
+.overview-hero h1 { line-height: 1.12; overflow-wrap: anywhere; hyphens: auto; }
 @media (max-width: 760px) {
   .source-links button, .method-disclosure > summary { min-height: 44px; }
   .document-kicker { flex-wrap: wrap; gap: 6px; }

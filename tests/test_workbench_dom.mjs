@@ -11,6 +11,7 @@ import {
 import {
   fieldsForCase,
   fieldLabel,
+  choiceLabel,
   outcome,
   filterCases,
   parseJSONStrict,
@@ -1258,4 +1259,39 @@ test('multidoc pending fixture has no fabricated result or probability maps', as
   assert.equal(h.document.querySelectorAll('#case-detail .prob-row').length,0);
   assert.doesNotMatch(h.$('stats').textContent,/null|24 \/ 48|42 \/ 48/);
   assert.equal(h.$('show-saved').disabled,true);
+});
+
+
+test('overview long suite names keep shrinkable tracks and wrap without clipping', async () => {
+  const css = await readFile(new URL('../web/styles.css', import.meta.url), 'utf8');
+  const trackRules = [...css.matchAll(/\.overview-hero\s*\{([^}]*)\}/g)]
+    .map(match => match[1].match(/grid-template-columns:\s*([^;]+);/)?.[1]).filter(Boolean);
+  assert.equal(trackRules.length, 3, 'desktop, tablet and phone hero tracks remain explicit');
+  for (const tracks of trackRules) {
+    assert.match(tracks, /minmax\(0,/, 'tracks must shrink below long-title min-content');
+    assert.doesNotMatch(tracks.replace(/minmax\(0,\s*[\d.]+fr\)/g, ''), /fr/);
+  }
+  assert.match(css, /\.overview-hero > \*\s*\{\s*min-width:\s*0;/);
+  const titleRules = [...css.matchAll(/\.overview-hero h1\s*\{([^}]*)\}/g)].map(m => m[1]);
+  assert.ok(titleRules.some(rule => /overflow-wrap:\s*anywhere/.test(rule)));
+  assert.ok(titleRules.every(rule => !/overflow:\s*(hidden|clip)|text-overflow:\s*ellipsis/.test(rule)));
+  const h = await harness({hash:'#overview?suite=insurance'});
+  assert.equal(h.$('overview-title').textContent, 'Versicherungsdokumente');
+  assert.equal(h.$('overview-title').querySelector('br'), null, 'keep the full label and let CSS wrap');
+  assert.equal(h.$('overview').hidden, false);
+});
+
+
+test('source comparison labels are concise while IDs and full native criteria stay inspectable', async () => {
+  const c = datasets.multidoc.cases.find(c => c.id === 'MD027');
+  for (const id of ['D1', 'D2', 'D3']) assert.equal(choiceLabel('source', id, c.questions.source.criteria), `Dokument ${id}`);
+  assert.equal(choiceLabel('source', 'not_unique', c.questions.source.criteria), 'Nicht eindeutig');
+  const h = await harness({hash:'#explorer?suite=multidoc&case=MD027&field=source'});
+  assert.deepEqual([...h.document.querySelectorAll('.answer-cell strong')].map(el=>el.textContent), ['Nicht eindeutig','Nicht eindeutig']);
+  assert.ok([...h.document.querySelectorAll('.answer-cell small')].every(el=>el.textContent.includes('not_unique')));
+  assert.ok(h.document.querySelector('.field-schema pre').textContent.includes(c.questions.source.criteria.not_unique));
+  assert.deepEqual(JSON.parse(h.$('input-schema').value), c.questions);
+  const css = await readFile(new URL('../web/styles.css', import.meta.url), 'utf8');
+  assert.match(css, /\.method-disclosure > summary\s*\{[^}]*display:\s*flex;[^}]*gap:\s*8px;/);
+  assert.match(css, /\.method-disclosure > summary::after\s*\{\s*margin-left:\s*0;/);
 });

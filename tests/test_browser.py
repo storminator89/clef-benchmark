@@ -364,6 +364,9 @@ class BrowserChecks:
             for pane in ('cases', 'document', 'result'):
                 page.locator(f'[data-pane="{pane}"]').click()
                 self.overflow(f'multidoc {pane} {width}')
+            page.locator('.inspection-scroll').evaluate('(el) => { el.scrollTop = 0; }')
+            expect(page.locator('[data-field="source"]')).to_be_visible()
+            expect(page.locator('.question-title')).to_be_visible()
             self.capture(f'multidoc-result-{width}.png', f'Source and determination inspection at {width} CSS pixels', full_page=False)
         page.set_viewport_size({'width': 1440, 'height': 1000})
         self.check('Multidoc48: complete three-document context, native source/determination, all error subtypes, same-answer control, source navigation and 320/390px panels')

@@ -52,7 +52,9 @@ const FIELD_LABELS = Object.freeze({ source: "Maßgebliche Quelle", decision: "E
 export const fieldLabel = (id) => Object.hasOwn(FIELD_LABELS, id)
   ? FIELD_LABELS[id] : id.replace(/_/g, " ");
 export const choiceLabel = (field, key, criteria = {}) =>
-  field === "decision" && ["ja", "nein", "offen", "konflikt"].includes(key)
+  field === "source" && ["D1", "D2", "D3", "not_unique"].includes(key)
+    ? key === "not_unique" ? "Nicht eindeutig" : `Dokument ${key}`
+    : field === "decision" && ["ja", "nein", "offen", "konflikt"].includes(key)
     ? {
         ja: "Aussage gestützt",
         nein: "Aussage widerlegt",

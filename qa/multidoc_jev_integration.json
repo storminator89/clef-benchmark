@@ -52,5 +52,23 @@
     "No calibration or joint-probability guarantee",
     "Inactive Jev mocks are software tests, not model observations"
   ],
-  "browser_status": "Pending exact-source genuine sandboxed Chrome regression; earlier galleries retain their original version labels."
+  "browser_status": "Pending exact-source genuine sandboxed Chrome regression; earlier galleries retain their original version labels.",
+  "browser_initial_capture": {
+    "source_commit": "cd6dc492150709bb96b8d7edb1e7fb9dd3c1f88a",
+    "run_id": 37048035002,
+    "status": "failed",
+    "passed_check_groups_before_failure": 12,
+    "failure": "390px insurance overview exceeded viewport width because the shortened single-word title imposed a minimum grid width.",
+    "correction": "Shrinkable hero tracks and children, full-title wrapping, narrower mobile title size. Native sources/results unchanged.",
+    "failed_images_published": false
+  },
+  "targeted_followup_checks": {
+    "core_and_dom_tests_passed": 83,
+    "changes": [
+      "Narrow hero wrapping",
+      "Compact source labels with native IDs and schema preserved",
+      "Disclosure spacing",
+      "Mobile result capture reset to top"
+    ]
+  }
 }
