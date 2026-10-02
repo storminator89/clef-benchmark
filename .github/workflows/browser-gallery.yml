@@ -62,8 +62,20 @@ jobs:
       - name: Install the pinned optional browser test dependency
         run: |
           python -m pip install -r tests/requirements-browser.txt
-          python -m playwright install chromium
-      - name: Capture with Chromium sandbox and a results-only local server
+      - name: Verify the standard installed Chrome and existing AppArmor profile read-only
+        run: |
+          python - <<'PYCHROME'
+          from pathlib import Path
+          import os, re, subprocess
+          chrome = Path('/opt/google/chrome/chrome')
+          profile = Path('/etc/apparmor.d/chrome')
+          assert chrome.is_file() and os.access(chrome, os.X_OK), 'Standard stable Chrome is absent'
+          text = profile.read_text()
+          assert '/opt/google/chrome/chrome' in text and re.search(r'^\s*userns\s*,', text, re.M), 'Expected Chrome user-namespace profile is absent'
+          subprocess.run([str(chrome), '--version'], check=True)
+          print('Existing standard Chrome/profile verified; no security or browser installation changes')
+          PYCHROME
+      - name: Capture with the installed Chrome sandbox and a results-only local server
         run: python tests/test_browser.py --start-server --output test-results/browser-gallery
       - name: Verify screenshot provenance and current source hashes
         run: python tests/test_browser.py --verify-artifact test-results/browser-gallery

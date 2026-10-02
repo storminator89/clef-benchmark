@@ -76,6 +76,7 @@ def verify_artifact(output, root=ROOT):
     require(manifest.get('model_inference_executed') is False, 'Gallery must not run new inference.')
     require(manifest.get('synthetic_inputs_only') is True, 'Gallery must contain only public synthetic inputs.')
     require(manifest.get('chromium_sandbox') is True, 'Sandbox-preserving capture required.')
+    require(manifest.get('browser_channel') == 'chrome', 'Use the supported installed stable Chrome channel.')
     require(manifest.get('source_sha256') == source_hashes(root), 'Sources changed since capture. Run a new capture.')
     for field in ('page_errors', 'console_errors', 'blocked_requests', 'request_failures', 'http_errors'):
         require(manifest.get(field) == [], f'Run has unclean browser diagnostics: {field}')
@@ -95,7 +96,7 @@ def write_gallery_fragment(output):
     manifest = verify_artifact(output)
     lines = [
         '## Ein Blick in die Workbench', '',
-        'Echte Chromium-Screenshots aus dem modellfreien Browserlauf. Gezeigt werden ausschließlich',
+        'Echte Google-Chrome-Screenshots (Chromium) aus dem modellfreien Browserlauf. Gezeigt werden ausschließlich',
         'synthetische Testdaten und bereits aufgezeichnete Benchmarkantworten. Der private Editor',
         'zeigt keine neue oder simulierte Modellinferenz.', '',
     ]
@@ -452,6 +453,7 @@ def capture_run(output, start_server):
         'source_sha256': source_hashes(), 'python_version': platform.python_version(),
         'os': platform.system(), 'architecture': platform.machine(), 'base_url': BASE_URL,
         'git_commit': None, 'workflow_run_url': None, 'chromium_sandbox': True,
+        'browser_channel': 'chrome', 'browser_application': 'Google Chrome',
         'real_browser_rendering': False, 'model_inference_executed': False, 'synthetic_inputs_only': True,
         'page_errors': [], 'console_errors': [], 'blocked_requests': [], 'request_failures': [], 'http_errors': [],
         'checks': [], 'screenshots': [],
@@ -473,8 +475,9 @@ def capture_run(output, start_server):
         require(manifest['playwright_version'] == PLAYWRIGHT_VERSION, 'Install the version pinned in tests/requirements-browser.txt.')
         from playwright.sync_api import expect, sync_playwright
         with local_server(start_server), sync_playwright() as playwright:
-            # No alternate binary, custom Chromium flags, sandbox fallback or remote browser.
-            browser = playwright.chromium.launch(headless=True, chromium_sandbox=True)
+            # Use the documented installed stable channel and its existing sandbox policy.
+            # No executable override, custom flags, OS changes or fallback.
+            browser = playwright.chromium.launch(channel="chrome", headless=True, chromium_sandbox=True)
             manifest['chromium_version'] = browser.version
             context = browser.new_context(viewport={'width': 1440, 'height': 1000}, device_scale_factor=1,
                                           locale='de-DE', timezone_id='UTC', color_scheme='light',

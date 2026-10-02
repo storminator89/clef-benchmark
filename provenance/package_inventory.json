@@ -6,8 +6,8 @@
   "files": [
     {
       "path": ".github/workflows/browser-gallery.yml",
-      "bytes": 3516,
-      "sha256": "ec1689c52d3a61642964ad3535009db60c41c43b2c6613bdcbe688f2d1bb9641"
+      "bytes": 4271,
+      "sha256": "5f4b691116ef2cc38035fc3a17dfafa30e71980896c81e7f0c3219de74c71599"
     },
     {
       "path": ".github/workflows/check.yml",
@@ -36,8 +36,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 22567,
-      "sha256": "796fa7141db26eca3b345304a5741226dd8119269727daddac0919e6119e5646"
+      "bytes": 30466,
+      "sha256": "48eed010eaa60d9673e7b6285400d9ed6b576d58c3d8ad1bf7a69cb8557f85e3"
     },
     {
       "path": "benchmark/README.md",
@@ -121,8 +121,8 @@
     },
     {
       "path": "docs/BROWSER_GALLERY.md",
-      "bytes": 10118,
-      "sha256": "a48eb368b4b643e1b900546e2cae06dfda73519b28818628c5941d68e593e0f6"
+      "bytes": 11698,
+      "sha256": "5936ce6a54d0223de6e2241376ae88ce65de76b5f87738889ff1154ad0a442f9"
     },
     {
       "path": "docs/CI.md",
@@ -1536,8 +1536,8 @@
     },
     {
       "path": "qa/ui_polish_review.json",
-      "bytes": 1800,
-      "sha256": "2c2b92e8093e5d3d9571fc9df25758d48ea7c96754ae58dcdd6007744cd20693"
+      "bytes": 2288,
+      "sha256": "126c7f96b3a9ffe88bafdd8f8952ab4de40dfd26d4f5918c551ea5ab19b9f55a"
     },
     {
       "path": "qa/verify_final_scores.py",
@@ -1901,13 +1901,13 @@
     },
     {
       "path": "tests/test_browser.py",
-      "bytes": 32523,
-      "sha256": "65b361d6d91740f522a16c7c2a2e751948fce0067e3dae042e497f5873523bdd"
+      "bytes": 32818,
+      "sha256": "7f3188b56c234f5c62fa9e4eb46eb97495acb03237e5ae5320c7115fa5ae420e"
     },
     {
       "path": "tests/test_browser_capture_contract.py",
-      "bytes": 6117,
-      "sha256": "a84b7dc925bcac623846619ded0a2b508507ab4d2fe7868851fe6bcdb353331e"
+      "bytes": 6381,
+      "sha256": "e2a377109ffaf4aac68fedc5568591c3e7ca428b0faadff7aa70d6dde03046c5"
     },
     {
       "path": "tests/test_clean_importer.py",

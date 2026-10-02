@@ -47,7 +47,7 @@ class BrowserCaptureContractTests(unittest.TestCase):
                     and isinstance(node.func, ast.Attribute) and node.func.attr == 'launch']
         self.assertEqual(len(launches), 1)
         keywords = {item.arg: ast.literal_eval(item.value) for item in launches[0].keywords}
-        self.assertEqual(keywords, {'headless': True, 'chromium_sandbox': True})
+        self.assertEqual(keywords, {'channel': 'chrome', 'headless': True, 'chromium_sandbox': True})
 
     def test_gallery_uses_standard_runner_and_bounded_short_lived_storage(self):
         workflow = (SCRIPT.parents[1]/'.github/workflows/browser-gallery.yml').read_text()
@@ -58,6 +58,9 @@ class BrowserCaptureContractTests(unittest.TestCase):
         self.assertIn("steps.artifact-size.outcome == 'success'", workflow)
         self.assertNotIn('context.tracing.start', SCRIPT.read_text())
         self.assertNotIn('record_video', SCRIPT.read_text())
+        self.assertIn('/etc/apparmor.d/chrome', workflow)
+        self.assertIn('/opt/google/chrome/chrome', workflow)
+        self.assertNotIn('playwright install chromium', workflow)
 
     def test_existing_output_is_never_reused_or_deleted(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -82,7 +85,7 @@ class BrowserCaptureContractTests(unittest.TestCase):
     def test_success_flags_do_not_override_changed_sources(self):
         manifest = {'status': 'pass', 'real_browser_rendering': True,
                     'model_inference_executed': False, 'synthetic_inputs_only': True,
-                    'chromium_sandbox': True, 'source_sha256': {'web/app.js': 'old'}}
+                    'chromium_sandbox': True, 'browser_channel': 'chrome', 'source_sha256': {'web/app.js': 'old'}}
         with tempfile.TemporaryDirectory() as tmp, patch.object(capture, 'source_hashes', return_value={'web/app.js': 'new'}):
             root = Path(tmp)
             (root / 'manifest.json').write_text(json.dumps(manifest))
@@ -92,7 +95,7 @@ class BrowserCaptureContractTests(unittest.TestCase):
     def test_clean_flags_without_real_pngs_are_insufficient(self):
         manifest = {'status': 'pass', 'real_browser_rendering': True,
                     'model_inference_executed': False, 'synthetic_inputs_only': True,
-                    'chromium_sandbox': True, 'source_sha256': {},
+                    'chromium_sandbox': True, 'browser_channel': 'chrome', 'source_sha256': {},
                     'page_errors': [], 'console_errors': [], 'blocked_requests': [],
                     'request_failures': [], 'http_errors': [], 'screenshots': []}
         with tempfile.TemporaryDirectory() as tmp, patch.object(capture, 'source_hashes', return_value={}):

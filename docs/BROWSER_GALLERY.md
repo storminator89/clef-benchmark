@@ -25,7 +25,7 @@ optional tools only with the machine owner's authorization:
 ```sh
 python3 -m venv .venvs/browser-gallery
 .venvs/browser-gallery/bin/python -m pip install -r tests/requirements-browser.txt
-.venvs/browser-gallery/bin/python -m playwright install chromium
+# Use an already authorized, normally installed stable Google Chrome; no browser reinstall.
 .venvs/browser-gallery/bin/python tests/test_browser.py --start-server \
   --output test-results/browser-gallery
 ```
@@ -41,7 +41,9 @@ live-enabled or model-loaded backend.
 A new or empty output directory is required. To retain a previous run, choose
 another path under `test-results/`; do not mix files across runs.
 
-The browser is the Chromium build installed by the pinned Playwright package.
+The browser is the normally installed stable Google Chrome, selected through
+Playwright's documented `channel="chrome"` API. The standard Ubuntu CI image
+already provides this browser and its existing Chrome AppArmor profile.
 `chromium_sandbox=True` is mandatory. There is no `CHROMIUM_PATH` fallback,
 custom security-disabling flag, alternate host, remote browser, tunnel, security
 setting change, or automatic retry after a launch denial. If sandbox support or
@@ -169,3 +171,24 @@ The artifact-size guard prevents an oversized upload, including after a failed
 capture. Artifact storage remains separate from the public repository's standard
 runner allowance; this workflow makes no unlimited-storage or hardware-cost claim.
 Only the reviewed PNGs and their provenance are later committed to the README.
+
+## Supported installed-channel follow-up
+
+The first standard Ubuntu24.04 attempt on commit
+`97e055a45d65f6fc0f0d153958a39eead4b2cbfd` installed Playwright successfully,
+but the downloaded Chromium headless shell failed before any page opened with
+`No usable sandbox`. It produced zero screenshots and no visual pass.
+The follow-up keeps `chromium_sandbox=True` and uses the normally installed
+stable Chrome channel and its existing AppArmor profile. It verifies the normal
+installation/profile read-only first. It does not reinstall a browser, use a
+custom executable override, change sysctl/AppArmor, add launch flags, weaken
+sandboxing or silently fall back. Any further denial remains a blocker.
+
+Primary configuration references:
+- [Playwright stable Chrome channels](https://playwright.dev/python/docs/browsers#google-chrome--microsoft-edge)
+- [Playwright launch API and explicit sandbox option](https://playwright.dev/python/docs/api/class-browsertype)
+- [Chromium's Ubuntu AppArmor profile explanation](https://chromium.googlesource.com/chromium/src/+/main/docs/security/apparmor-userns-restrictions.md)
+- [Standard Ubuntu24.04 runner software](https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2404-Readme.md)
+
+An intended supported configuration is not a successful capture. Only an actual
+passing run, source/image verification and manual PNG review establish the gallery.
