@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
-"""Verify the inactive Jev comparison preparation without credentials or network."""
+"""Verify frozen Jev preparation and any explicitly pinned manual activation, offline."""
 from pathlib import Path
 import hashlib,json,subprocess,sys,os,tempfile
 ROOT=Path(__file__).resolve().parents[1]
 SOURCE=ROOT/'experiments/jev_comparison'
 EXPORT_SHA256='c62021bbcb33b94c653cc9649d7d06dcbdf1633d4dc7b7f19dee2db2cb8be2f4'
+ACTIVATION_TEMPLATE_SHA256='b3805a2fd043ab68d78b8129515b6bac60c1ecd5501adc4d3d523f0fbc1858b5'
+ACTIVATION_WRAPPER_SHA256='ca52c98f2b1597022c12cc6a653d1b2ebb88ba2c60cf18add35da4b710775b2f'
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def require(ok,message):
     if not ok:raise ValueError(message)
@@ -29,8 +31,24 @@ def check(source=SOURCE,root=ROOT):
     template=(source/'workflow/jev-comparison.yml.in').read_text()
     require('ref: REVIEWED_CODE_COMMIT_SHA' in template,'Inactive template code placeholder changed')
     require('default: false' in template and 'github.run_attempt == 1' in template,'Bounded template guards missing')
+    activation_file = root/'provenance/jev_activation.json'
+    approved_workflow = None
+    if activation_file.exists():
+        activation = json.loads(activation_file.read_text())
+        import re
+        require(re.fullmatch('[0-9a-f]{40}', activation['reviewed_code_commit']) is not None, 'Invalid immutable code ref')
+        require(activation['workflow'] == '.github/workflows/jev-comparison.yml', 'Unexpected active workflow path')
+        approved_workflow = root/activation['workflow']
+        require(sha(root/'scripts/workflows/jev-verified-execution.yml.in') == ACTIVATION_TEMPLATE_SHA256, 'Reviewed activation template changed')
+        require(sha(root/'scripts/run_jev_workflow.py') == ACTIVATION_WRAPPER_SHA256, 'Reviewed activation wrapper changed')
+        reviewed_template = (root/'scripts/workflows/jev-verified-execution.yml.in').read_text()
+        require(approved_workflow.read_text() == reviewed_template.replace('REVIEWED_CODE_COMMIT_SHA', activation['reviewed_code_commit']), 'Active workflow differs from reviewed template')
+        require(sha(approved_workflow) == activation['workflow_sha256'], 'Activation workflow hash changed')
+        require(sha(root/'scripts/run_jev_workflow.py') == activation['wrapper_sha256'], 'Activation wrapper hash changed')
+        require(activation['frozen_bundle_changed'] is False and activation['max_initial_requests'] == 974 and activation['max_wire_attempts'] == 1024 and activation['local_api_reservation_usd'] == 3, 'Activation scope changed')
     for p in (root/'.github/workflows').glob('*'):
-        require('JEV_API_KEY' not in p.read_text() and 'jev_runner.py --execute' not in p.read_text(),'Live Jev workflow unexpectedly installed')
+        if p == approved_workflow: continue
+        require('JEV_API_KEY' not in p.read_text() and 'jev_runner.py --execute' not in p.read_text(),'Unreviewed live Jev workflow installed')
     require(not (source/'runs').exists(),'Live Jev output unexpectedly present')
     env={**os.environ,'PYTHONDONTWRITEBYTECODE':'1'}
     r=subprocess.run([sys.executable,str(source/'scripts/check_bundle.py')],check=True,capture_output=True,text=True,env=env)

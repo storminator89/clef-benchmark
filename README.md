@@ -36,7 +36,7 @@ Die Workbench zeigt Vorrangregel, alle Dokumente, Fakten, Soll und native Antwor
 
 [Multidokument-Bericht](experiments/multidoc48/REPORT.md) · [Alle 24 Fehlerfälle](experiments/multidoc48/ERRORS.md) · [Bedienung und Methodik](docs/MULTIDOC_UI_DATA.md)
 
-**Jev-Vergleich vorbereitet:** Ein inaktives Paket enthält 974 eingefrorene Textanfragen, Offline-Tests und einen begrenzten API-Runner. Es gibt noch keine Jev-Messung. Der Live-Lauf benötigt eine gesonderte Aktivierung und Freigabe; die endgültige MASSIVE-Clef-Baseline steht im Paket noch aus. [Vorbereitung und Voraussetzungen](docs/JEV_PREPARATION.md)
+**Jev-Vergleich bereit zum manuellen Start:** 974 eingefrorene Textanfragen, Verbindungstest beim ersten Start und begrenzter API-Runner. Noch keine Jev-Messung und kein bestätigter Schlüsseltest. Beide Freigaben im Workflow sind nötig; die endgültige MASSIVE-Clef-Baseline steht im Paket noch aus. [Start und Grenzen](docs/JEV_EXECUTION.md)
 
 ## Minimalpaare und hohe Scores getrennt prüfen
 
@@ -543,7 +543,7 @@ python3 scripts/build_minimal_pairs_web_data.py
 python3 scripts/build_reliability_web_data.py
 python3 scripts/build_multidoc_web_data.py
 
-# Ausschließlich Offline-Mocks des inaktiven Jev-Runners
+# Ausschließlich Offline-Mocks des eingefrorenen Jev-Runners
 PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s experiments/jev_comparison/tests -v
 
 # Nur im sauberen Export ohne node_modules/ oder lokale Caches
@@ -605,6 +605,10 @@ Die sinnvolle Richtung ist mehr belastbare Evidenz. Diese Punkte sind **offene V
 
 Eigener Code und synthetische Daten: **Apache-2.0**, siehe [LICENSE](LICENSE). Unveränderter Cloudflare-Code und Modell haben eigene Upstream-Attribution in [NOTICE](NOTICE) und [licenses/](licenses/). Modellgewichte werden nicht mitgeliefert.
 
-Die im inaktiven Jev-Paket enthaltenen **MASSIVE de-DE Testanfragen** stammen aus Amazons öffentlichem Datensatz und stehen unter **CC-BY-4.0**; [Quellen und Auswahl](experiments/jev_comparison/inputs/massive300/SOURCES.md), [Attribution](experiments/jev_comparison/NOTICE) und [Lizenz](experiments/jev_comparison/licenses/MASSIVE-CC-BY-4.0.txt) bleiben beigefügt. Sie sind keine eigenen synthetischen Testtexte.
+Die im eingefrorenen Jev-Vorbereitungspaket enthaltenen **MASSIVE de-DE Testanfragen** stammen aus Amazons öffentlichem Datensatz und stehen unter **CC-BY-4.0**; [Quellen und Auswahl](experiments/jev_comparison/inputs/massive300/SOURCES.md), [Attribution](experiments/jev_comparison/NOTICE) und [Lizenz](experiments/jev_comparison/licenses/MASSIVE-CC-BY-4.0.txt) bleiben beigefügt. Sie sind keine eigenen synthetischen Testtexte.
 
 **Unabhängiges Projekt, ohne Zugehörigkeit zu oder Bestätigung durch Cloudflare.**
+
+### Jev manuell starten
+
+Der [begrenzte Vergleich](docs/JEV_EXECUTION.md) ist als manueller Workflow vorbereitet. Ein Lauf prüft zuerst das Repository-Secret und die erste Anfrage; danach folgen die übrigen Fälle im selben Kostenlimit. Noch kein Jev-Ergebnis und noch kein bestätigter Verbindungstest.

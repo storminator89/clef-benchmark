@@ -1,8 +1,8 @@
 # Jev: bounded manual execution
 
-Status: execution code prepared; no live request or secret verification has been recorded yet. The immutable [preparation bundle](../experiments/jev_comparison/README.md) remains unchanged and describes its original preparation state.
+Status: manual workflow installed; awaiting the first explicit start. No live request or secret verification has been recorded yet. The immutable [preparation bundle](../experiments/jev_comparison/README.md) remains unchanged and describes its original preparation state.
 
-The next activation commit installs the reviewed template as a **manual-only** GitHub workflow. It checks out the preceding, reviewed code commit by its full immutable SHA. Pushes, pull requests, schedules, reruns and arbitrary refs cannot execute this comparison.
+The activation commit installs the reviewed template as a **manual-only** GitHub workflow. It checks out reviewed code commit `851a2b649826f47d7a1fe8aad2bf06a0590754fd` by its full immutable SHA. Pushes, pull requests, schedules, reruns and arbitrary refs cannot execute this comparison.
 
 ## One explicit start
 

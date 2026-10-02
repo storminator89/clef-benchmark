@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "status": "installed_awaiting_first_manual_dispatch",
+  "reviewed_code_commit": "851a2b649826f47d7a1fe8aad2bf06a0590754fd",
+  "workflow": ".github/workflows/jev-comparison.yml",
+  "workflow_sha256": "9cc8cb155c53db6d1f9b6a140bf54e6a60e890763fe504a8de64795dc6763f0e",
+  "source_template": "scripts/workflows/jev-verified-execution.yml.in",
+  "wrapper_sha256": "ca52c98f2b1597022c12cc6a653d1b2ebb88ba2c60cf18add35da4b710775b2f",
+  "frozen_bundle_changed": false,
+  "live_requests_recorded": 0,
+  "secret_presence_verified": false,
+  "inputs": {
+    "approve_public_data": true,
+    "approve_api_three_usd": true
+  },
+  "allowed_repository": "storminator89/clef-benchmark",
+  "allowed_ref": "refs/heads/main",
+  "max_initial_requests": 974,
+  "max_wire_attempts": 1024,
+  "local_api_reservation_usd": 3,
+  "scope": "One explicit manual run. No push/PR/schedule trigger, automatic rerun/resume or credential configuration. Connection validation uses the first frozen request within the same run ledger.",
+  "gate_evolution": {
+    "scope": "The old inactive-only integration guard now permits exactly the hash-pinned reviewed manual workflow. The frozen preparation package remains unchanged.",
+    "path": "scripts/check_jev.py",
+    "from_sha256": "d14508450ad6aced6c1a01ca729d91380edbf006cb23939ce027b4b64ecb9d90",
+    "to_sha256": "22ddcb1a5539dd4c8cfed8e96474c553e051574a6da30ead4de9181193135b74"
+  }
+}

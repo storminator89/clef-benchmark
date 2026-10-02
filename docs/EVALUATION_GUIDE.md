@@ -72,7 +72,7 @@ The additional 48-case study scores native source and determination fields separ
 
 Twelve families and 16 cross-domain templates create dependence. Balanced IDs/positions do not replace a matched order-swap intervention, which was not run. This finite-set test chooses a complete fictional rule; it does not compose clauses or interpret actual contracts. [Report](../experiments/multidoc48/REPORT.md)
 
-The [Jev package](JEV_PREPARATION.md) is preparation-only. Mock transport/scorer checks, a frozen request inventory and an inactive workflow are not hosted-model accuracy, latency or billing evidence. No API run or ranking is included.
+The [Jev preparation package](JEV_PREPARATION.md) remains frozen. Its separately reviewed [manual workflow](JEV_EXECUTION.md) awaits an explicit start. Mock checks, frozen requests and a published workflow do not establish hosted-model accuracy, latency, billing or a valid key. No API run or ranking is included.
 
 ## 4. Uncertainty and comparisons
 

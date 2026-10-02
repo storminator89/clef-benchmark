@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "review_date_utc": "2026-10-02",
+  "status": "stage_b_offline_review_passed",
+  "reviewed_code_commit": "851a2b649826f47d7a1fe8aad2bf06a0590754fd",
+  "scope": "Applied manual workflow, bounded activation record, narrow integration-guard evolution and current-state documentation. This is a prepublication code review, not execution or remote CI evidence.",
+  "reviewed_files_sha256": {
+    ".github/workflows/jev-comparison.yml": "9cc8cb155c53db6d1f9b6a140bf54e6a60e890763fe504a8de64795dc6763f0e",
+    "provenance/jev_activation.json": "7399bf4fe22faf22e562793aa514fe5e3ad81ae6889772891d88b8fad2323005",
+    "scripts/check_jev.py": "22ddcb1a5539dd4c8cfed8e96474c553e051574a6da30ead4de9181193135b74",
+    "tests/test_jev_preparation.py": "410ae0515e677b551c5c9e32becda5deed003c018bc6bc31f72f9d785c630d26",
+    "scripts/run_jev_workflow.py": "ca52c98f2b1597022c12cc6a653d1b2ebb88ba2c60cf18add35da4b710775b2f",
+    "scripts/workflows/jev-verified-execution.yml.in": "b3805a2fd043ab68d78b8129515b6bac60c1ecd5501adc4d3d523f0fbc1858b5",
+    "tests/test_jev_execution.py": "a85c13868dfb2748ed88bac59f2c40acc543c0515bc33516afa69dfc2add2be0",
+    "README.md": "08660df1113c50a599e02dc28a920a1de8e0c3eaa7489b2df3c60ebd94d9e5f1",
+    "docs/JEV_EXECUTION.md": "2fc14f73998e092234ebb376f340eb81c8c81f0fad52620fab7d9c8f558bf59e",
+    "docs/JEV_PREPARATION.md": "739cdb622859aaa401a00374bbbcfc14afadc66af73a7b145b99b323cb08a837",
+    "docs/PROJECT_BRIEF.md": "d41afe6c743587bd9e959365537995486c0b246c37c9435e7c6ab4d5982f1f28",
+    "docs/EVALUATION_GUIDE.md": "9680f6641145671f8254c25b40c768828da4791c2e7f8bedcff1cfae30188db2"
+  },
+  "blockers": [],
+  "findings": [
+    "Active workflow is byte-for-byte the Stage A reviewed template with the specified full immutable code SHA substituted.",
+    "Stage A wrapper, activation template and focused tests remain unchanged; the frozen scientific bundle and historical inputs/predictions remain unchanged.",
+    "Workflow remains manual-only with both default-false approvals and exact repository/main/first-run guards. No push, pull request, schedule, arbitrary-ref or rerun execution path is added.",
+    "Secret appears only in the bounded execution step environment. Checkout does not persist credentials. Action revisions and code checkout are SHA-pinned; artifact retention is one day with an explicit file allowlist.",
+    "Integration guard admits only the named workflow matching the immutable reviewed template and wrapper hashes plus activation record; unrelated secret-using workflows are still rejected.",
+    "Recorded old/new integration-gate hashes match the reviewed baseline and new gate.",
+    "Current-state documentation says the first manual start and real secret/connection verification remain pending, and does not report a Jev score, billing result or completed MASSIVE comparison."
+  ],
+  "offline_evidence": {
+    "repository_unittests_passed_after_final_gate_change": 315,
+    "frozen_comparison_unittests_passed": 23,
+    "focused_preparation_and_execution_unittests_passed": 14,
+    "static_link_tests_passed": 2,
+    "bundle_preflight": "passed: 974 cases, 1362 questions, 68 scientific hashes and 6 code/manifest hashes",
+    "adversarial_activation_checks_passed": [
+      "unexpected push trigger",
+      "default-true approval",
+      "unpinned branch checkout",
+      "altered wrapper",
+      "changed request scope",
+      "missing activation record",
+      "additional secret workflow",
+      "template and workflow record rehashed together",
+      "wrapper and activation record rehashed together"
+    ],
+    "public_content_audit": "passed before this review artifact was added",
+    "provider_api_calls": 0,
+    "credential_reads": 0,
+    "workflow_dispatches": 0
+  },
+  "resolved_observations": [
+    "Former inactive-only integration check and corresponding test were narrowly evolved before workflow activation.",
+    "README connection-test wording now explicitly refers to the first future start.",
+    "Immutable template and wrapper hashes prevent accepting simultaneous artifact and metadata changes without further review."
+  ],
+  "publication_and_execution_limits": [
+    "Remote publication, exact-commit CI and successful Actions registration must be verified separately by the publisher.",
+    "The owner must initiate one manual run with both approvals. This review did not verify a real repository secret or provider response.",
+    "Any first-request failure remains incomplete and stops; do not rerun or restart without checking retained attempts and remaining approved budget.",
+    "Any live output must be independently audited before reporting model-quality results. The USD 3 guard remains a local reservation guard under dated pricing, not an account-level provider cap."
+  ]
+}

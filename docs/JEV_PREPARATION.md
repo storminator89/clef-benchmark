@@ -1,6 +1,6 @@
-# Jev comparison: prepared, inactive
+# Jev comparison: frozen preparation
 
-**No Jev benchmark has run.** The package contains public/synthetic frozen text requests, archived Clef baselines and offline-tested collection/scoring code. The 974-case mock exercise validates software only; it is not a Jev result or ranking.
+**No Jev benchmark has run.** The preparation below is archived unchanged; the separately reviewed [manual execution workflow](JEV_EXECUTION.md) is now installed and awaits an explicit start. The package contains public/synthetic frozen text requests, archived Clef baselines and offline-tested collection/scoring code. The 974-case mock exercise validates software only; it is not a Jev result or ranking.
 
 ## Current scope
 
@@ -12,9 +12,9 @@
 
 ## Why it cannot run on publication
 
-The file `workflow/jev-comparison.yml.in` stays inside the experiment directory with a template extension. Nothing is installed in `.github/workflows`, the reviewed-code placeholder remains unresolved, and ordinary CI runs only offline tests and integrity checks. No secret is accessed, configured or transmitted by this release.
+The file `workflow/jev-comparison.yml.in` stays inside the experiment directory with a template extension. That original template remains inactive and its placeholder unresolved. The later activation has a separate pinned workflow in `.github/workflows`; ordinary CI still runs only offline tests and integrity checks. See [current execution state](JEV_EXECUTION.md).
 
-A later activation requires a separately reviewed workflow commit pinned to this package's immutable code commit, the user entering `JEV_API_KEY` directly in GitHub, and explicit approval of the destination, frozen data scope and bounded API budget. The template's approval flags default to false. Pricing, terms and availability must be rechecked then. The proposed USD 3 local reservation guard is not a provider-enforced account spending limit.
+Activation requires a separately reviewed workflow commit pinned to this package's immutable code commit, the user entering `JEV_API_KEY` directly in GitHub, and explicit approval of the destination, frozen data scope and bounded API budget. The template's approval flags default to false. Pricing, terms and availability must be rechecked then. The proposed USD 3 local reservation guard is not a provider-enforced account spending limit.
 
 Public preparation retains exact requests, gold and native Clef outputs, with compact scientific provenance. Operational metadata and redundant development inventories are excluded. Final MASSIVE head-to-head scoring needs a separately reviewed baseline update.
 
