@@ -32,7 +32,7 @@ Die neun Quellsuiten mit 716 Requests und 1.186 Feldbeobachtungen sind ein **Inv
 
 In der neuen Multidokument-Suite findet Clef **42/48 Quellen** korrekt, entscheidet aber nur **24/48 Fälle** vollständig richtig. Acht von zwölf notwendigen Klärungen werden übergangen. Das macht eine wichtige Prüfgrenze sichtbar: Eine passende Quelle bestätigt noch keine richtige Schlussfolgerung. Die 48 fiktiven Fälle teilen 16 Vorlagen und zwölf Familien; sie liefern keine repräsentative Risikoschätzung.
 
-Ein separater Jev-Vergleich wartet auf den expliziten manuellen Start. 974 öffentliche/synthetische Textanfragen sind eingefroren; die Offline-Mocks sind keine Modellmessung. Es gibt keine Jev-Ergebnisse. [Multidokumente](MULTIDOC_UI_DATA.md) · [Start und Grenzen](JEV_EXECUTION.md)
+Ein erster Jev-Teillauf wurde unabhängig geprüft: Minimalpaare 47/48 gegenüber Clef 39/48, Rückfragen 71/72 gegenüber 64/72. Nach 180 gültigen Antworten stoppte eine technische Antwort-/Abrechnungsprüfung; 793 Anfragen blieben unversucht. Der Gesamtvergleich ist noch offen. [Multidokumente](MULTIDOC_UI_DATA.md) · [Fortsetzung und Grenzen](JEV_CONTINUATION.md)
 
 ### Kurzer Portfolio-Eintrag
 
@@ -46,7 +46,7 @@ KI-gestützt entwickeltes Open-Source-Projekt für deutsche Routing-, Dokument- 
 
 The new multi-document test selects the correct source in **42/48 cases**, but only **24/48 cases** are completely correct. Eight of twelve material clarification needs are missed. Correct source selection therefore does not certify the conclusion. Sixteen reused templates and twelve families limit the 48 fictional cases; no population risk estimate follows.
 
-A separate Jev comparison awaits an explicit manual start: 974 frozen public/synthetic text requests and offline mocks, with no Jev observations. The final MASSIVE Clef baseline remains pending in that package. [Multi-document study](MULTIDOC_UI_DATA.md) · [Execution limits](JEV_EXECUTION.md)
+The first Jev partial run was independently audited: minimal-pair cases 47/48 versus Clef 39/48, clarification 71/72 versus 64/72. A response/billing-contract failure halted execution after 180 valid cases; 793 remained unattempted. The overall comparison is still incomplete. The final MASSIVE Clef baseline remains pending in that package. [Multi-document study](MULTIDOC_UI_DATA.md) · [Continuation limits](JEV_CONTINUATION.md)
 
 ### Executive summary
 

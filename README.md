@@ -36,7 +36,7 @@ Die Workbench zeigt Vorrangregel, alle Dokumente, Fakten, Soll und native Antwor
 
 [Multidokument-Bericht](experiments/multidoc48/REPORT.md) · [Alle 24 Fehlerfälle](experiments/multidoc48/ERRORS.md) · [Bedienung und Methodik](docs/MULTIDOC_UI_DATA.md)
 
-**Jev-Vergleich bereit zum manuellen Start:** 974 eingefrorene Textanfragen, Verbindungstest beim ersten Start und begrenzter API-Runner. Noch keine Jev-Messung und kein bestätigter Schlüsseltest. Beide Freigaben im Workflow sind nötig; die endgültige MASSIVE-Clef-Baseline steht im Paket noch aus. [Start und Grenzen](docs/JEV_EXECUTION.md)
+**Jev: erster Teillauf geprüft.** Minimalpaare 47/48 gegenüber Clef 39/48; Rückfragen 71/72 gegenüber 64/72. Nach 180 gültigen Antworten stoppte eine HTTP-200-Antwort an der strikten Antwort-/Abrechnungsprüfung. 793 Anfragen sind noch unversucht. [Audit](execution/jev/first-run-audit/PUBLIC_AUDIT.md) · [Begrenzte Fortsetzung](docs/JEV_CONTINUATION.md)
 
 ## Minimalpaare und hohe Scores getrennt prüfen
 
@@ -609,6 +609,6 @@ Die im eingefrorenen Jev-Vorbereitungspaket enthaltenen **MASSIVE de-DE Testanfr
 
 **Unabhängiges Projekt, ohne Zugehörigkeit zu oder Bestätigung durch Cloudflare.**
 
-### Jev manuell starten
+### Jev fortsetzen
 
-Der [begrenzte Vergleich](docs/JEV_EXECUTION.md) ist als manueller Workflow vorbereitet. Ein Lauf prüft zuerst das Repository-Secret und die erste Anfrage; danach folgen die übrigen Fälle im selben Kostenlimit. Noch kein Jev-Ergebnis und noch kein bestätigter Verbindungstest.
+Die [geprüfte Fortsetzung](docs/JEV_CONTINUATION.md) verwendet nur die 793 noch unversuchten Anfragen. Alle 181 bisherigen Reservierungen bleiben im gemeinsamen Limit. Die fehlgeschlagene Antwort wird nicht wiederholt. Der erste Teillauf ist erhalten; der vollständige Vergleich steht noch aus.

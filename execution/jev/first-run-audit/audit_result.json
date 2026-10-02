@@ -1,0 +1,248 @@
+{
+  "audit_version": 1,
+  "scope": "Independent model-free frozen-source and sanitized-artifact audit",
+  "frozen_manifest_sha256": "c41b9b4308c692b64dc85c05d279c62faf74f7d24034a1e4ffaf651ec27d2386",
+  "source": {
+    "scientific_files": 68,
+    "code_lock_entries": 6,
+    "requests": 974,
+    "questions": 1362,
+    "suites": 10,
+    "exact_payload_repeats": [
+      [
+        [
+          "finance100",
+          "de_finance_finance_intent_010"
+        ],
+        [
+          "attack_ablation14",
+          "de_finance_finance_intent_010__attack"
+        ]
+      ],
+      [
+        [
+          "finance100",
+          "de_finance_insurance_intent_010"
+        ],
+        [
+          "attack_ablation14",
+          "de_finance_insurance_intent_010__attack"
+        ]
+      ],
+      [
+        [
+          "finance100",
+          "de_finance_claims_route_010"
+        ],
+        [
+          "attack_ablation14",
+          "de_finance_claims_route_010__attack"
+        ]
+      ],
+      [
+        [
+          "finance100",
+          "de_finance_synthetic_rule_check_004"
+        ],
+        [
+          "attack_ablation14",
+          "de_finance_synthetic_rule_check_004__attack"
+        ]
+      ],
+      [
+        [
+          "finance100",
+          "de_finance_broker_document_010"
+        ],
+        [
+          "attack_ablation14",
+          "de_finance_broker_document_010__attack"
+        ]
+      ],
+      [
+        [
+          "finance100",
+          "de_finance_advice_escalation_008"
+        ],
+        [
+          "attack_ablation14",
+          "de_finance_advice_escalation_008__attack"
+        ]
+      ],
+      [
+        [
+          "finance100",
+          "de_finance_broker_workflow_006"
+        ],
+        [
+          "attack_ablation14",
+          "de_finance_broker_workflow_006__attack"
+        ]
+      ]
+    ]
+  },
+  "run": {
+    "status": "halted",
+    "halt_reason": "invalid_response_or_billing",
+    "counts": {
+      "planned_cases": 974,
+      "completed_cases": 180,
+      "failed_cases": 1,
+      "remaining_cases": 793,
+      "wire_attempts_reserved": 181,
+      "retry_attempts": 0,
+      "known_success_input_tokens": 229691
+    },
+    "suites": [
+      {
+        "suite": "minimal_pairs48",
+        "expected": 48,
+        "valid": 48,
+        "failed": 0,
+        "missing": 0,
+        "exact_correct": 47,
+        "baseline_status": "complete"
+      },
+      {
+        "suite": "clarification72",
+        "expected": 72,
+        "valid": 72,
+        "failed": 0,
+        "missing": 0,
+        "exact_correct": 71,
+        "baseline_status": "complete"
+      },
+      {
+        "suite": "bank_support80",
+        "expected": 80,
+        "valid": 60,
+        "failed": 1,
+        "missing": 19,
+        "exact_correct": 57,
+        "baseline_status": "complete"
+      },
+      {
+        "suite": "original_text180",
+        "expected": 180,
+        "valid": 0,
+        "failed": 0,
+        "missing": 180,
+        "exact_correct": 0,
+        "baseline_status": "complete"
+      },
+      {
+        "suite": "finance100",
+        "expected": 100,
+        "valid": 0,
+        "failed": 0,
+        "missing": 100,
+        "exact_correct": 0,
+        "baseline_status": "complete"
+      },
+      {
+        "suite": "insurance60",
+        "expected": 60,
+        "valid": 0,
+        "failed": 0,
+        "missing": 60,
+        "exact_correct": 0,
+        "baseline_status": "complete"
+      },
+      {
+        "suite": "clean72",
+        "expected": 72,
+        "valid": 0,
+        "failed": 0,
+        "missing": 72,
+        "exact_correct": 0,
+        "baseline_status": "complete"
+      },
+      {
+        "suite": "attack_ablation14",
+        "expected": 14,
+        "valid": 0,
+        "failed": 0,
+        "missing": 14,
+        "exact_correct": 0,
+        "baseline_status": "complete"
+      },
+      {
+        "suite": "multidoc48",
+        "expected": 48,
+        "valid": 0,
+        "failed": 0,
+        "missing": 48,
+        "exact_correct": 0,
+        "baseline_status": "complete"
+      },
+      {
+        "suite": "massive300",
+        "expected": 300,
+        "valid": 0,
+        "failed": 0,
+        "missing": 300,
+        "exact_correct": 0,
+        "baseline_status": "pending_owner_final_audit"
+      }
+    ],
+    "capacity_reserved_usd": "0.498204672",
+    "known_success_cost_usd_at_dated_price": "0.009647022",
+    "uncompleted_attempt_numbers": [],
+    "minimum_recorded_reservation_start_gap_seconds": 1.050538,
+    "artifact_sha256": {
+      "attempts.jsonl": "20505dc2775e456959a37fd3f287c1cb56a489d8880fecc97ded2c211b8674c6",
+      "case_comparison.jsonl": "4c314cf3ff375699e0cef2f45b7dcbea536ff4b78b843ef3dcd2f0771e4b5ec9",
+      "comparison_summary.json": "fce057196f5796c5c8573a26cad7d3e63cca6ab8653bbd322bbbdf10f46e9944",
+      "connection_check.json": "85343f61f624f12fef987d750e7973e51a2cc6f61031904a0723aba79c24b958",
+      "field_metrics.json": "716d6813e44d56dbf3e301e2053905b42beb93a5fe5c7b70cc251931ef2a36f7",
+      "jev-plan.json": "4942f5179458ee50ed81d289231acd0e913cd19ac2b64596c64df7a86523f677",
+      "latency.json": "7f38bdba8da9797d3b4de731525605b25828bb3591c7fa7980c89bbe917d5627",
+      "predictions.jsonl": "e7969f501dc8d871c014e6770f4d60190846b47e1d70bbc34c27383fd38882eb",
+      "run_summary.json": "6c03bf322a6ea2645fa15295109b73101c00a1c1b4e5055385085e6d9e9036ea",
+      "special_diagnostics.json": "ef4e4c34a24797e6a177db1ec4f741dab2ee63a3aa1c1f36ac69b0bf7fe80f65"
+    },
+    "independent_recomputation_mismatches": {
+      "independent_partitions": [],
+      "independent_field_metrics.json": [],
+      "independent_special_diagnostics.json": [],
+      "independent_latency.json": [],
+      "independent_case_comparison.jsonl": []
+    },
+    "frozen_scorer_byte_exact": {
+      "comparison_summary.json": true,
+      "field_metrics.json": true,
+      "special_diagnostics.json": true,
+      "latency.json": true,
+      "case_comparison.jsonl": true
+    },
+    "connection_gate": {
+      "connection_valid": true,
+      "probe_is_first_frozen_case": true,
+      "extra_requests": 0,
+      "http_status": 200,
+      "status": "valid"
+    },
+    "confidence_definition_check": {
+      "native_fields": 420,
+      "probability_values": 1860,
+      "all_probabilities_on_hundredth_grid": true,
+      "zero_probability_values": 1203,
+      "maximum_absolute_residual_to_documented_formula": 0.020000000000000018,
+      "note": "Descriptive diagnostic; the frozen response contract checks confidence bounds, not exact formula agreement."
+    },
+    "limitations": [
+      "Retained response hashes reconcile across records, but raw response bytes are absent and cannot be independently rehashed.",
+      "Local reservations and dated token-price arithmetic are not a provider invoice or provider-enforced account ceiling.",
+      "A reserved attempt is not proof that a provider received or billed a request; ambiguous outcomes retain full reservation.",
+      "The first case HTTP duration also includes connection-gate validation and safe status persistence. Hosted HTTP durations are not local CPU-forward measurements.",
+      "MASSIVE Clef baseline remains pending final independent audit; no MASSIVE paired comparison or pooled cross-suite probability metric is claimed.",
+      "Dependent synthetic fixtures and one hosted pass do not justify independent-sample significance, production readiness or safety claims."
+    ]
+  },
+  "checks": 19032,
+  "passed": true,
+  "failures": [],
+  "warnings": [
+    "Run is incomplete. Missing or failed cases are not validated model predictions; all-expected accuracy treats them as not correct, while valid-only accuracy is conditional on observed cases."
+  ]
+}

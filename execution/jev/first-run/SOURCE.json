@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "provider": "TypeSafe AI",
+  "model": "jev-1.13.0",
+  "workflow_run_id": 37056885572,
+  "workflow_run_url": "https://github.com/storminator89/clef-benchmark/actions/runs/37056885572",
+  "workflow_commit": "e50f98a21244506f7d69dd4e3b50dff0f074522a",
+  "reviewed_code_commit": "851a2b649826f47d7a1fe8aad2bf06a0590754fd",
+  "artifact_id": 11248669663,
+  "artifact_zip_bytes": 99455,
+  "artifact_zip_sha256": "d915258d6d126b13b1eef6a9f1bdbb1bab9ba50805da5d657048e82d8513dc99",
+  "scope": "Exact allowlisted native observations and ledger from the first manual run. Provider raw response bodies, headers and credentials were never retained. No inference or retries occur when verifying these files.",
+  "completed": 180,
+  "failed": 1,
+  "unattempted": 793,
+  "prior_wire_attempts": 181,
+  "prior_retries": 0,
+  "diagnosis": "The first failed response was HTTP 200 and failed the strict native response or billing contract. Its exact failing clause is unknown because its raw body was not retained."
+}

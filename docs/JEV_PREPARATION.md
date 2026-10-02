@@ -1,6 +1,6 @@
 # Jev comparison: frozen preparation
 
-**No Jev benchmark has run.** The preparation below is archived unchanged; the separately reviewed [manual execution workflow](JEV_EXECUTION.md) is now installed and awaits an explicit start. The package contains public/synthetic frozen text requests, archived Clef baselines and offline-tested collection/scoring code. The 974-case mock exercise validates software only; it is not a Jev result or ranking.
+**This is the archived preparation state.** A later [first manual run](../execution/jev/first-run-audit/PUBLIC_AUDIT.md) produced 180 valid cases and one technical failure, leaving 793 unattempted. Its [continuation](JEV_CONTINUATION.md) is separately reviewed. The package contains public/synthetic frozen text requests, archived Clef baselines and offline-tested collection/scoring code. The original 974-case mock exercise validates software only; real observations are separately identified in the linked audit.
 
 ## Current scope
 

@@ -7,6 +7,8 @@ SOURCE=ROOT/'experiments/jev_comparison'
 EXPORT_SHA256='c62021bbcb33b94c653cc9649d7d06dcbdf1633d4dc7b7f19dee2db2cb8be2f4'
 ACTIVATION_TEMPLATE_SHA256='b3805a2fd043ab68d78b8129515b6bac60c1ecd5501adc4d3d523f0fbc1858b5'
 ACTIVATION_WRAPPER_SHA256='ca52c98f2b1597022c12cc6a653d1b2ebb88ba2c60cf18add35da4b710775b2f'
+CONTINUATION_TEMPLATE_SHA256='d8c63b9ee0746a176082a8a9b07dd49c0e810a2b09e31bb702c7c759ef288cd2'
+CONTINUATION_WRAPPER_SHA256='c8509f7886b5d95dc188a5e7fbf06fc3e0273c8b49b380fbdd6eace0eb58a048'
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def require(ok,message):
     if not ok:raise ValueError(message)
@@ -39,12 +41,26 @@ def check(source=SOURCE,root=ROOT):
         require(re.fullmatch('[0-9a-f]{40}', activation['reviewed_code_commit']) is not None, 'Invalid immutable code ref')
         require(activation['workflow'] == '.github/workflows/jev-comparison.yml', 'Unexpected active workflow path')
         approved_workflow = root/activation['workflow']
-        require(sha(root/'scripts/workflows/jev-verified-execution.yml.in') == ACTIVATION_TEMPLATE_SHA256, 'Reviewed activation template changed')
-        require(sha(root/'scripts/run_jev_workflow.py') == ACTIVATION_WRAPPER_SHA256, 'Reviewed activation wrapper changed')
-        reviewed_template = (root/'scripts/workflows/jev-verified-execution.yml.in').read_text()
+        mode = activation.get('mode', 'initial974')
+        require(mode in ('initial974', 'continuation793'), 'Unknown reviewed execution mode')
+        if mode == 'initial974':
+            template_path, template_hash = 'scripts/workflows/jev-verified-execution.yml.in', ACTIVATION_TEMPLATE_SHA256
+            wrapper_path, wrapper_hash = 'scripts/run_jev_workflow.py', ACTIVATION_WRAPPER_SHA256
+        else:
+            template_path, template_hash = 'scripts/workflows/jev-continuation.yml.in', CONTINUATION_TEMPLATE_SHA256
+            wrapper_path, wrapper_hash = 'scripts/run_jev_continuation.py', CONTINUATION_WRAPPER_SHA256
+            require(activation['remaining_initial_requests'] == 793 and activation['prior_wire_attempts'] == 181 and activation['retry_failed_prior_cases'] is False, 'Continuation scope changed')
+            require(activation['first_run_lock_sha256'] == '24637c98afc4c073d4fc1c9fef5aeafe24e1b76029eafd13b42211e7bca5e120', 'Continuation source lock changed')
+            require(activation['continuation_plan_sha256'] == '617ccee8601d598fc623ed0722bb3a4c78f0252bfffd69e0769b670de08b3383', 'Continuation plan lock changed')
+        require(sha(root/template_path) == template_hash, 'Reviewed activation template changed')
+        require(sha(root/wrapper_path) == wrapper_hash, 'Reviewed activation wrapper changed')
+        if mode == 'continuation793':
+            with tempfile.TemporaryDirectory() as temp:
+                subprocess.run([sys.executable, str(root/wrapper_path), '--output', str(Path(temp)/'plan.json')], check=True, capture_output=True, env={'PYTHONDONTWRITEBYTECODE':'1'})
+        reviewed_template = (root/template_path).read_text()
         require(approved_workflow.read_text() == reviewed_template.replace('REVIEWED_CODE_COMMIT_SHA', activation['reviewed_code_commit']), 'Active workflow differs from reviewed template')
         require(sha(approved_workflow) == activation['workflow_sha256'], 'Activation workflow hash changed')
-        require(sha(root/'scripts/run_jev_workflow.py') == activation['wrapper_sha256'], 'Activation wrapper hash changed')
+        require(sha(root/wrapper_path) == activation['wrapper_sha256'], 'Activation wrapper hash changed')
         require(activation['frozen_bundle_changed'] is False and activation['max_initial_requests'] == 974 and activation['max_wire_attempts'] == 1024 and activation['local_api_reservation_usd'] == 3, 'Activation scope changed')
     for p in (root/'.github/workflows').glob('*'):
         if p == approved_workflow: continue

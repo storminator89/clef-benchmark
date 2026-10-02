@@ -1,0 +1,19 @@
+{
+  "case": "bank_support80/bank_access_tan_01",
+  "ordinal": 181,
+  "http_status": 200,
+  "retained_status": "invalid_response_or_billing",
+  "response_body_sha256": "172e974af58c60baa0913544373987706006dc6bb81b94877a5d99bbc6834d45",
+  "specific_contract_clause_identifiable": false,
+  "all_80_bank_requests_use_identical_question_schema": true,
+  "failed_wire_body_utf8_bytes": 5624,
+  "static_failure_classes": [
+    "Response JSON parse failure",
+    "Wrong or missing model ID",
+    "Answer field or primitive mismatch",
+    "Probability option mismatch, invalid value, sum tolerance or non-maximum choice",
+    "Confidence missing, non-finite or out of range",
+    "Missing/invalid input or output usage, or input usage above capacity"
+  ],
+  "interpretation": "HTTP 200 is evidenced. The failure is a collector JSON/response/billing-contract rejection, not a demonstrated network failure or an observed wrong answer. Coarse returned probability values make sum-tolerance issues a possible candidate, but the discarded body prevents confirmation. No repair, renormalization, inference, resume or rerun was performed."
+}

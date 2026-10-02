@@ -1,6 +1,6 @@
 # Jev: bounded manual execution
 
-Status: manual workflow installed; awaiting the first explicit start. No live request or secret verification has been recorded yet. The immutable [preparation bundle](../experiments/jev_comparison/README.md) remains unchanged and describes its original preparation state.
+Historical first-run protocol. Run 37056885572 confirmed secret presence and a valid first response, retained 180 valid cases and then halted on one strict response/billing-contract failure. 793 cases remained unattempted. See the [independent audit](../execution/jev/first-run-audit/PUBLIC_AUDIT.md) and [continuation plan](JEV_CONTINUATION.md). The immutable [preparation bundle](../experiments/jev_comparison/README.md) remains unchanged and describes its original preparation state.
 
 The activation commit installs the reviewed template as a **manual-only** GitHub workflow. It checks out reviewed code commit `851a2b649826f47d7a1fe8aad2bf06a0590754fd` by its full immutable SHA. Pushes, pull requests, schedules, reruns and arbitrary refs cannot execute this comparison.
 
@@ -34,6 +34,6 @@ The provider says it does not train on customer requests or responses. Enterpris
 
 ## Interpretation
 
-No Jev score is available until real outputs are retained and independently audited. Existing Clef vectors are unchanged. MASSIVE300's Clef baseline remains pending its owner's final audit; generating Jev outputs cannot make that comparison complete. Native probability vectors, per-field/suite denominators and dependent families stay separate. Hosted HTTP latency cannot be presented as equivalent to Clef CPU forward time. The first case additionally includes connection-gate validation and safe-status persistence in its recorded request duration; this is explicitly marked in the run summary.
+Only the completed or matched-prefix cohorts in the linked first-run audit have verified Jev results; the full comparison remains incomplete. Existing Clef vectors are unchanged. MASSIVE300's Clef baseline remains pending its owner's final audit; generating Jev outputs cannot make that comparison complete. Native probability vectors, per-field/suite denominators and dependent families stay separate. Hosted HTTP latency cannot be presented as equivalent to Clef CPU forward time. The first case additionally includes connection-gate validation and safe-status persistence in its recorded request duration; this is explicitly marked in the run summary.
 
 The new wrapper's tests use mock responses only. Their successful connection signals are software-test fixtures, not evidence that a real key or endpoint has been verified.

@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "base_public_commit": "e50f98a21244506f7d69dd4e3b50dff0f074522a",
+  "scope": "Permit the separately reviewed 793-case continuation variant at the same manual-only workflow path. All frozen preparation inputs and earlier results remain unchanged. Initial and continuation templates/wrappers have explicit immutable hashes.",
+  "gate": "scripts/check_jev.py",
+  "from_sha256": "22ddcb1a5539dd4c8cfed8e96474c553e051574a6da30ead4de9181193135b74",
+  "to_sha256": "3cac3313f12a7aeb1e26b8242e3fdc0eae320d50f988fdbdf527b5d2af8a9826",
+  "continuation_template_sha256": "d8c63b9ee0746a176082a8a9b07dd49c0e810a2b09e31bb702c7c759ef288cd2",
+  "continuation_wrapper_sha256": "c8509f7886b5d95dc188a5e7fbf06fc3e0273c8b49b380fbdd6eace0eb58a048",
+  "prior_attempts_retained": 181,
+  "remaining_initial_requests": 793,
+  "failed_prior_cases_retried": 0,
+  "shared_attempt_limit": 1024,
+  "shared_local_usd_limit": 3
+}

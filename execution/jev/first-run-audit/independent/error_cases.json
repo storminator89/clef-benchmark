@@ -1,0 +1,137 @@
+[
+  {
+    "suite": "minimal_pairs48",
+    "id": "pair_limit_order_price_step_a",
+    "split": "diagnostic_pairs",
+    "expected": {
+      "action": "answer",
+      "determination": "no"
+    },
+    "jev_choices": {
+      "action": "ask_fact",
+      "determination": "unresolved"
+    },
+    "clef_choices": {
+      "action": "ask_fact",
+      "determination": "unresolved"
+    },
+    "jev_wrong_fields": [
+      "action",
+      "determination"
+    ],
+    "category": "finance",
+    "stratum": null,
+    "subtype": "short_circuit_control",
+    "family": "limit_order_price_step",
+    "gold_rationale": "12,34 ist kein Vielfaches von 0,10; das unbekannte Fenster ist unerheblich."
+  },
+  {
+    "suite": "clarification72",
+    "id": "clarify_statement_download_02",
+    "split": "german_primary",
+    "expected": {
+      "action": "ask_target",
+      "determination": "unresolved"
+    },
+    "jev_choices": {
+      "action": "ask_target",
+      "determination": "yes"
+    },
+    "clef_choices": {
+      "action": "answer",
+      "determination": "yes"
+    },
+    "jev_wrong_fields": [
+      "determination"
+    ],
+    "category": "banking",
+    "stratum": "ambiguous_target",
+    "subtype": null,
+    "family": "statement_download",
+    "gold_rationale": "Angefragten Auszug beziehungsweise das Konto bestimmen."
+  },
+  {
+    "suite": "bank_support80",
+    "id": "bank_transfers_07",
+    "split": "german_primary",
+    "expected": {
+      "intent": "transfers",
+      "priority": "routine",
+      "next_step": "guidance"
+    },
+    "jev_choices": {
+      "intent": "transfers",
+      "priority": "routine",
+      "next_step": "clarify"
+    },
+    "clef_choices": {
+      "intent": "transfers",
+      "priority": "routine",
+      "next_step": "guidance"
+    },
+    "jev_wrong_fields": [
+      "next_step"
+    ],
+    "category": null,
+    "stratum": null,
+    "subtype": null,
+    "family": null,
+    "gold_rationale": "Allgemeine Terminüberweisungsfunktion."
+  },
+  {
+    "suite": "bank_support80",
+    "id": "bank_transfers_02",
+    "split": "german_primary",
+    "expected": {
+      "intent": "transfers",
+      "priority": "urgent",
+      "next_step": "specialist_review"
+    },
+    "jev_choices": {
+      "intent": "transfers",
+      "priority": "urgent",
+      "next_step": "security_handoff"
+    },
+    "clef_choices": {
+      "intent": "transfers",
+      "priority": "urgent",
+      "next_step": "specialist_review"
+    },
+    "jev_wrong_fields": [
+      "next_step"
+    ],
+    "category": null,
+    "stratum": null,
+    "subtype": null,
+    "family": null,
+    "gold_rationale": "Bereits abgesendete eigene Fehlüberweisung; kein unbefugter Vorgang."
+  },
+  {
+    "suite": "bank_support80",
+    "id": "bank_transfers_06",
+    "split": "german_primary",
+    "expected": {
+      "intent": "transfers",
+      "priority": "routine",
+      "next_step": "clarify"
+    },
+    "jev_choices": {
+      "intent": "transfers",
+      "priority": "urgent",
+      "next_step": "clarify"
+    },
+    "clef_choices": {
+      "intent": "transfers",
+      "priority": "urgent",
+      "next_step": "clarify"
+    },
+    "jev_wrong_fields": [
+      "priority"
+    ],
+    "category": null,
+    "stratum": null,
+    "subtype": null,
+    "family": null,
+    "gold_rationale": "Absendung und Doppelung unbestätigt; keine sichere urgent-Bedingung."
+  }
+]

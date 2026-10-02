@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "review_date_utc": "2026-10-02",
+  "status": "stage_a_offline_review_passed",
+  "scope": "Frozen no-duplicate continuation collector, plan, inactive activation template, narrow integration-gate evolution and current-state documentation. Offline code and mock evidence only; the historical active workflow remains unchanged at this stage.",
+  "baseline_public_commit": "e50f98a21244506f7d69dd4e3b50dff0f074522a",
+  "reviewed_files_sha256": {
+    "scripts/run_jev_continuation.py": "c8509f7886b5d95dc188a5e7fbf06fc3e0273c8b49b380fbdd6eace0eb58a048",
+    "tests/test_jev_continuation.py": "e2c1942fdc789316512ee294896ad57246b5c42fd5a1a35d4c8b053336b532ad",
+    "execution/jev/continuation_plan.json": "617ccee8601d598fc623ed0722bb3a4c78f0252bfffd69e0769b670de08b3383",
+    "scripts/workflows/jev-continuation.yml.in": "d8c63b9ee0746a176082a8a9b07dd49c0e810a2b09e31bb702c7c759ef288cd2",
+    "scripts/check_jev.py": "3cac3313f12a7aeb1e26b8242e3fdc0eae320d50f988fdbdf527b5d2af8a9826",
+    "provenance/jev_continuation_gate_evolution.json": "a44c328844a6a55d555eda9e57d89205500ccb8570ee4c7af84d55c3a24e2724",
+    "README.md": "e432625cb69bb3e301c851c77345caf46fd684354793e561b44280ec65d7f65c",
+    "docs/JEV_CONTINUATION.md": "71eea65838fb7f04cbd37be8273a38ce0bd131efcdf85a4888aefb1c743b869f",
+    "docs/JEV_EXECUTION.md": "9d58bde50ee1eb03a5592bd00c6f97130ee0e15453ff2775e49bf2210365d232",
+    "docs/JEV_PREPARATION.md": "20d90a923f59f804eef3a448245c5d515f6774b501753d4182860b87fc686e6b",
+    "docs/EVALUATION_GUIDE.md": "453e255a6fb5b60993a3f9eb028bdc0b3973d69899688a69d9b8f2010d7a278c",
+    "docs/PROJECT_BRIEF.md": "d9b8b8b6f2942e96d8cfac07e5ac525d718542999a9f9232453032ed510a26e9"
+  },
+  "first_run_file_lock_sha256": "24637c98afc4c073d4fc1c9fef5aeafe24e1b76029eafd13b42211e7bca5e120",
+  "blockers": [],
+  "verified_controls": [
+    "Exactly 793 never-attempted frozen identities in original order; the first 181 identities, including the failed case, are excluded from all new sends.",
+    "Historical predictions and attempt ledger are copied as exact byte prefixes; new reservation numbers start at 182. Original 180 valid cases and one technical failure remain in the 974-case denominator.",
+    "Prior 181 reservations, USD 0.498204672 capacity, 229691 accepted input tokens and USD 0.009647022 known-success cost seed the shared ledger. Unknown billing is never refunded.",
+    "Shared 1024-attempt ceiling and 50 global retries, at most one retry per eligible new case, only for HTTP 429/529. Maximum capacity reservation remains USD 2.818572288 within the USD 3 local guard.",
+    "The first new case is the gate, with no extra probe and no retry. Transport ambiguity, nonretryable HTTP, invalid response or billing and excessive Retry-After halt safely.",
+    "Pinned original validator and frozen inputs remain unchanged. Accepted native vectors are preserved; no normalization, distribution repair or substitute usage is applied.",
+    "Rejected-response diagnostics contain fixed reason enums, approved known field names, integer counts and Boolean checks only. Raw bodies, headers, arbitrary provider strings, unknown field names and exception text are not persisted; response-body fingerprints are SHA-256 only.",
+    "Successful traversal retains the initial technical failure and reports completed_with_failures; an exit-zero result requires no remaining cases and does not claim a perfect run.",
+    "Offline default checks locks without a real credential or transport. Live entry requires exact scope, USD 3, a new output directory, manual main-branch first-attempt context and offline preflight before reading the execution secret.",
+    "Template has two default-false approvals, manual-only trigger, fixed repository/main/first-attempt guards, pinned actions and code-ref placeholder, read-only permissions, serialized execution, bounded timeout and an explicit one-day sanitized artifact allowlist.",
+    "Integration gate allows only initial974 or continuation793 at the same workflow path with immutable wrapper/template hashes. Hashes are verified before executing the continuation offline preflight.",
+    "Docs identify two complete partial-run suites and one matched 60-case bank prefix, retain the unknown exact failure clause and incomplete overall comparison, and distinguish hosted versus CPU timing and missing MASSIVE baseline."
+  ],
+  "offline_evidence": {
+    "repository_unittests_passed": 338,
+    "focused_continuation_unittests_passed": 23,
+    "focused_tests_included_in_repository_count": true,
+    "frozen_comparison_unittests_passed": 23,
+    "independent_collector_scenarios_passed": 7,
+    "independent_diagnostic_cases_passed": 11,
+    "independent_explicit_assertions_passed": 75,
+    "independent_scenarios": [
+      "complete 793-case continuation",
+      "all 50 allowed retries and 1024 shared reservations",
+      "first-case HTTP 429",
+      "first-case invalid response",
+      "later transport exception",
+      "later nonretryable HTTP 500",
+      "Retry-After above 120 seconds"
+    ],
+    "adversarial_gate_rejections_passed": 12,
+    "adversarial_gate_cases": [
+      "push trigger",
+      "default-true approval",
+      "branch checkout",
+      "altered wrapper rejected before execution",
+      "altered template rejected before execution",
+      "changed remaining count",
+      "changed prior attempt count",
+      "prior-failure retry enabled",
+      "changed plan lock",
+      "changed first-run lock",
+      "unknown mode",
+      "additional secret workflow"
+    ],
+    "synthetic_continuation_activation_accepted_offline": true,
+    "frozen_experiment_files_byte_identical_to_baseline": 88,
+    "historical_active_workflow_and_activation_record_unchanged": true,
+    "public_content_audit_before_this_report": "passed; 998 files; zero findings",
+    "real_provider_api_calls": 0,
+    "model_inference_calls": 0,
+    "real_credential_inspections": 0,
+    "workflow_dispatches": 0
+  },
+  "resolved_observations": [
+    "Normalization-error scalar was narrowed to normalization_within_tolerance Boolean.",
+    "Combined summary preserves the historical first-case timing caveat separately from the continuation timing definition.",
+    "Integration-gate subprocess was moved after immutable wrapper and template verification."
+  ],
+  "activation_and_execution_limits": [
+    "Publish the reviewed code stage, then pin its verified immutable full commit in the existing workflow through a separately reviewed activation delta. Stage A does not activate or dispatch the continuation.",
+    "Concurrency serializes executions but does not prevent a second fresh manual dispatch. The cumulative budget covers this one continuation and its fixed first-run predecessor; any later attempt requires fresh ledger reconciliation.",
+    "This is a local reservation guard under dated pricing, not a provider-enforced account cap. Mock outputs are not model observations or quality evidence.",
+    "Remote publication, exact-commit CI, Actions registration and any actual continuation outputs require separate verification and audit. No complete ten-suite ranking or final MASSIVE comparison is established here."
+  ]
+}

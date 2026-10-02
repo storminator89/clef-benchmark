@@ -1,0 +1,23 @@
+{
+  "status": "halted",
+  "started_utc": "2026-10-02T19:52:12.969074+00:00",
+  "endpoint": "https://api.typesafe.ai/v1/systemone",
+  "requested_model": "jev-1.13.0",
+  "provider_immutable_weight_hash": null,
+  "provider_revision_semantics": "Versioned service ID only; no public immutable weight checksum",
+  "manifest_sha256": "c41b9b4308c692b64dc85c05d279c62faf74f7d24034a1e4ffaf651ec27d2386",
+  "latency_definition": "HTTP submission through complete body read; per-case total also includes validation and retries/backoff. Network-hosted service, not comparable to Clef CPU forward-only latency.",
+  "planned_cases": 974,
+  "completed_cases": 180,
+  "failed_cases": 1,
+  "wire_attempts_reserved": 181,
+  "retry_attempts": 0,
+  "capacity_reserved_usd": "0.498204672",
+  "known_success_input_tokens": 229691,
+  "known_success_cost_usd": "0.009647022",
+  "cap_usd": "3",
+  "remaining_cases": 793,
+  "halt_reason": "invalid_response_or_billing",
+  "ended_utc": "2026-10-02T19:55:23.050375+00:00",
+  "first_case_latency_note": "The first case request_seconds additionally includes connection-gate validation and safe-status persistence; subsequent cases use the frozen runner timing definition."
+}
