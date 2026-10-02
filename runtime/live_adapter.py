@@ -1,4 +1,4 @@
-"""Lazy, local-only Clef-flash CPU adapter. No model download or import on construction.
+"""Lazy, local-only Clef-flash adapter. No model download or import on construction.
 
 The server must opt in to live inference, bind loopback, validate requests, and
 serialize access. This adapter independently serializes calls and validates all
@@ -18,6 +18,23 @@ import threading
 import time
 from typing import Any
 
+try:
+    from runtime.device_profiles import BackendUnavailable, dtype_for_profile, resolve_profile, validate_profile
+except ModuleNotFoundError as error:
+    if error.name != 'runtime':
+        raise
+    # The original standalone smoke imports this file by pathname. Preserve that
+    # use without changing sys.path or modifying the archived smoke script.
+    _profile_spec = importlib.util.spec_from_file_location('_clef_device_profiles', Path(__file__).with_name('device_profiles.py'))
+    if _profile_spec is None or _profile_spec.loader is None:
+        raise ImportError('Cannot import local device_profiles.py')
+    _profiles = importlib.util.module_from_spec(_profile_spec)
+    _profile_spec.loader.exec_module(_profiles)
+    BackendUnavailable = _profiles.BackendUnavailable
+    dtype_for_profile = _profiles.dtype_for_profile
+    resolve_profile = _profiles.resolve_profile
+    validate_profile = _profiles.validate_profile
+
 MODEL_ID = 'Cloudflare/clef-flash'
 REVISION = '17f0b0ad64efb65d273590632833508766b2aae6'
 SOURCE_SHA256 = '0e304cf7c6500e8bb59bef7e2afd2c6373f82596dfb3b57d1aa93c175e2dc3a3'
@@ -28,14 +45,19 @@ EXPECTED_FILES: dict[str, dict[str, Any]] = {'chat_template.jinja': {'bytes': 77
 class ClefRuntime:
     """Create cheaply; the first infer() verifies files and loads the model once."""
 
-    def __init__(self, model_dir: Path, threads: int = 6, max_length: int = 2048):
+    def __init__(self, model_dir: Path, threads: int = 6, max_length: int = 2048,
+                 profile: str = 'cpu-nf4', device_index: int = 0):
         if not isinstance(threads, int) or not 1 <= threads <= 128:
             raise ValueError('threads must be an integer from 1 to 128')
         if not isinstance(max_length, int) or not 64 <= max_length <= 2048:
             raise ValueError('max_length must be an integer from 64 to 2048')
+        validate_profile(profile, device_index)
         self.model_dir = Path(model_dir).expanduser().resolve()
         self.threads = threads
         self.max_length = max_length
+        self.profile = profile
+        self.device_index = device_index
+        self._runtime_info = None
         self._lock = threading.RLock()
         self._model = self._processor = self._vendor = self._torch = None
         self._state = 'unloaded'
@@ -50,8 +72,11 @@ class ClefRuntime:
             'state': self._state,
             'model': MODEL_ID,
             'revision': REVISION,
-            'device': 'cpu',
-            'precision': 'NF4 backbone; original BF16 joint head and output embeddings',
+            # Requested profile is not evidence of a successfully loaded GPU.
+            'requested_profile': self.profile,
+            'device': self._runtime_info['device'] if self._state == 'ready' else None,
+            'precision': self._runtime_info['precision'] if self._state == 'ready' else None,
+            'runtime': dict(self._runtime_info) if self._state == 'ready' else None,
             'threads': self.threads,
             'max_length': self.max_length,
             'load_seconds': self._load_seconds,
@@ -85,10 +110,12 @@ class ClefRuntime:
             self._verify_seconds = time.perf_counter() - started
             # Imports remain lazy: browsing stored results needs no ML packages.
             import psutil
-            if psutil.virtual_memory().available < 7.5 * 1024**3:
-                raise RuntimeError('Live inference needs at least 7.5 GiB available RAM before loading; close other heavy processes')
             import torch
-            from transformers import AutoProcessor, BitsAndBytesConfig
+            from transformers import AutoProcessor
+            self._runtime_info = resolve_profile(torch, self.profile, self.device_index)
+            minimum_ram = 7.5 if self.profile == 'cpu-nf4' else 2.0
+            if psutil.virtual_memory().available < minimum_ram * 1024**3:
+                raise BackendUnavailable(f'Live-Inferenz benötigt vor dem Laden mindestens {minimum_ram:g} GiB verfügbaren System-RAM zusätzlich zu den GPU-Speicheranforderungen des gewählten Profils. Kein automatischer Fallback.')
             torch.set_num_threads(self.threads)
             try:
                 torch.set_num_interop_threads(1)
@@ -110,21 +137,8 @@ class ClefRuntime:
             started = time.perf_counter()
             # Catch missing image/video-processor dependencies before weight loading.
             AutoProcessor.from_pretrained(self.model_dir, local_files_only=True)
-            quant = BitsAndBytesConfig(
-                load_in_4bit=True, bnb_4bit_quant_type='nf4',
-                bnb_4bit_compute_dtype=torch.bfloat16,
-                bnb_4bit_use_double_quant=True,
-                llm_int8_skip_modules=['lm_head'],
-            )
-            model, processor = vendor.load_release_model(
-                self.model_dir, device='cpu', dtype=torch.bfloat16,
-                quantization_config=quant, local_files_only=True,
-            )
-            embedding = model.language_model.get_output_embeddings().weight
-            if embedding.dtype != torch.bfloat16 or tuple(embedding.shape) != (248320, 4096):
-                raise RuntimeError('Original BF16 lexical output embedding was not preserved')
-            if any(parameter.dtype != torch.bfloat16 for parameter in model.head.parameters()):
-                raise RuntimeError('Original joint head must remain BF16')
+            model, processor = self._load_model(vendor, torch)
+            self._validate_model(model, torch)
             self._model, self._processor, self._vendor, self._torch = model, processor, vendor, torch
             self._load_seconds = time.perf_counter() - started
             self._state = 'ready'
@@ -132,6 +146,43 @@ class ClefRuntime:
             self._state = 'error'
             self._error = f'{type(exc).__name__}: {exc}'
             raise
+
+    def _load_model(self, vendor, torch):
+        """Keep the exact CPU path; GPU loads the full native release without bnb."""
+        kwargs = {'local_files_only': True}
+        if self.profile == 'cpu-nf4':
+            from transformers import BitsAndBytesConfig
+            kwargs['quantization_config'] = BitsAndBytesConfig(
+                load_in_4bit=True, bnb_4bit_quant_type='nf4',
+                bnb_4bit_compute_dtype=torch.bfloat16,
+                bnb_4bit_use_double_quant=True,
+                llm_int8_skip_modules=['lm_head'],
+            )
+        return vendor.load_release_model(
+            self.model_dir, device=self._runtime_info['device'],
+            dtype=dtype_for_profile(torch, self.profile), **kwargs,
+        )
+
+    def _validate_model(self, model, torch):
+        dtype = dtype_for_profile(torch, self.profile)
+        device = torch.device(self._runtime_info['device'])
+        embedding = model.language_model.get_output_embeddings().weight
+        if embedding.dtype != dtype or tuple(embedding.shape) != (248320, 4096):
+            raise RuntimeError('Original lexical output embedding was not preserved at the selected precision')
+        if any(parameter.dtype != dtype for parameter in model.head.parameters()):
+            raise RuntimeError('Original joint head must use the selected native precision')
+        # Reject hidden CPU/disk offload, quantization and a mislabeled FP32
+        # backbone. Transient FP32 operator arithmetic is not parameter storage.
+        for name, parameter in model.named_parameters():
+            if parameter.device != device:
+                raise RuntimeError(f'Model parameter is not on the requested device: {name}')
+            if self.profile != 'cpu-nf4' and (not parameter.is_floating_point()
+                                             or parameter.dtype != dtype):
+                raise RuntimeError(f'Native GPU parameter has unexpected precision: {name}')
+
+    def _synchronize(self):
+        if self.profile != 'cpu-nf4':
+            self._torch.cuda.synchronize(self._runtime_info['device'])
 
     def infer(self, request: dict[str, Any]) -> dict[str, Any]:
         """Return answers plus unrounded probabilities and forward-only latency."""
@@ -153,11 +204,15 @@ class ClefRuntime:
             encoded = vendor.encode_record(processor.tokenizer, clean, processor=processor, max_length=self.max_length)
             if encoded.input_ids != full.input_ids:
                 raise RuntimeError('Input truncation detected; inference was refused')
-            batch = vendor.collate_records([encoded], processor.tokenizer.pad_token_id, torch.device('cpu'))
+            batch = vendor.collate_records([encoded], processor.tokenizer.pad_token_id, torch.device(self._runtime_info['device']))
+            # HIP work is asynchronous. Exclude pending uploads from the timed
+            # forward, and wait for completion before recording its duration.
+            self._synchronize()
             encode_seconds = time.perf_counter() - started
             started = time.perf_counter()
             with torch.inference_mode():
                 logits = self._model(batch)[0]
+            self._synchronize()
             inference_seconds = time.perf_counter() - started
             probabilities = {
                 q.question_id: dict(zip(q.option_ids, values.float().softmax(-1).tolist()))
@@ -180,6 +235,8 @@ class ClefRuntime:
                 'load_seconds': self._load_seconds if first_call else 0.0,
                 'verification_seconds': self._verify_seconds if first_call else 0.0,
                 'model': MODEL_ID, 'revision': REVISION,
-                'precision': 'experimental CPU NF4; BF16 joint head and lexical output embeddings',
+                'device': self._runtime_info['device'],
+                'precision': self._runtime_info['precision'],
+                'runtime': dict(self._runtime_info),
                 'benchmark_result': False,
             }

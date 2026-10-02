@@ -1,7 +1,13 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
-import {escapeHTML,filterCases,percent,probabilities,validatePlayground} from '../web/core.js';
+import {escapeHTML,filterCases,percent,probabilities,validatePlayground,runtimeLabel} from '../web/core.js';
+test('live runtime label uses actual backend and precision without assuming CPU or GPU',()=>{
+  assert.equal(runtimeLabel(null),'Gerät und Präzision noch nicht geprüft');
+  assert.equal(runtimeLabel({profile:'rocm-bf16'}),'Gerät und Präzision noch nicht geprüft');
+  assert.match(runtimeLabel({backend:'rocm',device:'cuda:1',device_name:'Radeon',precision:'BF16'}),/AMD ROCm.*Radeon.*cuda:1.*BF16/);
+  assert.match(runtimeLabel({backend:'cpu',device:'cpu',device_name:'CPU',precision:'NF4'}),/CPU.*NF4/);
+});
 test('untrusted input is escaped',()=>assert.equal(escapeHTML('<img src=x onerror="x">'), '&lt;img src=x onerror=&quot;x&quot;&gt;'));
 test('unknown numbers never become fabricated statistics',()=>{assert.equal(percent(undefined),'—');assert.equal(percent(NaN),'—');assert.equal(percent(.8),'80 %');});
 const cases=[{id:'de_1',input:'Überweisung nicht gewünscht',split:'german_primary',category:'a',tags:['negation'],expected:{decision:'no'},result:{correct:false,prediction:'yes'}},{id:'en_1',input:'no payment',split:'english_control',category:'a',tags:['negation'],expected:{decision:'no'},result:{correct:true,prediction:'no'}}];

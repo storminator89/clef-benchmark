@@ -1,0 +1,9 @@
+# Candidate application dependencies, not a GPU-validated environment lock.
+# FIRST install a matching ROCm Torch/Torchvision pair via official AMD docs.
+# Never install requirements_frozen.txt into this environment: it pins CPU Torch.
+# No bitsandbytes: the ROCm profiles load unquantized native BF16/FP16 weights.
+accelerate==1.15.0
+transformers==5.10.2
+safetensors==0.8.0
+psutil==7.2.2
+pillow==12.3.0

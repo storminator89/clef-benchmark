@@ -4,6 +4,7 @@ runtime/hf_cache/
 runtime/venv/
 runtime/tiny_smoke_model/
 .venv/
+.venv-rocm/
 venv/
 node_modules/
 __pycache__/

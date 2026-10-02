@@ -7,6 +7,12 @@ export const SPLIT = {german_primary:'Deutsch / Deutsch',english_control:'Englis
 export const escapeHTML = (value) => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 export const percent = (value, digits=1) => Number.isFinite(value) ? new Intl.NumberFormat('de-DE',{style:'percent',maximumFractionDigits:digits}).format(value) : '—';
 export const decimal = (value, digits=2) => Number.isFinite(value) ? new Intl.NumberFormat('de-DE',{maximumFractionDigits:digits}).format(value) : '—';
+/** A requested profile alone must never be shown as verified GPU execution. */
+export function runtimeLabel(runtime) {
+  if (!runtime?.device || !runtime?.precision) return 'Gerät und Präzision noch nicht geprüft';
+  const backend=runtime.backend==='rocm'?'AMD ROCm':runtime.backend==='cpu'?'CPU':'Lokales Backend';
+  return `${backend} · ${runtime.device_name||runtime.device} (${runtime.device}) · ${runtime.precision}`;
+}
 export function filterCases(cases, filters={}) {
   const query = (filters.query || '').trim().toLocaleLowerCase('de');
   return cases.filter(c => (!filters.split || c.split === filters.split) && (!filters.category || c.category === filters.category) && (!filters.tag || c.tags.includes(filters.tag)) && (!filters.errors || c.result?.correct === false) && (!query || [c.id,c.input,c.expected?.decision,c.result?.prediction,...c.tags].join(' ').toLocaleLowerCase('de').includes(query)));

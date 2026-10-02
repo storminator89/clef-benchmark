@@ -31,7 +31,9 @@ Die Website funktioniert offline über den lokalen Server. Direktes Öffnen von 
 
 Experimentell getestet auf **Linux x86-64, Python 3.12, CPU**. Andere Betriebssysteme oder GPUs sind hier nicht validiert.
 
-Der gepinnte Download umfasst ungefähr **19 GB Modellgewichte**; zusätzliche Umgebung, Cache und temporäre Dateien brauchen weiteren Speicher. Vor dem Laden verlangt der Adapter **mindestens 7,5 GiB freien RAM**; mindestens 8 GiB verfügbarer RAM werden empfohlen. Das Modell belegt in dieser CPU-NF4-Konfiguration ungefähr 6–7,5 GB RAM. Die erste Anfrage prüft Datei-Hashes und lädt das Modell, was je nach Rechner mehrere Minuten dauern kann. Es erfolgt kein automatischer Download.
+**AMD-GPU optional vorbereitet:** Der Live-Server kann ausdrücklich `--inference-profile rocm-bf16` oder `rocm-fp16` verwenden. Standard bleibt `cpu-nf4`. Die neuen GPU-Pfade sind modellfrei getestet, aber **nicht auf AMD-Hardware ausgeführt**. Sie brauchen eine separate ROCm-PyTorch-Umgebung und deutlich mehr GPU-Speicher; die CPU-Installation unten reicht dafür nicht. Voraussetzungen, Linux-Mint-/Windows-Grenzen und Startbefehle: [`docs/AMD_GPU.md`](docs/AMD_GPU.md). Das betrifft die Radeon-GPU, nicht die Ryzen-AI-NPU.
+
+Der gepinnte Download umfasst ungefähr **19 GB Modellgewichte**; zusätzliche Umgebung, Cache und temporäre Dateien brauchen weiteren Speicher. Im CPU-NF4-Profil verlangt der Adapter vor dem Laden **mindestens 7,5 GiB freien RAM**; mindestens 8 GiB verfügbarer RAM werden empfohlen. Das Modell belegt in dieser CPU-NF4-Konfiguration ungefähr 6–7,5 GB RAM. Die erste Anfrage prüft Datei-Hashes und lädt das Modell, was je nach Rechner mehrere Minuten dauern kann. Es erfolgt kein automatischer Download.
 
 ```bash
 bash runtime/setup_runtime.sh
