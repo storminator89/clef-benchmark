@@ -1,0 +1,2 @@
+# Optional only; not needed for the application or standard CI tests.
+playwright==1.62.0

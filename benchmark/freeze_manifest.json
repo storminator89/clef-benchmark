@@ -1,0 +1,30 @@
+{
+  "benchmark_version": "1.0",
+  "frozen_at_utc": "2026-10-02T04:33:38Z",
+  "status": "frozen_before_first_benchmark_inference",
+  "blind_review": "Separate reviewer passed label/policy/translation/integrity checks; neither benchmark creator nor reviewer inspected inference outputs. AI review, not human adjudication.",
+  "request_order": {
+    "method": "Python random.Random(seed).shuffle on all 180 requests",
+    "seed": 20261002,
+    "languages_and_categories_interleaved": true
+  },
+  "counts": {
+    "german_primary": 120,
+    "english_control": 30,
+    "mixed_schema_diagnostic": 30,
+    "total": 180
+  },
+  "sha256": {
+    "README.md": "a091142fc360c8020dbb8752066b894d02a6883c60dd6def6943b6db9a1d8153",
+    "build_benchmark.py": "8f5dd1082100c7d5d5297433624486e674c9d8691be5fa88e82da5c79b4cd9e7",
+    "validate.py": "7d9e13779df9cfce0160ed8e161388d6cc557f1759c714445dd25fcc277330cc",
+    "score.py": "b749aeaab581d7229eca476aa58c14f6b90d8760689b52216da7854688788adb",
+    "cases.jsonl": "6907780080b820d7d8a1b48d70b76ff1975d542acb2c7f71b61753727de52b63",
+    "diagnostic_cases.jsonl": "18e7b4d6818849976c136b2a54dbd8e4bb226961f998b283ed46130a19faa2ad",
+    "requests.jsonl": "1d02198e4940cfd8b4b4b1cb0eb55077e48b0f95129217bd787a972d38b44b84",
+    "gold.jsonl": "5199127584106e9f585695a05aa162e29a40afa546c5438d992c481cf92d0d95",
+    "pairs.jsonl": "613718e2f989ecccf81b391475db6bee0608ce75186391457d7bd4f9442f6250",
+    "policies.json": "44dbfe0a6072eaa3bc05231a2a7e0ccd042746ba68dc7a7e459b5633e9de4728",
+    "design_summary.json": "1ff54a2dee09f1063296d33e100ab4c2eca105e21445f5f5c8117e47bc581010"
+  }
+}

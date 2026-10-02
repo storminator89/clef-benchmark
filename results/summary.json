@@ -1,0 +1,336 @@
+{
+  "status": "completed",
+  "model": "Cloudflare/clef-flash",
+  "revision": "17f0b0ad64efb65d273590632833508766b2aae6",
+  "mode": "CPU NF4 backbone, original BF16 joint head and BF16 output embeddings",
+  "counts": {
+    "planned": 180,
+    "present": 180
+  },
+  "splits": {
+    "german_primary": {
+      "n_planned": 120,
+      "n_present": 120,
+      "choice_accuracy_all_planned": 0.9666666666666667,
+      "strict_accuracy_all_planned": 0.9666666666666667,
+      "category_macro_f1": 0.9668650793650794,
+      "correct": 116,
+      "descriptive_wilson_95": [
+        0.917419662440894,
+        0.9869624489016494
+      ],
+      "schema_valid": 120,
+      "mean_brier_sum": 0.08248795140515626,
+      "mean_nll": 0.20263174413176716,
+      "latency_seconds": {
+        "median": 10.179726433500946,
+        "p95": 11.439898920449469
+      },
+      "categories": {
+        "admin_intent": {
+          "n_planned": 20,
+          "strict_accuracy_all_planned": 1.0,
+          "macro_f1": 1.0
+        },
+        "ambiguity_abstain": {
+          "n_planned": 20,
+          "strict_accuracy_all_planned": 0.9,
+          "macro_f1": 0.9027777777777778
+        },
+        "document_classification": {
+          "n_planned": 20,
+          "strict_accuracy_all_planned": 0.95,
+          "macro_f1": 0.9492063492063492
+        },
+        "it_routing": {
+          "n_planned": 20,
+          "strict_accuracy_all_planned": 0.95,
+          "macro_f1": 0.9492063492063492
+        },
+        "tool_selection": {
+          "n_planned": 20,
+          "strict_accuracy_all_planned": 1.0,
+          "macro_f1": 1.0
+        },
+        "urgency": {
+          "n_planned": 20,
+          "strict_accuracy_all_planned": 1.0,
+          "macro_f1": 1.0
+        }
+      }
+    },
+    "english_control": {
+      "n_planned": 30,
+      "n_present": 30,
+      "choice_accuracy_all_planned": 0.9666666666666667,
+      "strict_accuracy_all_planned": 0.9666666666666667,
+      "category_macro_f1": 0.9500000000000001,
+      "correct": 29,
+      "descriptive_wilson_95": [
+        0.8332960900859082,
+        0.9940914096183874
+      ],
+      "schema_valid": 30,
+      "mean_brier_sum": 0.06053421919857473,
+      "mean_nll": 0.14946143742195575,
+      "latency_seconds": {
+        "median": 8.511288452998997,
+        "p95": 9.261319606300095
+      },
+      "categories": {
+        "admin_intent": {
+          "n_planned": 5,
+          "strict_accuracy_all_planned": 1.0,
+          "macro_f1": 1.0
+        },
+        "ambiguity_abstain": {
+          "n_planned": 5,
+          "strict_accuracy_all_planned": 1.0,
+          "macro_f1": 1.0
+        },
+        "document_classification": {
+          "n_planned": 5,
+          "strict_accuracy_all_planned": 1.0,
+          "macro_f1": 1.0
+        },
+        "it_routing": {
+          "n_planned": 5,
+          "strict_accuracy_all_planned": 1.0,
+          "macro_f1": 1.0
+        },
+        "tool_selection": {
+          "n_planned": 5,
+          "strict_accuracy_all_planned": 1.0,
+          "macro_f1": 1.0
+        },
+        "urgency": {
+          "n_planned": 5,
+          "strict_accuracy_all_planned": 0.8,
+          "macro_f1": 0.7
+        }
+      }
+    },
+    "mixed_schema_diagnostic": {
+      "n_planned": 30,
+      "n_present": 30,
+      "choice_accuracy_all_planned": 0.9666666666666667,
+      "strict_accuracy_all_planned": 0.9666666666666667,
+      "category_macro_f1": 0.9555555555555556,
+      "correct": 29,
+      "descriptive_wilson_95": [
+        0.8332960900859082,
+        0.9940914096183874
+      ],
+      "schema_valid": 30,
+      "mean_brier_sum": 0.06852749530165073,
+      "mean_nll": 0.17053219464096084,
+      "latency_seconds": {
+        "median": 8.80539049500021,
+        "p95": 9.783841619899249
+      },
+      "categories": {
+        "admin_intent": {
+          "n_planned": 5,
+          "strict_accuracy_all_planned": 1.0,
+          "macro_f1": 1.0
+        },
+        "ambiguity_abstain": {
+          "n_planned": 5,
+          "strict_accuracy_all_planned": 1.0,
+          "macro_f1": 1.0
+        },
+        "document_classification": {
+          "n_planned": 5,
+          "strict_accuracy_all_planned": 0.8,
+          "macro_f1": 0.7333333333333333
+        },
+        "it_routing": {
+          "n_planned": 5,
+          "strict_accuracy_all_planned": 1.0,
+          "macro_f1": 1.0
+        },
+        "tool_selection": {
+          "n_planned": 5,
+          "strict_accuracy_all_planned": 1.0,
+          "macro_f1": 1.0
+        },
+        "urgency": {
+          "n_planned": 5,
+          "strict_accuracy_all_planned": 1.0,
+          "macro_f1": 1.0
+        }
+      }
+    }
+  },
+  "paired_all_planned": {
+    "german_id_vs_english_id": {
+      "left": "german_id",
+      "right": "english_id",
+      "n_pairs_planned": 30,
+      "n_pairs_used": 30,
+      "n_pairs_valid_both": 30,
+      "n_pairs_with_invalid_or_missing": 0,
+      "left_accuracy_all_planned": 1.0,
+      "right_accuracy_all_planned": 0.9666666666666667,
+      "left_minus_right_accuracy_all_planned": 0.03333333333333333,
+      "counts": {
+        "both_correct": 29,
+        "left_only_correct": 1,
+        "right_only_correct": 0,
+        "both_wrong": 0
+      },
+      "exact_mcnemar_two_sided_p": 1,
+      "warning": "All planned pairs; a missing, runtime-error or invalid-label half is incorrect. Differences can reflect output reliability as well as language. Small purposive subset; exploratory, not a general language-effect estimate."
+    },
+    "german_id_vs_mixed_id": {
+      "left": "german_id",
+      "right": "mixed_id",
+      "n_pairs_planned": 30,
+      "n_pairs_used": 30,
+      "n_pairs_valid_both": 30,
+      "n_pairs_with_invalid_or_missing": 0,
+      "left_accuracy_all_planned": 1.0,
+      "right_accuracy_all_planned": 0.9666666666666667,
+      "left_minus_right_accuracy_all_planned": 0.03333333333333333,
+      "counts": {
+        "both_correct": 29,
+        "left_only_correct": 1,
+        "right_only_correct": 0,
+        "both_wrong": 0
+      },
+      "exact_mcnemar_two_sided_p": 1,
+      "warning": "All planned pairs; a missing, runtime-error or invalid-label half is incorrect. Differences can reflect output reliability as well as language. Small purposive subset; exploratory, not a general language-effect estimate."
+    },
+    "mixed_id_vs_english_id": {
+      "left": "mixed_id",
+      "right": "english_id",
+      "n_pairs_planned": 30,
+      "n_pairs_used": 30,
+      "n_pairs_valid_both": 30,
+      "n_pairs_with_invalid_or_missing": 0,
+      "left_accuracy_all_planned": 0.9666666666666667,
+      "right_accuracy_all_planned": 0.9666666666666667,
+      "left_minus_right_accuracy_all_planned": 0.0,
+      "counts": {
+        "both_correct": 28,
+        "left_only_correct": 1,
+        "right_only_correct": 1,
+        "both_wrong": 0
+      },
+      "exact_mcnemar_two_sided_p": 1,
+      "warning": "All planned pairs; a missing, runtime-error or invalid-label half is incorrect. Differences can reflect output reliability as well as language. Small purposive subset; exploratory, not a general language-effect estimate."
+    }
+  },
+  "abstention": {
+    "it_routing": {
+      "labels": [
+        "clarify"
+      ],
+      "precision": 1.0,
+      "recall": 0.75,
+      "unnecessary_abstention_rate": 0.0,
+      "unsafe_commitment_rate": 0.25,
+      "invalid_or_missing": 0
+    },
+    "ambiguity_abstain": {
+      "labels": [
+        "conflict",
+        "missing",
+        "unsupported"
+      ],
+      "precision": 1.0,
+      "recall": 0.8666666666666667,
+      "unnecessary_abstention_rate": 0.0,
+      "unsafe_commitment_rate": 0.13333333333333333,
+      "invalid_or_missing": 0
+    }
+  },
+  "mispredictions": [
+    {
+      "id": "de_it_routing_017",
+      "split": "german_primary",
+      "category": "it_routing",
+      "expected": "clarify",
+      "prediction": "endpoint",
+      "max_probability": 0.35718041073250545
+    },
+    {
+      "id": "en_urgency_014",
+      "split": "english_control",
+      "category": "urgency",
+      "expected": "normal",
+      "prediction": "none",
+      "max_probability": 0.6199187201985383
+    },
+    {
+      "id": "de_document_classification_017",
+      "split": "german_primary",
+      "category": "document_classification",
+      "expected": "other",
+      "prediction": "credit_note",
+      "max_probability": 0.7640394648385692
+    },
+    {
+      "id": "de_ambiguity_abstain_008",
+      "split": "german_primary",
+      "category": "ambiguity_abstain",
+      "expected": "missing",
+      "prediction": "ready",
+      "max_probability": 0.9085899215408955
+    },
+    {
+      "id": "de_ambiguity_abstain_014",
+      "split": "german_primary",
+      "category": "ambiguity_abstain",
+      "expected": "conflict",
+      "prediction": "ready",
+      "max_probability": 0.7559358111502024
+    },
+    {
+      "id": "de_en_schema_document_classification_020",
+      "split": "mixed_schema_diagnostic",
+      "category": "document_classification",
+      "expected": "other",
+      "prediction": "reminder",
+      "max_probability": 0.6138411049946937
+    }
+  ],
+  "runtime": {
+    "started_at": "2026-10-02T04:34:18.446351+00:00",
+    "completed_at": "2026-10-02T05:04:47.370727+00:00",
+    "load_seconds": 52.49943226399955,
+    "warmup_seconds": 9.985597556000357,
+    "forward_latency_seconds": {
+      "median": 9.802651598999546,
+      "p95": 11.189137341748756,
+      "sum": 1754.945290457992
+    },
+    "input_token_range": [
+      386,
+      505
+    ],
+    "any_truncated": false,
+    "peak_process_rss_bytes": 7117828096,
+    "peak_process_rss_gib": 6.628993988037109,
+    "repeatability_probe": {
+      "id": "de_it_routing_013",
+      "repeat_max_absolute_probability_difference": 0.0,
+      "same_choice": true,
+      "single_case_only": true
+    }
+  },
+  "hashes": {
+    "requests": "1d02198e4940cfd8b4b4b1cb0eb55077e48b0f95129217bd787a972d38b44b84",
+    "predictions": "2ba1c7df48957da6bf863c32f5adc8e490aab74e9020517d45a01ac2b49a0229",
+    "runner": "d06f85b922e1e4d0e905a1ddc8846aedcafa93c29f502f48b1529a36a9eb5906",
+    "scorer_v1_1": "0de5d5fe31a3a1ae628478c1d219da782cee68a5e33b79f53157a946d80c1bf2"
+  },
+  "limitations": [
+    "Freshly authored synthetic pilot, not a representative production sample or public German standard benchmark",
+    "Only experimental CPU NF4 Clef-flash tested; no stock BF16 or larger Clef run",
+    "All schemas are single-question choice; no noul, score, joint multi-field, vision or video test",
+    "Wilson interval is descriptive binomial uncertainty under iid assumptions; synthetic purposive design does not establish population representativeness",
+    "Small purposive 30-case language pairs cannot establish general language equivalence",
+    "Uncalibrated probabilities can be high on mistakes; no threshold was tuned on this test set"
+  ]
+}

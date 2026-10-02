@@ -1,0 +1,108 @@
+{
+  "benchmark_version": "finance-broker-v1",
+  "primary_german": 80,
+  "english_controls": 20,
+  "mixed_schema_diagnostic": 0,
+  "total_requests": 100,
+  "random_order_seed": 2026100202,
+  "categories": {
+    "insurance_intent": {
+      "quote": 2,
+      "coverage_info": 2,
+      "contribution": 2,
+      "termination": 2,
+      "clarify": 2
+    },
+    "claims_route": {
+      "new_claim": 2,
+      "claim_status": 2,
+      "evidence": 2,
+      "benefit_question": 2,
+      "clarify": 2
+    },
+    "contract_service": {
+      "copy": 2,
+      "data_change": 2,
+      "cancellation": 2,
+      "withdrawal": 2,
+      "clarify": 2
+    },
+    "broker_workflow": {
+      "ready": 2,
+      "missing_authority": 2,
+      "missing_consent": 2,
+      "missing_documents": 2,
+      "conflict": 2
+    },
+    "broker_document": {
+      "application": 2,
+      "policy": 2,
+      "advisory_record": 2,
+      "authority": 2,
+      "other": 2
+    },
+    "finance_intent": {
+      "general_info": 2,
+      "portfolio_view": 2,
+      "savings_change": 2,
+      "recommendation": 2,
+      "clarify": 2
+    },
+    "synthetic_rule_check": {
+      "passes": 2,
+      "fails": 2,
+      "missing": 2,
+      "conflict": 2,
+      "out_of_scope": 2
+    },
+    "advice_escalation": {
+      "prohibited_request": 2,
+      "qualified_review": 2,
+      "clarify": 2,
+      "routine": 2,
+      "out_of_scope": 2
+    }
+  },
+  "german_tag_counts": {
+    "negation": 41,
+    "compoundword": 5,
+    "typo": 1,
+    "colloquial": 2,
+    "technical_term": 3,
+    "distractor": 5,
+    "historical_context": 5,
+    "numeric": 2,
+    "domain_terminology": 5,
+    "self_correction": 5,
+    "multi_intent": 5,
+    "anaphora": 5,
+    "prompt_injection": 7,
+    "missing_documents": 3,
+    "idiom": 1,
+    "data_minimization": 1,
+    "label_distractor": 1,
+    "ambiguity": 1,
+    "checklist": 2,
+    "revocation": 1,
+    "multiple_missing": 1,
+    "priority": 2,
+    "scope": 1,
+    "missing_information": 4,
+    "contradiction": 4,
+    "quoted_context": 3,
+    "risky_advice": 4,
+    "arithmetic": 2,
+    "decimal_comma": 1,
+    "date_boundary": 2,
+    "legal_question": 1,
+    "high_impact_request": 1,
+    "deception": 2,
+    "coercion": 1,
+    "provided_text": 1,
+    "no_task": 1
+  },
+  "english_pair_selection": "Deliberate challenge coverage: three pairs in each of first four categories, two in each of last four; not every class is represented in English. Paired comparisons only on these 20 cases.",
+  "chance_reference_accuracy": 0.2,
+  "real_personal_data": false,
+  "real_legal_rules": false
+}

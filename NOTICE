@@ -1,0 +1,16 @@
+Clef German Benchmark / Clef Lab
+Copyright 2026 Clef German Benchmark contributors
+
+This independent research and workbench project is not affiliated with or endorsed by Cloudflare.
+Original project code and synthetic benchmark data are released under Apache License 2.0.
+
+Third-party attribution:
+- runtime/joint_schema_model.py is unmodified Cloudflare Clef Flash release code.
+- Original model: https://huggingface.co/Cloudflare/clef-flash
+- Pinned revision: 17f0b0ad64efb65d273590632833508766b2aae6
+- Source SHA-256: 0e304cf7c6500e8bb59bef7e2afd2c6373f82596dfb3b57d1aa93c175e2dc3a3
+- Upstream license: licenses/Cloudflare-clef-flash-Apache-2.0.txt
+- Model weights are NOT included in this repository. Their download and use remain subject to the upstream license and notices.
+- Third-party Python dependencies retain their own licenses.
+
+The wordmarks Cloudflare and Clef are used to identify the tested model, without an endorsement claim.

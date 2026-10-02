@@ -1,0 +1,78 @@
+{
+  "primary_german": 120,
+  "english_controls": 30,
+  "mixed_schema_diagnostic": 30,
+  "total_requests": 180,
+  "random_order_seed": 20261002,
+  "categories": {
+    "it_routing": {
+      "identity": 4,
+      "messaging": 4,
+      "collaboration": 4,
+      "endpoint": 4,
+      "clarify": 4
+    },
+    "urgency": {
+      "critical": 5,
+      "high": 5,
+      "normal": 5,
+      "none": 5
+    },
+    "tool_selection": {
+      "calculator": 4,
+      "calendar_lookup": 4,
+      "mail_search": 4,
+      "web_search": 4,
+      "no_tool": 4
+    },
+    "document_classification": {
+      "invoice": 4,
+      "reminder": 4,
+      "credit_note": 4,
+      "offer": 4,
+      "other": 4
+    },
+    "admin_intent": {
+      "copy": 4,
+      "correction": 4,
+      "refund": 4,
+      "deadline": 4,
+      "other": 4
+    },
+    "ambiguity_abstain": {
+      "ready": 5,
+      "missing": 5,
+      "conflict": 5,
+      "unsupported": 5
+    }
+  },
+  "german_tag_counts": {
+    "umlaut": 18,
+    "compoundword": 27,
+    "negation": 50,
+    "distractor": 27,
+    "spelling": 6,
+    "temporal": 4,
+    "idiom": 5,
+    "prompt_injection": 6,
+    "ambiguity": 3,
+    "multi_intent": 6,
+    "future_deadline": 1,
+    "quoted_context": 5,
+    "numeric": 2,
+    "units": 1,
+    "decimal_comma": 1,
+    "calendar": 4,
+    "current_public": 4,
+    "rewrite": 1,
+    "translation": 2,
+    "unsupported_action": 5,
+    "conditional": 1,
+    "question_intent": 1,
+    "self_correction": 1,
+    "anaphora": 4,
+    "contradiction": 4,
+    "no_task": 1
+  },
+  "english_pair_selection": "5 deliberately selected cases per category; covers every class plus spelling, idiom, injection, negation, distractors and self-correction; additional none/unsupported control in four-class categories"
+}

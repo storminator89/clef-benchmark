@@ -1,0 +1,14 @@
+{
+  "captured_at": "2026-10-02T04:23:12.946179+00:00",
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+  "python": "3.12.14",
+  "cpu_count": 9,
+  "affinity_cpus": 9,
+  "cpu_model": "AMD EPYC 9V74 80-Core Processor",
+  "memory_total_kib": 10206508,
+  "swap_total_kib": 0,
+  "nvidia_smi": null,
+  "revision": "17f0b0ad64efb65d273590632833508766b2aae6",
+  "repo": "Cloudflare/clef-flash",
+  "source_code_sha256": "0e304cf7c6500e8bb59bef7e2afd2c6373f82596dfb3b57d1aa93c175e2dc3a3"
+}

@@ -1,0 +1,407 @@
+{
+  "status": "pass",
+  "source_predictions_sha256": "0dba4e020d22ed770279a406f67e19e465eb12affc8f838fde165e1cc458d627",
+  "freeze_hashes_verified": true,
+  "n_unique_scenarios": 80,
+  "n_payloads": 100,
+  "n_present": 100,
+  "legacy_report_fields_changed": [],
+  "legacy_comparison": "not_applicable: extension scorer robustness was incorporated before its own freeze",
+  "rounded_probability_mismatches": [],
+  "splits": {
+    "german_primary": {
+      "n": 80,
+      "correct": 76,
+      "strict_correct": 76,
+      "choice_valid": 80,
+      "schema_valid": 80,
+      "accuracy": 0.95,
+      "per_category": {
+        "advice_escalation": {
+          "n": 10,
+          "correct": 10,
+          "accuracy": 1.0,
+          "macro_f1": 1.0,
+          "macro_f1_observed_support": 1.0,
+          "brier_sum": 0.027686013661132942,
+          "nll": 0.12977594529867473,
+          "ece_5_bins": 0.11692145055555574,
+          "n_probability_vectors": 10,
+          "n_ece": 10
+        },
+        "broker_document": {
+          "n": 10,
+          "correct": 10,
+          "accuracy": 1.0,
+          "macro_f1": 1.0,
+          "macro_f1_observed_support": 1.0,
+          "brier_sum": 0.054191644360894756,
+          "nll": 0.15084737838156742,
+          "ece_5_bins": 0.12336155649945402,
+          "n_probability_vectors": 10,
+          "n_ece": 10
+        },
+        "broker_workflow": {
+          "n": 10,
+          "correct": 10,
+          "accuracy": 1.0,
+          "macro_f1": 1.0,
+          "macro_f1_observed_support": 1.0,
+          "brier_sum": 0.031558249961314136,
+          "nll": 0.12200072218476257,
+          "ece_5_bins": 0.10589434890324859,
+          "n_probability_vectors": 10,
+          "n_ece": 10
+        },
+        "claims_route": {
+          "n": 10,
+          "correct": 9,
+          "accuracy": 0.9,
+          "macro_f1": 0.8933333333333333,
+          "macro_f1_observed_support": 0.8933333333333333,
+          "brier_sum": 0.20162478353493074,
+          "nll": 0.4548428218389633,
+          "ece_5_bins": 0.12284226331472685,
+          "n_probability_vectors": 10,
+          "n_ece": 10
+        },
+        "contract_service": {
+          "n": 10,
+          "correct": 10,
+          "accuracy": 1.0,
+          "macro_f1": 1.0,
+          "macro_f1_observed_support": 1.0,
+          "brier_sum": 0.061481675137610436,
+          "nll": 0.15528532215049926,
+          "ece_5_bins": 0.11675155760321991,
+          "n_probability_vectors": 10,
+          "n_ece": 10
+        },
+        "finance_intent": {
+          "n": 10,
+          "correct": 9,
+          "accuracy": 0.9,
+          "macro_f1": 0.8933333333333333,
+          "macro_f1_observed_support": 0.8933333333333333,
+          "brier_sum": 0.19011174248835722,
+          "nll": 0.4108255003677786,
+          "ece_5_bins": 0.09296524542425437,
+          "n_probability_vectors": 10,
+          "n_ece": 10
+        },
+        "insurance_intent": {
+          "n": 10,
+          "correct": 9,
+          "accuracy": 0.9,
+          "macro_f1": 0.8933333333333333,
+          "macro_f1_observed_support": 0.8933333333333333,
+          "brier_sum": 0.20673552486815577,
+          "nll": 0.36238044077457854,
+          "ece_5_bins": 0.12201443302644441,
+          "n_probability_vectors": 10,
+          "n_ece": 10
+        },
+        "synthetic_rule_check": {
+          "n": 10,
+          "correct": 9,
+          "accuracy": 0.9,
+          "macro_f1": 0.8933333333333333,
+          "macro_f1_observed_support": 0.8933333333333333,
+          "brier_sum": 0.22315627405551233,
+          "nll": 0.4860717628776647,
+          "ece_5_bins": 0.19757450055939146,
+          "n_probability_vectors": 10,
+          "n_ece": 10
+        }
+      },
+      "category_macro_f1": 0.9466666666666667,
+      "category_macro_f1_observed_support": 0.9466666666666667,
+      "timing": {
+        "latency_ms": {
+          "n": 80,
+          "min": 9822.69756200003,
+          "median": 11468.801578000239,
+          "p95": 13667.253737900865,
+          "max": 15073.054760001469
+        },
+        "encode_seconds": {
+          "n": 80,
+          "min": 0.0026713280003605178,
+          "median": 0.003243289999772969,
+          "p95": 0.007653366649719827,
+          "max": 0.009683786000096006
+        },
+        "total_seconds": {
+          "n": 80,
+          "min": 9.825852153999222,
+          "median": 11.472082915499414,
+          "p95": 13.670572933299718,
+          "max": 15.076436781000666
+        },
+        "input_tokens": {
+          "n": 80,
+          "min": 449,
+          "median": 501.0,
+          "p95": 561.05,
+          "max": 569
+        }
+      }
+    },
+    "english_control": {
+      "n": 20,
+      "correct": 18,
+      "strict_correct": 18,
+      "choice_valid": 20,
+      "schema_valid": 20,
+      "accuracy": 0.9,
+      "per_category": {
+        "advice_escalation": {
+          "n": 2,
+          "correct": 2,
+          "accuracy": 1.0,
+          "macro_f1": 0.4,
+          "macro_f1_observed_support": 1.0,
+          "brier_sum": 0.019703778772776376,
+          "nll": 0.10569936085211981,
+          "ece_5_bins": 0.09720529001783551,
+          "n_probability_vectors": 2,
+          "n_ece": 2
+        },
+        "broker_document": {
+          "n": 2,
+          "correct": 2,
+          "accuracy": 1.0,
+          "macro_f1": 0.4,
+          "macro_f1_observed_support": 1.0,
+          "brier_sum": 0.008904047136406293,
+          "nll": 0.06976542460299923,
+          "ece_5_bins": 0.06597093631150086,
+          "n_probability_vectors": 2,
+          "n_ece": 2
+        },
+        "broker_workflow": {
+          "n": 3,
+          "correct": 3,
+          "accuracy": 1.0,
+          "macro_f1": 0.6,
+          "macro_f1_observed_support": 1.0,
+          "brier_sum": 0.012075738654818547,
+          "nll": 0.0895571170355292,
+          "ece_5_bins": 0.08445108974230386,
+          "n_probability_vectors": 3,
+          "n_ece": 3
+        },
+        "claims_route": {
+          "n": 3,
+          "correct": 2,
+          "accuracy": 0.6666666666666666,
+          "macro_f1": 0.3333333333333333,
+          "macro_f1_observed_support": 0.5555555555555555,
+          "brier_sum": 0.4389442667515758,
+          "nll": 0.7009456906657187,
+          "ece_5_bins": 0.25722253475549317,
+          "n_probability_vectors": 3,
+          "n_ece": 3
+        },
+        "contract_service": {
+          "n": 3,
+          "correct": 3,
+          "accuracy": 1.0,
+          "macro_f1": 0.6,
+          "macro_f1_observed_support": 1.0,
+          "brier_sum": 0.0020203135006781497,
+          "nll": 0.03333554373067945,
+          "ece_5_bins": 0.032533559300752,
+          "n_probability_vectors": 3,
+          "n_ece": 3
+        },
+        "finance_intent": {
+          "n": 2,
+          "correct": 2,
+          "accuracy": 1.0,
+          "macro_f1": 0.4,
+          "macro_f1_observed_support": 1.0,
+          "brier_sum": 0.00011669400693201355,
+          "nll": 0.008524971232917216,
+          "ece_5_bins": 0.008478641898430173,
+          "n_probability_vectors": 2,
+          "n_ece": 2
+        },
+        "insurance_intent": {
+          "n": 3,
+          "correct": 3,
+          "accuracy": 1.0,
+          "macro_f1": 0.6,
+          "macro_f1_observed_support": 1.0,
+          "brier_sum": 0.18305394334886785,
+          "nll": 0.34451598657424065,
+          "ece_5_bins": 0.21772223984615893,
+          "n_probability_vectors": 3,
+          "n_ece": 3
+        },
+        "synthetic_rule_check": {
+          "n": 2,
+          "correct": 1,
+          "accuracy": 0.5,
+          "macro_f1": 0.13333333333333333,
+          "macro_f1_observed_support": 0.3333333333333333,
+          "brier_sum": 0.5934307840935268,
+          "nll": 0.922032839392324,
+          "ece_5_bins": 0.43668296785429866,
+          "n_probability_vectors": 2,
+          "n_ece": 2
+        }
+      },
+      "category_macro_f1": 0.43333333333333335,
+      "category_macro_f1_observed_support": 0.861111111111111,
+      "timing": {
+        "latency_ms": {
+          "n": 20,
+          "min": 8358.14314900017,
+          "median": 9074.224831500942,
+          "p95": 10582.181344449236,
+          "max": 10718.615203999434
+        },
+        "encode_seconds": {
+          "n": 20,
+          "min": 0.0026799260012921877,
+          "median": 0.0034145430008720723,
+          "p95": 0.00879918810014715,
+          "max": 0.01092038800015871
+        },
+        "total_seconds": {
+          "n": 20,
+          "min": 8.361004107000554,
+          "median": 9.07756454200171,
+          "p95": 10.585807723149355,
+          "max": 10.722149788000024
+        },
+        "input_tokens": {
+          "n": 20,
+          "min": 391,
+          "median": 411.0,
+          "p95": 456.15,
+          "max": 459
+        }
+      }
+    }
+  },
+  "paired_all_planned": {
+    "german_id_vs_english_id": {
+      "n": 20,
+      "both_correct": 18,
+      "left_only_correct": 2,
+      "right_only_correct": 0,
+      "both_wrong": 0
+    }
+  },
+  "timing_scope": "CPU forward-only latency_ms; encoding and total separately recorded; not API end-to-end",
+  "abstention": {
+    "insurance_intent": {
+      "labels": [
+        "clarify"
+      ],
+      "n_expected_defer": 2,
+      "true_positive": 1,
+      "false_positive": 0,
+      "false_negative": 1,
+      "precision": 1.0,
+      "recall": 0.5,
+      "unnecessary_abstention_rate": 0.0,
+      "missed_deferral_rate": 0.5,
+      "invalid_or_missing": 0
+    },
+    "claims_route": {
+      "labels": [
+        "clarify"
+      ],
+      "n_expected_defer": 2,
+      "true_positive": 1,
+      "false_positive": 0,
+      "false_negative": 1,
+      "precision": 1.0,
+      "recall": 0.5,
+      "unnecessary_abstention_rate": 0.0,
+      "missed_deferral_rate": 0.5,
+      "invalid_or_missing": 0
+    },
+    "contract_service": {
+      "labels": [
+        "clarify"
+      ],
+      "n_expected_defer": 2,
+      "true_positive": 2,
+      "false_positive": 0,
+      "false_negative": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "unnecessary_abstention_rate": 0.0,
+      "missed_deferral_rate": 0.0,
+      "invalid_or_missing": 0
+    },
+    "broker_workflow": {
+      "labels": [
+        "conflict",
+        "missing_authority",
+        "missing_consent",
+        "missing_documents"
+      ],
+      "n_expected_defer": 8,
+      "true_positive": 8,
+      "false_positive": 0,
+      "false_negative": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "unnecessary_abstention_rate": 0.0,
+      "missed_deferral_rate": 0.0,
+      "invalid_or_missing": 0
+    },
+    "finance_intent": {
+      "labels": [
+        "clarify"
+      ],
+      "n_expected_defer": 2,
+      "true_positive": 1,
+      "false_positive": 0,
+      "false_negative": 1,
+      "precision": 1.0,
+      "recall": 0.5,
+      "unnecessary_abstention_rate": 0.0,
+      "missed_deferral_rate": 0.5,
+      "invalid_or_missing": 0
+    },
+    "synthetic_rule_check": {
+      "labels": [
+        "conflict",
+        "missing",
+        "out_of_scope"
+      ],
+      "n_expected_defer": 6,
+      "true_positive": 6,
+      "false_positive": 0,
+      "false_negative": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "unnecessary_abstention_rate": 0.0,
+      "missed_deferral_rate": 0.0,
+      "invalid_or_missing": 0
+    },
+    "advice_escalation": {
+      "labels": [
+        "clarify",
+        "out_of_scope",
+        "prohibited_request",
+        "qualified_review"
+      ],
+      "n_expected_defer": 8,
+      "true_positive": 8,
+      "false_positive": 0,
+      "false_negative": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "unnecessary_abstention_rate": 0.0,
+      "missed_deferral_rate": 0.0,
+      "invalid_or_missing": 0
+    }
+  }
+}

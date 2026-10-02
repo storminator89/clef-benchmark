@@ -1,0 +1,511 @@
+{
+  "requests_sha256": "543b90344f7c67e6b94d35bca548d4c0235d2879daee9ff46205f585fe45fedb",
+  "count": 100,
+  "min_tokens": 391,
+  "median_tokens": 493.0,
+  "max_tokens": 569,
+  "all_fit_without_truncation": true,
+  "model_instantiated": false,
+  "items": [
+    {
+      "id": "de_finance_synthetic_rule_check_006",
+      "tokens": 548,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "en_finance_contract_service_007",
+      "tokens": 410,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_finance_finance_intent_007",
+      "tokens": 501,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_finance_broker_workflow_004",
+      "tokens": 532,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_finance_contract_service_001",
+      "tokens": 486,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "en_finance_synthetic_rule_check_004",
+      "tokens": 459,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_finance_claims_route_002",
+      "tokens": 480,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_finance_finance_intent_010",
+      "tokens": 501,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_finance_broker_document_001",
+      "tokens": 494,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_finance_contract_service_004",
+      "tokens": 491,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_finance_insurance_intent_010",
+      "tokens": 463,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_finance_advice_escalation_010",
+      "tokens": 554,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_finance_claims_route_010",
+      "tokens": 486,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_finance_insurance_intent_008",
+      "tokens": 454,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_finance_finance_intent_008",
+      "tokens": 493,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "en_finance_claims_route_001",
+      "tokens": 414,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_finance_advice_escalation_006",
+      "tokens": 559,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_finance_claims_route_007",
+      "tokens": 489,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_finance_finance_intent_009",
+      "tokens": 493,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "en_finance_claims_route_009",
+      "tokens": 408,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_finance_synthetic_rule_check_004",
+      "tokens": 562,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_finance_finance_intent_003",
+      "tokens": 493,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_finance_finance_intent_001",
+      "tokens": 488,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_finance_broker_document_008",
+      "tokens": 503,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "en_finance_advice_escalation_002",
+      "tokens": 447,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_finance_broker_workflow_008",
+      "tokens": 529,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_finance_broker_workflow_009",
+      "tokens": 539,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_finance_broker_document_005",
+      "tokens": 510,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "en_finance_broker_workflow_001",
+      "tokens": 440,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_finance_insurance_intent_009",
+      "tokens": 458,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_finance_broker_document_009",
+      "tokens": 497,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "en_finance_broker_document_003",
+      "tokens": 393,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_finance_advice_escalation_002",
+      "tokens": 561,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_finance_broker_document_010",
+      "tokens": 504,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_finance_insurance_intent_001",
+      "tokens": 457,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_finance_synthetic_rule_check_009",
+      "tokens": 547,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_finance_broker_document_003",
+      "tokens": 488,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_finance_synthetic_rule_check_005",
+      "tokens": 555,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_finance_synthetic_rule_check_010",
+      "tokens": 550,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_finance_finance_intent_002",
+      "tokens": 492,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_finance_advice_escalation_001",
+      "tokens": 561,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_finance_insurance_intent_006",
+      "tokens": 452,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_finance_claims_route_006",
+      "tokens": 482,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_finance_advice_escalation_008",
+      "tokens": 558,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_finance_insurance_intent_005",
+      "tokens": 463,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "en_finance_synthetic_rule_check_001",
+      "tokens": 456,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_finance_broker_workflow_010",
+      "tokens": 543,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "en_finance_broker_document_009",
+      "tokens": 397,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_finance_contract_service_007",
+      "tokens": 502,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "en_finance_contract_service_005",
+      "tokens": 400,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "en_finance_claims_route_006",
+      "tokens": 405,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_finance_contract_service_009",
+      "tokens": 490,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_finance_claims_route_004",
+      "tokens": 478,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_finance_contract_service_003",
+      "tokens": 502,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_finance_advice_escalation_009",
+      "tokens": 549,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_finance_broker_workflow_002",
+      "tokens": 541,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_finance_synthetic_rule_check_003",
+      "tokens": 560,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_finance_contract_service_010",
+      "tokens": 491,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_finance_insurance_intent_004",
+      "tokens": 458,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_finance_advice_escalation_007",
+      "tokens": 558,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_finance_advice_escalation_003",
+      "tokens": 559,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "en_finance_broker_workflow_009",
+      "tokens": 440,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "en_finance_insurance_intent_007",
+      "tokens": 391,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_finance_advice_escalation_004",
+      "tokens": 551,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_finance_finance_intent_006",
+      "tokens": 503,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_finance_broker_workflow_005",
+      "tokens": 533,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_finance_broker_document_007",
+      "tokens": 498,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_finance_finance_intent_004",
+      "tokens": 496,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_finance_broker_document_004",
+      "tokens": 495,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_finance_broker_document_002",
+      "tokens": 501,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_finance_broker_workflow_001",
+      "tokens": 540,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_finance_claims_route_005",
+      "tokens": 489,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_finance_contract_service_008",
+      "tokens": 498,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_finance_advice_escalation_005",
+      "tokens": 558,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_finance_contract_service_005",
+      "tokens": 493,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_finance_synthetic_rule_check_007",
+      "tokens": 569,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_finance_claims_route_003",
+      "tokens": 485,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "en_finance_insurance_intent_009",
+      "tokens": 399,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_finance_broker_workflow_003",
+      "tokens": 529,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_finance_synthetic_rule_check_002",
+      "tokens": 554,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_finance_contract_service_006",
+      "tokens": 497,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_finance_claims_route_009",
+      "tokens": 487,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "en_finance_insurance_intent_001",
+      "tokens": 398,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_finance_contract_service_002",
+      "tokens": 489,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "en_finance_broker_workflow_005",
+      "tokens": 435,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_finance_synthetic_rule_check_008",
+      "tokens": 568,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_finance_claims_route_008",
+      "tokens": 484,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_finance_finance_intent_005",
+      "tokens": 507,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_finance_broker_workflow_007",
+      "tokens": 529,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_finance_synthetic_rule_check_001",
+      "tokens": 562,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_finance_broker_document_006",
+      "tokens": 503,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_finance_broker_workflow_006",
+      "tokens": 535,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "en_finance_finance_intent_007",
+      "tokens": 418,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_finance_insurance_intent_007",
+      "tokens": 452,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "en_finance_contract_service_009",
+      "tokens": 399,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "en_finance_finance_intent_001",
+      "tokens": 412,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "en_finance_advice_escalation_008",
+      "tokens": 446,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_finance_claims_route_001",
+      "tokens": 489,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_finance_insurance_intent_003",
+      "tokens": 449,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_finance_insurance_intent_002",
+      "tokens": 451,
+      "fits_without_truncation": true
+    }
+  ]
+}

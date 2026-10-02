@@ -1,0 +1,328 @@
+{
+  "status": "completed",
+  "model": "Cloudflare/clef-flash",
+  "revision": "17f0b0ad64efb65d273590632833508766b2aae6",
+  "mode": "CPU NF4 backbone, original BF16 joint head and BF16 output embeddings",
+  "counts": {
+    "planned": 100,
+    "present": 100
+  },
+  "splits": {
+    "german_primary": {
+      "n_planned": 80,
+      "n_present": 80,
+      "choice_accuracy_all_planned": 0.95,
+      "strict_accuracy_all_planned": 0.95,
+      "category_macro_f1": 0.9466666666666667,
+      "category_macro_f1_observed_support": 0.9466666666666667,
+      "correct": 76,
+      "descriptive_wilson_95": [
+        0.8783772379535698,
+        0.9803864454644556
+      ],
+      "schema_valid": 80,
+      "mean_brier_sum": 0.12456823850848853,
+      "mean_nll": 0.2840037367343111,
+      "latency_seconds": {
+        "median": 11.468801578000239,
+        "p95": 13.667253737900865
+      },
+      "categories": {
+        "advice_escalation": {
+          "n_planned": 10,
+          "strict_accuracy_all_planned": 1.0,
+          "macro_f1": 1.0
+        },
+        "broker_document": {
+          "n_planned": 10,
+          "strict_accuracy_all_planned": 1.0,
+          "macro_f1": 1.0
+        },
+        "broker_workflow": {
+          "n_planned": 10,
+          "strict_accuracy_all_planned": 1.0,
+          "macro_f1": 1.0
+        },
+        "claims_route": {
+          "n_planned": 10,
+          "strict_accuracy_all_planned": 0.9,
+          "macro_f1": 0.8933333333333333
+        },
+        "contract_service": {
+          "n_planned": 10,
+          "strict_accuracy_all_planned": 1.0,
+          "macro_f1": 1.0
+        },
+        "finance_intent": {
+          "n_planned": 10,
+          "strict_accuracy_all_planned": 0.9,
+          "macro_f1": 0.8933333333333333
+        },
+        "insurance_intent": {
+          "n_planned": 10,
+          "strict_accuracy_all_planned": 0.9,
+          "macro_f1": 0.8933333333333333
+        },
+        "synthetic_rule_check": {
+          "n_planned": 10,
+          "strict_accuracy_all_planned": 0.9,
+          "macro_f1": 0.8933333333333333
+        }
+      }
+    },
+    "english_control": {
+      "n_planned": 20,
+      "n_present": 20,
+      "choice_accuracy_all_planned": 0.9,
+      "strict_accuracy_all_planned": 0.9,
+      "category_macro_f1": 0.43333333333333335,
+      "category_macro_f1_observed_support": 0.861111111111111,
+      "correct": 18,
+      "descriptive_wilson_95": [
+        0.6989663547715128,
+        0.9721335187862319
+      ],
+      "schema_valid": 20,
+      "mean_brier_sum": 0.1576296697393552,
+      "mean_nll": 0.2858554103089612,
+      "latency_seconds": {
+        "median": 9.074224831500942,
+        "p95": 10.582181344449237
+      },
+      "categories": {
+        "advice_escalation": {
+          "n_planned": 2,
+          "strict_accuracy_all_planned": 1.0,
+          "macro_f1": 0.4
+        },
+        "broker_document": {
+          "n_planned": 2,
+          "strict_accuracy_all_planned": 1.0,
+          "macro_f1": 0.4
+        },
+        "broker_workflow": {
+          "n_planned": 3,
+          "strict_accuracy_all_planned": 1.0,
+          "macro_f1": 0.6
+        },
+        "claims_route": {
+          "n_planned": 3,
+          "strict_accuracy_all_planned": 0.6666666666666666,
+          "macro_f1": 0.3333333333333333
+        },
+        "contract_service": {
+          "n_planned": 3,
+          "strict_accuracy_all_planned": 1.0,
+          "macro_f1": 0.6
+        },
+        "finance_intent": {
+          "n_planned": 2,
+          "strict_accuracy_all_planned": 1.0,
+          "macro_f1": 0.4
+        },
+        "insurance_intent": {
+          "n_planned": 3,
+          "strict_accuracy_all_planned": 1.0,
+          "macro_f1": 0.6
+        },
+        "synthetic_rule_check": {
+          "n_planned": 2,
+          "strict_accuracy_all_planned": 0.5,
+          "macro_f1": 0.13333333333333333
+        }
+      }
+    }
+  },
+  "paired_all_planned": {
+    "german_id_vs_english_id": {
+      "left": "german_id",
+      "right": "english_id",
+      "n_pairs_planned": 20,
+      "n_pairs_used": 20,
+      "n_pairs_valid_both": 20,
+      "n_pairs_with_invalid_or_missing": 0,
+      "left_accuracy_all_planned": 1.0,
+      "right_accuracy_all_planned": 0.9,
+      "left_minus_right_accuracy_all_planned": 0.1,
+      "counts": {
+        "both_correct": 18,
+        "left_only_correct": 2,
+        "right_only_correct": 0,
+        "both_wrong": 0
+      },
+      "exact_mcnemar_two_sided_p": 0.5,
+      "warning": "All planned pairs; a missing, runtime-error or invalid-label half is incorrect. Differences can reflect output reliability as well as language. Small purposive subset; exploratory, not a general language-effect estimate."
+    }
+  },
+  "abstention": {
+    "insurance_intent": {
+      "labels": [
+        "clarify"
+      ],
+      "precision": 1.0,
+      "recall": 0.5,
+      "unnecessary_abstention_rate": 0.0,
+      "missed_deferral_rate": 0.5,
+      "invalid_or_missing": 0
+    },
+    "claims_route": {
+      "labels": [
+        "clarify"
+      ],
+      "precision": 1.0,
+      "recall": 0.5,
+      "unnecessary_abstention_rate": 0.0,
+      "missed_deferral_rate": 0.5,
+      "invalid_or_missing": 0
+    },
+    "contract_service": {
+      "labels": [
+        "clarify"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "unnecessary_abstention_rate": 0.0,
+      "missed_deferral_rate": 0.0,
+      "invalid_or_missing": 0
+    },
+    "broker_workflow": {
+      "labels": [
+        "conflict",
+        "missing_authority",
+        "missing_consent",
+        "missing_documents"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "unnecessary_abstention_rate": 0.0,
+      "missed_deferral_rate": 0.0,
+      "invalid_or_missing": 0
+    },
+    "finance_intent": {
+      "labels": [
+        "clarify"
+      ],
+      "precision": 1.0,
+      "recall": 0.5,
+      "unnecessary_abstention_rate": 0.0,
+      "missed_deferral_rate": 0.5,
+      "invalid_or_missing": 0
+    },
+    "synthetic_rule_check": {
+      "labels": [
+        "conflict",
+        "missing",
+        "out_of_scope"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "unnecessary_abstention_rate": 0.0,
+      "missed_deferral_rate": 0.0,
+      "invalid_or_missing": 0
+    },
+    "advice_escalation": {
+      "labels": [
+        "clarify",
+        "out_of_scope",
+        "prohibited_request",
+        "qualified_review"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "unnecessary_abstention_rate": 0.0,
+      "missed_deferral_rate": 0.0,
+      "invalid_or_missing": 0
+    }
+  },
+  "mispredictions": [
+    {
+      "id": "de_finance_insurance_intent_010",
+      "split": "german_primary",
+      "category": "insurance_intent",
+      "expected": "clarify",
+      "prediction": "coverage_info",
+      "max_probability": 0.819437815574818
+    },
+    {
+      "id": "en_finance_claims_route_009",
+      "split": "english_control",
+      "category": "claims_route",
+      "expected": "clarify",
+      "prediction": "new_claim",
+      "max_probability": 0.7333119345816336
+    },
+    {
+      "id": "de_finance_claims_route_010",
+      "split": "german_primary",
+      "category": "claims_route",
+      "expected": "clarify",
+      "prediction": "new_claim",
+      "max_probability": 0.9345053029797196
+    },
+    {
+      "id": "de_finance_finance_intent_010",
+      "split": "german_primary",
+      "category": "finance_intent",
+      "expected": "clarify",
+      "prediction": "portfolio_view",
+      "max_probability": 0.9295679330825806
+    },
+    {
+      "id": "de_finance_synthetic_rule_check_002",
+      "split": "german_primary",
+      "category": "synthetic_rule_check",
+      "expected": "passes",
+      "prediction": "fails",
+      "max_probability": 0.640754764085671
+    },
+    {
+      "id": "en_finance_synthetic_rule_check_004",
+      "split": "english_control",
+      "category": "synthetic_rule_check",
+      "expected": "fails",
+      "prediction": "passes",
+      "max_probability": 0.6999535638833817
+    }
+  ],
+  "runtime": {
+    "started_at": "2026-10-02T05:19:43.606050+00:00",
+    "completed_at": "2026-10-02T05:39:48.336132+00:00",
+    "load_seconds": 55.31846089800092,
+    "warmup_seconds": 10.626708109999527,
+    "forward_latency_seconds": {
+      "median": 11.306022878000476,
+      "p95": 13.253872952350955,
+      "sum": 1123.623556229004
+    },
+    "input_token_range": [
+      391,
+      569
+    ],
+    "any_truncated": false,
+    "peak_process_rss_bytes": 7148568576,
+    "peak_process_rss_gib": 6.657623291015625,
+    "repeatability_probe": {
+      "id": "de_finance_synthetic_rule_check_006",
+      "repeat_max_absolute_probability_difference": 0.0,
+      "same_choice": true,
+      "single_case_only": true
+    }
+  },
+  "hashes": {
+    "requests": "543b90344f7c67e6b94d35bca548d4c0235d2879daee9ff46205f585fe45fedb",
+    "predictions": "0dba4e020d22ed770279a406f67e19e465eb12affc8f838fde165e1cc458d627",
+    "runner": "d06f85b922e1e4d0e905a1ddc8846aedcafa93c29f502f48b1529a36a9eb5906",
+    "finance_scorer": "a93515e3c3e857bbeb709df4d0a9f032b52f9c341065f8e671322610c9c3ff7a"
+  },
+  "limitations": [
+    "Freshly authored synthetic pilot, not a representative production sample or public German standard benchmark",
+    "Only experimental CPU NF4 Clef-flash tested; no stock BF16 or larger Clef run",
+    "All schemas are single-question choice; no noul, score, joint multi-field, vision or video test",
+    "Wilson interval is descriptive binomial uncertainty under iid assumptions; synthetic purposive design does not establish population representativeness",
+    "Small purposive 20-case language pairs cannot establish general language equivalence",
+    "Uncalibrated probabilities can be high on mistakes; no threshold was tuned on this test set",
+    "Finance/broker cases test fictional explicit routing rules, not investment advice, underwriting, real eligibility or legal/regulatory compliance"
+  ],
+  "macro_f1_scope_warning": "macro_f1 and category_macro_f1 include all five policy labels. English controls omit some gold classes; absent classes have F1=0. Observed-support variants exclude classes with no gold support. Neither English macro-F1 is a valid causal language comparison; use paired correctness on the same 20 cases.",
+  "interpretation_warning": "Synthetic routing/check labels only. No operational permissions, legal validity, eligibility decisions or deployment assurance. The deferred label sets are category-specific, not one universal safety decision."
+}

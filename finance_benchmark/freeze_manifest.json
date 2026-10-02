@@ -1,0 +1,40 @@
+{
+  "benchmark_version": "finance-broker-v1",
+  "frozen_at_utc": "2026-10-02T05:18:46Z",
+  "status": "frozen_before_first_finance_extension_inference",
+  "review": "Separate AI reviewer passed all labels, policies, translations, payload isolation, scoring and file-integrity checks before finance inference. Reviewer knew prior general-benchmark results; neither author nor reviewer consulted finance outputs. Author did not use general-benchmark outputs to design or optimize these cases. Not human expert adjudication.",
+  "request_order": {
+    "method": "Python random.Random(seed).shuffle on all 100 requests",
+    "seed": 2026100202,
+    "languages_and_categories_interleaved": true
+  },
+  "counts": {
+    "german_primary": 80,
+    "english_control": 20,
+    "mixed_schema_diagnostic": 0,
+    "total": 100
+  },
+  "model_contract": {
+    "model": "clef-flash",
+    "question_type": "choice",
+    "question_name": "decision",
+    "max_input_tokens": 2048,
+    "encoder_preflight_max_tokens": 569
+  },
+  "relationship_to_general_benchmark": "Separate extension; original frozen data untouched; scores must not be pooled.",
+  "sha256": {
+    "README.md": "02ac281b800b6e26f5dffd0ee71afc9121a7985b7d2bef8ebd4656e46b7c87d1",
+    "build_benchmark.py": "71ecb941bcfab4c20937cb41005a8900b8f5b45af595735b0f8048bbdf8f4db6",
+    "validate.py": "e5c807663781495dc09bf41941293632a239a1a52c9e4d904e6f784892f79225",
+    "score.py": "a93515e3c3e857bbeb709df4d0a9f032b52f9c341065f8e671322610c9c3ff7a",
+    "cases.jsonl": "5ff3c198cc30f3b19d83ca65545bcf71f4cad48f84f098c2c96b0cf5c5c06497",
+    "diagnostic_cases.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "requests.jsonl": "543b90344f7c67e6b94d35bca548d4c0235d2879daee9ff46205f585fe45fedb",
+    "gold.jsonl": "240340f7df83b54bd9d41e8efec344dbde4c243fa4d9d1723f1fa272bffcf89d",
+    "pairs.jsonl": "548f85152b0f3314883b08f9af53d8adee67c89fee0e41954e98ad652e48ecb4",
+    "policies.json": "7effaeec2ab4c0aaf6dd544b89c2b4316ba9484fff51a043d79b95195c2befbc",
+    "design_summary.json": "4d20f47023be0a7aebec2e0acc0f44f84b78635d2c931f02d935f3028693f1a3",
+    "pre_inference_review.md": "024405cca3504fc667fa6399cd18710858b4e33f7348ac5b197867585c761bc3",
+    "encoding_preflight.json": "a58d623be6739655c459c29c789b773938b93258aaa24272529e7fabe5c15d02"
+  }
+}

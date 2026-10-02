@@ -1,0 +1,65 @@
+{
+  "purpose": "new-input live adapter smoke only, excluded from all benchmark metrics",
+  "request": {
+    "model": "clef-flash",
+    "state": "Das Paket wurde noch nicht versandt. Bitte ändern Sie die Lieferadresse von Büro auf Privatadresse; am Produkt und am Preis soll sich nichts ändern.",
+    "questions": {
+      "decision": {
+        "type": "choice",
+        "instructions": "Welche Abteilung soll dieses Anliegen bearbeiten?",
+        "criteria": {
+          "logistics": "Versand, Lieferadresse und Paketbeförderung",
+          "billing": "Rechnungen, Abbuchungen und Erstattungen",
+          "technical": "Fehlfunktionen des Produkts oder der Anwendung"
+        }
+      }
+    }
+  },
+  "response": {
+    "answers": {
+      "decision": {
+        "type": "choice",
+        "choice": "logistics",
+        "confidence": 0.9814,
+        "probabilities": {
+          "logistics": 0.9814,
+          "billing": 0.0103,
+          "technical": 0.0083
+        }
+      }
+    },
+    "probabilities_unrounded": {
+      "decision": {
+        "billing": 0.010321988724172115,
+        "logistics": 0.9813840389251709,
+        "technical": 0.00829395093023777
+      }
+    },
+    "input_tokens": 203,
+    "truncated": false,
+    "encode_seconds": 0.004533196999545908,
+    "inference_seconds": 12.522606979999182,
+    "latency_ms": 12522.606979999182,
+    "first_call_after_load": true,
+    "load_seconds": 56.40245199799938,
+    "verification_seconds": 15.472130014999493,
+    "model": "Cloudflare/clef-flash",
+    "revision": "17f0b0ad64efb65d273590632833508766b2aae6",
+    "precision": "experimental CPU NF4; BF16 joint head and lexical output embeddings",
+    "benchmark_result": false
+  },
+  "status": {
+    "state": "ready",
+    "model": "Cloudflare/clef-flash",
+    "revision": "17f0b0ad64efb65d273590632833508766b2aae6",
+    "device": "cpu",
+    "precision": "NF4 backbone; original BF16 joint head and output embeddings",
+    "threads": 6,
+    "max_length": 2048,
+    "load_seconds": 56.40245199799938,
+    "verification_seconds": 15.472130014999493,
+    "successful_requests": 1,
+    "error": null
+  },
+  "total_elapsed_seconds": 87.8144429719996
+}

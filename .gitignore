@@ -1,0 +1,31 @@
+# Large model assets and environment files
+runtime/model/
+runtime/hf_cache/
+runtime/venv/
+runtime/tiny_smoke_model/
+.venv/
+venv/
+node_modules/
+__pycache__/
+*.py[cod]
+*.safetensors
+*.gguf
+*.bin
+*.pt
+*.pth
+*.log
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+.DS_Store
+.pytest_cache/
+.coverage
+htmlcov/
+# Reproductions must not replace original recorded results
+runtime/reproduced_*
+results/reproduced_*
+# Local browser artifacts
+playwright-report/
+test-results/

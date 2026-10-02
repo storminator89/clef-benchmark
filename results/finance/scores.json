@@ -1,0 +1,4879 @@
+{
+  "scoring_version": "finance-broker-1.0",
+  "outputs_file": "results/finance/predictions.jsonl",
+  "counts": {
+    "planned": 100,
+    "present": 100
+  },
+  "splits": {
+    "german_primary": {
+      "n_planned": 80,
+      "n_present": 80,
+      "choice_accuracy_all_planned": 0.95,
+      "strict_accuracy_all_planned": 0.95,
+      "category_macro_f1": 0.9466666666666667,
+      "category_macro_f1_observed_support": 0.9466666666666667,
+      "per_category": {
+        "advice_escalation": {
+          "n_planned": 10,
+          "n_present": 10,
+          "n_choice_valid": 10,
+          "n_schema_valid": 10,
+          "choice_accuracy_all_planned": 1.0,
+          "strict_accuracy_all_planned": 1.0,
+          "accuracy_valid_choices_only": 1.0,
+          "choice_validity_all_planned": 1.0,
+          "schema_validity_all_planned": 1.0,
+          "schema_validity_present": 1.0,
+          "macro_f1": 1.0,
+          "macro_f1_all_policy_labels": 1.0,
+          "macro_f1_observed_support": 1.0,
+          "per_class": {
+            "prohibited_request": {
+              "support": 2,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "qualified_review": {
+              "support": 2,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "clarify": {
+              "support": 2,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "routine": {
+              "support": 2,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "out_of_scope": {
+              "support": 2,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            }
+          },
+          "confusion": {
+            "prohibited_request": {
+              "prohibited_request": 2
+            },
+            "qualified_review": {
+              "qualified_review": 2
+            },
+            "clarify": {
+              "clarify": 2
+            },
+            "routine": {
+              "routine": 2
+            },
+            "out_of_scope": {
+              "out_of_scope": 2
+            }
+          },
+          "calibration": {
+            "n_probability_vectors": 10,
+            "n_schema_valid_ece": 10,
+            "multiclass_brier_sum": 0.027686013661132942,
+            "nll_clip_1e_12": 0.12977594529867473,
+            "ece_5_equal_width_bins": 0.11692145055555574,
+            "bins": [
+              {
+                "lower": 0.0,
+                "upper": 0.2,
+                "n": 0,
+                "accuracy": null,
+                "confidence": null
+              },
+              {
+                "lower": 0.2,
+                "upper": 0.4,
+                "n": 0,
+                "accuracy": null,
+                "confidence": null
+              },
+              {
+                "lower": 0.4,
+                "upper": 0.6,
+                "n": 0,
+                "accuracy": null,
+                "confidence": null
+              },
+              {
+                "lower": 0.6,
+                "upper": 0.8,
+                "n": 2,
+                "accuracy": 1.0,
+                "confidence": 0.7154171949709524
+              },
+              {
+                "lower": 0.8,
+                "upper": 1.0,
+                "n": 8,
+                "accuracy": 1.0,
+                "confidence": 0.9249938880628172
+              }
+            ]
+          },
+          "latency_ms": {
+            "n": 10,
+            "median": 12726.43889649953,
+            "p95": 13509.414588750315
+          },
+          "confidence_deferral": {
+            "0.6": {
+              "accepted": 10,
+              "coverage_all_planned": 1.0,
+              "accepted_accuracy": 1.0
+            },
+            "0.8": {
+              "accepted": 8,
+              "coverage_all_planned": 0.8,
+              "accepted_accuracy": 1.0
+            },
+            "0.9": {
+              "accepted": 7,
+              "coverage_all_planned": 0.7,
+              "accepted_accuracy": 1.0
+            },
+            "0.95": {
+              "accepted": 2,
+              "coverage_all_planned": 0.2,
+              "accepted_accuracy": 1.0
+            }
+          }
+        },
+        "broker_document": {
+          "n_planned": 10,
+          "n_present": 10,
+          "n_choice_valid": 10,
+          "n_schema_valid": 10,
+          "choice_accuracy_all_planned": 1.0,
+          "strict_accuracy_all_planned": 1.0,
+          "accuracy_valid_choices_only": 1.0,
+          "choice_validity_all_planned": 1.0,
+          "schema_validity_all_planned": 1.0,
+          "schema_validity_present": 1.0,
+          "macro_f1": 1.0,
+          "macro_f1_all_policy_labels": 1.0,
+          "macro_f1_observed_support": 1.0,
+          "per_class": {
+            "application": {
+              "support": 2,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "policy": {
+              "support": 2,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "advisory_record": {
+              "support": 2,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "authority": {
+              "support": 2,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "other": {
+              "support": 2,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            }
+          },
+          "confusion": {
+            "application": {
+              "application": 2
+            },
+            "policy": {
+              "policy": 2
+            },
+            "advisory_record": {
+              "advisory_record": 2
+            },
+            "authority": {
+              "authority": 2
+            },
+            "other": {
+              "other": 2
+            }
+          },
+          "calibration": {
+            "n_probability_vectors": 10,
+            "n_schema_valid_ece": 10,
+            "multiclass_brier_sum": 0.054191644360894756,
+            "nll_clip_1e_12": 0.15084737838156742,
+            "ece_5_equal_width_bins": 0.12336155649945402,
+            "bins": [
+              {
+                "lower": 0.0,
+                "upper": 0.2,
+                "n": 0,
+                "accuracy": null,
+                "confidence": null
+              },
+              {
+                "lower": 0.2,
+                "upper": 0.4,
+                "n": 0,
+                "accuracy": null,
+                "confidence": null
+              },
+              {
+                "lower": 0.4,
+                "upper": 0.6,
+                "n": 2,
+                "accuracy": 1.0,
+                "confidence": 0.5706546005876608
+              },
+              {
+                "lower": 0.6,
+                "upper": 0.8,
+                "n": 0,
+                "accuracy": null,
+                "confidence": null
+              },
+              {
+                "lower": 0.8,
+                "upper": 1.0,
+                "n": 8,
+                "accuracy": 1.0,
+                "confidence": 0.9531344042287673
+              }
+            ]
+          },
+          "latency_ms": {
+            "n": 10,
+            "median": 11233.281915499902,
+            "p95": 12104.191814899605
+          },
+          "confidence_deferral": {
+            "0.6": {
+              "accepted": 8,
+              "coverage_all_planned": 0.8,
+              "accepted_accuracy": 1.0
+            },
+            "0.8": {
+              "accepted": 8,
+              "coverage_all_planned": 0.8,
+              "accepted_accuracy": 1.0
+            },
+            "0.9": {
+              "accepted": 8,
+              "coverage_all_planned": 0.8,
+              "accepted_accuracy": 1.0
+            },
+            "0.95": {
+              "accepted": 5,
+              "coverage_all_planned": 0.5,
+              "accepted_accuracy": 1.0
+            }
+          }
+        },
+        "broker_workflow": {
+          "n_planned": 10,
+          "n_present": 10,
+          "n_choice_valid": 10,
+          "n_schema_valid": 10,
+          "choice_accuracy_all_planned": 1.0,
+          "strict_accuracy_all_planned": 1.0,
+          "accuracy_valid_choices_only": 1.0,
+          "choice_validity_all_planned": 1.0,
+          "schema_validity_all_planned": 1.0,
+          "schema_validity_present": 1.0,
+          "macro_f1": 1.0,
+          "macro_f1_all_policy_labels": 1.0,
+          "macro_f1_observed_support": 1.0,
+          "per_class": {
+            "ready": {
+              "support": 2,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "missing_authority": {
+              "support": 2,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "missing_consent": {
+              "support": 2,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "missing_documents": {
+              "support": 2,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "conflict": {
+              "support": 2,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            }
+          },
+          "confusion": {
+            "ready": {
+              "ready": 2
+            },
+            "missing_authority": {
+              "missing_authority": 2
+            },
+            "missing_consent": {
+              "missing_consent": 2
+            },
+            "missing_documents": {
+              "missing_documents": 2
+            },
+            "conflict": {
+              "conflict": 2
+            }
+          },
+          "calibration": {
+            "n_probability_vectors": 10,
+            "n_schema_valid_ece": 10,
+            "multiclass_brier_sum": 0.031558249961314136,
+            "nll_clip_1e_12": 0.12200072218476257,
+            "ece_5_equal_width_bins": 0.10589434890324859,
+            "bins": [
+              {
+                "lower": 0.0,
+                "upper": 0.2,
+                "n": 0,
+                "accuracy": null,
+                "confidence": null
+              },
+              {
+                "lower": 0.2,
+                "upper": 0.4,
+                "n": 0,
+                "accuracy": null,
+                "confidence": null
+              },
+              {
+                "lower": 0.4,
+                "upper": 0.6,
+                "n": 1,
+                "accuracy": 1.0,
+                "confidence": 0.5831355474261029
+              },
+              {
+                "lower": 0.6,
+                "upper": 0.8,
+                "n": 1,
+                "accuracy": 1.0,
+                "confidence": 0.7979735253429584
+              },
+              {
+                "lower": 0.8,
+                "upper": 1.0,
+                "n": 8,
+                "accuracy": 1.0,
+                "confidence": 0.9449934297748066
+              }
+            ]
+          },
+          "latency_ms": {
+            "n": 10,
+            "median": 11907.399414000793,
+            "p95": 12808.225981400483
+          },
+          "confidence_deferral": {
+            "0.6": {
+              "accepted": 9,
+              "coverage_all_planned": 0.9,
+              "accepted_accuracy": 1.0
+            },
+            "0.8": {
+              "accepted": 8,
+              "coverage_all_planned": 0.8,
+              "accepted_accuracy": 1.0
+            },
+            "0.9": {
+              "accepted": 7,
+              "coverage_all_planned": 0.7,
+              "accepted_accuracy": 1.0
+            },
+            "0.95": {
+              "accepted": 5,
+              "coverage_all_planned": 0.5,
+              "accepted_accuracy": 1.0
+            }
+          }
+        },
+        "claims_route": {
+          "n_planned": 10,
+          "n_present": 10,
+          "n_choice_valid": 10,
+          "n_schema_valid": 10,
+          "choice_accuracy_all_planned": 0.9,
+          "strict_accuracy_all_planned": 0.9,
+          "accuracy_valid_choices_only": 0.9,
+          "choice_validity_all_planned": 1.0,
+          "schema_validity_all_planned": 1.0,
+          "schema_validity_present": 1.0,
+          "macro_f1": 0.8933333333333333,
+          "macro_f1_all_policy_labels": 0.8933333333333333,
+          "macro_f1_observed_support": 0.8933333333333333,
+          "per_class": {
+            "new_claim": {
+              "support": 2,
+              "precision": 0.6666666666666666,
+              "recall": 1.0,
+              "f1": 0.8
+            },
+            "claim_status": {
+              "support": 2,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "evidence": {
+              "support": 2,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "benefit_question": {
+              "support": 2,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "clarify": {
+              "support": 2,
+              "precision": 1.0,
+              "recall": 0.5,
+              "f1": 0.6666666666666666
+            }
+          },
+          "confusion": {
+            "new_claim": {
+              "new_claim": 2
+            },
+            "claim_status": {
+              "claim_status": 2
+            },
+            "evidence": {
+              "evidence": 2
+            },
+            "benefit_question": {
+              "benefit_question": 2
+            },
+            "clarify": {
+              "clarify": 1,
+              "new_claim": 1
+            }
+          },
+          "calibration": {
+            "n_probability_vectors": 10,
+            "n_schema_valid_ece": 10,
+            "multiclass_brier_sum": 0.20162478353493074,
+            "nll_clip_1e_12": 0.4548428218389633,
+            "ece_5_equal_width_bins": 0.12284226331472685,
+            "bins": [
+              {
+                "lower": 0.0,
+                "upper": 0.2,
+                "n": 0,
+                "accuracy": null,
+                "confidence": null
+              },
+              {
+                "lower": 0.2,
+                "upper": 0.4,
+                "n": 0,
+                "accuracy": null,
+                "confidence": null
+              },
+              {
+                "lower": 0.4,
+                "upper": 0.6,
+                "n": 0,
+                "accuracy": null,
+                "confidence": null
+              },
+              {
+                "lower": 0.6,
+                "upper": 0.8,
+                "n": 2,
+                "accuracy": 1.0,
+                "confidence": 0.7531560713638259
+              },
+              {
+                "lower": 0.8,
+                "upper": 1.0,
+                "n": 8,
+                "accuracy": 0.875,
+                "confidence": 0.966841846984365
+              }
+            ]
+          },
+          "latency_ms": {
+            "n": 10,
+            "median": 11106.700683999406,
+            "p95": 12489.285884850597
+          },
+          "confidence_deferral": {
+            "0.6": {
+              "accepted": 10,
+              "coverage_all_planned": 1.0,
+              "accepted_accuracy": 0.9
+            },
+            "0.8": {
+              "accepted": 8,
+              "coverage_all_planned": 0.8,
+              "accepted_accuracy": 0.875
+            },
+            "0.9": {
+              "accepted": 8,
+              "coverage_all_planned": 0.8,
+              "accepted_accuracy": 0.875
+            },
+            "0.95": {
+              "accepted": 6,
+              "coverage_all_planned": 0.6,
+              "accepted_accuracy": 1.0
+            }
+          }
+        },
+        "contract_service": {
+          "n_planned": 10,
+          "n_present": 10,
+          "n_choice_valid": 10,
+          "n_schema_valid": 10,
+          "choice_accuracy_all_planned": 1.0,
+          "strict_accuracy_all_planned": 1.0,
+          "accuracy_valid_choices_only": 1.0,
+          "choice_validity_all_planned": 1.0,
+          "schema_validity_all_planned": 1.0,
+          "schema_validity_present": 1.0,
+          "macro_f1": 1.0,
+          "macro_f1_all_policy_labels": 1.0,
+          "macro_f1_observed_support": 1.0,
+          "per_class": {
+            "copy": {
+              "support": 2,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "data_change": {
+              "support": 2,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "cancellation": {
+              "support": 2,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "withdrawal": {
+              "support": 2,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "clarify": {
+              "support": 2,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            }
+          },
+          "confusion": {
+            "copy": {
+              "copy": 2
+            },
+            "data_change": {
+              "data_change": 2
+            },
+            "cancellation": {
+              "cancellation": 2
+            },
+            "withdrawal": {
+              "withdrawal": 2
+            },
+            "clarify": {
+              "clarify": 2
+            }
+          },
+          "calibration": {
+            "n_probability_vectors": 10,
+            "n_schema_valid_ece": 10,
+            "multiclass_brier_sum": 0.061481675137610436,
+            "nll_clip_1e_12": 0.15528532215049926,
+            "ece_5_equal_width_bins": 0.11675155760321991,
+            "bins": [
+              {
+                "lower": 0.0,
+                "upper": 0.2,
+                "n": 0,
+                "accuracy": null,
+                "confidence": null
+              },
+              {
+                "lower": 0.2,
+                "upper": 0.4,
+                "n": 1,
+                "accuracy": 1.0,
+                "confidence": 0.3915713967148752
+              },
+              {
+                "lower": 0.4,
+                "upper": 0.6,
+                "n": 0,
+                "accuracy": null,
+                "confidence": null
+              },
+              {
+                "lower": 0.6,
+                "upper": 0.8,
+                "n": 1,
+                "accuracy": 1.0,
+                "confidence": 0.7195320665487697
+              },
+              {
+                "lower": 0.8,
+                "upper": 1.0,
+                "n": 8,
+                "accuracy": 1.0,
+                "confidence": 0.9651726200880195
+              }
+            ]
+          },
+          "latency_ms": {
+            "n": 10,
+            "median": 11073.325338500581,
+            "p95": 14693.488251951112
+          },
+          "confidence_deferral": {
+            "0.6": {
+              "accepted": 9,
+              "coverage_all_planned": 0.9,
+              "accepted_accuracy": 1.0
+            },
+            "0.8": {
+              "accepted": 8,
+              "coverage_all_planned": 0.8,
+              "accepted_accuracy": 1.0
+            },
+            "0.9": {
+              "accepted": 8,
+              "coverage_all_planned": 0.8,
+              "accepted_accuracy": 1.0
+            },
+            "0.95": {
+              "accepted": 6,
+              "coverage_all_planned": 0.6,
+              "accepted_accuracy": 1.0
+            }
+          }
+        },
+        "finance_intent": {
+          "n_planned": 10,
+          "n_present": 10,
+          "n_choice_valid": 10,
+          "n_schema_valid": 10,
+          "choice_accuracy_all_planned": 0.9,
+          "strict_accuracy_all_planned": 0.9,
+          "accuracy_valid_choices_only": 0.9,
+          "choice_validity_all_planned": 1.0,
+          "schema_validity_all_planned": 1.0,
+          "schema_validity_present": 1.0,
+          "macro_f1": 0.8933333333333333,
+          "macro_f1_all_policy_labels": 0.8933333333333333,
+          "macro_f1_observed_support": 0.8933333333333333,
+          "per_class": {
+            "general_info": {
+              "support": 2,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "portfolio_view": {
+              "support": 2,
+              "precision": 0.6666666666666666,
+              "recall": 1.0,
+              "f1": 0.8
+            },
+            "savings_change": {
+              "support": 2,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "recommendation": {
+              "support": 2,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "clarify": {
+              "support": 2,
+              "precision": 1.0,
+              "recall": 0.5,
+              "f1": 0.6666666666666666
+            }
+          },
+          "confusion": {
+            "general_info": {
+              "general_info": 2
+            },
+            "portfolio_view": {
+              "portfolio_view": 2
+            },
+            "savings_change": {
+              "savings_change": 2
+            },
+            "recommendation": {
+              "recommendation": 2
+            },
+            "clarify": {
+              "clarify": 1,
+              "portfolio_view": 1
+            }
+          },
+          "calibration": {
+            "n_probability_vectors": 10,
+            "n_schema_valid_ece": 10,
+            "multiclass_brier_sum": 0.19011174248835722,
+            "nll_clip_1e_12": 0.4108255003677786,
+            "ece_5_equal_width_bins": 0.0929652454242544,
+            "bins": [
+              {
+                "lower": 0.0,
+                "upper": 0.2,
+                "n": 0,
+                "accuracy": null,
+                "confidence": null
+              },
+              {
+                "lower": 0.2,
+                "upper": 0.4,
+                "n": 0,
+                "accuracy": null,
+                "confidence": null
+              },
+              {
+                "lower": 0.4,
+                "upper": 0.6,
+                "n": 0,
+                "accuracy": null,
+                "confidence": null
+              },
+              {
+                "lower": 0.6,
+                "upper": 0.8,
+                "n": 1,
+                "accuracy": 1.0,
+                "confidence": 0.7602784009267449
+              },
+              {
+                "lower": 0.8,
+                "upper": 1.0,
+                "n": 9,
+                "accuracy": 0.8888888888888888,
+                "confidence": 0.9655478727965876
+              }
+            ]
+          },
+          "latency_ms": {
+            "n": 10,
+            "median": 11322.08174600055,
+            "p95": 12572.33377965058
+          },
+          "confidence_deferral": {
+            "0.6": {
+              "accepted": 10,
+              "coverage_all_planned": 1.0,
+              "accepted_accuracy": 0.9
+            },
+            "0.8": {
+              "accepted": 9,
+              "coverage_all_planned": 0.9,
+              "accepted_accuracy": 0.8888888888888888
+            },
+            "0.9": {
+              "accepted": 9,
+              "coverage_all_planned": 0.9,
+              "accepted_accuracy": 0.8888888888888888
+            },
+            "0.95": {
+              "accepted": 7,
+              "coverage_all_planned": 0.7,
+              "accepted_accuracy": 1.0
+            }
+          }
+        },
+        "insurance_intent": {
+          "n_planned": 10,
+          "n_present": 10,
+          "n_choice_valid": 10,
+          "n_schema_valid": 10,
+          "choice_accuracy_all_planned": 0.9,
+          "strict_accuracy_all_planned": 0.9,
+          "accuracy_valid_choices_only": 0.9,
+          "choice_validity_all_planned": 1.0,
+          "schema_validity_all_planned": 1.0,
+          "schema_validity_present": 1.0,
+          "macro_f1": 0.8933333333333333,
+          "macro_f1_all_policy_labels": 0.8933333333333333,
+          "macro_f1_observed_support": 0.8933333333333333,
+          "per_class": {
+            "quote": {
+              "support": 2,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "coverage_info": {
+              "support": 2,
+              "precision": 0.6666666666666666,
+              "recall": 1.0,
+              "f1": 0.8
+            },
+            "contribution": {
+              "support": 2,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "termination": {
+              "support": 2,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "clarify": {
+              "support": 2,
+              "precision": 1.0,
+              "recall": 0.5,
+              "f1": 0.6666666666666666
+            }
+          },
+          "confusion": {
+            "quote": {
+              "quote": 2
+            },
+            "coverage_info": {
+              "coverage_info": 2
+            },
+            "contribution": {
+              "contribution": 2
+            },
+            "termination": {
+              "termination": 2
+            },
+            "clarify": {
+              "clarify": 1,
+              "coverage_info": 1
+            }
+          },
+          "calibration": {
+            "n_probability_vectors": 10,
+            "n_schema_valid_ece": 10,
+            "multiclass_brier_sum": 0.20673552486815577,
+            "nll_clip_1e_12": 0.36238044077457854,
+            "ece_5_equal_width_bins": 0.12201443302644446,
+            "bins": [
+              {
+                "lower": 0.0,
+                "upper": 0.2,
+                "n": 0,
+                "accuracy": null,
+                "confidence": null
+              },
+              {
+                "lower": 0.2,
+                "upper": 0.4,
+                "n": 1,
+                "accuracy": 1.0,
+                "confidence": 0.3219985115825908
+              },
+              {
+                "lower": 0.4,
+                "upper": 0.6,
+                "n": 0,
+                "accuracy": null,
+                "confidence": null
+              },
+              {
+                "lower": 0.6,
+                "upper": 0.8,
+                "n": 0,
+                "accuracy": null,
+                "confidence": null
+              },
+              {
+                "lower": 0.8,
+                "upper": 1.0,
+                "n": 9,
+                "accuracy": 0.8888888888888888,
+                "confidence": 0.9491269824274483
+              }
+            ]
+          },
+          "latency_ms": {
+            "n": 10,
+            "median": 10373.72240500008,
+            "p95": 11514.315253099903
+          },
+          "confidence_deferral": {
+            "0.6": {
+              "accepted": 9,
+              "coverage_all_planned": 0.9,
+              "accepted_accuracy": 0.8888888888888888
+            },
+            "0.8": {
+              "accepted": 9,
+              "coverage_all_planned": 0.9,
+              "accepted_accuracy": 0.8888888888888888
+            },
+            "0.9": {
+              "accepted": 8,
+              "coverage_all_planned": 0.8,
+              "accepted_accuracy": 1.0
+            },
+            "0.95": {
+              "accepted": 7,
+              "coverage_all_planned": 0.7,
+              "accepted_accuracy": 1.0
+            }
+          }
+        },
+        "synthetic_rule_check": {
+          "n_planned": 10,
+          "n_present": 10,
+          "n_choice_valid": 10,
+          "n_schema_valid": 10,
+          "choice_accuracy_all_planned": 0.9,
+          "strict_accuracy_all_planned": 0.9,
+          "accuracy_valid_choices_only": 0.9,
+          "choice_validity_all_planned": 1.0,
+          "schema_validity_all_planned": 1.0,
+          "schema_validity_present": 1.0,
+          "macro_f1": 0.8933333333333333,
+          "macro_f1_all_policy_labels": 0.8933333333333333,
+          "macro_f1_observed_support": 0.8933333333333333,
+          "per_class": {
+            "passes": {
+              "support": 2,
+              "precision": 1.0,
+              "recall": 0.5,
+              "f1": 0.6666666666666666
+            },
+            "fails": {
+              "support": 2,
+              "precision": 0.6666666666666666,
+              "recall": 1.0,
+              "f1": 0.8
+            },
+            "missing": {
+              "support": 2,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "conflict": {
+              "support": 2,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "out_of_scope": {
+              "support": 2,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            }
+          },
+          "confusion": {
+            "passes": {
+              "passes": 1,
+              "fails": 1
+            },
+            "fails": {
+              "fails": 2
+            },
+            "missing": {
+              "missing": 2
+            },
+            "conflict": {
+              "conflict": 2
+            },
+            "out_of_scope": {
+              "out_of_scope": 2
+            }
+          },
+          "calibration": {
+            "n_probability_vectors": 10,
+            "n_schema_valid_ece": 10,
+            "multiclass_brier_sum": 0.22315627405551233,
+            "nll_clip_1e_12": 0.4860717628776647,
+            "ece_5_equal_width_bins": 0.1975745005593914,
+            "bins": [
+              {
+                "lower": 0.0,
+                "upper": 0.2,
+                "n": 0,
+                "accuracy": null,
+                "confidence": null
+              },
+              {
+                "lower": 0.2,
+                "upper": 0.4,
+                "n": 0,
+                "accuracy": null,
+                "confidence": null
+              },
+              {
+                "lower": 0.4,
+                "upper": 0.6,
+                "n": 0,
+                "accuracy": null,
+                "confidence": null
+              },
+              {
+                "lower": 0.6,
+                "upper": 0.8,
+                "n": 7,
+                "accuracy": 0.8571428571428571,
+                "confidence": 0.6491304340032293
+              },
+              {
+                "lower": 0.8,
+                "upper": 1.0,
+                "n": 3,
+                "accuracy": 1.0,
+                "confidence": 0.8267806521278267
+              }
+            ]
+          },
+          "latency_ms": {
+            "n": 10,
+            "median": 12398.617437499524,
+            "p95": 14110.249337099867
+          },
+          "confidence_deferral": {
+            "0.6": {
+              "accepted": 10,
+              "coverage_all_planned": 1.0,
+              "accepted_accuracy": 0.9
+            },
+            "0.8": {
+              "accepted": 3,
+              "coverage_all_planned": 0.3,
+              "accepted_accuracy": 1.0
+            },
+            "0.9": {
+              "accepted": 0,
+              "coverage_all_planned": 0.0,
+              "accepted_accuracy": null
+            },
+            "0.95": {
+              "accepted": 0,
+              "coverage_all_planned": 0.0,
+              "accepted_accuracy": null
+            }
+          }
+        }
+      }
+    },
+    "english_control": {
+      "n_planned": 20,
+      "n_present": 20,
+      "choice_accuracy_all_planned": 0.9,
+      "strict_accuracy_all_planned": 0.9,
+      "category_macro_f1": 0.43333333333333335,
+      "category_macro_f1_observed_support": 0.861111111111111,
+      "per_category": {
+        "advice_escalation": {
+          "n_planned": 2,
+          "n_present": 2,
+          "n_choice_valid": 2,
+          "n_schema_valid": 2,
+          "choice_accuracy_all_planned": 1.0,
+          "strict_accuracy_all_planned": 1.0,
+          "accuracy_valid_choices_only": 1.0,
+          "choice_validity_all_planned": 1.0,
+          "schema_validity_all_planned": 1.0,
+          "schema_validity_present": 1.0,
+          "macro_f1": 0.4,
+          "macro_f1_all_policy_labels": 0.4,
+          "macro_f1_observed_support": 1.0,
+          "per_class": {
+            "prohibited_request": {
+              "support": 1,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "qualified_review": {
+              "support": 0,
+              "precision": null,
+              "recall": null,
+              "f1": 0
+            },
+            "clarify": {
+              "support": 0,
+              "precision": null,
+              "recall": null,
+              "f1": 0
+            },
+            "routine": {
+              "support": 1,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "out_of_scope": {
+              "support": 0,
+              "precision": null,
+              "recall": null,
+              "f1": 0
+            }
+          },
+          "confusion": {
+            "prohibited_request": {
+              "prohibited_request": 1
+            },
+            "qualified_review": {},
+            "clarify": {},
+            "routine": {
+              "routine": 1
+            },
+            "out_of_scope": {}
+          },
+          "calibration": {
+            "n_probability_vectors": 2,
+            "n_schema_valid_ece": 2,
+            "multiclass_brier_sum": 0.019703778772776376,
+            "nll_clip_1e_12": 0.10569936085211981,
+            "ece_5_equal_width_bins": 0.09720529001783551,
+            "bins": [
+              {
+                "lower": 0.0,
+                "upper": 0.2,
+                "n": 0,
+                "accuracy": null,
+                "confidence": null
+              },
+              {
+                "lower": 0.2,
+                "upper": 0.4,
+                "n": 0,
+                "accuracy": null,
+                "confidence": null
+              },
+              {
+                "lower": 0.4,
+                "upper": 0.6,
+                "n": 0,
+                "accuracy": null,
+                "confidence": null
+              },
+              {
+                "lower": 0.6,
+                "upper": 0.8,
+                "n": 0,
+                "accuracy": null,
+                "confidence": null
+              },
+              {
+                "lower": 0.8,
+                "upper": 1.0,
+                "n": 2,
+                "accuracy": 1.0,
+                "confidence": 0.9027947099821645
+              }
+            ]
+          },
+          "latency_ms": {
+            "n": 2,
+            "median": 9999.614782999743,
+            "p95": 10060.561333099122
+          },
+          "confidence_deferral": {
+            "0.6": {
+              "accepted": 2,
+              "coverage_all_planned": 1.0,
+              "accepted_accuracy": 1.0
+            },
+            "0.8": {
+              "accepted": 2,
+              "coverage_all_planned": 1.0,
+              "accepted_accuracy": 1.0
+            },
+            "0.9": {
+              "accepted": 1,
+              "coverage_all_planned": 0.5,
+              "accepted_accuracy": 1.0
+            },
+            "0.95": {
+              "accepted": 1,
+              "coverage_all_planned": 0.5,
+              "accepted_accuracy": 1.0
+            }
+          }
+        },
+        "broker_document": {
+          "n_planned": 2,
+          "n_present": 2,
+          "n_choice_valid": 2,
+          "n_schema_valid": 2,
+          "choice_accuracy_all_planned": 1.0,
+          "strict_accuracy_all_planned": 1.0,
+          "accuracy_valid_choices_only": 1.0,
+          "choice_validity_all_planned": 1.0,
+          "schema_validity_all_planned": 1.0,
+          "schema_validity_present": 1.0,
+          "macro_f1": 0.4,
+          "macro_f1_all_policy_labels": 0.4,
+          "macro_f1_observed_support": 1.0,
+          "per_class": {
+            "application": {
+              "support": 0,
+              "precision": null,
+              "recall": null,
+              "f1": 0
+            },
+            "policy": {
+              "support": 1,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "advisory_record": {
+              "support": 0,
+              "precision": null,
+              "recall": null,
+              "f1": 0
+            },
+            "authority": {
+              "support": 0,
+              "precision": null,
+              "recall": null,
+              "f1": 0
+            },
+            "other": {
+              "support": 1,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            }
+          },
+          "confusion": {
+            "application": {},
+            "policy": {
+              "policy": 1
+            },
+            "advisory_record": {},
+            "authority": {},
+            "other": {
+              "other": 1
+            }
+          },
+          "calibration": {
+            "n_probability_vectors": 2,
+            "n_schema_valid_ece": 2,
+            "multiclass_brier_sum": 0.008904047136406293,
+            "nll_clip_1e_12": 0.06976542460299923,
+            "ece_5_equal_width_bins": 0.06597093631150086,
+            "bins": [
+              {
+                "lower": 0.0,
+                "upper": 0.2,
+                "n": 0,
+                "accuracy": null,
+                "confidence": null
+              },
+              {
+                "lower": 0.2,
+                "upper": 0.4,
+                "n": 0,
+                "accuracy": null,
+                "confidence": null
+              },
+              {
+                "lower": 0.4,
+                "upper": 0.6,
+                "n": 0,
+                "accuracy": null,
+                "confidence": null
+              },
+              {
+                "lower": 0.6,
+                "upper": 0.8,
+                "n": 0,
+                "accuracy": null,
+                "confidence": null
+              },
+              {
+                "lower": 0.8,
+                "upper": 1.0,
+                "n": 2,
+                "accuracy": 1.0,
+                "confidence": 0.9340290636884991
+              }
+            ]
+          },
+          "latency_ms": {
+            "n": 2,
+            "median": 8887.967892000233,
+            "p95": 9079.135539300296
+          },
+          "confidence_deferral": {
+            "0.6": {
+              "accepted": 2,
+              "coverage_all_planned": 1.0,
+              "accepted_accuracy": 1.0
+            },
+            "0.8": {
+              "accepted": 2,
+              "coverage_all_planned": 1.0,
+              "accepted_accuracy": 1.0
+            },
+            "0.9": {
+              "accepted": 1,
+              "coverage_all_planned": 0.5,
+              "accepted_accuracy": 1.0
+            },
+            "0.95": {
+              "accepted": 1,
+              "coverage_all_planned": 0.5,
+              "accepted_accuracy": 1.0
+            }
+          }
+        },
+        "broker_workflow": {
+          "n_planned": 3,
+          "n_present": 3,
+          "n_choice_valid": 3,
+          "n_schema_valid": 3,
+          "choice_accuracy_all_planned": 1.0,
+          "strict_accuracy_all_planned": 1.0,
+          "accuracy_valid_choices_only": 1.0,
+          "choice_validity_all_planned": 1.0,
+          "schema_validity_all_planned": 1.0,
+          "schema_validity_present": 1.0,
+          "macro_f1": 0.6,
+          "macro_f1_all_policy_labels": 0.6,
+          "macro_f1_observed_support": 1.0,
+          "per_class": {
+            "ready": {
+              "support": 1,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "missing_authority": {
+              "support": 0,
+              "precision": null,
+              "recall": null,
+              "f1": 0
+            },
+            "missing_consent": {
+              "support": 1,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "missing_documents": {
+              "support": 0,
+              "precision": null,
+              "recall": null,
+              "f1": 0
+            },
+            "conflict": {
+              "support": 1,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            }
+          },
+          "confusion": {
+            "ready": {
+              "ready": 1
+            },
+            "missing_authority": {},
+            "missing_consent": {
+              "missing_consent": 1
+            },
+            "missing_documents": {},
+            "conflict": {
+              "conflict": 1
+            }
+          },
+          "calibration": {
+            "n_probability_vectors": 3,
+            "n_schema_valid_ece": 3,
+            "multiclass_brier_sum": 0.012075738654818547,
+            "nll_clip_1e_12": 0.0895571170355292,
+            "ece_5_equal_width_bins": 0.08445108974230386,
+            "bins": [
+              {
+                "lower": 0.0,
+                "upper": 0.2,
+                "n": 0,
+                "accuracy": null,
+                "confidence": null
+              },
+              {
+                "lower": 0.2,
+                "upper": 0.4,
+                "n": 0,
+                "accuracy": null,
+                "confidence": null
+              },
+              {
+                "lower": 0.4,
+                "upper": 0.6,
+                "n": 0,
+                "accuracy": null,
+                "confidence": null
+              },
+              {
+                "lower": 0.6,
+                "upper": 0.8,
+                "n": 0,
+                "accuracy": null,
+                "confidence": null
+              },
+              {
+                "lower": 0.8,
+                "upper": 1.0,
+                "n": 3,
+                "accuracy": 1.0,
+                "confidence": 0.9155489102576961
+              }
+            ]
+          },
+          "latency_ms": {
+            "n": 3,
+            "median": 9839.37450600024,
+            "p95": 10181.200413600527
+          },
+          "confidence_deferral": {
+            "0.6": {
+              "accepted": 3,
+              "coverage_all_planned": 1.0,
+              "accepted_accuracy": 1.0
+            },
+            "0.8": {
+              "accepted": 3,
+              "coverage_all_planned": 1.0,
+              "accepted_accuracy": 1.0
+            },
+            "0.9": {
+              "accepted": 2,
+              "coverage_all_planned": 0.6666666666666666,
+              "accepted_accuracy": 1.0
+            },
+            "0.95": {
+              "accepted": 1,
+              "coverage_all_planned": 0.3333333333333333,
+              "accepted_accuracy": 1.0
+            }
+          }
+        },
+        "claims_route": {
+          "n_planned": 3,
+          "n_present": 3,
+          "n_choice_valid": 3,
+          "n_schema_valid": 3,
+          "choice_accuracy_all_planned": 0.6666666666666666,
+          "strict_accuracy_all_planned": 0.6666666666666666,
+          "accuracy_valid_choices_only": 0.6666666666666666,
+          "choice_validity_all_planned": 1.0,
+          "schema_validity_all_planned": 1.0,
+          "schema_validity_present": 1.0,
+          "macro_f1": 0.3333333333333333,
+          "macro_f1_all_policy_labels": 0.3333333333333333,
+          "macro_f1_observed_support": 0.5555555555555555,
+          "per_class": {
+            "new_claim": {
+              "support": 1,
+              "precision": 0.5,
+              "recall": 1.0,
+              "f1": 0.6666666666666666
+            },
+            "claim_status": {
+              "support": 0,
+              "precision": null,
+              "recall": null,
+              "f1": 0
+            },
+            "evidence": {
+              "support": 1,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "benefit_question": {
+              "support": 0,
+              "precision": null,
+              "recall": null,
+              "f1": 0
+            },
+            "clarify": {
+              "support": 1,
+              "precision": null,
+              "recall": 0.0,
+              "f1": 0
+            }
+          },
+          "confusion": {
+            "new_claim": {
+              "new_claim": 1
+            },
+            "claim_status": {},
+            "evidence": {
+              "evidence": 1
+            },
+            "benefit_question": {},
+            "clarify": {
+              "new_claim": 1
+            }
+          },
+          "calibration": {
+            "n_probability_vectors": 3,
+            "n_schema_valid_ece": 3,
+            "multiclass_brier_sum": 0.4389442667515758,
+            "nll_clip_1e_12": 0.7009456906657187,
+            "ece_5_equal_width_bins": 0.25722253475549317,
+            "bins": [
+              {
+                "lower": 0.0,
+                "upper": 0.2,
+                "n": 0,
+                "accuracy": null,
+                "confidence": null
+              },
+              {
+                "lower": 0.2,
+                "upper": 0.4,
+                "n": 0,
+                "accuracy": null,
+                "confidence": null
+              },
+              {
+                "lower": 0.4,
+                "upper": 0.6,
+                "n": 0,
+                "accuracy": null,
+                "confidence": null
+              },
+              {
+                "lower": 0.6,
+                "upper": 0.8,
+                "n": 1,
+                "accuracy": 0.0,
+                "confidence": 0.7333119345816336
+              },
+              {
+                "lower": 0.8,
+                "upper": 1.0,
+                "n": 2,
+                "accuracy": 1.0,
+                "confidence": 0.980822165157577
+              }
+            ]
+          },
+          "latency_ms": {
+            "n": 3,
+            "median": 8963.180607999675,
+            "p95": 9727.45885929944
+          },
+          "confidence_deferral": {
+            "0.6": {
+              "accepted": 3,
+              "coverage_all_planned": 1.0,
+              "accepted_accuracy": 0.6666666666666666
+            },
+            "0.8": {
+              "accepted": 2,
+              "coverage_all_planned": 0.6666666666666666,
+              "accepted_accuracy": 1.0
+            },
+            "0.9": {
+              "accepted": 2,
+              "coverage_all_planned": 0.6666666666666666,
+              "accepted_accuracy": 1.0
+            },
+            "0.95": {
+              "accepted": 2,
+              "coverage_all_planned": 0.6666666666666666,
+              "accepted_accuracy": 1.0
+            }
+          }
+        },
+        "contract_service": {
+          "n_planned": 3,
+          "n_present": 3,
+          "n_choice_valid": 3,
+          "n_schema_valid": 3,
+          "choice_accuracy_all_planned": 1.0,
+          "strict_accuracy_all_planned": 1.0,
+          "accuracy_valid_choices_only": 1.0,
+          "choice_validity_all_planned": 1.0,
+          "schema_validity_all_planned": 1.0,
+          "schema_validity_present": 1.0,
+          "macro_f1": 0.6,
+          "macro_f1_all_policy_labels": 0.6,
+          "macro_f1_observed_support": 1.0,
+          "per_class": {
+            "copy": {
+              "support": 0,
+              "precision": null,
+              "recall": null,
+              "f1": 0
+            },
+            "data_change": {
+              "support": 0,
+              "precision": null,
+              "recall": null,
+              "f1": 0
+            },
+            "cancellation": {
+              "support": 1,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "withdrawal": {
+              "support": 1,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "clarify": {
+              "support": 1,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            }
+          },
+          "confusion": {
+            "copy": {},
+            "data_change": {},
+            "cancellation": {
+              "cancellation": 1
+            },
+            "withdrawal": {
+              "withdrawal": 1
+            },
+            "clarify": {
+              "clarify": 1
+            }
+          },
+          "calibration": {
+            "n_probability_vectors": 3,
+            "n_schema_valid_ece": 3,
+            "multiclass_brier_sum": 0.0020203135006781497,
+            "nll_clip_1e_12": 0.03333554373067945,
+            "ece_5_equal_width_bins": 0.03253355930075197,
+            "bins": [
+              {
+                "lower": 0.0,
+                "upper": 0.2,
+                "n": 0,
+                "accuracy": null,
+                "confidence": null
+              },
+              {
+                "lower": 0.2,
+                "upper": 0.4,
+                "n": 0,
+                "accuracy": null,
+                "confidence": null
+              },
+              {
+                "lower": 0.4,
+                "upper": 0.6,
+                "n": 0,
+                "accuracy": null,
+                "confidence": null
+              },
+              {
+                "lower": 0.6,
+                "upper": 0.8,
+                "n": 0,
+                "accuracy": null,
+                "confidence": null
+              },
+              {
+                "lower": 0.8,
+                "upper": 1.0,
+                "n": 3,
+                "accuracy": 1.0,
+                "confidence": 0.967466440699248
+              }
+            ]
+          },
+          "latency_ms": {
+            "n": 3,
+            "median": 8794.124477999503,
+            "p95": 8965.499090400044
+          },
+          "confidence_deferral": {
+            "0.6": {
+              "accepted": 3,
+              "coverage_all_planned": 1.0,
+              "accepted_accuracy": 1.0
+            },
+            "0.8": {
+              "accepted": 3,
+              "coverage_all_planned": 1.0,
+              "accepted_accuracy": 1.0
+            },
+            "0.9": {
+              "accepted": 3,
+              "coverage_all_planned": 1.0,
+              "accepted_accuracy": 1.0
+            },
+            "0.95": {
+              "accepted": 2,
+              "coverage_all_planned": 0.6666666666666666,
+              "accepted_accuracy": 1.0
+            }
+          }
+        },
+        "finance_intent": {
+          "n_planned": 2,
+          "n_present": 2,
+          "n_choice_valid": 2,
+          "n_schema_valid": 2,
+          "choice_accuracy_all_planned": 1.0,
+          "strict_accuracy_all_planned": 1.0,
+          "accuracy_valid_choices_only": 1.0,
+          "choice_validity_all_planned": 1.0,
+          "schema_validity_all_planned": 1.0,
+          "schema_validity_present": 1.0,
+          "macro_f1": 0.4,
+          "macro_f1_all_policy_labels": 0.4,
+          "macro_f1_observed_support": 1.0,
+          "per_class": {
+            "general_info": {
+              "support": 1,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "portfolio_view": {
+              "support": 0,
+              "precision": null,
+              "recall": null,
+              "f1": 0
+            },
+            "savings_change": {
+              "support": 0,
+              "precision": null,
+              "recall": null,
+              "f1": 0
+            },
+            "recommendation": {
+              "support": 1,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "clarify": {
+              "support": 0,
+              "precision": null,
+              "recall": null,
+              "f1": 0
+            }
+          },
+          "confusion": {
+            "general_info": {
+              "general_info": 1
+            },
+            "portfolio_view": {},
+            "savings_change": {},
+            "recommendation": {
+              "recommendation": 1
+            },
+            "clarify": {}
+          },
+          "calibration": {
+            "n_probability_vectors": 2,
+            "n_schema_valid_ece": 2,
+            "multiclass_brier_sum": 0.00011669400693201355,
+            "nll_clip_1e_12": 0.008524971232917216,
+            "ece_5_equal_width_bins": 0.008478641898430173,
+            "bins": [
+              {
+                "lower": 0.0,
+                "upper": 0.2,
+                "n": 0,
+                "accuracy": null,
+                "confidence": null
+              },
+              {
+                "lower": 0.2,
+                "upper": 0.4,
+                "n": 0,
+                "accuracy": null,
+                "confidence": null
+              },
+              {
+                "lower": 0.4,
+                "upper": 0.6,
+                "n": 0,
+                "accuracy": null,
+                "confidence": null
+              },
+              {
+                "lower": 0.6,
+                "upper": 0.8,
+                "n": 0,
+                "accuracy": null,
+                "confidence": null
+              },
+              {
+                "lower": 0.8,
+                "upper": 1.0,
+                "n": 2,
+                "accuracy": 1.0,
+                "confidence": 0.9915213581015698
+              }
+            ]
+          },
+          "latency_ms": {
+            "n": 2,
+            "median": 8513.212384000326,
+            "p95": 8652.774695500466
+          },
+          "confidence_deferral": {
+            "0.6": {
+              "accepted": 2,
+              "coverage_all_planned": 1.0,
+              "accepted_accuracy": 1.0
+            },
+            "0.8": {
+              "accepted": 2,
+              "coverage_all_planned": 1.0,
+              "accepted_accuracy": 1.0
+            },
+            "0.9": {
+              "accepted": 2,
+              "coverage_all_planned": 1.0,
+              "accepted_accuracy": 1.0
+            },
+            "0.95": {
+              "accepted": 2,
+              "coverage_all_planned": 1.0,
+              "accepted_accuracy": 1.0
+            }
+          }
+        },
+        "insurance_intent": {
+          "n_planned": 3,
+          "n_present": 3,
+          "n_choice_valid": 3,
+          "n_schema_valid": 3,
+          "choice_accuracy_all_planned": 1.0,
+          "strict_accuracy_all_planned": 1.0,
+          "accuracy_valid_choices_only": 1.0,
+          "choice_validity_all_planned": 1.0,
+          "schema_validity_all_planned": 1.0,
+          "schema_validity_present": 1.0,
+          "macro_f1": 0.6,
+          "macro_f1_all_policy_labels": 0.6,
+          "macro_f1_observed_support": 1.0,
+          "per_class": {
+            "quote": {
+              "support": 1,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "coverage_info": {
+              "support": 0,
+              "precision": null,
+              "recall": null,
+              "f1": 0
+            },
+            "contribution": {
+              "support": 0,
+              "precision": null,
+              "recall": null,
+              "f1": 0
+            },
+            "termination": {
+              "support": 1,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "clarify": {
+              "support": 1,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            }
+          },
+          "confusion": {
+            "quote": {
+              "quote": 1
+            },
+            "coverage_info": {},
+            "contribution": {},
+            "termination": {
+              "termination": 1
+            },
+            "clarify": {
+              "clarify": 1
+            }
+          },
+          "calibration": {
+            "n_probability_vectors": 3,
+            "n_schema_valid_ece": 3,
+            "multiclass_brier_sum": 0.18305394334886785,
+            "nll_clip_1e_12": 0.34451598657424065,
+            "ece_5_equal_width_bins": 0.21772223984615893,
+            "bins": [
+              {
+                "lower": 0.0,
+                "upper": 0.2,
+                "n": 0,
+                "accuracy": null,
+                "confidence": null
+              },
+              {
+                "lower": 0.2,
+                "upper": 0.4,
+                "n": 1,
+                "accuracy": 1.0,
+                "confidence": 0.3607454884903646
+              },
+              {
+                "lower": 0.4,
+                "upper": 0.6,
+                "n": 0,
+                "accuracy": null,
+                "confidence": null
+              },
+              {
+                "lower": 0.6,
+                "upper": 0.8,
+                "n": 0,
+                "accuracy": null,
+                "confidence": null
+              },
+              {
+                "lower": 0.8,
+                "upper": 1.0,
+                "n": 2,
+                "accuracy": 1.0,
+                "confidence": 0.9930438959855793
+              }
+            ]
+          },
+          "latency_ms": {
+            "n": 3,
+            "median": 9048.073274001581,
+            "p95": 10422.307880899461
+          },
+          "confidence_deferral": {
+            "0.6": {
+              "accepted": 2,
+              "coverage_all_planned": 0.6666666666666666,
+              "accepted_accuracy": 1.0
+            },
+            "0.8": {
+              "accepted": 2,
+              "coverage_all_planned": 0.6666666666666666,
+              "accepted_accuracy": 1.0
+            },
+            "0.9": {
+              "accepted": 2,
+              "coverage_all_planned": 0.6666666666666666,
+              "accepted_accuracy": 1.0
+            },
+            "0.95": {
+              "accepted": 2,
+              "coverage_all_planned": 0.6666666666666666,
+              "accepted_accuracy": 1.0
+            }
+          }
+        },
+        "synthetic_rule_check": {
+          "n_planned": 2,
+          "n_present": 2,
+          "n_choice_valid": 2,
+          "n_schema_valid": 2,
+          "choice_accuracy_all_planned": 0.5,
+          "strict_accuracy_all_planned": 0.5,
+          "accuracy_valid_choices_only": 0.5,
+          "choice_validity_all_planned": 1.0,
+          "schema_validity_all_planned": 1.0,
+          "schema_validity_present": 1.0,
+          "macro_f1": 0.13333333333333333,
+          "macro_f1_all_policy_labels": 0.13333333333333333,
+          "macro_f1_observed_support": 0.3333333333333333,
+          "per_class": {
+            "passes": {
+              "support": 1,
+              "precision": 0.5,
+              "recall": 1.0,
+              "f1": 0.6666666666666666
+            },
+            "fails": {
+              "support": 1,
+              "precision": null,
+              "recall": 0.0,
+              "f1": 0
+            },
+            "missing": {
+              "support": 0,
+              "precision": null,
+              "recall": null,
+              "f1": 0
+            },
+            "conflict": {
+              "support": 0,
+              "precision": null,
+              "recall": null,
+              "f1": 0
+            },
+            "out_of_scope": {
+              "support": 0,
+              "precision": null,
+              "recall": null,
+              "f1": 0
+            }
+          },
+          "confusion": {
+            "passes": {
+              "passes": 1
+            },
+            "fails": {
+              "passes": 1
+            },
+            "missing": {},
+            "conflict": {},
+            "out_of_scope": {}
+          },
+          "calibration": {
+            "n_probability_vectors": 2,
+            "n_schema_valid_ece": 2,
+            "multiclass_brier_sum": 0.5934307840935268,
+            "nll_clip_1e_12": 0.922032839392324,
+            "ece_5_equal_width_bins": 0.43668296785429866,
+            "bins": [
+              {
+                "lower": 0.0,
+                "upper": 0.2,
+                "n": 0,
+                "accuracy": null,
+                "confidence": null
+              },
+              {
+                "lower": 0.2,
+                "upper": 0.4,
+                "n": 0,
+                "accuracy": null,
+                "confidence": null
+              },
+              {
+                "lower": 0.4,
+                "upper": 0.6,
+                "n": 0,
+                "accuracy": null,
+                "confidence": null
+              },
+              {
+                "lower": 0.6,
+                "upper": 0.8,
+                "n": 1,
+                "accuracy": 0.0,
+                "confidence": 0.6999535638833817
+              },
+              {
+                "lower": 0.8,
+                "upper": 1.0,
+                "n": 1,
+                "accuracy": 1.0,
+                "confidence": 0.8265876281747844
+              }
+            ]
+          },
+          "latency_ms": {
+            "n": 2,
+            "median": 10583.220807499856,
+            "p95": 10705.075764349476
+          },
+          "confidence_deferral": {
+            "0.6": {
+              "accepted": 2,
+              "coverage_all_planned": 1.0,
+              "accepted_accuracy": 0.5
+            },
+            "0.8": {
+              "accepted": 1,
+              "coverage_all_planned": 0.5,
+              "accepted_accuracy": 1.0
+            },
+            "0.9": {
+              "accepted": 0,
+              "coverage_all_planned": 0.0,
+              "accepted_accuracy": null
+            },
+            "0.95": {
+              "accepted": 0,
+              "coverage_all_planned": 0.0,
+              "accepted_accuracy": null
+            }
+          }
+        }
+      }
+    }
+  },
+  "paired": {
+    "german_id_vs_english_id": {
+      "left": "german_id",
+      "right": "english_id",
+      "n_pairs_planned": 20,
+      "n_pairs_valid_both": 20,
+      "left_accuracy": 1.0,
+      "right_accuracy": 0.9,
+      "left_minus_right_accuracy": 0.1,
+      "counts": {
+        "both_correct": 18,
+        "left_only_correct": 2,
+        "right_only_correct": 0,
+        "both_wrong": 0
+      },
+      "exact_mcnemar_two_sided_p": 0.5,
+      "warning": "Small deliberately selected paired subset; missing/invalid pairs excluded and counted explicitly. Do not generalize or claim statistical power."
+    }
+  },
+  "paired_all_planned": {
+    "german_id_vs_english_id": {
+      "left": "german_id",
+      "right": "english_id",
+      "n_pairs_planned": 20,
+      "n_pairs_used": 20,
+      "n_pairs_valid_both": 20,
+      "n_pairs_with_invalid_or_missing": 0,
+      "left_accuracy_all_planned": 1.0,
+      "right_accuracy_all_planned": 0.9,
+      "left_minus_right_accuracy_all_planned": 0.1,
+      "counts": {
+        "both_correct": 18,
+        "left_only_correct": 2,
+        "right_only_correct": 0,
+        "both_wrong": 0
+      },
+      "exact_mcnemar_two_sided_p": 0.5,
+      "warning": "All planned pairs; a missing, runtime-error or invalid-label half is incorrect. Differences can reflect output reliability as well as language. Small purposive subset; exploratory, not a general language-effect estimate."
+    }
+  },
+  "abstention": {
+    "insurance_intent": {
+      "labels": [
+        "clarify"
+      ],
+      "precision": 1.0,
+      "recall": 0.5,
+      "unnecessary_abstention_rate": 0.0,
+      "missed_deferral_rate": 0.5,
+      "invalid_or_missing": 0
+    },
+    "claims_route": {
+      "labels": [
+        "clarify"
+      ],
+      "precision": 1.0,
+      "recall": 0.5,
+      "unnecessary_abstention_rate": 0.0,
+      "missed_deferral_rate": 0.5,
+      "invalid_or_missing": 0
+    },
+    "contract_service": {
+      "labels": [
+        "clarify"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "unnecessary_abstention_rate": 0.0,
+      "missed_deferral_rate": 0.0,
+      "invalid_or_missing": 0
+    },
+    "broker_workflow": {
+      "labels": [
+        "conflict",
+        "missing_authority",
+        "missing_consent",
+        "missing_documents"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "unnecessary_abstention_rate": 0.0,
+      "missed_deferral_rate": 0.0,
+      "invalid_or_missing": 0
+    },
+    "finance_intent": {
+      "labels": [
+        "clarify"
+      ],
+      "precision": 1.0,
+      "recall": 0.5,
+      "unnecessary_abstention_rate": 0.0,
+      "missed_deferral_rate": 0.5,
+      "invalid_or_missing": 0
+    },
+    "synthetic_rule_check": {
+      "labels": [
+        "conflict",
+        "missing",
+        "out_of_scope"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "unnecessary_abstention_rate": 0.0,
+      "missed_deferral_rate": 0.0,
+      "invalid_or_missing": 0
+    },
+    "advice_escalation": {
+      "labels": [
+        "clarify",
+        "out_of_scope",
+        "prohibited_request",
+        "qualified_review"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "unnecessary_abstention_rate": 0.0,
+      "missed_deferral_rate": 0.0,
+      "invalid_or_missing": 0
+    }
+  },
+  "errors": [],
+  "macro_f1_scope_warning": "macro_f1 and category_macro_f1 include all five policy labels. English controls omit some gold classes; absent classes have F1=0. Observed-support variants exclude classes with no gold support. Neither English macro-F1 is a valid causal language comparison; use paired correctness on the same 20 cases.",
+  "interpretation_warning": "Synthetic routing/check labels only. No operational permissions, legal validity, eligibility decisions or deployment assurance. The deferred label sets are category-specific, not one universal safety decision.",
+  "case_results": [
+    {
+      "id": "de_finance_insurance_intent_001",
+      "category": "insurance_intent",
+      "split": "german_primary",
+      "expected": "quote",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "quote",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "clarify": 0.008786210405685111,
+        "contribution": 0.00470291942261419,
+        "coverage_info": 0.005165146437695359,
+        "quote": 0.9766428043113912,
+        "termination": 0.00470291942261419
+      },
+      "brier": 0.000693669723642977,
+      "nll": 0.02363429838328539,
+      "max_probability": 0.9766428043113912,
+      "latency_ms": 10466.806066000572,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "en_finance_insurance_intent_001",
+      "category": "insurance_intent",
+      "split": "english_control",
+      "expected": "quote",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "quote",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "clarify": 0.0015436596968632994,
+        "contribution": 0.0014501339638778384,
+        "coverage_info": 0.0009074706830118959,
+        "quote": 0.9951624587028862,
+        "termination": 0.0009362769533607402
+      },
+      "brier": 2.9587697148113956e-05,
+      "nll": 0.004849280073191541,
+      "max_probability": 0.9951624587028862,
+      "latency_ms": 8793.22834300001,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_finance_insurance_intent_002",
+      "category": "insurance_intent",
+      "split": "german_primary",
+      "expected": "quote",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "quote",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "clarify": 0.012985217995840799,
+        "contribution": 0.008125942931196199,
+        "coverage_info": 0.010433916676324985,
+        "quote": 0.9615044356511276,
+        "termination": 0.006950486745510345
+      },
+      "brier": 0.0018737311926667454,
+      "nll": 0.039256100702240476,
+      "max_probability": 0.9615044356511276,
+      "latency_ms": 11318.70635499945,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_finance_insurance_intent_003",
+      "category": "insurance_intent",
+      "split": "german_primary",
+      "expected": "coverage_info",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "coverage_info",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "clarify": 0.012240111361642965,
+        "contribution": 0.010469521658976006,
+        "coverage_info": 0.9647855667269155,
+        "quote": 0.006350085863736941,
+        "termination": 0.006154714388728619
+      },
+      "brier": 0.0015776916203413638,
+      "nll": 0.03584941298127808,
+      "max_probability": 0.9647855667269155,
+      "latency_ms": 10116.241702999105,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_finance_insurance_intent_004",
+      "category": "insurance_intent",
+      "split": "german_primary",
+      "expected": "coverage_info",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "coverage_info",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "clarify": 0.012738072087909365,
+        "contribution": 0.008224317328396142,
+        "coverage_info": 0.9655716358232427,
+        "quote": 0.007257934596247141,
+        "termination": 0.006208040164204677
+      },
+      "brier": 0.001506427513206139,
+      "nll": 0.035034984295500865,
+      "max_probability": 0.9655716358232427,
+      "latency_ms": 9822.69756200003,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_finance_insurance_intent_005",
+      "category": "insurance_intent",
+      "split": "german_primary",
+      "expected": "contribution",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "contribution",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "clarify": 0.011479807804953833,
+        "contribution": 0.9632154935374317,
+        "coverage_info": 0.007647200656821514,
+        "quote": 0.008140402966157425,
+        "termination": 0.009517095034635468
+      },
+      "brier": 0.0017002068391688038,
+      "nll": 0.03747811907373644,
+      "max_probability": 0.9632154935374317,
+      "latency_ms": 10137.60030999947,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_finance_insurance_intent_006",
+      "category": "insurance_intent",
+      "split": "german_primary",
+      "expected": "contribution",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "contribution",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "clarify": 0.023290382332202403,
+        "contribution": 0.923091172886352,
+        "coverage_info": 0.022573813384019883,
+        "quote": 0.01503740068299756,
+        "termination": 0.016007230714428163
+      },
+      "brier": 0.007449341502319665,
+      "nll": 0.08002727049914221,
+      "max_probability": 0.923091172886352,
+      "latency_ms": 10565.35822799924,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_finance_insurance_intent_007",
+      "category": "insurance_intent",
+      "split": "german_primary",
+      "expected": "termination",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "termination",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "clarify": 0.00344034595684087,
+        "contribution": 0.005852225849414336,
+        "coverage_info": 0.002852147283971288,
+        "quote": 0.003662229142040188,
+        "termination": 0.9841930517677333
+      },
+      "brier": 0.00031749080653113704,
+      "nll": 0.01593321035191873,
+      "max_probability": 0.9841930517677333,
+      "latency_ms": 10280.638743999589,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "en_finance_insurance_intent_007",
+      "category": "insurance_intent",
+      "split": "english_control",
+      "expected": "termination",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "termination",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "clarify": 0.0019430601221419712,
+        "contribution": 0.0029168788502814376,
+        "coverage_info": 0.0022716676371622416,
+        "quote": 0.0019430601221419712,
+        "termination": 0.9909253332682724
+      },
+      "brier": 0.00010356919764939045,
+      "nll": 0.009116092325958579,
+      "max_probability": 0.9909253332682724,
+      "latency_ms": 10575.000614999226,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_finance_insurance_intent_008",
+      "category": "insurance_intent",
+      "split": "german_primary",
+      "expected": "termination",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "termination",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "clarify": 0.004467328712889922,
+        "contribution": 0.004467328712889922,
+        "coverage_info": 0.0031678101732410236,
+        "quote": 0.0041966668329558535,
+        "termination": 0.9837008655680233
+      },
+      "brier": 0.0003332228686901917,
+      "nll": 0.016433426553246422,
+      "max_probability": 0.9837008655680233,
+      "latency_ms": 10874.667287000193,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_finance_insurance_intent_009",
+      "category": "insurance_intent",
+      "split": "german_primary",
+      "expected": "clarify",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "clarify",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "clarify": 0.3219985115825908,
+        "contribution": 0.1892931489541106,
+        "coverage_info": 0.19530196778926207,
+        "quote": 0.21449724159385625,
+        "termination": 0.07890913008018031
+      },
+      "brier": 0.5858964906209274,
+      "nll": 1.1332083558627264,
+      "max_probability": 0.3219985115825908,
+      "latency_ms": 10157.522898000025,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "en_finance_insurance_intent_009",
+      "category": "insurance_intent",
+      "split": "english_control",
+      "expected": "clarify",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "clarify",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "clarify": 0.3607454884903646,
+        "contribution": 0.3183567847229315,
+        "coverage_info": 0.13907978237109261,
+        "quote": 0.1306533552518965,
+        "termination": 0.05116458916371483
+      },
+      "brier": 0.549028673151806,
+      "nll": 1.0195825873235718,
+      "max_probability": 0.3607454884903646,
+      "latency_ms": 9048.073274001581,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_finance_insurance_intent_010",
+      "category": "insurance_intent",
+      "split": "german_primary",
+      "expected": "clarify",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "coverage_info",
+      "correct": false,
+      "strict_correct": false,
+      "error": null,
+      "probabilities": {
+        "clarify": 0.11003583109066352,
+        "contribution": 0.018824911060601846,
+        "coverage_info": 0.819437815574818,
+        "quote": 0.04586975725894387,
+        "termination": 0.005831685014972771
+      },
+      "brier": 1.4660069759940633,
+      "nll": 2.2069492290427104,
+      "max_probability": 0.819437815574818,
+      "latency_ms": 11674.358897000275,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_finance_claims_route_001",
+      "category": "claims_route",
+      "split": "german_primary",
+      "expected": "new_claim",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "new_claim",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "benefit_question": 0.00814552913199181,
+        "claim_status": 0.006752881152560098,
+        "clarify": 0.006967240392961135,
+        "evidence": 0.006752881152560098,
+        "new_claim": 0.9713814681699269
+      },
+      "brier": 0.0010251152553635479,
+      "nll": 0.029036026697469502,
+      "max_probability": 0.9713814681699269,
+      "latency_ms": 11251.018605000354,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "en_finance_claims_route_001",
+      "category": "claims_route",
+      "split": "english_control",
+      "expected": "new_claim",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "new_claim",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "benefit_question": 0.003389916722902254,
+        "claim_status": 0.003963214005110112,
+        "clarify": 0.003389916722902254,
+        "evidence": 0.004218819684758661,
+        "new_claim": 0.9850381328643267
+      },
+      "brier": 0.0002803460437447726,
+      "nll": 0.0150749249915546,
+      "max_probability": 0.9850381328643267,
+      "latency_ms": 8963.180607999675,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_finance_claims_route_002",
+      "category": "claims_route",
+      "split": "german_primary",
+      "expected": "new_claim",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "new_claim",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "benefit_question": 0.005501397954550453,
+        "claim_status": 0.005332137525066599,
+        "clarify": 0.0066359523586792465,
+        "evidence": 0.005332137525066599,
+        "new_claim": 0.9771983746366371
+      },
+      "brier": 0.0006510787435445955,
+      "nll": 0.023065602886225275,
+      "max_probability": 0.9771983746366371,
+      "latency_ms": 10962.382762998459,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_finance_claims_route_003",
+      "category": "claims_route",
+      "split": "german_primary",
+      "expected": "claim_status",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "claim_status",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "benefit_question": 0.0026581985495334466,
+        "claim_status": 0.9918021417698284,
+        "clarify": 0.001379055184123131,
+        "evidence": 0.002497146335995174,
+        "new_claim": 0.001663458160519908
+      },
+      "brier": 8.517552516676535e-05,
+      "nll": 0.008231645451890968,
+      "max_probability": 0.9918021417698284,
+      "latency_ms": 11565.696624000338,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_finance_claims_route_004",
+      "category": "claims_route",
+      "split": "german_primary",
+      "expected": "claim_status",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "claim_status",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "benefit_question": 0.0031052734211183637,
+        "claim_status": 0.9910120807148466,
+        "clarify": 0.0017693313722697709,
+        "evidence": 0.0023439831194954804,
+        "new_claim": 0.0017693313722697709
+      },
+      "brier": 0.00010218073997061259,
+      "nll": 0.009028554297746802,
+      "max_probability": 0.9910120807148466,
+      "latency_ms": 10791.094936999798,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_finance_claims_route_005",
+      "category": "claims_route",
+      "split": "german_primary",
+      "expected": "evidence",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "evidence",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "benefit_question": 0.04384314067793257,
+        "claim_status": 0.12296113107760205,
+        "clarify": 0.027436335712974984,
+        "evidence": 0.7893764089362781,
+        "new_claim": 0.01638298359521228
+      },
+      "brier": 0.06242511252180222,
+      "nll": 0.23651200100324593,
+      "max_probability": 0.7893764089362781,
+      "latency_ms": 11457.316490001176,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_finance_claims_route_006",
+      "category": "claims_route",
+      "split": "german_primary",
+      "expected": "evidence",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "evidence",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "benefit_question": 0.004924645403178997,
+        "claim_status": 0.005580354205189402,
+        "clarify": 0.003179590060083968,
+        "evidence": 0.9835094321781049,
+        "new_claim": 0.0028059781534426503
+      },
+      "brier": 0.00034531461883873015,
+      "nll": 0.016628050778975553,
+      "max_probability": 0.9835094321781049,
+      "latency_ms": 10649.144265998984,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "en_finance_claims_route_006",
+      "category": "claims_route",
+      "split": "english_control",
+      "expected": "evidence",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "evidence",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "benefit_question": 0.004150156215798558,
+        "claim_status": 0.009955706756323991,
+        "clarify": 0.005006043583102714,
+        "evidence": 0.9766061974508273,
+        "new_claim": 0.004281895993947383
+      },
+      "brier": 0.0007070049970020309,
+      "nll": 0.023671781428749736,
+      "max_probability": 0.9766061974508273,
+      "latency_ms": 9812.378664999414,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_finance_claims_route_007",
+      "category": "claims_route",
+      "split": "german_primary",
+      "expected": "benefit_question",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "benefit_question",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "benefit_question": 0.9264707601190714,
+        "claim_status": 0.034817929691073876,
+        "clarify": 0.014067715140922154,
+        "evidence": 0.014975004823272445,
+        "new_claim": 0.009668590225660158
+      },
+      "brier": 0.0071344703611346035,
+      "nll": 0.07637279325924434,
+      "max_probability": 0.9264707601190714,
+      "latency_ms": 10672.776552999494,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_finance_claims_route_008",
+      "category": "claims_route",
+      "split": "german_primary",
+      "expected": "benefit_question",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "benefit_question",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "benefit_question": 0.9588552153067857,
+        "claim_status": 0.012551028328206495,
+        "clarify": 0.010085035153050106,
+        "evidence": 0.010405167976041019,
+        "new_claim": 0.008103553235916619
+      },
+      "brier": 0.0021260646492416205,
+      "nll": 0.042015190150548574,
+      "max_probability": 0.9588552153067857,
+      "latency_ms": 12557.84951700116,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_finance_claims_route_009",
+      "category": "claims_route",
+      "split": "german_primary",
+      "expected": "clarify",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "clarify",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "benefit_question": 0.0201009580837295,
+        "claim_status": 0.08462819220605701,
+        "clarify": 0.7169357337913737,
+        "evidence": 0.017739032830883763,
+        "new_claim": 0.1605960830879561
+      },
+      "brier": 0.11379713342514612,
+      "nll": 0.3327690744898469,
+      "max_probability": 0.7169357337913737,
+      "latency_ms": 10811.242555000717,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "en_finance_claims_route_009",
+      "category": "claims_route",
+      "split": "english_control",
+      "expected": "clarify",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "new_claim",
+      "correct": false,
+      "strict_correct": false,
+      "error": null,
+      "probabilities": {
+        "benefit_question": 0.009711905021080762,
+        "claim_status": 0.125454880207458,
+        "clarify": 0.1269337013334252,
+        "evidence": 0.004587578856402512,
+        "new_claim": 0.7333119345816336
+      },
+      "brier": 1.3158454492139806,
+      "nll": 2.0640903655768517,
+      "max_probability": 0.7333119345816336,
+      "latency_ms": 8891.317411000273,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_finance_claims_route_010",
+      "category": "claims_route",
+      "split": "german_primary",
+      "expected": "clarify",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "new_claim",
+      "correct": false,
+      "strict_correct": false,
+      "error": null,
+      "probabilities": {
+        "benefit_question": 0.01228017385132967,
+        "claim_status": 0.016785007314076797,
+        "clarify": 0.022942383312371032,
+        "evidence": 0.013487132542502988,
+        "new_claim": 0.9345053029797196
+      },
+      "brier": 1.8285561895090985,
+      "nll": 3.7747692793744387,
+      "max_probability": 0.9345053029797196,
+      "latency_ms": 12405.485889999909,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_finance_contract_service_001",
+      "category": "contract_service",
+      "split": "german_primary",
+      "expected": "copy",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "copy",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "cancellation": 0.01430397198784174,
+        "clarify": 0.01113994396991673,
+        "copy": 0.9130468946762279,
+        "data_change": 0.010797204202236501,
+        "withdrawal": 0.050711985163777125
+      },
+      "brier": 0.010577829549564793,
+      "nll": 0.09096803642447755,
+      "max_probability": 0.9130468946762279,
+      "latency_ms": 10601.411069999813,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_finance_contract_service_002",
+      "category": "contract_service",
+      "split": "german_primary",
+      "expected": "copy",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "copy",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "cancellation": 0.007344642849533453,
+        "clarify": 0.010038936141377335,
+        "copy": 0.9470446357426577,
+        "data_change": 0.022272355035172754,
+        "withdrawal": 0.013299430231258744
+      },
+      "brier": 0.0036319272643545618,
+      "nll": 0.05440905307085933,
+      "max_probability": 0.9470446357426577,
+      "latency_ms": 10075.270880999597,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_finance_contract_service_003",
+      "category": "contract_service",
+      "split": "german_primary",
+      "expected": "data_change",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "data_change",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "cancellation": 0.004870502902216677,
+        "clarify": 0.0034537033792693132,
+        "copy": 0.0033474443696538394,
+        "data_change": 0.984162387738934,
+        "withdrawal": 0.004165961609926169
+      },
+      "brier": 0.00031504044762764957,
+      "nll": 0.015964367355563783,
+      "max_probability": 0.984162387738934,
+      "latency_ms": 10735.004911999567,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_finance_contract_service_004",
+      "category": "contract_service",
+      "split": "german_primary",
+      "expected": "data_change",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "data_change",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "cancellation": 0.009222938297566074,
+        "clarify": 0.01012941603388882,
+        "copy": 0.014284766199276816,
+        "data_change": 0.9555801722753151,
+        "withdrawal": 0.010782707193953227
+      },
+      "brier": 0.0024811100749175313,
+      "nll": 0.045436612725114504,
+      "max_probability": 0.9555801722753151,
+      "latency_ms": 15073.054760001469,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_finance_contract_service_005",
+      "category": "contract_service",
+      "split": "german_primary",
+      "expected": "cancellation",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "cancellation",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "cancellation": 0.975947665137002,
+        "clarify": 0.00642355336664651,
+        "copy": 0.004019757213740106,
+        "data_change": 0.0036600303816092827,
+        "withdrawal": 0.00994899390100207
+      },
+      "brier": 0.0007483136003098378,
+      "nll": 0.024346315792602484,
+      "max_probability": 0.975947665137002,
+      "latency_ms": 14229.573631000676,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "en_finance_contract_service_005",
+      "category": "contract_service",
+      "split": "english_control",
+      "expected": "cancellation",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "cancellation",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "cancellation": 0.9736972637109401,
+        "clarify": 0.007434270486610518,
+        "copy": 0.0043703821390800495,
+        "data_change": 0.0049522915869224604,
+        "withdrawal": 0.009545792076446803
+      },
+      "brier": 0.0008818498923301631,
+      "nll": 0.026654841198622624,
+      "max_probability": 0.9736972637109401,
+      "latency_ms": 8984.540714000104,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_finance_contract_service_006",
+      "category": "contract_service",
+      "split": "german_primary",
+      "expected": "cancellation",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "cancellation",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "cancellation": 0.9713615556968934,
+        "clarify": 0.007188257158786855,
+        "copy": 0.0065449824658702855,
+        "data_change": 0.005959274679110645,
+        "withdrawal": 0.008945929999338742
+      },
+      "brier": 0.0010302109468156959,
+      "nll": 0.029056526035559537,
+      "max_probability": 0.9713615556968934,
+      "latency_ms": 11688.116336999883,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_finance_contract_service_007",
+      "category": "contract_service",
+      "split": "german_primary",
+      "expected": "withdrawal",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "withdrawal",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "cancellation": 0.003535928749351101,
+        "clarify": 0.0028411986475705797,
+        "copy": 0.002586940594098134,
+        "data_change": 0.0029313876948815812,
+        "withdrawal": 0.9881045443140986
+      },
+      "brier": 0.00017736236330578552,
+      "nll": 0.011966772749088736,
+      "max_probability": 0.9881045443140986,
+      "latency_ms": 12100.586489999841,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "en_finance_contract_service_007",
+      "category": "contract_service",
+      "split": "english_control",
+      "expected": "withdrawal",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "withdrawal",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "cancellation": 0.0024178484150758446,
+        "clarify": 0.002655487008533371,
+        "copy": 0.0020680953488505563,
+        "data_change": 0.0020680953488505563,
+        "withdrawal": 0.9907904738786897
+      },
+      "brier": 0.00010626701033374598,
+      "nll": 0.009252195988556922,
+      "max_probability": 0.9907904738786897,
+      "latency_ms": 8738.237572000799,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_finance_contract_service_008",
+      "category": "contract_service",
+      "split": "german_primary",
+      "expected": "withdrawal",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "withdrawal",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "cancellation": 0.004125671737872404,
+        "clarify": 0.0033150704006525396,
+        "copy": 0.003213076369223649,
+        "data_change": 0.003213076369223649,
+        "withdrawal": 0.9861331051230278
+      },
+      "brier": 0.00024094935208788737,
+      "nll": 0.013963938436733261,
+      "max_probability": 0.9861331051230278,
+      "latency_ms": 10741.583230001197,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_finance_contract_service_009",
+      "category": "contract_service",
+      "split": "german_primary",
+      "expected": "clarify",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "clarify",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "cancellation": 0.07763657552276369,
+        "clarify": 0.7195320665487697,
+        "copy": 0.01844030197265014,
+        "data_change": 0.014817199842423188,
+        "withdrawal": 0.16957385611339332
+      },
+      "brier": 0.11400458637848421,
+      "nll": 0.32915418582466205,
+      "max_probability": 0.7195320665487697,
+      "latency_ms": 11405.067446999965,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "en_finance_contract_service_009",
+      "category": "contract_service",
+      "split": "english_control",
+      "expected": "clarify",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "clarify",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "cancellation": 0.017178450364901596,
+        "clarify": 0.937911584508114,
+        "copy": 0.008912062611007672,
+        "data_change": 0.008114525341915318,
+        "withdrawal": 0.02788337717406145
+      },
+      "brier": 0.00507282359937054,
+      "nll": 0.0640995940048588,
+      "max_probability": 0.937911584508114,
+      "latency_ms": 8794.124477999503,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_finance_contract_service_010",
+      "category": "contract_service",
+      "split": "german_primary",
+      "expected": "clarify",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "clarify",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "cancellation": 0.09595869338573973,
+        "clarify": 0.3915713967148752,
+        "copy": 0.2691228349637563,
+        "data_change": 0.13115998907148854,
+        "withdrawal": 0.1121870858641403
+      },
+      "brier": 0.4816094213986364,
+      "nll": 0.9375874130903314,
+      "max_probability": 0.3915713967148752,
+      "latency_ms": 10658.828759998869,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_finance_broker_workflow_001",
+      "category": "broker_workflow",
+      "split": "german_primary",
+      "expected": "ready",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "ready",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "conflict": 0.010328146409506755,
+        "missing_authority": 0.009702395385110061,
+        "missing_consent": 0.011343250832893477,
+        "missing_documents": 0.009403884127631249,
+        "ready": 0.9592223232448585
+      },
+      "brier": 0.002080728382155877,
+      "nll": 0.04163240276560011,
+      "max_probability": 0.9592223232448585,
+      "latency_ms": 12107.25618700053,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "en_finance_broker_workflow_001",
+      "category": "broker_workflow",
+      "split": "english_control",
+      "expected": "ready",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "ready",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "conflict": 0.012895057109972116,
+        "missing_authority": 0.014162448379944015,
+        "missing_consent": 0.015075848592290966,
+        "missing_documents": 0.014162448379944015,
+        "ready": 0.9437041975378488
+      },
+      "brier": 0.003963930971733825,
+      "nll": 0.05794251200686451,
+      "max_probability": 0.9437041975378488,
+      "latency_ms": 10219.181070000559,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_finance_broker_workflow_002",
+      "category": "broker_workflow",
+      "split": "german_primary",
+      "expected": "ready",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "ready",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "conflict": 0.011379083395972149,
+        "missing_authority": 0.012112970227028825,
+        "missing_consent": 0.013725793652011393,
+        "missing_documents": 0.011740294055504561,
+        "ready": 0.9510418586694831
+      },
+      "brier": 0.002999339105079555,
+      "nll": 0.050197201980073186,
+      "max_probability": 0.9510418586694831,
+      "latency_ms": 12760.408550999273,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_finance_broker_workflow_003",
+      "category": "broker_workflow",
+      "split": "german_primary",
+      "expected": "missing_authority",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "missing_authority",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "conflict": 0.1166344438367875,
+        "missing_authority": 0.5831355474261029,
+        "missing_consent": 0.16707113447439348,
+        "missing_documents": 0.07891881495311415,
+        "ready": 0.054240059309602004
+      },
+      "brier": 0.22446249267092558,
+      "nll": 0.5393356197823048,
+      "max_probability": 0.5831355474261029,
+      "latency_ms": 11601.494540998829,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_finance_broker_workflow_004",
+      "category": "broker_workflow",
+      "split": "german_primary",
+      "expected": "missing_authority",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "missing_authority",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "conflict": 0.008509091367233847,
+        "missing_authority": 0.9532576649695227,
+        "missing_consent": 0.01277365901229218,
+        "missing_documents": 0.0164017031176546,
+        "ready": 0.009057881533296733
+      },
+      "brier": 0.0027714779675905516,
+      "nll": 0.04787003939609645,
+      "max_probability": 0.9532576649695227,
+      "latency_ms": 12311.616234999747,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_finance_broker_workflow_005",
+      "category": "broker_workflow",
+      "split": "german_primary",
+      "expected": "missing_consent",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "missing_consent",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "conflict": 0.07250372968647448,
+        "missing_authority": 0.05646595863693583,
+        "missing_consent": 0.7979735253429584,
+        "missing_documents": 0.038808449847261596,
+        "ready": 0.03424833648636965
+      },
+      "brier": 0.0519389360972208,
+      "nll": 0.22567985834462953,
+      "max_probability": 0.7979735253429584,
+      "latency_ms": 12831.046601000708,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "en_finance_broker_workflow_005",
+      "category": "broker_workflow",
+      "split": "english_control",
+      "expected": "missing_consent",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "missing_consent",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "conflict": 0.06452327582183905,
+        "missing_authority": 0.04198609154593711,
+        "missing_consent": 0.8499274132732719,
+        "missing_documents": 0.027751112044851037,
+        "ready": 0.015812107314100897
+      },
+      "brier": 0.029468013250374767,
+      "nll": 0.1626043292933255,
+      "max_probability": 0.8499274132732719,
+      "latency_ms": 9839.37450600024,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_finance_broker_workflow_006",
+      "category": "broker_workflow",
+      "split": "german_primary",
+      "expected": "missing_consent",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "missing_consent",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "conflict": 0.01431081058168029,
+        "missing_authority": 0.01387051293747022,
+        "missing_consent": 0.8923225915774462,
+        "missing_documents": 0.06934820050980708,
+        "ready": 0.010147884393596237
+      },
+      "brier": 0.016903767184864922,
+      "nll": 0.11392756203113595,
+      "max_probability": 0.8923225915774462,
+      "latency_ms": 11224.558420000903,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_finance_broker_workflow_007",
+      "category": "broker_workflow",
+      "split": "german_primary",
+      "expected": "missing_documents",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "missing_documents",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "conflict": 0.008336802448016533,
+        "missing_authority": 0.010375318658554782,
+        "missing_consent": 0.023749339701573387,
+        "missing_documents": 0.9486640590477616,
+        "ready": 0.00887448014409364
+      },
+      "brier": 0.003455315879864156,
+      "nll": 0.052700537724084534,
+      "max_probability": 0.9486640590477616,
+      "latency_ms": 11707.542641001055,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_finance_broker_workflow_008",
+      "category": "broker_workflow",
+      "split": "german_primary",
+      "expected": "missing_documents",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "missing_documents",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "conflict": 0.009159458339000314,
+        "missing_authority": 0.011048416241689486,
+        "missing_consent": 0.014186447281627544,
+        "missing_documents": 0.9564462197986824,
+        "ready": 0.009159458339000314
+      },
+      "brier": 0.0023880459118764768,
+      "nll": 0.044530717716359546,
+      "max_probability": 0.9564462197986824,
+      "latency_ms": 11332.116285999291,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_finance_broker_workflow_009",
+      "category": "broker_workflow",
+      "split": "german_primary",
+      "expected": "conflict",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "conflict",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "conflict": 0.9704284000069343,
+        "missing_authority": 0.0065132029147499885,
+        "missing_consent": 0.009185088363229413,
+        "missing_documents": 0.0067199546748375255,
+        "ready": 0.007153354040248817
+      },
+      "brier": 0.0010975954514559376,
+      "nll": 0.030017655491454742,
+      "max_probability": 0.9704284000069343,
+      "latency_ms": 12780.334113000208,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "en_finance_broker_workflow_009",
+      "category": "broker_workflow",
+      "split": "english_control",
+      "expected": "conflict",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "conflict",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "conflict": 0.9530151199619679,
+        "missing_authority": 0.008375039188427849,
+        "missing_consent": 0.015165237287854965,
+        "missing_documents": 0.009198181273615444,
+        "ready": 0.014246422288133831
+      },
+      "brier": 0.002795271742347046,
+      "nll": 0.04812450980639755,
+      "max_probability": 0.9530151199619679,
+      "latency_ms": 9775.829936999799,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_finance_broker_workflow_010",
+      "category": "broker_workflow",
+      "split": "german_primary",
+      "expected": "conflict",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "conflict",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "conflict": 0.928564320883764,
+        "missing_authority": 0.006556878408380765,
+        "missing_consent": 0.0462304955142375,
+        "missing_documents": 0.01303990945499285,
+        "ready": 0.005608395738624918
+      },
+      "brier": 0.007484800962107505,
+      "nll": 0.07411562661588679,
+      "max_probability": 0.928564320883764,
+      "latency_ms": 11470.116468000924,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_finance_broker_document_001",
+      "category": "broker_document",
+      "split": "german_primary",
+      "expected": "application",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "application",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "advisory_record": 0.005568522261999083,
+        "application": 0.9737866928990941,
+        "authority": 0.008359342232505233,
+        "other": 0.005568522261999083,
+        "policy": 0.00671692034440247
+      },
+      "brier": 0.0008641499710043536,
+      "nll": 0.02656300045414476,
+      "max_probability": 0.9737866928990941,
+      "latency_ms": 11325.601849999657,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_finance_broker_document_002",
+      "category": "broker_document",
+      "split": "german_primary",
+      "expected": "application",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "application",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "advisory_record": 0.01034023005110266,
+        "application": 0.9380982324038807,
+        "authority": 0.014582061833492335,
+        "other": 0.019931317229606765,
+        "policy": 0.017048158481917614
+      },
+      "brier": 0.0048392828304812865,
+      "nll": 0.06390061008196035,
+      "max_probability": 0.9380982324038807,
+      "latency_ms": 11140.961981000146,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_finance_broker_document_003",
+      "category": "broker_document",
+      "split": "german_primary",
+      "expected": "policy",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "policy",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "advisory_record": 0.004435659586572545,
+        "application": 0.007088163722097818,
+        "authority": 0.007313166144013924,
+        "other": 0.004435659586572545,
+        "policy": 0.9767273509607431
+      },
+      "brier": 0.000684690809241544,
+      "nll": 0.023547733479878236,
+      "max_probability": 0.9767273509607431,
+      "latency_ms": 10241.76359500052,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "en_finance_broker_document_003",
+      "category": "broker_document",
+      "split": "english_control",
+      "expected": "policy",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "policy",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "advisory_record": 0.002579990469478337,
+        "application": 0.005130924141101796,
+        "authority": 0.003526429081528566,
+        "other": 0.0033127736771635615,
+        "policy": 0.9854498826307277
+      },
+      "brier": 0.00026809882032709654,
+      "nll": 0.01465700844585017,
+      "max_probability": 0.9854498826307277,
+      "latency_ms": 8675.559395000164,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_finance_broker_document_004",
+      "category": "broker_document",
+      "split": "german_primary",
+      "expected": "policy",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "policy",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "advisory_record": 0.00921244321897631,
+        "application": 0.013829514736004023,
+        "authority": 0.011465070288695244,
+        "other": 0.014721441397010477,
+        "policy": 0.9507715303593139
+      },
+      "brier": 0.0030477354845905,
+      "nll": 0.050481486772208144,
+      "max_probability": 0.9507715303593139,
+      "latency_ms": 11514.77462999901,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_finance_broker_document_005",
+      "category": "broker_document",
+      "split": "german_primary",
+      "expected": "advisory_record",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "advisory_record",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "advisory_record": 0.9752752528907626,
+        "application": 0.0056648604444349705,
+        "authority": 0.00622163167590171,
+        "other": 0.006419127494450375,
+        "policy": 0.006419127494450375
+      },
+      "brier": 0.0007645228597612703,
+      "nll": 0.025035537169252692,
+      "max_probability": 0.9752752528907626,
+      "latency_ms": 12352.747855999041,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_finance_broker_document_006",
+      "category": "broker_document",
+      "split": "german_primary",
+      "expected": "advisory_record",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "advisory_record",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "advisory_record": 0.9078150835458704,
+        "application": 0.0147885492248382,
+        "authority": 0.024382195434542408,
+        "other": 0.043465965749988136,
+        "policy": 0.009548206044760853
+      },
+      "brier": 0.011291709881290893,
+      "nll": 0.09671457360334808,
+      "max_probability": 0.9078150835458704,
+      "latency_ms": 10916.870156001096,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_finance_broker_document_007",
+      "category": "broker_document",
+      "split": "german_primary",
+      "expected": "authority",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "authority",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "advisory_record": 0.005995968830766113,
+        "application": 0.008724083204833907,
+        "authority": 0.9659563316488029,
+        "other": 0.013512124326329852,
+        "policy": 0.00581149198926728
+      },
+      "brier": 0.0014873835677421954,
+      "nll": 0.034636651123913065,
+      "max_probability": 0.9659563316488029,
+      "latency_ms": 11800.401098000293,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_finance_broker_document_008",
+      "category": "broker_document",
+      "split": "german_primary",
+      "expected": "authority",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "authority",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "advisory_record": 0.017021744056281003,
+        "application": 0.011338926237232785,
+        "authority": 0.9366447591216702,
+        "other": 0.024004506617910412,
+        "policy": 0.010990063966905623
+      },
+      "brier": 0.005129195409648114,
+      "nll": 0.06545119443405292,
+      "max_probability": 0.9366447591216702,
+      "latency_ms": 11543.56915199969,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_finance_broker_document_009",
+      "category": "broker_document",
+      "split": "german_primary",
+      "expected": "other",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "other",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "advisory_record": 0.15097291261421064,
+        "application": 0.22841472157935613,
+        "authority": 0.023701490039700977,
+        "other": 0.5787383123910248,
+        "policy": 0.018172563375707454
+      },
+      "brier": 0.2533195175143008,
+      "nll": 0.5469048683583497,
+      "max_probability": 0.5787383123910248,
+      "latency_ms": 10769.336199000463,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "en_finance_broker_document_009",
+      "category": "broker_document",
+      "split": "english_control",
+      "expected": "other",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "other",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "advisory_record": 0.02749849886631778,
+        "application": 0.04394247431988799,
+        "authority": 0.02583245030603316,
+        "other": 0.8826082447462705,
+        "policy": 0.020118331761490537
+      },
+      "brier": 0.01753999545248549,
+      "nll": 0.12487384076014828,
+      "max_probability": 0.8826082447462705,
+      "latency_ms": 9100.376389000303,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_finance_broker_document_010",
+      "category": "broker_document",
+      "split": "german_primary",
+      "expected": "other",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "other",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "advisory_record": 0.11252125729877992,
+        "application": 0.22116816785377827,
+        "authority": 0.018804189448199067,
+        "other": 0.5625708887842968,
+        "policy": 0.08493549661494594
+      },
+      "brier": 0.26048825528088654,
+      "nll": 0.5752381283385661,
+      "max_probability": 0.5625708887842968,
+      "latency_ms": 10897.21021600053,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_finance_finance_intent_001",
+      "category": "finance_intent",
+      "split": "german_primary",
+      "expected": "general_info",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "general_info",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "clarify": 0.005925184733812408,
+        "general_info": 0.9810140560135006,
+        "portfolio_view": 0.003947023714023322,
+        "recommendation": 0.004201584933863499,
+        "savings_change": 0.004912150604800198
+      },
+      "brier": 0.00045293541890806813,
+      "nll": 0.019168491269166955,
+      "max_probability": 0.9810140560135006,
+      "latency_ms": 11096.710002000691,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "en_finance_finance_intent_001",
+      "category": "finance_intent",
+      "split": "english_control",
+      "expected": "general_info",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "general_info",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "clarify": 0.004827870064731959,
+        "general_info": 0.9870471732071384,
+        "portfolio_view": 0.0027508370487143367,
+        "recommendation": 0.0023529159354349887,
+        "savings_change": 0.0030212037439802616
+      },
+      "brier": 0.0002133150412182515,
+      "nll": 0.013037446154670099,
+      "max_probability": 0.9870471732071384,
+      "latency_ms": 8358.14314900017,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_finance_finance_intent_002",
+      "category": "finance_intent",
+      "split": "german_primary",
+      "expected": "general_info",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "general_info",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "clarify": 0.020725335192337734,
+        "general_info": 0.9641053605826233,
+        "portfolio_view": 0.0048463789592619695,
+        "recommendation": 0.00532270577864562,
+        "savings_change": 0.005000219487131424
+      },
+      "brier": 0.0017947854384805391,
+      "nll": 0.036554695133687615,
+      "max_probability": 0.9641053605826233,
+      "latency_ms": 11015.602044000843,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_finance_finance_intent_003",
+      "category": "finance_intent",
+      "split": "german_primary",
+      "expected": "portfolio_view",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "portfolio_view",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "clarify": 0.0035370152213853603,
+        "general_info": 0.0037651331655283115,
+        "portfolio_view": 0.9845546990565048,
+        "recommendation": 0.004007962981199425,
+        "savings_change": 0.004135189575382086
+      },
+      "brier": 0.0002984075857486193,
+      "nll": 0.015565822206141427,
+      "max_probability": 0.9845546990565048,
+      "latency_ms": 11293.339401001504,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_finance_finance_intent_004",
+      "category": "finance_intent",
+      "split": "german_primary",
+      "expected": "portfolio_view",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "portfolio_view",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "clarify": 0.005204442178062788,
+        "general_info": 0.005369649016142566,
+        "portfolio_view": 0.9764148729769968,
+        "recommendation": 0.005897406211291427,
+        "savings_change": 0.007113629617506363
+      },
+      "brier": 0.0006975606919885977,
+      "nll": 0.02386770811621824,
+      "max_probability": 0.9764148729769968,
+      "latency_ms": 11350.824090999595,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_finance_finance_intent_005",
+      "category": "finance_intent",
+      "split": "german_primary",
+      "expected": "savings_change",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "savings_change",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "clarify": 0.008552983701264295,
+        "general_info": 0.0075479819438750255,
+        "portfolio_view": 0.009104604158721837,
+        "recommendation": 0.009104604158721837,
+        "savings_change": 0.965689826037417
+      },
+      "brier": 0.0014731012327358916,
+      "nll": 0.034912587388964925,
+      "max_probability": 0.965689826037417,
+      "latency_ms": 12484.419270000217,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_finance_finance_intent_006",
+      "category": "finance_intent",
+      "split": "german_primary",
+      "expected": "savings_change",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "savings_change",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "clarify": 0.0022435651250330988,
+        "general_info": 0.0023882626155496325,
+        "portfolio_view": 0.0025422919581073755,
+        "recommendation": 0.0026229931533207403,
+        "savings_change": 0.9902028871479892
+      },
+      "brier": 0.00012006414450875671,
+      "nll": 0.009845420336999634,
+      "max_probability": 0.9902028871479892,
+      "latency_ms": 12644.263833000878,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_finance_finance_intent_007",
+      "category": "finance_intent",
+      "split": "german_primary",
+      "expected": "recommendation",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "recommendation",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "clarify": 0.006398750939219318,
+        "general_info": 0.003319628539019936,
+        "portfolio_view": 0.0034250046616129144,
+        "recommendation": 0.983639121742667,
+        "savings_change": 0.003217494117480815
+      },
+      "brier": 0.0003417252098986016,
+      "nll": 0.016496195394193898,
+      "max_probability": 0.983639121742667,
+      "latency_ms": 11407.387748000474,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "en_finance_finance_intent_007",
+      "category": "finance_intent",
+      "split": "english_control",
+      "expected": "recommendation",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "recommendation",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "clarify": 0.0010955349079652176,
+        "general_info": 0.0008802870478077214,
+        "portfolio_view": 0.0009668062183609174,
+        "recommendation": 0.9959955429960013,
+        "savings_change": 0.0010618288298647773
+      },
+      "brier": 2.007297264577559e-05,
+      "nll": 0.004012496311164333,
+      "max_probability": 0.9959955429960013,
+      "latency_ms": 8668.281619000481,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_finance_finance_intent_008",
+      "category": "finance_intent",
+      "split": "german_primary",
+      "expected": "recommendation",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "recommendation",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "clarify": 0.02894846493082546,
+        "general_info": 0.028499660588805965,
+        "portfolio_view": 0.013253573130762978,
+        "recommendation": 0.9147420985290096,
+        "savings_change": 0.014556202820596057
+      },
+      "brier": 0.009306694280052296,
+      "nll": 0.08911311296761615,
+      "max_probability": 0.9147420985290096,
+      "latency_ms": 11002.42699500086,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_finance_finance_intent_009",
+      "category": "finance_intent",
+      "split": "german_primary",
+      "expected": "clarify",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "clarify",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "clarify": 0.7602784009267449,
+        "general_info": 0.04157232477675257,
+        "portfolio_view": 0.016536328879981008,
+        "recommendation": 0.07586816670049665,
+        "savings_change": 0.10574477871602483
+      },
+      "brier": 0.07640609036660455,
+      "nll": 0.27407059577058024,
+      "max_probability": 0.7602784009267449,
+      "latency_ms": 10728.371146000427,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_finance_finance_intent_010",
+      "category": "finance_intent",
+      "split": "german_primary",
+      "expected": "clarify",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "portfolio_view",
+      "correct": false,
+      "strict_correct": false,
+      "error": null,
+      "probabilities": {
+        "clarify": 0.027635326609015465,
+        "general_info": 0.0181236881762743,
+        "portfolio_view": 0.9295679330825806,
+        "recommendation": 0.013680478557944298,
+        "savings_change": 0.010992573574185371
+      },
+      "brier": 1.810226060514646,
+      "nll": 3.588660375094217,
+      "max_probability": 0.9295679330825806,
+      "latency_ms": 11440.944289999607,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_finance_synthetic_rule_check_001",
+      "category": "synthetic_rule_check",
+      "split": "german_primary",
+      "expected": "passes",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "passes",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "conflict": 0.03436024910748376,
+        "fails": 0.09052719310711611,
+        "missing": 0.03436024910748376,
+        "out_of_scope": 0.040171199145483956,
+        "passes": 0.8005811095324324
+      },
+      "brier": 0.05193804524541161,
+      "nll": 0.22241742808995785,
+      "max_probability": 0.8005811095324324,
+      "latency_ms": 12255.13821200002,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "en_finance_synthetic_rule_check_001",
+      "category": "synthetic_rule_check",
+      "split": "english_control",
+      "expected": "passes",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "passes",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "conflict": 0.03180086281635992,
+        "fails": 0.06732242642204647,
+        "missing": 0.030822454422260042,
+        "out_of_scope": 0.043466628164549166,
+        "passes": 0.8265876281747844
+      },
+      "brier": 0.03845482613787112,
+      "nll": 0.19044934414113932,
+      "max_probability": 0.8265876281747844,
+      "latency_ms": 10718.615203999434,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_finance_synthetic_rule_check_002",
+      "category": "synthetic_rule_check",
+      "split": "german_primary",
+      "expected": "passes",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "fails",
+      "correct": false,
+      "strict_correct": false,
+      "error": null,
+      "probabilities": {
+        "conflict": 0.05058141835467084,
+        "fails": 0.640754764085671,
+        "missing": 0.07593170610019345,
+        "out_of_scope": 0.05058141835467084,
+        "passes": 0.18215069310479381
+      },
+      "brier": 1.0903267402442796,
+      "nll": 1.7029209504028036,
+      "max_probability": 0.640754764085671,
+      "latency_ms": 11467.486687999553,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_finance_synthetic_rule_check_003",
+      "category": "synthetic_rule_check",
+      "split": "german_primary",
+      "expected": "fails",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "fails",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "conflict": 0.08559309117244318,
+        "fails": 0.7055513385686126,
+        "missing": 0.0666599676017485,
+        "out_of_scope": 0.0666599676017485,
+        "passes": 0.07553563505544725
+      },
+      "brier": 0.10861892619975198,
+      "nll": 0.34877574128136807,
+      "max_probability": 0.7055513385686126,
+      "latency_ms": 12663.923374999285,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_finance_synthetic_rule_check_004",
+      "category": "synthetic_rule_check",
+      "split": "german_primary",
+      "expected": "fails",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "fails",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "conflict": 0.08652281596292066,
+        "fails": 0.6443362072037597,
+        "missing": 0.048534903204546335,
+        "out_of_scope": 0.048534903204546335,
+        "passes": 0.17207117042422693
+      },
+      "brier": 0.16830269253767308,
+      "nll": 0.4395346282287487,
+      "max_probability": 0.6443362072037597,
+      "latency_ms": 12522.35110699985,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "en_finance_synthetic_rule_check_004",
+      "category": "synthetic_rule_check",
+      "split": "english_control",
+      "expected": "fails",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "passes",
+      "correct": false,
+      "strict_correct": false,
+      "error": null,
+      "probabilities": {
+        "conflict": 0.048571903801395415,
+        "fails": 0.19135664617296286,
+        "missing": 0.015892666010849172,
+        "out_of_scope": 0.044225220131410885,
+        "passes": 0.6999535638833817
+      },
+      "brier": 1.1484067420491824,
+      "nll": 1.6536163346435089,
+      "max_probability": 0.6999535638833817,
+      "latency_ms": 10447.826411000278,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_finance_synthetic_rule_check_005",
+      "category": "synthetic_rule_check",
+      "split": "german_primary",
+      "expected": "missing",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "missing",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "conflict": 0.01710819995861314,
+        "fails": 0.12840416907887747,
+        "missing": 0.8179042859198127,
+        "out_of_scope": 0.020001509971902615,
+        "passes": 0.01658183507079412
+      },
+      "brier": 0.050614187884505314,
+      "nll": 0.20100995910355943,
+      "max_probability": 0.8179042859198127,
+      "latency_ms": 12274.8837679992,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_finance_synthetic_rule_check_006",
+      "category": "synthetic_rule_check",
+      "split": "german_primary",
+      "expected": "missing",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "missing",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "conflict": 0.04683175857483441,
+        "fails": 0.21319059331680065,
+        "missing": 0.6566732770455359,
+        "out_of_scope": 0.04683175857483441,
+        "passes": 0.0364726124879946
+      },
+      "brier": 0.1690401464575434,
+      "nll": 0.42056867940207415,
+      "max_probability": 0.6566732770455359,
+      "latency_ms": 12915.48100700129,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_finance_synthetic_rule_check_007",
+      "category": "synthetic_rule_check",
+      "split": "german_primary",
+      "expected": "conflict",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "conflict",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "conflict": 0.6426328992745545,
+        "fails": 0.20700876337659074,
+        "missing": 0.055715653837786414,
+        "out_of_scope": 0.045473795214765536,
+        "passes": 0.04916888829630282
+      },
+      "brier": 0.17815355250571685,
+      "nll": 0.442181636482749,
+      "max_probability": 0.6426328992745545,
+      "latency_ms": 13663.628194000921,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_finance_synthetic_rule_check_008",
+      "category": "synthetic_rule_check",
+      "split": "german_primary",
+      "expected": "conflict",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "conflict",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "conflict": 0.8618565609312351,
+        "fails": 0.04514457679831683,
+        "missing": 0.032516418404109806,
+        "out_of_scope": 0.02532381158722975,
+        "passes": 0.03515863227910851
+      },
+      "brier": 0.024056384894918906,
+      "nll": 0.14866642479687586,
+      "max_probability": 0.8618565609312351,
+      "latency_ms": 14475.666635999005,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_finance_synthetic_rule_check_009",
+      "category": "synthetic_rule_check",
+      "split": "german_primary",
+      "expected": "out_of_scope",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "out_of_scope",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "conflict": 0.028627407232335318,
+        "fails": 0.1476714037011773,
+        "missing": 0.16282007340818752,
+        "out_of_scope": 0.6464863515866749,
+        "passes": 0.014394764071624936
+      },
+      "brier": 0.1743158570677474,
+      "nll": 0.43620319222791176,
+      "max_probability": 0.6464863515866749,
+      "latency_ms": 11461.440130999108,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_finance_synthetic_rule_check_010",
+      "category": "synthetic_rule_check",
+      "split": "german_primary",
+      "expected": "out_of_scope",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "out_of_scope",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "conflict": 0.03778728090638801,
+        "fails": 0.21575856168613106,
+        "missing": 0.11684856542041792,
+        "out_of_scope": 0.6074782002577964,
+        "passes": 0.022127391729266584
+      },
+      "brier": 0.21619620751757496,
+      "nll": 0.4984389887605985,
+      "max_probability": 0.6074782002577964,
+      "latency_ms": 11550.223641999764,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_finance_advice_escalation_001",
+      "category": "advice_escalation",
+      "split": "german_primary",
+      "expected": "prohibited_request",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "prohibited_request",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "clarify": 0.012195425852015981,
+        "out_of_scope": 0.012582550592866785,
+        "prohibited_request": 0.961263417231621,
+        "qualified_review": 0.006326903509359974,
+        "routine": 0.007631702814136198
+      },
+      "brier": 0.001905844431565594,
+      "nll": 0.03950680015137847,
+      "max_probability": 0.961263417231621,
+      "latency_ms": 13129.082677000042,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_finance_advice_escalation_002",
+      "category": "advice_escalation",
+      "split": "german_primary",
+      "expected": "prohibited_request",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "prohibited_request",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "clarify": 0.011595123663453825,
+        "out_of_scope": 0.01196319166502341,
+        "prohibited_request": 0.9578077971526943,
+        "qualified_review": 0.009316943759414251,
+        "routine": 0.009316943759414251
+      },
+      "brier": 0.002231357710725243,
+      "nll": 0.043108150416959305,
+      "max_probability": 0.9578077971526943,
+      "latency_ms": 12600.071406999632,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "en_finance_advice_escalation_002",
+      "category": "advice_escalation",
+      "split": "english_control",
+      "expected": "prohibited_request",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "prohibited_request",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "clarify": 0.0061394051360602565,
+        "out_of_scope": 0.007177691981893997,
+        "prohibited_request": 0.9775411589046363,
+        "qualified_review": 0.0037237375899143964,
+        "routine": 0.005418006387495037
+      },
+      "brier": 0.0006368321158119029,
+      "nll": 0.022714881712758275,
+      "max_probability": 0.9775411589046363,
+      "latency_ms": 9931.896394000432,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_finance_advice_escalation_003",
+      "category": "advice_escalation",
+      "split": "german_primary",
+      "expected": "qualified_review",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "qualified_review",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "clarify": 0.08182566233690064,
+        "out_of_scope": 0.05893681461826628,
+        "prohibited_request": 0.0710913719724732,
+        "qualified_review": 0.7407890889401326,
+        "routine": 0.04735706213222722
+      },
+      "brier": 0.08465595804943102,
+      "nll": 0.30003932451115733,
+      "max_probability": 0.7407890889401326,
+      "latency_ms": 11970.923116999984,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_finance_advice_escalation_004",
+      "category": "advice_escalation",
+      "split": "german_primary",
+      "expected": "qualified_review",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "qualified_review",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "clarify": 0.035897570490259836,
+        "out_of_scope": 0.028844506524625498,
+        "prohibited_request": 0.014964333275497893,
+        "qualified_review": 0.904364140849545,
+        "routine": 0.015929448860071773
+      },
+      "brier": 0.011744537290563824,
+      "nll": 0.10052318902212518,
+      "max_probability": 0.904364140849545,
+      "latency_ms": 12451.375943999665,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_finance_advice_escalation_005",
+      "category": "advice_escalation",
+      "split": "german_primary",
+      "expected": "clarify",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "clarify",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "clarify": 0.8818296794856555,
+        "out_of_scope": 0.032120642892377184,
+        "prohibited_request": 0.02662894882514671,
+        "qualified_review": 0.029246177425864363,
+        "routine": 0.030174551370956284
+      },
+      "brier": 0.017470903710278433,
+      "nll": 0.12575634878205466,
+      "max_probability": 0.8818296794856555,
+      "latency_ms": 13232.30688700096,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_finance_advice_escalation_006",
+      "category": "advice_escalation",
+      "split": "german_primary",
+      "expected": "clarify",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "clarify",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "clarify": 0.9125747187721229,
+        "out_of_scope": 0.024130037613639438,
+        "prohibited_request": 0.028655130730944143,
+        "qualified_review": 0.020004504211003665,
+        "routine": 0.014635608672289828
+      },
+      "brier": 0.009660936260153017,
+      "nll": 0.09148531329188017,
+      "max_probability": 0.9125747187721229,
+      "latency_ms": 11832.50195599976,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_finance_advice_escalation_007",
+      "category": "advice_escalation",
+      "split": "german_primary",
+      "expected": "routine",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "routine",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "clarify": 0.014815282669902924,
+        "out_of_scope": 0.022240375127956392,
+        "prohibited_request": 0.014359464512632205,
+        "qualified_review": 0.013917670211251657,
+        "routine": 0.9346672074782568
+      },
+      "brier": 0.005382396430309194,
+      "nll": 0.06756474088153598,
+      "max_probability": 0.9346672074782568,
+      "latency_ms": 12885.060803999295,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_finance_advice_escalation_008",
+      "category": "advice_escalation",
+      "split": "german_primary",
+      "expected": "routine",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "routine",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "clarify": 0.024961754261225856,
+        "out_of_scope": 0.028285374390765335,
+        "prohibited_request": 0.015140069394818274,
+        "qualified_review": 0.0166281142278518,
+        "routine": 0.9149846877253387
+      },
+      "brier": 0.009156470785436169,
+      "nll": 0.08884794857304863,
+      "max_probability": 0.9149846877253387,
+      "latency_ms": 12339.446928999678,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "en_finance_advice_escalation_008",
+      "category": "advice_escalation",
+      "split": "english_control",
+      "expected": "routine",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "routine",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "clarify": 0.03581785290553914,
+        "out_of_scope": 0.07946537913684393,
+        "prohibited_request": 0.028334253448962118,
+        "qualified_review": 0.028334253448962118,
+        "routine": 0.8280482610596926
+      },
+      "brier": 0.038770725429740846,
+      "nll": 0.18868383999148133,
+      "max_probability": 0.8280482610596926,
+      "latency_ms": 10067.333171999053,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_finance_advice_escalation_009",
+      "category": "advice_escalation",
+      "split": "german_primary",
+      "expected": "out_of_scope",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "out_of_scope",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "clarify": 0.03215725658533745,
+        "out_of_scope": 0.9324594558073033,
+        "prohibited_request": 0.007880475221621113,
+        "qualified_review": 0.006740527564491318,
+        "routine": 0.0207622848212469
+      },
+      "brier": 0.006134423333505679,
+      "nll": 0.06992960743642736,
+      "max_probability": 0.9324594558073033,
+      "latency_ms": 13736.139071999787,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_finance_advice_escalation_010",
+      "category": "advice_escalation",
+      "split": "german_primary",
+      "expected": "out_of_scope",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "out_of_scope",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "clarify": 0.14691913209996632,
+        "out_of_scope": 0.6900453010017721,
+        "prohibited_request": 0.06418421155317246,
+        "qualified_review": 0.018972816051763385,
+        "routine": 0.07987853929332572
+      },
+      "brier": 0.12851730860936125,
+      "nll": 0.37099802992018033,
+      "max_probability": 0.6900453010017721,
+      "latency_ms": 12852.806385999429,
+      "probability_source": "unrounded"
+    }
+  ]
+}

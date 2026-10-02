@@ -1,0 +1,357 @@
+{
+  "status": "pass",
+  "source_predictions_sha256": "2ba1c7df48957da6bf863c32f5adc8e490aab74e9020517d45a01ac2b49a0229",
+  "freeze_hashes_verified": true,
+  "n_unique_scenarios": 120,
+  "n_payloads": 180,
+  "n_present": 180,
+  "legacy_report_fields_changed": [],
+  "rounded_probability_mismatches": [],
+  "splits": {
+    "german_primary": {
+      "n": 120,
+      "correct": 116,
+      "strict_correct": 116,
+      "choice_valid": 120,
+      "schema_valid": 120,
+      "accuracy": 0.9666666666666667,
+      "per_category": {
+        "admin_intent": {
+          "n": 20,
+          "correct": 20,
+          "accuracy": 1.0,
+          "macro_f1": 1.0,
+          "brier_sum": 0.01140496653447555,
+          "nll": 0.06777232395917268,
+          "ece_5_bins": 0.06243126242334061,
+          "n_probability_vectors": 20,
+          "n_ece": 20
+        },
+        "ambiguity_abstain": {
+          "n": 20,
+          "correct": 18,
+          "accuracy": 0.9,
+          "macro_f1": 0.9027777777777778,
+          "brier_sum": 0.25805848480364607,
+          "nll": 0.5338598314589037,
+          "ece_5_bins": 0.14687912465024955,
+          "n_probability_vectors": 20,
+          "n_ece": 20
+        },
+        "document_classification": {
+          "n": 20,
+          "correct": 19,
+          "accuracy": 0.95,
+          "macro_f1": 0.9492063492063492,
+          "brier_sum": 0.10433266527690169,
+          "nll": 0.20560715462500365,
+          "ece_5_bins": 0.07790687441565114,
+          "n_probability_vectors": 20,
+          "n_ece": 20
+        },
+        "it_routing": {
+          "n": 20,
+          "correct": 19,
+          "accuracy": 0.95,
+          "macro_f1": 0.9492063492063492,
+          "brier_sum": 0.05083119315361443,
+          "nll": 0.14667822780894962,
+          "ece_5_bins": 0.0846408024312603,
+          "n_probability_vectors": 20,
+          "n_ece": 20
+        },
+        "tool_selection": {
+          "n": 20,
+          "correct": 20,
+          "accuracy": 1.0,
+          "macro_f1": 1.0,
+          "brier_sum": 0.013648828505142527,
+          "nll": 0.07645423475197075,
+          "ece_5_bins": 0.07010214518311902,
+          "n_probability_vectors": 20,
+          "n_ece": 20
+        },
+        "urgency": {
+          "n": 20,
+          "correct": 20,
+          "accuracy": 1.0,
+          "macro_f1": 1.0,
+          "brier_sum": 0.05665157015715735,
+          "nll": 0.1854186921866025,
+          "ece_5_bins": 0.16071542038047665,
+          "n_probability_vectors": 20,
+          "n_ece": 20
+        }
+      },
+      "category_macro_f1": 0.9668650793650794,
+      "timing": {
+        "latency_ms": {
+          "n": 120,
+          "min": 9023.97430199926,
+          "median": 10179.726433500946,
+          "p95": 11439.898920449468,
+          "max": 12511.684854000123
+        },
+        "encode_seconds": {
+          "n": 120,
+          "min": 0.0025147090000245953,
+          "median": 0.002747688500676304,
+          "p95": 0.0033851308989142127,
+          "max": 0.004292355999496067
+        },
+        "total_seconds": {
+          "n": 120,
+          "min": 9.026779537000039,
+          "median": 10.182493815999806,
+          "p95": 11.443001963399364,
+          "max": 12.514410720001251
+        },
+        "input_tokens": {
+          "n": 120,
+          "min": 434,
+          "median": 472.5,
+          "p95": 494.1,
+          "max": 505
+        }
+      }
+    },
+    "english_control": {
+      "n": 30,
+      "correct": 29,
+      "strict_correct": 29,
+      "choice_valid": 30,
+      "schema_valid": 30,
+      "accuracy": 0.9666666666666667,
+      "per_category": {
+        "admin_intent": {
+          "n": 5,
+          "correct": 5,
+          "accuracy": 1.0,
+          "macro_f1": 1.0,
+          "brier_sum": 0.0069555028794638955,
+          "nll": 0.04721021420064027,
+          "ece_5_bins": 0.04422560595413003,
+          "n_probability_vectors": 5,
+          "n_ece": 5
+        },
+        "ambiguity_abstain": {
+          "n": 5,
+          "correct": 5,
+          "accuracy": 1.0,
+          "macro_f1": 1.0,
+          "brier_sum": 0.11616912275539766,
+          "nll": 0.31886891242396376,
+          "ece_5_bins": 0.2625923807907499,
+          "n_probability_vectors": 5,
+          "n_ece": 5
+        },
+        "document_classification": {
+          "n": 5,
+          "correct": 5,
+          "accuracy": 1.0,
+          "macro_f1": 1.0,
+          "brier_sum": 0.05405235891091249,
+          "nll": 0.15827156551408772,
+          "ece_5_bins": 0.13290059642773072,
+          "n_probability_vectors": 5,
+          "n_ece": 5
+        },
+        "it_routing": {
+          "n": 5,
+          "correct": 5,
+          "accuracy": 1.0,
+          "macro_f1": 1.0,
+          "brier_sum": 0.007211580496560996,
+          "nll": 0.060726932320236196,
+          "ece_5_bins": 0.05765150272814949,
+          "n_probability_vectors": 5,
+          "n_ece": 5
+        },
+        "tool_selection": {
+          "n": 5,
+          "correct": 5,
+          "accuracy": 1.0,
+          "macro_f1": 1.0,
+          "brier_sum": 0.0015066044741204989,
+          "nll": 0.03410162654437741,
+          "ece_5_bins": 0.033495738567266994,
+          "n_probability_vectors": 5,
+          "n_ece": 5
+        },
+        "urgency": {
+          "n": 5,
+          "correct": 4,
+          "accuracy": 0.8,
+          "macro_f1": 0.7,
+          "brier_sum": 0.17731014567499287,
+          "nll": 0.27758937352842905,
+          "ece_5_bins": 0.16128846145733675,
+          "n_probability_vectors": 5,
+          "n_ece": 5
+        }
+      },
+      "category_macro_f1": 0.9500000000000001,
+      "timing": {
+        "latency_ms": {
+          "n": 30,
+          "min": 7742.37777000053,
+          "median": 8511.288452998997,
+          "p95": 9261.319606300094,
+          "max": 9349.531939000371
+        },
+        "encode_seconds": {
+          "n": 30,
+          "min": 0.0024651929998071864,
+          "median": 0.0026759154998217127,
+          "p95": 0.00407435759934742,
+          "max": 0.004940782999256044
+        },
+        "total_seconds": {
+          "n": 30,
+          "min": 7.744963053999527,
+          "median": 8.514058003000173,
+          "p95": 9.265571635899231,
+          "max": 9.352407050000693
+        },
+        "input_tokens": {
+          "n": 30,
+          "min": 386,
+          "median": 399.5,
+          "p95": 408.55,
+          "max": 426
+        }
+      }
+    },
+    "mixed_schema_diagnostic": {
+      "n": 30,
+      "correct": 29,
+      "strict_correct": 29,
+      "choice_valid": 30,
+      "schema_valid": 30,
+      "accuracy": 0.9666666666666667,
+      "per_category": {
+        "admin_intent": {
+          "n": 5,
+          "correct": 5,
+          "accuracy": 1.0,
+          "macro_f1": 1.0,
+          "brier_sum": 0.02866189801190141,
+          "nll": 0.09779281229393508,
+          "ece_5_bins": 0.08405337247265736,
+          "n_probability_vectors": 5,
+          "n_ece": 5
+        },
+        "ambiguity_abstain": {
+          "n": 5,
+          "correct": 5,
+          "accuracy": 1.0,
+          "macro_f1": 1.0,
+          "brier_sum": 0.1155193852480751,
+          "nll": 0.3112024826851977,
+          "ece_5_bins": 0.2582723958656035,
+          "n_probability_vectors": 5,
+          "n_ece": 5
+        },
+        "document_classification": {
+          "n": 5,
+          "correct": 4,
+          "accuracy": 0.8,
+          "macro_f1": 0.7333333333333333,
+          "brier_sum": 0.20277622157510625,
+          "nll": 0.3464305040895545,
+          "ece_5_bins": 0.16396372747609878,
+          "n_probability_vectors": 5,
+          "n_ece": 5
+        },
+        "it_routing": {
+          "n": 5,
+          "correct": 5,
+          "accuracy": 1.0,
+          "macro_f1": 1.0,
+          "brier_sum": 0.004954720805204771,
+          "nll": 0.055347652608559075,
+          "ece_5_bins": 0.053271845322332465,
+          "n_probability_vectors": 5,
+          "n_ece": 5
+        },
+        "tool_selection": {
+          "n": 5,
+          "correct": 5,
+          "accuracy": 1.0,
+          "macro_f1": 1.0,
+          "brier_sum": 0.0026330725190021084,
+          "nll": 0.04223211624099544,
+          "ece_5_bins": 0.041156579688415997,
+          "n_probability_vectors": 5,
+          "n_ece": 5
+        },
+        "urgency": {
+          "n": 5,
+          "correct": 5,
+          "accuracy": 1.0,
+          "macro_f1": 1.0,
+          "brier_sum": 0.05661967365061471,
+          "nll": 0.17018759992752325,
+          "ece_5_bins": 0.1455254694835959,
+          "n_probability_vectors": 5,
+          "n_ece": 5
+        }
+      },
+      "category_macro_f1": 0.9555555555555556,
+      "timing": {
+        "latency_ms": {
+          "n": 30,
+          "min": 7959.129484999721,
+          "median": 8805.39049500021,
+          "p95": 9783.841619899249,
+          "max": 9994.507494000572
+        },
+        "encode_seconds": {
+          "n": 30,
+          "min": 0.002427358000204549,
+          "median": 0.0026704265001171734,
+          "p95": 0.0033310920000076292,
+          "max": 0.003652659999715979
+        },
+        "total_seconds": {
+          "n": 30,
+          "min": 7.961638644001141,
+          "median": 8.808131973500167,
+          "p95": 9.78673774889894,
+          "max": 9.997859622999385
+        },
+        "input_tokens": {
+          "n": 30,
+          "min": 386,
+          "median": 404.5,
+          "p95": 418.75,
+          "max": 430
+        }
+      }
+    }
+  },
+  "paired_all_planned": {
+    "german_id_vs_english_id": {
+      "n": 30,
+      "both_correct": 29,
+      "left_only_correct": 1,
+      "right_only_correct": 0,
+      "both_wrong": 0
+    },
+    "german_id_vs_mixed_id": {
+      "n": 30,
+      "both_correct": 29,
+      "left_only_correct": 1,
+      "right_only_correct": 0,
+      "both_wrong": 0
+    },
+    "mixed_id_vs_english_id": {
+      "n": 30,
+      "both_correct": 28,
+      "left_only_correct": 1,
+      "right_only_correct": 1,
+      "both_wrong": 0
+    }
+  },
+  "timing_scope": "CPU forward-only latency_ms; encoding and total separately recorded; not API end-to-end"
+}
