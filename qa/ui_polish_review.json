@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
-  "checked_at_utc": "2026-10-02T13:47:00Z",
-  "status": "model_free_checks_passed_browser_capture_pending",
+  "checked_at_utc": "2026-10-02T14:45:49.554217+00:00",
+  "status": "model_free_checks_and_genuine_browser_capture_passed",
   "base_feature_candidate_tree": "296cdd369fc6bc4f7536d0cfa69248e4c1016c15",
   "checks": {
     "python_unittest": {
-      "passed": 253,
+      "passed": 254,
       "failed": 0
     },
     "javascript_dom": {
@@ -24,9 +24,9 @@
     "private inputs absent from persistent browser storage and network until explicit local evaluation"
   ],
   "browser_capture": {
-    "status": "normal_sandboxed_chrome_working_mobile_select_fix_prepared",
-    "screenshots_generated": 0,
-    "reason": "Known cloud loopback/browser-process restrictions respected",
+    "status": "complete_capture_verified_and_visually_reviewed",
+    "screenshots_generated": 17,
+    "reason": "Original local restrictions respected; normal supported hosted Chrome channel passed",
     "supported_workflow": ".github/workflows/browser-gallery.yml",
     "triggers": "manual or narrowly scoped UI-source push to main",
     "requires": "ordinary permitted hosted runner, sandboxed Chromium, zero model inference, synthetic data only",
@@ -44,7 +44,16 @@
       "remaining_defect": "320px expanded private-import native format selector overflowed36px",
       "partial_images_published": false
     },
-    "mobile_fix": "Shrinkable nested label grid and full-width native selects; original overflow gate retained and stricter control bounds/focus tests added"
+    "mobile_fix": "Shrinkable nested label grid and full-width native selects; original overflow gate retained and stricter control bounds/focus tests added",
+    "final_ci_run": "https://github.com/storminator89/clef-benchmark/actions/runs/37020974987",
+    "final_ci_commit": "3b5b3743965f3ad77a5dd092296866920d2ca813",
+    "final_ci_result": {
+      "scenario_groups_passed": 8,
+      "screenshots": 17,
+      "model_inference_executed": false,
+      "source_and_png_hashes_verified": true,
+      "publication_review": "qa/browser_gallery_publication.json"
+    }
   },
   "hardware_validation": "No model or GPU execution performed by this UI update",
   "cost_controls": {

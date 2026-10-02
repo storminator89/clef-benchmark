@@ -36,8 +36,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 30603,
-      "sha256": "6dae1e22416da549ad229e59e67c9142e20d9fb3422be5172ee7ab7f4c05a001"
+      "bytes": 32332,
+      "sha256": "fb7d322a0150ff4d6b002e1701222d79fd73c92cc192736724664413d9ab2ad1"
     },
     {
       "path": "benchmark/README.md",
@@ -121,8 +121,8 @@
     },
     {
       "path": "docs/BROWSER_GALLERY.md",
-      "bytes": 11698,
-      "sha256": "5936ce6a54d0223de6e2241376ae88ce65de76b5f87738889ff1154ad0a442f9"
+      "bytes": 12828,
+      "sha256": "3d8591d96fd06a4f0c551f88baaf04362376a253b3cd02a142cfb7bf452d3713"
     },
     {
       "path": "docs/CI.md",
@@ -181,8 +181,103 @@
     },
     {
       "path": "docs/VALIDATION.md",
-      "bytes": 15710,
-      "sha256": "9a53cbbc7ed478257d7edf7b36e6005438184c7eebccca8dac281910c63ae620"
+      "bytes": 17266,
+      "sha256": "07bf8278a11b22d044fef0055db7042132d624352fb1792b4016b023bf71b0fa"
+    },
+    {
+      "path": "docs/screenshots/README-GALLERY.txt",
+      "bytes": 1737,
+      "sha256": "18a15518df3f1282033a9786c5dc027e770482a9c2112a3b25eb4582ca1d9ae3"
+    },
+    {
+      "path": "docs/screenshots/backend-readiness-light.png",
+      "bytes": 244595,
+      "sha256": "765d82e5f0531772dfa6151ab780d779b3437b2ab6133f7d4a9d8eecfe811e19"
+    },
+    {
+      "path": "docs/screenshots/bank-dashboard-320.png",
+      "bytes": 203580,
+      "sha256": "be41e5112f2d0135dc3dc79fa5719471b18c07314cbad8c385ae61013c08faed"
+    },
+    {
+      "path": "docs/screenshots/bank-dashboard-390.png",
+      "bytes": 203676,
+      "sha256": "dc87f41fb4f5f486fc2a4be72bdc081e0d3ccb0d3420e9af1f091d126015d870"
+    },
+    {
+      "path": "docs/screenshots/bank-dashboard-light.png",
+      "bytes": 246499,
+      "sha256": "a3eb88f8b58aeb819c9fb2e48eea3c5b937865428a3c216d8cfb958764c4a584"
+    },
+    {
+      "path": "docs/screenshots/bank-workbench-light.png",
+      "bytes": 290460,
+      "sha256": "c5a4912e35ae038928ce2c75872fcd1e67adfbe21b9fca444204a3431800ad6f"
+    },
+    {
+      "path": "docs/screenshots/custom-editor-320.png",
+      "bytes": 237147,
+      "sha256": "8fa6b613df092248e3f331af4741f010b662dd19c4cc9ab176627175ce40675d"
+    },
+    {
+      "path": "docs/screenshots/custom-editor-390.png",
+      "bytes": 241197,
+      "sha256": "e81c92bd3390110811d212285d695c8bb5a5895eb5aa800a8a56fab07ad0a04b"
+    },
+    {
+      "path": "docs/screenshots/custom-editor-light.png",
+      "bytes": 206435,
+      "sha256": "f4a97afa326eb59b3c15e6b7d80bfff082f897e5dd24ed963612d736fe3abf87"
+    },
+    {
+      "path": "docs/screenshots/custom-import-light.png",
+      "bytes": 178423,
+      "sha256": "7eb232c086771a7de107d391e06efc81ab2dbc5372efd087ee94ea1c64e6c44c"
+    },
+    {
+      "path": "docs/screenshots/insurance-cases-320.png",
+      "bytes": 54052,
+      "sha256": "86b0c6d4ae3e1ad4a5ead47859a6031fddab2c00c4bd0913cba5340a078f82f1"
+    },
+    {
+      "path": "docs/screenshots/insurance-cases-390.png",
+      "bytes": 57213,
+      "sha256": "e95f0f96affd7258c56d4f72afc185236cff7c66f31c1dc6b20998cb40b3f6d6"
+    },
+    {
+      "path": "docs/screenshots/insurance-document-320.png",
+      "bytes": 51061,
+      "sha256": "7cb572a9e962ce102bfbea6b23a5f144756912f35384964897f5def30da36495"
+    },
+    {
+      "path": "docs/screenshots/insurance-document-390.png",
+      "bytes": 55107,
+      "sha256": "535cd167fab7cec29f0104d6ae47484a4b43973261129e2ae05b57a0c5be91b1"
+    },
+    {
+      "path": "docs/screenshots/insurance-result-320.png",
+      "bytes": 55659,
+      "sha256": "90790d61ed5ae7a132ca94d4ca4d9e0acf35e72f4e548ff3fc2b1f81d52d1825"
+    },
+    {
+      "path": "docs/screenshots/insurance-result-390.png",
+      "bytes": 59776,
+      "sha256": "3694a8a080d18ef40ae6655445660303e4b3cddb9ac949d40379f0a76c90ba3f"
+    },
+    {
+      "path": "docs/screenshots/insurance-workbench-dark.png",
+      "bytes": 213402,
+      "sha256": "4056f4e843ed5c7308409b996b4bb8c891a6866c9b27c96a5fc8b5fb69a4b809"
+    },
+    {
+      "path": "docs/screenshots/insurance-workbench-light.png",
+      "bytes": 210968,
+      "sha256": "908cf64dd6dd77e844fc8f0e3e29033899865ff5a165b946748f2c39517655a6"
+    },
+    {
+      "path": "docs/screenshots/manifest.json",
+      "bytes": 14685,
+      "sha256": "842b00e047489dca7f5f1bc9fa62a8883d58c5c4ebb7b8876e4a175993fc8aa3"
     },
     {
       "path": "examples/custom_cases/support-spec.json",
@@ -1470,6 +1565,11 @@
       "sha256": "25dbd7002dfe00e6977080acfa1e5115c398b7cf63f8e5b4c254506c6d86ce69"
     },
     {
+      "path": "qa/browser_gallery_publication.json",
+      "bytes": 2778,
+      "sha256": "9cb97816c19de47ca8aaed6c8b660318124772274a8a3780f22f7cbad50938a0"
+    },
+    {
       "path": "qa/check_benchmark_integrity.py",
       "bytes": 3807,
       "sha256": "11631832453b853f0bbe7fa45fec476f8f9e22f724c453c814b4169a7385f7db"
@@ -1536,8 +1636,8 @@
     },
     {
       "path": "qa/ui_polish_review.json",
-      "bytes": 2858,
-      "sha256": "9d02d5659fd5b98f6a58e4832f14be08267296dfb5224952b8421eebf0623761"
+      "bytes": 3297,
+      "sha256": "c3147e167819680dc7fae6d8c6a9499048d2ee17becd2bdb580fe9cff5a23651"
     },
     {
       "path": "qa/verify_final_scores.py",

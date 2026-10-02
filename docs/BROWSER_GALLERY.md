@@ -192,3 +192,23 @@ Primary configuration references:
 
 An intended supported configuration is not a successful capture. Only an actual
 passing run, source/image verification and manual PNG review establish the gallery.
+
+
+## Verified published capture
+
+The [full capture run](https://github.com/storminator89/clef-benchmark/actions/runs/37020974987)
+passed all eight check groups at source commit
+`3b5b3743965f3ad77a5dd092296866920d2ca813`. The 17 original PNGs in
+[screenshots/](screenshots/) were source/hash verified and visually inspected.
+The unchanged [capture manifest](screenshots/manifest.json) records Chrome
+154.0.8037.57, Playwright 1.62.0, active sandboxing, synthetic inputs and no
+model inference. [Publication review](../qa/browser_gallery_publication.json)
+records the artifact identity and the exact verification boundary.
+
+For the existing artifact verifier, make a temporary directory containing
+`manifest.json`, `README-GALLERY.txt`, and a `screenshots/` subdirectory with
+these unchanged PNGs, then run `python tests/test_browser.py --verify-artifact
+TEMP_DIRECTORY` from this repository. The committed gallery is flattened for
+readable README image paths; the original hashes remain unchanged. If the
+checked source files evolve, compare against the recorded source commit instead
+of claiming a later source tree was captured.

@@ -8,7 +8,7 @@ Eine lokale Workbench für **Cloudflare Clef**: deutsche Benchmarks, transparent
 
 **Flash 9B als Standard · Fünf getrennte Textsuiten · Buildfreie Oberfläche · Apache-2.0**
 
-[Geprüfte CI](https://github.com/storminator89/clef-benchmark/actions/runs/37017832006) · [Echter CPU-Smoke](qa/setup_custom_smoke.json) · [Lizenz](LICENSE)
+[Geprüfte CI](https://github.com/storminator89/clef-benchmark/actions/runs/37020976072) · [Echter CPU-Smoke](qa/setup_custom_smoke.json) · [Lizenz](LICENSE)
 
 [Schnellstart](#schnellstart) · [Ergebnisse](#ergebnisse) · [Eigene Tests](#eigene-tests) · [Modell & Hardware](#modell-und-hardware) · [Agenten-Setup](AGENTS.md)
 
@@ -21,8 +21,44 @@ Clef Lab macht aus Modellantworten prüfbare Ergebnisse: Originaltext, Aufgabenr
 **Der Fokus liegt auf nachvollziehbarer Evaluation.** Das Projekt ist ein unabhängiger, experimenteller Test von Cloudflare Clef. Die kleinen synthetischen Suiten belegen weder State-of-the-Art-Leistung noch Produktionsreife oder Sicherheit bei echten Kundenanfragen.
 
 <!-- CLEF_GALLERY_START -->
-<!-- Only insert actual inspected PNGs, their verified manifest and the passing-run
-     README-GALLERY.txt here. No placeholder image links or browser-pass claim. -->
+## Ein Blick in die Workbench
+
+Echte Google-Chrome-Screenshots (Chromium) aus dem modellfreien Browserlauf. Gezeigt werden ausschließlich
+synthetische Testdaten und bereits aufgezeichnete Benchmarkantworten. Der private Editor
+zeigt keine neue oder simulierte Modellinferenz.
+
+### Versicherungsdokument: Originaltext, Goldreferenz und gespeicherte Modellantwort
+
+![Versicherungsdokument: Originaltext, Goldreferenz und gespeicherte Modellantwort](docs/screenshots/insurance-workbench-light.png)
+
+<details>
+<summary>Mehr ansehen: Bank-Support, private Tests, Dark Mode und Smartphone</summary>
+
+### Bank-Support: eigenständige Nenner für Anliegen, Priorität und nächsten Schritt
+
+![Bank-Support: eigenständige Nenner für Anliegen, Priorität und nächsten Schritt](docs/screenshots/bank-dashboard-light.png)
+
+### Privater Import: ausschließlich das mitgelieferte synthetische Beispiel, noch ohne Modellantwort
+
+![Privater Import: ausschließlich das mitgelieferte synthetische Beispiel, noch ohne Modellantwort](docs/screenshots/custom-import-light.png)
+
+### Eigene Tests: Eingabe und optionale Goldlabels bearbeiten, keine simulierte Inferenz
+
+![Eigene Tests: Eingabe und optionale Goldlabels bearbeiten, keine simulierte Inferenz](docs/screenshots/custom-editor-light.png)
+
+### Dieselbe echte Workbench im dunklen Design
+
+![Dieselbe echte Workbench im dunklen Design](docs/screenshots/insurance-workbench-dark.png)
+
+### Smartphone mit 390 CSS-Pixeln: eigener Prüfbereich
+
+![Smartphone mit 390 CSS-Pixeln: eigener Prüfbereich](docs/screenshots/insurance-result-390.png)
+
+Aufnahme: 2026-10-02T14:36:30.849929+00:00 · Chromium 154.0.8037.57 · Playwright 1.62.0.
+Quell- und Bildhashes sowie Viewport, Theme und Fall-ID stehen im
+[Aufnahmenachweis](docs/screenshots/manifest.json). Browserchecks sind keine neue Modellmessung.
+
+</details>
 <!-- CLEF_GALLERY_END -->
 
 ## Schnellstart
@@ -361,7 +397,7 @@ Die Importe verweigern unvollständige Läufe, fehlende IDs, geänderte Freeze-D
 
 Der vorbereitete [Browser-Gallery-Workflow](.github/workflows/browser-gallery.yml) verwendet **Playwright 1.62.0** und den normal installierten stabilen Google-Chrome-Kanal mit aktiviertem Chromium-Sandboxing auf einem gewöhnlichen `ubuntu-24.04`-Runner. Er prüft Desktop, Hell/Dunkel sowie 320-/390-Pixel-Ansichten mit öffentlichen synthetischen Fällen. Der Lauf verbietet Modellinferenz, nutzt keine Secrets und begrenzt das Artefakt auf **10 MiB mit einem Tag Aufbewahrung**, ohne Trace oder Video.
 
-**Browserstatus: noch kein erfolgreicher Capture nachgewiesen.** Der erste CI-Versuch mit dem heruntergeladenen Chromium-Headless-Shell stoppte vor dem ersten Bild an `No usable sandbox`. Der vorhandene normale Chrome-Kanal startete mit bestehendem AppArmor-Profil und aktivierter Sandbox erfolgreich. Die echte Prüfung fand anschließend einen 320-Pixel-Überlauf am privaten Dateiformat-Select; die Korrektur wird erneut geprüft. Es gab keine Sicherheitsänderung oder Sandbox-Abschaltung. Auch in der Erstellungssandbox war der Browserstart blockiert. Unit-/DOM-Tests sind kein Ersatz für CSS-Layout, tatsächliches Clipping oder sichtbare Fokuszustände. Erst ein vollständig bestandener Lauf mit überprüften Quell-/Bildhashes und anschließend geöffneten, visuell geprüften PNGs darf als Galerie ergänzt werden. Smartphone-Viewports ersetzen keinen Test auf physischen Geräten oder ein Screenreader-Audit.
+**Browserstatus: echte Desktop-/Mobile-Prüfung bestanden.** Der [vollständige Capture-Lauf](https://github.com/storminator89/clef-benchmark/actions/runs/37020974987) auf Commit `3b5b3743965f3ad77a5dd092296866920d2ca813` bestand am 2. Oktober 2026 alle acht Browser-Prüfgruppen und erzeugte 17 echte PNGs. Quell- und Bildhashes wurden abgeglichen, die veröffentlichten Bilder anschließend visuell geprüft. Geprüft wurden Desktop sowie 320/390 CSS-Pixel, Light/Dark, alle fünf Suiten, Replay, Navigation und privater Dateiimport. Der vorhandene Chrome-Kanal lief mit aktivierter Sandbox und unverändertem AppArmor-Profil; keine Modellinferenz war aktiv. Der zuvor entdeckte 320-Pixel-Select-Überlauf ist korrigiert und durch echte Browserprüfungen abgesichert. [Aufnahmenachweis](docs/screenshots/manifest.json) · [Prüfumfang und Grenzen](docs/BROWSER_GALLERY.md). Smartphone-Viewports ersetzen keinen Test auf physischen Geräten oder ein Screenreader-Audit.
 
 [Ausführen, prüfen und veröffentlichen](docs/BROWSER_GALLERY.md) · [Prüfgrenzen](docs/VALIDATION.md)
 
@@ -391,7 +427,7 @@ Der vorbereitete [Browser-Gallery-Workflow](.github/workflows/browser-gallery.ym
 
 Die sinnvolle Richtung ist mehr belastbare Evidenz. Diese Punkte sind **offene Validierungsziele, keine zugesagten Features oder Termine**:
 
-- [ ] Echte Desktop-/Mobile-Browserprüfung und eine ausschließlich daraus erzeugte, visuell geprüfte Galerie
+- [x] Echte Desktop-/Mobile-Browserprüfung und eine ausschließlich daraus erzeugte, visuell geprüfte Galerie
 - [ ] Frische Installation mit dem neuen Setup auf einem dokumentierten Zielrechner vollständig ausführen
 - [ ] CPU-BF16, AMD-ROCm und 27B jeweils gesondert auf Hardware validieren; Qualität, Speicherbedarf und Zeiten getrennt messen
 - [ ] Größere, repräsentativere und menschlich fachgeprüfte Tests für die jeweilige Anwendung schaffen

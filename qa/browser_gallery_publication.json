@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "status": "pass",
+  "reviewed_at_utc": "2026-10-02T14:45:49.554217+00:00",
+  "captured_source_commit": "3b5b3743965f3ad77a5dd092296866920d2ca813",
+  "capture_run_url": "https://github.com/storminator89/clef-benchmark/actions/runs/37020974987",
+  "capture_manifest_sha256": "842b00e047489dca7f5f1bc9fa62a8883d58c5c4ebb7b8876e4a175993fc8aa3",
+  "artifact_id": 11233435532,
+  "artifact_zip_sha256": "107b3ecd0c6fb119d14fa31e27d94324550844d8f4c74dc23d0df6535289726e",
+  "artifact_zip_bytes": 2691649,
+  "verification": {
+    "existing_artifact_verifier": "passed",
+    "source_file_hashes": "all matched captured source and release worktree",
+    "png_hashes_and_dimensions": "all 17 matched",
+    "manifest_and_png_bytes": "copied unchanged",
+    "checks_passed": 8,
+    "error_diagnostics": "all empty",
+    "chromium_sandbox": true,
+    "model_inference_executed": false,
+    "synthetic_inputs_only": true
+  },
+  "visual_review": {
+    "all_17_pngs_opened": true,
+    "six_readme_images_independently_opened": true,
+    "result": "No visible horizontal overflow, broken wrapping or unusable/clipped controls in captured mobile/form states; readable light/dark desktop hierarchy and explicit no-result states.",
+    "files": [
+      "insurance-workbench-light.png",
+      "insurance-workbench-dark.png",
+      "bank-workbench-light.png",
+      "bank-dashboard-light.png",
+      "backend-readiness-light.png",
+      "custom-import-light.png",
+      "custom-editor-light.png",
+      "insurance-cases-390.png",
+      "insurance-document-390.png",
+      "insurance-result-390.png",
+      "bank-dashboard-390.png",
+      "custom-editor-390.png",
+      "insurance-cases-320.png",
+      "insurance-document-320.png",
+      "insurance-result-320.png",
+      "bank-dashboard-320.png",
+      "custom-editor-320.png"
+    ],
+    "limitations": [
+      "Long mobile bank-dashboard and custom-editor full-page diagnostic PNGs can place fixed bottom navigation within the full-page image; these are not embedded in README.",
+      "Expanded mobile import controls passed real browser bounds/focus checks but were not separately captured for pixel review.",
+      "Emulated CSS viewports are not physical-phone, screenreader, cross-browser or performance validation."
+    ]
+  },
+  "publication": {
+    "images_directory": "docs/screenshots",
+    "capture_manifest": "docs/screenshots/manifest.json",
+    "original_fragment": "docs/screenshots/README-GALLERY.txt",
+    "readme_gallery_count": 6,
+    "image_editing": "none",
+    "layout_change": "Flattened artifact screenshots directory for relative README links; raw bytes unchanged",
+    "scope": "Only synthetic fixtures and already published recorded benchmark results; no customer inputs or model inference"
+  }
+}

@@ -218,3 +218,29 @@ Select-/Preset-Begrenzungen und Tastaturfokus bei 320/390 Pixeln. Smartphone-Pan
 Screenshots verwenden den tatsächlichen Viewport statt eines Vollseitenbilds,
 damit die fixe Navigation am Bildrand bleibt. Erst der erneute vollständige
 Capture und die Bildprüfung dürfen als visueller Erfolg bezeichnet werden.
+
+
+### Vollständig bestandene Browserprüfung und Galerie
+
+Der vollständige Wiederholungslauf auf
+`3b5b3743965f3ad77a5dd092296866920d2ca813` bestand am 2. Oktober 2026 alle acht
+Prüfgruppen: Desktop, 320/390 CSS-Pixel, alle fünf Suiten, Light/Dark,
+Zwei-/Drei-Feld-Replay, Back/Forward, Tastaturbedienung und privater Import
+mit JSON/JSONL/CSV. Keine Seiten-, Konsolen-, HTTP- oder Request-Fehler.
+Google Chrome 154.0.8037.57 wurde über den normalen installierten Kanal mit
+aktivierter Sandbox gestartet; keine OS-Sicherheitsänderungen.
+
+Die 17 Original-PNGs wurden nach dem Download gegen Manifest und aktuelle
+Quellbytes verifiziert und einzeln visuell geprüft. Sechs davon illustrieren
+die README. Das vollständige Set einschließlich unverändertem Capture-Manifest
+liegt unter [docs/screenshots](screenshots/). Es enthält ausschließlich
+synthetische Fälle und vorher aufgezeichnete Modellantworten; im Browserlauf
+wurde keine neue Inferenz ausgeführt. Physische Smartphones, weitere Browser
+und Screenreader sind damit nicht geprüft.
+
+[Erfolgreicher Capture](https://github.com/storminator89/clef-benchmark/actions/runs/37020974987) ·
+[Modellfreie CI für denselben Commit](https://github.com/storminator89/clef-benchmark/actions/runs/37020976072) ·
+[Unverändertes Capture-Manifest](screenshots/manifest.json) ·
+[Publikationsprüfung](../qa/browser_gallery_publication.json).
+Die vorstehenden blockierten bzw. ausstehenden Zustände beschreiben die früheren
+Schritte und sind durch diesen späteren, separat belegten Erfolg ergänzt.
