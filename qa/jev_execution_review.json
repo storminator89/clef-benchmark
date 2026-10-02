@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "review_date_utc": "2026-10-02",
+  "status": "stage_a_offline_review_passed",
+  "scope": "Inert execution wrapper and manual activation template. No live invocation, credential access or provider API call was performed.",
+  "baseline_public_commit": "5407130d2a512292329d65a87b953c11db580e6e",
+  "reviewed_files_sha256": {
+    "scripts/run_jev_workflow.py": "ca52c98f2b1597022c12cc6a653d1b2ebb88ba2c60cf18add35da4b710775b2f",
+    "scripts/workflows/jev-verified-execution.yml.in": "b3805a2fd043ab68d78b8129515b6bac60c1ecd5501adc4d3d523f0fbc1858b5",
+    "tests/test_jev_execution.py": "a85c13868dfb2748ed88bac59f2c40acc543c0515bc33516afa69dfc2add2be0",
+    "docs/JEV_EXECUTION.md": "2c673566dbc259fbc6b92061c4e2054dc8dfcc9e2a3c5efd1a355994d0932332"
+  },
+  "blockers": [],
+  "verified_controls": [
+    "First frozen case is the connection gate and uses the original reservation ledger; no extra probe or duplicate request.",
+    "Any initial HTTP, transport, response contract or billing-validation failure halts after one reserved attempt.",
+    "Only fixed HTTPS provider endpoint; verified TLS, no redirects, no proxy discovery or alternate endpoint.",
+    "974 initial cases, at most 50 retries and one retry per case; 1024 total attempts; USD 3 local guard with USD 2.818572288 maximum capacity reservation under dated pricing.",
+    "Credential value, request headers, error bodies and exception text are not logged; retained response data uses validated fixed fields.",
+    "Manual dispatch only, two explicit default-false approvals, repository/main/first-attempt guards, pinned actions and immutable code-ref placeholder.",
+    "Read-only repository permission, credential persistence disabled, serialized execution, bounded timeout and explicit one-day artifact allowlist.",
+    "Frozen comparison bundle, inputs and historical native predictions remain byte-identical to the reviewed baseline.",
+    "First-case gate timing overhead, incomplete-run status, local spending-limit caveat and pending MASSIVE300 baseline are disclosed."
+  ],
+  "offline_evidence": {
+    "repository_unittests": {
+      "passed": 315
+    },
+    "frozen_comparison_unittests": {
+      "passed": 23
+    },
+    "focused_wrapper_unittests": {
+      "passed": 5,
+      "included_in_repository_count": true,
+      "rerun_after_final_secret_handling_adjustment": true
+    },
+    "bundle_preflight": {
+      "requests": 974,
+      "questions": 1362,
+      "scientific_hashes_verified": 68,
+      "code_and_manifest_hashes_verified": 6
+    },
+    "full_scope_mock_exercise": {
+      "completed_cases": 974,
+      "wire_attempts": 1024,
+      "retries": 50,
+      "capacity_reserved_usd": "2.818572288",
+      "untrusted_extra_response_text_not_persisted": true
+    },
+    "public_content_audit": "passed before this review artifact was added",
+    "live_execution": false,
+    "secret_verification": false
+  },
+  "official_sources_rechecked": [
+    {
+      "url": "https://docs.typesafe.ai/models",
+      "supports": "Versioned model ID, dated input pricing, free output, documented 64k context, and no customer-data training."
+    },
+    {
+      "url": "https://docs.typesafe.ai/api",
+      "supports": "Fixed endpoint, native Choice contract, usage fields and documented retry statuses."
+    },
+    {
+      "url": "https://docs.typesafe.ai/legal",
+      "supports": "Enterprise zero retention is a separate offering."
+    }
+  ],
+  "activation_requirements": [
+    "Publish this inert code stage first and substitute its verified immutable full 40-character commit SHA into the separately reviewed workflow activation.",
+    "Before activation, narrowly evolve scripts/check_jev.py and tests/test_jev_preparation.py to accept only the named workflow matching this template and activation record; current preparation guards intentionally reject any live workflow.",
+    "Recheck the applied activation delta and rerun offline tests before publication. Publication or mocked test success is not evidence of a valid key, live response or benchmark score."
+  ],
+  "resolved_observations": [
+    "Documentation now identifies 65536 as the runner conservative reservation against the source documented 64k capacity.",
+    "The unchanged runner labels initial gate failure as transport_failure_unknown_billing; safe connection_check.json disambiguates the HTTP or validation status.",
+    "Offline preflight subprocess environment excludes JEV_API_KEY; secret_present reports actual nonempty presence separately from malformed-whitespace rejection."
+  ]
+}
