@@ -1,0 +1,33 @@
+{
+  "exported_at_utc": "2026-10-02T08:29:28.859494+00:00",
+  "original_measurement_freeze_sha256": "ec093f838c18c1e19047e774eadc82d5fdd8fcd0c0839c2eb2c2e3b76a4cfb5b",
+  "original_measurement_records_unmodified": true,
+  "raw_source_images_and_labels_included": false,
+  "files": {
+    "scripts/run_images.py": {
+      "measured_or_original_sha256": "ea0c0351dd970f97f3636b7b63b85ef124353b1d587494c21473dd97fc413a93",
+      "export_sha256": "aec46b1cdc70e9fae55e2b2cdb44e988335c5d4db49102c17ba7715fc05fd3b5",
+      "change": "Default runtime directory is package-local; passing --runtime is unchanged. No inference logic change."
+    },
+    "scripts/preflight.py": {
+      "measured_or_original_sha256": "87ef1ac5f59ce7a4419e10307c58d9325ad917cb339097f6d81748ad92c80cc4",
+      "export_sha256": "19075c9ea5e2fd1e25a36cf612d01e2342e68ae05073af46cd1bbcb91be27579",
+      "change": "Default runtime directory is package-local. No encoding logic change."
+    },
+    "scripts/verify_freeze.py": {
+      "measured_or_original_sha256": "f1f63e91bdbaafe0151a6d8f0efff0e8b46d31b1b4f1c42088298ccad1b393b8",
+      "export_sha256": "7b9d9bdf3ee5f4a199b4df1d81876a4650267d15c0af8a577e55e5bf0fa86b63",
+      "change": "Recognizes documented portable code hashes; original frozen data hashes remain mandatory."
+    },
+    "scripts/score_images.py": {
+      "measured_or_original_sha256": "1b0aa6b1556bad03ec9c80e1a5f7caded388234aff0fbe1221b34fa1f603d5ef",
+      "export_sha256": "2c66cf9ab1514373ba7d544b6143c812ecc7d4839cd3be0764c9bf7cc45a4afd",
+      "change": "Only provenance checking recognizes portable code hashes; scoring function and rules unchanged."
+    },
+    "report/build_report.py": {
+      "measured_or_original_sha256": "44b586699ee73f5e9b4ee81a5b923a4dec2fec1908baf86c4d4b74b1a2b3ae7c",
+      "export_sha256": "3aba80ee0ff4450993615732b29454365636138129de8673529b89f49a2bb7a9",
+      "change": "Only provenance checks accept documented portable code hashes; report calculations unchanged."
+    }
+  }
+}

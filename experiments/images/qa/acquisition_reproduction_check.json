@@ -1,0 +1,8 @@
+{
+  "script": "scripts/acquire_sources.py",
+  "validation": "isolated rebuild from pinned local raw source files; no network or inference",
+  "checked_image_label_files": 200,
+  "manifest_paths_normalized": true,
+  "mismatches": [],
+  "passed": true
+}

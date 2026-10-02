@@ -1,0 +1,13 @@
+{
+  "original_executed_verifier_sha256": "63c7258e45162491bd451195e9e9e1da0cc486e51a7158db47614197cd11d4fb",
+  "portable_original_verifier": {
+    "path": "qa/verify_original_completed_results.py",
+    "sha256": "30720227e02c1bac7b356f86d46ddacbac11a30741f9f456d0b5abf4a67fbece",
+    "change": "Original roots converted to explicit command-line arguments; all original numeric and launch-evidence checks retained. Requires complete original capture layout and is not the public-export entry point."
+  },
+  "public_export_verifier": {
+    "path": "qa/verify_published_followup_metrics.py",
+    "sha256": "044543b07a20e138c2eb115ebbb4550272f33f07c6859fcd662a55cc087d4b08",
+    "scope": "Independent standard-library numeric core, no frozen scorer import. Revalidates published data, dual hash mapping, native answers, metrics, final QA agreement and original configuration. Explicitly reports original launch logs/preflight/model rehash evidence unavailable in public bundle."
+  }
+}

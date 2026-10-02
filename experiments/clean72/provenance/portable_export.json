@@ -1,0 +1,183 @@
+{
+  "format_version": 1,
+  "suite": "clean72",
+  "original_freeze_manifest_sha256": "3224bfdd2d70afa6d20b6d9f0ed91b44029b332d36fdad47ea81ff9e99743135",
+  "original_measurement_inputs_unmodified": true,
+  "entries": [
+    {
+      "source_artifact": "benchmark/README.md",
+      "published_artifact": "benchmark/README.md",
+      "source_sha256": "cf43f97f08e5e2dc9006d38e5da1b34fea7fe8db66da690875e1ec166289b5a1",
+      "published_sha256": "cf43f97f08e5e2dc9006d38e5da1b34fea7fe8db66da690875e1ec166289b5a1",
+      "transformation": "none; byte-identical"
+    },
+    {
+      "source_artifact": "benchmark/build_benchmark.py",
+      "published_artifact": "benchmark/build_benchmark.py",
+      "source_sha256": "77a31895a4c28130e03a4aa8dc15699feb10e8b8c091ed8216ff5223fc09efd1",
+      "published_sha256": "77a31895a4c28130e03a4aa8dc15699feb10e8b8c091ed8216ff5223fc09efd1",
+      "transformation": "none; byte-identical"
+    },
+    {
+      "source_artifact": "benchmark/cases.jsonl",
+      "published_artifact": "benchmark/cases.jsonl",
+      "source_sha256": "47e8239762c69d602adfecd306a00503a9f06bacab5ee451f0d420bc18c2a231",
+      "published_sha256": "47e8239762c69d602adfecd306a00503a9f06bacab5ee451f0d420bc18c2a231",
+      "transformation": "none; byte-identical"
+    },
+    {
+      "source_artifact": "benchmark/check_encoding.py",
+      "published_artifact": "benchmark/check_encoding.py",
+      "source_sha256": "55f5f990f029603799f66797489321530c57f452d7bbf467687558cda019f575",
+      "published_sha256": "ca6f0f25492e6389aff98f1b3ed22194bc86e51dd0589291b2f4e66c44a886ab",
+      "transformation": "Replace private absolute default runtime location with repository-relative runtime; encoding logic unchanged."
+    },
+    {
+      "source_artifact": "benchmark/design_summary.json",
+      "published_artifact": "benchmark/design_summary.json",
+      "source_sha256": "83ba3349a5fb15d7faf7e52dcbc60b4ece240e3e394ff127971769b66a08f89c",
+      "published_sha256": "83ba3349a5fb15d7faf7e52dcbc60b4ece240e3e394ff127971769b66a08f89c",
+      "transformation": "none; byte-identical"
+    },
+    {
+      "source_artifact": "benchmark/encoding_preflight.json",
+      "published_artifact": "benchmark/encoding_preflight.json",
+      "source_sha256": "9a96d027cb67924d759df1140c08517fc1d06654dd157006ddb1ad09c6622dff",
+      "published_sha256": "9a96d027cb67924d759df1140c08517fc1d06654dd157006ddb1ad09c6622dff",
+      "transformation": "none; byte-identical"
+    },
+    {
+      "source_artifact": "benchmark/freeze.py",
+      "published_artifact": "benchmark/freeze.py",
+      "source_sha256": "203736420bf9590dbc995af6c811729484520c854da7c3cb0a4bfb9539e0be12",
+      "published_sha256": "4cc8efc8136c5027361b2632ab3ab7b285d18ae1b02497813df2eaa9b3461cdf",
+      "transformation": "Remove internal coordination wording; no benchmark construction or scoring change."
+    },
+    {
+      "source_artifact": "benchmark/freeze_manifest.json",
+      "published_artifact": "benchmark/freeze_manifest.json",
+      "source_sha256": "3224bfdd2d70afa6d20b6d9f0ed91b44029b332d36fdad47ea81ff9e99743135",
+      "published_sha256": "794ac44ecb902987964690d82427d353cad503364d94e7ece83cf3a207d96534",
+      "transformation": "Preserve original timestamp and source hashes; add public-copy hash map and explicitly distinguish export from original pre-inference freeze. Neutralize coordination wording."
+    },
+    {
+      "source_artifact": "benchmark/gold.jsonl",
+      "published_artifact": "benchmark/gold.jsonl",
+      "source_sha256": "c7e4389e90c50eb688e7b7c9a1fee48a11e041d68a043be794e54bfdaef51369",
+      "published_sha256": "c7e4389e90c50eb688e7b7c9a1fee48a11e041d68a043be794e54bfdaef51369",
+      "transformation": "none; byte-identical"
+    },
+    {
+      "source_artifact": "benchmark/independent_scorer_checks.json",
+      "published_artifact": "benchmark/independent_scorer_checks.json",
+      "source_sha256": "ca491ee4830d309007f045eb7666f75010bb0eb53ea27023ff922eaec926c17f",
+      "published_sha256": "ca491ee4830d309007f045eb7666f75010bb0eb53ea27023ff922eaec926c17f",
+      "transformation": "none; byte-identical"
+    },
+    {
+      "source_artifact": "benchmark/independent_scorer_tests.py",
+      "published_artifact": "benchmark/independent_scorer_tests.py",
+      "source_sha256": "cc998fa87798ec0c08647f09d4c6da3e2d289d099442d8937709a5300d3f9d57",
+      "published_sha256": "cc998fa87798ec0c08647f09d4c6da3e2d289d099442d8937709a5300d3f9d57",
+      "transformation": "none; byte-identical"
+    },
+    {
+      "source_artifact": "benchmark/policies.json",
+      "published_artifact": "benchmark/policies.json",
+      "source_sha256": "36e7f1aa2f23928ebbfc39d51267143c858c6f04536f27e6113efbd9e49ef41e",
+      "published_sha256": "36e7f1aa2f23928ebbfc39d51267143c858c6f04536f27e6113efbd9e49ef41e",
+      "transformation": "none; byte-identical"
+    },
+    {
+      "source_artifact": "benchmark/pre_inference_review.jsonl",
+      "published_artifact": "benchmark/pre_inference_review.jsonl",
+      "source_sha256": "2a9b235a0c78cac1ad711e608a415c295cebb31d1e68acd47c3bd453fb5ec74d",
+      "published_sha256": "2a9b235a0c78cac1ad711e608a415c295cebb31d1e68acd47c3bd453fb5ec74d",
+      "transformation": "none; byte-identical"
+    },
+    {
+      "source_artifact": "benchmark/pre_inference_review.md",
+      "published_artifact": "benchmark/pre_inference_review.md",
+      "source_sha256": "c446d576cccd154a8c5d334160c437f336b9ad6e0ed8d207307920aac5418320",
+      "published_sha256": "c446d576cccd154a8c5d334160c437f336b9ad6e0ed8d207307920aac5418320",
+      "transformation": "none; byte-identical"
+    },
+    {
+      "source_artifact": "benchmark/requests.jsonl",
+      "published_artifact": "benchmark/requests.jsonl",
+      "source_sha256": "3e94e7c8dcda74f58a5402cfe361591da6ee10f818175ec791a3d79856195d84",
+      "published_sha256": "3e94e7c8dcda74f58a5402cfe361591da6ee10f818175ec791a3d79856195d84",
+      "transformation": "none; byte-identical"
+    },
+    {
+      "source_artifact": "benchmark/score.py",
+      "published_artifact": "benchmark/score.py",
+      "source_sha256": "3e9ca13c88a383d2a413598d73e553b325c1e2ed66c7bd66e726d99fef3ea226",
+      "published_sha256": "3e9ca13c88a383d2a413598d73e553b325c1e2ed66c7bd66e726d99fef3ea226",
+      "transformation": "none; byte-identical"
+    },
+    {
+      "source_artifact": "benchmark/validate.py",
+      "published_artifact": "benchmark/validate.py",
+      "source_sha256": "5d9f56ccbc88a2cbd746395386f00855812673212fef7b14e08fc1abb5dd84c9",
+      "published_sha256": "5d9f56ccbc88a2cbd746395386f00855812673212fef7b14e08fc1abb5dd84c9",
+      "transformation": "none; byte-identical"
+    },
+    {
+      "source_artifact": "runtime/predictions.jsonl",
+      "published_artifact": "results/predictions.jsonl",
+      "source_sha256": "240063f1480ff1a2f69e72f03c9d7a2b04fb337c924ebb6b2941610b4402dc1a",
+      "published_sha256": "240063f1480ff1a2f69e72f03c9d7a2b04fb337c924ebb6b2941610b4402dc1a",
+      "transformation": "none; byte-identical"
+    },
+    {
+      "source_artifact": "runtime/predictions.metadata.json",
+      "published_artifact": "results/predictions.metadata.json",
+      "source_sha256": "35e4e505e10bcb8922eee6cfcb2f70894a0f08b748a66fb03912a836cbe76ac1",
+      "published_sha256": "35e4e505e10bcb8922eee6cfcb2f70894a0f08b748a66fb03912a836cbe76ac1",
+      "transformation": "none; byte-identical"
+    },
+    {
+      "source_artifact": "runtime/scores.json",
+      "published_artifact": "results/scores.json",
+      "source_sha256": "fea825ab1ad0e183f73515e7a6f2041e7b15c5464d0e21e080a0aa554d0d7ec7",
+      "published_sha256": "88dded16fc7b2e44877ad682b3b2792afe7df1fce37188acb39a3cda4b9ee872",
+      "transformation": "Replace private output path with package-relative results path; all metrics unchanged."
+    },
+    {
+      "source_artifact": "runtime/summary.json",
+      "published_artifact": "results/summary.json",
+      "source_sha256": "007698b83ef06d06982f3086bfa37d48b5eb351fcc8abf4a4f46ff46ec183d17",
+      "published_sha256": "007698b83ef06d06982f3086bfa37d48b5eb351fcc8abf4a4f46ff46ec183d17",
+      "transformation": "none; byte-identical"
+    },
+    {
+      "source_artifact": "runtime/decision_errors.jsonl",
+      "published_artifact": "results/decision_errors.jsonl",
+      "source_sha256": "1db8c438063b8032dac19c773499b9971128eb694d11c55a7371c881b5e03d59",
+      "published_sha256": "1db8c438063b8032dac19c773499b9971128eb694d11c55a7371c881b5e03d59",
+      "transformation": "none; byte-identical"
+    },
+    {
+      "source_artifact": "runtime/RESULTS.md",
+      "published_artifact": "results/RESULTS.md",
+      "source_sha256": "106e8f38edd858fc79f960e501d4b160861d454d1da59359fe675f21a1968909",
+      "published_sha256": "60e398e86a047c117af24db03c4b11c8176da3feb5aa0dfe040a734854749abb",
+      "transformation": "Replace private runtime path and correct included-file list. Retain all findings and caveats."
+    },
+    {
+      "source_artifact": "runtime/run_outcome.json",
+      "published_artifact": "results/run_outcome.json",
+      "source_sha256": "4eb3c007b9285bb08f942b1f0c11a2fdd8d54fa6ca6eae9b3bed40f48d9cf2cf",
+      "published_sha256": "4eb3c007b9285bb08f942b1f0c11a2fdd8d54fa6ca6eae9b3bed40f48d9cf2cf",
+      "transformation": "none; byte-identical"
+    },
+    {
+      "source_artifact": "independent/clean_verification.json",
+      "published_artifact": "results/verification.json",
+      "source_sha256": "514cf081b1296c3f85e15ddd86f3d93b724e8d7fb444a816246e4d139b86fc2c",
+      "published_sha256": "514cf081b1296c3f85e15ddd86f3d93b724e8d7fb444a816246e4d139b86fc2c",
+      "transformation": "none; byte-identical"
+    }
+  ]
+}

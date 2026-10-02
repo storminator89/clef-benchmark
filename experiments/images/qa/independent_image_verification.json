@@ -1,0 +1,830 @@
+{
+  "verification_version": "independent-offline-v1",
+  "verified_at_utc": "2026-10-02T08:20:21.625349+00:00",
+  "status": "pass_with_interpretation_caveat",
+  "complete_requests": 90,
+  "unique_source_images": 50,
+  "primary_fields": 120,
+  "all_fields_including_controls": 220,
+  "frozen_integrity": {
+    "manifest_sha256": "ec093f838c18c1e19047e774eadc82d5fdd8fcd0c0839c2eb2c2e3b76a4cfb5b",
+    "files_checked": 71,
+    "all_match": true
+  },
+  "artifacts_sha256": {
+    "results/predictions.jsonl": "4d8ed93f5f68ef315d9ce7206ae7dcb59e4a99a254a747df8d44ae36e057a269",
+    "results/predictions.metadata.json": "5d5861d3126aa95d15149b7f8dae2afd7e1c54dac9b25e452a1c80fba2e781a3",
+    "results/scores.json": "a49dcc576233f7a4f5b22c9dd464778685965770599349b1fd7c94f9a7f172fb",
+    "scripts/score_images.py": "1b0aa6b1556bad03ec9c80e1a5f7caded388234aff0fbe1221b34fa1f603d5ef"
+  },
+  "started_at": "2026-10-02T07:19:26.187722+00:00",
+  "completed_at": "2026-10-02T08:17:20.754253+00:00",
+  "all_native_schema_records_valid": true,
+  "real_image_tensor_verification": {
+    "all90_have_exactly_one_vision_hook": true,
+    "50_primary_pixel_tensor_hashes_unique": true,
+    "20_language_pairs_identical_pixel_tensors": true,
+    "20_blank_pairs_different_pixel_tensors_same_grid_and_dimensions": true,
+    "all90_untruncated": true,
+    "original_BF16_vision_head_embeddings": true,
+    "inference_inputs_contain_only_task_schema_state_and_pixels": true
+  },
+  "groups": {
+    "chart_de_image": {
+      "field_micro": {
+        "correct": 57,
+        "total": 60,
+        "accuracy": 0.95
+      },
+      "all_fields_per_image": {
+        "correct": 27,
+        "total": 30,
+        "accuracy": 0.9
+      },
+      "per_field": {
+        "chart_type": {
+          "correct": 27,
+          "total": 30,
+          "accuracy": 0.9
+        },
+        "legend_count": {
+          "correct": 30,
+          "total": 30,
+          "accuracy": 1.0
+        }
+      }
+    },
+    "chart_en_image": {
+      "field_micro": {
+        "correct": 19,
+        "total": 20,
+        "accuracy": 0.95
+      },
+      "all_fields_per_image": {
+        "correct": 9,
+        "total": 10,
+        "accuracy": 0.9
+      },
+      "per_field": {
+        "chart_type": {
+          "correct": 9,
+          "total": 10,
+          "accuracy": 0.9
+        },
+        "legend_count": {
+          "correct": 10,
+          "total": 10,
+          "accuracy": 1.0
+        }
+      }
+    },
+    "chart_de_blank": {
+      "field_micro": {
+        "correct": 1,
+        "total": 20,
+        "accuracy": 0.05
+      },
+      "all_fields_per_image": {
+        "correct": 0,
+        "total": 10,
+        "accuracy": 0.0
+      },
+      "per_field": {
+        "chart_type": {
+          "correct": 1,
+          "total": 10,
+          "accuracy": 0.1
+        },
+        "legend_count": {
+          "correct": 0,
+          "total": 10,
+          "accuracy": 0.0
+        }
+      }
+    },
+    "invoice_de_image": {
+      "field_micro": {
+        "correct": 57,
+        "total": 60,
+        "accuracy": 0.95
+      },
+      "all_fields_per_image": {
+        "correct": 17,
+        "total": 20,
+        "accuracy": 0.85
+      },
+      "per_field": {
+        "document_type": {
+          "correct": 20,
+          "total": 20,
+          "accuracy": 1.0
+        },
+        "gross_band": {
+          "correct": 18,
+          "total": 20,
+          "accuracy": 0.9
+        },
+        "tax_note": {
+          "correct": 19,
+          "total": 20,
+          "accuracy": 0.95
+        }
+      }
+    },
+    "invoice_en_image": {
+      "field_micro": {
+        "correct": 28,
+        "total": 30,
+        "accuracy": 0.9333333333333333
+      },
+      "all_fields_per_image": {
+        "correct": 8,
+        "total": 10,
+        "accuracy": 0.8
+      },
+      "per_field": {
+        "document_type": {
+          "correct": 10,
+          "total": 10,
+          "accuracy": 1.0
+        },
+        "gross_band": {
+          "correct": 8,
+          "total": 10,
+          "accuracy": 0.8
+        },
+        "tax_note": {
+          "correct": 10,
+          "total": 10,
+          "accuracy": 1.0
+        }
+      }
+    },
+    "invoice_de_blank": {
+      "field_micro": {
+        "correct": 12,
+        "total": 30,
+        "accuracy": 0.4
+      },
+      "all_fields_per_image": {
+        "correct": 2,
+        "total": 10,
+        "accuracy": 0.2
+      },
+      "per_field": {
+        "document_type": {
+          "correct": 4,
+          "total": 10,
+          "accuracy": 0.4
+        },
+        "gross_band": {
+          "correct": 3,
+          "total": 10,
+          "accuracy": 0.3
+        },
+        "tax_note": {
+          "correct": 5,
+          "total": 10,
+          "accuracy": 0.5
+        }
+      }
+    }
+  },
+  "matched_controls": {
+    "chart": {
+      "paired_images": 10,
+      "paired_fields": 20,
+      "de_correct": 19,
+      "en_correct": 19,
+      "blank_correct": 1,
+      "de_en_same_choices": 20,
+      "de_blank_changed_choices": 19,
+      "language_transitions": {
+        "wrong_to_wrong": 1,
+        "correct_to_correct": 19
+      },
+      "image_to_blank_transitions": {
+        "wrong_to_wrong": 1,
+        "correct_to_wrong": 18,
+        "correct_to_correct": 1
+      }
+    },
+    "invoice": {
+      "paired_images": 10,
+      "paired_fields": 30,
+      "de_correct": 27,
+      "en_correct": 28,
+      "blank_correct": 12,
+      "de_en_same_choices": 29,
+      "de_blank_changed_choices": 19,
+      "language_transitions": {
+        "correct_to_correct": 27,
+        "wrong_to_wrong": 2,
+        "wrong_to_correct": 1
+      },
+      "image_to_blank_transitions": {
+        "correct_to_correct": 10,
+        "wrong_to_correct": 2,
+        "correct_to_wrong": 17,
+        "wrong_to_wrong": 1
+      }
+    }
+  },
+  "error_counts": {
+    "primary_field_errors": 6,
+    "all_conditions_field_errors": 46,
+    "primary_errors_confidence_ge_0_9": 0
+  },
+  "all_incorrect_fields": [
+    {
+      "id": "chart-001-de-image",
+      "case_id": "chart-001",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "field": "chart_type",
+      "expected": "bar_line",
+      "predicted": "vbar2",
+      "confidence": 0.7251058220863342,
+      "correct": false
+    },
+    {
+      "id": "chart-002-de-image",
+      "case_id": "chart-002",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "field": "chart_type",
+      "expected": "bar_line",
+      "predicted": "vbar2",
+      "confidence": 0.8663122653961182,
+      "correct": false
+    },
+    {
+      "id": "chart-003-de-image",
+      "case_id": "chart-003",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "field": "chart_type",
+      "expected": "bar_line",
+      "predicted": "vbar2",
+      "confidence": 0.848003625869751,
+      "correct": false
+    },
+    {
+      "id": "invoice-006-de-image",
+      "case_id": "invoice-006",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "field": "tax_note",
+      "expected": "small_business",
+      "predicted": "regular",
+      "confidence": 0.632319450378418,
+      "correct": false
+    },
+    {
+      "id": "invoice-009-de-image",
+      "case_id": "invoice-009",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "field": "gross_band",
+      "expected": "negative",
+      "predicted": "over_20000",
+      "confidence": 0.8590665459632874,
+      "correct": false
+    },
+    {
+      "id": "invoice-016-de-image",
+      "case_id": "invoice-016",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "field": "gross_band",
+      "expected": "negative",
+      "predicted": "5000_20000",
+      "confidence": 0.8044909834861755,
+      "correct": false
+    },
+    {
+      "id": "chart-003-en-image",
+      "case_id": "chart-003",
+      "kind": "chart",
+      "language": "en",
+      "condition": "image",
+      "field": "chart_type",
+      "expected": "bar_line",
+      "predicted": "vbar2",
+      "confidence": 0.7959782481193542,
+      "correct": false
+    },
+    {
+      "id": "invoice-009-en-image",
+      "case_id": "invoice-009",
+      "kind": "invoice",
+      "language": "en",
+      "condition": "image",
+      "field": "gross_band",
+      "expected": "negative",
+      "predicted": "over_20000",
+      "confidence": 0.6428119540214539,
+      "correct": false
+    },
+    {
+      "id": "invoice-016-en-image",
+      "case_id": "invoice-016",
+      "kind": "invoice",
+      "language": "en",
+      "condition": "image",
+      "field": "gross_band",
+      "expected": "negative",
+      "predicted": "5000_20000",
+      "confidence": 0.5984454154968262,
+      "correct": false
+    },
+    {
+      "id": "chart-003-de-blank",
+      "case_id": "chart-003",
+      "kind": "chart",
+      "language": "de",
+      "condition": "blank",
+      "field": "chart_type",
+      "expected": "bar_line",
+      "predicted": "vbar",
+      "confidence": 0.17633049190044403,
+      "correct": false
+    },
+    {
+      "id": "chart-003-de-blank",
+      "case_id": "chart-003",
+      "kind": "chart",
+      "language": "de",
+      "condition": "blank",
+      "field": "legend_count",
+      "expected": "3",
+      "predicted": "0",
+      "confidence": 0.9166823625564575,
+      "correct": false
+    },
+    {
+      "id": "chart-006-de-blank",
+      "case_id": "chart-006",
+      "kind": "chart",
+      "language": "de",
+      "condition": "blank",
+      "field": "chart_type",
+      "expected": "bar_pie",
+      "predicted": "vbar",
+      "confidence": 0.1721576601266861,
+      "correct": false
+    },
+    {
+      "id": "chart-006-de-blank",
+      "case_id": "chart-006",
+      "kind": "chart",
+      "language": "de",
+      "condition": "blank",
+      "field": "legend_count",
+      "expected": "4",
+      "predicted": "0",
+      "confidence": 0.8925774693489075,
+      "correct": false
+    },
+    {
+      "id": "chart-009-de-blank",
+      "case_id": "chart-009",
+      "kind": "chart",
+      "language": "de",
+      "condition": "blank",
+      "field": "chart_type",
+      "expected": "hbar",
+      "predicted": "vbar",
+      "confidence": 0.17633049190044403,
+      "correct": false
+    },
+    {
+      "id": "chart-009-de-blank",
+      "case_id": "chart-009",
+      "kind": "chart",
+      "language": "de",
+      "condition": "blank",
+      "field": "legend_count",
+      "expected": "3",
+      "predicted": "0",
+      "confidence": 0.9166823625564575,
+      "correct": false
+    },
+    {
+      "id": "chart-012-de-blank",
+      "case_id": "chart-012",
+      "kind": "chart",
+      "language": "de",
+      "condition": "blank",
+      "field": "chart_type",
+      "expected": "hbar2",
+      "predicted": "vbar",
+      "confidence": 0.16803327202796936,
+      "correct": false
+    },
+    {
+      "id": "chart-012-de-blank",
+      "case_id": "chart-012",
+      "kind": "chart",
+      "language": "de",
+      "condition": "blank",
+      "field": "legend_count",
+      "expected": "2",
+      "predicted": "0",
+      "confidence": 0.9049103856086731,
+      "correct": false
+    },
+    {
+      "id": "chart-015-de-blank",
+      "case_id": "chart-015",
+      "kind": "chart",
+      "language": "de",
+      "condition": "blank",
+      "field": "chart_type",
+      "expected": "line",
+      "predicted": "vbar",
+      "confidence": 0.17633049190044403,
+      "correct": false
+    },
+    {
+      "id": "chart-015-de-blank",
+      "case_id": "chart-015",
+      "kind": "chart",
+      "language": "de",
+      "condition": "blank",
+      "field": "legend_count",
+      "expected": "4",
+      "predicted": "0",
+      "confidence": 0.9166823625564575,
+      "correct": false
+    },
+    {
+      "id": "chart-018-de-blank",
+      "case_id": "chart-018",
+      "kind": "chart",
+      "language": "de",
+      "condition": "blank",
+      "field": "chart_type",
+      "expected": "pie",
+      "predicted": "vbar",
+      "confidence": 0.2020186483860016,
+      "correct": false
+    },
+    {
+      "id": "chart-018-de-blank",
+      "case_id": "chart-018",
+      "kind": "chart",
+      "language": "de",
+      "condition": "blank",
+      "field": "legend_count",
+      "expected": "5",
+      "predicted": "0",
+      "confidence": 0.8616700768470764,
+      "correct": false
+    },
+    {
+      "id": "chart-021-de-blank",
+      "case_id": "chart-021",
+      "kind": "chart",
+      "language": "de",
+      "condition": "blank",
+      "field": "chart_type",
+      "expected": "stack_hbar",
+      "predicted": "vbar",
+      "confidence": 0.15382249653339386,
+      "correct": false
+    },
+    {
+      "id": "chart-021-de-blank",
+      "case_id": "chart-021",
+      "kind": "chart",
+      "language": "de",
+      "condition": "blank",
+      "field": "legend_count",
+      "expected": "4",
+      "predicted": "0",
+      "confidence": 0.8945205807685852,
+      "correct": false
+    },
+    {
+      "id": "chart-024-de-blank",
+      "case_id": "chart-024",
+      "kind": "chart",
+      "language": "de",
+      "condition": "blank",
+      "field": "chart_type",
+      "expected": "stack_vbar",
+      "predicted": "vbar",
+      "confidence": 0.2086324393749237,
+      "correct": false
+    },
+    {
+      "id": "chart-024-de-blank",
+      "case_id": "chart-024",
+      "kind": "chart",
+      "language": "de",
+      "condition": "blank",
+      "field": "legend_count",
+      "expected": "4",
+      "predicted": "0",
+      "confidence": 0.9090921878814697,
+      "correct": false
+    },
+    {
+      "id": "chart-027-de-blank",
+      "case_id": "chart-027",
+      "kind": "chart",
+      "language": "de",
+      "condition": "blank",
+      "field": "legend_count",
+      "expected": "4",
+      "predicted": "0",
+      "confidence": 0.9166823625564575,
+      "correct": false
+    },
+    {
+      "id": "chart-030-de-blank",
+      "case_id": "chart-030",
+      "kind": "chart",
+      "language": "de",
+      "condition": "blank",
+      "field": "chart_type",
+      "expected": "vbar2",
+      "predicted": "vbar",
+      "confidence": 0.19320833683013916,
+      "correct": false
+    },
+    {
+      "id": "chart-030-de-blank",
+      "case_id": "chart-030",
+      "kind": "chart",
+      "language": "de",
+      "condition": "blank",
+      "field": "legend_count",
+      "expected": "4",
+      "predicted": "0",
+      "confidence": 0.9026868939399719,
+      "correct": false
+    },
+    {
+      "id": "invoice-004-de-blank",
+      "case_id": "invoice-004",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "blank",
+      "field": "tax_note",
+      "expected": "small_business",
+      "predicted": "regular",
+      "confidence": 0.662390947341919,
+      "correct": false
+    },
+    {
+      "id": "invoice-004-de-blank",
+      "case_id": "invoice-004",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "blank",
+      "field": "gross_band",
+      "expected": "5000_20000",
+      "predicted": "negative",
+      "confidence": 0.6189468502998352,
+      "correct": false
+    },
+    {
+      "id": "invoice-001-de-blank",
+      "case_id": "invoice-001",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "blank",
+      "field": "document_type",
+      "expected": "rechnung",
+      "predicted": "gutschrift",
+      "confidence": 0.5389832258224487,
+      "correct": false
+    },
+    {
+      "id": "invoice-001-de-blank",
+      "case_id": "invoice-001",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "blank",
+      "field": "gross_band",
+      "expected": "1000_5000",
+      "predicted": "negative",
+      "confidence": 0.619653046131134,
+      "correct": false
+    },
+    {
+      "id": "invoice-007-de-blank",
+      "case_id": "invoice-007",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "blank",
+      "field": "document_type",
+      "expected": "rechnung",
+      "predicted": "gutschrift",
+      "confidence": 0.5389832258224487,
+      "correct": false
+    },
+    {
+      "id": "invoice-007-de-blank",
+      "case_id": "invoice-007",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "blank",
+      "field": "tax_note",
+      "expected": "reverse_charge",
+      "predicted": "regular",
+      "confidence": 0.6651225686073303,
+      "correct": false
+    },
+    {
+      "id": "invoice-007-de-blank",
+      "case_id": "invoice-007",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "blank",
+      "field": "gross_band",
+      "expected": "5000_20000",
+      "predicted": "negative",
+      "confidence": 0.619653046131134,
+      "correct": false
+    },
+    {
+      "id": "invoice-016-de-blank",
+      "case_id": "invoice-016",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "blank",
+      "field": "document_type",
+      "expected": "gutschrift",
+      "predicted": "rechnung",
+      "confidence": 0.5136684775352478,
+      "correct": false
+    },
+    {
+      "id": "invoice-006-de-blank",
+      "case_id": "invoice-006",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "blank",
+      "field": "tax_note",
+      "expected": "small_business",
+      "predicted": "regular",
+      "confidence": 0.6578490734100342,
+      "correct": false
+    },
+    {
+      "id": "invoice-006-de-blank",
+      "case_id": "invoice-006",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "blank",
+      "field": "gross_band",
+      "expected": "over_20000",
+      "predicted": "negative",
+      "confidence": 0.6516197323799133,
+      "correct": false
+    },
+    {
+      "id": "invoice-002-de-blank",
+      "case_id": "invoice-002",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "blank",
+      "field": "document_type",
+      "expected": "rechnung",
+      "predicted": "gutschrift",
+      "confidence": 0.5389832258224487,
+      "correct": false
+    },
+    {
+      "id": "invoice-002-de-blank",
+      "case_id": "invoice-002",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "blank",
+      "field": "gross_band",
+      "expected": "zero_1000",
+      "predicted": "negative",
+      "confidence": 0.619653046131134,
+      "correct": false
+    },
+    {
+      "id": "invoice-017-de-blank",
+      "case_id": "invoice-017",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "blank",
+      "field": "document_type",
+      "expected": "rechnung",
+      "predicted": "gutschrift",
+      "confidence": 0.5107405185699463,
+      "correct": false
+    },
+    {
+      "id": "invoice-017-de-blank",
+      "case_id": "invoice-017",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "blank",
+      "field": "tax_note",
+      "expected": "reverse_charge",
+      "predicted": "regular",
+      "confidence": 0.6762214303016663,
+      "correct": false
+    },
+    {
+      "id": "invoice-017-de-blank",
+      "case_id": "invoice-017",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "blank",
+      "field": "gross_band",
+      "expected": "over_20000",
+      "predicted": "negative",
+      "confidence": 0.613716721534729,
+      "correct": false
+    },
+    {
+      "id": "invoice-011-de-blank",
+      "case_id": "invoice-011",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "blank",
+      "field": "document_type",
+      "expected": "rechnung",
+      "predicted": "gutschrift",
+      "confidence": 0.5389832258224487,
+      "correct": false
+    },
+    {
+      "id": "invoice-011-de-blank",
+      "case_id": "invoice-011",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "blank",
+      "field": "tax_note",
+      "expected": "small_business",
+      "predicted": "regular",
+      "confidence": 0.6651225686073303,
+      "correct": false
+    },
+    {
+      "id": "invoice-011-de-blank",
+      "case_id": "invoice-011",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "blank",
+      "field": "gross_band",
+      "expected": "1000_5000",
+      "predicted": "negative",
+      "confidence": 0.619653046131134,
+      "correct": false
+    }
+  ],
+  "license_and_provenance": {
+    "charts": "Publisher-declared CC-BY-4.0 at pinned revision; no independent chain-of-title certification",
+    "invoices": "Belege dataset license permits local evaluation and publication of attributed results. Raw20-document subset and full source labels excluded from public export",
+    "chart_source_language": "English image labels with German/English task prompts",
+    "invoice_source_language": "German synthetic images; fabricated entities",
+    "gold": "All120 task fields independently rederived from pinned source annotations; separate pre-inference source-resolution visual audit passed"
+  },
+  "interpretation_limits": [
+    "Purposive synthetic sample; no population estimate or production/finance safety validation",
+    "120 fields are clustered within 50 images, not120 independent images",
+    "Language comparison is on the matched20-image subset only, with the same option IDs and English official wrapper",
+    "White-image comparisons retain prompt and image dimensions; they test this pixel intervention and do not isolate visual reasoning or a general causal effect",
+    "No free-form OCR, unconstrained advice, or contamination exclusion claim",
+    "One fixed CPU quantized configuration, not an AMD or hardware-general result",
+    "All three primary chart-type mismatches involve overlapping option descriptions; exact frozen taxonomy accuracy is not a pure measure of visually unambiguous chart recognition",
+    "Native confidence values are not calibrated probabilities of correctness"
+  ],
+  "posthoc_annotation_findings": [
+    {
+      "affected_ids": [
+        "chart-001-de-image",
+        "chart-002-de-image",
+        "chart-003-de-image",
+        "chart-003-en-image"
+      ],
+      "finding": "Each image visibly combines vertical bars and a line on two y-axes. The frozen vbar2 description says vertical columns with two y-axes and does not exclude a line, so it overlaps the intended bar_line choice. Source-taxonomy labels and the frozen exact-match scores remain unchanged, but these mismatches cannot confidently be called visual-recognition failures.",
+      "scope": "Post-hoc option-wording review; no output-dependent relabeling or adjusted headline score."
+    },
+    {
+      "affected_ids": [
+        "invoice-006-de-image",
+        "invoice-009-de-image",
+        "invoice-016-de-image"
+      ],
+      "finding": "Reviewer visually confirmed the printed section19 notice and both negative totals at source resolution. The frozen question explicitly gives the tax notice precedence over inconsistent line-item VAT. The two gross predictions match positive magnitude intervals rather than the printed negative interval.",
+      "scope": "Observed outputs and source-pixel verification only; processing-resolution or semantic cause is not isolated."
+    }
+  ]
+}

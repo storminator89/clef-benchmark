@@ -16,7 +16,7 @@ python3 server.py
 
 Dann **http://127.0.0.1:8765** öffnen. Unter Windows heißt der Befehl gegebenenfalls `python server.py`.
 
-- **Zwei getrennte Tests:** allgemeine Entscheidungen und Finanzen/Versicherungsmakler, mit eigenständigen Ergebnissen
+- **Drei getrennte Texttests:** allgemeine Entscheidungen, Finanzen/Versicherungsmakler und 72 alltagsnahe Fälle ohne Manipulation, mit eigenständigen Ergebnissen
 - **Übersicht:** echte, abgeschlossene und unabhängig nachgerechnete Ergebnisse
 - **Fälle entdecken:** Filter nach Sprache, Kategorie, Herausforderung und Fehlern; Input, Sollantwort, Richtlinie und Wahrscheinlichkeiten
 - **Playground:** Eingabetext und natives `choice`-Schema bearbeiten; unveränderte gespeicherte Antworten ansehen
@@ -99,6 +99,14 @@ Die Website hat einen Suite-Umschalter; beide abgeschlossenen Suiten sind unabh�
 
 Wichtig für Sprachvergleiche: Die 20 englischen Kontrollen decken nur zwei bis drei der fünf Klassen je Kategorie ab. Der Macro-F1 über alle fünf Richtlinienklassen kann dadurch selbst bei perfekten englischen Vorhersagen höchstens 0,5 erreichen. Die Website vergleicht deshalb die Genauigkeit auf den gleichen 20 Paaren; sie verwendet keinen solchen F1-Unterschied als Sprachlücke.
 
+## Neue Folgetests: ohne Manipulation, Bilder und Angriffsentfernung
+
+- **72 neue alltagsnahe deutsche Bürofragen ohne Manipulation:** **61/72 (84,7 %)** richtig, alle Antworten schema-gültig. Mehrstufige Beitragsrechnungen liegen bei **6/12**; die übrigen Bereiche bei 10–12/12. In der Website als eigene Suite verfügbar. [Ergebnisse und Reproduktion](experiments/clean72/README.md)
+- **Separater Bildtest mit HuggingFace-Daten:** 30 synthetische Diagramme und 20 deutsche synthetische Belege, dazu gepaarte Englisch- und Weißbildkontrollen, insgesamt **90 echte Vision-Läufe**. Diagrammart 27/30, Legendenanzahl 30/30, Belegart 20/20, Steuerhinweis 19/20, Bruttosummen-Intervall 18/20. Die drei Diagrammart-Abweichungen haben überlappende Antwortbeschreibungen und sind keine drei eindeutig belegten Erkennungsfehler. [Ergebnisbericht und Grenzen](experiments/images/README.md) · [PDF](experiments/images/report/Clef_Bildbenchmark_2026-10-02.pdf)
+- **Sieben Angriff-/Entfernungs-Paare:** mit Angriff **4/7**, nach Entfernung **5/7** richtig; zwei Entscheidungen ändern sich, nur ein Fehler wird behoben. Separate nachträgliche Diagnose der ursprünglichen Finance-Fälle. Nur der angehängte Angriffstext wurde entfernt; Sachverhalt, Regeln und Gold bleiben gleich. [Alle Paare und Resultate](experiments/attack_ablation14/RESULTS.md)
+
+Diese Suiten werden weder miteinander noch mit den ursprünglichen 280 Textrequests gepoolt. Der neue saubere Satz hat andere Aufgaben und Schwierigkeiten, daher belegt ein Quotenunterschied keinen kausalen Manipulationseffekt. Die Bildresultate bleiben ein eigener Bericht; der lokale Playground unterstützt weiterhin ausschließlich Text. Das Paket enthält keine Rohbilder oder vollständigen ursprünglichen Rechnungslabels; Quellen, Lizenzen und reproduzierbare Beschaffung stehen im Bildpaket. Die zwei gekennzeichneten Berichtsausschnitte sind mit Attribution enthalten.
+
 ## Dateien
 
 ```text
@@ -108,6 +116,7 @@ benchmark/           Eingefrorene allgemeine Fälle, Requests, Goldlabels und Sc
 runtime/             Gepinnter Download, Original-Head, Runner und Lazy-Live-Adapter
 finance_benchmark/   Separat eingefrorene Finanz-/Makler-Erweiterung
 results/             Abgeschlossene Originalresultate; Finance unter results/finance/
+experiments/         Getrennte clean72-, Bild- und Sieben-Paar-Folgetests
 qa/                  Unabhängige Daten-/Scorerprüfungen
 scripts/             Prüfungen, UI-Datenimport und Public-Release-Audit
 tests/               Server-, UI-Logik- und optionale Browsertests
@@ -125,8 +134,10 @@ Die folgenden Befehle laden kein Modell und führen keine Inferenz aus:
 PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p 'test_*.py' -v
 node --test tests/test_web.mjs
 python3 scripts/check_project.py
+python3 scripts/check_followups.py
 python3 scripts/build_web_data.py --suite general
 python3 scripts/build_web_data.py --suite finance
+python3 scripts/build_clean_web_data.py
 python3 scripts/audit_public.py
 ```
 

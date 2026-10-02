@@ -88,6 +88,21 @@ def main():
             page.locator('#suite-select').select_option('general')
             assert page.locator('.case-item').count()==120
             checks.append('suite switching: finance80 vs general120, independent error counts and reset filters')
+        if (ROOT/'web/data/clean72.json').is_file():
+            page.locator('#suite-select').select_option('clean72')
+            assert '72 eigenständige' in page.locator('#suite-description').inner_text()
+            page.locator('a[data-nav="overview"]').click()
+            assert page.locator('#paired-panel').is_hidden()
+            assert page.locator('.stat-value').first.inner_text().replace('\xa0',' ')=='84,7 %'
+            page.locator('a[data-nav="explorer"]').click()
+            assert page.locator('.case-item').count()==72
+            page.locator('#filter-errors').check()
+            assert page.locator('.case-item').count()==11
+            page.locator('#suite-select').select_option('general')
+            assert page.locator('.case-item').count()==120
+            page.locator('a[data-nav="overview"]').click()
+            assert page.locator('#paired-panel').is_visible()
+            checks.append('clean72: verified 61/72, eleven errors, no language-pair panel, independent suite resets')
         assert not errors,errors
         browser.close()
     result={'status':'pass','checks':checks,'console_errors':errors,'model_inference_executed':False}

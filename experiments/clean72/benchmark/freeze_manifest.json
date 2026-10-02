@@ -1,0 +1,74 @@
+{
+  "benchmark_version": "clean-realistic-de-v1",
+  "frozen_at_utc": "2026-10-02T07:39:52.644456Z",
+  "status": "frozen_before_first_clean_benchmark_inference",
+  "clean_case_authoring_completed_before_any_clean_model_outputs": true,
+  "review": "Independent AI reviewer derived every label without model predictions, checked all 72 cases for ambiguity, naturalness, complexity and absence of prompt manipulation, verified arithmetic and metadata. Not human expert adjudication. See review files for limitations.",
+  "inference_authorization": "No inference performed at the original freeze; the separate text run required the image run to finish first.",
+  "counts": {
+    "total": 72,
+    "german_clean_primary": 72,
+    "sufficient": 50,
+    "missing_or_unresolved": 22,
+    "categories": 6,
+    "cases_per_category": 12,
+    "attacks": 0,
+    "translation_controls": 0
+  },
+  "request_order": {
+    "method": "random.Random(seed).shuffle",
+    "seed": 2026100204
+  },
+  "model_contract": {
+    "model": "clef-flash",
+    "question_type": "choice",
+    "question_name": "decision",
+    "language": "de",
+    "schema_language": "de",
+    "max_input_tokens": 2048,
+    "encoder_preflight_max_tokens": 710,
+    "model_instantiated": false
+  },
+  "scoring": {
+    "primary": "choice_accuracy_all_planned over all 72; missing/runtime-error/invalid-label outputs are incorrect",
+    "scorepooling": "Separate from prior benchmarks; no pooled overall metric and no causal manipulation-effect claim"
+  },
+  "sha256": {
+    "README.md": "cf43f97f08e5e2dc9006d38e5da1b34fea7fe8db66da690875e1ec166289b5a1",
+    "build_benchmark.py": "77a31895a4c28130e03a4aa8dc15699feb10e8b8c091ed8216ff5223fc09efd1",
+    "score.py": "3e9ca13c88a383d2a413598d73e553b325c1e2ed66c7bd66e726d99fef3ea226",
+    "validate.py": "5d9f56ccbc88a2cbd746395386f00855812673212fef7b14e08fc1abb5dd84c9",
+    "check_encoding.py": "ca6f0f25492e6389aff98f1b3ed22194bc86e51dd0589291b2f4e66c44a886ab",
+    "freeze.py": "4cc8efc8136c5027361b2632ab3ab7b285d18ae1b02497813df2eaa9b3461cdf",
+    "cases.jsonl": "47e8239762c69d602adfecd306a00503a9f06bacab5ee451f0d420bc18c2a231",
+    "requests.jsonl": "3e94e7c8dcda74f58a5402cfe361591da6ee10f818175ec791a3d79856195d84",
+    "gold.jsonl": "c7e4389e90c50eb688e7b7c9a1fee48a11e041d68a043be794e54bfdaef51369",
+    "policies.json": "36e7f1aa2f23928ebbfc39d51267143c858c6f04536f27e6113efbd9e49ef41e",
+    "design_summary.json": "83ba3349a5fb15d7faf7e52dcbc60b4ece240e3e394ff127971769b66a08f89c",
+    "encoding_preflight.json": "9a96d027cb67924d759df1140c08517fc1d06654dd157006ddb1ad09c6622dff",
+    "pre_inference_review.jsonl": "2a9b235a0c78cac1ad711e608a415c295cebb31d1e68acd47c3bd453fb5ec74d",
+    "pre_inference_review.md": "c446d576cccd154a8c5d334160c437f336b9ad6e0ed8d207307920aac5418320",
+    "independent_scorer_tests.py": "cc998fa87798ec0c08647f09d4c6da3e2d289d099442d8937709a5300d3f9d57",
+    "independent_scorer_checks.json": "ca491ee4830d309007f045eb7666f75010bb0eb53ea27023ff922eaec926c17f"
+  },
+  "publication_note": "Portable public derivative. The original pre-inference freeze remains unchanged at source. Original file hashes are retained in original_sha256; sha256 validates the documented public copies. No case, request, gold label, order, numeric annotation or scoring formula changed.",
+  "original_manifest_sha256": "3224bfdd2d70afa6d20b6d9f0ed91b44029b332d36fdad47ea81ff9e99743135",
+  "original_sha256": {
+    "README.md": "cf43f97f08e5e2dc9006d38e5da1b34fea7fe8db66da690875e1ec166289b5a1",
+    "build_benchmark.py": "77a31895a4c28130e03a4aa8dc15699feb10e8b8c091ed8216ff5223fc09efd1",
+    "score.py": "3e9ca13c88a383d2a413598d73e553b325c1e2ed66c7bd66e726d99fef3ea226",
+    "validate.py": "5d9f56ccbc88a2cbd746395386f00855812673212fef7b14e08fc1abb5dd84c9",
+    "check_encoding.py": "55f5f990f029603799f66797489321530c57f452d7bbf467687558cda019f575",
+    "freeze.py": "203736420bf9590dbc995af6c811729484520c854da7c3cb0a4bfb9539e0be12",
+    "cases.jsonl": "47e8239762c69d602adfecd306a00503a9f06bacab5ee451f0d420bc18c2a231",
+    "requests.jsonl": "3e94e7c8dcda74f58a5402cfe361591da6ee10f818175ec791a3d79856195d84",
+    "gold.jsonl": "c7e4389e90c50eb688e7b7c9a1fee48a11e041d68a043be794e54bfdaef51369",
+    "policies.json": "36e7f1aa2f23928ebbfc39d51267143c858c6f04536f27e6113efbd9e49ef41e",
+    "design_summary.json": "83ba3349a5fb15d7faf7e52dcbc60b4ece240e3e394ff127971769b66a08f89c",
+    "encoding_preflight.json": "9a96d027cb67924d759df1140c08517fc1d06654dd157006ddb1ad09c6622dff",
+    "pre_inference_review.jsonl": "2a9b235a0c78cac1ad711e608a415c295cebb31d1e68acd47c3bd453fb5ec74d",
+    "pre_inference_review.md": "c446d576cccd154a8c5d334160c437f336b9ad6e0ed8d207307920aac5418320",
+    "independent_scorer_tests.py": "cc998fa87798ec0c08647f09d4c6da3e2d289d099442d8937709a5300d3f9d57",
+    "independent_scorer_checks.json": "ca491ee4830d309007f045eb7666f75010bb0eb53ea27023ff922eaec926c17f"
+  }
+}

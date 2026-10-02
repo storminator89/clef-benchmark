@@ -1,0 +1,892 @@
+{
+  "reviewed_at_utc": "2026-10-02T07:15:00Z",
+  "prediction_accessed": false,
+  "scope": "50 planned images;30 charts and20 German synthetic invoices; all120 primary field labels",
+  "method": "Independent manual pixel inspection plus deterministic comparisons to cases gold. Four original diagnostic invoices inspected earlier were matched to final copies by source ID and image SHA256; remaining16 read individually. All30 charts read in five six-image sheets. No model output accessed.",
+  "status": "pass",
+  "image_count": 50,
+  "mismatch_count": 0,
+  "requested_prompt_fixes": [
+    {
+      "option": "hbar2",
+      "reason": "chart012/test137 contains only positive plotted values; old positive AND negative wording is false.",
+      "recommended_de": "Waagerechte Balken mit einer Reihe und Positiv-/Negativ-Legende",
+      "verified_applied_de_en": true
+    },
+    {
+      "option": "bar_pie",
+      "reason": "All3 examples use a stacked vertical column; prefer Säule to German Balken.",
+      "recommended_de": "Kreisdiagramm neben einer gestapelten Säule",
+      "verified_applied_de_en": true
+    }
+  ],
+  "limitations": [
+    "Assessment is at readable original image resolution; model processor downscaling may impair readability.",
+    "Gold verifies displayed text and chart structure, not legal correctness or finance truth.",
+    "Some pie legend labels are clipped but entry counts are visually unambiguous."
+  ],
+  "cases_sha256": "225bfc9e51daf49dbab2d1d8c9df2080ee6ef23f385247e32f64f6c8490b43fb",
+  "requests_sha256_at_audit": "fbcc4b997f38d6fbffd468454e59cb0a233b8da1ae6879f7f4b786753df26d45",
+  "rows": [
+    {
+      "case_id": "chart-001",
+      "source_id": "test-270",
+      "visual_observed": {
+        "chart_type": "bar_line",
+        "legend_count": "3"
+      },
+      "gold": {
+        "chart_type": "bar_line",
+        "legend_count": "3"
+      },
+      "matched": true,
+      "image_and_label_hashes_match": true,
+      "review_method": "readable six-image contact sheet, original pixels preserved",
+      "note": "Visible chart structure and legend count verified."
+    },
+    {
+      "case_id": "chart-002",
+      "source_id": "test-293",
+      "visual_observed": {
+        "chart_type": "bar_line",
+        "legend_count": "4"
+      },
+      "gold": {
+        "chart_type": "bar_line",
+        "legend_count": "4"
+      },
+      "matched": true,
+      "image_and_label_hashes_match": true,
+      "review_method": "readable six-image contact sheet, original pixels preserved",
+      "note": "Visible chart structure and legend count verified."
+    },
+    {
+      "case_id": "chart-003",
+      "source_id": "test-286",
+      "visual_observed": {
+        "chart_type": "bar_line",
+        "legend_count": "3"
+      },
+      "gold": {
+        "chart_type": "bar_line",
+        "legend_count": "3"
+      },
+      "matched": true,
+      "image_and_label_hashes_match": true,
+      "review_method": "readable six-image contact sheet, original pixels preserved",
+      "note": "Visible chart structure and legend count verified."
+    },
+    {
+      "case_id": "chart-004",
+      "source_id": "test-252",
+      "visual_observed": {
+        "chart_type": "bar_pie",
+        "legend_count": "3"
+      },
+      "gold": {
+        "chart_type": "bar_pie",
+        "legend_count": "3"
+      },
+      "matched": true,
+      "image_and_label_hashes_match": true,
+      "review_method": "readable six-image contact sheet, original pixels preserved",
+      "note": "Visible chart structure and legend count verified."
+    },
+    {
+      "case_id": "chart-005",
+      "source_id": "test-246",
+      "visual_observed": {
+        "chart_type": "bar_pie",
+        "legend_count": "4"
+      },
+      "gold": {
+        "chart_type": "bar_pie",
+        "legend_count": "4"
+      },
+      "matched": true,
+      "image_and_label_hashes_match": true,
+      "review_method": "readable six-image contact sheet, original pixels preserved",
+      "note": "Visible chart structure and legend count verified."
+    },
+    {
+      "case_id": "chart-006",
+      "source_id": "test-260",
+      "visual_observed": {
+        "chart_type": "bar_pie",
+        "legend_count": "4"
+      },
+      "gold": {
+        "chart_type": "bar_pie",
+        "legend_count": "4"
+      },
+      "matched": true,
+      "image_and_label_hashes_match": true,
+      "review_method": "readable six-image contact sheet, original pixels preserved",
+      "note": "Visible chart structure and legend count verified."
+    },
+    {
+      "case_id": "chart-007",
+      "source_id": "test-096",
+      "visual_observed": {
+        "chart_type": "hbar",
+        "legend_count": "2"
+      },
+      "gold": {
+        "chart_type": "hbar",
+        "legend_count": "2"
+      },
+      "matched": true,
+      "image_and_label_hashes_match": true,
+      "review_method": "readable six-image contact sheet, original pixels preserved",
+      "note": "Visible chart structure and legend count verified."
+    },
+    {
+      "case_id": "chart-008",
+      "source_id": "test-116",
+      "visual_observed": {
+        "chart_type": "hbar",
+        "legend_count": "4"
+      },
+      "gold": {
+        "chart_type": "hbar",
+        "legend_count": "4"
+      },
+      "matched": true,
+      "image_and_label_hashes_match": true,
+      "review_method": "readable six-image contact sheet, original pixels preserved",
+      "note": "Visible chart structure and legend count verified."
+    },
+    {
+      "case_id": "chart-009",
+      "source_id": "test-101",
+      "visual_observed": {
+        "chart_type": "hbar",
+        "legend_count": "3"
+      },
+      "gold": {
+        "chart_type": "hbar",
+        "legend_count": "3"
+      },
+      "matched": true,
+      "image_and_label_hashes_match": true,
+      "review_method": "readable six-image contact sheet, original pixels preserved",
+      "note": "Visible chart structure and legend count verified."
+    },
+    {
+      "case_id": "chart-010",
+      "source_id": "test-148",
+      "visual_observed": {
+        "chart_type": "hbar2",
+        "legend_count": "2"
+      },
+      "gold": {
+        "chart_type": "hbar2",
+        "legend_count": "2"
+      },
+      "matched": true,
+      "image_and_label_hashes_match": true,
+      "review_method": "readable six-image contact sheet, original pixels preserved",
+      "note": "Visible chart structure and legend count verified."
+    },
+    {
+      "case_id": "chart-011",
+      "source_id": "test-129",
+      "visual_observed": {
+        "chart_type": "hbar2",
+        "legend_count": "2"
+      },
+      "gold": {
+        "chart_type": "hbar2",
+        "legend_count": "2"
+      },
+      "matched": true,
+      "image_and_label_hashes_match": true,
+      "review_method": "readable six-image contact sheet, original pixels preserved",
+      "note": "Visible chart structure and legend count verified."
+    },
+    {
+      "case_id": "chart-012",
+      "source_id": "test-137",
+      "visual_observed": {
+        "chart_type": "hbar2",
+        "legend_count": "2"
+      },
+      "gold": {
+        "chart_type": "hbar2",
+        "legend_count": "2"
+      },
+      "matched": true,
+      "image_and_label_hashes_match": true,
+      "review_method": "readable six-image contact sheet, original pixels preserved",
+      "note": "Visible chart structure and legend count verified."
+    },
+    {
+      "case_id": "chart-013",
+      "source_id": "test-036",
+      "visual_observed": {
+        "chart_type": "line",
+        "legend_count": "2"
+      },
+      "gold": {
+        "chart_type": "line",
+        "legend_count": "2"
+      },
+      "matched": true,
+      "image_and_label_hashes_match": true,
+      "review_method": "readable six-image contact sheet, original pixels preserved",
+      "note": "Visible chart structure and legend count verified."
+    },
+    {
+      "case_id": "chart-014",
+      "source_id": "test-050",
+      "visual_observed": {
+        "chart_type": "line",
+        "legend_count": "4"
+      },
+      "gold": {
+        "chart_type": "line",
+        "legend_count": "4"
+      },
+      "matched": true,
+      "image_and_label_hashes_match": true,
+      "review_method": "readable six-image contact sheet, original pixels preserved",
+      "note": "Visible chart structure and legend count verified."
+    },
+    {
+      "case_id": "chart-015",
+      "source_id": "test-049",
+      "visual_observed": {
+        "chart_type": "line",
+        "legend_count": "4"
+      },
+      "gold": {
+        "chart_type": "line",
+        "legend_count": "4"
+      },
+      "matched": true,
+      "image_and_label_hashes_match": true,
+      "review_method": "readable six-image contact sheet, original pixels preserved",
+      "note": "Visible chart structure and legend count verified."
+    },
+    {
+      "case_id": "chart-016",
+      "source_id": "test-027",
+      "visual_observed": {
+        "chart_type": "pie",
+        "legend_count": "2"
+      },
+      "gold": {
+        "chart_type": "pie",
+        "legend_count": "2"
+      },
+      "matched": true,
+      "image_and_label_hashes_match": true,
+      "review_method": "readable six-image contact sheet, original pixels preserved",
+      "note": "Pie legend text clipped but all swatches/entry rows visible and countable."
+    },
+    {
+      "case_id": "chart-017",
+      "source_id": "test-006",
+      "visual_observed": {
+        "chart_type": "pie",
+        "legend_count": "7"
+      },
+      "gold": {
+        "chart_type": "pie",
+        "legend_count": "7"
+      },
+      "matched": true,
+      "image_and_label_hashes_match": true,
+      "review_method": "readable six-image contact sheet, original pixels preserved",
+      "note": "Pie legend text clipped but all swatches/entry rows visible and countable."
+    },
+    {
+      "case_id": "chart-018",
+      "source_id": "test-015",
+      "visual_observed": {
+        "chart_type": "pie",
+        "legend_count": "5"
+      },
+      "gold": {
+        "chart_type": "pie",
+        "legend_count": "5"
+      },
+      "matched": true,
+      "image_and_label_hashes_match": true,
+      "review_method": "readable six-image contact sheet, original pixels preserved",
+      "note": "Pie legend text clipped but all swatches/entry rows visible and countable."
+    },
+    {
+      "case_id": "chart-019",
+      "source_id": "test-185",
+      "visual_observed": {
+        "chart_type": "stack_hbar",
+        "legend_count": "3"
+      },
+      "gold": {
+        "chart_type": "stack_hbar",
+        "legend_count": "3"
+      },
+      "matched": true,
+      "image_and_label_hashes_match": true,
+      "review_method": "readable six-image contact sheet, original pixels preserved",
+      "note": "Visible chart structure and legend count verified."
+    },
+    {
+      "case_id": "chart-020",
+      "source_id": "test-206",
+      "visual_observed": {
+        "chart_type": "stack_hbar",
+        "legend_count": "4"
+      },
+      "gold": {
+        "chart_type": "stack_hbar",
+        "legend_count": "4"
+      },
+      "matched": true,
+      "image_and_label_hashes_match": true,
+      "review_method": "readable six-image contact sheet, original pixels preserved",
+      "note": "Visible chart structure and legend count verified."
+    },
+    {
+      "case_id": "chart-021",
+      "source_id": "test-193",
+      "visual_observed": {
+        "chart_type": "stack_hbar",
+        "legend_count": "4"
+      },
+      "gold": {
+        "chart_type": "stack_hbar",
+        "legend_count": "4"
+      },
+      "matched": true,
+      "image_and_label_hashes_match": true,
+      "review_method": "readable six-image contact sheet, original pixels preserved",
+      "note": "Visible chart structure and legend count verified."
+    },
+    {
+      "case_id": "chart-022",
+      "source_id": "test-216",
+      "visual_observed": {
+        "chart_type": "stack_vbar",
+        "legend_count": "2"
+      },
+      "gold": {
+        "chart_type": "stack_vbar",
+        "legend_count": "2"
+      },
+      "matched": true,
+      "image_and_label_hashes_match": true,
+      "review_method": "readable six-image contact sheet, original pixels preserved",
+      "note": "Visible chart structure and legend count verified."
+    },
+    {
+      "case_id": "chart-023",
+      "source_id": "test-231",
+      "visual_observed": {
+        "chart_type": "stack_vbar",
+        "legend_count": "5"
+      },
+      "gold": {
+        "chart_type": "stack_vbar",
+        "legend_count": "5"
+      },
+      "matched": true,
+      "image_and_label_hashes_match": true,
+      "review_method": "readable six-image contact sheet, original pixels preserved",
+      "note": "Visible chart structure and legend count verified."
+    },
+    {
+      "case_id": "chart-024",
+      "source_id": "test-222",
+      "visual_observed": {
+        "chart_type": "stack_vbar",
+        "legend_count": "4"
+      },
+      "gold": {
+        "chart_type": "stack_vbar",
+        "legend_count": "4"
+      },
+      "matched": true,
+      "image_and_label_hashes_match": true,
+      "review_method": "readable six-image contact sheet, original pixels preserved",
+      "note": "Visible chart structure and legend count verified."
+    },
+    {
+      "case_id": "chart-025",
+      "source_id": "test-154",
+      "visual_observed": {
+        "chart_type": "vbar",
+        "legend_count": "3"
+      },
+      "gold": {
+        "chart_type": "vbar",
+        "legend_count": "3"
+      },
+      "matched": true,
+      "image_and_label_hashes_match": true,
+      "review_method": "readable six-image contact sheet, original pixels preserved",
+      "note": "Visible chart structure and legend count verified."
+    },
+    {
+      "case_id": "chart-026",
+      "source_id": "test-170",
+      "visual_observed": {
+        "chart_type": "vbar",
+        "legend_count": "5"
+      },
+      "gold": {
+        "chart_type": "vbar",
+        "legend_count": "5"
+      },
+      "matched": true,
+      "image_and_label_hashes_match": true,
+      "review_method": "readable six-image contact sheet, original pixels preserved",
+      "note": "Visible chart structure and legend count verified."
+    },
+    {
+      "case_id": "chart-027",
+      "source_id": "test-160",
+      "visual_observed": {
+        "chart_type": "vbar",
+        "legend_count": "4"
+      },
+      "gold": {
+        "chart_type": "vbar",
+        "legend_count": "4"
+      },
+      "matched": true,
+      "image_and_label_hashes_match": true,
+      "review_method": "readable six-image contact sheet, original pixels preserved",
+      "note": "Visible chart structure and legend count verified."
+    },
+    {
+      "case_id": "chart-028",
+      "source_id": "test-062",
+      "visual_observed": {
+        "chart_type": "vbar2",
+        "legend_count": "2"
+      },
+      "gold": {
+        "chart_type": "vbar2",
+        "legend_count": "2"
+      },
+      "matched": true,
+      "image_and_label_hashes_match": true,
+      "review_method": "readable six-image contact sheet, original pixels preserved",
+      "note": "Visible chart structure and legend count verified."
+    },
+    {
+      "case_id": "chart-029",
+      "source_id": "test-085",
+      "visual_observed": {
+        "chart_type": "vbar2",
+        "legend_count": "5"
+      },
+      "gold": {
+        "chart_type": "vbar2",
+        "legend_count": "5"
+      },
+      "matched": true,
+      "image_and_label_hashes_match": true,
+      "review_method": "readable six-image contact sheet, original pixels preserved",
+      "note": "Visible chart structure and legend count verified."
+    },
+    {
+      "case_id": "chart-030",
+      "source_id": "test-070",
+      "visual_observed": {
+        "chart_type": "vbar2",
+        "legend_count": "4"
+      },
+      "gold": {
+        "chart_type": "vbar2",
+        "legend_count": "4"
+      },
+      "matched": true,
+      "image_and_label_hashes_match": true,
+      "review_method": "readable six-image contact sheet, original pixels preserved",
+      "note": "Visible chart structure and legend count verified."
+    },
+    {
+      "case_id": "invoice-001",
+      "source_id": "beleg-000000",
+      "visual_observed": {
+        "document_type": "rechnung",
+        "tax_note": "regular",
+        "gross_band": "1000_5000"
+      },
+      "gold": {
+        "document_type": "rechnung",
+        "tax_note": "regular",
+        "gross_band": "1000_5000"
+      },
+      "matched": true,
+      "image_and_label_hashes_match": true,
+      "review_method": "direct original image inspection",
+      "note": "Printed gross total visually read as EUR 2548.54; document heading and explicit tax note/VAT amount verified.",
+      "visual_gross_eur": 2548.54
+    },
+    {
+      "case_id": "invoice-002",
+      "source_id": "beleg-000018",
+      "visual_observed": {
+        "document_type": "rechnung",
+        "tax_note": "regular",
+        "gross_band": "zero_1000"
+      },
+      "gold": {
+        "document_type": "rechnung",
+        "tax_note": "regular",
+        "gross_band": "zero_1000"
+      },
+      "matched": true,
+      "image_and_label_hashes_match": true,
+      "review_method": "direct original image inspection",
+      "note": "Printed gross total visually read as EUR 266.08; document heading and explicit tax note/VAT amount verified.",
+      "visual_gross_eur": 266.08
+    },
+    {
+      "case_id": "invoice-003",
+      "source_id": "beleg-000026",
+      "visual_observed": {
+        "document_type": "rechnung",
+        "tax_note": "regular",
+        "gross_band": "over_20000"
+      },
+      "gold": {
+        "document_type": "rechnung",
+        "tax_note": "regular",
+        "gross_band": "over_20000"
+      },
+      "matched": true,
+      "image_and_label_hashes_match": true,
+      "review_method": "direct original image inspection",
+      "note": "Printed gross total visually read as EUR 37327.17; document heading and explicit tax note/VAT amount verified.",
+      "visual_gross_eur": 37327.17
+    },
+    {
+      "case_id": "invoice-004",
+      "source_id": "beleg-000012",
+      "visual_observed": {
+        "document_type": "rechnung",
+        "tax_note": "small_business",
+        "gross_band": "5000_20000"
+      },
+      "gold": {
+        "document_type": "rechnung",
+        "tax_note": "small_business",
+        "gross_band": "5000_20000"
+      },
+      "matched": true,
+      "image_and_label_hashes_match": true,
+      "review_method": "direct original image inspection",
+      "note": "Printed gross total visually read as EUR 8770.61; document heading and explicit tax note/VAT amount verified. Source line-item VAT percentages conflict with §19 footer; question explicitly prioritizes footer.",
+      "visual_gross_eur": 8770.61
+    },
+    {
+      "case_id": "invoice-005",
+      "source_id": "beleg-000021",
+      "visual_observed": {
+        "document_type": "rechnung",
+        "tax_note": "regular",
+        "gross_band": "zero_1000"
+      },
+      "gold": {
+        "document_type": "rechnung",
+        "tax_note": "regular",
+        "gross_band": "zero_1000"
+      },
+      "matched": true,
+      "image_and_label_hashes_match": true,
+      "review_method": "direct original image inspection",
+      "note": "Printed gross total visually read as EUR 193.41; document heading and explicit tax note/VAT amount verified.",
+      "visual_gross_eur": 193.41
+    },
+    {
+      "case_id": "invoice-006",
+      "source_id": "beleg-000009",
+      "visual_observed": {
+        "document_type": "rechnung",
+        "tax_note": "small_business",
+        "gross_band": "over_20000"
+      },
+      "gold": {
+        "document_type": "rechnung",
+        "tax_note": "small_business",
+        "gross_band": "over_20000"
+      },
+      "matched": true,
+      "image_and_label_hashes_match": true,
+      "review_method": "direct original image inspection",
+      "note": "Printed gross total visually read as EUR 22457.17; document heading and explicit tax note/VAT amount verified. Source line-item VAT percentages conflict with §19 footer; question explicitly prioritizes footer.",
+      "visual_gross_eur": 22457.17
+    },
+    {
+      "case_id": "invoice-007",
+      "source_id": "beleg-000037",
+      "visual_observed": {
+        "document_type": "rechnung",
+        "tax_note": "reverse_charge",
+        "gross_band": "5000_20000"
+      },
+      "gold": {
+        "document_type": "rechnung",
+        "tax_note": "reverse_charge",
+        "gross_band": "5000_20000"
+      },
+      "matched": true,
+      "image_and_label_hashes_match": true,
+      "review_method": "direct original image inspection",
+      "note": "Printed gross total visually read as EUR 11972.03; document heading and explicit tax note/VAT amount verified.",
+      "visual_gross_eur": 11972.03
+    },
+    {
+      "case_id": "invoice-008",
+      "source_id": "beleg-000029",
+      "visual_observed": {
+        "document_type": "rechnung",
+        "tax_note": "regular",
+        "gross_band": "1000_5000"
+      },
+      "gold": {
+        "document_type": "rechnung",
+        "tax_note": "regular",
+        "gross_band": "1000_5000"
+      },
+      "matched": true,
+      "image_and_label_hashes_match": true,
+      "review_method": "direct original image inspection",
+      "note": "Printed gross total visually read as EUR 1505.83; document heading and explicit tax note/VAT amount verified.",
+      "visual_gross_eur": 1505.83
+    },
+    {
+      "case_id": "invoice-009",
+      "source_id": "beleg-000038",
+      "visual_observed": {
+        "document_type": "gutschrift",
+        "tax_note": "regular",
+        "gross_band": "negative"
+      },
+      "gold": {
+        "document_type": "gutschrift",
+        "tax_note": "regular",
+        "gross_band": "negative"
+      },
+      "matched": true,
+      "image_and_label_hashes_match": true,
+      "review_method": "direct original image inspection",
+      "note": "Printed gross total visually read as EUR -29838.18; document heading and explicit tax note/VAT amount verified.",
+      "visual_gross_eur": -29838.18
+    },
+    {
+      "case_id": "invoice-010",
+      "source_id": "beleg-000039",
+      "visual_observed": {
+        "document_type": "rechnung",
+        "tax_note": "regular",
+        "gross_band": "over_20000"
+      },
+      "gold": {
+        "document_type": "rechnung",
+        "tax_note": "regular",
+        "gross_band": "over_20000"
+      },
+      "matched": true,
+      "image_and_label_hashes_match": true,
+      "review_method": "direct original image inspection",
+      "note": "Printed gross total visually read as EUR 67880.37; document heading and explicit tax note/VAT amount verified.",
+      "visual_gross_eur": 67880.37
+    },
+    {
+      "case_id": "invoice-011",
+      "source_id": "beleg-000032",
+      "visual_observed": {
+        "document_type": "rechnung",
+        "tax_note": "small_business",
+        "gross_band": "1000_5000"
+      },
+      "gold": {
+        "document_type": "rechnung",
+        "tax_note": "small_business",
+        "gross_band": "1000_5000"
+      },
+      "matched": true,
+      "image_and_label_hashes_match": true,
+      "review_method": "direct original image inspection",
+      "note": "Printed gross total visually read as EUR 2633.10; document heading and explicit tax note/VAT amount verified.",
+      "visual_gross_eur": 2633.1
+    },
+    {
+      "case_id": "invoice-012",
+      "source_id": "beleg-000004",
+      "visual_observed": {
+        "document_type": "rechnung",
+        "tax_note": "small_business",
+        "gross_band": "1000_5000"
+      },
+      "gold": {
+        "document_type": "rechnung",
+        "tax_note": "small_business",
+        "gross_band": "1000_5000"
+      },
+      "matched": true,
+      "image_and_label_hashes_match": true,
+      "review_method": "direct original image inspection",
+      "note": "Printed gross total visually read as EUR 2946.76; document heading and explicit tax note/VAT amount verified. Source line-item VAT percentages conflict with §19 footer; question explicitly prioritizes footer.",
+      "visual_gross_eur": 2946.76
+    },
+    {
+      "case_id": "invoice-013",
+      "source_id": "beleg-000010",
+      "visual_observed": {
+        "document_type": "rechnung",
+        "tax_note": "small_business",
+        "gross_band": "5000_20000"
+      },
+      "gold": {
+        "document_type": "rechnung",
+        "tax_note": "small_business",
+        "gross_band": "5000_20000"
+      },
+      "matched": true,
+      "image_and_label_hashes_match": true,
+      "review_method": "direct original image inspection",
+      "note": "Printed gross total visually read as EUR 13142.90; document heading and explicit tax note/VAT amount verified. Source line-item VAT percentages conflict with §19 footer; question explicitly prioritizes footer.",
+      "visual_gross_eur": 13142.9
+    },
+    {
+      "case_id": "invoice-014",
+      "source_id": "beleg-000001",
+      "visual_observed": {
+        "document_type": "rechnung",
+        "tax_note": "regular",
+        "gross_band": "zero_1000"
+      },
+      "gold": {
+        "document_type": "rechnung",
+        "tax_note": "regular",
+        "gross_band": "zero_1000"
+      },
+      "matched": true,
+      "image_and_label_hashes_match": true,
+      "review_method": "direct original image inspection",
+      "note": "Printed gross total visually read as EUR 637.13; document heading and explicit tax note/VAT amount verified.",
+      "visual_gross_eur": 637.13
+    },
+    {
+      "case_id": "invoice-015",
+      "source_id": "beleg-000024",
+      "visual_observed": {
+        "document_type": "rechnung",
+        "tax_note": "regular",
+        "gross_band": "zero_1000"
+      },
+      "gold": {
+        "document_type": "rechnung",
+        "tax_note": "regular",
+        "gross_band": "zero_1000"
+      },
+      "matched": true,
+      "image_and_label_hashes_match": true,
+      "review_method": "direct original image inspection",
+      "note": "Printed gross total visually read as EUR 366.32; document heading and explicit tax note/VAT amount verified.",
+      "visual_gross_eur": 366.32
+    },
+    {
+      "case_id": "invoice-016",
+      "source_id": "beleg-000028",
+      "visual_observed": {
+        "document_type": "gutschrift",
+        "tax_note": "regular",
+        "gross_band": "negative"
+      },
+      "gold": {
+        "document_type": "gutschrift",
+        "tax_note": "regular",
+        "gross_band": "negative"
+      },
+      "matched": true,
+      "image_and_label_hashes_match": true,
+      "review_method": "direct original image inspection",
+      "note": "Printed gross total visually read as EUR -16897.33; document heading and explicit tax note/VAT amount verified.",
+      "visual_gross_eur": -16897.33
+    },
+    {
+      "case_id": "invoice-017",
+      "source_id": "beleg-000030",
+      "visual_observed": {
+        "document_type": "rechnung",
+        "tax_note": "reverse_charge",
+        "gross_band": "over_20000"
+      },
+      "gold": {
+        "document_type": "rechnung",
+        "tax_note": "reverse_charge",
+        "gross_band": "over_20000"
+      },
+      "matched": true,
+      "image_and_label_hashes_match": true,
+      "review_method": "direct original image inspection",
+      "note": "Printed gross total visually read as EUR 26155.05; document heading and explicit tax note/VAT amount verified.",
+      "visual_gross_eur": 26155.05
+    },
+    {
+      "case_id": "invoice-018",
+      "source_id": "beleg-000005",
+      "visual_observed": {
+        "document_type": "gutschrift",
+        "tax_note": "regular",
+        "gross_band": "negative"
+      },
+      "gold": {
+        "document_type": "gutschrift",
+        "tax_note": "regular",
+        "gross_band": "negative"
+      },
+      "matched": true,
+      "image_and_label_hashes_match": true,
+      "review_method": "direct original image inspection",
+      "note": "Printed gross total visually read as EUR -2765.00; document heading and explicit tax note/VAT amount verified.",
+      "visual_gross_eur": -2765.0
+    },
+    {
+      "case_id": "invoice-019",
+      "source_id": "beleg-000017",
+      "visual_observed": {
+        "document_type": "gutschrift",
+        "tax_note": "regular",
+        "gross_band": "negative"
+      },
+      "gold": {
+        "document_type": "gutschrift",
+        "tax_note": "regular",
+        "gross_band": "negative"
+      },
+      "matched": true,
+      "image_and_label_hashes_match": true,
+      "review_method": "direct original image inspection",
+      "note": "Printed gross total visually read as EUR -2719.72; document heading and explicit tax note/VAT amount verified.",
+      "visual_gross_eur": -2719.72
+    },
+    {
+      "case_id": "invoice-020",
+      "source_id": "beleg-000035",
+      "visual_observed": {
+        "document_type": "rechnung",
+        "tax_note": "reverse_charge",
+        "gross_band": "5000_20000"
+      },
+      "gold": {
+        "document_type": "rechnung",
+        "tax_note": "reverse_charge",
+        "gross_band": "5000_20000"
+      },
+      "matched": true,
+      "image_and_label_hashes_match": true,
+      "review_method": "direct original image inspection",
+      "note": "Printed gross total visually read as EUR 6150.03; document heading and explicit tax note/VAT amount verified.",
+      "visual_gross_eur": 6150.03
+    }
+  ]
+}

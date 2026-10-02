@@ -1,0 +1,155 @@
+{
+  "format_version": 1,
+  "suite": "attack_ablation14",
+  "original_freeze_manifest_sha256": "0668fe6c03a56077561311a924c82ca8a3c90e4d697532e287e7c567beec817f",
+  "original_measurement_inputs_unmodified": true,
+  "entries": [
+    {
+      "source_artifact": "benchmark/README.md",
+      "published_artifact": "benchmark/README.md",
+      "source_sha256": "d02c0ee900db8b489b822380471c0d555630d2fb19bf3560d55f6721888ffece",
+      "published_sha256": "01ae38c1b2a53db1b3200eafb0ce0e1f31f58caf270ceecbd8c2f8f63bede465",
+      "transformation": "Update reproduction paths to public repository layout; direct users to new output files."
+    },
+    {
+      "source_artifact": "benchmark/build_ablation.py",
+      "published_artifact": "benchmark/build_ablation.py",
+      "source_sha256": "4c146bb4863176f5ca73f66e3ea04e3f210f518e9aab4af528f7adff8e70ea6c",
+      "published_sha256": "7e52ad8aec427f3752379b44c427f60f6a89af6dc4331f035b162e65f001cfac",
+      "transformation": "Resolve original finance benchmark and unchanged runner at repository root; generated data and design remain byte-identical."
+    },
+    {
+      "source_artifact": "benchmark/cases.jsonl",
+      "published_artifact": "benchmark/cases.jsonl",
+      "source_sha256": "18f014c62653768478e236a7c4608613350c89f7527ec7bb5555a2a2667c2930",
+      "published_sha256": "18f014c62653768478e236a7c4608613350c89f7527ec7bb5555a2a2667c2930",
+      "transformation": "none; byte-identical"
+    },
+    {
+      "source_artifact": "benchmark/design.json",
+      "published_artifact": "benchmark/design.json",
+      "source_sha256": "21b3542facfaa0c7c378d6e18cd7ed498b2a17e6a166d6e0839ade5e97163cb4",
+      "published_sha256": "21b3542facfaa0c7c378d6e18cd7ed498b2a17e6a166d6e0839ade5e97163cb4",
+      "transformation": "none; byte-identical"
+    },
+    {
+      "source_artifact": "benchmark/freeze_manifest.json",
+      "published_artifact": "benchmark/freeze_manifest.json",
+      "source_sha256": "0668fe6c03a56077561311a924c82ca8a3c90e4d697532e287e7c567beec817f",
+      "published_sha256": "b132aa8663ef6bb8abc50c97697723e8a2f0752f482d02478cf1e5c885c09066",
+      "transformation": "Preserve original timestamp and source hashes; add public-copy hash map and explicitly distinguish export from original pre-inference freeze. Neutralize coordination wording."
+    },
+    {
+      "source_artifact": "benchmark/gold.jsonl",
+      "published_artifact": "benchmark/gold.jsonl",
+      "source_sha256": "4a5528ebb993e3ea935576c14124a5a1795e9da71e3fa54f3dda026f77e3dc8e",
+      "published_sha256": "4a5528ebb993e3ea935576c14124a5a1795e9da71e3fa54f3dda026f77e3dc8e",
+      "transformation": "none; byte-identical"
+    },
+    {
+      "source_artifact": "benchmark/guard_run.py",
+      "published_artifact": "benchmark/guard_run.py",
+      "source_sha256": "87d1a533e43ad33f0257785f203bb3dacbadc7d43cfabaaece4b55a10ed092b3",
+      "published_sha256": "87d1a533e43ad33f0257785f203bb3dacbadc7d43cfabaaece4b55a10ed092b3",
+      "transformation": "none; byte-identical"
+    },
+    {
+      "source_artifact": "benchmark/pairs.jsonl",
+      "published_artifact": "benchmark/pairs.jsonl",
+      "source_sha256": "f7ef32713dcf4f110a600dacb46ab7cfda33e18740649b2448ce6c93df5c7831",
+      "published_sha256": "f7ef32713dcf4f110a600dacb46ab7cfda33e18740649b2448ce6c93df5c7831",
+      "transformation": "none; byte-identical"
+    },
+    {
+      "source_artifact": "benchmark/policies.json",
+      "published_artifact": "benchmark/policies.json",
+      "source_sha256": "7effaeec2ab4c0aaf6dd544b89c2b4316ba9484fff51a043d79b95195c2befbc",
+      "published_sha256": "7effaeec2ab4c0aaf6dd544b89c2b4316ba9484fff51a043d79b95195c2befbc",
+      "transformation": "none; byte-identical"
+    },
+    {
+      "source_artifact": "benchmark/pre_inference_review.md",
+      "published_artifact": "benchmark/pre_inference_review.md",
+      "source_sha256": "8e1ad1b791dfa45e14ea9dff1f77a80ca093586c3ae90dfdcd19f63442340b23",
+      "published_sha256": "72c33be0e1cc94d2ffd8cbb452091254cb9bc86273f4b4c70286791944fa85d7",
+      "transformation": "Replace internal role references with neutral project-coordination wording; retain all technical review findings and limitations."
+    },
+    {
+      "source_artifact": "benchmark/requests.jsonl",
+      "published_artifact": "benchmark/requests.jsonl",
+      "source_sha256": "295710d90546d9a0aa5fa4dd465a62cb7e285deba8fa5ab5b8ec4f3dd45f04d7",
+      "published_sha256": "295710d90546d9a0aa5fa4dd465a62cb7e285deba8fa5ab5b8ec4f3dd45f04d7",
+      "transformation": "none; byte-identical"
+    },
+    {
+      "source_artifact": "benchmark/score_ablation.py",
+      "published_artifact": "benchmark/score_ablation.py",
+      "source_sha256": "a4f266dadaef78a8fee595a0aadeaa4b7a9a122bc5e0253dddb0e1b86450307f",
+      "published_sha256": "1b75c0e23e366143d1190837074dd2d2458e7c33493e039fc85a79785be4f7c4",
+      "transformation": "Resolve byte-identical historic predictions in the public results directory; paired-scoring calculations unchanged."
+    },
+    {
+      "source_artifact": "benchmark/source_score.py",
+      "published_artifact": "benchmark/source_score.py",
+      "source_sha256": "a93515e3c3e857bbeb709df4d0a9f032b52f9c341065f8e671322610c9c3ff7a",
+      "published_sha256": "a93515e3c3e857bbeb709df4d0a9f032b52f9c341065f8e671322610c9c3ff7a",
+      "transformation": "none; byte-identical"
+    },
+    {
+      "source_artifact": "benchmark/validate.py",
+      "published_artifact": "benchmark/validate.py",
+      "source_sha256": "804c483fc55e35e8f2fbf9be448c213367940d5a7303164905939f4a39bdde92",
+      "published_sha256": "92a39d5438578de37022d922b945ec607014808654475255449d713e9efb0ba2",
+      "transformation": "Resolve source files at repository root; all integrity, reconstruction and scoring checks retained."
+    },
+    {
+      "source_artifact": "results/predictions.jsonl",
+      "published_artifact": "results/predictions.jsonl",
+      "source_sha256": "3a386120b9d7c4bcccd934ae962328fd12084f4d128d41de9ae45af8bdf0ba7c",
+      "published_sha256": "3a386120b9d7c4bcccd934ae962328fd12084f4d128d41de9ae45af8bdf0ba7c",
+      "transformation": "none; byte-identical"
+    },
+    {
+      "source_artifact": "results/predictions.metadata.json",
+      "published_artifact": "results/predictions.metadata.json",
+      "source_sha256": "d311bbe761095412b947a3c43fc786292fd8ccbbe62e362adc58ddd30c122482",
+      "published_sha256": "d311bbe761095412b947a3c43fc786292fd8ccbbe62e362adc58ddd30c122482",
+      "transformation": "none; byte-identical"
+    },
+    {
+      "source_artifact": "results/results.json",
+      "published_artifact": "results/results.json",
+      "source_sha256": "010431ad6360f1b2a13ba2faae960d0a2c9f8bd4aa286b29729911c2d87d8c50",
+      "published_sha256": "010431ad6360f1b2a13ba2faae960d0a2c9f8bd4aa286b29729911c2d87d8c50",
+      "transformation": "none; byte-identical"
+    },
+    {
+      "source_artifact": "results/runtime_summary.json",
+      "published_artifact": "results/runtime_summary.json",
+      "source_sha256": "d1dee12a3924b8fd3fcc4d55ddda72f49607b71c757a8d35b795aa4c3cb2da89",
+      "published_sha256": "d1dee12a3924b8fd3fcc4d55ddda72f49607b71c757a8d35b795aa4c3cb2da89",
+      "transformation": "none; byte-identical"
+    },
+    {
+      "source_artifact": "results/RESULTS.md",
+      "published_artifact": "results/RESULTS.md",
+      "source_sha256": "eb4604feab607bd81c9c99eabd1860c869c47184ada90a611ad93b53c9f9ec08",
+      "published_sha256": "eb4604feab607bd81c9c99eabd1860c869c47184ada90a611ad93b53c9f9ec08",
+      "transformation": "none; byte-identical"
+    },
+    {
+      "source_artifact": "results/run_outcome.json",
+      "published_artifact": "results/run_outcome.json",
+      "source_sha256": "04ee55fa7813ccc57770ef4ab7a05cc0a51fa85c9c15ecaf1062b08c32564562",
+      "published_sha256": "04ee55fa7813ccc57770ef4ab7a05cc0a51fa85c9c15ecaf1062b08c32564562",
+      "transformation": "none; byte-identical"
+    },
+    {
+      "source_artifact": "independent/ablation_verification.json",
+      "published_artifact": "results/verification.json",
+      "source_sha256": "c45fb1fa75a61db0f3bd48e2b8f3814242a6fded7637a57c023772c18c0de21e",
+      "published_sha256": "c45fb1fa75a61db0f3bd48e2b8f3814242a6fded7637a57c023772c18c0de21e",
+      "transformation": "none; byte-identical"
+    }
+  ]
+}

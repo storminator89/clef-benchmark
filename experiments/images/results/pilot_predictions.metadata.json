@@ -1,0 +1,46 @@
+{
+  "model": "Cloudflare/clef-flash",
+  "revision": "17f0b0ad64efb65d273590632833508766b2aae6",
+  "mode": "CPU NF4 language Linear layers; original vision encoder, joint head, and output embeddings BF16",
+  "quantization": {
+    "quant_method": "bitsandbytes",
+    "_load_in_8bit": false,
+    "_load_in_4bit": true,
+    "llm_int8_threshold": 6.0,
+    "llm_int8_skip_modules": [
+      "lm_head",
+      "visual"
+    ],
+    "llm_int8_enable_fp32_cpu_offload": false,
+    "llm_int8_has_fp16_weight": false,
+    "bnb_4bit_quant_type": "nf4",
+    "bnb_4bit_use_double_quant": true,
+    "bnb_4bit_compute_dtype": "bfloat16",
+    "bnb_4bit_quant_storage": "uint8",
+    "load_in_4bit": true,
+    "load_in_8bit": false
+  },
+  "batch_size": 1,
+  "threads": 6,
+  "max_pixels": 262144,
+  "min_pixels": 65536,
+  "max_length": 4096,
+  "requests_sha256": "b604eddde2e86fb9b87021a2ef272b35dee550545d7013e4a431222b18e45aac",
+  "runner_sha256": "05239293e9a916e8affa930bcc17b597f3ed1daadfb2ecffa655c2d39b895841",
+  "official_source_sha256": "0e304cf7c6500e8bb59bef7e2afd2c6373f82596dfb3b57d1aa93c175e2dc3a3",
+  "request_count": 1,
+  "request_order_ids": [
+    "pilot_chart"
+  ],
+  "started_at": "2026-10-02T07:08:06.099098+00:00",
+  "packages": {
+    "torch": "2.11.0+cpu",
+    "transformers": "5.10.2",
+    "bitsandbytes": "0.50.2",
+    "pillow": "12.3.0",
+    "huggingface-hub": "1.33.0",
+    "safetensors": "0.8.0"
+  },
+  "no_gold_loaded": true,
+  "wrapper_language": "English official wrapper; all task content language recorded in requests"
+}

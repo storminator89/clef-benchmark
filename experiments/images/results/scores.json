@@ -1,0 +1,6740 @@
+{
+  "schema_valid": 90,
+  "schema_total": 90,
+  "schema_invalid_ids": [],
+  "all_expected_images_reached_vision_encoder": true,
+  "truncated_records": 0,
+  "groups": {
+    "chart_de_image": {
+      "per_field": {
+        "chart_type": {
+          "correct": 27,
+          "total": 30,
+          "accuracy": 0.9
+        },
+        "legend_count": {
+          "correct": 30,
+          "total": 30,
+          "accuracy": 1.0
+        }
+      },
+      "all_fields_per_image": {
+        "correct": 27,
+        "total": 30,
+        "accuracy": 0.9
+      },
+      "field_micro": {
+        "correct": 57,
+        "total": 60,
+        "accuracy": 0.95
+      },
+      "balanced_accuracy_per_field": {
+        "chart_type": 0.9,
+        "legend_count": 1
+      },
+      "majority_class_baseline_per_field": {
+        "chart_type": 0.1,
+        "legend_count": 0.36666666666666664
+      },
+      "confusion_counts": {
+        "chart_type": {
+          "bar_line -> vbar2": 3,
+          "bar_pie -> bar_pie": 3,
+          "hbar -> hbar": 3,
+          "hbar2 -> hbar2": 3,
+          "line -> line": 3,
+          "pie -> pie": 3,
+          "stack_hbar -> stack_hbar": 3,
+          "stack_vbar -> stack_vbar": 3,
+          "vbar -> vbar": 3,
+          "vbar2 -> vbar2": 3
+        },
+        "legend_count": {
+          "3 -> 3": 6,
+          "4 -> 4": 11,
+          "2 -> 2": 8,
+          "7 -> 7": 1,
+          "5 -> 5": 4
+        }
+      },
+      "latency_seconds": {
+        "median": 37.73459926199939,
+        "p95_nearest_rank": 43.1567525749997,
+        "min": 27.078583334998257,
+        "max": 44.31894449600077,
+        "mean": 37.723613008966154
+      }
+    },
+    "chart_en_image": {
+      "per_field": {
+        "chart_type": {
+          "correct": 9,
+          "total": 10,
+          "accuracy": 0.9
+        },
+        "legend_count": {
+          "correct": 10,
+          "total": 10,
+          "accuracy": 1.0
+        }
+      },
+      "all_fields_per_image": {
+        "correct": 9,
+        "total": 10,
+        "accuracy": 0.9
+      },
+      "field_micro": {
+        "correct": 19,
+        "total": 20,
+        "accuracy": 0.95
+      },
+      "balanced_accuracy_per_field": {
+        "chart_type": 0.9,
+        "legend_count": 1
+      },
+      "majority_class_baseline_per_field": {
+        "chart_type": 0.1,
+        "legend_count": 0.6
+      },
+      "confusion_counts": {
+        "chart_type": {
+          "bar_line -> vbar2": 1,
+          "bar_pie -> bar_pie": 1,
+          "hbar -> hbar": 1,
+          "hbar2 -> hbar2": 1,
+          "line -> line": 1,
+          "pie -> pie": 1,
+          "stack_hbar -> stack_hbar": 1,
+          "stack_vbar -> stack_vbar": 1,
+          "vbar -> vbar": 1,
+          "vbar2 -> vbar2": 1
+        },
+        "legend_count": {
+          "3 -> 3": 2,
+          "4 -> 4": 6,
+          "2 -> 2": 1,
+          "5 -> 5": 1
+        }
+      },
+      "latency_seconds": {
+        "median": 34.58402625800227,
+        "p95_nearest_rank": 43.32048729900271,
+        "min": 31.296459518998745,
+        "max": 43.32048729900271,
+        "mean": 35.73552681090077
+      }
+    },
+    "chart_de_blank": {
+      "per_field": {
+        "chart_type": {
+          "correct": 1,
+          "total": 10,
+          "accuracy": 0.1
+        },
+        "legend_count": {
+          "correct": 0,
+          "total": 10,
+          "accuracy": 0.0
+        }
+      },
+      "all_fields_per_image": {
+        "correct": 0,
+        "total": 10,
+        "accuracy": 0.0
+      },
+      "field_micro": {
+        "correct": 1,
+        "total": 20,
+        "accuracy": 0.05
+      },
+      "balanced_accuracy_per_field": {
+        "chart_type": 0.1,
+        "legend_count": 0
+      },
+      "majority_class_baseline_per_field": {
+        "chart_type": 0.1,
+        "legend_count": 0.6
+      },
+      "confusion_counts": {
+        "chart_type": {
+          "bar_line -> vbar": 1,
+          "bar_pie -> vbar": 1,
+          "hbar -> vbar": 1,
+          "hbar2 -> vbar": 1,
+          "line -> vbar": 1,
+          "pie -> vbar": 1,
+          "stack_hbar -> vbar": 1,
+          "stack_vbar -> vbar": 1,
+          "vbar -> vbar": 1,
+          "vbar2 -> vbar": 1
+        },
+        "legend_count": {
+          "3 -> 0": 2,
+          "4 -> 0": 6,
+          "2 -> 0": 1,
+          "5 -> 0": 1
+        }
+      },
+      "latency_seconds": {
+        "median": 38.68207302100018,
+        "p95_nearest_rank": 40.47981462499956,
+        "min": 32.680307224996795,
+        "max": 40.47981462499956,
+        "mean": 37.73982574759975
+      }
+    },
+    "invoice_de_image": {
+      "per_field": {
+        "document_type": {
+          "correct": 20,
+          "total": 20,
+          "accuracy": 1.0
+        },
+        "gross_band": {
+          "correct": 18,
+          "total": 20,
+          "accuracy": 0.9
+        },
+        "tax_note": {
+          "correct": 19,
+          "total": 20,
+          "accuracy": 0.95
+        }
+      },
+      "all_fields_per_image": {
+        "correct": 17,
+        "total": 20,
+        "accuracy": 0.85
+      },
+      "field_micro": {
+        "correct": 57,
+        "total": 60,
+        "accuracy": 0.95
+      },
+      "balanced_accuracy_per_field": {
+        "document_type": 1,
+        "gross_band": 0.9,
+        "tax_note": 0.9333333333333333
+      },
+      "majority_class_baseline_per_field": {
+        "document_type": 0.8,
+        "gross_band": 0.2,
+        "tax_note": 0.6
+      },
+      "confusion_counts": {
+        "document_type": {
+          "rechnung -> rechnung": 16,
+          "gutschrift -> gutschrift": 4
+        },
+        "gross_band": {
+          "1000_5000 -> 1000_5000": 4,
+          "zero_1000 -> zero_1000": 4,
+          "over_20000 -> over_20000": 4,
+          "5000_20000 -> 5000_20000": 4,
+          "negative -> over_20000": 1,
+          "negative -> 5000_20000": 1,
+          "negative -> negative": 2
+        },
+        "tax_note": {
+          "regular -> regular": 12,
+          "small_business -> small_business": 4,
+          "small_business -> regular": 1,
+          "reverse_charge -> reverse_charge": 3
+        }
+      },
+      "latency_seconds": {
+        "median": 36.78710584049804,
+        "p95_nearest_rank": 39.33897289500237,
+        "min": 34.86234381399845,
+        "max": 39.960921009998856,
+        "mean": 37.100270177950186
+      }
+    },
+    "invoice_en_image": {
+      "per_field": {
+        "document_type": {
+          "correct": 10,
+          "total": 10,
+          "accuracy": 1.0
+        },
+        "gross_band": {
+          "correct": 8,
+          "total": 10,
+          "accuracy": 0.8
+        },
+        "tax_note": {
+          "correct": 10,
+          "total": 10,
+          "accuracy": 1.0
+        }
+      },
+      "all_fields_per_image": {
+        "correct": 8,
+        "total": 10,
+        "accuracy": 0.8
+      },
+      "field_micro": {
+        "correct": 28,
+        "total": 30,
+        "accuracy": 0.9333333333333333
+      },
+      "balanced_accuracy_per_field": {
+        "document_type": 1,
+        "gross_band": 0.8666666666666667,
+        "tax_note": 1
+      },
+      "majority_class_baseline_per_field": {
+        "document_type": 0.7,
+        "gross_band": 0.3,
+        "tax_note": 0.5
+      },
+      "confusion_counts": {
+        "document_type": {
+          "gutschrift -> gutschrift": 3,
+          "rechnung -> rechnung": 7
+        },
+        "gross_band": {
+          "negative -> over_20000": 1,
+          "5000_20000 -> 5000_20000": 2,
+          "1000_5000 -> 1000_5000": 2,
+          "negative -> 5000_20000": 1,
+          "over_20000 -> over_20000": 2,
+          "zero_1000 -> zero_1000": 1,
+          "negative -> negative": 1
+        },
+        "tax_note": {
+          "regular -> regular": 5,
+          "small_business -> small_business": 3,
+          "reverse_charge -> reverse_charge": 2
+        }
+      },
+      "latency_seconds": {
+        "median": 34.69968416350093,
+        "p95_nearest_rank": 38.0072108280001,
+        "min": 33.60758787300074,
+        "max": 38.0072108280001,
+        "mean": 35.461465735399905
+      }
+    },
+    "invoice_de_blank": {
+      "per_field": {
+        "document_type": {
+          "correct": 4,
+          "total": 10,
+          "accuracy": 0.4
+        },
+        "gross_band": {
+          "correct": 3,
+          "total": 10,
+          "accuracy": 0.3
+        },
+        "tax_note": {
+          "correct": 5,
+          "total": 10,
+          "accuracy": 0.5
+        }
+      },
+      "all_fields_per_image": {
+        "correct": 2,
+        "total": 10,
+        "accuracy": 0.2
+      },
+      "field_micro": {
+        "correct": 12,
+        "total": 30,
+        "accuracy": 0.4
+      },
+      "balanced_accuracy_per_field": {
+        "document_type": 0.47619047619047616,
+        "gross_band": 0.2,
+        "tax_note": 0.3333333333333333
+      },
+      "majority_class_baseline_per_field": {
+        "document_type": 0.7,
+        "gross_band": 0.3,
+        "tax_note": 0.5
+      },
+      "confusion_counts": {
+        "document_type": {
+          "gutschrift -> gutschrift": 2,
+          "rechnung -> rechnung": 2,
+          "rechnung -> gutschrift": 5,
+          "gutschrift -> rechnung": 1
+        },
+        "gross_band": {
+          "negative -> negative": 3,
+          "5000_20000 -> negative": 2,
+          "1000_5000 -> negative": 2,
+          "over_20000 -> negative": 2,
+          "zero_1000 -> negative": 1
+        },
+        "tax_note": {
+          "regular -> regular": 5,
+          "small_business -> regular": 3,
+          "reverse_charge -> regular": 2
+        }
+      },
+      "latency_seconds": {
+        "median": 38.4736364825003,
+        "p95_nearest_rank": 40.04793004599924,
+        "min": 36.53164414999992,
+        "max": 40.04793004599924,
+        "mean": 38.34368716259924
+      }
+    }
+  },
+  "paired_controls": {
+    "chart": {
+      "paired_images": 10,
+      "paired_fields": 20,
+      "de_correct": 19,
+      "en_correct": 19,
+      "blank_correct": 1,
+      "de_en_same_choices": 20,
+      "de_blank_changed_choices": 19,
+      "mean_gold_probability_image_minus_blank": 0.7169234126806259,
+      "rows": [
+        {
+          "case_id": "chart-003",
+          "field": "chart_type",
+          "de_correct": false,
+          "en_correct": false,
+          "blank_correct": false,
+          "de_choice": "vbar2",
+          "en_choice": "vbar2",
+          "blank_choice": "vbar",
+          "de_gold_p": 0.11611761897802353,
+          "blank_gold_p": 0.06959359347820282
+        },
+        {
+          "case_id": "chart-003",
+          "field": "legend_count",
+          "de_correct": true,
+          "en_correct": true,
+          "blank_correct": false,
+          "de_choice": "3",
+          "en_choice": "3",
+          "blank_choice": "0",
+          "de_gold_p": 0.7798311114311218,
+          "blank_gold_p": 0.008642557077109814
+        },
+        {
+          "case_id": "chart-006",
+          "field": "chart_type",
+          "de_correct": true,
+          "en_correct": true,
+          "blank_correct": false,
+          "de_choice": "bar_pie",
+          "en_choice": "bar_pie",
+          "blank_choice": "vbar",
+          "de_gold_p": 0.8447248935699463,
+          "blank_gold_p": 0.08724525570869446
+        },
+        {
+          "case_id": "chart-006",
+          "field": "legend_count",
+          "de_correct": true,
+          "en_correct": true,
+          "blank_correct": false,
+          "de_choice": "4",
+          "en_choice": "4",
+          "blank_choice": "0",
+          "de_gold_p": 0.16604486107826233,
+          "blank_gold_p": 0.012101531960070133
+        },
+        {
+          "case_id": "chart-009",
+          "field": "chart_type",
+          "de_correct": true,
+          "en_correct": true,
+          "blank_correct": false,
+          "de_choice": "hbar",
+          "en_choice": "hbar",
+          "blank_choice": "vbar",
+          "de_gold_p": 0.914618194103241,
+          "blank_gold_p": 0.11654733866453171
+        },
+        {
+          "case_id": "chart-009",
+          "field": "legend_count",
+          "de_correct": true,
+          "en_correct": true,
+          "blank_correct": false,
+          "de_choice": "3",
+          "en_choice": "3",
+          "blank_choice": "0",
+          "de_gold_p": 0.8817786574363708,
+          "blank_gold_p": 0.008642557077109814
+        },
+        {
+          "case_id": "chart-012",
+          "field": "chart_type",
+          "de_correct": true,
+          "en_correct": true,
+          "blank_correct": false,
+          "de_choice": "hbar2",
+          "en_choice": "hbar2",
+          "blank_choice": "vbar",
+          "de_gold_p": 0.8639717698097229,
+          "blank_gold_p": 0.12150352448225021
+        },
+        {
+          "case_id": "chart-012",
+          "field": "legend_count",
+          "de_correct": true,
+          "en_correct": true,
+          "blank_correct": false,
+          "de_choice": "2",
+          "en_choice": "2",
+          "blank_choice": "0",
+          "de_gold_p": 0.8854067921638489,
+          "blank_gold_p": 0.014512690715491772
+        },
+        {
+          "case_id": "chart-015",
+          "field": "chart_type",
+          "de_correct": true,
+          "en_correct": true,
+          "blank_correct": false,
+          "de_choice": "line",
+          "en_choice": "line",
+          "blank_choice": "vbar",
+          "de_gold_p": 0.954858660697937,
+          "blank_gold_p": 0.08866453915834427
+        },
+        {
+          "case_id": "chart-015",
+          "field": "legend_count",
+          "de_correct": true,
+          "en_correct": true,
+          "blank_correct": false,
+          "de_choice": "4",
+          "en_choice": "4",
+          "blank_choice": "0",
+          "de_gold_p": 0.7255510091781616,
+          "blank_gold_p": 0.009057322517037392
+        },
+        {
+          "case_id": "chart-018",
+          "field": "chart_type",
+          "de_correct": true,
+          "en_correct": true,
+          "blank_correct": false,
+          "de_choice": "pie",
+          "en_choice": "pie",
+          "blank_choice": "vbar",
+          "de_gold_p": 0.9579790830612183,
+          "blank_gold_p": 0.07402876764535904
+        },
+        {
+          "case_id": "chart-018",
+          "field": "legend_count",
+          "de_correct": true,
+          "en_correct": true,
+          "blank_correct": false,
+          "de_choice": "5",
+          "en_choice": "5",
+          "blank_choice": "0",
+          "de_gold_p": 0.48938512802124023,
+          "blank_gold_p": 0.011912907473742962
+        },
+        {
+          "case_id": "chart-021",
+          "field": "chart_type",
+          "de_correct": true,
+          "en_correct": true,
+          "blank_correct": false,
+          "de_choice": "stack_hbar",
+          "en_choice": "stack_hbar",
+          "blank_choice": "vbar",
+          "de_gold_p": 0.8962517380714417,
+          "blank_gold_p": 0.08105876296758652
+        },
+        {
+          "case_id": "chart-021",
+          "field": "legend_count",
+          "de_correct": true,
+          "en_correct": true,
+          "blank_correct": false,
+          "de_choice": "4",
+          "en_choice": "4",
+          "blank_choice": "0",
+          "de_gold_p": 0.8151524066925049,
+          "blank_gold_p": 0.012859725393354893
+        },
+        {
+          "case_id": "chart-024",
+          "field": "chart_type",
+          "de_correct": true,
+          "en_correct": true,
+          "blank_correct": false,
+          "de_choice": "stack_vbar",
+          "en_choice": "stack_vbar",
+          "blank_choice": "vbar",
+          "de_gold_p": 0.9265879988670349,
+          "blank_gold_p": 0.10844868421554565
+        },
+        {
+          "case_id": "chart-024",
+          "field": "legend_count",
+          "de_correct": true,
+          "en_correct": true,
+          "blank_correct": false,
+          "de_choice": "4",
+          "en_choice": "4",
+          "blank_choice": "0",
+          "de_gold_p": 0.8596727848052979,
+          "blank_gold_p": 0.009788384661078453
+        },
+        {
+          "case_id": "chart-027",
+          "field": "chart_type",
+          "de_correct": true,
+          "en_correct": true,
+          "blank_correct": true,
+          "de_choice": "vbar",
+          "en_choice": "vbar",
+          "blank_choice": "vbar",
+          "de_gold_p": 0.9145494699478149,
+          "blank_gold_p": 0.17633049190044403
+        },
+        {
+          "case_id": "chart-027",
+          "field": "legend_count",
+          "de_correct": true,
+          "en_correct": true,
+          "blank_correct": false,
+          "de_choice": "4",
+          "en_choice": "4",
+          "blank_choice": "0",
+          "de_gold_p": 0.8064557313919067,
+          "blank_gold_p": 0.009057322517037392
+        },
+        {
+          "case_id": "chart-030",
+          "field": "chart_type",
+          "de_correct": true,
+          "en_correct": true,
+          "blank_correct": false,
+          "de_choice": "vbar2",
+          "en_choice": "vbar2",
+          "blank_choice": "vbar",
+          "de_gold_p": 0.9265475869178772,
+          "blank_gold_p": 0.09270237386226654
+        },
+        {
+          "case_id": "chart-030",
+          "field": "legend_count",
+          "de_correct": true,
+          "en_correct": true,
+          "blank_correct": false,
+          "de_choice": "4",
+          "en_choice": "4",
+          "blank_choice": "0",
+          "de_gold_p": 0.7363557815551758,
+          "blank_gold_p": 0.010674692690372467
+        }
+      ]
+    },
+    "invoice": {
+      "paired_images": 10,
+      "paired_fields": 30,
+      "de_correct": 27,
+      "en_correct": 28,
+      "blank_correct": 12,
+      "de_en_same_choices": 29,
+      "de_blank_changed_choices": 19,
+      "mean_gold_probability_image_minus_blank": 0.4879644160469373,
+      "rows": [
+        {
+          "case_id": "invoice-009",
+          "field": "document_type",
+          "de_correct": true,
+          "en_correct": true,
+          "blank_correct": true,
+          "de_choice": "gutschrift",
+          "en_choice": "gutschrift",
+          "blank_choice": "gutschrift",
+          "de_gold_p": 0.9740425944328308,
+          "blank_gold_p": 0.5389832258224487
+        },
+        {
+          "case_id": "invoice-009",
+          "field": "tax_note",
+          "de_correct": true,
+          "en_correct": true,
+          "blank_correct": true,
+          "de_choice": "regular",
+          "en_choice": "regular",
+          "blank_choice": "regular",
+          "de_gold_p": 0.9791538715362549,
+          "blank_gold_p": 0.6651225686073303
+        },
+        {
+          "case_id": "invoice-009",
+          "field": "gross_band",
+          "de_correct": false,
+          "en_correct": false,
+          "blank_correct": true,
+          "de_choice": "over_20000",
+          "en_choice": "over_20000",
+          "blank_choice": "negative",
+          "de_gold_p": 0.11158992350101471,
+          "blank_gold_p": 0.619653046131134
+        },
+        {
+          "case_id": "invoice-004",
+          "field": "document_type",
+          "de_correct": true,
+          "en_correct": true,
+          "blank_correct": true,
+          "de_choice": "rechnung",
+          "en_choice": "rechnung",
+          "blank_choice": "rechnung",
+          "de_gold_p": 0.9852713346481323,
+          "blank_gold_p": 0.5375269651412964
+        },
+        {
+          "case_id": "invoice-004",
+          "field": "tax_note",
+          "de_correct": true,
+          "en_correct": true,
+          "blank_correct": false,
+          "de_choice": "small_business",
+          "en_choice": "small_business",
+          "blank_choice": "regular",
+          "de_gold_p": 0.808057427406311,
+          "blank_gold_p": 0.24655242264270782
+        },
+        {
+          "case_id": "invoice-004",
+          "field": "gross_band",
+          "de_correct": true,
+          "en_correct": true,
+          "blank_correct": false,
+          "de_choice": "5000_20000",
+          "en_choice": "5000_20000",
+          "blank_choice": "negative",
+          "de_gold_p": 0.9393315315246582,
+          "blank_gold_p": 0.05120473355054855
+        },
+        {
+          "case_id": "invoice-001",
+          "field": "document_type",
+          "de_correct": true,
+          "en_correct": true,
+          "blank_correct": false,
+          "de_choice": "rechnung",
+          "en_choice": "rechnung",
+          "blank_choice": "gutschrift",
+          "de_gold_p": 0.9895311594009399,
+          "blank_gold_p": 0.46101677417755127
+        },
+        {
+          "case_id": "invoice-001",
+          "field": "tax_note",
+          "de_correct": true,
+          "en_correct": true,
+          "blank_correct": true,
+          "de_choice": "regular",
+          "en_choice": "regular",
+          "blank_choice": "regular",
+          "de_gold_p": 0.9634376168251038,
+          "blank_gold_p": 0.6651225686073303
+        },
+        {
+          "case_id": "invoice-001",
+          "field": "gross_band",
+          "de_correct": true,
+          "en_correct": true,
+          "blank_correct": false,
+          "de_choice": "1000_5000",
+          "en_choice": "1000_5000",
+          "blank_choice": "negative",
+          "de_gold_p": 0.9251779317855835,
+          "blank_gold_p": 0.08128079026937485
+        },
+        {
+          "case_id": "invoice-007",
+          "field": "document_type",
+          "de_correct": true,
+          "en_correct": true,
+          "blank_correct": false,
+          "de_choice": "rechnung",
+          "en_choice": "rechnung",
+          "blank_choice": "gutschrift",
+          "de_gold_p": 0.9840323328971863,
+          "blank_gold_p": 0.46101677417755127
+        },
+        {
+          "case_id": "invoice-007",
+          "field": "tax_note",
+          "de_correct": true,
+          "en_correct": true,
+          "blank_correct": false,
+          "de_choice": "reverse_charge",
+          "en_choice": "reverse_charge",
+          "blank_choice": "regular",
+          "de_gold_p": 0.95969557762146,
+          "blank_gold_p": 0.08827351778745651
+        },
+        {
+          "case_id": "invoice-007",
+          "field": "gross_band",
+          "de_correct": true,
+          "en_correct": true,
+          "blank_correct": false,
+          "de_choice": "5000_20000",
+          "en_choice": "5000_20000",
+          "blank_choice": "negative",
+          "de_gold_p": 0.9381489753723145,
+          "blank_gold_p": 0.05247882381081581
+        },
+        {
+          "case_id": "invoice-016",
+          "field": "document_type",
+          "de_correct": true,
+          "en_correct": true,
+          "blank_correct": false,
+          "de_choice": "gutschrift",
+          "en_choice": "gutschrift",
+          "blank_choice": "rechnung",
+          "de_gold_p": 0.9823216199874878,
+          "blank_gold_p": 0.4863315522670746
+        },
+        {
+          "case_id": "invoice-016",
+          "field": "tax_note",
+          "de_correct": true,
+          "en_correct": true,
+          "blank_correct": true,
+          "de_choice": "regular",
+          "en_choice": "regular",
+          "blank_choice": "regular",
+          "de_gold_p": 0.9653337001800537,
+          "blank_gold_p": 0.6902425289154053
+        },
+        {
+          "case_id": "invoice-016",
+          "field": "gross_band",
+          "de_correct": false,
+          "en_correct": false,
+          "blank_correct": true,
+          "de_choice": "5000_20000",
+          "en_choice": "5000_20000",
+          "blank_choice": "negative",
+          "de_gold_p": 0.14998304843902588,
+          "blank_gold_p": 0.6317606568336487
+        },
+        {
+          "case_id": "invoice-006",
+          "field": "document_type",
+          "de_correct": true,
+          "en_correct": true,
+          "blank_correct": true,
+          "de_choice": "rechnung",
+          "en_choice": "rechnung",
+          "blank_choice": "rechnung",
+          "de_gold_p": 0.9828232526779175,
+          "blank_gold_p": 0.5126925706863403
+        },
+        {
+          "case_id": "invoice-006",
+          "field": "tax_note",
+          "de_correct": false,
+          "en_correct": true,
+          "blank_correct": false,
+          "de_choice": "regular",
+          "en_choice": "small_business",
+          "blank_choice": "regular",
+          "de_gold_p": 0.2595033645629883,
+          "blank_gold_p": 0.2477482408285141
+        },
+        {
+          "case_id": "invoice-006",
+          "field": "gross_band",
+          "de_correct": true,
+          "en_correct": true,
+          "blank_correct": false,
+          "de_choice": "over_20000",
+          "en_choice": "over_20000",
+          "blank_choice": "negative",
+          "de_gold_p": 0.9755491018295288,
+          "blank_gold_p": 0.03778094798326492
+        },
+        {
+          "case_id": "invoice-002",
+          "field": "document_type",
+          "de_correct": true,
+          "en_correct": true,
+          "blank_correct": false,
+          "de_choice": "rechnung",
+          "en_choice": "rechnung",
+          "blank_choice": "gutschrift",
+          "de_gold_p": 0.9879695177078247,
+          "blank_gold_p": 0.46101677417755127
+        },
+        {
+          "case_id": "invoice-002",
+          "field": "tax_note",
+          "de_correct": true,
+          "en_correct": true,
+          "blank_correct": true,
+          "de_choice": "regular",
+          "en_choice": "regular",
+          "blank_choice": "regular",
+          "de_gold_p": 0.9686211943626404,
+          "blank_gold_p": 0.6651225686073303
+        },
+        {
+          "case_id": "invoice-002",
+          "field": "gross_band",
+          "de_correct": true,
+          "en_correct": true,
+          "blank_correct": false,
+          "de_choice": "zero_1000",
+          "en_choice": "zero_1000",
+          "blank_choice": "negative",
+          "de_gold_p": 0.887801468372345,
+          "blank_gold_p": 0.19651174545288086
+        },
+        {
+          "case_id": "invoice-017",
+          "field": "document_type",
+          "de_correct": true,
+          "en_correct": true,
+          "blank_correct": false,
+          "de_choice": "rechnung",
+          "en_choice": "rechnung",
+          "blank_choice": "gutschrift",
+          "de_gold_p": 0.9830850958824158,
+          "blank_gold_p": 0.48925942182540894
+        },
+        {
+          "case_id": "invoice-017",
+          "field": "tax_note",
+          "de_correct": true,
+          "en_correct": true,
+          "blank_correct": false,
+          "de_choice": "reverse_charge",
+          "en_choice": "reverse_charge",
+          "blank_choice": "regular",
+          "de_gold_p": 0.9598580002784729,
+          "blank_gold_p": 0.07982221245765686
+        },
+        {
+          "case_id": "invoice-017",
+          "field": "gross_band",
+          "de_correct": true,
+          "en_correct": true,
+          "blank_correct": false,
+          "de_choice": "over_20000",
+          "en_choice": "over_20000",
+          "blank_choice": "negative",
+          "de_gold_p": 0.969363272190094,
+          "blank_gold_p": 0.052383724600076675
+        },
+        {
+          "case_id": "invoice-018",
+          "field": "document_type",
+          "de_correct": true,
+          "en_correct": true,
+          "blank_correct": true,
+          "de_choice": "gutschrift",
+          "en_choice": "gutschrift",
+          "blank_choice": "gutschrift",
+          "de_gold_p": 0.9741412401199341,
+          "blank_gold_p": 0.5389832258224487
+        },
+        {
+          "case_id": "invoice-018",
+          "field": "tax_note",
+          "de_correct": true,
+          "en_correct": true,
+          "blank_correct": true,
+          "de_choice": "regular",
+          "en_choice": "regular",
+          "blank_choice": "regular",
+          "de_gold_p": 0.9708681106567383,
+          "blank_gold_p": 0.6651225686073303
+        },
+        {
+          "case_id": "invoice-018",
+          "field": "gross_band",
+          "de_correct": true,
+          "en_correct": true,
+          "blank_correct": true,
+          "de_choice": "negative",
+          "en_choice": "negative",
+          "blank_choice": "negative",
+          "de_gold_p": 0.8122819066047668,
+          "blank_gold_p": 0.619653046131134
+        },
+        {
+          "case_id": "invoice-011",
+          "field": "document_type",
+          "de_correct": true,
+          "en_correct": true,
+          "blank_correct": false,
+          "de_choice": "rechnung",
+          "en_choice": "rechnung",
+          "blank_choice": "gutschrift",
+          "de_gold_p": 0.9883127808570862,
+          "blank_gold_p": 0.46101677417755127
+        },
+        {
+          "case_id": "invoice-011",
+          "field": "tax_note",
+          "de_correct": true,
+          "en_correct": true,
+          "blank_correct": false,
+          "de_choice": "small_business",
+          "en_choice": "small_business",
+          "blank_choice": "regular",
+          "de_gold_p": 0.9607381224632263,
+          "blank_gold_p": 0.24660401046276093
+        },
+        {
+          "case_id": "invoice-011",
+          "field": "gross_band",
+          "de_correct": true,
+          "en_correct": true,
+          "blank_correct": false,
+          "de_choice": "1000_5000",
+          "en_choice": "1000_5000",
+          "blank_choice": "negative",
+          "de_gold_p": 0.9344729781150818,
+          "blank_gold_p": 0.08128079026937485
+        }
+      ]
+    }
+  },
+  "german_image_errors": [
+    {
+      "id": "chart-001-de-image",
+      "case_id": "chart-001",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "field": "chart_type",
+      "expected": "bar_line",
+      "predicted": "vbar2",
+      "correct": false,
+      "schema_valid": true,
+      "confidence": 0.7251058220863342,
+      "gold_probability": 0.2255064696073532,
+      "source_id": "test-270",
+      "strata": {
+        "type": "bar_line",
+        "difficulty": "easy"
+      }
+    },
+    {
+      "id": "chart-002-de-image",
+      "case_id": "chart-002",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "field": "chart_type",
+      "expected": "bar_line",
+      "predicted": "vbar2",
+      "correct": false,
+      "schema_valid": true,
+      "confidence": 0.8663122653961182,
+      "gold_probability": 0.09795986860990524,
+      "source_id": "test-293",
+      "strata": {
+        "type": "bar_line",
+        "difficulty": "hard"
+      }
+    },
+    {
+      "id": "chart-003-de-image",
+      "case_id": "chart-003",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "field": "chart_type",
+      "expected": "bar_line",
+      "predicted": "vbar2",
+      "correct": false,
+      "schema_valid": true,
+      "confidence": 0.848003625869751,
+      "gold_probability": 0.11611761897802353,
+      "source_id": "test-286",
+      "strata": {
+        "type": "bar_line",
+        "difficulty": "medium"
+      }
+    },
+    {
+      "id": "invoice-006-de-image",
+      "case_id": "invoice-006",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "field": "tax_note",
+      "expected": "small_business",
+      "predicted": "regular",
+      "correct": false,
+      "schema_valid": true,
+      "confidence": 0.632319450378418,
+      "gold_probability": 0.2595033645629883,
+      "source_id": "beleg-000009",
+      "strata": {
+        "variant": "scan",
+        "layout": "landscape",
+        "vat_scheme": "kleinunternehmer",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-009-de-image",
+      "case_id": "invoice-009",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "field": "gross_band",
+      "expected": "negative",
+      "predicted": "over_20000",
+      "correct": false,
+      "schema_valid": true,
+      "confidence": 0.8590665459632874,
+      "gold_probability": 0.11158992350101471,
+      "source_id": "beleg-000038",
+      "strata": {
+        "variant": "scan",
+        "layout": "list",
+        "vat_scheme": "gutschrift",
+        "document_type": "Gutschrift"
+      }
+    },
+    {
+      "id": "invoice-016-de-image",
+      "case_id": "invoice-016",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "field": "gross_band",
+      "expected": "negative",
+      "predicted": "5000_20000",
+      "correct": false,
+      "schema_valid": true,
+      "confidence": 0.8044909834861755,
+      "gold_probability": 0.14998304843902588,
+      "source_id": "beleg-000028",
+      "strata": {
+        "variant": "photo",
+        "layout": "landscape",
+        "vat_scheme": "gutschrift",
+        "document_type": "Gutschrift"
+      }
+    }
+  ],
+  "german_image_errors_confidence_ge_0_9": [],
+  "records": [
+    {
+      "id": "chart-001-de-image",
+      "case_id": "chart-001",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "correct": false,
+      "schema_valid": true,
+      "inference_seconds": 32.02706219099855,
+      "vision_calls": 1,
+      "tokens": 1119,
+      "truncated": false
+    },
+    {
+      "id": "chart-002-de-image",
+      "case_id": "chart-002",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "correct": false,
+      "schema_valid": true,
+      "inference_seconds": 37.838236674000655,
+      "vision_calls": 1,
+      "tokens": 1366,
+      "truncated": false
+    },
+    {
+      "id": "chart-003-de-image",
+      "case_id": "chart-003",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "correct": false,
+      "schema_valid": true,
+      "inference_seconds": 34.66061529199942,
+      "vision_calls": 1,
+      "tokens": 1233,
+      "truncated": false
+    },
+    {
+      "id": "chart-004-de-image",
+      "case_id": "chart-004",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "correct": true,
+      "schema_valid": true,
+      "inference_seconds": 40.11378016099843,
+      "vision_calls": 1,
+      "tokens": 1385,
+      "truncated": false
+    },
+    {
+      "id": "chart-005-de-image",
+      "case_id": "chart-005",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "correct": true,
+      "schema_valid": true,
+      "inference_seconds": 40.9170260289975,
+      "vision_calls": 1,
+      "tokens": 1385,
+      "truncated": false
+    },
+    {
+      "id": "chart-006-de-image",
+      "case_id": "chart-006",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "correct": true,
+      "schema_valid": true,
+      "inference_seconds": 42.32253931899686,
+      "vision_calls": 1,
+      "tokens": 1385,
+      "truncated": false
+    },
+    {
+      "id": "chart-007-de-image",
+      "case_id": "chart-007",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "correct": true,
+      "schema_valid": true,
+      "inference_seconds": 35.88016218000121,
+      "vision_calls": 1,
+      "tokens": 1233,
+      "truncated": false
+    },
+    {
+      "id": "chart-008-de-image",
+      "case_id": "chart-008",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "correct": true,
+      "schema_valid": true,
+      "inference_seconds": 44.31894449600077,
+      "vision_calls": 1,
+      "tokens": 1398,
+      "truncated": false
+    },
+    {
+      "id": "chart-009-de-image",
+      "case_id": "chart-009",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "correct": true,
+      "schema_valid": true,
+      "inference_seconds": 35.962370588997146,
+      "vision_calls": 1,
+      "tokens": 1233,
+      "truncated": false
+    },
+    {
+      "id": "chart-010-de-image",
+      "case_id": "chart-010",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "correct": true,
+      "schema_valid": true,
+      "inference_seconds": 37.63096184999813,
+      "vision_calls": 1,
+      "tokens": 1366,
+      "truncated": false
+    },
+    {
+      "id": "chart-011-de-image",
+      "case_id": "chart-011",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "correct": true,
+      "schema_valid": true,
+      "inference_seconds": 35.179773551000835,
+      "vision_calls": 1,
+      "tokens": 1366,
+      "truncated": false
+    },
+    {
+      "id": "chart-012-de-image",
+      "case_id": "chart-012",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "correct": true,
+      "schema_valid": true,
+      "inference_seconds": 37.60098113899949,
+      "vision_calls": 1,
+      "tokens": 1366,
+      "truncated": false
+    },
+    {
+      "id": "chart-013-de-image",
+      "case_id": "chart-013",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "correct": true,
+      "schema_valid": true,
+      "inference_seconds": 39.45688228200015,
+      "vision_calls": 1,
+      "tokens": 1233,
+      "truncated": false
+    },
+    {
+      "id": "chart-014-de-image",
+      "case_id": "chart-014",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "correct": true,
+      "schema_valid": true,
+      "inference_seconds": 33.205248880996805,
+      "vision_calls": 1,
+      "tokens": 1233,
+      "truncated": false
+    },
+    {
+      "id": "chart-015-de-image",
+      "case_id": "chart-015",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "correct": true,
+      "schema_valid": true,
+      "inference_seconds": 43.039796048000426,
+      "vision_calls": 1,
+      "tokens": 1233,
+      "truncated": false
+    },
+    {
+      "id": "chart-016-de-image",
+      "case_id": "chart-016",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "correct": true,
+      "schema_valid": true,
+      "inference_seconds": 40.65489649200026,
+      "vision_calls": 1,
+      "tokens": 1364,
+      "truncated": false
+    },
+    {
+      "id": "chart-017-de-image",
+      "case_id": "chart-017",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "correct": true,
+      "schema_valid": true,
+      "inference_seconds": 39.03709307700046,
+      "vision_calls": 1,
+      "tokens": 1364,
+      "truncated": false
+    },
+    {
+      "id": "chart-018-de-image",
+      "case_id": "chart-018",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "correct": true,
+      "schema_valid": true,
+      "inference_seconds": 38.55753674500011,
+      "vision_calls": 1,
+      "tokens": 1364,
+      "truncated": false
+    },
+    {
+      "id": "chart-019-de-image",
+      "case_id": "chart-019",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "correct": true,
+      "schema_valid": true,
+      "inference_seconds": 43.1567525749997,
+      "vision_calls": 1,
+      "tokens": 1400,
+      "truncated": false
+    },
+    {
+      "id": "chart-020-de-image",
+      "case_id": "chart-020",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "correct": true,
+      "schema_valid": true,
+      "inference_seconds": 40.134544948999974,
+      "vision_calls": 1,
+      "tokens": 1379,
+      "truncated": false
+    },
+    {
+      "id": "chart-021-de-image",
+      "case_id": "chart-021",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "correct": true,
+      "schema_valid": true,
+      "inference_seconds": 39.05774829599977,
+      "vision_calls": 1,
+      "tokens": 1400,
+      "truncated": false
+    },
+    {
+      "id": "chart-022-de-image",
+      "case_id": "chart-022",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "correct": true,
+      "schema_valid": true,
+      "inference_seconds": 34.96549636200143,
+      "vision_calls": 1,
+      "tokens": 1269,
+      "truncated": false
+    },
+    {
+      "id": "chart-023-de-image",
+      "case_id": "chart-023",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "correct": true,
+      "schema_valid": true,
+      "inference_seconds": 39.15359853499831,
+      "vision_calls": 1,
+      "tokens": 1380,
+      "truncated": false
+    },
+    {
+      "id": "chart-024-de-image",
+      "case_id": "chart-024",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "correct": true,
+      "schema_valid": true,
+      "inference_seconds": 36.47422581399951,
+      "vision_calls": 1,
+      "tokens": 1344,
+      "truncated": false
+    },
+    {
+      "id": "chart-025-de-image",
+      "case_id": "chart-025",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "correct": true,
+      "schema_valid": true,
+      "inference_seconds": 27.078583334998257,
+      "vision_calls": 1,
+      "tokens": 1119,
+      "truncated": false
+    },
+    {
+      "id": "chart-026-de-image",
+      "case_id": "chart-026",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "correct": true,
+      "schema_valid": true,
+      "inference_seconds": 37.54161378700155,
+      "vision_calls": 1,
+      "tokens": 1366,
+      "truncated": false
+    },
+    {
+      "id": "chart-027-de-image",
+      "case_id": "chart-027",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "correct": true,
+      "schema_valid": true,
+      "inference_seconds": 34.61225835900041,
+      "vision_calls": 1,
+      "tokens": 1233,
+      "truncated": false
+    },
+    {
+      "id": "chart-028-de-image",
+      "case_id": "chart-028",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "correct": true,
+      "schema_valid": true,
+      "inference_seconds": 36.49043999499918,
+      "vision_calls": 1,
+      "tokens": 1326,
+      "truncated": false
+    },
+    {
+      "id": "chart-029-de-image",
+      "case_id": "chart-029",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "correct": true,
+      "schema_valid": true,
+      "inference_seconds": 36.78603749099784,
+      "vision_calls": 1,
+      "tokens": 1326,
+      "truncated": false
+    },
+    {
+      "id": "chart-030-de-image",
+      "case_id": "chart-030",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "correct": true,
+      "schema_valid": true,
+      "inference_seconds": 37.853183775001526,
+      "vision_calls": 1,
+      "tokens": 1326,
+      "truncated": false
+    },
+    {
+      "id": "invoice-001-de-image",
+      "case_id": "invoice-001",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "correct": true,
+      "schema_valid": true,
+      "inference_seconds": 36.74228783899889,
+      "vision_calls": 1,
+      "tokens": 1311,
+      "truncated": false
+    },
+    {
+      "id": "invoice-002-de-image",
+      "case_id": "invoice-002",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "correct": true,
+      "schema_valid": true,
+      "inference_seconds": 35.00016316300025,
+      "vision_calls": 1,
+      "tokens": 1311,
+      "truncated": false
+    },
+    {
+      "id": "invoice-003-de-image",
+      "case_id": "invoice-003",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "correct": true,
+      "schema_valid": true,
+      "inference_seconds": 38.08744262900291,
+      "vision_calls": 1,
+      "tokens": 1319,
+      "truncated": false
+    },
+    {
+      "id": "invoice-004-de-image",
+      "case_id": "invoice-004",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "correct": true,
+      "schema_valid": true,
+      "inference_seconds": 36.5829634369984,
+      "vision_calls": 1,
+      "tokens": 1319,
+      "truncated": false
+    },
+    {
+      "id": "invoice-005-de-image",
+      "case_id": "invoice-005",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "correct": true,
+      "schema_valid": true,
+      "inference_seconds": 37.392755395001586,
+      "vision_calls": 1,
+      "tokens": 1295,
+      "truncated": false
+    },
+    {
+      "id": "invoice-006-de-image",
+      "case_id": "invoice-006",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "correct": false,
+      "schema_valid": true,
+      "inference_seconds": 38.33370281600219,
+      "vision_calls": 1,
+      "tokens": 1311,
+      "truncated": false
+    },
+    {
+      "id": "invoice-007-de-image",
+      "case_id": "invoice-007",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "correct": true,
+      "schema_valid": true,
+      "inference_seconds": 39.33897289500237,
+      "vision_calls": 1,
+      "tokens": 1311,
+      "truncated": false
+    },
+    {
+      "id": "invoice-008-de-image",
+      "case_id": "invoice-008",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "correct": true,
+      "schema_valid": true,
+      "inference_seconds": 37.48143838300166,
+      "vision_calls": 1,
+      "tokens": 1311,
+      "truncated": false
+    },
+    {
+      "id": "invoice-009-de-image",
+      "case_id": "invoice-009",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "correct": false,
+      "schema_valid": true,
+      "inference_seconds": 36.1804811089969,
+      "vision_calls": 1,
+      "tokens": 1311,
+      "truncated": false
+    },
+    {
+      "id": "invoice-010-de-image",
+      "case_id": "invoice-010",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "correct": true,
+      "schema_valid": true,
+      "inference_seconds": 34.86234381399845,
+      "vision_calls": 1,
+      "tokens": 1311,
+      "truncated": false
+    },
+    {
+      "id": "invoice-011-de-image",
+      "case_id": "invoice-011",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "correct": true,
+      "schema_valid": true,
+      "inference_seconds": 39.960921009998856,
+      "vision_calls": 1,
+      "tokens": 1311,
+      "truncated": false
+    },
+    {
+      "id": "invoice-012-de-image",
+      "case_id": "invoice-012",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "correct": true,
+      "schema_valid": true,
+      "inference_seconds": 36.439749499000754,
+      "vision_calls": 1,
+      "tokens": 1311,
+      "truncated": false
+    },
+    {
+      "id": "invoice-013-de-image",
+      "case_id": "invoice-013",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "correct": true,
+      "schema_valid": true,
+      "inference_seconds": 38.419564678002644,
+      "vision_calls": 1,
+      "tokens": 1311,
+      "truncated": false
+    },
+    {
+      "id": "invoice-014-de-image",
+      "case_id": "invoice-014",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "correct": true,
+      "schema_valid": true,
+      "inference_seconds": 35.72308030000204,
+      "vision_calls": 1,
+      "tokens": 1319,
+      "truncated": false
+    },
+    {
+      "id": "invoice-015-de-image",
+      "case_id": "invoice-015",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "correct": true,
+      "schema_valid": true,
+      "inference_seconds": 36.19139206899854,
+      "vision_calls": 1,
+      "tokens": 1311,
+      "truncated": false
+    },
+    {
+      "id": "invoice-016-de-image",
+      "case_id": "invoice-016",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "correct": false,
+      "schema_valid": true,
+      "inference_seconds": 38.33906436399775,
+      "vision_calls": 1,
+      "tokens": 1334,
+      "truncated": false
+    },
+    {
+      "id": "invoice-017-de-image",
+      "case_id": "invoice-017",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "correct": true,
+      "schema_valid": true,
+      "inference_seconds": 36.831923841997195,
+      "vision_calls": 1,
+      "tokens": 1319,
+      "truncated": false
+    },
+    {
+      "id": "invoice-018-de-image",
+      "case_id": "invoice-018",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "correct": true,
+      "schema_valid": true,
+      "inference_seconds": 37.755358784001146,
+      "vision_calls": 1,
+      "tokens": 1311,
+      "truncated": false
+    },
+    {
+      "id": "invoice-019-de-image",
+      "case_id": "invoice-019",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "correct": true,
+      "schema_valid": true,
+      "inference_seconds": 35.744907017000514,
+      "vision_calls": 1,
+      "tokens": 1311,
+      "truncated": false
+    },
+    {
+      "id": "invoice-020-de-image",
+      "case_id": "invoice-020",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "correct": true,
+      "schema_valid": true,
+      "inference_seconds": 36.59689051600071,
+      "vision_calls": 1,
+      "tokens": 1311,
+      "truncated": false
+    },
+    {
+      "id": "chart-003-en-image",
+      "case_id": "chart-003",
+      "kind": "chart",
+      "language": "en",
+      "condition": "image",
+      "correct": false,
+      "schema_valid": true,
+      "inference_seconds": 31.296459518998745,
+      "vision_calls": 1,
+      "tokens": 1160,
+      "truncated": false
+    },
+    {
+      "id": "chart-006-en-image",
+      "case_id": "chart-006",
+      "kind": "chart",
+      "language": "en",
+      "condition": "image",
+      "correct": true,
+      "schema_valid": true,
+      "inference_seconds": 43.15697456899943,
+      "vision_calls": 1,
+      "tokens": 1312,
+      "truncated": false
+    },
+    {
+      "id": "chart-009-en-image",
+      "case_id": "chart-009",
+      "kind": "chart",
+      "language": "en",
+      "condition": "image",
+      "correct": true,
+      "schema_valid": true,
+      "inference_seconds": 32.20043784700101,
+      "vision_calls": 1,
+      "tokens": 1160,
+      "truncated": false
+    },
+    {
+      "id": "chart-012-en-image",
+      "case_id": "chart-012",
+      "kind": "chart",
+      "language": "en",
+      "condition": "image",
+      "correct": true,
+      "schema_valid": true,
+      "inference_seconds": 36.11269323600209,
+      "vision_calls": 1,
+      "tokens": 1293,
+      "truncated": false
+    },
+    {
+      "id": "chart-015-en-image",
+      "case_id": "chart-015",
+      "kind": "chart",
+      "language": "en",
+      "condition": "image",
+      "correct": true,
+      "schema_valid": true,
+      "inference_seconds": 33.05535928000245,
+      "vision_calls": 1,
+      "tokens": 1160,
+      "truncated": false
+    },
+    {
+      "id": "chart-018-en-image",
+      "case_id": "chart-018",
+      "kind": "chart",
+      "language": "en",
+      "condition": "image",
+      "correct": true,
+      "schema_valid": true,
+      "inference_seconds": 37.439836090001336,
+      "vision_calls": 1,
+      "tokens": 1291,
+      "truncated": false
+    },
+    {
+      "id": "chart-021-en-image",
+      "case_id": "chart-021",
+      "kind": "chart",
+      "language": "en",
+      "condition": "image",
+      "correct": true,
+      "schema_valid": true,
+      "inference_seconds": 43.32048729900271,
+      "vision_calls": 1,
+      "tokens": 1327,
+      "truncated": false
+    },
+    {
+      "id": "chart-024-en-image",
+      "case_id": "chart-024",
+      "kind": "chart",
+      "language": "en",
+      "condition": "image",
+      "correct": true,
+      "schema_valid": true,
+      "inference_seconds": 37.09796382199784,
+      "vision_calls": 1,
+      "tokens": 1271,
+      "truncated": false
+    },
+    {
+      "id": "chart-027-en-image",
+      "case_id": "chart-027",
+      "kind": "chart",
+      "language": "en",
+      "condition": "image",
+      "correct": true,
+      "schema_valid": true,
+      "inference_seconds": 31.872058332999586,
+      "vision_calls": 1,
+      "tokens": 1160,
+      "truncated": false
+    },
+    {
+      "id": "chart-030-en-image",
+      "case_id": "chart-030",
+      "kind": "chart",
+      "language": "en",
+      "condition": "image",
+      "correct": true,
+      "schema_valid": true,
+      "inference_seconds": 31.80299811400255,
+      "vision_calls": 1,
+      "tokens": 1253,
+      "truncated": false
+    },
+    {
+      "id": "invoice-009-en-image",
+      "case_id": "invoice-009",
+      "kind": "invoice",
+      "language": "en",
+      "condition": "image",
+      "correct": false,
+      "schema_valid": true,
+      "inference_seconds": 33.60758787300074,
+      "vision_calls": 1,
+      "tokens": 1247,
+      "truncated": false
+    },
+    {
+      "id": "invoice-004-en-image",
+      "case_id": "invoice-004",
+      "kind": "invoice",
+      "language": "en",
+      "condition": "image",
+      "correct": true,
+      "schema_valid": true,
+      "inference_seconds": 33.91763569699833,
+      "vision_calls": 1,
+      "tokens": 1255,
+      "truncated": false
+    },
+    {
+      "id": "invoice-001-en-image",
+      "case_id": "invoice-001",
+      "kind": "invoice",
+      "language": "en",
+      "condition": "image",
+      "correct": true,
+      "schema_valid": true,
+      "inference_seconds": 34.78924018900216,
+      "vision_calls": 1,
+      "tokens": 1247,
+      "truncated": false
+    },
+    {
+      "id": "invoice-007-en-image",
+      "case_id": "invoice-007",
+      "kind": "invoice",
+      "language": "en",
+      "condition": "image",
+      "correct": true,
+      "schema_valid": true,
+      "inference_seconds": 34.45379194199995,
+      "vision_calls": 1,
+      "tokens": 1247,
+      "truncated": false
+    },
+    {
+      "id": "invoice-016-en-image",
+      "case_id": "invoice-016",
+      "kind": "invoice",
+      "language": "en",
+      "condition": "image",
+      "correct": false,
+      "schema_valid": true,
+      "inference_seconds": 37.8044491239998,
+      "vision_calls": 1,
+      "tokens": 1270,
+      "truncated": false
+    },
+    {
+      "id": "invoice-006-en-image",
+      "case_id": "invoice-006",
+      "kind": "invoice",
+      "language": "en",
+      "condition": "image",
+      "correct": true,
+      "schema_valid": true,
+      "inference_seconds": 35.444683771998825,
+      "vision_calls": 1,
+      "tokens": 1247,
+      "truncated": false
+    },
+    {
+      "id": "invoice-002-en-image",
+      "case_id": "invoice-002",
+      "kind": "invoice",
+      "language": "en",
+      "condition": "image",
+      "correct": true,
+      "schema_valid": true,
+      "inference_seconds": 34.067062047000945,
+      "vision_calls": 1,
+      "tokens": 1247,
+      "truncated": false
+    },
+    {
+      "id": "invoice-017-en-image",
+      "case_id": "invoice-017",
+      "kind": "invoice",
+      "language": "en",
+      "condition": "image",
+      "correct": true,
+      "schema_valid": true,
+      "inference_seconds": 37.912867743998504,
+      "vision_calls": 1,
+      "tokens": 1255,
+      "truncated": false
+    },
+    {
+      "id": "invoice-018-en-image",
+      "case_id": "invoice-018",
+      "kind": "invoice",
+      "language": "en",
+      "condition": "image",
+      "correct": true,
+      "schema_valid": true,
+      "inference_seconds": 34.61012813799971,
+      "vision_calls": 1,
+      "tokens": 1247,
+      "truncated": false
+    },
+    {
+      "id": "invoice-011-en-image",
+      "case_id": "invoice-011",
+      "kind": "invoice",
+      "language": "en",
+      "condition": "image",
+      "correct": true,
+      "schema_valid": true,
+      "inference_seconds": 38.0072108280001,
+      "vision_calls": 1,
+      "tokens": 1247,
+      "truncated": false
+    },
+    {
+      "id": "chart-003-de-blank",
+      "case_id": "chart-003",
+      "kind": "chart",
+      "language": "de",
+      "condition": "blank",
+      "correct": false,
+      "schema_valid": true,
+      "inference_seconds": 33.17571614700137,
+      "vision_calls": 1,
+      "tokens": 1233,
+      "truncated": false
+    },
+    {
+      "id": "chart-006-de-blank",
+      "case_id": "chart-006",
+      "kind": "chart",
+      "language": "de",
+      "condition": "blank",
+      "correct": false,
+      "schema_valid": true,
+      "inference_seconds": 40.08827438899971,
+      "vision_calls": 1,
+      "tokens": 1385,
+      "truncated": false
+    },
+    {
+      "id": "chart-009-de-blank",
+      "case_id": "chart-009",
+      "kind": "chart",
+      "language": "de",
+      "condition": "blank",
+      "correct": false,
+      "schema_valid": true,
+      "inference_seconds": 36.20330444499996,
+      "vision_calls": 1,
+      "tokens": 1233,
+      "truncated": false
+    },
+    {
+      "id": "chart-012-de-blank",
+      "case_id": "chart-012",
+      "kind": "chart",
+      "language": "de",
+      "condition": "blank",
+      "correct": false,
+      "schema_valid": true,
+      "inference_seconds": 40.47981462499956,
+      "vision_calls": 1,
+      "tokens": 1366,
+      "truncated": false
+    },
+    {
+      "id": "chart-015-de-blank",
+      "case_id": "chart-015",
+      "kind": "chart",
+      "language": "de",
+      "condition": "blank",
+      "correct": false,
+      "schema_valid": true,
+      "inference_seconds": 36.8521848700002,
+      "vision_calls": 1,
+      "tokens": 1233,
+      "truncated": false
+    },
+    {
+      "id": "chart-018-de-blank",
+      "case_id": "chart-018",
+      "kind": "chart",
+      "language": "de",
+      "condition": "blank",
+      "correct": false,
+      "schema_valid": true,
+      "inference_seconds": 40.443622736998805,
+      "vision_calls": 1,
+      "tokens": 1364,
+      "truncated": false
+    },
+    {
+      "id": "chart-021-de-blank",
+      "case_id": "chart-021",
+      "kind": "chart",
+      "language": "de",
+      "condition": "blank",
+      "correct": false,
+      "schema_valid": true,
+      "inference_seconds": 40.11088699600077,
+      "vision_calls": 1,
+      "tokens": 1400,
+      "truncated": false
+    },
+    {
+      "id": "chart-024-de-blank",
+      "case_id": "chart-024",
+      "kind": "chart",
+      "language": "de",
+      "condition": "blank",
+      "correct": false,
+      "schema_valid": true,
+      "inference_seconds": 40.08435340300275,
+      "vision_calls": 1,
+      "tokens": 1344,
+      "truncated": false
+    },
+    {
+      "id": "chart-027-de-blank",
+      "case_id": "chart-027",
+      "kind": "chart",
+      "language": "de",
+      "condition": "blank",
+      "correct": false,
+      "schema_valid": true,
+      "inference_seconds": 32.680307224996795,
+      "vision_calls": 1,
+      "tokens": 1233,
+      "truncated": false
+    },
+    {
+      "id": "chart-030-de-blank",
+      "case_id": "chart-030",
+      "kind": "chart",
+      "language": "de",
+      "condition": "blank",
+      "correct": false,
+      "schema_valid": true,
+      "inference_seconds": 37.279792638997606,
+      "vision_calls": 1,
+      "tokens": 1326,
+      "truncated": false
+    },
+    {
+      "id": "invoice-009-de-blank",
+      "case_id": "invoice-009",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "blank",
+      "correct": true,
+      "schema_valid": true,
+      "inference_seconds": 37.259862266997516,
+      "vision_calls": 1,
+      "tokens": 1311,
+      "truncated": false
+    },
+    {
+      "id": "invoice-004-de-blank",
+      "case_id": "invoice-004",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "blank",
+      "correct": false,
+      "schema_valid": true,
+      "inference_seconds": 37.019244466999226,
+      "vision_calls": 1,
+      "tokens": 1319,
+      "truncated": false
+    },
+    {
+      "id": "invoice-001-de-blank",
+      "case_id": "invoice-001",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "blank",
+      "correct": false,
+      "schema_valid": true,
+      "inference_seconds": 38.135210388001724,
+      "vision_calls": 1,
+      "tokens": 1311,
+      "truncated": false
+    },
+    {
+      "id": "invoice-007-de-blank",
+      "case_id": "invoice-007",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "blank",
+      "correct": false,
+      "schema_valid": true,
+      "inference_seconds": 36.53164414999992,
+      "vision_calls": 1,
+      "tokens": 1311,
+      "truncated": false
+    },
+    {
+      "id": "invoice-016-de-blank",
+      "case_id": "invoice-016",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "blank",
+      "correct": false,
+      "schema_valid": true,
+      "inference_seconds": 38.81206257699887,
+      "vision_calls": 1,
+      "tokens": 1334,
+      "truncated": false
+    },
+    {
+      "id": "invoice-006-de-blank",
+      "case_id": "invoice-006",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "blank",
+      "correct": false,
+      "schema_valid": true,
+      "inference_seconds": 39.084999055998196,
+      "vision_calls": 1,
+      "tokens": 1311,
+      "truncated": false
+    },
+    {
+      "id": "invoice-002-de-blank",
+      "case_id": "invoice-002",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "blank",
+      "correct": false,
+      "schema_valid": true,
+      "inference_seconds": 38.12058045499725,
+      "vision_calls": 1,
+      "tokens": 1311,
+      "truncated": false
+    },
+    {
+      "id": "invoice-017-de-blank",
+      "case_id": "invoice-017",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "blank",
+      "correct": false,
+      "schema_valid": true,
+      "inference_seconds": 39.44052213000032,
+      "vision_calls": 1,
+      "tokens": 1319,
+      "truncated": false
+    },
+    {
+      "id": "invoice-018-de-blank",
+      "case_id": "invoice-018",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "blank",
+      "correct": true,
+      "schema_valid": true,
+      "inference_seconds": 40.04793004599924,
+      "vision_calls": 1,
+      "tokens": 1311,
+      "truncated": false
+    },
+    {
+      "id": "invoice-011-de-blank",
+      "case_id": "invoice-011",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "blank",
+      "correct": false,
+      "schema_valid": true,
+      "inference_seconds": 38.984816090000095,
+      "vision_calls": 1,
+      "tokens": 1311,
+      "truncated": false
+    }
+  ],
+  "fields": [
+    {
+      "id": "chart-001-de-image",
+      "case_id": "chart-001",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "field": "chart_type",
+      "expected": "bar_line",
+      "predicted": "vbar2",
+      "correct": false,
+      "schema_valid": true,
+      "confidence": 0.7251058220863342,
+      "gold_probability": 0.2255064696073532,
+      "source_id": "test-270",
+      "strata": {
+        "type": "bar_line",
+        "difficulty": "easy"
+      }
+    },
+    {
+      "id": "chart-001-de-image",
+      "case_id": "chart-001",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "field": "legend_count",
+      "expected": "3",
+      "predicted": "3",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.79237300157547,
+      "gold_probability": 0.79237300157547,
+      "source_id": "test-270",
+      "strata": {
+        "type": "bar_line",
+        "difficulty": "easy"
+      }
+    },
+    {
+      "id": "chart-002-de-image",
+      "case_id": "chart-002",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "field": "chart_type",
+      "expected": "bar_line",
+      "predicted": "vbar2",
+      "correct": false,
+      "schema_valid": true,
+      "confidence": 0.8663122653961182,
+      "gold_probability": 0.09795986860990524,
+      "source_id": "test-293",
+      "strata": {
+        "type": "bar_line",
+        "difficulty": "hard"
+      }
+    },
+    {
+      "id": "chart-002-de-image",
+      "case_id": "chart-002",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "field": "legend_count",
+      "expected": "4",
+      "predicted": "4",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.6178004145622253,
+      "gold_probability": 0.6178004145622253,
+      "source_id": "test-293",
+      "strata": {
+        "type": "bar_line",
+        "difficulty": "hard"
+      }
+    },
+    {
+      "id": "chart-003-de-image",
+      "case_id": "chart-003",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "field": "chart_type",
+      "expected": "bar_line",
+      "predicted": "vbar2",
+      "correct": false,
+      "schema_valid": true,
+      "confidence": 0.848003625869751,
+      "gold_probability": 0.11611761897802353,
+      "source_id": "test-286",
+      "strata": {
+        "type": "bar_line",
+        "difficulty": "medium"
+      }
+    },
+    {
+      "id": "chart-003-de-image",
+      "case_id": "chart-003",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "field": "legend_count",
+      "expected": "3",
+      "predicted": "3",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.7798311114311218,
+      "gold_probability": 0.7798311114311218,
+      "source_id": "test-286",
+      "strata": {
+        "type": "bar_line",
+        "difficulty": "medium"
+      }
+    },
+    {
+      "id": "chart-004-de-image",
+      "case_id": "chart-004",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "field": "chart_type",
+      "expected": "bar_pie",
+      "predicted": "bar_pie",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.8743847012519836,
+      "gold_probability": 0.8743847012519836,
+      "source_id": "test-252",
+      "strata": {
+        "type": "bar_pie",
+        "difficulty": "easy"
+      }
+    },
+    {
+      "id": "chart-004-de-image",
+      "case_id": "chart-004",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "field": "legend_count",
+      "expected": "3",
+      "predicted": "3",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.2866112291812897,
+      "gold_probability": 0.2866112291812897,
+      "source_id": "test-252",
+      "strata": {
+        "type": "bar_pie",
+        "difficulty": "easy"
+      }
+    },
+    {
+      "id": "chart-005-de-image",
+      "case_id": "chart-005",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "field": "chart_type",
+      "expected": "bar_pie",
+      "predicted": "bar_pie",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.8802457451820374,
+      "gold_probability": 0.8802457451820374,
+      "source_id": "test-246",
+      "strata": {
+        "type": "bar_pie",
+        "difficulty": "hard"
+      }
+    },
+    {
+      "id": "chart-005-de-image",
+      "case_id": "chart-005",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "field": "legend_count",
+      "expected": "4",
+      "predicted": "4",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.2532806992530823,
+      "gold_probability": 0.2532806992530823,
+      "source_id": "test-246",
+      "strata": {
+        "type": "bar_pie",
+        "difficulty": "hard"
+      }
+    },
+    {
+      "id": "chart-006-de-image",
+      "case_id": "chart-006",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "field": "chart_type",
+      "expected": "bar_pie",
+      "predicted": "bar_pie",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.8447248935699463,
+      "gold_probability": 0.8447248935699463,
+      "source_id": "test-260",
+      "strata": {
+        "type": "bar_pie",
+        "difficulty": "medium"
+      }
+    },
+    {
+      "id": "chart-006-de-image",
+      "case_id": "chart-006",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "field": "legend_count",
+      "expected": "4",
+      "predicted": "4",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.16604486107826233,
+      "gold_probability": 0.16604486107826233,
+      "source_id": "test-260",
+      "strata": {
+        "type": "bar_pie",
+        "difficulty": "medium"
+      }
+    },
+    {
+      "id": "chart-007-de-image",
+      "case_id": "chart-007",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "field": "chart_type",
+      "expected": "hbar",
+      "predicted": "hbar",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.750900387763977,
+      "gold_probability": 0.750900387763977,
+      "source_id": "test-096",
+      "strata": {
+        "type": "hbar",
+        "difficulty": "easy"
+      }
+    },
+    {
+      "id": "chart-007-de-image",
+      "case_id": "chart-007",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "field": "legend_count",
+      "expected": "2",
+      "predicted": "2",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.8514366745948792,
+      "gold_probability": 0.8514366745948792,
+      "source_id": "test-096",
+      "strata": {
+        "type": "hbar",
+        "difficulty": "easy"
+      }
+    },
+    {
+      "id": "chart-008-de-image",
+      "case_id": "chart-008",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "field": "chart_type",
+      "expected": "hbar",
+      "predicted": "hbar",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.87148517370224,
+      "gold_probability": 0.87148517370224,
+      "source_id": "test-116",
+      "strata": {
+        "type": "hbar",
+        "difficulty": "hard"
+      }
+    },
+    {
+      "id": "chart-008-de-image",
+      "case_id": "chart-008",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "field": "legend_count",
+      "expected": "4",
+      "predicted": "4",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.8607093691825867,
+      "gold_probability": 0.8607093691825867,
+      "source_id": "test-116",
+      "strata": {
+        "type": "hbar",
+        "difficulty": "hard"
+      }
+    },
+    {
+      "id": "chart-009-de-image",
+      "case_id": "chart-009",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "field": "chart_type",
+      "expected": "hbar",
+      "predicted": "hbar",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.914618194103241,
+      "gold_probability": 0.914618194103241,
+      "source_id": "test-101",
+      "strata": {
+        "type": "hbar",
+        "difficulty": "medium"
+      }
+    },
+    {
+      "id": "chart-009-de-image",
+      "case_id": "chart-009",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "field": "legend_count",
+      "expected": "3",
+      "predicted": "3",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.8817786574363708,
+      "gold_probability": 0.8817786574363708,
+      "source_id": "test-101",
+      "strata": {
+        "type": "hbar",
+        "difficulty": "medium"
+      }
+    },
+    {
+      "id": "chart-010-de-image",
+      "case_id": "chart-010",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "field": "chart_type",
+      "expected": "hbar2",
+      "predicted": "hbar2",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.8546760678291321,
+      "gold_probability": 0.8546760678291321,
+      "source_id": "test-148",
+      "strata": {
+        "type": "hbar2",
+        "difficulty": "easy"
+      }
+    },
+    {
+      "id": "chart-010-de-image",
+      "case_id": "chart-010",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "field": "legend_count",
+      "expected": "2",
+      "predicted": "2",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.8673903942108154,
+      "gold_probability": 0.8673903942108154,
+      "source_id": "test-148",
+      "strata": {
+        "type": "hbar2",
+        "difficulty": "easy"
+      }
+    },
+    {
+      "id": "chart-011-de-image",
+      "case_id": "chart-011",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "field": "chart_type",
+      "expected": "hbar2",
+      "predicted": "hbar2",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.92616206407547,
+      "gold_probability": 0.92616206407547,
+      "source_id": "test-129",
+      "strata": {
+        "type": "hbar2",
+        "difficulty": "hard"
+      }
+    },
+    {
+      "id": "chart-011-de-image",
+      "case_id": "chart-011",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "field": "legend_count",
+      "expected": "2",
+      "predicted": "2",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.8659766316413879,
+      "gold_probability": 0.8659766316413879,
+      "source_id": "test-129",
+      "strata": {
+        "type": "hbar2",
+        "difficulty": "hard"
+      }
+    },
+    {
+      "id": "chart-012-de-image",
+      "case_id": "chart-012",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "field": "chart_type",
+      "expected": "hbar2",
+      "predicted": "hbar2",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.8639717698097229,
+      "gold_probability": 0.8639717698097229,
+      "source_id": "test-137",
+      "strata": {
+        "type": "hbar2",
+        "difficulty": "medium"
+      }
+    },
+    {
+      "id": "chart-012-de-image",
+      "case_id": "chart-012",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "field": "legend_count",
+      "expected": "2",
+      "predicted": "2",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.8854067921638489,
+      "gold_probability": 0.8854067921638489,
+      "source_id": "test-137",
+      "strata": {
+        "type": "hbar2",
+        "difficulty": "medium"
+      }
+    },
+    {
+      "id": "chart-013-de-image",
+      "case_id": "chart-013",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "field": "chart_type",
+      "expected": "line",
+      "predicted": "line",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.9349594712257385,
+      "gold_probability": 0.9349594712257385,
+      "source_id": "test-036",
+      "strata": {
+        "type": "line",
+        "difficulty": "easy"
+      }
+    },
+    {
+      "id": "chart-013-de-image",
+      "case_id": "chart-013",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "field": "legend_count",
+      "expected": "2",
+      "predicted": "2",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.7230799794197083,
+      "gold_probability": 0.7230799794197083,
+      "source_id": "test-036",
+      "strata": {
+        "type": "line",
+        "difficulty": "easy"
+      }
+    },
+    {
+      "id": "chart-014-de-image",
+      "case_id": "chart-014",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "field": "chart_type",
+      "expected": "line",
+      "predicted": "line",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.9436230659484863,
+      "gold_probability": 0.9436230659484863,
+      "source_id": "test-050",
+      "strata": {
+        "type": "line",
+        "difficulty": "hard"
+      }
+    },
+    {
+      "id": "chart-014-de-image",
+      "case_id": "chart-014",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "field": "legend_count",
+      "expected": "4",
+      "predicted": "4",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.7425252795219421,
+      "gold_probability": 0.7425252795219421,
+      "source_id": "test-050",
+      "strata": {
+        "type": "line",
+        "difficulty": "hard"
+      }
+    },
+    {
+      "id": "chart-015-de-image",
+      "case_id": "chart-015",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "field": "chart_type",
+      "expected": "line",
+      "predicted": "line",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.954858660697937,
+      "gold_probability": 0.954858660697937,
+      "source_id": "test-049",
+      "strata": {
+        "type": "line",
+        "difficulty": "medium"
+      }
+    },
+    {
+      "id": "chart-015-de-image",
+      "case_id": "chart-015",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "field": "legend_count",
+      "expected": "4",
+      "predicted": "4",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.7255510091781616,
+      "gold_probability": 0.7255510091781616,
+      "source_id": "test-049",
+      "strata": {
+        "type": "line",
+        "difficulty": "medium"
+      }
+    },
+    {
+      "id": "chart-016-de-image",
+      "case_id": "chart-016",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "field": "chart_type",
+      "expected": "pie",
+      "predicted": "pie",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.9480149745941162,
+      "gold_probability": 0.9480149745941162,
+      "source_id": "test-027",
+      "strata": {
+        "type": "pie",
+        "difficulty": "easy"
+      }
+    },
+    {
+      "id": "chart-016-de-image",
+      "case_id": "chart-016",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "field": "legend_count",
+      "expected": "2",
+      "predicted": "2",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.7767020463943481,
+      "gold_probability": 0.7767020463943481,
+      "source_id": "test-027",
+      "strata": {
+        "type": "pie",
+        "difficulty": "easy"
+      }
+    },
+    {
+      "id": "chart-017-de-image",
+      "case_id": "chart-017",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "field": "chart_type",
+      "expected": "pie",
+      "predicted": "pie",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.9521709680557251,
+      "gold_probability": 0.9521709680557251,
+      "source_id": "test-006",
+      "strata": {
+        "type": "pie",
+        "difficulty": "hard"
+      }
+    },
+    {
+      "id": "chart-017-de-image",
+      "case_id": "chart-017",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "field": "legend_count",
+      "expected": "7",
+      "predicted": "7",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.3595093786716461,
+      "gold_probability": 0.3595093786716461,
+      "source_id": "test-006",
+      "strata": {
+        "type": "pie",
+        "difficulty": "hard"
+      }
+    },
+    {
+      "id": "chart-018-de-image",
+      "case_id": "chart-018",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "field": "chart_type",
+      "expected": "pie",
+      "predicted": "pie",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.9579790830612183,
+      "gold_probability": 0.9579790830612183,
+      "source_id": "test-015",
+      "strata": {
+        "type": "pie",
+        "difficulty": "medium"
+      }
+    },
+    {
+      "id": "chart-018-de-image",
+      "case_id": "chart-018",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "field": "legend_count",
+      "expected": "5",
+      "predicted": "5",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.48938512802124023,
+      "gold_probability": 0.48938512802124023,
+      "source_id": "test-015",
+      "strata": {
+        "type": "pie",
+        "difficulty": "medium"
+      }
+    },
+    {
+      "id": "chart-019-de-image",
+      "case_id": "chart-019",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "field": "chart_type",
+      "expected": "stack_hbar",
+      "predicted": "stack_hbar",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.9054271578788757,
+      "gold_probability": 0.9054271578788757,
+      "source_id": "test-185",
+      "strata": {
+        "type": "stack_hbar",
+        "difficulty": "easy"
+      }
+    },
+    {
+      "id": "chart-019-de-image",
+      "case_id": "chart-019",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "field": "legend_count",
+      "expected": "3",
+      "predicted": "3",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.8429809808731079,
+      "gold_probability": 0.8429809808731079,
+      "source_id": "test-185",
+      "strata": {
+        "type": "stack_hbar",
+        "difficulty": "easy"
+      }
+    },
+    {
+      "id": "chart-020-de-image",
+      "case_id": "chart-020",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "field": "chart_type",
+      "expected": "stack_hbar",
+      "predicted": "stack_hbar",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.9022806882858276,
+      "gold_probability": 0.9022806882858276,
+      "source_id": "test-206",
+      "strata": {
+        "type": "stack_hbar",
+        "difficulty": "hard"
+      }
+    },
+    {
+      "id": "chart-020-de-image",
+      "case_id": "chart-020",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "field": "legend_count",
+      "expected": "4",
+      "predicted": "4",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.8059033155441284,
+      "gold_probability": 0.8059033155441284,
+      "source_id": "test-206",
+      "strata": {
+        "type": "stack_hbar",
+        "difficulty": "hard"
+      }
+    },
+    {
+      "id": "chart-021-de-image",
+      "case_id": "chart-021",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "field": "chart_type",
+      "expected": "stack_hbar",
+      "predicted": "stack_hbar",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.8962517380714417,
+      "gold_probability": 0.8962517380714417,
+      "source_id": "test-193",
+      "strata": {
+        "type": "stack_hbar",
+        "difficulty": "medium"
+      }
+    },
+    {
+      "id": "chart-021-de-image",
+      "case_id": "chart-021",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "field": "legend_count",
+      "expected": "4",
+      "predicted": "4",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.8151524066925049,
+      "gold_probability": 0.8151524066925049,
+      "source_id": "test-193",
+      "strata": {
+        "type": "stack_hbar",
+        "difficulty": "medium"
+      }
+    },
+    {
+      "id": "chart-022-de-image",
+      "case_id": "chart-022",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "field": "chart_type",
+      "expected": "stack_vbar",
+      "predicted": "stack_vbar",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.898622989654541,
+      "gold_probability": 0.898622989654541,
+      "source_id": "test-216",
+      "strata": {
+        "type": "stack_vbar",
+        "difficulty": "easy"
+      }
+    },
+    {
+      "id": "chart-022-de-image",
+      "case_id": "chart-022",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "field": "legend_count",
+      "expected": "2",
+      "predicted": "2",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.8453625440597534,
+      "gold_probability": 0.8453625440597534,
+      "source_id": "test-216",
+      "strata": {
+        "type": "stack_vbar",
+        "difficulty": "easy"
+      }
+    },
+    {
+      "id": "chart-023-de-image",
+      "case_id": "chart-023",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "field": "chart_type",
+      "expected": "stack_vbar",
+      "predicted": "stack_vbar",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.9133617281913757,
+      "gold_probability": 0.9133617281913757,
+      "source_id": "test-231",
+      "strata": {
+        "type": "stack_vbar",
+        "difficulty": "hard"
+      }
+    },
+    {
+      "id": "chart-023-de-image",
+      "case_id": "chart-023",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "field": "legend_count",
+      "expected": "5",
+      "predicted": "5",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.7592071294784546,
+      "gold_probability": 0.7592071294784546,
+      "source_id": "test-231",
+      "strata": {
+        "type": "stack_vbar",
+        "difficulty": "hard"
+      }
+    },
+    {
+      "id": "chart-024-de-image",
+      "case_id": "chart-024",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "field": "chart_type",
+      "expected": "stack_vbar",
+      "predicted": "stack_vbar",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.9265879988670349,
+      "gold_probability": 0.9265879988670349,
+      "source_id": "test-222",
+      "strata": {
+        "type": "stack_vbar",
+        "difficulty": "medium"
+      }
+    },
+    {
+      "id": "chart-024-de-image",
+      "case_id": "chart-024",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "field": "legend_count",
+      "expected": "4",
+      "predicted": "4",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.8596727848052979,
+      "gold_probability": 0.8596727848052979,
+      "source_id": "test-222",
+      "strata": {
+        "type": "stack_vbar",
+        "difficulty": "medium"
+      }
+    },
+    {
+      "id": "chart-025-de-image",
+      "case_id": "chart-025",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "field": "chart_type",
+      "expected": "vbar",
+      "predicted": "vbar",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.9212255477905273,
+      "gold_probability": 0.9212255477905273,
+      "source_id": "test-154",
+      "strata": {
+        "type": "vbar",
+        "difficulty": "easy"
+      }
+    },
+    {
+      "id": "chart-025-de-image",
+      "case_id": "chart-025",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "field": "legend_count",
+      "expected": "3",
+      "predicted": "3",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.8391143679618835,
+      "gold_probability": 0.8391143679618835,
+      "source_id": "test-154",
+      "strata": {
+        "type": "vbar",
+        "difficulty": "easy"
+      }
+    },
+    {
+      "id": "chart-026-de-image",
+      "case_id": "chart-026",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "field": "chart_type",
+      "expected": "vbar",
+      "predicted": "vbar",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.916628360748291,
+      "gold_probability": 0.916628360748291,
+      "source_id": "test-170",
+      "strata": {
+        "type": "vbar",
+        "difficulty": "hard"
+      }
+    },
+    {
+      "id": "chart-026-de-image",
+      "case_id": "chart-026",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "field": "legend_count",
+      "expected": "5",
+      "predicted": "5",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.7521144151687622,
+      "gold_probability": 0.7521144151687622,
+      "source_id": "test-170",
+      "strata": {
+        "type": "vbar",
+        "difficulty": "hard"
+      }
+    },
+    {
+      "id": "chart-027-de-image",
+      "case_id": "chart-027",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "field": "chart_type",
+      "expected": "vbar",
+      "predicted": "vbar",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.9145494699478149,
+      "gold_probability": 0.9145494699478149,
+      "source_id": "test-160",
+      "strata": {
+        "type": "vbar",
+        "difficulty": "medium"
+      }
+    },
+    {
+      "id": "chart-027-de-image",
+      "case_id": "chart-027",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "field": "legend_count",
+      "expected": "4",
+      "predicted": "4",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.8064557313919067,
+      "gold_probability": 0.8064557313919067,
+      "source_id": "test-160",
+      "strata": {
+        "type": "vbar",
+        "difficulty": "medium"
+      }
+    },
+    {
+      "id": "chart-028-de-image",
+      "case_id": "chart-028",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "field": "chart_type",
+      "expected": "vbar2",
+      "predicted": "vbar2",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.951196551322937,
+      "gold_probability": 0.951196551322937,
+      "source_id": "test-062",
+      "strata": {
+        "type": "vbar2",
+        "difficulty": "easy"
+      }
+    },
+    {
+      "id": "chart-028-de-image",
+      "case_id": "chart-028",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "field": "legend_count",
+      "expected": "2",
+      "predicted": "2",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.7361633777618408,
+      "gold_probability": 0.7361633777618408,
+      "source_id": "test-062",
+      "strata": {
+        "type": "vbar2",
+        "difficulty": "easy"
+      }
+    },
+    {
+      "id": "chart-029-de-image",
+      "case_id": "chart-029",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "field": "chart_type",
+      "expected": "vbar2",
+      "predicted": "vbar2",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.9194505214691162,
+      "gold_probability": 0.9194505214691162,
+      "source_id": "test-085",
+      "strata": {
+        "type": "vbar2",
+        "difficulty": "hard"
+      }
+    },
+    {
+      "id": "chart-029-de-image",
+      "case_id": "chart-029",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "field": "legend_count",
+      "expected": "5",
+      "predicted": "5",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.395955353975296,
+      "gold_probability": 0.395955353975296,
+      "source_id": "test-085",
+      "strata": {
+        "type": "vbar2",
+        "difficulty": "hard"
+      }
+    },
+    {
+      "id": "chart-030-de-image",
+      "case_id": "chart-030",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "field": "chart_type",
+      "expected": "vbar2",
+      "predicted": "vbar2",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.9265475869178772,
+      "gold_probability": 0.9265475869178772,
+      "source_id": "test-070",
+      "strata": {
+        "type": "vbar2",
+        "difficulty": "medium"
+      }
+    },
+    {
+      "id": "chart-030-de-image",
+      "case_id": "chart-030",
+      "kind": "chart",
+      "language": "de",
+      "condition": "image",
+      "field": "legend_count",
+      "expected": "4",
+      "predicted": "4",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.7363557815551758,
+      "gold_probability": 0.7363557815551758,
+      "source_id": "test-070",
+      "strata": {
+        "type": "vbar2",
+        "difficulty": "medium"
+      }
+    },
+    {
+      "id": "invoice-001-de-image",
+      "case_id": "invoice-001",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "field": "document_type",
+      "expected": "rechnung",
+      "predicted": "rechnung",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.9895311594009399,
+      "gold_probability": 0.9895311594009399,
+      "source_id": "beleg-000000",
+      "strata": {
+        "variant": "scan",
+        "layout": "window",
+        "vat_scheme": "regelbesteuert",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-001-de-image",
+      "case_id": "invoice-001",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "field": "tax_note",
+      "expected": "regular",
+      "predicted": "regular",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.9634376168251038,
+      "gold_probability": 0.9634376168251038,
+      "source_id": "beleg-000000",
+      "strata": {
+        "variant": "scan",
+        "layout": "window",
+        "vat_scheme": "regelbesteuert",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-001-de-image",
+      "case_id": "invoice-001",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "field": "gross_band",
+      "expected": "1000_5000",
+      "predicted": "1000_5000",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.9251779317855835,
+      "gold_probability": 0.9251779317855835,
+      "source_id": "beleg-000000",
+      "strata": {
+        "variant": "scan",
+        "layout": "window",
+        "vat_scheme": "regelbesteuert",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-002-de-image",
+      "case_id": "invoice-002",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "field": "document_type",
+      "expected": "rechnung",
+      "predicted": "rechnung",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.9879695177078247,
+      "gold_probability": 0.9879695177078247,
+      "source_id": "beleg-000018",
+      "strata": {
+        "variant": "scan",
+        "layout": "list",
+        "vat_scheme": "regelbesteuert",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-002-de-image",
+      "case_id": "invoice-002",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "field": "tax_note",
+      "expected": "regular",
+      "predicted": "regular",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.9686211943626404,
+      "gold_probability": 0.9686211943626404,
+      "source_id": "beleg-000018",
+      "strata": {
+        "variant": "scan",
+        "layout": "list",
+        "vat_scheme": "regelbesteuert",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-002-de-image",
+      "case_id": "invoice-002",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "field": "gross_band",
+      "expected": "zero_1000",
+      "predicted": "zero_1000",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.887801468372345,
+      "gold_probability": 0.887801468372345,
+      "source_id": "beleg-000018",
+      "strata": {
+        "variant": "scan",
+        "layout": "list",
+        "vat_scheme": "regelbesteuert",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-003-de-image",
+      "case_id": "invoice-003",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "field": "document_type",
+      "expected": "rechnung",
+      "predicted": "rechnung",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.9890342950820923,
+      "gold_probability": 0.9890342950820923,
+      "source_id": "beleg-000026",
+      "strata": {
+        "variant": "photo",
+        "layout": "window",
+        "vat_scheme": "regelbesteuert",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-003-de-image",
+      "case_id": "invoice-003",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "field": "tax_note",
+      "expected": "regular",
+      "predicted": "regular",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.956465482711792,
+      "gold_probability": 0.956465482711792,
+      "source_id": "beleg-000026",
+      "strata": {
+        "variant": "photo",
+        "layout": "window",
+        "vat_scheme": "regelbesteuert",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-003-de-image",
+      "case_id": "invoice-003",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "field": "gross_band",
+      "expected": "over_20000",
+      "predicted": "over_20000",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.961194634437561,
+      "gold_probability": 0.961194634437561,
+      "source_id": "beleg-000026",
+      "strata": {
+        "variant": "photo",
+        "layout": "window",
+        "vat_scheme": "regelbesteuert",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-004-de-image",
+      "case_id": "invoice-004",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "field": "document_type",
+      "expected": "rechnung",
+      "predicted": "rechnung",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.9852713346481323,
+      "gold_probability": 0.9852713346481323,
+      "source_id": "beleg-000012",
+      "strata": {
+        "variant": "photo",
+        "layout": "landscape",
+        "vat_scheme": "kleinunternehmer",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-004-de-image",
+      "case_id": "invoice-004",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "field": "tax_note",
+      "expected": "small_business",
+      "predicted": "small_business",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.808057427406311,
+      "gold_probability": 0.808057427406311,
+      "source_id": "beleg-000012",
+      "strata": {
+        "variant": "photo",
+        "layout": "landscape",
+        "vat_scheme": "kleinunternehmer",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-004-de-image",
+      "case_id": "invoice-004",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "field": "gross_band",
+      "expected": "5000_20000",
+      "predicted": "5000_20000",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.9393315315246582,
+      "gold_probability": 0.9393315315246582,
+      "source_id": "beleg-000012",
+      "strata": {
+        "variant": "photo",
+        "layout": "landscape",
+        "vat_scheme": "kleinunternehmer",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-005-de-image",
+      "case_id": "invoice-005",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "field": "document_type",
+      "expected": "rechnung",
+      "predicted": "rechnung",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.988558292388916,
+      "gold_probability": 0.988558292388916,
+      "source_id": "beleg-000021",
+      "strata": {
+        "variant": "photo",
+        "layout": "list",
+        "vat_scheme": "regelbesteuert",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-005-de-image",
+      "case_id": "invoice-005",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "field": "tax_note",
+      "expected": "regular",
+      "predicted": "regular",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.968411386013031,
+      "gold_probability": 0.968411386013031,
+      "source_id": "beleg-000021",
+      "strata": {
+        "variant": "photo",
+        "layout": "list",
+        "vat_scheme": "regelbesteuert",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-005-de-image",
+      "case_id": "invoice-005",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "field": "gross_band",
+      "expected": "zero_1000",
+      "predicted": "zero_1000",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.8611807823181152,
+      "gold_probability": 0.8611807823181152,
+      "source_id": "beleg-000021",
+      "strata": {
+        "variant": "photo",
+        "layout": "list",
+        "vat_scheme": "regelbesteuert",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-006-de-image",
+      "case_id": "invoice-006",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "field": "document_type",
+      "expected": "rechnung",
+      "predicted": "rechnung",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.9828232526779175,
+      "gold_probability": 0.9828232526779175,
+      "source_id": "beleg-000009",
+      "strata": {
+        "variant": "scan",
+        "layout": "landscape",
+        "vat_scheme": "kleinunternehmer",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-006-de-image",
+      "case_id": "invoice-006",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "field": "tax_note",
+      "expected": "small_business",
+      "predicted": "regular",
+      "correct": false,
+      "schema_valid": true,
+      "confidence": 0.632319450378418,
+      "gold_probability": 0.2595033645629883,
+      "source_id": "beleg-000009",
+      "strata": {
+        "variant": "scan",
+        "layout": "landscape",
+        "vat_scheme": "kleinunternehmer",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-006-de-image",
+      "case_id": "invoice-006",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "field": "gross_band",
+      "expected": "over_20000",
+      "predicted": "over_20000",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.9755491018295288,
+      "gold_probability": 0.9755491018295288,
+      "source_id": "beleg-000009",
+      "strata": {
+        "variant": "scan",
+        "layout": "landscape",
+        "vat_scheme": "kleinunternehmer",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-007-de-image",
+      "case_id": "invoice-007",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "field": "document_type",
+      "expected": "rechnung",
+      "predicted": "rechnung",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.9840323328971863,
+      "gold_probability": 0.9840323328971863,
+      "source_id": "beleg-000037",
+      "strata": {
+        "variant": "photo",
+        "layout": "list",
+        "vat_scheme": "reverse_charge",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-007-de-image",
+      "case_id": "invoice-007",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "field": "tax_note",
+      "expected": "reverse_charge",
+      "predicted": "reverse_charge",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.95969557762146,
+      "gold_probability": 0.95969557762146,
+      "source_id": "beleg-000037",
+      "strata": {
+        "variant": "photo",
+        "layout": "list",
+        "vat_scheme": "reverse_charge",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-007-de-image",
+      "case_id": "invoice-007",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "field": "gross_band",
+      "expected": "5000_20000",
+      "predicted": "5000_20000",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.9381489753723145,
+      "gold_probability": 0.9381489753723145,
+      "source_id": "beleg-000037",
+      "strata": {
+        "variant": "photo",
+        "layout": "list",
+        "vat_scheme": "reverse_charge",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-008-de-image",
+      "case_id": "invoice-008",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "field": "document_type",
+      "expected": "rechnung",
+      "predicted": "rechnung",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.9874721169471741,
+      "gold_probability": 0.9874721169471741,
+      "source_id": "beleg-000029",
+      "strata": {
+        "variant": "clean",
+        "layout": "window",
+        "vat_scheme": "regelbesteuert",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-008-de-image",
+      "case_id": "invoice-008",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "field": "tax_note",
+      "expected": "regular",
+      "predicted": "regular",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.9686692357063293,
+      "gold_probability": 0.9686692357063293,
+      "source_id": "beleg-000029",
+      "strata": {
+        "variant": "clean",
+        "layout": "window",
+        "vat_scheme": "regelbesteuert",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-008-de-image",
+      "case_id": "invoice-008",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "field": "gross_band",
+      "expected": "1000_5000",
+      "predicted": "1000_5000",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.9170660972595215,
+      "gold_probability": 0.9170660972595215,
+      "source_id": "beleg-000029",
+      "strata": {
+        "variant": "clean",
+        "layout": "window",
+        "vat_scheme": "regelbesteuert",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-009-de-image",
+      "case_id": "invoice-009",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "field": "document_type",
+      "expected": "gutschrift",
+      "predicted": "gutschrift",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.9740425944328308,
+      "gold_probability": 0.9740425944328308,
+      "source_id": "beleg-000038",
+      "strata": {
+        "variant": "scan",
+        "layout": "list",
+        "vat_scheme": "gutschrift",
+        "document_type": "Gutschrift"
+      }
+    },
+    {
+      "id": "invoice-009-de-image",
+      "case_id": "invoice-009",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "field": "tax_note",
+      "expected": "regular",
+      "predicted": "regular",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.9791538715362549,
+      "gold_probability": 0.9791538715362549,
+      "source_id": "beleg-000038",
+      "strata": {
+        "variant": "scan",
+        "layout": "list",
+        "vat_scheme": "gutschrift",
+        "document_type": "Gutschrift"
+      }
+    },
+    {
+      "id": "invoice-009-de-image",
+      "case_id": "invoice-009",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "field": "gross_band",
+      "expected": "negative",
+      "predicted": "over_20000",
+      "correct": false,
+      "schema_valid": true,
+      "confidence": 0.8590665459632874,
+      "gold_probability": 0.11158992350101471,
+      "source_id": "beleg-000038",
+      "strata": {
+        "variant": "scan",
+        "layout": "list",
+        "vat_scheme": "gutschrift",
+        "document_type": "Gutschrift"
+      }
+    },
+    {
+      "id": "invoice-010-de-image",
+      "case_id": "invoice-010",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "field": "document_type",
+      "expected": "rechnung",
+      "predicted": "rechnung",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.9873993396759033,
+      "gold_probability": 0.9873993396759033,
+      "source_id": "beleg-000039",
+      "strata": {
+        "variant": "scan",
+        "layout": "landscape",
+        "vat_scheme": "regelbesteuert",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-010-de-image",
+      "case_id": "invoice-010",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "field": "tax_note",
+      "expected": "regular",
+      "predicted": "regular",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.9689775109291077,
+      "gold_probability": 0.9689775109291077,
+      "source_id": "beleg-000039",
+      "strata": {
+        "variant": "scan",
+        "layout": "landscape",
+        "vat_scheme": "regelbesteuert",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-010-de-image",
+      "case_id": "invoice-010",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "field": "gross_band",
+      "expected": "over_20000",
+      "predicted": "over_20000",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.8666507601737976,
+      "gold_probability": 0.8666507601737976,
+      "source_id": "beleg-000039",
+      "strata": {
+        "variant": "scan",
+        "layout": "landscape",
+        "vat_scheme": "regelbesteuert",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-011-de-image",
+      "case_id": "invoice-011",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "field": "document_type",
+      "expected": "rechnung",
+      "predicted": "rechnung",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.9883127808570862,
+      "gold_probability": 0.9883127808570862,
+      "source_id": "beleg-000032",
+      "strata": {
+        "variant": "photo",
+        "layout": "window",
+        "vat_scheme": "kleinunternehmer",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-011-de-image",
+      "case_id": "invoice-011",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "field": "tax_note",
+      "expected": "small_business",
+      "predicted": "small_business",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.9607381224632263,
+      "gold_probability": 0.9607381224632263,
+      "source_id": "beleg-000032",
+      "strata": {
+        "variant": "photo",
+        "layout": "window",
+        "vat_scheme": "kleinunternehmer",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-011-de-image",
+      "case_id": "invoice-011",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "field": "gross_band",
+      "expected": "1000_5000",
+      "predicted": "1000_5000",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.9344729781150818,
+      "gold_probability": 0.9344729781150818,
+      "source_id": "beleg-000032",
+      "strata": {
+        "variant": "photo",
+        "layout": "window",
+        "vat_scheme": "kleinunternehmer",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-012-de-image",
+      "case_id": "invoice-012",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "field": "document_type",
+      "expected": "rechnung",
+      "predicted": "rechnung",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.9875683188438416,
+      "gold_probability": 0.9875683188438416,
+      "source_id": "beleg-000004",
+      "strata": {
+        "variant": "photo",
+        "layout": "landscape",
+        "vat_scheme": "kleinunternehmer",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-012-de-image",
+      "case_id": "invoice-012",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "field": "tax_note",
+      "expected": "small_business",
+      "predicted": "small_business",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.7770096063613892,
+      "gold_probability": 0.7770096063613892,
+      "source_id": "beleg-000004",
+      "strata": {
+        "variant": "photo",
+        "layout": "landscape",
+        "vat_scheme": "kleinunternehmer",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-012-de-image",
+      "case_id": "invoice-012",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "field": "gross_band",
+      "expected": "1000_5000",
+      "predicted": "1000_5000",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.9573351144790649,
+      "gold_probability": 0.9573351144790649,
+      "source_id": "beleg-000004",
+      "strata": {
+        "variant": "photo",
+        "layout": "landscape",
+        "vat_scheme": "kleinunternehmer",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-013-de-image",
+      "case_id": "invoice-013",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "field": "document_type",
+      "expected": "rechnung",
+      "predicted": "rechnung",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.9867772459983826,
+      "gold_probability": 0.9867772459983826,
+      "source_id": "beleg-000010",
+      "strata": {
+        "variant": "scan",
+        "layout": "landscape",
+        "vat_scheme": "kleinunternehmer",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-013-de-image",
+      "case_id": "invoice-013",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "field": "tax_note",
+      "expected": "small_business",
+      "predicted": "small_business",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.9019069075584412,
+      "gold_probability": 0.9019069075584412,
+      "source_id": "beleg-000010",
+      "strata": {
+        "variant": "scan",
+        "layout": "landscape",
+        "vat_scheme": "kleinunternehmer",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-013-de-image",
+      "case_id": "invoice-013",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "field": "gross_band",
+      "expected": "5000_20000",
+      "predicted": "5000_20000",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.9351152181625366,
+      "gold_probability": 0.9351152181625366,
+      "source_id": "beleg-000010",
+      "strata": {
+        "variant": "scan",
+        "layout": "landscape",
+        "vat_scheme": "kleinunternehmer",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-014-de-image",
+      "case_id": "invoice-014",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "field": "document_type",
+      "expected": "rechnung",
+      "predicted": "rechnung",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.9882676005363464,
+      "gold_probability": 0.9882676005363464,
+      "source_id": "beleg-000001",
+      "strata": {
+        "variant": "photo",
+        "layout": "landscape",
+        "vat_scheme": "regelbesteuert",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-014-de-image",
+      "case_id": "invoice-014",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "field": "tax_note",
+      "expected": "regular",
+      "predicted": "regular",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.963508129119873,
+      "gold_probability": 0.963508129119873,
+      "source_id": "beleg-000001",
+      "strata": {
+        "variant": "photo",
+        "layout": "landscape",
+        "vat_scheme": "regelbesteuert",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-014-de-image",
+      "case_id": "invoice-014",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "field": "gross_band",
+      "expected": "zero_1000",
+      "predicted": "zero_1000",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.9173586368560791,
+      "gold_probability": 0.9173586368560791,
+      "source_id": "beleg-000001",
+      "strata": {
+        "variant": "photo",
+        "layout": "landscape",
+        "vat_scheme": "regelbesteuert",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-015-de-image",
+      "case_id": "invoice-015",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "field": "document_type",
+      "expected": "rechnung",
+      "predicted": "rechnung",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.9897116422653198,
+      "gold_probability": 0.9897116422653198,
+      "source_id": "beleg-000024",
+      "strata": {
+        "variant": "clean",
+        "layout": "window",
+        "vat_scheme": "regelbesteuert",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-015-de-image",
+      "case_id": "invoice-015",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "field": "tax_note",
+      "expected": "regular",
+      "predicted": "regular",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.9562139511108398,
+      "gold_probability": 0.9562139511108398,
+      "source_id": "beleg-000024",
+      "strata": {
+        "variant": "clean",
+        "layout": "window",
+        "vat_scheme": "regelbesteuert",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-015-de-image",
+      "case_id": "invoice-015",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "field": "gross_band",
+      "expected": "zero_1000",
+      "predicted": "zero_1000",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.9229885339736938,
+      "gold_probability": 0.9229885339736938,
+      "source_id": "beleg-000024",
+      "strata": {
+        "variant": "clean",
+        "layout": "window",
+        "vat_scheme": "regelbesteuert",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-016-de-image",
+      "case_id": "invoice-016",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "field": "document_type",
+      "expected": "gutschrift",
+      "predicted": "gutschrift",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.9823216199874878,
+      "gold_probability": 0.9823216199874878,
+      "source_id": "beleg-000028",
+      "strata": {
+        "variant": "photo",
+        "layout": "landscape",
+        "vat_scheme": "gutschrift",
+        "document_type": "Gutschrift"
+      }
+    },
+    {
+      "id": "invoice-016-de-image",
+      "case_id": "invoice-016",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "field": "tax_note",
+      "expected": "regular",
+      "predicted": "regular",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.9653337001800537,
+      "gold_probability": 0.9653337001800537,
+      "source_id": "beleg-000028",
+      "strata": {
+        "variant": "photo",
+        "layout": "landscape",
+        "vat_scheme": "gutschrift",
+        "document_type": "Gutschrift"
+      }
+    },
+    {
+      "id": "invoice-016-de-image",
+      "case_id": "invoice-016",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "field": "gross_band",
+      "expected": "negative",
+      "predicted": "5000_20000",
+      "correct": false,
+      "schema_valid": true,
+      "confidence": 0.8044909834861755,
+      "gold_probability": 0.14998304843902588,
+      "source_id": "beleg-000028",
+      "strata": {
+        "variant": "photo",
+        "layout": "landscape",
+        "vat_scheme": "gutschrift",
+        "document_type": "Gutschrift"
+      }
+    },
+    {
+      "id": "invoice-017-de-image",
+      "case_id": "invoice-017",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "field": "document_type",
+      "expected": "rechnung",
+      "predicted": "rechnung",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.9830850958824158,
+      "gold_probability": 0.9830850958824158,
+      "source_id": "beleg-000030",
+      "strata": {
+        "variant": "photo",
+        "layout": "list",
+        "vat_scheme": "reverse_charge",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-017-de-image",
+      "case_id": "invoice-017",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "field": "tax_note",
+      "expected": "reverse_charge",
+      "predicted": "reverse_charge",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.9598580002784729,
+      "gold_probability": 0.9598580002784729,
+      "source_id": "beleg-000030",
+      "strata": {
+        "variant": "photo",
+        "layout": "list",
+        "vat_scheme": "reverse_charge",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-017-de-image",
+      "case_id": "invoice-017",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "field": "gross_band",
+      "expected": "over_20000",
+      "predicted": "over_20000",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.969363272190094,
+      "gold_probability": 0.969363272190094,
+      "source_id": "beleg-000030",
+      "strata": {
+        "variant": "photo",
+        "layout": "list",
+        "vat_scheme": "reverse_charge",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-018-de-image",
+      "case_id": "invoice-018",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "field": "document_type",
+      "expected": "gutschrift",
+      "predicted": "gutschrift",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.9741412401199341,
+      "gold_probability": 0.9741412401199341,
+      "source_id": "beleg-000005",
+      "strata": {
+        "variant": "photo",
+        "layout": "window",
+        "vat_scheme": "gutschrift",
+        "document_type": "Gutschrift"
+      }
+    },
+    {
+      "id": "invoice-018-de-image",
+      "case_id": "invoice-018",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "field": "tax_note",
+      "expected": "regular",
+      "predicted": "regular",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.9708681106567383,
+      "gold_probability": 0.9708681106567383,
+      "source_id": "beleg-000005",
+      "strata": {
+        "variant": "photo",
+        "layout": "window",
+        "vat_scheme": "gutschrift",
+        "document_type": "Gutschrift"
+      }
+    },
+    {
+      "id": "invoice-018-de-image",
+      "case_id": "invoice-018",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "field": "gross_band",
+      "expected": "negative",
+      "predicted": "negative",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.8122819066047668,
+      "gold_probability": 0.8122819066047668,
+      "source_id": "beleg-000005",
+      "strata": {
+        "variant": "photo",
+        "layout": "window",
+        "vat_scheme": "gutschrift",
+        "document_type": "Gutschrift"
+      }
+    },
+    {
+      "id": "invoice-019-de-image",
+      "case_id": "invoice-019",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "field": "document_type",
+      "expected": "gutschrift",
+      "predicted": "gutschrift",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.972933828830719,
+      "gold_probability": 0.972933828830719,
+      "source_id": "beleg-000017",
+      "strata": {
+        "variant": "photo",
+        "layout": "window",
+        "vat_scheme": "gutschrift",
+        "document_type": "Gutschrift"
+      }
+    },
+    {
+      "id": "invoice-019-de-image",
+      "case_id": "invoice-019",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "field": "tax_note",
+      "expected": "regular",
+      "predicted": "regular",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.9632286429405212,
+      "gold_probability": 0.9632286429405212,
+      "source_id": "beleg-000017",
+      "strata": {
+        "variant": "photo",
+        "layout": "window",
+        "vat_scheme": "gutschrift",
+        "document_type": "Gutschrift"
+      }
+    },
+    {
+      "id": "invoice-019-de-image",
+      "case_id": "invoice-019",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "field": "gross_band",
+      "expected": "negative",
+      "predicted": "negative",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.5204194188117981,
+      "gold_probability": 0.5204194188117981,
+      "source_id": "beleg-000017",
+      "strata": {
+        "variant": "photo",
+        "layout": "window",
+        "vat_scheme": "gutschrift",
+        "document_type": "Gutschrift"
+      }
+    },
+    {
+      "id": "invoice-020-de-image",
+      "case_id": "invoice-020",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "field": "document_type",
+      "expected": "rechnung",
+      "predicted": "rechnung",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.9851576089859009,
+      "gold_probability": 0.9851576089859009,
+      "source_id": "beleg-000035",
+      "strata": {
+        "variant": "photo",
+        "layout": "window",
+        "vat_scheme": "reverse_charge",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-020-de-image",
+      "case_id": "invoice-020",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "field": "tax_note",
+      "expected": "reverse_charge",
+      "predicted": "reverse_charge",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.9560864567756653,
+      "gold_probability": 0.9560864567756653,
+      "source_id": "beleg-000035",
+      "strata": {
+        "variant": "photo",
+        "layout": "window",
+        "vat_scheme": "reverse_charge",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-020-de-image",
+      "case_id": "invoice-020",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image",
+      "field": "gross_band",
+      "expected": "5000_20000",
+      "predicted": "5000_20000",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.9357752799987793,
+      "gold_probability": 0.9357752799987793,
+      "source_id": "beleg-000035",
+      "strata": {
+        "variant": "photo",
+        "layout": "window",
+        "vat_scheme": "reverse_charge",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "chart-003-en-image",
+      "case_id": "chart-003",
+      "kind": "chart",
+      "language": "en",
+      "condition": "image",
+      "field": "chart_type",
+      "expected": "bar_line",
+      "predicted": "vbar2",
+      "correct": false,
+      "schema_valid": true,
+      "confidence": 0.7959782481193542,
+      "gold_probability": 0.15920566022396088,
+      "source_id": "test-286",
+      "strata": {
+        "type": "bar_line",
+        "difficulty": "medium"
+      }
+    },
+    {
+      "id": "chart-003-en-image",
+      "case_id": "chart-003",
+      "kind": "chart",
+      "language": "en",
+      "condition": "image",
+      "field": "legend_count",
+      "expected": "3",
+      "predicted": "3",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.8289774060249329,
+      "gold_probability": 0.8289774060249329,
+      "source_id": "test-286",
+      "strata": {
+        "type": "bar_line",
+        "difficulty": "medium"
+      }
+    },
+    {
+      "id": "chart-006-en-image",
+      "case_id": "chart-006",
+      "kind": "chart",
+      "language": "en",
+      "condition": "image",
+      "field": "chart_type",
+      "expected": "bar_pie",
+      "predicted": "bar_pie",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.8942546844482422,
+      "gold_probability": 0.8942546844482422,
+      "source_id": "test-260",
+      "strata": {
+        "type": "bar_pie",
+        "difficulty": "medium"
+      }
+    },
+    {
+      "id": "chart-006-en-image",
+      "case_id": "chart-006",
+      "kind": "chart",
+      "language": "en",
+      "condition": "image",
+      "field": "legend_count",
+      "expected": "4",
+      "predicted": "4",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.6685435771942139,
+      "gold_probability": 0.6685435771942139,
+      "source_id": "test-260",
+      "strata": {
+        "type": "bar_pie",
+        "difficulty": "medium"
+      }
+    },
+    {
+      "id": "chart-009-en-image",
+      "case_id": "chart-009",
+      "kind": "chart",
+      "language": "en",
+      "condition": "image",
+      "field": "chart_type",
+      "expected": "hbar",
+      "predicted": "hbar",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.9214664697647095,
+      "gold_probability": 0.9214664697647095,
+      "source_id": "test-101",
+      "strata": {
+        "type": "hbar",
+        "difficulty": "medium"
+      }
+    },
+    {
+      "id": "chart-009-en-image",
+      "case_id": "chart-009",
+      "kind": "chart",
+      "language": "en",
+      "condition": "image",
+      "field": "legend_count",
+      "expected": "3",
+      "predicted": "3",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.9014538526535034,
+      "gold_probability": 0.9014538526535034,
+      "source_id": "test-101",
+      "strata": {
+        "type": "hbar",
+        "difficulty": "medium"
+      }
+    },
+    {
+      "id": "chart-012-en-image",
+      "case_id": "chart-012",
+      "kind": "chart",
+      "language": "en",
+      "condition": "image",
+      "field": "chart_type",
+      "expected": "hbar2",
+      "predicted": "hbar2",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.9189466238021851,
+      "gold_probability": 0.9189466238021851,
+      "source_id": "test-137",
+      "strata": {
+        "type": "hbar2",
+        "difficulty": "medium"
+      }
+    },
+    {
+      "id": "chart-012-en-image",
+      "case_id": "chart-012",
+      "kind": "chart",
+      "language": "en",
+      "condition": "image",
+      "field": "legend_count",
+      "expected": "2",
+      "predicted": "2",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.9259955883026123,
+      "gold_probability": 0.9259955883026123,
+      "source_id": "test-137",
+      "strata": {
+        "type": "hbar2",
+        "difficulty": "medium"
+      }
+    },
+    {
+      "id": "chart-015-en-image",
+      "case_id": "chart-015",
+      "kind": "chart",
+      "language": "en",
+      "condition": "image",
+      "field": "chart_type",
+      "expected": "line",
+      "predicted": "line",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.9331367015838623,
+      "gold_probability": 0.9331367015838623,
+      "source_id": "test-049",
+      "strata": {
+        "type": "line",
+        "difficulty": "medium"
+      }
+    },
+    {
+      "id": "chart-015-en-image",
+      "case_id": "chart-015",
+      "kind": "chart",
+      "language": "en",
+      "condition": "image",
+      "field": "legend_count",
+      "expected": "4",
+      "predicted": "4",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.8405698537826538,
+      "gold_probability": 0.8405698537826538,
+      "source_id": "test-049",
+      "strata": {
+        "type": "line",
+        "difficulty": "medium"
+      }
+    },
+    {
+      "id": "chart-018-en-image",
+      "case_id": "chart-018",
+      "kind": "chart",
+      "language": "en",
+      "condition": "image",
+      "field": "chart_type",
+      "expected": "pie",
+      "predicted": "pie",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.9570201635360718,
+      "gold_probability": 0.9570201635360718,
+      "source_id": "test-015",
+      "strata": {
+        "type": "pie",
+        "difficulty": "medium"
+      }
+    },
+    {
+      "id": "chart-018-en-image",
+      "case_id": "chart-018",
+      "kind": "chart",
+      "language": "en",
+      "condition": "image",
+      "field": "legend_count",
+      "expected": "5",
+      "predicted": "5",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.3632223606109619,
+      "gold_probability": 0.3632223606109619,
+      "source_id": "test-015",
+      "strata": {
+        "type": "pie",
+        "difficulty": "medium"
+      }
+    },
+    {
+      "id": "chart-021-en-image",
+      "case_id": "chart-021",
+      "kind": "chart",
+      "language": "en",
+      "condition": "image",
+      "field": "chart_type",
+      "expected": "stack_hbar",
+      "predicted": "stack_hbar",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.9328063130378723,
+      "gold_probability": 0.9328063130378723,
+      "source_id": "test-193",
+      "strata": {
+        "type": "stack_hbar",
+        "difficulty": "medium"
+      }
+    },
+    {
+      "id": "chart-021-en-image",
+      "case_id": "chart-021",
+      "kind": "chart",
+      "language": "en",
+      "condition": "image",
+      "field": "legend_count",
+      "expected": "4",
+      "predicted": "4",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.8962484002113342,
+      "gold_probability": 0.8962484002113342,
+      "source_id": "test-193",
+      "strata": {
+        "type": "stack_hbar",
+        "difficulty": "medium"
+      }
+    },
+    {
+      "id": "chart-024-en-image",
+      "case_id": "chart-024",
+      "kind": "chart",
+      "language": "en",
+      "condition": "image",
+      "field": "chart_type",
+      "expected": "stack_vbar",
+      "predicted": "stack_vbar",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.9139189720153809,
+      "gold_probability": 0.9139189720153809,
+      "source_id": "test-222",
+      "strata": {
+        "type": "stack_vbar",
+        "difficulty": "medium"
+      }
+    },
+    {
+      "id": "chart-024-en-image",
+      "case_id": "chart-024",
+      "kind": "chart",
+      "language": "en",
+      "condition": "image",
+      "field": "legend_count",
+      "expected": "4",
+      "predicted": "4",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.8672226071357727,
+      "gold_probability": 0.8672226071357727,
+      "source_id": "test-222",
+      "strata": {
+        "type": "stack_vbar",
+        "difficulty": "medium"
+      }
+    },
+    {
+      "id": "chart-027-en-image",
+      "case_id": "chart-027",
+      "kind": "chart",
+      "language": "en",
+      "condition": "image",
+      "field": "chart_type",
+      "expected": "vbar",
+      "predicted": "vbar",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.92951899766922,
+      "gold_probability": 0.92951899766922,
+      "source_id": "test-160",
+      "strata": {
+        "type": "vbar",
+        "difficulty": "medium"
+      }
+    },
+    {
+      "id": "chart-027-en-image",
+      "case_id": "chart-027",
+      "kind": "chart",
+      "language": "en",
+      "condition": "image",
+      "field": "legend_count",
+      "expected": "4",
+      "predicted": "4",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.8252179622650146,
+      "gold_probability": 0.8252179622650146,
+      "source_id": "test-160",
+      "strata": {
+        "type": "vbar",
+        "difficulty": "medium"
+      }
+    },
+    {
+      "id": "chart-030-en-image",
+      "case_id": "chart-030",
+      "kind": "chart",
+      "language": "en",
+      "condition": "image",
+      "field": "chart_type",
+      "expected": "vbar2",
+      "predicted": "vbar2",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.9290857911109924,
+      "gold_probability": 0.9290857911109924,
+      "source_id": "test-070",
+      "strata": {
+        "type": "vbar2",
+        "difficulty": "medium"
+      }
+    },
+    {
+      "id": "chart-030-en-image",
+      "case_id": "chart-030",
+      "kind": "chart",
+      "language": "en",
+      "condition": "image",
+      "field": "legend_count",
+      "expected": "4",
+      "predicted": "4",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.8269152045249939,
+      "gold_probability": 0.8269152045249939,
+      "source_id": "test-070",
+      "strata": {
+        "type": "vbar2",
+        "difficulty": "medium"
+      }
+    },
+    {
+      "id": "invoice-009-en-image",
+      "case_id": "invoice-009",
+      "kind": "invoice",
+      "language": "en",
+      "condition": "image",
+      "field": "document_type",
+      "expected": "gutschrift",
+      "predicted": "gutschrift",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.9511421918869019,
+      "gold_probability": 0.9511421918869019,
+      "source_id": "beleg-000038",
+      "strata": {
+        "variant": "scan",
+        "layout": "list",
+        "vat_scheme": "gutschrift",
+        "document_type": "Gutschrift"
+      }
+    },
+    {
+      "id": "invoice-009-en-image",
+      "case_id": "invoice-009",
+      "kind": "invoice",
+      "language": "en",
+      "condition": "image",
+      "field": "tax_note",
+      "expected": "regular",
+      "predicted": "regular",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.9770904779434204,
+      "gold_probability": 0.9770904779434204,
+      "source_id": "beleg-000038",
+      "strata": {
+        "variant": "scan",
+        "layout": "list",
+        "vat_scheme": "gutschrift",
+        "document_type": "Gutschrift"
+      }
+    },
+    {
+      "id": "invoice-009-en-image",
+      "case_id": "invoice-009",
+      "kind": "invoice",
+      "language": "en",
+      "condition": "image",
+      "field": "gross_band",
+      "expected": "negative",
+      "predicted": "over_20000",
+      "correct": false,
+      "schema_valid": true,
+      "confidence": 0.6428119540214539,
+      "gold_probability": 0.3334864377975464,
+      "source_id": "beleg-000038",
+      "strata": {
+        "variant": "scan",
+        "layout": "list",
+        "vat_scheme": "gutschrift",
+        "document_type": "Gutschrift"
+      }
+    },
+    {
+      "id": "invoice-004-en-image",
+      "case_id": "invoice-004",
+      "kind": "invoice",
+      "language": "en",
+      "condition": "image",
+      "field": "document_type",
+      "expected": "rechnung",
+      "predicted": "rechnung",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.9865199327468872,
+      "gold_probability": 0.9865199327468872,
+      "source_id": "beleg-000012",
+      "strata": {
+        "variant": "photo",
+        "layout": "landscape",
+        "vat_scheme": "kleinunternehmer",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-004-en-image",
+      "case_id": "invoice-004",
+      "kind": "invoice",
+      "language": "en",
+      "condition": "image",
+      "field": "tax_note",
+      "expected": "small_business",
+      "predicted": "small_business",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.8523092269897461,
+      "gold_probability": 0.8523092269897461,
+      "source_id": "beleg-000012",
+      "strata": {
+        "variant": "photo",
+        "layout": "landscape",
+        "vat_scheme": "kleinunternehmer",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-004-en-image",
+      "case_id": "invoice-004",
+      "kind": "invoice",
+      "language": "en",
+      "condition": "image",
+      "field": "gross_band",
+      "expected": "5000_20000",
+      "predicted": "5000_20000",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.8937323093414307,
+      "gold_probability": 0.8937323093414307,
+      "source_id": "beleg-000012",
+      "strata": {
+        "variant": "photo",
+        "layout": "landscape",
+        "vat_scheme": "kleinunternehmer",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-001-en-image",
+      "case_id": "invoice-001",
+      "kind": "invoice",
+      "language": "en",
+      "condition": "image",
+      "field": "document_type",
+      "expected": "rechnung",
+      "predicted": "rechnung",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.9899476170539856,
+      "gold_probability": 0.9899476170539856,
+      "source_id": "beleg-000000",
+      "strata": {
+        "variant": "scan",
+        "layout": "window",
+        "vat_scheme": "regelbesteuert",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-001-en-image",
+      "case_id": "invoice-001",
+      "kind": "invoice",
+      "language": "en",
+      "condition": "image",
+      "field": "tax_note",
+      "expected": "regular",
+      "predicted": "regular",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.9586118459701538,
+      "gold_probability": 0.9586118459701538,
+      "source_id": "beleg-000000",
+      "strata": {
+        "variant": "scan",
+        "layout": "window",
+        "vat_scheme": "regelbesteuert",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-001-en-image",
+      "case_id": "invoice-001",
+      "kind": "invoice",
+      "language": "en",
+      "condition": "image",
+      "field": "gross_band",
+      "expected": "1000_5000",
+      "predicted": "1000_5000",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.9309084415435791,
+      "gold_probability": 0.9309084415435791,
+      "source_id": "beleg-000000",
+      "strata": {
+        "variant": "scan",
+        "layout": "window",
+        "vat_scheme": "regelbesteuert",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-007-en-image",
+      "case_id": "invoice-007",
+      "kind": "invoice",
+      "language": "en",
+      "condition": "image",
+      "field": "document_type",
+      "expected": "rechnung",
+      "predicted": "rechnung",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.9905874133110046,
+      "gold_probability": 0.9905874133110046,
+      "source_id": "beleg-000037",
+      "strata": {
+        "variant": "photo",
+        "layout": "list",
+        "vat_scheme": "reverse_charge",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-007-en-image",
+      "case_id": "invoice-007",
+      "kind": "invoice",
+      "language": "en",
+      "condition": "image",
+      "field": "tax_note",
+      "expected": "reverse_charge",
+      "predicted": "reverse_charge",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.970949649810791,
+      "gold_probability": 0.970949649810791,
+      "source_id": "beleg-000037",
+      "strata": {
+        "variant": "photo",
+        "layout": "list",
+        "vat_scheme": "reverse_charge",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-007-en-image",
+      "case_id": "invoice-007",
+      "kind": "invoice",
+      "language": "en",
+      "condition": "image",
+      "field": "gross_band",
+      "expected": "5000_20000",
+      "predicted": "5000_20000",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.936090886592865,
+      "gold_probability": 0.936090886592865,
+      "source_id": "beleg-000037",
+      "strata": {
+        "variant": "photo",
+        "layout": "list",
+        "vat_scheme": "reverse_charge",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-016-en-image",
+      "case_id": "invoice-016",
+      "kind": "invoice",
+      "language": "en",
+      "condition": "image",
+      "field": "document_type",
+      "expected": "gutschrift",
+      "predicted": "gutschrift",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.9712384939193726,
+      "gold_probability": 0.9712384939193726,
+      "source_id": "beleg-000028",
+      "strata": {
+        "variant": "photo",
+        "layout": "landscape",
+        "vat_scheme": "gutschrift",
+        "document_type": "Gutschrift"
+      }
+    },
+    {
+      "id": "invoice-016-en-image",
+      "case_id": "invoice-016",
+      "kind": "invoice",
+      "language": "en",
+      "condition": "image",
+      "field": "tax_note",
+      "expected": "regular",
+      "predicted": "regular",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.9616092443466187,
+      "gold_probability": 0.9616092443466187,
+      "source_id": "beleg-000028",
+      "strata": {
+        "variant": "photo",
+        "layout": "landscape",
+        "vat_scheme": "gutschrift",
+        "document_type": "Gutschrift"
+      }
+    },
+    {
+      "id": "invoice-016-en-image",
+      "case_id": "invoice-016",
+      "kind": "invoice",
+      "language": "en",
+      "condition": "image",
+      "field": "gross_band",
+      "expected": "negative",
+      "predicted": "5000_20000",
+      "correct": false,
+      "schema_valid": true,
+      "confidence": 0.5984454154968262,
+      "gold_probability": 0.34907013177871704,
+      "source_id": "beleg-000028",
+      "strata": {
+        "variant": "photo",
+        "layout": "landscape",
+        "vat_scheme": "gutschrift",
+        "document_type": "Gutschrift"
+      }
+    },
+    {
+      "id": "invoice-006-en-image",
+      "case_id": "invoice-006",
+      "kind": "invoice",
+      "language": "en",
+      "condition": "image",
+      "field": "document_type",
+      "expected": "rechnung",
+      "predicted": "rechnung",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.9848109483718872,
+      "gold_probability": 0.9848109483718872,
+      "source_id": "beleg-000009",
+      "strata": {
+        "variant": "scan",
+        "layout": "landscape",
+        "vat_scheme": "kleinunternehmer",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-006-en-image",
+      "case_id": "invoice-006",
+      "kind": "invoice",
+      "language": "en",
+      "condition": "image",
+      "field": "tax_note",
+      "expected": "small_business",
+      "predicted": "small_business",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.5047262907028198,
+      "gold_probability": 0.5047262907028198,
+      "source_id": "beleg-000009",
+      "strata": {
+        "variant": "scan",
+        "layout": "landscape",
+        "vat_scheme": "kleinunternehmer",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-006-en-image",
+      "case_id": "invoice-006",
+      "kind": "invoice",
+      "language": "en",
+      "condition": "image",
+      "field": "gross_band",
+      "expected": "over_20000",
+      "predicted": "over_20000",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.9747253060340881,
+      "gold_probability": 0.9747253060340881,
+      "source_id": "beleg-000009",
+      "strata": {
+        "variant": "scan",
+        "layout": "landscape",
+        "vat_scheme": "kleinunternehmer",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-002-en-image",
+      "case_id": "invoice-002",
+      "kind": "invoice",
+      "language": "en",
+      "condition": "image",
+      "field": "document_type",
+      "expected": "rechnung",
+      "predicted": "rechnung",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.9903102517127991,
+      "gold_probability": 0.9903102517127991,
+      "source_id": "beleg-000018",
+      "strata": {
+        "variant": "scan",
+        "layout": "list",
+        "vat_scheme": "regelbesteuert",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-002-en-image",
+      "case_id": "invoice-002",
+      "kind": "invoice",
+      "language": "en",
+      "condition": "image",
+      "field": "tax_note",
+      "expected": "regular",
+      "predicted": "regular",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.9630630016326904,
+      "gold_probability": 0.9630630016326904,
+      "source_id": "beleg-000018",
+      "strata": {
+        "variant": "scan",
+        "layout": "list",
+        "vat_scheme": "regelbesteuert",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-002-en-image",
+      "case_id": "invoice-002",
+      "kind": "invoice",
+      "language": "en",
+      "condition": "image",
+      "field": "gross_band",
+      "expected": "zero_1000",
+      "predicted": "zero_1000",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.8530117273330688,
+      "gold_probability": 0.8530117273330688,
+      "source_id": "beleg-000018",
+      "strata": {
+        "variant": "scan",
+        "layout": "list",
+        "vat_scheme": "regelbesteuert",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-017-en-image",
+      "case_id": "invoice-017",
+      "kind": "invoice",
+      "language": "en",
+      "condition": "image",
+      "field": "document_type",
+      "expected": "rechnung",
+      "predicted": "rechnung",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.9874721169471741,
+      "gold_probability": 0.9874721169471741,
+      "source_id": "beleg-000030",
+      "strata": {
+        "variant": "photo",
+        "layout": "list",
+        "vat_scheme": "reverse_charge",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-017-en-image",
+      "case_id": "invoice-017",
+      "kind": "invoice",
+      "language": "en",
+      "condition": "image",
+      "field": "tax_note",
+      "expected": "reverse_charge",
+      "predicted": "reverse_charge",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.9590975046157837,
+      "gold_probability": 0.9590975046157837,
+      "source_id": "beleg-000030",
+      "strata": {
+        "variant": "photo",
+        "layout": "list",
+        "vat_scheme": "reverse_charge",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-017-en-image",
+      "case_id": "invoice-017",
+      "kind": "invoice",
+      "language": "en",
+      "condition": "image",
+      "field": "gross_band",
+      "expected": "over_20000",
+      "predicted": "over_20000",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.9699718952178955,
+      "gold_probability": 0.9699718952178955,
+      "source_id": "beleg-000030",
+      "strata": {
+        "variant": "photo",
+        "layout": "list",
+        "vat_scheme": "reverse_charge",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-018-en-image",
+      "case_id": "invoice-018",
+      "kind": "invoice",
+      "language": "en",
+      "condition": "image",
+      "field": "document_type",
+      "expected": "gutschrift",
+      "predicted": "gutschrift",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.9331876635551453,
+      "gold_probability": 0.9331876635551453,
+      "source_id": "beleg-000005",
+      "strata": {
+        "variant": "photo",
+        "layout": "window",
+        "vat_scheme": "gutschrift",
+        "document_type": "Gutschrift"
+      }
+    },
+    {
+      "id": "invoice-018-en-image",
+      "case_id": "invoice-018",
+      "kind": "invoice",
+      "language": "en",
+      "condition": "image",
+      "field": "tax_note",
+      "expected": "regular",
+      "predicted": "regular",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.9557430148124695,
+      "gold_probability": 0.9557430148124695,
+      "source_id": "beleg-000005",
+      "strata": {
+        "variant": "photo",
+        "layout": "window",
+        "vat_scheme": "gutschrift",
+        "document_type": "Gutschrift"
+      }
+    },
+    {
+      "id": "invoice-018-en-image",
+      "case_id": "invoice-018",
+      "kind": "invoice",
+      "language": "en",
+      "condition": "image",
+      "field": "gross_band",
+      "expected": "negative",
+      "predicted": "negative",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.8863664269447327,
+      "gold_probability": 0.8863664269447327,
+      "source_id": "beleg-000005",
+      "strata": {
+        "variant": "photo",
+        "layout": "window",
+        "vat_scheme": "gutschrift",
+        "document_type": "Gutschrift"
+      }
+    },
+    {
+      "id": "invoice-011-en-image",
+      "case_id": "invoice-011",
+      "kind": "invoice",
+      "language": "en",
+      "condition": "image",
+      "field": "document_type",
+      "expected": "rechnung",
+      "predicted": "rechnung",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.9863631129264832,
+      "gold_probability": 0.9863631129264832,
+      "source_id": "beleg-000032",
+      "strata": {
+        "variant": "photo",
+        "layout": "window",
+        "vat_scheme": "kleinunternehmer",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-011-en-image",
+      "case_id": "invoice-011",
+      "kind": "invoice",
+      "language": "en",
+      "condition": "image",
+      "field": "tax_note",
+      "expected": "small_business",
+      "predicted": "small_business",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.9767765998840332,
+      "gold_probability": 0.9767765998840332,
+      "source_id": "beleg-000032",
+      "strata": {
+        "variant": "photo",
+        "layout": "window",
+        "vat_scheme": "kleinunternehmer",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-011-en-image",
+      "case_id": "invoice-011",
+      "kind": "invoice",
+      "language": "en",
+      "condition": "image",
+      "field": "gross_band",
+      "expected": "1000_5000",
+      "predicted": "1000_5000",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.7725825905799866,
+      "gold_probability": 0.7725825905799866,
+      "source_id": "beleg-000032",
+      "strata": {
+        "variant": "photo",
+        "layout": "window",
+        "vat_scheme": "kleinunternehmer",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "chart-003-de-blank",
+      "case_id": "chart-003",
+      "kind": "chart",
+      "language": "de",
+      "condition": "blank",
+      "field": "chart_type",
+      "expected": "bar_line",
+      "predicted": "vbar",
+      "correct": false,
+      "schema_valid": true,
+      "confidence": 0.17633049190044403,
+      "gold_probability": 0.06959359347820282,
+      "source_id": "test-286",
+      "strata": {
+        "type": "bar_line",
+        "difficulty": "medium"
+      }
+    },
+    {
+      "id": "chart-003-de-blank",
+      "case_id": "chart-003",
+      "kind": "chart",
+      "language": "de",
+      "condition": "blank",
+      "field": "legend_count",
+      "expected": "3",
+      "predicted": "0",
+      "correct": false,
+      "schema_valid": true,
+      "confidence": 0.9166823625564575,
+      "gold_probability": 0.008642557077109814,
+      "source_id": "test-286",
+      "strata": {
+        "type": "bar_line",
+        "difficulty": "medium"
+      }
+    },
+    {
+      "id": "chart-006-de-blank",
+      "case_id": "chart-006",
+      "kind": "chart",
+      "language": "de",
+      "condition": "blank",
+      "field": "chart_type",
+      "expected": "bar_pie",
+      "predicted": "vbar",
+      "correct": false,
+      "schema_valid": true,
+      "confidence": 0.1721576601266861,
+      "gold_probability": 0.08724525570869446,
+      "source_id": "test-260",
+      "strata": {
+        "type": "bar_pie",
+        "difficulty": "medium"
+      }
+    },
+    {
+      "id": "chart-006-de-blank",
+      "case_id": "chart-006",
+      "kind": "chart",
+      "language": "de",
+      "condition": "blank",
+      "field": "legend_count",
+      "expected": "4",
+      "predicted": "0",
+      "correct": false,
+      "schema_valid": true,
+      "confidence": 0.8925774693489075,
+      "gold_probability": 0.012101531960070133,
+      "source_id": "test-260",
+      "strata": {
+        "type": "bar_pie",
+        "difficulty": "medium"
+      }
+    },
+    {
+      "id": "chart-009-de-blank",
+      "case_id": "chart-009",
+      "kind": "chart",
+      "language": "de",
+      "condition": "blank",
+      "field": "chart_type",
+      "expected": "hbar",
+      "predicted": "vbar",
+      "correct": false,
+      "schema_valid": true,
+      "confidence": 0.17633049190044403,
+      "gold_probability": 0.11654733866453171,
+      "source_id": "test-101",
+      "strata": {
+        "type": "hbar",
+        "difficulty": "medium"
+      }
+    },
+    {
+      "id": "chart-009-de-blank",
+      "case_id": "chart-009",
+      "kind": "chart",
+      "language": "de",
+      "condition": "blank",
+      "field": "legend_count",
+      "expected": "3",
+      "predicted": "0",
+      "correct": false,
+      "schema_valid": true,
+      "confidence": 0.9166823625564575,
+      "gold_probability": 0.008642557077109814,
+      "source_id": "test-101",
+      "strata": {
+        "type": "hbar",
+        "difficulty": "medium"
+      }
+    },
+    {
+      "id": "chart-012-de-blank",
+      "case_id": "chart-012",
+      "kind": "chart",
+      "language": "de",
+      "condition": "blank",
+      "field": "chart_type",
+      "expected": "hbar2",
+      "predicted": "vbar",
+      "correct": false,
+      "schema_valid": true,
+      "confidence": 0.16803327202796936,
+      "gold_probability": 0.12150352448225021,
+      "source_id": "test-137",
+      "strata": {
+        "type": "hbar2",
+        "difficulty": "medium"
+      }
+    },
+    {
+      "id": "chart-012-de-blank",
+      "case_id": "chart-012",
+      "kind": "chart",
+      "language": "de",
+      "condition": "blank",
+      "field": "legend_count",
+      "expected": "2",
+      "predicted": "0",
+      "correct": false,
+      "schema_valid": true,
+      "confidence": 0.9049103856086731,
+      "gold_probability": 0.014512690715491772,
+      "source_id": "test-137",
+      "strata": {
+        "type": "hbar2",
+        "difficulty": "medium"
+      }
+    },
+    {
+      "id": "chart-015-de-blank",
+      "case_id": "chart-015",
+      "kind": "chart",
+      "language": "de",
+      "condition": "blank",
+      "field": "chart_type",
+      "expected": "line",
+      "predicted": "vbar",
+      "correct": false,
+      "schema_valid": true,
+      "confidence": 0.17633049190044403,
+      "gold_probability": 0.08866453915834427,
+      "source_id": "test-049",
+      "strata": {
+        "type": "line",
+        "difficulty": "medium"
+      }
+    },
+    {
+      "id": "chart-015-de-blank",
+      "case_id": "chart-015",
+      "kind": "chart",
+      "language": "de",
+      "condition": "blank",
+      "field": "legend_count",
+      "expected": "4",
+      "predicted": "0",
+      "correct": false,
+      "schema_valid": true,
+      "confidence": 0.9166823625564575,
+      "gold_probability": 0.009057322517037392,
+      "source_id": "test-049",
+      "strata": {
+        "type": "line",
+        "difficulty": "medium"
+      }
+    },
+    {
+      "id": "chart-018-de-blank",
+      "case_id": "chart-018",
+      "kind": "chart",
+      "language": "de",
+      "condition": "blank",
+      "field": "chart_type",
+      "expected": "pie",
+      "predicted": "vbar",
+      "correct": false,
+      "schema_valid": true,
+      "confidence": 0.2020186483860016,
+      "gold_probability": 0.07402876764535904,
+      "source_id": "test-015",
+      "strata": {
+        "type": "pie",
+        "difficulty": "medium"
+      }
+    },
+    {
+      "id": "chart-018-de-blank",
+      "case_id": "chart-018",
+      "kind": "chart",
+      "language": "de",
+      "condition": "blank",
+      "field": "legend_count",
+      "expected": "5",
+      "predicted": "0",
+      "correct": false,
+      "schema_valid": true,
+      "confidence": 0.8616700768470764,
+      "gold_probability": 0.011912907473742962,
+      "source_id": "test-015",
+      "strata": {
+        "type": "pie",
+        "difficulty": "medium"
+      }
+    },
+    {
+      "id": "chart-021-de-blank",
+      "case_id": "chart-021",
+      "kind": "chart",
+      "language": "de",
+      "condition": "blank",
+      "field": "chart_type",
+      "expected": "stack_hbar",
+      "predicted": "vbar",
+      "correct": false,
+      "schema_valid": true,
+      "confidence": 0.15382249653339386,
+      "gold_probability": 0.08105876296758652,
+      "source_id": "test-193",
+      "strata": {
+        "type": "stack_hbar",
+        "difficulty": "medium"
+      }
+    },
+    {
+      "id": "chart-021-de-blank",
+      "case_id": "chart-021",
+      "kind": "chart",
+      "language": "de",
+      "condition": "blank",
+      "field": "legend_count",
+      "expected": "4",
+      "predicted": "0",
+      "correct": false,
+      "schema_valid": true,
+      "confidence": 0.8945205807685852,
+      "gold_probability": 0.012859725393354893,
+      "source_id": "test-193",
+      "strata": {
+        "type": "stack_hbar",
+        "difficulty": "medium"
+      }
+    },
+    {
+      "id": "chart-024-de-blank",
+      "case_id": "chart-024",
+      "kind": "chart",
+      "language": "de",
+      "condition": "blank",
+      "field": "chart_type",
+      "expected": "stack_vbar",
+      "predicted": "vbar",
+      "correct": false,
+      "schema_valid": true,
+      "confidence": 0.2086324393749237,
+      "gold_probability": 0.10844868421554565,
+      "source_id": "test-222",
+      "strata": {
+        "type": "stack_vbar",
+        "difficulty": "medium"
+      }
+    },
+    {
+      "id": "chart-024-de-blank",
+      "case_id": "chart-024",
+      "kind": "chart",
+      "language": "de",
+      "condition": "blank",
+      "field": "legend_count",
+      "expected": "4",
+      "predicted": "0",
+      "correct": false,
+      "schema_valid": true,
+      "confidence": 0.9090921878814697,
+      "gold_probability": 0.009788384661078453,
+      "source_id": "test-222",
+      "strata": {
+        "type": "stack_vbar",
+        "difficulty": "medium"
+      }
+    },
+    {
+      "id": "chart-027-de-blank",
+      "case_id": "chart-027",
+      "kind": "chart",
+      "language": "de",
+      "condition": "blank",
+      "field": "chart_type",
+      "expected": "vbar",
+      "predicted": "vbar",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.17633049190044403,
+      "gold_probability": 0.17633049190044403,
+      "source_id": "test-160",
+      "strata": {
+        "type": "vbar",
+        "difficulty": "medium"
+      }
+    },
+    {
+      "id": "chart-027-de-blank",
+      "case_id": "chart-027",
+      "kind": "chart",
+      "language": "de",
+      "condition": "blank",
+      "field": "legend_count",
+      "expected": "4",
+      "predicted": "0",
+      "correct": false,
+      "schema_valid": true,
+      "confidence": 0.9166823625564575,
+      "gold_probability": 0.009057322517037392,
+      "source_id": "test-160",
+      "strata": {
+        "type": "vbar",
+        "difficulty": "medium"
+      }
+    },
+    {
+      "id": "chart-030-de-blank",
+      "case_id": "chart-030",
+      "kind": "chart",
+      "language": "de",
+      "condition": "blank",
+      "field": "chart_type",
+      "expected": "vbar2",
+      "predicted": "vbar",
+      "correct": false,
+      "schema_valid": true,
+      "confidence": 0.19320833683013916,
+      "gold_probability": 0.09270237386226654,
+      "source_id": "test-070",
+      "strata": {
+        "type": "vbar2",
+        "difficulty": "medium"
+      }
+    },
+    {
+      "id": "chart-030-de-blank",
+      "case_id": "chart-030",
+      "kind": "chart",
+      "language": "de",
+      "condition": "blank",
+      "field": "legend_count",
+      "expected": "4",
+      "predicted": "0",
+      "correct": false,
+      "schema_valid": true,
+      "confidence": 0.9026868939399719,
+      "gold_probability": 0.010674692690372467,
+      "source_id": "test-070",
+      "strata": {
+        "type": "vbar2",
+        "difficulty": "medium"
+      }
+    },
+    {
+      "id": "invoice-009-de-blank",
+      "case_id": "invoice-009",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "blank",
+      "field": "document_type",
+      "expected": "gutschrift",
+      "predicted": "gutschrift",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.5389832258224487,
+      "gold_probability": 0.5389832258224487,
+      "source_id": "beleg-000038",
+      "strata": {
+        "variant": "scan",
+        "layout": "list",
+        "vat_scheme": "gutschrift",
+        "document_type": "Gutschrift"
+      }
+    },
+    {
+      "id": "invoice-009-de-blank",
+      "case_id": "invoice-009",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "blank",
+      "field": "tax_note",
+      "expected": "regular",
+      "predicted": "regular",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.6651225686073303,
+      "gold_probability": 0.6651225686073303,
+      "source_id": "beleg-000038",
+      "strata": {
+        "variant": "scan",
+        "layout": "list",
+        "vat_scheme": "gutschrift",
+        "document_type": "Gutschrift"
+      }
+    },
+    {
+      "id": "invoice-009-de-blank",
+      "case_id": "invoice-009",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "blank",
+      "field": "gross_band",
+      "expected": "negative",
+      "predicted": "negative",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.619653046131134,
+      "gold_probability": 0.619653046131134,
+      "source_id": "beleg-000038",
+      "strata": {
+        "variant": "scan",
+        "layout": "list",
+        "vat_scheme": "gutschrift",
+        "document_type": "Gutschrift"
+      }
+    },
+    {
+      "id": "invoice-004-de-blank",
+      "case_id": "invoice-004",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "blank",
+      "field": "document_type",
+      "expected": "rechnung",
+      "predicted": "rechnung",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.5375269651412964,
+      "gold_probability": 0.5375269651412964,
+      "source_id": "beleg-000012",
+      "strata": {
+        "variant": "photo",
+        "layout": "landscape",
+        "vat_scheme": "kleinunternehmer",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-004-de-blank",
+      "case_id": "invoice-004",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "blank",
+      "field": "tax_note",
+      "expected": "small_business",
+      "predicted": "regular",
+      "correct": false,
+      "schema_valid": true,
+      "confidence": 0.662390947341919,
+      "gold_probability": 0.24655242264270782,
+      "source_id": "beleg-000012",
+      "strata": {
+        "variant": "photo",
+        "layout": "landscape",
+        "vat_scheme": "kleinunternehmer",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-004-de-blank",
+      "case_id": "invoice-004",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "blank",
+      "field": "gross_band",
+      "expected": "5000_20000",
+      "predicted": "negative",
+      "correct": false,
+      "schema_valid": true,
+      "confidence": 0.6189468502998352,
+      "gold_probability": 0.05120473355054855,
+      "source_id": "beleg-000012",
+      "strata": {
+        "variant": "photo",
+        "layout": "landscape",
+        "vat_scheme": "kleinunternehmer",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-001-de-blank",
+      "case_id": "invoice-001",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "blank",
+      "field": "document_type",
+      "expected": "rechnung",
+      "predicted": "gutschrift",
+      "correct": false,
+      "schema_valid": true,
+      "confidence": 0.5389832258224487,
+      "gold_probability": 0.46101677417755127,
+      "source_id": "beleg-000000",
+      "strata": {
+        "variant": "scan",
+        "layout": "window",
+        "vat_scheme": "regelbesteuert",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-001-de-blank",
+      "case_id": "invoice-001",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "blank",
+      "field": "tax_note",
+      "expected": "regular",
+      "predicted": "regular",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.6651225686073303,
+      "gold_probability": 0.6651225686073303,
+      "source_id": "beleg-000000",
+      "strata": {
+        "variant": "scan",
+        "layout": "window",
+        "vat_scheme": "regelbesteuert",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-001-de-blank",
+      "case_id": "invoice-001",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "blank",
+      "field": "gross_band",
+      "expected": "1000_5000",
+      "predicted": "negative",
+      "correct": false,
+      "schema_valid": true,
+      "confidence": 0.619653046131134,
+      "gold_probability": 0.08128079026937485,
+      "source_id": "beleg-000000",
+      "strata": {
+        "variant": "scan",
+        "layout": "window",
+        "vat_scheme": "regelbesteuert",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-007-de-blank",
+      "case_id": "invoice-007",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "blank",
+      "field": "document_type",
+      "expected": "rechnung",
+      "predicted": "gutschrift",
+      "correct": false,
+      "schema_valid": true,
+      "confidence": 0.5389832258224487,
+      "gold_probability": 0.46101677417755127,
+      "source_id": "beleg-000037",
+      "strata": {
+        "variant": "photo",
+        "layout": "list",
+        "vat_scheme": "reverse_charge",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-007-de-blank",
+      "case_id": "invoice-007",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "blank",
+      "field": "tax_note",
+      "expected": "reverse_charge",
+      "predicted": "regular",
+      "correct": false,
+      "schema_valid": true,
+      "confidence": 0.6651225686073303,
+      "gold_probability": 0.08827351778745651,
+      "source_id": "beleg-000037",
+      "strata": {
+        "variant": "photo",
+        "layout": "list",
+        "vat_scheme": "reverse_charge",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-007-de-blank",
+      "case_id": "invoice-007",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "blank",
+      "field": "gross_band",
+      "expected": "5000_20000",
+      "predicted": "negative",
+      "correct": false,
+      "schema_valid": true,
+      "confidence": 0.619653046131134,
+      "gold_probability": 0.05247882381081581,
+      "source_id": "beleg-000037",
+      "strata": {
+        "variant": "photo",
+        "layout": "list",
+        "vat_scheme": "reverse_charge",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-016-de-blank",
+      "case_id": "invoice-016",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "blank",
+      "field": "document_type",
+      "expected": "gutschrift",
+      "predicted": "rechnung",
+      "correct": false,
+      "schema_valid": true,
+      "confidence": 0.5136684775352478,
+      "gold_probability": 0.4863315522670746,
+      "source_id": "beleg-000028",
+      "strata": {
+        "variant": "photo",
+        "layout": "landscape",
+        "vat_scheme": "gutschrift",
+        "document_type": "Gutschrift"
+      }
+    },
+    {
+      "id": "invoice-016-de-blank",
+      "case_id": "invoice-016",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "blank",
+      "field": "tax_note",
+      "expected": "regular",
+      "predicted": "regular",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.6902425289154053,
+      "gold_probability": 0.6902425289154053,
+      "source_id": "beleg-000028",
+      "strata": {
+        "variant": "photo",
+        "layout": "landscape",
+        "vat_scheme": "gutschrift",
+        "document_type": "Gutschrift"
+      }
+    },
+    {
+      "id": "invoice-016-de-blank",
+      "case_id": "invoice-016",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "blank",
+      "field": "gross_band",
+      "expected": "negative",
+      "predicted": "negative",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.6317606568336487,
+      "gold_probability": 0.6317606568336487,
+      "source_id": "beleg-000028",
+      "strata": {
+        "variant": "photo",
+        "layout": "landscape",
+        "vat_scheme": "gutschrift",
+        "document_type": "Gutschrift"
+      }
+    },
+    {
+      "id": "invoice-006-de-blank",
+      "case_id": "invoice-006",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "blank",
+      "field": "document_type",
+      "expected": "rechnung",
+      "predicted": "rechnung",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.5126925706863403,
+      "gold_probability": 0.5126925706863403,
+      "source_id": "beleg-000009",
+      "strata": {
+        "variant": "scan",
+        "layout": "landscape",
+        "vat_scheme": "kleinunternehmer",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-006-de-blank",
+      "case_id": "invoice-006",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "blank",
+      "field": "tax_note",
+      "expected": "small_business",
+      "predicted": "regular",
+      "correct": false,
+      "schema_valid": true,
+      "confidence": 0.6578490734100342,
+      "gold_probability": 0.2477482408285141,
+      "source_id": "beleg-000009",
+      "strata": {
+        "variant": "scan",
+        "layout": "landscape",
+        "vat_scheme": "kleinunternehmer",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-006-de-blank",
+      "case_id": "invoice-006",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "blank",
+      "field": "gross_band",
+      "expected": "over_20000",
+      "predicted": "negative",
+      "correct": false,
+      "schema_valid": true,
+      "confidence": 0.6516197323799133,
+      "gold_probability": 0.03778094798326492,
+      "source_id": "beleg-000009",
+      "strata": {
+        "variant": "scan",
+        "layout": "landscape",
+        "vat_scheme": "kleinunternehmer",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-002-de-blank",
+      "case_id": "invoice-002",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "blank",
+      "field": "document_type",
+      "expected": "rechnung",
+      "predicted": "gutschrift",
+      "correct": false,
+      "schema_valid": true,
+      "confidence": 0.5389832258224487,
+      "gold_probability": 0.46101677417755127,
+      "source_id": "beleg-000018",
+      "strata": {
+        "variant": "scan",
+        "layout": "list",
+        "vat_scheme": "regelbesteuert",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-002-de-blank",
+      "case_id": "invoice-002",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "blank",
+      "field": "tax_note",
+      "expected": "regular",
+      "predicted": "regular",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.6651225686073303,
+      "gold_probability": 0.6651225686073303,
+      "source_id": "beleg-000018",
+      "strata": {
+        "variant": "scan",
+        "layout": "list",
+        "vat_scheme": "regelbesteuert",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-002-de-blank",
+      "case_id": "invoice-002",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "blank",
+      "field": "gross_band",
+      "expected": "zero_1000",
+      "predicted": "negative",
+      "correct": false,
+      "schema_valid": true,
+      "confidence": 0.619653046131134,
+      "gold_probability": 0.19651174545288086,
+      "source_id": "beleg-000018",
+      "strata": {
+        "variant": "scan",
+        "layout": "list",
+        "vat_scheme": "regelbesteuert",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-017-de-blank",
+      "case_id": "invoice-017",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "blank",
+      "field": "document_type",
+      "expected": "rechnung",
+      "predicted": "gutschrift",
+      "correct": false,
+      "schema_valid": true,
+      "confidence": 0.5107405185699463,
+      "gold_probability": 0.48925942182540894,
+      "source_id": "beleg-000030",
+      "strata": {
+        "variant": "photo",
+        "layout": "list",
+        "vat_scheme": "reverse_charge",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-017-de-blank",
+      "case_id": "invoice-017",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "blank",
+      "field": "tax_note",
+      "expected": "reverse_charge",
+      "predicted": "regular",
+      "correct": false,
+      "schema_valid": true,
+      "confidence": 0.6762214303016663,
+      "gold_probability": 0.07982221245765686,
+      "source_id": "beleg-000030",
+      "strata": {
+        "variant": "photo",
+        "layout": "list",
+        "vat_scheme": "reverse_charge",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-017-de-blank",
+      "case_id": "invoice-017",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "blank",
+      "field": "gross_band",
+      "expected": "over_20000",
+      "predicted": "negative",
+      "correct": false,
+      "schema_valid": true,
+      "confidence": 0.613716721534729,
+      "gold_probability": 0.052383724600076675,
+      "source_id": "beleg-000030",
+      "strata": {
+        "variant": "photo",
+        "layout": "list",
+        "vat_scheme": "reverse_charge",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-018-de-blank",
+      "case_id": "invoice-018",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "blank",
+      "field": "document_type",
+      "expected": "gutschrift",
+      "predicted": "gutschrift",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.5389832258224487,
+      "gold_probability": 0.5389832258224487,
+      "source_id": "beleg-000005",
+      "strata": {
+        "variant": "photo",
+        "layout": "window",
+        "vat_scheme": "gutschrift",
+        "document_type": "Gutschrift"
+      }
+    },
+    {
+      "id": "invoice-018-de-blank",
+      "case_id": "invoice-018",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "blank",
+      "field": "tax_note",
+      "expected": "regular",
+      "predicted": "regular",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.6651225686073303,
+      "gold_probability": 0.6651225686073303,
+      "source_id": "beleg-000005",
+      "strata": {
+        "variant": "photo",
+        "layout": "window",
+        "vat_scheme": "gutschrift",
+        "document_type": "Gutschrift"
+      }
+    },
+    {
+      "id": "invoice-018-de-blank",
+      "case_id": "invoice-018",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "blank",
+      "field": "gross_band",
+      "expected": "negative",
+      "predicted": "negative",
+      "correct": true,
+      "schema_valid": true,
+      "confidence": 0.619653046131134,
+      "gold_probability": 0.619653046131134,
+      "source_id": "beleg-000005",
+      "strata": {
+        "variant": "photo",
+        "layout": "window",
+        "vat_scheme": "gutschrift",
+        "document_type": "Gutschrift"
+      }
+    },
+    {
+      "id": "invoice-011-de-blank",
+      "case_id": "invoice-011",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "blank",
+      "field": "document_type",
+      "expected": "rechnung",
+      "predicted": "gutschrift",
+      "correct": false,
+      "schema_valid": true,
+      "confidence": 0.5389832258224487,
+      "gold_probability": 0.46101677417755127,
+      "source_id": "beleg-000032",
+      "strata": {
+        "variant": "photo",
+        "layout": "window",
+        "vat_scheme": "kleinunternehmer",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-011-de-blank",
+      "case_id": "invoice-011",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "blank",
+      "field": "tax_note",
+      "expected": "small_business",
+      "predicted": "regular",
+      "correct": false,
+      "schema_valid": true,
+      "confidence": 0.6651225686073303,
+      "gold_probability": 0.24660401046276093,
+      "source_id": "beleg-000032",
+      "strata": {
+        "variant": "photo",
+        "layout": "window",
+        "vat_scheme": "kleinunternehmer",
+        "document_type": "Rechnung"
+      }
+    },
+    {
+      "id": "invoice-011-de-blank",
+      "case_id": "invoice-011",
+      "kind": "invoice",
+      "language": "de",
+      "condition": "blank",
+      "field": "gross_band",
+      "expected": "1000_5000",
+      "predicted": "negative",
+      "correct": false,
+      "schema_valid": true,
+      "confidence": 0.619653046131134,
+      "gold_probability": 0.08128079026937485,
+      "source_id": "beleg-000032",
+      "strata": {
+        "variant": "photo",
+        "layout": "window",
+        "vat_scheme": "kleinunternehmer",
+        "document_type": "Rechnung"
+      }
+    }
+  ],
+  "interpretation_limits": [
+    "Purposive small synthetic sample, not a population estimate",
+    "Dataset synthetic English chart labels are distinct from German questions",
+    "Invoice source labels may encode synthetic generator conventions, not legal correctness",
+    "No free-form OCR, arithmetic reconstruction, advice, or production safety claim"
+  ],
+  "provenance": {
+    "predictions_sha256": "4d8ed93f5f68ef315d9ce7206ae7dcb59e4a99a254a747df8d44ae36e057a269",
+    "freeze_manifest_sha256": "ec093f838c18c1e19047e774eadc82d5fdd8fcd0c0839c2eb2c2e3b76a4cfb5b",
+    "scorer_sha256": "1b0aa6b1556bad03ec9c80e1a5f7caded388234aff0fbe1221b34fa1f603d5ef"
+  }
+}

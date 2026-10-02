@@ -1,0 +1,32 @@
+{
+  "verified_at_utc": "2026-10-02T08:29:07.315131+00:00",
+  "status": "pass",
+  "page_count": 6,
+  "all_final_pages_visually_inspected": true,
+  "inspection_resolution": "1547 x 2002 pixels per page at 182 dpi",
+  "layout": "No clipping, overlap, unexpected page breaks, broken tables or unreadable totals",
+  "primary_metrics_match_scores": true,
+  "paired_table_matches_scores": true,
+  "report_contains_posthoc_option_ambiguity": true,
+  "strict_chart_accuracy_unchanged": "27/30",
+  "blank_forced_choice_caveat_present": true,
+  "only_documentary_crops_embedded": 2,
+  "docx_crops_byte_identical_to_saved_png": true,
+  "pdf_crops_pixel_identical_to_source_regions": true,
+  "negative_totals_visually_confirmed": [
+    "-29.838,18 EUR",
+    "-16.897,33 EUR"
+  ],
+  "lossless_pdf_export": true,
+  "no_internal_absolute_paths_or_placeholders_in_report": true,
+  "docx_sha256": "65a05379941bb646c58fbef97220ddaead430061cc28ef4bce1d4b2de7a40b88",
+  "pdf_sha256": "372d6f9662cc03d8825f09eb43503dbb6dfee8f2654a96b68a38f7ad1f6edf83",
+  "final_page_png_sha256": {
+    "page-1.png": "b46b65f8e5c1db0cfbea27ba710f00d4614fef47a6f23eef7062952a5840d040",
+    "page-2.png": "c997748922d044eecf1ffd09a9ad08a4b6d3bbe1ba3dc350727e5498302e6fe2",
+    "page-3.png": "6b9bfd5f4f7cefedf07c1e161c9b9f4c5a5930253824a9104a8165523deda766",
+    "page-4.png": "e04954bbf40dc3d2122cdef28bb80604371dd85c915e0d75ba6ce204db2b9df7",
+    "page-5.png": "d3e4ad07483c5272795a870eb80275e5a3db395b2b6884b63d79bd99c2634bff",
+    "page-6.png": "1a54736d0ff4d9df6284e9b0f9f6ae6fee35d124f48ff3c29a811682ac83bd18"
+  }
+}

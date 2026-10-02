@@ -24,6 +24,8 @@ BAD_PARTS = {'.git', '.venv', 'venv', '__pycache__', 'node_modules', 'hf_cache',
 BAD_SUFFIXES = {'.safetensors', '.bin', '.gguf', '.pyc', '.log'}
 # .git is repository machinery and is never part of a published tree inventory.
 EXCLUDED = {'provenance/publication_audit.json', 'provenance/package_inventory.json'}
+# Reviewed immutable offline QA evidence included in the signed image package.
+SAFE_QA_LOGS = {'experiments/images/qa/build_summary.log': 'd59fd141ef568221126535efd6779a233559e75d1200d9d882ea72b370bfe1b5', 'experiments/images/qa/test_scorer.log': 'b52fd2030bf92de4dd39dd804082b2d46694302b3e58cf9795e8231d2f98f7c2'}
 
 def extracted_text(path):
     if path.suffix == '.docx':
@@ -53,7 +55,8 @@ def audit():
             continue
         data = path.read_bytes()
         inventory.append({'path': str(relative), 'bytes': len(data), 'sha256': hashlib.sha256(data).hexdigest()})
-        if BAD_PARTS.intersection(relative.parts) or path.suffix in BAD_SUFFIXES:
+        safe_qa_log = SAFE_QA_LOGS.get(str(relative)) == hashlib.sha256(data).hexdigest()
+        if BAD_PARTS.intersection(relative.parts) or (path.suffix in BAD_SUFFIXES and not safe_qa_log):
             findings.append({'path': str(relative), 'reason': 'excluded_baggage'})
         if len(data) > 10 * 1024**2:
             findings.append({'path': str(relative), 'reason': 'unexpected_large_file'})

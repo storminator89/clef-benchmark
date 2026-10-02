@@ -1,0 +1,24 @@
+{
+  "version": "1.0",
+  "selection": "30 chart test images: smallest image SHA256 per10type×3difficulty strata.20 German invoices: all12non-regular source VAT-scheme cases plus8regular sampled round-robin over sorted(variant,layout), with per-stratum SHA256 ordering. No prediction-based changes.",
+  "chart_source_language": "English chart labels; German task questions. These are not German chart images.",
+  "invoice_source_language": "German synthetic documents, all entities fabricated per source license.",
+  "gold": "Dataset type, count of original legend_item nodes; document_type, VAT-scheme mapped to explicitly printed tax note, and source gross total mapped to fixed intervals. No model-derived labels.",
+  "gross_boundaries_eur": [
+    0,
+    1000,
+    5000,
+    20000
+  ],
+  "primary": "Per-field exact decision accuracy and per-image all-fields accuracy, reported separately by dataset and task. Never pool synthetic chart/invoice performance into a production finance capability claim.",
+  "controls": "20paired images with English questions and same option IDs; same20 with all-white pixels at same source dimensions and German questions. No-image controls not included.",
+  "resolution": "Official processor, min65536 and max786432 pixels; no crops, rotation, OCR text, filenames, source IDs, labels or metadata passed to model.",
+  "runtime": "Original official Clef vision encoder, joint head and output embeddings BF16; language Linear layers CPU NF4 double quantization; batch1; official wrapper English.",
+  "limitations": [
+    "Small purposive stratified synthetic sample",
+    "Potential training contamination unknown",
+    "Structured choices do not measure freeform OCR, financial advice, regulatory compliance or real private document safety",
+    "Source generator inconsistencies; evaluate printed tax notices, not legal truth",
+    "Blank controls preserve dimensions and prompt priors; they are a reliance check, not a complete causal audit"
+  ]
+}

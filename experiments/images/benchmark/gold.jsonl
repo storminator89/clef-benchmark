@@ -1,0 +1,90 @@
+{"id": "chart-001-de-image", "case_id": "chart-001", "kind": "chart", "language": "de", "condition": "image", "expected": {"chart_type": "bar_line", "legend_count": "3"}}
+{"id": "chart-002-de-image", "case_id": "chart-002", "kind": "chart", "language": "de", "condition": "image", "expected": {"chart_type": "bar_line", "legend_count": "4"}}
+{"id": "chart-003-de-image", "case_id": "chart-003", "kind": "chart", "language": "de", "condition": "image", "expected": {"chart_type": "bar_line", "legend_count": "3"}}
+{"id": "chart-004-de-image", "case_id": "chart-004", "kind": "chart", "language": "de", "condition": "image", "expected": {"chart_type": "bar_pie", "legend_count": "3"}}
+{"id": "chart-005-de-image", "case_id": "chart-005", "kind": "chart", "language": "de", "condition": "image", "expected": {"chart_type": "bar_pie", "legend_count": "4"}}
+{"id": "chart-006-de-image", "case_id": "chart-006", "kind": "chart", "language": "de", "condition": "image", "expected": {"chart_type": "bar_pie", "legend_count": "4"}}
+{"id": "chart-007-de-image", "case_id": "chart-007", "kind": "chart", "language": "de", "condition": "image", "expected": {"chart_type": "hbar", "legend_count": "2"}}
+{"id": "chart-008-de-image", "case_id": "chart-008", "kind": "chart", "language": "de", "condition": "image", "expected": {"chart_type": "hbar", "legend_count": "4"}}
+{"id": "chart-009-de-image", "case_id": "chart-009", "kind": "chart", "language": "de", "condition": "image", "expected": {"chart_type": "hbar", "legend_count": "3"}}
+{"id": "chart-010-de-image", "case_id": "chart-010", "kind": "chart", "language": "de", "condition": "image", "expected": {"chart_type": "hbar2", "legend_count": "2"}}
+{"id": "chart-011-de-image", "case_id": "chart-011", "kind": "chart", "language": "de", "condition": "image", "expected": {"chart_type": "hbar2", "legend_count": "2"}}
+{"id": "chart-012-de-image", "case_id": "chart-012", "kind": "chart", "language": "de", "condition": "image", "expected": {"chart_type": "hbar2", "legend_count": "2"}}
+{"id": "chart-013-de-image", "case_id": "chart-013", "kind": "chart", "language": "de", "condition": "image", "expected": {"chart_type": "line", "legend_count": "2"}}
+{"id": "chart-014-de-image", "case_id": "chart-014", "kind": "chart", "language": "de", "condition": "image", "expected": {"chart_type": "line", "legend_count": "4"}}
+{"id": "chart-015-de-image", "case_id": "chart-015", "kind": "chart", "language": "de", "condition": "image", "expected": {"chart_type": "line", "legend_count": "4"}}
+{"id": "chart-016-de-image", "case_id": "chart-016", "kind": "chart", "language": "de", "condition": "image", "expected": {"chart_type": "pie", "legend_count": "2"}}
+{"id": "chart-017-de-image", "case_id": "chart-017", "kind": "chart", "language": "de", "condition": "image", "expected": {"chart_type": "pie", "legend_count": "7"}}
+{"id": "chart-018-de-image", "case_id": "chart-018", "kind": "chart", "language": "de", "condition": "image", "expected": {"chart_type": "pie", "legend_count": "5"}}
+{"id": "chart-019-de-image", "case_id": "chart-019", "kind": "chart", "language": "de", "condition": "image", "expected": {"chart_type": "stack_hbar", "legend_count": "3"}}
+{"id": "chart-020-de-image", "case_id": "chart-020", "kind": "chart", "language": "de", "condition": "image", "expected": {"chart_type": "stack_hbar", "legend_count": "4"}}
+{"id": "chart-021-de-image", "case_id": "chart-021", "kind": "chart", "language": "de", "condition": "image", "expected": {"chart_type": "stack_hbar", "legend_count": "4"}}
+{"id": "chart-022-de-image", "case_id": "chart-022", "kind": "chart", "language": "de", "condition": "image", "expected": {"chart_type": "stack_vbar", "legend_count": "2"}}
+{"id": "chart-023-de-image", "case_id": "chart-023", "kind": "chart", "language": "de", "condition": "image", "expected": {"chart_type": "stack_vbar", "legend_count": "5"}}
+{"id": "chart-024-de-image", "case_id": "chart-024", "kind": "chart", "language": "de", "condition": "image", "expected": {"chart_type": "stack_vbar", "legend_count": "4"}}
+{"id": "chart-025-de-image", "case_id": "chart-025", "kind": "chart", "language": "de", "condition": "image", "expected": {"chart_type": "vbar", "legend_count": "3"}}
+{"id": "chart-026-de-image", "case_id": "chart-026", "kind": "chart", "language": "de", "condition": "image", "expected": {"chart_type": "vbar", "legend_count": "5"}}
+{"id": "chart-027-de-image", "case_id": "chart-027", "kind": "chart", "language": "de", "condition": "image", "expected": {"chart_type": "vbar", "legend_count": "4"}}
+{"id": "chart-028-de-image", "case_id": "chart-028", "kind": "chart", "language": "de", "condition": "image", "expected": {"chart_type": "vbar2", "legend_count": "2"}}
+{"id": "chart-029-de-image", "case_id": "chart-029", "kind": "chart", "language": "de", "condition": "image", "expected": {"chart_type": "vbar2", "legend_count": "5"}}
+{"id": "chart-030-de-image", "case_id": "chart-030", "kind": "chart", "language": "de", "condition": "image", "expected": {"chart_type": "vbar2", "legend_count": "4"}}
+{"id": "invoice-001-de-image", "case_id": "invoice-001", "kind": "invoice", "language": "de", "condition": "image", "expected": {"document_type": "rechnung", "tax_note": "regular", "gross_band": "1000_5000"}}
+{"id": "invoice-002-de-image", "case_id": "invoice-002", "kind": "invoice", "language": "de", "condition": "image", "expected": {"document_type": "rechnung", "tax_note": "regular", "gross_band": "zero_1000"}}
+{"id": "invoice-003-de-image", "case_id": "invoice-003", "kind": "invoice", "language": "de", "condition": "image", "expected": {"document_type": "rechnung", "tax_note": "regular", "gross_band": "over_20000"}}
+{"id": "invoice-004-de-image", "case_id": "invoice-004", "kind": "invoice", "language": "de", "condition": "image", "expected": {"document_type": "rechnung", "tax_note": "small_business", "gross_band": "5000_20000"}}
+{"id": "invoice-005-de-image", "case_id": "invoice-005", "kind": "invoice", "language": "de", "condition": "image", "expected": {"document_type": "rechnung", "tax_note": "regular", "gross_band": "zero_1000"}}
+{"id": "invoice-006-de-image", "case_id": "invoice-006", "kind": "invoice", "language": "de", "condition": "image", "expected": {"document_type": "rechnung", "tax_note": "small_business", "gross_band": "over_20000"}}
+{"id": "invoice-007-de-image", "case_id": "invoice-007", "kind": "invoice", "language": "de", "condition": "image", "expected": {"document_type": "rechnung", "tax_note": "reverse_charge", "gross_band": "5000_20000"}}
+{"id": "invoice-008-de-image", "case_id": "invoice-008", "kind": "invoice", "language": "de", "condition": "image", "expected": {"document_type": "rechnung", "tax_note": "regular", "gross_band": "1000_5000"}}
+{"id": "invoice-009-de-image", "case_id": "invoice-009", "kind": "invoice", "language": "de", "condition": "image", "expected": {"document_type": "gutschrift", "tax_note": "regular", "gross_band": "negative"}}
+{"id": "invoice-010-de-image", "case_id": "invoice-010", "kind": "invoice", "language": "de", "condition": "image", "expected": {"document_type": "rechnung", "tax_note": "regular", "gross_band": "over_20000"}}
+{"id": "invoice-011-de-image", "case_id": "invoice-011", "kind": "invoice", "language": "de", "condition": "image", "expected": {"document_type": "rechnung", "tax_note": "small_business", "gross_band": "1000_5000"}}
+{"id": "invoice-012-de-image", "case_id": "invoice-012", "kind": "invoice", "language": "de", "condition": "image", "expected": {"document_type": "rechnung", "tax_note": "small_business", "gross_band": "1000_5000"}}
+{"id": "invoice-013-de-image", "case_id": "invoice-013", "kind": "invoice", "language": "de", "condition": "image", "expected": {"document_type": "rechnung", "tax_note": "small_business", "gross_band": "5000_20000"}}
+{"id": "invoice-014-de-image", "case_id": "invoice-014", "kind": "invoice", "language": "de", "condition": "image", "expected": {"document_type": "rechnung", "tax_note": "regular", "gross_band": "zero_1000"}}
+{"id": "invoice-015-de-image", "case_id": "invoice-015", "kind": "invoice", "language": "de", "condition": "image", "expected": {"document_type": "rechnung", "tax_note": "regular", "gross_band": "zero_1000"}}
+{"id": "invoice-016-de-image", "case_id": "invoice-016", "kind": "invoice", "language": "de", "condition": "image", "expected": {"document_type": "gutschrift", "tax_note": "regular", "gross_band": "negative"}}
+{"id": "invoice-017-de-image", "case_id": "invoice-017", "kind": "invoice", "language": "de", "condition": "image", "expected": {"document_type": "rechnung", "tax_note": "reverse_charge", "gross_band": "over_20000"}}
+{"id": "invoice-018-de-image", "case_id": "invoice-018", "kind": "invoice", "language": "de", "condition": "image", "expected": {"document_type": "gutschrift", "tax_note": "regular", "gross_band": "negative"}}
+{"id": "invoice-019-de-image", "case_id": "invoice-019", "kind": "invoice", "language": "de", "condition": "image", "expected": {"document_type": "gutschrift", "tax_note": "regular", "gross_band": "negative"}}
+{"id": "invoice-020-de-image", "case_id": "invoice-020", "kind": "invoice", "language": "de", "condition": "image", "expected": {"document_type": "rechnung", "tax_note": "reverse_charge", "gross_band": "5000_20000"}}
+{"id": "chart-003-en-image", "case_id": "chart-003", "kind": "chart", "language": "en", "condition": "image", "expected": {"chart_type": "bar_line", "legend_count": "3"}}
+{"id": "chart-006-en-image", "case_id": "chart-006", "kind": "chart", "language": "en", "condition": "image", "expected": {"chart_type": "bar_pie", "legend_count": "4"}}
+{"id": "chart-009-en-image", "case_id": "chart-009", "kind": "chart", "language": "en", "condition": "image", "expected": {"chart_type": "hbar", "legend_count": "3"}}
+{"id": "chart-012-en-image", "case_id": "chart-012", "kind": "chart", "language": "en", "condition": "image", "expected": {"chart_type": "hbar2", "legend_count": "2"}}
+{"id": "chart-015-en-image", "case_id": "chart-015", "kind": "chart", "language": "en", "condition": "image", "expected": {"chart_type": "line", "legend_count": "4"}}
+{"id": "chart-018-en-image", "case_id": "chart-018", "kind": "chart", "language": "en", "condition": "image", "expected": {"chart_type": "pie", "legend_count": "5"}}
+{"id": "chart-021-en-image", "case_id": "chart-021", "kind": "chart", "language": "en", "condition": "image", "expected": {"chart_type": "stack_hbar", "legend_count": "4"}}
+{"id": "chart-024-en-image", "case_id": "chart-024", "kind": "chart", "language": "en", "condition": "image", "expected": {"chart_type": "stack_vbar", "legend_count": "4"}}
+{"id": "chart-027-en-image", "case_id": "chart-027", "kind": "chart", "language": "en", "condition": "image", "expected": {"chart_type": "vbar", "legend_count": "4"}}
+{"id": "chart-030-en-image", "case_id": "chart-030", "kind": "chart", "language": "en", "condition": "image", "expected": {"chart_type": "vbar2", "legend_count": "4"}}
+{"id": "invoice-009-en-image", "case_id": "invoice-009", "kind": "invoice", "language": "en", "condition": "image", "expected": {"document_type": "gutschrift", "tax_note": "regular", "gross_band": "negative"}}
+{"id": "invoice-004-en-image", "case_id": "invoice-004", "kind": "invoice", "language": "en", "condition": "image", "expected": {"document_type": "rechnung", "tax_note": "small_business", "gross_band": "5000_20000"}}
+{"id": "invoice-001-en-image", "case_id": "invoice-001", "kind": "invoice", "language": "en", "condition": "image", "expected": {"document_type": "rechnung", "tax_note": "regular", "gross_band": "1000_5000"}}
+{"id": "invoice-007-en-image", "case_id": "invoice-007", "kind": "invoice", "language": "en", "condition": "image", "expected": {"document_type": "rechnung", "tax_note": "reverse_charge", "gross_band": "5000_20000"}}
+{"id": "invoice-016-en-image", "case_id": "invoice-016", "kind": "invoice", "language": "en", "condition": "image", "expected": {"document_type": "gutschrift", "tax_note": "regular", "gross_band": "negative"}}
+{"id": "invoice-006-en-image", "case_id": "invoice-006", "kind": "invoice", "language": "en", "condition": "image", "expected": {"document_type": "rechnung", "tax_note": "small_business", "gross_band": "over_20000"}}
+{"id": "invoice-002-en-image", "case_id": "invoice-002", "kind": "invoice", "language": "en", "condition": "image", "expected": {"document_type": "rechnung", "tax_note": "regular", "gross_band": "zero_1000"}}
+{"id": "invoice-017-en-image", "case_id": "invoice-017", "kind": "invoice", "language": "en", "condition": "image", "expected": {"document_type": "rechnung", "tax_note": "reverse_charge", "gross_band": "over_20000"}}
+{"id": "invoice-018-en-image", "case_id": "invoice-018", "kind": "invoice", "language": "en", "condition": "image", "expected": {"document_type": "gutschrift", "tax_note": "regular", "gross_band": "negative"}}
+{"id": "invoice-011-en-image", "case_id": "invoice-011", "kind": "invoice", "language": "en", "condition": "image", "expected": {"document_type": "rechnung", "tax_note": "small_business", "gross_band": "1000_5000"}}
+{"id": "chart-003-de-blank", "case_id": "chart-003", "kind": "chart", "language": "de", "condition": "blank", "expected": {"chart_type": "bar_line", "legend_count": "3"}}
+{"id": "chart-006-de-blank", "case_id": "chart-006", "kind": "chart", "language": "de", "condition": "blank", "expected": {"chart_type": "bar_pie", "legend_count": "4"}}
+{"id": "chart-009-de-blank", "case_id": "chart-009", "kind": "chart", "language": "de", "condition": "blank", "expected": {"chart_type": "hbar", "legend_count": "3"}}
+{"id": "chart-012-de-blank", "case_id": "chart-012", "kind": "chart", "language": "de", "condition": "blank", "expected": {"chart_type": "hbar2", "legend_count": "2"}}
+{"id": "chart-015-de-blank", "case_id": "chart-015", "kind": "chart", "language": "de", "condition": "blank", "expected": {"chart_type": "line", "legend_count": "4"}}
+{"id": "chart-018-de-blank", "case_id": "chart-018", "kind": "chart", "language": "de", "condition": "blank", "expected": {"chart_type": "pie", "legend_count": "5"}}
+{"id": "chart-021-de-blank", "case_id": "chart-021", "kind": "chart", "language": "de", "condition": "blank", "expected": {"chart_type": "stack_hbar", "legend_count": "4"}}
+{"id": "chart-024-de-blank", "case_id": "chart-024", "kind": "chart", "language": "de", "condition": "blank", "expected": {"chart_type": "stack_vbar", "legend_count": "4"}}
+{"id": "chart-027-de-blank", "case_id": "chart-027", "kind": "chart", "language": "de", "condition": "blank", "expected": {"chart_type": "vbar", "legend_count": "4"}}
+{"id": "chart-030-de-blank", "case_id": "chart-030", "kind": "chart", "language": "de", "condition": "blank", "expected": {"chart_type": "vbar2", "legend_count": "4"}}
+{"id": "invoice-009-de-blank", "case_id": "invoice-009", "kind": "invoice", "language": "de", "condition": "blank", "expected": {"document_type": "gutschrift", "tax_note": "regular", "gross_band": "negative"}}
+{"id": "invoice-004-de-blank", "case_id": "invoice-004", "kind": "invoice", "language": "de", "condition": "blank", "expected": {"document_type": "rechnung", "tax_note": "small_business", "gross_band": "5000_20000"}}
+{"id": "invoice-001-de-blank", "case_id": "invoice-001", "kind": "invoice", "language": "de", "condition": "blank", "expected": {"document_type": "rechnung", "tax_note": "regular", "gross_band": "1000_5000"}}
+{"id": "invoice-007-de-blank", "case_id": "invoice-007", "kind": "invoice", "language": "de", "condition": "blank", "expected": {"document_type": "rechnung", "tax_note": "reverse_charge", "gross_band": "5000_20000"}}
+{"id": "invoice-016-de-blank", "case_id": "invoice-016", "kind": "invoice", "language": "de", "condition": "blank", "expected": {"document_type": "gutschrift", "tax_note": "regular", "gross_band": "negative"}}
+{"id": "invoice-006-de-blank", "case_id": "invoice-006", "kind": "invoice", "language": "de", "condition": "blank", "expected": {"document_type": "rechnung", "tax_note": "small_business", "gross_band": "over_20000"}}
+{"id": "invoice-002-de-blank", "case_id": "invoice-002", "kind": "invoice", "language": "de", "condition": "blank", "expected": {"document_type": "rechnung", "tax_note": "regular", "gross_band": "zero_1000"}}
+{"id": "invoice-017-de-blank", "case_id": "invoice-017", "kind": "invoice", "language": "de", "condition": "blank", "expected": {"document_type": "rechnung", "tax_note": "reverse_charge", "gross_band": "over_20000"}}
+{"id": "invoice-018-de-blank", "case_id": "invoice-018", "kind": "invoice", "language": "de", "condition": "blank", "expected": {"document_type": "gutschrift", "tax_note": "regular", "gross_band": "negative"}}
+{"id": "invoice-011-de-blank", "case_id": "invoice-011", "kind": "invoice", "language": "de", "condition": "blank", "expected": {"document_type": "rechnung", "tax_note": "small_business", "gross_band": "1000_5000"}}

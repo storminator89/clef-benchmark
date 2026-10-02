@@ -30,3 +30,11 @@ results/reproduced_*
 # Local browser artifacts
 playwright-report/
 test-results/
+
+# Immutable reviewed image-package QA evidence
+!experiments/images/qa/build_summary.log
+!experiments/images/qa/test_scorer.log
+# Local reproductions of the follow-up suites
+experiments/*/reproduced/
+experiments/images/source/images/
+experiments/images/source/labels/

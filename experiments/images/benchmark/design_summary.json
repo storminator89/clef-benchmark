@@ -1,0 +1,72 @@
+{
+  "images": 50,
+  "requests": 90,
+  "main_fields": 120,
+  "chart_types": {
+    "bar_line": 3,
+    "bar_pie": 3,
+    "hbar": 3,
+    "hbar2": 3,
+    "line": 3,
+    "pie": 3,
+    "stack_hbar": 3,
+    "stack_vbar": 3,
+    "vbar": 3,
+    "vbar2": 3
+  },
+  "invoices": {
+    "vat_scheme": {
+      "regelbesteuert": 8,
+      "kleinunternehmer": 5,
+      "reverse_charge": 3,
+      "gutschrift": 4
+    },
+    "variant": {
+      "scan": 6,
+      "photo": 12,
+      "clean": 2
+    },
+    "layout": {
+      "window": 8,
+      "list": 5,
+      "landscape": 7
+    }
+  },
+  "gold_counts": {
+    "chart_type": {
+      "bar_line": 3,
+      "bar_pie": 3,
+      "hbar": 3,
+      "hbar2": 3,
+      "line": 3,
+      "pie": 3,
+      "stack_hbar": 3,
+      "stack_vbar": 3,
+      "vbar": 3,
+      "vbar2": 3
+    },
+    "legend_count": {
+      "3": 6,
+      "4": 11,
+      "2": 8,
+      "7": 1,
+      "5": 4
+    },
+    "document_type": {
+      "rechnung": 16,
+      "gutschrift": 4
+    },
+    "tax_note": {
+      "regular": 12,
+      "small_business": 5,
+      "reverse_charge": 3
+    },
+    "gross_band": {
+      "1000_5000": 4,
+      "zero_1000": 4,
+      "over_20000": 4,
+      "5000_20000": 4,
+      "negative": 4
+    }
+  }
+}

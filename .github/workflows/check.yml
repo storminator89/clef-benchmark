@@ -36,15 +36,18 @@ jobs:
         run: |
           python --version
           node --version
-      - name: Verify both frozen datasets, lineage and final metrics
+      - name: Verify original frozen datasets, lineage and final metrics
         run: python scripts/check_project.py
+      - name: Verify follow-up inputs, completed runs and exact metrics
+        run: python scripts/check_followups.py
       - name: Run standard-library server, importer and adapter tests
         run: python -m unittest discover -s tests -p 'test_*.py' -v
-      - name: Rebuild both completed-result UI datasets
+      - name: Rebuild all three completed-result UI datasets
         run: |
-          git ls-files --error-unmatch web/data/benchmark.json web/data/finance.json
+          git ls-files --error-unmatch web/data/benchmark.json web/data/finance.json web/data/clean72.json
           python scripts/build_web_data.py --suite general
           python scripts/build_web_data.py --suite finance
+          python scripts/build_clean_web_data.py
           git diff --exit-code -- web/data/
       - name: Run Node built-in UI logic tests
         run: node --test tests/test_web.mjs

@@ -1,0 +1,24 @@
+{
+  "verification_version": "independent-export-v1",
+  "verified_at_utc": "2026-10-02T08:31:07.405675+00:00",
+  "status": "pass",
+  "archive_name": "clef-bildbenchmark-2026-10-02.zip",
+  "archive_bytes": 642251,
+  "archive_sha256": "e26016850fa077793462b0ffc87cf28ae5d136302a3ba7cc8d1375c50bea4652",
+  "package_files": 57,
+  "manifested_payload_files": 56,
+  "all_manifest_hashes_and_sizes_match": true,
+  "zip_entries_byte_identical_to_export": true,
+  "original_benchmark_and_raw_prediction_records_byte_identical": true,
+  "portable_changes_independently_diffed": {
+    "scripts/run_images.py": "Only default runtime path changed to package-local",
+    "scripts/preflight.py": "Only default runtime path changed to package-local",
+    "scripts/verify_freeze.py": "Only accepts explicitly mapped portable code hashes",
+    "scripts/score_images.py": "Only provenance wrapper changed; score function unchanged",
+    "report/build_report.py": "Provenance wrappers plus non-functional rendering docstring; no report calculations changed"
+  },
+  "no_raw_dataset_images_parquet_or_full_invoice_labels": true,
+  "no_absolute_internal_paths_found_in_text_or_DOCX_XML": true,
+  "report_content_review": "All headline/task/control metrics, six primary mismatches, synthetic-data and native-confidence limitations, and chart option-overlap caveat checked against frozen results. The original pre-audit missed the overlap, which the report explicitly acknowledges as post-hoc.",
+  "scope_limit": "Source reacquisition and full new model rerun not performed by independent final reviewer; worker separately tests portable freeze/report load in isolated materialized package."
+}

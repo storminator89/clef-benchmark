@@ -1,0 +1,1537 @@
+{
+  "requests": 90,
+  "max_tokens": 1400,
+  "min_tokens": 1119,
+  "records": [
+    {
+      "id": "chart-001-de-image",
+      "tokens": 1119,
+      "grid": [
+        [
+          1,
+          38,
+          50
+        ]
+      ],
+      "original_size": [
+        800,
+        600
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "chart-002-de-image",
+      "tokens": 1366,
+      "grid": [
+        [
+          1,
+          38,
+          76
+        ]
+      ],
+      "original_size": [
+        1200,
+        600
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "chart-003-de-image",
+      "tokens": 1233,
+      "grid": [
+        [
+          1,
+          38,
+          62
+        ]
+      ],
+      "original_size": [
+        1000,
+        600
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "chart-004-de-image",
+      "tokens": 1385,
+      "grid": [
+        [
+          1,
+          38,
+          78
+        ]
+      ],
+      "original_size": [
+        1600,
+        800
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "chart-005-de-image",
+      "tokens": 1385,
+      "grid": [
+        [
+          1,
+          38,
+          78
+        ]
+      ],
+      "original_size": [
+        1600,
+        800
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "chart-006-de-image",
+      "tokens": 1385,
+      "grid": [
+        [
+          1,
+          38,
+          78
+        ]
+      ],
+      "original_size": [
+        1600,
+        800
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "chart-007-de-image",
+      "tokens": 1233,
+      "grid": [
+        [
+          1,
+          38,
+          62
+        ]
+      ],
+      "original_size": [
+        1000,
+        600
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "chart-008-de-image",
+      "tokens": 1398,
+      "grid": [
+        [
+          1,
+          52,
+          58
+        ]
+      ],
+      "original_size": [
+        1000,
+        900
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "chart-009-de-image",
+      "tokens": 1233,
+      "grid": [
+        [
+          1,
+          38,
+          62
+        ]
+      ],
+      "original_size": [
+        1000,
+        600
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "chart-010-de-image",
+      "tokens": 1366,
+      "grid": [
+        [
+          1,
+          38,
+          76
+        ]
+      ],
+      "original_size": [
+        1200,
+        600
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "chart-011-de-image",
+      "tokens": 1366,
+      "grid": [
+        [
+          1,
+          38,
+          76
+        ]
+      ],
+      "original_size": [
+        1200,
+        600
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "chart-012-de-image",
+      "tokens": 1366,
+      "grid": [
+        [
+          1,
+          38,
+          76
+        ]
+      ],
+      "original_size": [
+        1200,
+        600
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "chart-013-de-image",
+      "tokens": 1233,
+      "grid": [
+        [
+          1,
+          38,
+          62
+        ]
+      ],
+      "original_size": [
+        1000,
+        600
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "chart-014-de-image",
+      "tokens": 1233,
+      "grid": [
+        [
+          1,
+          38,
+          62
+        ]
+      ],
+      "original_size": [
+        1000,
+        600
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "chart-015-de-image",
+      "tokens": 1233,
+      "grid": [
+        [
+          1,
+          38,
+          62
+        ]
+      ],
+      "original_size": [
+        1000,
+        600
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "chart-016-de-image",
+      "tokens": 1364,
+      "grid": [
+        [
+          1,
+          48,
+          60
+        ]
+      ],
+      "original_size": [
+        1000,
+        800
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "chart-017-de-image",
+      "tokens": 1364,
+      "grid": [
+        [
+          1,
+          48,
+          60
+        ]
+      ],
+      "original_size": [
+        1000,
+        800
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "chart-018-de-image",
+      "tokens": 1364,
+      "grid": [
+        [
+          1,
+          48,
+          60
+        ]
+      ],
+      "original_size": [
+        1000,
+        800
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "chart-019-de-image",
+      "tokens": 1400,
+      "grid": [
+        [
+          1,
+          36,
+          84
+        ]
+      ],
+      "original_size": [
+        1400,
+        600
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "chart-020-de-image",
+      "tokens": 1379,
+      "grid": [
+        [
+          1,
+          42,
+          70
+        ]
+      ],
+      "original_size": [
+        1400,
+        840
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "chart-021-de-image",
+      "tokens": 1400,
+      "grid": [
+        [
+          1,
+          36,
+          84
+        ]
+      ],
+      "original_size": [
+        1400,
+        600
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "chart-022-de-image",
+      "tokens": 1269,
+      "grid": [
+        [
+          1,
+          50,
+          50
+        ]
+      ],
+      "original_size": [
+        800,
+        800
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "chart-023-de-image",
+      "tokens": 1380,
+      "grid": [
+        [
+          1,
+          46,
+          64
+        ]
+      ],
+      "original_size": [
+        1080,
+        800
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "chart-024-de-image",
+      "tokens": 1344,
+      "grid": [
+        [
+          1,
+          50,
+          56
+        ]
+      ],
+      "original_size": [
+        900,
+        800
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "chart-025-de-image",
+      "tokens": 1119,
+      "grid": [
+        [
+          1,
+          38,
+          50
+        ]
+      ],
+      "original_size": [
+        800,
+        600
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "chart-026-de-image",
+      "tokens": 1366,
+      "grid": [
+        [
+          1,
+          38,
+          76
+        ]
+      ],
+      "original_size": [
+        1200,
+        600
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "chart-027-de-image",
+      "tokens": 1233,
+      "grid": [
+        [
+          1,
+          38,
+          62
+        ]
+      ],
+      "original_size": [
+        1000,
+        600
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "chart-028-de-image",
+      "tokens": 1326,
+      "grid": [
+        [
+          1,
+          44,
+          62
+        ]
+      ],
+      "original_size": [
+        1000,
+        700
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "chart-029-de-image",
+      "tokens": 1326,
+      "grid": [
+        [
+          1,
+          44,
+          62
+        ]
+      ],
+      "original_size": [
+        1000,
+        700
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "chart-030-de-image",
+      "tokens": 1326,
+      "grid": [
+        [
+          1,
+          44,
+          62
+        ]
+      ],
+      "original_size": [
+        1000,
+        700
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "invoice-001-de-image",
+      "tokens": 1311,
+      "grid": [
+        [
+          1,
+          64,
+          46
+        ]
+      ],
+      "original_size": [
+        1141,
+        1579
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "invoice-002-de-image",
+      "tokens": 1311,
+      "grid": [
+        [
+          1,
+          64,
+          46
+        ]
+      ],
+      "original_size": [
+        1387,
+        1931
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "invoice-003-de-image",
+      "tokens": 1319,
+      "grid": [
+        [
+          1,
+          62,
+          48
+        ]
+      ],
+      "original_size": [
+        1513,
+        1936
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "invoice-004-de-image",
+      "tokens": 1319,
+      "grid": [
+        [
+          1,
+          48,
+          62
+        ]
+      ],
+      "original_size": [
+        1677,
+        1292
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "invoice-005-de-image",
+      "tokens": 1295,
+      "grid": [
+        [
+          1,
+          60,
+          48
+        ]
+      ],
+      "original_size": [
+        1159,
+        1447
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "invoice-006-de-image",
+      "tokens": 1311,
+      "grid": [
+        [
+          1,
+          46,
+          64
+        ]
+      ],
+      "original_size": [
+        2137,
+        1532
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "invoice-007-de-image",
+      "tokens": 1311,
+      "grid": [
+        [
+          1,
+          64,
+          46
+        ]
+      ],
+      "original_size": [
+        1614,
+        2233
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "invoice-008-de-image",
+      "tokens": 1311,
+      "grid": [
+        [
+          1,
+          64,
+          46
+        ]
+      ],
+      "original_size": [
+        1528,
+        2162
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "invoice-009-de-image",
+      "tokens": 1311,
+      "grid": [
+        [
+          1,
+          64,
+          46
+        ]
+      ],
+      "original_size": [
+        1123,
+        1569
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "invoice-010-de-image",
+      "tokens": 1311,
+      "grid": [
+        [
+          1,
+          46,
+          64
+        ]
+      ],
+      "original_size": [
+        1892,
+        1358
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "invoice-011-de-image",
+      "tokens": 1311,
+      "grid": [
+        [
+          1,
+          64,
+          46
+        ]
+      ],
+      "original_size": [
+        1255,
+        1747
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "invoice-012-de-image",
+      "tokens": 1311,
+      "grid": [
+        [
+          1,
+          46,
+          64
+        ]
+      ],
+      "original_size": [
+        1767,
+        1272
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "invoice-013-de-image",
+      "tokens": 1311,
+      "grid": [
+        [
+          1,
+          46,
+          64
+        ]
+      ],
+      "original_size": [
+        2092,
+        1510
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "invoice-014-de-image",
+      "tokens": 1319,
+      "grid": [
+        [
+          1,
+          48,
+          62
+        ]
+      ],
+      "original_size": [
+        2021,
+        1588
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "invoice-015-de-image",
+      "tokens": 1311,
+      "grid": [
+        [
+          1,
+          64,
+          46
+        ]
+      ],
+      "original_size": [
+        1317,
+        1862
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "invoice-016-de-image",
+      "tokens": 1334,
+      "grid": [
+        [
+          1,
+          46,
+          66
+        ]
+      ],
+      "original_size": [
+        1987,
+        1389
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "invoice-017-de-image",
+      "tokens": 1319,
+      "grid": [
+        [
+          1,
+          62,
+          48
+        ]
+      ],
+      "original_size": [
+        1616,
+        2153
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "invoice-018-de-image",
+      "tokens": 1311,
+      "grid": [
+        [
+          1,
+          64,
+          46
+        ]
+      ],
+      "original_size": [
+        1425,
+        1990
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "invoice-019-de-image",
+      "tokens": 1311,
+      "grid": [
+        [
+          1,
+          64,
+          46
+        ]
+      ],
+      "original_size": [
+        1081,
+        1518
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "invoice-020-de-image",
+      "tokens": 1311,
+      "grid": [
+        [
+          1,
+          64,
+          46
+        ]
+      ],
+      "original_size": [
+        1541,
+        2139
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "chart-003-en-image",
+      "tokens": 1160,
+      "grid": [
+        [
+          1,
+          38,
+          62
+        ]
+      ],
+      "original_size": [
+        1000,
+        600
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "chart-006-en-image",
+      "tokens": 1312,
+      "grid": [
+        [
+          1,
+          38,
+          78
+        ]
+      ],
+      "original_size": [
+        1600,
+        800
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "chart-009-en-image",
+      "tokens": 1160,
+      "grid": [
+        [
+          1,
+          38,
+          62
+        ]
+      ],
+      "original_size": [
+        1000,
+        600
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "chart-012-en-image",
+      "tokens": 1293,
+      "grid": [
+        [
+          1,
+          38,
+          76
+        ]
+      ],
+      "original_size": [
+        1200,
+        600
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "chart-015-en-image",
+      "tokens": 1160,
+      "grid": [
+        [
+          1,
+          38,
+          62
+        ]
+      ],
+      "original_size": [
+        1000,
+        600
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "chart-018-en-image",
+      "tokens": 1291,
+      "grid": [
+        [
+          1,
+          48,
+          60
+        ]
+      ],
+      "original_size": [
+        1000,
+        800
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "chart-021-en-image",
+      "tokens": 1327,
+      "grid": [
+        [
+          1,
+          36,
+          84
+        ]
+      ],
+      "original_size": [
+        1400,
+        600
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "chart-024-en-image",
+      "tokens": 1271,
+      "grid": [
+        [
+          1,
+          50,
+          56
+        ]
+      ],
+      "original_size": [
+        900,
+        800
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "chart-027-en-image",
+      "tokens": 1160,
+      "grid": [
+        [
+          1,
+          38,
+          62
+        ]
+      ],
+      "original_size": [
+        1000,
+        600
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "chart-030-en-image",
+      "tokens": 1253,
+      "grid": [
+        [
+          1,
+          44,
+          62
+        ]
+      ],
+      "original_size": [
+        1000,
+        700
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "invoice-009-en-image",
+      "tokens": 1247,
+      "grid": [
+        [
+          1,
+          64,
+          46
+        ]
+      ],
+      "original_size": [
+        1123,
+        1569
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "invoice-004-en-image",
+      "tokens": 1255,
+      "grid": [
+        [
+          1,
+          48,
+          62
+        ]
+      ],
+      "original_size": [
+        1677,
+        1292
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "invoice-001-en-image",
+      "tokens": 1247,
+      "grid": [
+        [
+          1,
+          64,
+          46
+        ]
+      ],
+      "original_size": [
+        1141,
+        1579
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "invoice-007-en-image",
+      "tokens": 1247,
+      "grid": [
+        [
+          1,
+          64,
+          46
+        ]
+      ],
+      "original_size": [
+        1614,
+        2233
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "invoice-016-en-image",
+      "tokens": 1270,
+      "grid": [
+        [
+          1,
+          46,
+          66
+        ]
+      ],
+      "original_size": [
+        1987,
+        1389
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "invoice-006-en-image",
+      "tokens": 1247,
+      "grid": [
+        [
+          1,
+          46,
+          64
+        ]
+      ],
+      "original_size": [
+        2137,
+        1532
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "invoice-002-en-image",
+      "tokens": 1247,
+      "grid": [
+        [
+          1,
+          64,
+          46
+        ]
+      ],
+      "original_size": [
+        1387,
+        1931
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "invoice-017-en-image",
+      "tokens": 1255,
+      "grid": [
+        [
+          1,
+          62,
+          48
+        ]
+      ],
+      "original_size": [
+        1616,
+        2153
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "invoice-018-en-image",
+      "tokens": 1247,
+      "grid": [
+        [
+          1,
+          64,
+          46
+        ]
+      ],
+      "original_size": [
+        1425,
+        1990
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "invoice-011-en-image",
+      "tokens": 1247,
+      "grid": [
+        [
+          1,
+          64,
+          46
+        ]
+      ],
+      "original_size": [
+        1255,
+        1747
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "chart-003-de-blank",
+      "tokens": 1233,
+      "grid": [
+        [
+          1,
+          38,
+          62
+        ]
+      ],
+      "original_size": [
+        1000,
+        600
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "chart-006-de-blank",
+      "tokens": 1385,
+      "grid": [
+        [
+          1,
+          38,
+          78
+        ]
+      ],
+      "original_size": [
+        1600,
+        800
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "chart-009-de-blank",
+      "tokens": 1233,
+      "grid": [
+        [
+          1,
+          38,
+          62
+        ]
+      ],
+      "original_size": [
+        1000,
+        600
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "chart-012-de-blank",
+      "tokens": 1366,
+      "grid": [
+        [
+          1,
+          38,
+          76
+        ]
+      ],
+      "original_size": [
+        1200,
+        600
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "chart-015-de-blank",
+      "tokens": 1233,
+      "grid": [
+        [
+          1,
+          38,
+          62
+        ]
+      ],
+      "original_size": [
+        1000,
+        600
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "chart-018-de-blank",
+      "tokens": 1364,
+      "grid": [
+        [
+          1,
+          48,
+          60
+        ]
+      ],
+      "original_size": [
+        1000,
+        800
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "chart-021-de-blank",
+      "tokens": 1400,
+      "grid": [
+        [
+          1,
+          36,
+          84
+        ]
+      ],
+      "original_size": [
+        1400,
+        600
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "chart-024-de-blank",
+      "tokens": 1344,
+      "grid": [
+        [
+          1,
+          50,
+          56
+        ]
+      ],
+      "original_size": [
+        900,
+        800
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "chart-027-de-blank",
+      "tokens": 1233,
+      "grid": [
+        [
+          1,
+          38,
+          62
+        ]
+      ],
+      "original_size": [
+        1000,
+        600
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "chart-030-de-blank",
+      "tokens": 1326,
+      "grid": [
+        [
+          1,
+          44,
+          62
+        ]
+      ],
+      "original_size": [
+        1000,
+        700
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "invoice-009-de-blank",
+      "tokens": 1311,
+      "grid": [
+        [
+          1,
+          64,
+          46
+        ]
+      ],
+      "original_size": [
+        1123,
+        1569
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "invoice-004-de-blank",
+      "tokens": 1319,
+      "grid": [
+        [
+          1,
+          48,
+          62
+        ]
+      ],
+      "original_size": [
+        1677,
+        1292
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "invoice-001-de-blank",
+      "tokens": 1311,
+      "grid": [
+        [
+          1,
+          64,
+          46
+        ]
+      ],
+      "original_size": [
+        1141,
+        1579
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "invoice-007-de-blank",
+      "tokens": 1311,
+      "grid": [
+        [
+          1,
+          64,
+          46
+        ]
+      ],
+      "original_size": [
+        1614,
+        2233
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "invoice-016-de-blank",
+      "tokens": 1334,
+      "grid": [
+        [
+          1,
+          46,
+          66
+        ]
+      ],
+      "original_size": [
+        1987,
+        1389
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "invoice-006-de-blank",
+      "tokens": 1311,
+      "grid": [
+        [
+          1,
+          46,
+          64
+        ]
+      ],
+      "original_size": [
+        2137,
+        1532
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "invoice-002-de-blank",
+      "tokens": 1311,
+      "grid": [
+        [
+          1,
+          64,
+          46
+        ]
+      ],
+      "original_size": [
+        1387,
+        1931
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "invoice-017-de-blank",
+      "tokens": 1319,
+      "grid": [
+        [
+          1,
+          62,
+          48
+        ]
+      ],
+      "original_size": [
+        1616,
+        2153
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "invoice-018-de-blank",
+      "tokens": 1311,
+      "grid": [
+        [
+          1,
+          64,
+          46
+        ]
+      ],
+      "original_size": [
+        1425,
+        1990
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    },
+    {
+      "id": "invoice-011-de-blank",
+      "tokens": 1311,
+      "grid": [
+        [
+          1,
+          64,
+          46
+        ]
+      ],
+      "original_size": [
+        1255,
+        1747
+      ],
+      "no_truncation": true,
+      "no_filename_or_case_id_in_model_text": true
+    }
+  ]
+}

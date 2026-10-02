@@ -1,0 +1,918 @@
+{
+  "prepared_at_utc": "2026-10-02T07:09:00Z",
+  "sources": [
+    {
+      "repo": "YuukiAsuna/synthetic_chart",
+      "revision": "633cf14bc4c513f6c4806e319905e573afae12f4",
+      "split": "test",
+      "row_count": 300,
+      "license_declared": "CC-BY-4.0",
+      "license_evidence": "synthetic_chart/README.md + hf-api-metadata.json",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "source_url": "https://huggingface.co/datasets/YuukiAsuna/synthetic_chart/tree/633cf14bc4c513f6c4806e319905e573afae12f4",
+      "scope": "Dataset README declares synthetic chart images and structural annotations under one CC-BY-4.0 metadata license. No separate upstream license file or image exception found. This records publisher declaration, not independent chain-of-title certification.",
+      "language": "English source pixels; German evaluation prompts are translated task instructions, not German source dataset."
+    },
+    {
+      "repo": "laterrr/belege-de-invoices-sample",
+      "revision": "da6044a02bd0b6c1d065b9f5615fe021272ece45",
+      "split": "free sample (no official train/test split)",
+      "row_count": 40,
+      "license_declared": "BELEGE DATASET LICENCE v1.0 2026-08-14 / free sample exception",
+      "license_evidence": "belege-de-invoices-sample/LICENCE.txt",
+      "license_url": "https://huggingface.co/datasets/laterrr/belege-de-invoices-sample/blob/da6044a02bd0b6c1d065b9f5615fe021272ece45/LICENCE.txt",
+      "source_url": "https://huggingface.co/datasets/laterrr/belege-de-invoices-sample/tree/da6044a02bd0b6c1d065b9f5615fe021272ece45",
+      "scope": "Local/internal commercial or noncommercial evaluation explicitly permitted. Free40 unmodified redistribution exception requires sample-of-paid-set presentation and license retention. Avoid standalone20-document public repackaging. Figures, sample images, results may be published with Belege (Immineal,2026) attribution.",
+      "language": "German original synthetic invoice pixels. Not real customer records."
+    }
+  ],
+  "chart_selection": {
+    "count": 60,
+    "method": "For each of10type×3difficulty strata, choose2 lowest SHA256 image-byte hashes. Original embedded image bytes saved unchanged.",
+    "manifest": "chart_selected60/manifest.jsonl",
+    "unscored_pilot_row": 0,
+    "pilot_excluded": true
+  },
+  "file_checksums": {
+    "pilot_unscored/metadata.json": {
+      "bytes": 177,
+      "sha256": "d179e42292a37681647ad2e93a4760c91abb29154234ad0e07f76e5f92ea077d"
+    },
+    "pilot_unscored/chart.png": {
+      "bytes": 69091,
+      "sha256": "62fc37f439c079aed2e689c61b09f14b52e4d94f3810c878faa50e12290f9a5f"
+    },
+    "belege-de-invoices-sample/acquired-manifest.jsonl": {
+      "bytes": 27341,
+      "sha256": "be96b9d769030a9a02b77172f4dd88fc606feb3b324de7ceec40130bd3cb8975"
+    },
+    "belege-de-invoices-sample/diagnostic4-manifest.jsonl": {
+      "bytes": 856,
+      "sha256": "125485cc8c8eabde31a67a68bd6af72d2c082ab4598c8d8e1e56c3306adbc3f0"
+    },
+    "belege-de-invoices-sample/README.md": {
+      "bytes": 11936,
+      "sha256": "97fc72bd288ffbef3067ee1b99f6b1dfc0089d6a9d2bc3098d153f3ccb7c2051"
+    },
+    "belege-de-invoices-sample/COUNT.txt": {
+      "bytes": 110,
+      "sha256": "28656038c9088d354bd1b1db0d253f1faa6c25ed1782c0ff66e70d3857992a60"
+    },
+    "belege-de-invoices-sample/independent-label-audit.json": {
+      "bytes": 12551,
+      "sha256": "a818ec7e325978cd0c06cdbae1a61b73b007b90fd9f1276c15fa9ca6abdb59b2"
+    },
+    "belege-de-invoices-sample/manifest.jsonl": {
+      "bytes": 8541,
+      "sha256": "091cdc69832f227b8217290f0d66a842d63c27e3da30bc0914d0d3c616956426"
+    },
+    "belege-de-invoices-sample/LICENCE.txt": {
+      "bytes": 2660,
+      "sha256": "37aedc622f7430cd8214f08e1462bfb036fb01da2cbed094892a82b9d6ac8837"
+    },
+    "belege-de-invoices-sample/hf-api-metadata.json": {
+      "bytes": 4900,
+      "sha256": "1c725dc0ac48891859b1321ab0c8db413a527fe446cbfc51d47191b0cb5d872b"
+    },
+    "belege-de-invoices-sample/DATASET.md": {
+      "bytes": 9257,
+      "sha256": "0d81c09baac1c658a904af81d9c11d9b8804638f06357be89ffd7c1a10e764c6"
+    },
+    "chart_selected60/contact-sheet-hard.jpg": {
+      "bytes": 518966,
+      "sha256": "0dc081bf6fe1f91577a63ee29ea54c329d29f593cfbde356b8bb2b2793ed30db"
+    },
+    "chart_selected60/manifest.jsonl": {
+      "bytes": 23230,
+      "sha256": "5dee5315c5ed93ce0f7d5e0ba53da6b5664289d0606958ba83073da8b334403b"
+    },
+    "chart_selected60/contact-sheet-easy.jpg": {
+      "bytes": 376118,
+      "sha256": "d9994a61867b7897eff93964355fa6f485fe1474108347a565e6d867a1ea18c6"
+    },
+    "chart_selected60/contact-sheet-medium.jpg": {
+      "bytes": 478469,
+      "sha256": "64b94e5c0398a1368f7bc81ff1908a98b395a97a7e4b371650037b03bc8f3c3b"
+    },
+    "synthetic_chart/node-bounds-audit-300.jsonl": {
+      "bytes": 59336,
+      "sha256": "df026761b37358c2872f4525e4974dfd84af5015797b297a876f830bad200d4e"
+    },
+    "synthetic_chart/README.md": {
+      "bytes": 2641,
+      "sha256": "473e87d79331b0e16bc98f4ae0b16f6d0f4211cde701313d31cdfa19c8aeed83"
+    },
+    "synthetic_chart/test-labels-300.jsonl": {
+      "bytes": 1486857,
+      "sha256": "c209db5943fd9dc74fdb3c5ad922ca90f721e24bf041e20a0d942b6d31b0953b"
+    },
+    "synthetic_chart/hf-api-metadata.json": {
+      "bytes": 2001,
+      "sha256": "4ba5626ea42f6555fe3e90260e0958fcd9453ccc8a0d239b8ef6ab7b46e1390b"
+    },
+    "belege-de-invoices-sample/images/beleg-000011.jpg": {
+      "bytes": 92389,
+      "sha256": "258a755aca7f73537fce4745d4a38fcd00b2bfe7c4166ba69c24205e4944293d"
+    },
+    "belege-de-invoices-sample/images/beleg-000032.jpg": {
+      "bytes": 315700,
+      "sha256": "689ce06a4396888c34f13c30e642eb1d4287f682506deb9df7168c33335b6e7c"
+    },
+    "belege-de-invoices-sample/images/beleg-000035.jpg": {
+      "bytes": 168263,
+      "sha256": "fa421eb5900d39619650c3836a54310c63e5919d608c162c1572380114475825"
+    },
+    "belege-de-invoices-sample/images/beleg-000015.jpg": {
+      "bytes": 537800,
+      "sha256": "5fc537354ca0e3340304525ea8bf466011207e014bfd839b318506c2084ecd9c"
+    },
+    "belege-de-invoices-sample/images/beleg-000025.jpg": {
+      "bytes": 178823,
+      "sha256": "167756c6e8d7582a43b47ec10cef4dccc34511912e638cb2158adb1d8811405b"
+    },
+    "belege-de-invoices-sample/images/beleg-000014.jpg": {
+      "bytes": 598276,
+      "sha256": "5053b804cd93d464af402ef72e371547fb1ca5a50acb228307524aeb6549c5a1"
+    },
+    "belege-de-invoices-sample/images/beleg-000020.jpg": {
+      "bytes": 237757,
+      "sha256": "eeb907b2278f5939e8f3d532615f644beb5e4c4ce43b0568c98c401ea37a2c6f"
+    },
+    "belege-de-invoices-sample/images/beleg-000017.jpg": {
+      "bytes": 94446,
+      "sha256": "c8aa932257ef962305c87996bfa31abc06458dfd647c90ecdb82c6681211569f"
+    },
+    "belege-de-invoices-sample/images/beleg-000003.jpg": {
+      "bytes": 104850,
+      "sha256": "ca978fb0530dcf29cace2e60544619cc338be9b590a46da1fda1c5d1d6b877c8"
+    },
+    "belege-de-invoices-sample/images/beleg-000013.jpg": {
+      "bytes": 121368,
+      "sha256": "698aac66ecb6e41d9a5f32d965a38c4b5ac7e585ccabddfd2aac6d682eec4727"
+    },
+    "belege-de-invoices-sample/images/beleg-000008.jpg": {
+      "bytes": 234815,
+      "sha256": "c1e0355377e5a2cb2af900901640684b401515612c1e1535d0c708fbbc15e1d7"
+    },
+    "belege-de-invoices-sample/images/beleg-000010.jpg": {
+      "bytes": 277614,
+      "sha256": "7b42807390027e18524c62e94642298db67977815cf2d4f0b756bad17680d153"
+    },
+    "belege-de-invoices-sample/images/beleg-000023.jpg": {
+      "bytes": 146859,
+      "sha256": "6d891d3f6f08db651270b3f6fe0dce24f87303523b2f79b29244d8baf6b37fe0"
+    },
+    "belege-de-invoices-sample/images/beleg-000019.jpg": {
+      "bytes": 339264,
+      "sha256": "2106b7e36c3c8af273b783cead585998d5081b37b3377d37deae6ed16027010d"
+    },
+    "belege-de-invoices-sample/images/beleg-000039.jpg": {
+      "bytes": 382825,
+      "sha256": "50ca862a16b2ae153fe7a2f44155dbd6b5c4c7163fe0d13c3e3e64f72243cb29"
+    },
+    "belege-de-invoices-sample/images/beleg-000031.jpg": {
+      "bytes": 330488,
+      "sha256": "30162623404c817cc8fe53dfdd35c0ce2d85916209c9591c8ecfe5f3ed89058a"
+    },
+    "belege-de-invoices-sample/images/beleg-000005.jpg": {
+      "bytes": 223680,
+      "sha256": "a87e15d7044673a0aea2d9b91f2007696790c25be4f0075ac3ffc8f12695f5b1"
+    },
+    "belege-de-invoices-sample/images/beleg-000038.jpg": {
+      "bytes": 176469,
+      "sha256": "3fedbad12d63e215468ca50e2b690a2cb5ec28463cd865137771bc78733633d6"
+    },
+    "belege-de-invoices-sample/images/beleg-000033.jpg": {
+      "bytes": 268177,
+      "sha256": "aef74b5c21d0b357c9674aa05c6ee8f53a7f635a3fa34ae7c904beac44f06e6f"
+    },
+    "belege-de-invoices-sample/images/beleg-000029.png": {
+      "bytes": 220009,
+      "sha256": "273414238fbfc9fc871d4ac951c1572600de1d4e068958d9bad28b29bbb9a4e0"
+    },
+    "belege-de-invoices-sample/images/beleg-000026.jpg": {
+      "bytes": 365645,
+      "sha256": "0855118e6254c9bbe4968fabc3188c5fe9b197d543f8cfbed41373ff9f5c24cb"
+    },
+    "belege-de-invoices-sample/images/beleg-000006.jpg": {
+      "bytes": 519106,
+      "sha256": "ef095e9219a047ace9ecc7a029fdf2a9f5cf3672a66d508c58d8733f60bd0c74"
+    },
+    "belege-de-invoices-sample/images/beleg-000004.jpg": {
+      "bytes": 200463,
+      "sha256": "74ac5455d2f21681fa3427d745a4e260e31cc323f9f4fad9942e67f75aeb6a64"
+    },
+    "belege-de-invoices-sample/images/beleg-000002.jpg": {
+      "bytes": 282500,
+      "sha256": "329a23df7068c34dd9e7bc62e36363d7ef4e6469521055f2205b4619caf6f271"
+    },
+    "belege-de-invoices-sample/images/beleg-000027.jpg": {
+      "bytes": 192873,
+      "sha256": "95ca8b19e496ec458f8ec60f0466939133de1c9df79963d3ae4c5b9a7b316418"
+    },
+    "belege-de-invoices-sample/images/beleg-000021.jpg": {
+      "bytes": 126397,
+      "sha256": "0ad4bff49d1972319aa44f6fdcdc20dd5feb7bc238636d449afd01f8a23f20c8"
+    },
+    "belege-de-invoices-sample/images/beleg-000000.jpg": {
+      "bytes": 194860,
+      "sha256": "00b9a649a2048fbc9879621d304b974fd92ea7990ed32f68c66894fb12d55149"
+    },
+    "belege-de-invoices-sample/images/beleg-000012.jpg": {
+      "bytes": 247020,
+      "sha256": "0a5a48ff3f6a452788a392c03b5a8f02ee2c0d597c266b4382cf24378275a940"
+    },
+    "belege-de-invoices-sample/images/beleg-000009.jpg": {
+      "bytes": 332110,
+      "sha256": "141752ed8ec0e48b2be044f3d75986bf7b272d00ea8d6675283b3341773b82a3"
+    },
+    "belege-de-invoices-sample/images/beleg-000028.jpg": {
+      "bytes": 237676,
+      "sha256": "960b58babf0263c6d4c986a15e646c6fbd1dbf282e7d3337650baa54cdf8f6d0"
+    },
+    "belege-de-invoices-sample/images/beleg-000022.jpg": {
+      "bytes": 319834,
+      "sha256": "2659cd30ff5342475590f71f3a288f442dc6e458df62b088ca475497c8d67bca"
+    },
+    "belege-de-invoices-sample/images/beleg-000037.jpg": {
+      "bytes": 307618,
+      "sha256": "1b40220db834791b2400cc78007729bea82f9bb585b6e572a24eabd99a1e67cd"
+    },
+    "belege-de-invoices-sample/images/beleg-000030.jpg": {
+      "bytes": 144595,
+      "sha256": "a70ef63e7aee3c5186185d30c918e366cf0ea3f9acfdbf597ed1d75d196b1f33"
+    },
+    "belege-de-invoices-sample/images/beleg-000018.jpg": {
+      "bytes": 682305,
+      "sha256": "07d7de8f7f5853b2503a0c4f55f6b65eeab508407bf2e69aabd991fab6c6d531"
+    },
+    "belege-de-invoices-sample/images/beleg-000001.jpg": {
+      "bytes": 249673,
+      "sha256": "8e9249405875a83fd078c3b0bd7a1fa3b7d82e5ff6e75835af326d2d48dfe753"
+    },
+    "belege-de-invoices-sample/images/beleg-000016.jpg": {
+      "bytes": 225738,
+      "sha256": "cad82b738aa77e0bb44b906a4bc5e792d3bc813b44394d0ee02647457a534a70"
+    },
+    "belege-de-invoices-sample/images/beleg-000034.jpg": {
+      "bytes": 375248,
+      "sha256": "d7f49e67f47146c9670bf4b68fe68bfcd286e395b1825614e9dcfa8f15d8ee53"
+    },
+    "belege-de-invoices-sample/images/beleg-000036.jpg": {
+      "bytes": 286476,
+      "sha256": "87b84203fe05b72e07a960545769b42119e920e96078deeea8573bd602a31f7e"
+    },
+    "belege-de-invoices-sample/images/beleg-000007.jpg": {
+      "bytes": 249677,
+      "sha256": "52c456f8e3bd3789d8fbce2b7840f7afa69c22fb9602576a48ef089b3d08f824"
+    },
+    "belege-de-invoices-sample/images/beleg-000024.png": {
+      "bytes": 165166,
+      "sha256": "9369284e2dcfa9fa5876c50704c65c09919cfff412d96583d9051e7707d4a369"
+    },
+    "belege-de-invoices-sample/labels/beleg-000000.json": {
+      "bytes": 3696,
+      "sha256": "de984a601c84f0f7b39f186d31796960c608005e610af22d2633f713468fd7d3"
+    },
+    "belege-de-invoices-sample/labels/beleg-000013.json": {
+      "bytes": 2677,
+      "sha256": "f79e9d29b2bbb383ce607f0c8bd048b04e418c50e4471b12cfb2ec9427405a87"
+    },
+    "belege-de-invoices-sample/labels/beleg-000016.json": {
+      "bytes": 3726,
+      "sha256": "d9399adf295c99ffc27711831973d071839e0200f1aa561c16c30b31ae1620fb"
+    },
+    "belege-de-invoices-sample/labels/beleg-000033.json": {
+      "bytes": 3169,
+      "sha256": "9395c4ee57653060e681ac2e78c8d709a427f27c0356ed55c7a1aa7ad34e80bc"
+    },
+    "belege-de-invoices-sample/labels/beleg-000008.json": {
+      "bytes": 4177,
+      "sha256": "9f53b3f93336e9a1946decae379c1986e82e9d2077f9567357b903b5cfdaad79"
+    },
+    "belege-de-invoices-sample/labels/beleg-000019.json": {
+      "bytes": 4297,
+      "sha256": "116207d72bf3969cd3d7cb355388680851a42bae15a3f2c7474295fc3e99bca2"
+    },
+    "belege-de-invoices-sample/labels/beleg-000037.json": {
+      "bytes": 5377,
+      "sha256": "ef56a394a794487b54e5afd59800a073fef303929482ae692dd597cd165f936f"
+    },
+    "belege-de-invoices-sample/labels/beleg-000023.json": {
+      "bytes": 3617,
+      "sha256": "0e4822714d3d6a3e671752c8b41247e5d742af655f43cd9252ba08e0689254fd"
+    },
+    "belege-de-invoices-sample/labels/beleg-000010.json": {
+      "bytes": 4219,
+      "sha256": "7cf3052f36764ae237f4876e95730465686fe250be58946373bfed1039ea866d"
+    },
+    "belege-de-invoices-sample/labels/beleg-000034.json": {
+      "bytes": 3615,
+      "sha256": "574e34dcb2e975b5c840e2ef223167baa437c1887bd49de0335b0a7f1733283b"
+    },
+    "belege-de-invoices-sample/labels/beleg-000007.json": {
+      "bytes": 4752,
+      "sha256": "99e221d3f105b14d824f2765dcc46cd917ea4b7dcb8a7f8d6cadc5d1d8a1629c"
+    },
+    "belege-de-invoices-sample/labels/beleg-000032.json": {
+      "bytes": 4792,
+      "sha256": "33cf678047136e8ba68e360ed53ddafce46d91cfb6fba270a7bd5939050ec398"
+    },
+    "belege-de-invoices-sample/labels/beleg-000027.json": {
+      "bytes": 3261,
+      "sha256": "a48c40216b429a748c73f6d8ce5cdee9b630edf3b8010538e86bbb8e08a0415a"
+    },
+    "belege-de-invoices-sample/labels/beleg-000018.json": {
+      "bytes": 3727,
+      "sha256": "63ba6ad633c17577f27477a7840e27f18f6fe806730c9e0475ef1df6d593e55b"
+    },
+    "belege-de-invoices-sample/labels/beleg-000026.json": {
+      "bytes": 3780,
+      "sha256": "87b0db9bb41a944ccbb3eb82075c24aaf7c197a502c1de9d689b4c6121042ad4"
+    },
+    "belege-de-invoices-sample/labels/beleg-000005.json": {
+      "bytes": 4167,
+      "sha256": "382a413f0c68d947818fd0e7b0480854fbf87214539b9bb0ae1ebcc36a731e53"
+    },
+    "belege-de-invoices-sample/labels/beleg-000004.json": {
+      "bytes": 3744,
+      "sha256": "b50be4f6f7a3103b1343afc6c27e63fe3afddad9861d6c87316c65c59ef60fa9"
+    },
+    "belege-de-invoices-sample/labels/beleg-000009.json": {
+      "bytes": 3796,
+      "sha256": "ce59d8dc5db3b2ba3549190f5d815918562da4fb41ccb7aca679914a637610a1"
+    },
+    "belege-de-invoices-sample/labels/beleg-000002.json": {
+      "bytes": 2544,
+      "sha256": "fe20b79542f2c26a2c3b8fcdfbc9d23c4afd2c6717bab70f8c653f4089888788"
+    },
+    "belege-de-invoices-sample/labels/beleg-000029.json": {
+      "bytes": 2691,
+      "sha256": "cd24cf00c4dc6ed8c94e3ee97fbbf59f3e9294afa9b8cf2444697b6aa456ab4a"
+    },
+    "belege-de-invoices-sample/labels/beleg-000028.json": {
+      "bytes": 6434,
+      "sha256": "871f56ed2489a101347bee4f3a1023cdeb07296b2f718c71d053a67183bde640"
+    },
+    "belege-de-invoices-sample/labels/beleg-000021.json": {
+      "bytes": 3190,
+      "sha256": "023b292a66c1263a21b7597fdb6a06a21776189745a8b211f22d690bbe4474b1"
+    },
+    "belege-de-invoices-sample/labels/beleg-000022.json": {
+      "bytes": 6552,
+      "sha256": "96ffbfcf26b00d9612f3a93dabb3ef46d4b35dafbf7414062262dc5f0a69e1cb"
+    },
+    "belege-de-invoices-sample/labels/beleg-000038.json": {
+      "bytes": 4299,
+      "sha256": "10e148be9d9dfedb320425b89511ec2c440669eb5b07656ffa75db2afb01f590"
+    },
+    "belege-de-invoices-sample/labels/beleg-000012.json": {
+      "bytes": 6489,
+      "sha256": "a95e86be23b9fe8b145136847e4f6a5e4fa872c96bcc04b1c76388796132f5d4"
+    },
+    "belege-de-invoices-sample/labels/beleg-000015.json": {
+      "bytes": 3755,
+      "sha256": "3dc24c93f44dba9ed2061c8613c1bbce53d74b7b5a8d3b5b949e068892049866"
+    },
+    "belege-de-invoices-sample/labels/beleg-000011.json": {
+      "bytes": 3598,
+      "sha256": "08f06bfaaf539c2c982e21d7f9f2d0b53a7657bc72a85fbe8e3ab65c389305c4"
+    },
+    "belege-de-invoices-sample/labels/beleg-000024.json": {
+      "bytes": 3269,
+      "sha256": "553de0bfa29447e67bd00322592831e6d0a9129db1e0c82cc3d10561657cc7af"
+    },
+    "belege-de-invoices-sample/labels/beleg-000036.json": {
+      "bytes": 3698,
+      "sha256": "9d76785cd6a6a0497e5f8c557340c15b6c8ac992b8be2658cc6a6257fd1576cb"
+    },
+    "belege-de-invoices-sample/labels/beleg-000006.json": {
+      "bytes": 4251,
+      "sha256": "45cdda6060f21b50068481fbb9e5b424fb7489a7b87ae8b54133d66b5dbaa25a"
+    },
+    "belege-de-invoices-sample/labels/beleg-000014.json": {
+      "bytes": 4265,
+      "sha256": "7f05acd16c62aca54d45f8a150519604dc457847d037e21d7ff2e38f40e26f1d"
+    },
+    "belege-de-invoices-sample/labels/beleg-000003.json": {
+      "bytes": 3216,
+      "sha256": "37da922d8498a3ffa0df262502428006e2757205e33a9da5bb61c2faf1f48da6"
+    },
+    "belege-de-invoices-sample/labels/beleg-000035.json": {
+      "bytes": 3685,
+      "sha256": "3b0219d8a6376e680827aa850724e5a23664c70486b83d81b226bb107e57428c"
+    },
+    "belege-de-invoices-sample/labels/beleg-000017.json": {
+      "bytes": 4813,
+      "sha256": "f1c27b72bee0a9be289f48ccf75d7d5e06ac9a2cfce033ddb01b4f749edf64fb"
+    },
+    "belege-de-invoices-sample/labels/beleg-000031.json": {
+      "bytes": 4894,
+      "sha256": "ad53d0877f4cab913fef049c64b63b5c8b63c8391d08fb60a22eed17845429ff"
+    },
+    "belege-de-invoices-sample/labels/beleg-000020.json": {
+      "bytes": 3168,
+      "sha256": "cf607670b0cd6cd573424879f9c7d73edfef28f9fee0d515c2fea72006b8eb9f"
+    },
+    "belege-de-invoices-sample/labels/beleg-000030.json": {
+      "bytes": 5421,
+      "sha256": "cec037c432742bde2ac76830d6d4800fadedd83e89cbc92b9047eb6e87a8b158"
+    },
+    "belege-de-invoices-sample/labels/beleg-000025.json": {
+      "bytes": 6295,
+      "sha256": "fab5dda1111c277d29439c48e93bbb0222b3703d6c9f3117595701cf5bd26438"
+    },
+    "belege-de-invoices-sample/labels/beleg-000001.json": {
+      "bytes": 3298,
+      "sha256": "c38f823fc87f8430216ebc933c0c21bb082f02b48eee37a40182eddb4071e9fd"
+    },
+    "belege-de-invoices-sample/labels/beleg-000039.json": {
+      "bytes": 2690,
+      "sha256": "de1c0018c8a9ebb1d6157a7446c39dc008e7f33778bddf2fc824f93aaa643af6"
+    },
+    "chart_selected60/images/test-157.png": {
+      "bytes": 24040,
+      "sha256": "4a8f10e236157ece76145c719de3096cd3cab608b64995a09d6f73175c431234"
+    },
+    "chart_selected60/images/test-116.png": {
+      "bytes": 29188,
+      "sha256": "0a3b348ccf9525f5679b97f3cc4b0f563c13fe31a51a83f5a2ac6f9a2dd88fb2"
+    },
+    "chart_selected60/images/test-036.png": {
+      "bytes": 43469,
+      "sha256": "03590e1498f06d945c4e8354b4d0b0805cedabff9a0afe97029baa739a6852de"
+    },
+    "chart_selected60/images/test-113.png": {
+      "bytes": 32612,
+      "sha256": "1dd43beebfff464ecc3fc6a9fbbe7fdd7c6aefaa8fa4a2f3c7e4a640bf96de47"
+    },
+    "chart_selected60/images/test-239.png": {
+      "bytes": 155711,
+      "sha256": "1cdf56f84c9e146cfa60f05b6b5f0605ea1e2010df36c341df98a3373410416a"
+    },
+    "chart_selected60/images/test-201.png": {
+      "bytes": 91961,
+      "sha256": "0762d9d2f086cd289080aa9bb3ad8bf004ca31318b4e10b38c5c7b01ddf521bf"
+    },
+    "chart_selected60/images/test-257.png": {
+      "bytes": 57584,
+      "sha256": "3f284ef33d781e01626f8d12a01a6a144b4c63252ef3c2bd273d4c6d00b2e623"
+    },
+    "chart_selected60/images/test-279.png": {
+      "bytes": 50775,
+      "sha256": "126a8bae18bf6de0a4c0f4fc34d57d279533b7a397bc8a3a329ae2a4591ab494"
+    },
+    "chart_selected60/images/test-123.png": {
+      "bytes": 37108,
+      "sha256": "2db4413434019333569b408e4271b36fea38827d14f469ab1144c54ada9d1406"
+    },
+    "chart_selected60/images/test-007.png": {
+      "bytes": 63245,
+      "sha256": "34495e0e5e47a6b6c6db94c45007aea3766515ced8169f6721515c8f23ee3327"
+    },
+    "chart_selected60/images/test-053.png": {
+      "bytes": 53034,
+      "sha256": "1c1c5bfbb3b92dbabbffdb7c08e7da0bdec23725bde9d3089bbefb6b45988263"
+    },
+    "chart_selected60/images/test-211.png": {
+      "bytes": 53413,
+      "sha256": "1c323636a508170e53e130e4160b56cb72b1bd09fd3c78b61902801e671da80c"
+    },
+    "chart_selected60/images/test-252.png": {
+      "bytes": 65332,
+      "sha256": "157993be30983f604df5505f520db0648c90319a8d9329585de13c0a43248520"
+    },
+    "chart_selected60/images/test-006.png": {
+      "bytes": 64462,
+      "sha256": "25dc3cd806d4b7cc4ff56655e5ec6dbec3afa7c71fe5c58a6b11dc32c3bf24ab"
+    },
+    "chart_selected60/images/test-286.png": {
+      "bytes": 54490,
+      "sha256": "007ccd50efe6ba6d6ac60740d037fe886916d02e0cf1c0735e97b5cff832d157"
+    },
+    "chart_selected60/images/test-270.png": {
+      "bytes": 44633,
+      "sha256": "1158446f9f4068753dd2be4163bc94d62dabbd7e67e87157bfe2d28404a7afc7"
+    },
+    "chart_selected60/images/test-098.png": {
+      "bytes": 21768,
+      "sha256": "069f6225faa52cb0dd127faab2d6d8ee708f0c76d1f94d1c7538ffd8c781559d"
+    },
+    "chart_selected60/images/test-193.png": {
+      "bytes": 66442,
+      "sha256": "187aee00ee9f7964d10262eb8b0d856cd02a84b6f3516abbd917166beadf560a"
+    },
+    "chart_selected60/images/test-081.png": {
+      "bytes": 68187,
+      "sha256": "41a5b470f943dd9da7f98aa4e9cd18821c9ea5ffb15bc90414e8ddb400a8940b"
+    },
+    "chart_selected60/images/test-096.png": {
+      "bytes": 20499,
+      "sha256": "03254ce1aba2855c1249c6e1b4cd85d11b1dbbb057fab3bfaf3e93bd229e072a"
+    },
+    "chart_selected60/images/test-085.png": {
+      "bytes": 63268,
+      "sha256": "392b66a2476a0e623eeed6d9cdfbd078450c8f9b21efc17bc12c247cebbdfc69"
+    },
+    "chart_selected60/images/test-137.png": {
+      "bytes": 31028,
+      "sha256": "0bff66826ed570ef7b17c165c11be9a921bc2a6e72d6c39830f8c7c266338354"
+    },
+    "chart_selected60/images/test-140.png": {
+      "bytes": 27954,
+      "sha256": "10f90560d3558459b46fa53b6f25b5e2f982b4c7db74e3b1e9c0fda554979aaa"
+    },
+    "chart_selected60/images/test-129.png": {
+      "bytes": 37835,
+      "sha256": "01113451f2db6ccf575d7319b2707e2cfa3976c2f0a0c19272fe78860957f4f0"
+    },
+    "chart_selected60/images/test-185.png": {
+      "bytes": 46546,
+      "sha256": "1ea222af8a75a47453d89b090edf4855dd7fc1b0c9ae369a438eb7e03758d68e"
+    },
+    "chart_selected60/images/test-027.png": {
+      "bytes": 37485,
+      "sha256": "08661345c7af0feae9aae3ae53e61fb0fb88de21fda9e5edfd391528bde1e6bc"
+    },
+    "chart_selected60/images/test-222.png": {
+      "bytes": 80843,
+      "sha256": "037fd02326f7281f5b346ecf34d0e8545ad06cc8bb1aef68334ceb08080cc861"
+    },
+    "chart_selected60/images/test-062.png": {
+      "bytes": 47209,
+      "sha256": "040c4ca83e95fa2d224035efb5b2acd1647c6f3ae2b052a801cdc2ab9c12f269"
+    },
+    "chart_selected60/images/test-132.png": {
+      "bytes": 35989,
+      "sha256": "3fe944e72f923ade88dea18a66ba37395e50f14b84b8a470f4abe588cf4ed9ae"
+    },
+    "chart_selected60/images/test-050.png": {
+      "bytes": 70630,
+      "sha256": "174f9f33bcbc595a0d40f8dea2accc18fbf467c9090e1690a4c27c214b5d2d1a"
+    },
+    "chart_selected60/images/test-013.png": {
+      "bytes": 55647,
+      "sha256": "2635392adb54bddf8f86627edc2af455f3559917841cb7e031ea690f6907154f"
+    },
+    "chart_selected60/images/test-106.png": {
+      "bytes": 24301,
+      "sha256": "14352143e9cf3c842038474e1dc35520bde473304f5847395dd229f5d5603ebb"
+    },
+    "chart_selected60/images/test-190.png": {
+      "bytes": 74039,
+      "sha256": "327ba53992d69c6ff7a10b2e881a84c0a8273d6cb6d6aed04e11414965128465"
+    },
+    "chart_selected60/images/test-260.png": {
+      "bytes": 79863,
+      "sha256": "1b2855960d200412cc51f48a75a0b597ff4d77365d69a3a90674bcc544ab99f5"
+    },
+    "chart_selected60/images/test-293.png": {
+      "bytes": 56613,
+      "sha256": "00fbd70006924eb1d1f660b564eccbf00e6850c4ab36370e3bb1d6389589a263"
+    },
+    "chart_selected60/images/test-148.png": {
+      "bytes": 30373,
+      "sha256": "055af6ec255c0d119901144b217e7a6a3ff0d0725138bc18fd222bfbd602a9e7"
+    },
+    "chart_selected60/images/test-030.png": {
+      "bytes": 55438,
+      "sha256": "0aaccc911764f1695e2233abd4169fd73fd734fa347fdeda7d8bbc88dbee1256"
+    },
+    "chart_selected60/images/test-291.png": {
+      "bytes": 61402,
+      "sha256": "068abaabdd32ba855189d502b1c1dedd5af9a7e2bf82e27a14025180c0437de6"
+    },
+    "chart_selected60/images/test-166.png": {
+      "bytes": 27103,
+      "sha256": "3e89809a0e536cc464528276b12c840a73384ee5b801e416f820289996dd6792"
+    },
+    "chart_selected60/images/test-075.png": {
+      "bytes": 53985,
+      "sha256": "1dfaa078742ac7bb718653446466701e25bd6fb9ebe2950bd0587ab89325893b"
+    },
+    "chart_selected60/images/test-246.png": {
+      "bytes": 100616,
+      "sha256": "1afc58d25753f5a48a213f2ead00b59fb24db5d6ab16a02da67ed5d48ee7f755"
+    },
+    "chart_selected60/images/test-067.png": {
+      "bytes": 36994,
+      "sha256": "1b1ae54919337b550977ca5dc4ffc688268fc6e4a78c8a77b3902ebe39fd3622"
+    },
+    "chart_selected60/images/test-285.png": {
+      "bytes": 62388,
+      "sha256": "0b072f2829b826ff0edb8b0f86192ad82322e06425d3a70df8dada703c5ab684"
+    },
+    "chart_selected60/images/test-101.png": {
+      "bytes": 24051,
+      "sha256": "10741d53290340bda90357ff0f842e730aa36d1a71022999050fd729074c5af4"
+    },
+    "chart_selected60/images/test-216.png": {
+      "bytes": 47827,
+      "sha256": "17d284038a90fb43480df81bf5507cb4e45fbd8e0fa26912dc4692b0b745daca"
+    },
+    "chart_selected60/images/test-070.png": {
+      "bytes": 57642,
+      "sha256": "08357b5f3b30378f60407c9534c5a712cbe1831a12ec9bfb4f129fc98e3097af"
+    },
+    "chart_selected60/images/test-262.png": {
+      "bytes": 72239,
+      "sha256": "20e05310455435aca6d7e0c874aa0751ce0c543bd4bc214a2a06f52a6ff0c447"
+    },
+    "chart_selected60/images/test-224.png": {
+      "bytes": 79990,
+      "sha256": "5d1213083626fccb8274ac347d23699745c776e1c88264fa53988d5ed46c253f"
+    },
+    "chart_selected60/images/test-154.png": {
+      "bytes": 25455,
+      "sha256": "136495161c7d498c2c042b3e80613247909d1ef28d93a603b78d7cda077df9f2"
+    },
+    "chart_selected60/images/test-046.png": {
+      "bytes": 65929,
+      "sha256": "1bb92c117c885eb0eeaad39d36f9f2810b8ed0d75df554b4a4c706a06f6e0fa9"
+    },
+    "chart_selected60/images/test-049.png": {
+      "bytes": 78324,
+      "sha256": "05968ba57e170ca8abe0700fbb0a637875b8ce579af72f705db376c6ea9c47e6"
+    },
+    "chart_selected60/images/test-231.png": {
+      "bytes": 101291,
+      "sha256": "17a400930691caed03ebd3176773f5a6476625a97e3646a07010f1aa2f4617b9"
+    },
+    "chart_selected60/images/test-174.png": {
+      "bytes": 33279,
+      "sha256": "089fc3d43113eea724c3b08f9120e5207b694897c285fadfe93a8913b1bc54ed"
+    },
+    "chart_selected60/images/test-206.png": {
+      "bytes": 89304,
+      "sha256": "0195ed65fbdd5b6aaa567f3a53526aea570d5a679f9e4ffa1a6ce2b66f79db9b"
+    },
+    "chart_selected60/images/test-247.png": {
+      "bytes": 99166,
+      "sha256": "24bb27f435d3894f9e0324a2713b4ffd63fd26ffd8c52d02f1d4b787ecf0e551"
+    },
+    "chart_selected60/images/test-186.png": {
+      "bytes": 39715,
+      "sha256": "23b0ce317480adeebcb94dd623fe388bde281d0d0d1676420755834708bb6823"
+    },
+    "chart_selected60/images/test-160.png": {
+      "bytes": 32515,
+      "sha256": "322e64ca127c6a6c836723749924ddf27631ac9ffa10e1c651ee21078be0f589"
+    },
+    "chart_selected60/images/test-170.png": {
+      "bytes": 30279,
+      "sha256": "05e2d378c36114f6559c950bc2723e405f704ec1c1d6989749da0d51af17f176"
+    },
+    "chart_selected60/images/test-015.png": {
+      "bytes": 54632,
+      "sha256": "0c4a43b8892ca79585d012292fa335327496207b69771719ee9737e52ad2f655"
+    },
+    "chart_selected60/images/test-026.png": {
+      "bytes": 39636,
+      "sha256": "09f2abee267e1baefb4c9a54c5ead85ad2dd449569fa08f7afa82e9412237db9"
+    },
+    "chart_selected60/labels/test-098.json": {
+      "bytes": 4349,
+      "sha256": "661f7ffb5de58d77cdfc03476fe19aded6a4343dbcb287f99442a3b4c8cc3add"
+    },
+    "chart_selected60/labels/test-067.json": {
+      "bytes": 5247,
+      "sha256": "af8977ee1cc6e925da626f2eaa0ebacba26c21d24c1379cb947739384522bbe6"
+    },
+    "chart_selected60/labels/test-293.json": {
+      "bytes": 12661,
+      "sha256": "a51212fece2b9af59d84f282e685615cee5a6c90d7a31fdd91f1028548f1a1cf"
+    },
+    "chart_selected60/labels/test-160.json": {
+      "bytes": 8544,
+      "sha256": "16054d9e69be8d3f33bea75325725f411736541bfb9e9325c3c594e15e555a08"
+    },
+    "chart_selected60/labels/test-185.json": {
+      "bytes": 6275,
+      "sha256": "cd10ead9fbb140daf6e3282a6086a7e04ff51a722239ace2aa909d4683d546cc"
+    },
+    "chart_selected60/labels/test-285.json": {
+      "bytes": 10826,
+      "sha256": "e8953b79235f24ade77a6de4cb4af187327a2c2e6f870fc8372ef2162aab7207"
+    },
+    "chart_selected60/labels/test-050.json": {
+      "bytes": 10762,
+      "sha256": "0dfbda28300ce235af24ba278f6f9f9faaa41800546e8956c12e50f6b24631fd"
+    },
+    "chart_selected60/labels/test-007.json": {
+      "bytes": 6417,
+      "sha256": "c56326daa92ed26be63901a0de3af366c0e3cc5a881a60a69889a3b00554e65e"
+    },
+    "chart_selected60/labels/test-286.json": {
+      "bytes": 10300,
+      "sha256": "02b5d92630d3806e09b57b8208a43816adc7e75db3f5fdf7c49908bcd2bd7a64"
+    },
+    "chart_selected60/labels/test-211.json": {
+      "bytes": 4805,
+      "sha256": "fbabd8f9c9ed40b0073a54b30747594528c48a65054acc9394682e6a8bf70ec1"
+    },
+    "chart_selected60/labels/test-257.json": {
+      "bytes": 3863,
+      "sha256": "36562c4d32e1280fe6e9d8302e52d675d600522c52dbca408b5df22cfd38ef58"
+    },
+    "chart_selected60/labels/test-132.json": {
+      "bytes": 6300,
+      "sha256": "693e45a6461e3627f1962194ea471931b64498c420190724ce931f310c86e063"
+    },
+    "chart_selected60/labels/test-279.json": {
+      "bytes": 8276,
+      "sha256": "d3eb855502c26202bf08929b10b5400e9e25a3a15399c2ed604e48919bbc09e6"
+    },
+    "chart_selected60/labels/test-106.json": {
+      "bytes": 6309,
+      "sha256": "fed2e35c201ee732ca88f76ce0f13d6fa3498535f55547db36137ce34e32bc1c"
+    },
+    "chart_selected60/labels/test-252.json": {
+      "bytes": 4622,
+      "sha256": "e2132c94358e1f4550ef14a4b8d85c595661c35d528c0fa120c2f447cdd5e0e3"
+    },
+    "chart_selected60/labels/test-262.json": {
+      "bytes": 6882,
+      "sha256": "2381edb8f16d26351491aeb1054836c0eb17815b190b46a22d58bc6e288df2c5"
+    },
+    "chart_selected60/labels/test-222.json": {
+      "bytes": 12030,
+      "sha256": "2fda2e2ba7790048de46ef81af45af87ab24170e4455d3811b620a2dde4b7764"
+    },
+    "chart_selected60/labels/test-157.json": {
+      "bytes": 5149,
+      "sha256": "52e8206f4d06ff45a882c41d91ccf36bb63000d54676e997df5e3d2ab16307bf"
+    },
+    "chart_selected60/labels/test-081.json": {
+      "bytes": 16466,
+      "sha256": "f056be199d5edad056f1394e0bb24d5148e17c40d02720625ae4ee5a0f2a0e67"
+    },
+    "chart_selected60/labels/test-036.json": {
+      "bytes": 5206,
+      "sha256": "9cb03b8e762494e00af28d681637b7d1c903dd634a39fe2bc028395aeef84cc8"
+    },
+    "chart_selected60/labels/test-085.json": {
+      "bytes": 16263,
+      "sha256": "1409fa73e488cfeeca920e94c15d78581dcdecd041a242dc69d6c43915195a3e"
+    },
+    "chart_selected60/labels/test-129.json": {
+      "bytes": 6845,
+      "sha256": "a2e612a910889347dce0a23e604301289c3788cb1bd8fceaf9377f672980ba13"
+    },
+    "chart_selected60/labels/test-166.json": {
+      "bytes": 7587,
+      "sha256": "f3230c019c99d7d02fe9d9be7d71c3e91742763815e7f915511f31dc07b7089a"
+    },
+    "chart_selected60/labels/test-062.json": {
+      "bytes": 6820,
+      "sha256": "b90f9654a6c8a905b5109a7d6bf9a165292bdc33fa3ee136c01e3e60a40b7b99"
+    },
+    "chart_selected60/labels/test-137.json": {
+      "bytes": 4919,
+      "sha256": "a89a8aaac94d6bd48408ef37932b8eeca039e21a063ebeb4ffd4128c48c3c29d"
+    },
+    "chart_selected60/labels/test-260.json": {
+      "bytes": 7531,
+      "sha256": "ca5799ee2649447ec173d171f74a942876a79c8df91f548d7f834d14ebaa0a3a"
+    },
+    "chart_selected60/labels/test-140.json": {
+      "bytes": 4617,
+      "sha256": "476c815d37210de789ce72e26965be7713e629e2c4f0d82d5a6ef6c2c5ceaff4"
+    },
+    "chart_selected60/labels/test-113.json": {
+      "bytes": 10153,
+      "sha256": "f6e76ce9cbbb772bcf4606a298497e6fb8df9ad3bb869d5f8c9dd114dc84a630"
+    },
+    "chart_selected60/labels/test-246.json": {
+      "bytes": 9211,
+      "sha256": "d6ce6dc8ce4b319632ef07504d566849898bee3ff827486672786d3e1b4cbbad"
+    },
+    "chart_selected60/labels/test-101.json": {
+      "bytes": 6473,
+      "sha256": "7aff81556f494752c76257536954d2dfc826db36c6692734f3000b4cd6ca8478"
+    },
+    "chart_selected60/labels/test-216.json": {
+      "bytes": 5710,
+      "sha256": "f26f1448ddf95eeaa26a52093e83804eb049b923cc13b7a83b1ba35f72ef0781"
+    },
+    "chart_selected60/labels/test-201.json": {
+      "bytes": 16243,
+      "sha256": "06536127ee128f58b922273d937f6f3b5311bcdd92e11d774185287e68823c08"
+    },
+    "chart_selected60/labels/test-013.json": {
+      "bytes": 5415,
+      "sha256": "47608519a3f38a06869b0828266ae655c7fa0c1c8228266c39b187fd3d8e0658"
+    },
+    "chart_selected60/labels/test-006.json": {
+      "bytes": 7350,
+      "sha256": "ece761745fb697c40c44dec6b60c98fe5214cf3597fefe44a54fa0eeafb21afb"
+    },
+    "chart_selected60/labels/test-154.json": {
+      "bytes": 6105,
+      "sha256": "767be922dc89eef7014ec9d3641facaf03cd58875bd93d647fd01c33deaf80e8"
+    },
+    "chart_selected60/labels/test-053.json": {
+      "bytes": 6734,
+      "sha256": "c796e61bc723f12e7b44f48f5be72541b86cb03b1169c18520c2df6d9408db96"
+    },
+    "chart_selected60/labels/test-046.json": {
+      "bytes": 10256,
+      "sha256": "5dbeafd69dfc653a1fa8932d55c6622cce72f9cd2ad283c14bfb0ae14c4617c9"
+    },
+    "chart_selected60/labels/test-096.json": {
+      "bytes": 4523,
+      "sha256": "833a3d6cc7ce402bb5d943284b3df79b41d0217db39b32cf2ed48c02c24a1d63"
+    },
+    "chart_selected60/labels/test-270.json": {
+      "bytes": 8119,
+      "sha256": "abd56b4ee3e5894079d23d2d726cdfb6cc3b24fbaed1fade904b67dc3f580c75"
+    },
+    "chart_selected60/labels/test-027.json": {
+      "bytes": 2605,
+      "sha256": "1c835f6952e2bdc9ee365e9daaa0e9fdc6e6157acc7f43e1e8b5e49235475201"
+    },
+    "chart_selected60/labels/test-030.json": {
+      "bytes": 6277,
+      "sha256": "ce99631478eeb8cc85fbdf49b8569c23f7866a16c4b79e637b2578459d68c8ae"
+    },
+    "chart_selected60/labels/test-239.json": {
+      "bytes": 14420,
+      "sha256": "89b8f4a894b531b26335a599da4a2f3184e6ebb3ee15154079f964d37d663e9e"
+    },
+    "chart_selected60/labels/test-193.json": {
+      "bytes": 9202,
+      "sha256": "eda72651cedd237401a9b57ac59dc24c3d049d8e143e0a330f4ec0ec80cba8ce"
+    },
+    "chart_selected60/labels/test-015.json": {
+      "bytes": 5477,
+      "sha256": "f107257351ceb502673338e9c20a10713b66c7145e218a9d420c5e1d2797ad82"
+    },
+    "chart_selected60/labels/test-174.json": {
+      "bytes": 10814,
+      "sha256": "d2cee606218c36155a39af7a03a791f029a6bfb49f88ddf94bb6fa27c5a964be"
+    },
+    "chart_selected60/labels/test-123.json": {
+      "bytes": 6012,
+      "sha256": "a53899f4e4ee1db191a748157b1d6a5bc15bd48bb87db2a11f367af28fa4a9a3"
+    },
+    "chart_selected60/labels/test-075.json": {
+      "bytes": 10913,
+      "sha256": "c8c9f22009f3de885e7fe707cb1c4e380cab6d50fc7bdb11b84bcb5f44f2f12c"
+    },
+    "chart_selected60/labels/test-247.json": {
+      "bytes": 10269,
+      "sha256": "5383c76bd99f53943a5a93cd0e2db387f4f63d187311bc3667bde0ff92f00c1b"
+    },
+    "chart_selected60/labels/test-148.json": {
+      "bytes": 4009,
+      "sha256": "c9f63d44c9edfd033fe8792d39ff6033962d48ea343c4259d1598e627536380f"
+    },
+    "chart_selected60/labels/test-206.json": {
+      "bytes": 13475,
+      "sha256": "7473e41827b4cbe008b9dfd20b4e2a9e3fcdd66d690a83b2d99d57c3ecf350be"
+    },
+    "chart_selected60/labels/test-049.json": {
+      "bytes": 10818,
+      "sha256": "86a31a715aa94cccf0b8c1e9115466cfe0c91a526a83744bc0a1c8182360f91f"
+    },
+    "chart_selected60/labels/test-026.json": {
+      "bytes": 3491,
+      "sha256": "30fe4151a5edcc903a2061f2d1a86c03bc8e0f42af8f2ee6fffcaff2128ad6cd"
+    },
+    "chart_selected60/labels/test-224.json": {
+      "bytes": 10142,
+      "sha256": "89c719f726ddf3b528ff101562a02f71b7afd33cdc92d91af09bcce4aa5fd577"
+    },
+    "chart_selected60/labels/test-070.json": {
+      "bytes": 12477,
+      "sha256": "b8d8e8b31976954a6182ba6b65fd1e5211aaa7ea9a006ec7ae7af58d491e3348"
+    },
+    "chart_selected60/labels/test-116.json": {
+      "bytes": 9216,
+      "sha256": "dd12d6381873bbfee9fd21dd1ff26a1124736e2de993b0af4502c519d1272da2"
+    },
+    "chart_selected60/labels/test-186.json": {
+      "bytes": 4987,
+      "sha256": "f6319c8119fa367e1b8b11f11c03fc140a63e19482483b011b707a9479551d64"
+    },
+    "chart_selected60/labels/test-231.json": {
+      "bytes": 15689,
+      "sha256": "1f8b9fbd810bdbecd9018f53757841cc3ca254b6a088f9b2dabba17accd7d275"
+    },
+    "chart_selected60/labels/test-190.json": {
+      "bytes": 8964,
+      "sha256": "5699f8e37dd094130275525a048e39ea9e9e2b4d90b2f1a3d6b7db350ecc2678"
+    },
+    "chart_selected60/labels/test-291.json": {
+      "bytes": 12430,
+      "sha256": "c2cea81f1345284b7563c31db11ba5f69761d272f6beb19f36f849c605f4b6f6"
+    },
+    "chart_selected60/labels/test-170.json": {
+      "bytes": 10749,
+      "sha256": "e020343d45b494bd7f28d59ac59df1c39e0d8f4135a32258ea3b1f88e6bc56a5"
+    },
+    "synthetic_chart/data/test-00000-of-00001.parquet": {
+      "bytes": 16435874,
+      "sha256": "bdc3175237feaf0ba383c455749113b35948e6a4e86d03506a4ebb7358d97ec8"
+    }
+  }
+}

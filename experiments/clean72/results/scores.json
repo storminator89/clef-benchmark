@@ -1,0 +1,3241 @@
+{
+  "scoring_version": "clean-realistic-de-v1",
+  "counts": {
+    "planned": 72,
+    "present": 72
+  },
+  "overall": {
+    "n_planned": 72,
+    "n_present": 72,
+    "n_choice_valid": 72,
+    "n_schema_valid": 72,
+    "correct": 61,
+    "choice_accuracy_all_planned": 0.8472222222222222,
+    "strict_accuracy_all_planned": 0.8472222222222222,
+    "accuracy_valid_choices_only": 0.8472222222222222
+  },
+  "category_macro_f1": 0.8433333333333333,
+  "per_category": {
+    "anliegen_priorisierung": {
+      "n_planned": 12,
+      "n_present": 12,
+      "n_choice_valid": 12,
+      "n_schema_valid": 12,
+      "choice_accuracy_all_planned": 0.8333333333333334,
+      "strict_accuracy_all_planned": 0.8333333333333334,
+      "accuracy_valid_choices_only": 0.8333333333333334,
+      "choice_validity_all_planned": 1.0,
+      "schema_validity_all_planned": 1.0,
+      "schema_validity_present": 1.0,
+      "macro_f1": 0.8266666666666665,
+      "macro_f1_all_policy_labels": 0.8266666666666665,
+      "macro_f1_observed_support": 0.8266666666666665,
+      "per_class": {
+        "beitragsklaerung": {
+          "support": 3,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "dokumentenservice": {
+          "support": 2,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "bestandsaenderung": {
+          "support": 2,
+          "precision": 0.5,
+          "recall": 1.0,
+          "f1": 0.6666666666666666
+        },
+        "schadenservice": {
+          "support": 3,
+          "precision": 1.0,
+          "recall": 0.6666666666666666,
+          "f1": 0.8
+        },
+        "rueckfrage": {
+          "support": 2,
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1": 0.6666666666666666
+        }
+      },
+      "confusion": {
+        "beitragsklaerung": {
+          "beitragsklaerung": 3
+        },
+        "dokumentenservice": {
+          "dokumentenservice": 2
+        },
+        "bestandsaenderung": {
+          "bestandsaenderung": 2
+        },
+        "schadenservice": {
+          "schadenservice": 2,
+          "bestandsaenderung": 1
+        },
+        "rueckfrage": {
+          "bestandsaenderung": 1,
+          "rueckfrage": 1
+        }
+      },
+      "calibration": {
+        "n_probability_vectors": 12,
+        "n_schema_valid_ece": 12,
+        "multiclass_brier_sum": 0.1921601027971498,
+        "nll_clip_1e_12": 0.37008513178846564,
+        "ece_5_equal_width_bins": 0.12085147034629429,
+        "bins": [
+          {
+            "lower": 0.0,
+            "upper": 0.2,
+            "n": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.2,
+            "upper": 0.4,
+            "n": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.4,
+            "upper": 0.6,
+            "n": 1,
+            "accuracy": 0.0,
+            "confidence": 0.4537740419417076
+          },
+          {
+            "lower": 0.6,
+            "upper": 0.8,
+            "n": 2,
+            "accuracy": 0.5,
+            "confidence": 0.6428448573035437
+          },
+          {
+            "lower": 0.8,
+            "upper": 1.0,
+            "n": 9,
+            "accuracy": 1.0,
+            "confidence": 0.9210273458214737
+          }
+        ]
+      },
+      "latency_ms": {
+        "n": 12,
+        "median": 15964.10898150134,
+        "p95": 16829.828074348552
+      },
+      "confidence_deferral": {
+        "0.6": {
+          "accepted": 11,
+          "coverage_all_planned": 0.9166666666666666,
+          "accepted_accuracy": 0.9090909090909091
+        },
+        "0.8": {
+          "accepted": 9,
+          "coverage_all_planned": 0.75,
+          "accepted_accuracy": 1.0
+        },
+        "0.9": {
+          "accepted": 7,
+          "coverage_all_planned": 0.5833333333333334,
+          "accepted_accuracy": 1.0
+        },
+        "0.95": {
+          "accepted": 2,
+          "coverage_all_planned": 0.16666666666666666,
+          "accepted_accuracy": 1.0
+        }
+      }
+    },
+    "beitragsrechnung": {
+      "n_planned": 12,
+      "n_present": 12,
+      "n_choice_valid": 12,
+      "n_schema_valid": 12,
+      "choice_accuracy_all_planned": 0.5,
+      "strict_accuracy_all_planned": 0.5,
+      "accuracy_valid_choices_only": 0.5,
+      "choice_validity_all_planned": 1.0,
+      "schema_validity_all_planned": 1.0,
+      "schema_validity_present": 1.0,
+      "macro_f1": 0.4809523809523809,
+      "macro_f1_all_policy_labels": 0.4809523809523809,
+      "macro_f1_observed_support": 0.4809523809523809,
+      "per_class": {
+        "betrag_a": {
+          "support": 3,
+          "precision": 0.5,
+          "recall": 0.6666666666666666,
+          "f1": 0.5714285714285714
+        },
+        "betrag_b": {
+          "support": 2,
+          "precision": 0.25,
+          "recall": 0.5,
+          "f1": 0.3333333333333333
+        },
+        "betrag_c": {
+          "support": 3,
+          "precision": null,
+          "recall": 0.0,
+          "f1": 0
+        },
+        "betrag_d": {
+          "support": 2,
+          "precision": 0.5,
+          "recall": 0.5,
+          "f1": 0.5
+        },
+        "daten_fehlen": {
+          "support": 2,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        }
+      },
+      "confusion": {
+        "betrag_a": {
+          "betrag_a": 2,
+          "betrag_b": 1
+        },
+        "betrag_b": {
+          "betrag_b": 1,
+          "betrag_d": 1
+        },
+        "betrag_c": {
+          "betrag_b": 2,
+          "betrag_a": 1
+        },
+        "betrag_d": {
+          "betrag_d": 1,
+          "betrag_a": 1
+        },
+        "daten_fehlen": {
+          "daten_fehlen": 2
+        }
+      },
+      "calibration": {
+        "n_probability_vectors": 12,
+        "n_schema_valid_ece": 12,
+        "multiclass_brier_sum": 0.5522348014988152,
+        "nll_clip_1e_12": 1.0181988344024426,
+        "ece_5_equal_width_bins": 0.19405761036673275,
+        "bins": [
+          {
+            "lower": 0.0,
+            "upper": 0.2,
+            "n": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.2,
+            "upper": 0.4,
+            "n": 1,
+            "accuracy": 0.0,
+            "confidence": 0.39205483099470984
+          },
+          {
+            "lower": 0.4,
+            "upper": 0.6,
+            "n": 7,
+            "accuracy": 0.2857142857142857,
+            "confidence": 0.5025172408311451
+          },
+          {
+            "lower": 0.6,
+            "upper": 0.8,
+            "n": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.8,
+            "upper": 1.0,
+            "n": 4,
+            "accuracy": 1.0,
+            "confidence": 0.8952460481029832
+          }
+        ]
+      },
+      "latency_ms": {
+        "n": 12,
+        "median": 14633.998948500448,
+        "p95": 17026.901101851763
+      },
+      "confidence_deferral": {
+        "0.6": {
+          "accepted": 4,
+          "coverage_all_planned": 0.3333333333333333,
+          "accepted_accuracy": 1.0
+        },
+        "0.8": {
+          "accepted": 4,
+          "coverage_all_planned": 0.3333333333333333,
+          "accepted_accuracy": 1.0
+        },
+        "0.9": {
+          "accepted": 2,
+          "coverage_all_planned": 0.16666666666666666,
+          "accepted_accuracy": 1.0
+        },
+        "0.95": {
+          "accepted": 1,
+          "coverage_all_planned": 0.08333333333333333,
+          "accepted_accuracy": 1.0
+        }
+      }
+    },
+    "finanzservice_routing": {
+      "n_planned": 12,
+      "n_present": 12,
+      "n_choice_valid": 12,
+      "n_schema_valid": 12,
+      "choice_accuracy_all_planned": 1.0,
+      "strict_accuracy_all_planned": 1.0,
+      "accuracy_valid_choices_only": 1.0,
+      "choice_validity_all_planned": 1.0,
+      "schema_validity_all_planned": 1.0,
+      "schema_validity_present": 1.0,
+      "macro_f1": 1.0,
+      "macro_f1_all_policy_labels": 1.0,
+      "macro_f1_observed_support": 1.0,
+      "per_class": {
+        "dokumentation": {
+          "support": 3,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "rechenuebersicht": {
+          "support": 3,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "aenderung_vorbereiten": {
+          "support": 2,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "fachgespraech": {
+          "support": 2,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "rueckfrage": {
+          "support": 2,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        }
+      },
+      "confusion": {
+        "dokumentation": {
+          "dokumentation": 3
+        },
+        "rechenuebersicht": {
+          "rechenuebersicht": 3
+        },
+        "aenderung_vorbereiten": {
+          "aenderung_vorbereiten": 2
+        },
+        "fachgespraech": {
+          "fachgespraech": 2
+        },
+        "rueckfrage": {
+          "rueckfrage": 2
+        }
+      },
+      "calibration": {
+        "n_probability_vectors": 12,
+        "n_schema_valid_ece": 12,
+        "multiclass_brier_sum": 0.008263825798790985,
+        "nll_clip_1e_12": 0.06420374403144598,
+        "ece_5_equal_width_bins": 0.06069073990749071,
+        "bins": [
+          {
+            "lower": 0.0,
+            "upper": 0.2,
+            "n": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.2,
+            "upper": 0.4,
+            "n": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.4,
+            "upper": 0.6,
+            "n": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.6,
+            "upper": 0.8,
+            "n": 1,
+            "accuracy": 1.0,
+            "confidence": 0.7949513307998608
+          },
+          {
+            "lower": 0.8,
+            "upper": 1.0,
+            "n": 11,
+            "accuracy": 1.0,
+            "confidence": 0.9524327082100228
+          }
+        ]
+      },
+      "latency_ms": {
+        "n": 12,
+        "median": 16099.482827497923,
+        "p95": 18623.736796500267
+      },
+      "confidence_deferral": {
+        "0.6": {
+          "accepted": 12,
+          "coverage_all_planned": 1.0,
+          "accepted_accuracy": 1.0
+        },
+        "0.8": {
+          "accepted": 11,
+          "coverage_all_planned": 0.9166666666666666,
+          "accepted_accuracy": 1.0
+        },
+        "0.9": {
+          "accepted": 10,
+          "coverage_all_planned": 0.8333333333333334,
+          "accepted_accuracy": 1.0
+        },
+        "0.95": {
+          "accepted": 8,
+          "coverage_all_planned": 0.6666666666666666,
+          "accepted_accuracy": 1.0
+        }
+      }
+    },
+    "rueckfrageplanung": {
+      "n_planned": 12,
+      "n_present": 12,
+      "n_choice_valid": 12,
+      "n_schema_valid": 12,
+      "choice_accuracy_all_planned": 0.9166666666666666,
+      "strict_accuracy_all_planned": 0.9166666666666666,
+      "accuracy_valid_choices_only": 0.9166666666666666,
+      "choice_validity_all_planned": 1.0,
+      "schema_validity_all_planned": 1.0,
+      "schema_validity_present": 1.0,
+      "macro_f1": 0.9111111111111111,
+      "macro_f1_all_policy_labels": 0.9111111111111111,
+      "macro_f1_observed_support": 0.9111111111111111,
+      "per_class": {
+        "zuordnung": {
+          "support": 2,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "zeitpunkt": {
+          "support": 2,
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1": 0.6666666666666666
+        },
+        "unterlage": {
+          "support": 2,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "umfang": {
+          "support": 2,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "keine_rueckfrage": {
+          "support": 4,
+          "precision": 0.8,
+          "recall": 1.0,
+          "f1": 0.8888888888888888
+        }
+      },
+      "confusion": {
+        "zuordnung": {
+          "zuordnung": 2
+        },
+        "zeitpunkt": {
+          "keine_rueckfrage": 1,
+          "zeitpunkt": 1
+        },
+        "unterlage": {
+          "unterlage": 2
+        },
+        "umfang": {
+          "umfang": 2
+        },
+        "keine_rueckfrage": {
+          "keine_rueckfrage": 4
+        }
+      },
+      "calibration": {
+        "n_probability_vectors": 12,
+        "n_schema_valid_ece": 12,
+        "multiclass_brier_sum": 0.172340255168954,
+        "nll_clip_1e_12": 0.38551980659531804,
+        "ece_5_equal_width_bins": 0.07935083461776996,
+        "bins": [
+          {
+            "lower": 0.0,
+            "upper": 0.2,
+            "n": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.2,
+            "upper": 0.4,
+            "n": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.4,
+            "upper": 0.6,
+            "n": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.6,
+            "upper": 0.8,
+            "n": 3,
+            "accuracy": 1.0,
+            "confidence": 0.7426042146865462
+          },
+          {
+            "lower": 0.8,
+            "upper": 1.0,
+            "n": 9,
+            "accuracy": 0.8888888888888888,
+            "confidence": 0.9088914066080975
+          }
+        ]
+      },
+      "latency_ms": {
+        "n": 12,
+        "median": 15455.730666000818,
+        "p95": 16812.169006100157
+      },
+      "confidence_deferral": {
+        "0.6": {
+          "accepted": 12,
+          "coverage_all_planned": 1.0,
+          "accepted_accuracy": 0.9166666666666666
+        },
+        "0.8": {
+          "accepted": 9,
+          "coverage_all_planned": 0.75,
+          "accepted_accuracy": 0.8888888888888888
+        },
+        "0.9": {
+          "accepted": 5,
+          "coverage_all_planned": 0.4166666666666667,
+          "accepted_accuracy": 1.0
+        },
+        "0.95": {
+          "accepted": 1,
+          "coverage_all_planned": 0.08333333333333333,
+          "accepted_accuracy": 1.0
+        }
+      }
+    },
+    "unterlagenabgleich": {
+      "n_planned": 12,
+      "n_present": 12,
+      "n_choice_valid": 12,
+      "n_schema_valid": 12,
+      "choice_accuracy_all_planned": 0.9166666666666666,
+      "strict_accuracy_all_planned": 0.9166666666666666,
+      "accuracy_valid_choices_only": 0.9166666666666666,
+      "choice_validity_all_planned": 1.0,
+      "schema_validity_all_planned": 1.0,
+      "schema_validity_present": 1.0,
+      "macro_f1": 0.9365079365079365,
+      "macro_f1_all_policy_labels": 0.9365079365079365,
+      "macro_f1_observed_support": 0.9365079365079365,
+      "per_class": {
+        "konsistent": {
+          "support": 4,
+          "precision": 1.0,
+          "recall": 0.75,
+          "f1": 0.8571428571428571
+        },
+        "abweichung": {
+          "support": 4,
+          "precision": 0.8,
+          "recall": 1.0,
+          "f1": 0.8888888888888888
+        },
+        "unterlage_fehlt": {
+          "support": 2,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "version_klaeren": {
+          "support": 2,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        }
+      },
+      "confusion": {
+        "konsistent": {
+          "konsistent": 3,
+          "abweichung": 1
+        },
+        "abweichung": {
+          "abweichung": 4
+        },
+        "unterlage_fehlt": {
+          "unterlage_fehlt": 2
+        },
+        "version_klaeren": {
+          "version_klaeren": 2
+        }
+      },
+      "calibration": {
+        "n_probability_vectors": 12,
+        "n_schema_valid_ece": 12,
+        "multiclass_brier_sum": 0.16782997458146667,
+        "nll_clip_1e_12": 0.35823734592330947,
+        "ece_5_equal_width_bins": 0.11004020770863528,
+        "bins": [
+          {
+            "lower": 0.0,
+            "upper": 0.2,
+            "n": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.2,
+            "upper": 0.4,
+            "n": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.4,
+            "upper": 0.6,
+            "n": 1,
+            "accuracy": 1.0,
+            "confidence": 0.49230142006487426
+          },
+          {
+            "lower": 0.6,
+            "upper": 0.8,
+            "n": 3,
+            "accuracy": 0.6666666666666666,
+            "confidence": 0.6799454113630669
+          },
+          {
+            "lower": 0.8,
+            "upper": 1.0,
+            "n": 8,
+            "accuracy": 1.0,
+            "confidence": 0.9033815401900879
+          }
+        ]
+      },
+      "latency_ms": {
+        "n": 12,
+        "median": 15342.476103500303,
+        "p95": 17053.215280700715
+      },
+      "confidence_deferral": {
+        "0.6": {
+          "accepted": 11,
+          "coverage_all_planned": 0.9166666666666666,
+          "accepted_accuracy": 0.9090909090909091
+        },
+        "0.8": {
+          "accepted": 8,
+          "coverage_all_planned": 0.6666666666666666,
+          "accepted_accuracy": 1.0
+        },
+        "0.9": {
+          "accepted": 4,
+          "coverage_all_planned": 0.3333333333333333,
+          "accepted_accuracy": 1.0
+        },
+        "0.95": {
+          "accepted": 2,
+          "coverage_all_planned": 0.16666666666666666,
+          "accepted_accuracy": 1.0
+        }
+      }
+    },
+    "vorgangsstand": {
+      "n_planned": 12,
+      "n_present": 12,
+      "n_choice_valid": 12,
+      "n_schema_valid": 12,
+      "choice_accuracy_all_planned": 0.9166666666666666,
+      "strict_accuracy_all_planned": 0.9166666666666666,
+      "accuracy_valid_choices_only": 0.9166666666666666,
+      "choice_validity_all_planned": 1.0,
+      "schema_validity_all_planned": 1.0,
+      "schema_validity_present": 1.0,
+      "macro_f1": 0.9047619047619048,
+      "macro_f1_all_policy_labels": 0.9047619047619048,
+      "macro_f1_observed_support": 0.9047619047619048,
+      "per_class": {
+        "einreichung_vorbereiten": {
+          "support": 3,
+          "precision": 0.75,
+          "recall": 1.0,
+          "f1": 0.8571428571428571
+        },
+        "unterlagen_nachfordern": {
+          "support": 2,
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1": 0.6666666666666666
+        },
+        "status_anfragen": {
+          "support": 3,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "warten": {
+          "support": 2,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "zuordnung_klaeren": {
+          "support": 2,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        }
+      },
+      "confusion": {
+        "einreichung_vorbereiten": {
+          "einreichung_vorbereiten": 3
+        },
+        "unterlagen_nachfordern": {
+          "unterlagen_nachfordern": 1,
+          "einreichung_vorbereiten": 1
+        },
+        "status_anfragen": {
+          "status_anfragen": 3
+        },
+        "warten": {
+          "warten": 2
+        },
+        "zuordnung_klaeren": {
+          "zuordnung_klaeren": 2
+        }
+      },
+      "calibration": {
+        "n_probability_vectors": 12,
+        "n_schema_valid_ece": 12,
+        "multiclass_brier_sum": 0.1457890539385274,
+        "nll_clip_1e_12": 0.29210217904341307,
+        "ece_5_equal_width_bins": 0.04858651077390841,
+        "bins": [
+          {
+            "lower": 0.0,
+            "upper": 0.2,
+            "n": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.2,
+            "upper": 0.4,
+            "n": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.4,
+            "upper": 0.6,
+            "n": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.6,
+            "upper": 0.8,
+            "n": 4,
+            "accuracy": 0.75,
+            "confidence": 0.7237006313791866
+          },
+          {
+            "lower": 0.8,
+            "upper": 1.0,
+            "n": 8,
+            "accuracy": 1.0,
+            "confidence": 0.9402699181495441
+          }
+        ]
+      },
+      "latency_ms": {
+        "n": 12,
+        "median": 16147.585559498111,
+        "p95": 17784.947990950786
+      },
+      "confidence_deferral": {
+        "0.6": {
+          "accepted": 12,
+          "coverage_all_planned": 1.0,
+          "accepted_accuracy": 0.9166666666666666
+        },
+        "0.8": {
+          "accepted": 8,
+          "coverage_all_planned": 0.6666666666666666,
+          "accepted_accuracy": 1.0
+        },
+        "0.9": {
+          "accepted": 7,
+          "coverage_all_planned": 0.5833333333333334,
+          "accepted_accuracy": 1.0
+        },
+        "0.95": {
+          "accepted": 5,
+          "coverage_all_planned": 0.4166666666666667,
+          "accepted_accuracy": 1.0
+        }
+      }
+    }
+  },
+  "by_information_status": {
+    "sufficient": {
+      "n_planned": 50,
+      "n_present": 50,
+      "n_choice_valid": 50,
+      "n_schema_valid": 50,
+      "correct": 42,
+      "choice_accuracy_all_planned": 0.84,
+      "strict_accuracy_all_planned": 0.84,
+      "accuracy_valid_choices_only": 0.84
+    },
+    "missing_or_unresolved": {
+      "n_planned": 22,
+      "n_present": 22,
+      "n_choice_valid": 22,
+      "n_schema_valid": 22,
+      "correct": 19,
+      "choice_accuracy_all_planned": 0.8636363636363636,
+      "strict_accuracy_all_planned": 0.8636363636363636,
+      "accuracy_valid_choices_only": 0.8636363636363636
+    }
+  },
+  "by_complexity_tag": {
+    "abhaengigkeit": {
+      "n_planned": 1,
+      "n_present": 1,
+      "n_choice_valid": 1,
+      "n_schema_valid": 1,
+      "correct": 1,
+      "choice_accuracy_all_planned": 1.0,
+      "strict_accuracy_all_planned": 1.0,
+      "accuracy_valid_choices_only": 1.0
+    },
+    "aggregation": {
+      "n_planned": 2,
+      "n_present": 2,
+      "n_choice_valid": 2,
+      "n_schema_valid": 2,
+      "correct": 0,
+      "choice_accuracy_all_planned": 0.0,
+      "strict_accuracy_all_planned": 0.0,
+      "accuracy_valid_choices_only": 0.0
+    },
+    "anteilsrechnung": {
+      "n_planned": 1,
+      "n_present": 1,
+      "n_choice_valid": 1,
+      "n_schema_valid": 1,
+      "correct": 0,
+      "choice_accuracy_all_planned": 0.0,
+      "strict_accuracy_all_planned": 0.0,
+      "accuracy_valid_choices_only": 0.0
+    },
+    "arithmetik": {
+      "n_planned": 15,
+      "n_present": 15,
+      "n_choice_valid": 15,
+      "n_schema_valid": 15,
+      "correct": 8,
+      "choice_accuracy_all_planned": 0.5333333333333333,
+      "strict_accuracy_all_planned": 0.5333333333333333,
+      "accuracy_valid_choices_only": 0.5333333333333333
+    },
+    "checkliste": {
+      "n_planned": 20,
+      "n_present": 20,
+      "n_choice_valid": 20,
+      "n_schema_valid": 20,
+      "correct": 18,
+      "choice_accuracy_all_planned": 0.9,
+      "strict_accuracy_all_planned": 0.9,
+      "accuracy_valid_choices_only": 0.9
+    },
+    "differenz": {
+      "n_planned": 2,
+      "n_present": 2,
+      "n_choice_valid": 2,
+      "n_schema_valid": 2,
+      "correct": 1,
+      "choice_accuracy_all_planned": 0.5,
+      "strict_accuracy_all_planned": 0.5,
+      "accuracy_valid_choices_only": 0.5
+    },
+    "dokumentbezug": {
+      "n_planned": 35,
+      "n_present": 35,
+      "n_choice_valid": 35,
+      "n_schema_valid": 35,
+      "correct": 32,
+      "choice_accuracy_all_planned": 0.9142857142857143,
+      "strict_accuracy_all_planned": 0.9142857142857143,
+      "accuracy_valid_choices_only": 0.9142857142857143
+    },
+    "dokumentfunktion": {
+      "n_planned": 5,
+      "n_present": 5,
+      "n_choice_valid": 5,
+      "n_schema_valid": 5,
+      "correct": 4,
+      "choice_accuracy_all_planned": 0.8,
+      "strict_accuracy_all_planned": 0.8,
+      "accuracy_valid_choices_only": 0.8
+    },
+    "doppelversand_vermeiden": {
+      "n_planned": 3,
+      "n_present": 3,
+      "n_choice_valid": 3,
+      "n_schema_valid": 3,
+      "correct": 3,
+      "choice_accuracy_all_planned": 1.0,
+      "strict_accuracy_all_planned": 1.0,
+      "accuracy_valid_choices_only": 1.0
+    },
+    "explizite_regel": {
+      "n_planned": 1,
+      "n_present": 1,
+      "n_choice_valid": 1,
+      "n_schema_valid": 1,
+      "correct": 0,
+      "choice_accuracy_all_planned": 0.0,
+      "strict_accuracy_all_planned": 0.0,
+      "accuracy_valid_choices_only": 0.0
+    },
+    "fehlende_prioritaet": {
+      "n_planned": 2,
+      "n_present": 2,
+      "n_choice_valid": 2,
+      "n_schema_valid": 2,
+      "correct": 1,
+      "choice_accuracy_all_planned": 0.5,
+      "strict_accuracy_all_planned": 0.5,
+      "accuracy_valid_choices_only": 0.5
+    },
+    "fehlende_unterlage": {
+      "n_planned": 6,
+      "n_present": 6,
+      "n_choice_valid": 6,
+      "n_schema_valid": 6,
+      "correct": 5,
+      "choice_accuracy_all_planned": 0.8333333333333334,
+      "strict_accuracy_all_planned": 0.8333333333333334,
+      "accuracy_valid_choices_only": 0.8333333333333334
+    },
+    "fehlende_zuordnung": {
+      "n_planned": 2,
+      "n_present": 2,
+      "n_choice_valid": 2,
+      "n_schema_valid": 2,
+      "correct": 2,
+      "choice_accuracy_all_planned": 1.0,
+      "strict_accuracy_all_planned": 1.0,
+      "accuracy_valid_choices_only": 1.0
+    },
+    "fehlender_betrag": {
+      "n_planned": 2,
+      "n_present": 2,
+      "n_choice_valid": 2,
+      "n_schema_valid": 2,
+      "correct": 2,
+      "choice_accuracy_all_planned": 1.0,
+      "strict_accuracy_all_planned": 1.0,
+      "accuracy_valid_choices_only": 1.0
+    },
+    "fehlender_kontext": {
+      "n_planned": 2,
+      "n_present": 2,
+      "n_choice_valid": 2,
+      "n_schema_valid": 2,
+      "correct": 2,
+      "choice_accuracy_all_planned": 1.0,
+      "strict_accuracy_all_planned": 1.0,
+      "accuracy_valid_choices_only": 1.0
+    },
+    "fehlender_umfang": {
+      "n_planned": 2,
+      "n_present": 2,
+      "n_choice_valid": 2,
+      "n_schema_valid": 2,
+      "correct": 2,
+      "choice_accuracy_all_planned": 1.0,
+      "strict_accuracy_all_planned": 1.0,
+      "accuracy_valid_choices_only": 1.0
+    },
+    "fehlender_zeitpunkt": {
+      "n_planned": 2,
+      "n_present": 2,
+      "n_choice_valid": 2,
+      "n_schema_valid": 2,
+      "correct": 1,
+      "choice_accuracy_all_planned": 0.5,
+      "strict_accuracy_all_planned": 0.5,
+      "accuracy_valid_choices_only": 0.5
+    },
+    "fristvergleich": {
+      "n_planned": 5,
+      "n_present": 5,
+      "n_choice_valid": 5,
+      "n_schema_valid": 5,
+      "correct": 5,
+      "choice_accuracy_all_planned": 1.0,
+      "strict_accuracy_all_planned": 1.0,
+      "accuracy_valid_choices_only": 1.0
+    },
+    "gutschrift": {
+      "n_planned": 2,
+      "n_present": 2,
+      "n_choice_valid": 2,
+      "n_schema_valid": 2,
+      "correct": 0,
+      "choice_accuracy_all_planned": 0.0,
+      "strict_accuracy_all_planned": 0.0,
+      "accuracy_valid_choices_only": 0.0
+    },
+    "individuelle_entscheidung": {
+      "n_planned": 2,
+      "n_present": 2,
+      "n_choice_valid": 2,
+      "n_schema_valid": 2,
+      "correct": 2,
+      "choice_accuracy_all_planned": 1.0,
+      "strict_accuracy_all_planned": 1.0,
+      "accuracy_valid_choices_only": 1.0
+    },
+    "konkreter_aenderungswunsch": {
+      "n_planned": 2,
+      "n_present": 2,
+      "n_choice_valid": 2,
+      "n_schema_valid": 2,
+      "correct": 2,
+      "choice_accuracy_all_planned": 1.0,
+      "strict_accuracy_all_planned": 1.0,
+      "accuracy_valid_choices_only": 1.0
+    },
+    "mehrere_bausteine": {
+      "n_planned": 1,
+      "n_present": 1,
+      "n_choice_valid": 1,
+      "n_schema_valid": 1,
+      "correct": 1,
+      "choice_accuracy_all_planned": 1.0,
+      "strict_accuracy_all_planned": 1.0,
+      "accuracy_valid_choices_only": 1.0
+    },
+    "mehrere_personen": {
+      "n_planned": 1,
+      "n_present": 1,
+      "n_choice_valid": 1,
+      "n_schema_valid": 1,
+      "correct": 1,
+      "choice_accuracy_all_planned": 1.0,
+      "strict_accuracy_all_planned": 1.0,
+      "accuracy_valid_choices_only": 1.0
+    },
+    "mehrere_termine": {
+      "n_planned": 2,
+      "n_present": 2,
+      "n_choice_valid": 2,
+      "n_schema_valid": 2,
+      "correct": 1,
+      "choice_accuracy_all_planned": 0.5,
+      "strict_accuracy_all_planned": 0.5,
+      "accuracy_valid_choices_only": 0.5
+    },
+    "mehrere_varianten": {
+      "n_planned": 2,
+      "n_present": 2,
+      "n_choice_valid": 2,
+      "n_schema_valid": 2,
+      "correct": 2,
+      "choice_accuracy_all_planned": 1.0,
+      "strict_accuracy_all_planned": 1.0,
+      "accuracy_valid_choices_only": 1.0
+    },
+    "mehrere_vertraege": {
+      "n_planned": 17,
+      "n_present": 17,
+      "n_choice_valid": 17,
+      "n_schema_valid": 17,
+      "correct": 13,
+      "choice_accuracy_all_planned": 0.7647058823529411,
+      "strict_accuracy_all_planned": 0.7647058823529411,
+      "accuracy_valid_choices_only": 0.7647058823529411
+    },
+    "mehrere_vorgaenge": {
+      "n_planned": 3,
+      "n_present": 3,
+      "n_choice_valid": 3,
+      "n_schema_valid": 3,
+      "correct": 3,
+      "choice_accuracy_all_planned": 1.0,
+      "strict_accuracy_all_planned": 1.0,
+      "accuracy_valid_choices_only": 1.0
+    },
+    "mehrfach_fehlend": {
+      "n_planned": 1,
+      "n_present": 1,
+      "n_choice_valid": 1,
+      "n_schema_valid": 1,
+      "correct": 1,
+      "choice_accuracy_all_planned": 1.0,
+      "strict_accuracy_all_planned": 1.0,
+      "accuracy_valid_choices_only": 1.0
+    },
+    "mehrfachanliegen": {
+      "n_planned": 13,
+      "n_present": 13,
+      "n_choice_valid": 13,
+      "n_schema_valid": 13,
+      "correct": 11,
+      "choice_accuracy_all_planned": 0.8461538461538461,
+      "strict_accuracy_all_planned": 0.8461538461538461,
+      "accuracy_valid_choices_only": 0.8461538461538461
+    },
+    "mehrfeldvergleich": {
+      "n_planned": 11,
+      "n_present": 11,
+      "n_choice_valid": 11,
+      "n_schema_valid": 11,
+      "correct": 10,
+      "choice_accuracy_all_planned": 0.9090909090909091,
+      "strict_accuracy_all_planned": 0.9090909090909091,
+      "accuracy_valid_choices_only": 0.9090909090909091
+    },
+    "naechste_rueckfrage": {
+      "n_planned": 7,
+      "n_present": 7,
+      "n_choice_valid": 7,
+      "n_schema_valid": 7,
+      "correct": 6,
+      "choice_accuracy_all_planned": 0.8571428571428571,
+      "strict_accuracy_all_planned": 0.8571428571428571,
+      "accuracy_valid_choices_only": 0.8571428571428571
+    },
+    "pause": {
+      "n_planned": 2,
+      "n_present": 2,
+      "n_choice_valid": 2,
+      "n_schema_valid": 2,
+      "correct": 2,
+      "choice_accuracy_all_planned": 1.0,
+      "strict_accuracy_all_planned": 1.0,
+      "accuracy_valid_choices_only": 1.0
+    },
+    "priorisierung": {
+      "n_planned": 13,
+      "n_present": 13,
+      "n_choice_valid": 13,
+      "n_schema_valid": 13,
+      "correct": 12,
+      "choice_accuracy_all_planned": 0.9230769230769231,
+      "strict_accuracy_all_planned": 0.9230769230769231,
+      "accuracy_valid_choices_only": 0.9230769230769231
+    },
+    "prozentrechnung": {
+      "n_planned": 2,
+      "n_present": 2,
+      "n_choice_valid": 2,
+      "n_schema_valid": 2,
+      "correct": 1,
+      "choice_accuracy_all_planned": 0.5,
+      "strict_accuracy_all_planned": 0.5,
+      "accuracy_valid_choices_only": 0.5
+    },
+    "pruefumfang": {
+      "n_planned": 13,
+      "n_present": 13,
+      "n_choice_valid": 13,
+      "n_schema_valid": 13,
+      "correct": 10,
+      "choice_accuracy_all_planned": 0.7692307692307693,
+      "strict_accuracy_all_planned": 0.7692307692307693,
+      "accuracy_valid_choices_only": 0.7692307692307693
+    },
+    "referenzaufloesung": {
+      "n_planned": 10,
+      "n_present": 10,
+      "n_choice_valid": 10,
+      "n_schema_valid": 10,
+      "correct": 10,
+      "choice_accuracy_all_planned": 1.0,
+      "strict_accuracy_all_planned": 1.0,
+      "accuracy_valid_choices_only": 1.0
+    },
+    "reihenfolge": {
+      "n_planned": 1,
+      "n_present": 1,
+      "n_choice_valid": 1,
+      "n_schema_valid": 1,
+      "correct": 0,
+      "choice_accuracy_all_planned": 0.0,
+      "strict_accuracy_all_planned": 0.0,
+      "accuracy_valid_choices_only": 0.0
+    },
+    "rundung": {
+      "n_planned": 1,
+      "n_present": 1,
+      "n_choice_valid": 1,
+      "n_schema_valid": 1,
+      "correct": 0,
+      "choice_accuracy_all_planned": 0.0,
+      "strict_accuracy_all_planned": 0.0,
+      "accuracy_valid_choices_only": 0.0
+    },
+    "sonderzahlung": {
+      "n_planned": 1,
+      "n_present": 1,
+      "n_choice_valid": 1,
+      "n_schema_valid": 1,
+      "correct": 1,
+      "choice_accuracy_all_planned": 1.0,
+      "strict_accuracy_all_planned": 1.0,
+      "accuracy_valid_choices_only": 1.0
+    },
+    "statuswechsel": {
+      "n_planned": 2,
+      "n_present": 2,
+      "n_choice_valid": 2,
+      "n_schema_valid": 2,
+      "correct": 2,
+      "choice_accuracy_all_planned": 1.0,
+      "strict_accuracy_all_planned": 1.0,
+      "accuracy_valid_choices_only": 1.0
+    },
+    "teilzahlungen": {
+      "n_planned": 1,
+      "n_present": 1,
+      "n_choice_valid": 1,
+      "n_schema_valid": 1,
+      "correct": 1,
+      "choice_accuracy_all_planned": 1.0,
+      "strict_accuracy_all_planned": 1.0,
+      "accuracy_valid_choices_only": 1.0
+    },
+    "uhrzeit": {
+      "n_planned": 2,
+      "n_present": 2,
+      "n_choice_valid": 2,
+      "n_schema_valid": 2,
+      "correct": 2,
+      "choice_accuracy_all_planned": 1.0,
+      "strict_accuracy_all_planned": 1.0,
+      "accuracy_valid_choices_only": 1.0
+    },
+    "verlauf": {
+      "n_planned": 23,
+      "n_present": 23,
+      "n_choice_valid": 23,
+      "n_schema_valid": 23,
+      "correct": 21,
+      "choice_accuracy_all_planned": 0.9130434782608695,
+      "strict_accuracy_all_planned": 0.9130434782608695,
+      "accuracy_valid_choices_only": 0.9130434782608695
+    },
+    "versionskonflikt": {
+      "n_planned": 2,
+      "n_present": 2,
+      "n_choice_valid": 2,
+      "n_schema_valid": 2,
+      "correct": 2,
+      "choice_accuracy_all_planned": 1.0,
+      "strict_accuracy_all_planned": 1.0,
+      "accuracy_valid_choices_only": 1.0
+    },
+    "versionsstand": {
+      "n_planned": 11,
+      "n_present": 11,
+      "n_choice_valid": 11,
+      "n_schema_valid": 11,
+      "correct": 11,
+      "choice_accuracy_all_planned": 1.0,
+      "strict_accuracy_all_planned": 1.0,
+      "accuracy_valid_choices_only": 1.0
+    },
+    "vollstaendig": {
+      "n_planned": 4,
+      "n_present": 4,
+      "n_choice_valid": 4,
+      "n_schema_valid": 4,
+      "correct": 4,
+      "choice_accuracy_all_planned": 1.0,
+      "strict_accuracy_all_planned": 1.0,
+      "accuracy_valid_choices_only": 1.0
+    },
+    "zahlenformat": {
+      "n_planned": 1,
+      "n_present": 1,
+      "n_choice_valid": 1,
+      "n_schema_valid": 1,
+      "correct": 1,
+      "choice_accuracy_all_planned": 1.0,
+      "strict_accuracy_all_planned": 1.0,
+      "accuracy_valid_choices_only": 1.0
+    },
+    "zahlenkontext": {
+      "n_planned": 3,
+      "n_present": 3,
+      "n_choice_valid": 3,
+      "n_schema_valid": 3,
+      "correct": 3,
+      "choice_accuracy_all_planned": 1.0,
+      "strict_accuracy_all_planned": 1.0,
+      "accuracy_valid_choices_only": 1.0
+    },
+    "zahlungsrhythmus": {
+      "n_planned": 1,
+      "n_present": 1,
+      "n_choice_valid": 1,
+      "n_schema_valid": 1,
+      "correct": 1,
+      "choice_accuracy_all_planned": 1.0,
+      "strict_accuracy_all_planned": 1.0,
+      "accuracy_valid_choices_only": 1.0
+    },
+    "zeitabschnitte": {
+      "n_planned": 8,
+      "n_present": 8,
+      "n_choice_valid": 8,
+      "n_schema_valid": 8,
+      "correct": 6,
+      "choice_accuracy_all_planned": 0.75,
+      "strict_accuracy_all_planned": 0.75,
+      "accuracy_valid_choices_only": 0.75
+    },
+    "zeitbezug": {
+      "n_planned": 6,
+      "n_present": 6,
+      "n_choice_valid": 6,
+      "n_schema_valid": 6,
+      "correct": 6,
+      "choice_accuracy_all_planned": 1.0,
+      "strict_accuracy_all_planned": 1.0,
+      "accuracy_valid_choices_only": 1.0
+    }
+  },
+  "information_request_diagnostic": {
+    "definition": "Only asks for missing/unresolved task input. A fachgespraech label is routing, not information abstention.",
+    "n_gold_missing_or_unresolved": 22,
+    "n_gold_sufficient": 50,
+    "precision": 1.0,
+    "recall": 0.8636363636363636,
+    "unnecessary_information_request_rate": 0.0,
+    "missed_information_request_valid_choice_rate_all_needed": 0.13636363636363635,
+    "invalid_or_missing_on_needed": 0,
+    "exact_choice_accuracy_on_needed": 0.8636363636363636
+  },
+  "errors": [],
+  "case_results": [
+    {
+      "id": "de_clean_anliegen_priorisierung_001",
+      "category": "anliegen_priorisierung",
+      "split": "german_clean_primary",
+      "expected": "beitragsklaerung",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "beitragsklaerung",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "beitragsklaerung": 0.9201309256280014,
+        "bestandsaenderung": 0.014471370996374097,
+        "dokumentenservice": 0.019780017803982232,
+        "rueckfrage": 0.02703607877783624,
+        "schadenservice": 0.018581606793806084
+      },
+      "brier": 0.008055964390601389,
+      "nll": 0.08323930859900584,
+      "max_probability": 0.9201309256280014,
+      "latency_ms": 16984.458991999418,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_clean_anliegen_priorisierung_002",
+      "category": "anliegen_priorisierung",
+      "split": "german_clean_primary",
+      "expected": "schadenservice",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "schadenservice",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "beitragsklaerung": 0.01171092926563106,
+        "bestandsaenderung": 0.010334858191887229,
+        "dokumentenservice": 0.017580185855057776,
+        "rueckfrage": 0.01171092926563106,
+        "schadenservice": 0.9486630974217929
+      },
+      "brier": 0.003325641523398348,
+      "nll": 0.05270155138792787,
+      "max_probability": 0.9486630974217929,
+      "latency_ms": 15516.823943999043,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_clean_anliegen_priorisierung_003",
+      "category": "anliegen_priorisierung",
+      "split": "german_clean_primary",
+      "expected": "bestandsaenderung",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "bestandsaenderung",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "beitragsklaerung": 0.02637883893948411,
+        "bestandsaenderung": 0.9083453666740439,
+        "dokumentenservice": 0.024780627785309012,
+        "rueckfrage": 0.02119599480144631,
+        "schadenservice": 0.019299171799716706
+      },
+      "brier": 0.01053222269512266,
+      "nll": 0.09613061292610879,
+      "max_probability": 0.9083453666740439,
+      "latency_ms": 15976.783484002226,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_clean_anliegen_priorisierung_004",
+      "category": "anliegen_priorisierung",
+      "split": "german_clean_primary",
+      "expected": "dokumentenservice",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "dokumentenservice",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "beitragsklaerung": 0.0164433400006002,
+        "bestandsaenderung": 0.013212593186192072,
+        "dokumentenservice": 0.9408610401805236,
+        "rueckfrage": 0.014511195848157283,
+        "schadenservice": 0.014971830784526826
+      },
+      "brier": 0.0043771031395928705,
+      "nll": 0.06095982279820092,
+      "max_probability": 0.9408610401805236,
+      "latency_ms": 13650.45984400058,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_clean_anliegen_priorisierung_005",
+      "category": "anliegen_priorisierung",
+      "split": "german_clean_primary",
+      "expected": "rueckfrage",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "bestandsaenderung",
+      "correct": false,
+      "strict_correct": false,
+      "error": null,
+      "probabilities": {
+        "beitragsklaerung": 0.27096085955723637,
+        "bestandsaenderung": 0.4537740419417076,
+        "dokumentenservice": 0.11295329204475173,
+        "rueckfrage": 0.1496387990364577,
+        "schadenservice": 0.012673007419846621
+      },
+      "brier": 1.0153638919570793,
+      "nll": 1.8995308952196577,
+      "max_probability": 0.4537740419417076,
+      "latency_ms": 16183.11689300026,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_clean_anliegen_priorisierung_006",
+      "category": "anliegen_priorisierung",
+      "split": "german_clean_primary",
+      "expected": "schadenservice",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "schadenservice",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "beitragsklaerung": 0.015993476197008086,
+        "bestandsaenderung": 0.011341073750965672,
+        "dokumentenservice": 0.05244059208442573,
+        "rueckfrage": 0.019291814758018107,
+        "schadenservice": 0.9009330432095825
+      },
+      "brier": 0.013320862977226384,
+      "nll": 0.10432433799804962,
+      "max_probability": 0.9009330432095825,
+      "latency_ms": 15033.558712999366,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_clean_anliegen_priorisierung_007",
+      "category": "anliegen_priorisierung",
+      "split": "german_clean_primary",
+      "expected": "beitragsklaerung",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "beitragsklaerung",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "beitragsklaerung": 0.8888106246798043,
+        "bestandsaenderung": 0.023137315849170285,
+        "dokumentenservice": 0.025411370857677935,
+        "rueckfrage": 0.04673866130331165,
+        "schadenservice": 0.01590202731003582
+      },
+      "brier": 0.015981527270660857,
+      "nll": 0.11787108676798895,
+      "max_probability": 0.8888106246798043,
+      "latency_ms": 15672.211580000294,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_clean_anliegen_priorisierung_008",
+      "category": "anliegen_priorisierung",
+      "split": "german_clean_primary",
+      "expected": "bestandsaenderung",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "bestandsaenderung",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "beitragsklaerung": 0.0075169865853384225,
+        "bestandsaenderung": 0.9617242678336797,
+        "dokumentenservice": 0.01201210973656145,
+        "rueckfrage": 0.008788247082936322,
+        "schadenservice": 0.009958388761484084
+      },
+      "brier": 0.0018422303340308297,
+      "nll": 0.039027493274417534,
+      "max_probability": 0.9617242678336797,
+      "latency_ms": 15951.434479000454,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_clean_anliegen_priorisierung_009",
+      "category": "anliegen_priorisierung",
+      "split": "german_clean_primary",
+      "expected": "dokumentenservice",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "dokumentenservice",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "beitragsklaerung": 0.00947851106807331,
+        "bestandsaenderung": 0.008630282044636969,
+        "dokumentenservice": 0.9593104496758792,
+        "rueckfrage": 0.012170648850252645,
+        "schadenservice": 0.01041010836115786
+      },
+      "brier": 0.002076458495343936,
+      "nll": 0.04154053419569441,
+      "max_probability": 0.9593104496758792,
+      "latency_ms": 16608.54181399918,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_clean_anliegen_priorisierung_010",
+      "category": "anliegen_priorisierung",
+      "split": "german_clean_primary",
+      "expected": "schadenservice",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "bestandsaenderung",
+      "correct": false,
+      "strict_correct": false,
+      "error": null,
+      "probabilities": {
+        "beitragsklaerung": 0.004989775917311891,
+        "bestandsaenderung": 0.6808939696634052,
+        "dokumentenservice": 0.02100774124185283,
+        "rueckfrage": 0.018539265126219055,
+        "schadenservice": 0.27456924805121097
+      },
+      "brier": 0.9906763012041856,
+      "nll": 1.2925517800796018,
+      "max_probability": 0.6808939696634052,
+      "latency_ms": 16663.996674000373,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_clean_anliegen_priorisierung_011",
+      "category": "anliegen_priorisierung",
+      "split": "german_clean_primary",
+      "expected": "beitragsklaerung",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "beitragsklaerung",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "beitragsklaerung": 0.6047957449436822,
+        "bestandsaenderung": 0.07394549885473402,
+        "dokumentenservice": 0.07279907803536835,
+        "rueckfrage": 0.21564656174709557,
+        "schadenservice": 0.03281311641911989
+      },
+      "brier": 0.21453418598077287,
+      "nll": 0.5028644896182789,
+      "max_probability": 0.6047957449436822,
+      "latency_ms": 14923.526021000725,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_clean_anliegen_priorisierung_012",
+      "category": "anliegen_priorisierung",
+      "split": "german_clean_primary",
+      "expected": "rueckfrage",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "rueckfrage",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "beitragsklaerung": 0.03523934187808491,
+        "bestandsaenderung": 0.014237980997901798,
+        "dokumentenservice": 0.024219622339278747,
+        "rueckfrage": 0.8604672970899562,
+        "schadenservice": 0.06583575769477834
+      },
+      "brier": 0.02583484359778257,
+      "nll": 0.1502796685966547,
+      "max_probability": 0.8604672970899562,
+      "latency_ms": 16703.311868997844,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_clean_unterlagenabgleich_001",
+      "category": "unterlagenabgleich",
+      "split": "german_clean_primary",
+      "expected": "konsistent",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "konsistent",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "abweichung": 0.04274934466556691,
+        "konsistent": 0.899850712718804,
+        "unterlage_fehlt": 0.02513104267223116,
+        "version_klaeren": 0.03226889994339794
+      },
+      "brier": 0.013530237421617488,
+      "nll": 0.10552640417344972,
+      "max_probability": 0.899850712718804,
+      "latency_ms": 14862.94654700032,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_clean_unterlagenabgleich_002",
+      "category": "unterlagenabgleich",
+      "split": "german_clean_primary",
+      "expected": "abweichung",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "abweichung",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "abweichung": 0.8886923276829307,
+        "konsistent": 0.03500098160462374,
+        "unterlage_fehlt": 0.029937923088528932,
+        "version_klaeren": 0.046368767623916646
+      },
+      "brier": 0.016660808479746735,
+      "nll": 0.11800419146622983,
+      "max_probability": 0.8886923276829307,
+      "latency_ms": 15683.154305999778,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_clean_unterlagenabgleich_003",
+      "category": "unterlagenabgleich",
+      "split": "german_clean_primary",
+      "expected": "unterlage_fehlt",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "unterlage_fehlt",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "abweichung": 0.09282133244164789,
+        "konsistent": 0.05992995635040332,
+        "unterlage_fehlt": 0.777183492181566,
+        "version_klaeren": 0.07006521902638277
+      },
+      "brier": 0.0667637304980214,
+      "nll": 0.2520788018207852,
+      "max_probability": 0.777183492181566,
+      "latency_ms": 17098.176255,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_clean_unterlagenabgleich_004",
+      "category": "unterlagenabgleich",
+      "split": "german_clean_primary",
+      "expected": "konsistent",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "abweichung",
+      "correct": false,
+      "strict_correct": false,
+      "error": null,
+      "probabilities": {
+        "abweichung": 0.6416890168567527,
+        "konsistent": 0.13036702864692423,
+        "unterlage_fehlt": 0.07312927558562031,
+        "version_klaeren": 0.15481467891070275
+      },
+      "brier": 1.197341774972867,
+      "nll": 2.0374015092606395,
+      "max_probability": 0.6416890168567527,
+      "latency_ms": 16999.42636599735,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_clean_unterlagenabgleich_005",
+      "category": "unterlagenabgleich",
+      "split": "german_clean_primary",
+      "expected": "version_klaeren",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "version_klaeren",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "abweichung": 0.07080808018117844,
+        "konsistent": 0.021260441420210847,
+        "unterlage_fehlt": 0.02485597599834293,
+        "version_klaeren": 0.8830755024002678
+      },
+      "brier": 0.0197549482701064,
+      "nll": 0.12434457535159504,
+      "max_probability": 0.8830755024002678,
+      "latency_ms": 16991.43107599957,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_clean_unterlagenabgleich_006",
+      "category": "unterlagenabgleich",
+      "split": "german_clean_primary",
+      "expected": "abweichung",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "abweichung",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "abweichung": 0.49230142006487426,
+        "konsistent": 0.390966725808446,
+        "unterlage_fehlt": 0.021294868294173406,
+        "version_klaeren": 0.09543698583250634
+      },
+      "brier": 0.42017451843798004,
+      "nll": 0.7086641076702955,
+      "max_probability": 0.49230142006487426,
+      "latency_ms": 14916.489439998259,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_clean_unterlagenabgleich_007",
+      "category": "unterlagenabgleich",
+      "split": "german_clean_primary",
+      "expected": "konsistent",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "konsistent",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "abweichung": 0.07700934948765226,
+        "konsistent": 0.8024558365162027,
+        "unterlage_fehlt": 0.0481912192092,
+        "version_klaeren": 0.07234359478694502
+      },
+      "brier": 0.052510125750591476,
+      "nll": 0.2200784578708667,
+      "max_probability": 0.8024558365162027,
+      "latency_ms": 14955.564785002935,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_clean_unterlagenabgleich_008",
+      "category": "unterlagenabgleich",
+      "split": "german_clean_primary",
+      "expected": "abweichung",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "abweichung",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "abweichung": 0.9024120610587336,
+        "konsistent": 0.03996019192284656,
+        "unterlage_fehlt": 0.030163535856834272,
+        "version_klaeren": 0.027464211161585584
+      },
+      "brier": 0.012784344555429756,
+      "nll": 0.1026840327927164,
+      "max_probability": 0.9024120610587336,
+      "latency_ms": 17016.4290290013,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_clean_unterlagenabgleich_009",
+      "category": "unterlagenabgleich",
+      "split": "german_clean_primary",
+      "expected": "unterlage_fehlt",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "unterlage_fehlt",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "abweichung": 0.019568511833493833,
+        "konsistent": 0.012245660408252042,
+        "unterlage_fehlt": 0.95771155868476,
+        "version_klaeren": 0.010474269073494104
+      },
+      "brier": 0.002430905435708273,
+      "nll": 0.04320863331494931,
+      "max_probability": 0.95771155868476,
+      "latency_ms": 15140.944716000377,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_clean_unterlagenabgleich_010",
+      "category": "unterlagenabgleich",
+      "split": "german_clean_primary",
+      "expected": "version_klaeren",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "version_klaeren",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "abweichung": 0.007633254959293587,
+        "konsistent": 0.005084843904381052,
+        "unterlage_fehlt": 0.025822967615546717,
+        "version_klaeren": 0.9614589335207786
+      },
+      "brier": 0.002236361680634839,
+      "nll": 0.03930342571226095,
+      "max_probability": 0.9614589335207786,
+      "latency_ms": 15238.963641000737,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_clean_unterlagenabgleich_011",
+      "category": "unterlagenabgleich",
+      "split": "german_clean_primary",
+      "expected": "abweichung",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "abweichung",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "abweichung": 0.620963725050882,
+        "konsistent": 0.15700421556107333,
+        "unterlage_fehlt": 0.03847553781664941,
+        "version_klaeren": 0.18355652157139518
+      },
+      "brier": 0.2034921850529218,
+      "nll": 0.47648261252150437,
+      "max_probability": 0.620963725050882,
+      "latency_ms": 14745.47542900109,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_clean_unterlagenabgleich_012",
+      "category": "unterlagenabgleich",
+      "split": "german_clean_primary",
+      "expected": "konsistent",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "konsistent",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "abweichung": 0.02331702727243052,
+        "konsistent": 0.9313953889382257,
+        "unterlage_fehlt": 0.021230395369240755,
+        "version_klaeren": 0.024057188420103025
+      },
+      "brier": 0.00627975442197521,
+      "nll": 0.07107139912442095,
+      "max_probability": 0.9313953889382257,
+      "latency_ms": 15445.988565999869,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_clean_beitragsrechnung_001",
+      "category": "beitragsrechnung",
+      "split": "german_clean_primary",
+      "expected": "betrag_c",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "betrag_b",
+      "correct": false,
+      "strict_correct": false,
+      "error": null,
+      "probabilities": {
+        "betrag_a": 0.33534226678006895,
+        "betrag_b": 0.39205483099470984,
+        "betrag_c": 0.21821136880817538,
+        "betrag_d": 0.04945629149393382,
+        "daten_fehlen": 0.004935241923112003
+      },
+      "brier": 0.8798251716374448,
+      "nll": 1.5222911042448857,
+      "max_probability": 0.39205483099470984,
+      "latency_ms": 17278.491646000475,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_clean_beitragsrechnung_002",
+      "category": "beitragsrechnung",
+      "split": "german_clean_primary",
+      "expected": "betrag_a",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "betrag_a",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "betrag_a": 0.8305343366306247,
+        "betrag_b": 0.10476888686948767,
+        "betrag_c": 0.020792020426712875,
+        "betrag_d": 0.03649113317069281,
+        "daten_fehlen": 0.007413622902481939
+      },
+      "brier": 0.04151400343514022,
+      "nll": 0.1856860062553036,
+      "max_probability": 0.8305343366306247,
+      "latency_ms": 14301.89200499808,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_clean_beitragsrechnung_003",
+      "category": "beitragsrechnung",
+      "split": "german_clean_primary",
+      "expected": "betrag_d",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "betrag_d",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "betrag_a": 0.37710064193018866,
+        "betrag_b": 0.07253538729347285,
+        "betrag_c": 0.012027547549122835,
+        "betrag_d": 0.5359680587727719,
+        "daten_fehlen": 0.0023683644544438107
+      },
+      "brier": 0.3629421900833197,
+      "nll": 0.623680711528843,
+      "max_probability": 0.5359680587727719,
+      "latency_ms": 13629.687104999903,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_clean_beitragsrechnung_004",
+      "category": "beitragsrechnung",
+      "split": "german_clean_primary",
+      "expected": "betrag_b",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "betrag_b",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "betrag_a": 0.12430514007413555,
+        "betrag_b": 0.8428608512172117,
+        "betrag_c": 0.012698569870179435,
+        "betrag_d": 0.013946650114643593,
+        "daten_fehlen": 0.006188788723829741
+      },
+      "brier": 0.04053854376106607,
+      "nll": 0.17095339840408424,
+      "max_probability": 0.8428608512172117,
+      "latency_ms": 16821.054293002817,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_clean_beitragsrechnung_005",
+      "category": "beitragsrechnung",
+      "split": "german_clean_primary",
+      "expected": "betrag_a",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "betrag_b",
+      "correct": false,
+      "strict_correct": false,
+      "error": null,
+      "probabilities": {
+        "betrag_a": 0.2152481691852406,
+        "betrag_b": 0.512335209349055,
+        "betrag_c": 0.20220694193089553,
+        "betrag_d": 0.04955294051161588,
+        "daten_fehlen": 0.020656739023192993
+      },
+      "brier": 0.9220926448513214,
+      "nll": 1.5359636412378066,
+      "max_probability": 0.512335209349055,
+      "latency_ms": 15176.634395000292,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_clean_beitragsrechnung_006",
+      "category": "beitragsrechnung",
+      "split": "german_clean_primary",
+      "expected": "daten_fehlen",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "daten_fehlen",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "betrag_a": 0.015399873371421346,
+        "betrag_b": 0.012374146002338424,
+        "betrag_c": 0.014466842744252403,
+        "betrag_d": 0.019773829875691457,
+        "daten_fehlen": 0.9379853080062963
+      },
+      "brier": 0.004836391499156652,
+      "nll": 0.06402099320487402,
+      "max_probability": 0.9379853080062963,
+      "latency_ms": 13330.345143000159,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_clean_beitragsrechnung_007",
+      "category": "beitragsrechnung",
+      "split": "german_clean_primary",
+      "expected": "betrag_c",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "betrag_a",
+      "correct": false,
+      "strict_correct": false,
+      "error": null,
+      "probabilities": {
+        "betrag_a": 0.558300285846755,
+        "betrag_b": 0.1417129113673447,
+        "betrag_c": 0.27103303296291253,
+        "betrag_d": 0.014476884911493916,
+        "daten_fehlen": 0.014476884911493916
+      },
+      "brier": 0.8635937578495086,
+      "nll": 1.3055145726786905,
+      "max_probability": 0.558300285846755,
+      "latency_ms": 14669.698163001158,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_clean_beitragsrechnung_008",
+      "category": "beitragsrechnung",
+      "split": "german_clean_primary",
+      "expected": "betrag_d",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "betrag_a",
+      "correct": false,
+      "strict_correct": false,
+      "error": null,
+      "probabilities": {
+        "betrag_a": 0.4529599794787171,
+        "betrag_b": 0.4028709485806046,
+        "betrag_c": 0.04329977881200859,
+        "betrag_d": 0.08884537865766833,
+        "daten_fehlen": 0.012023914471001389
+      },
+      "brier": 1.1996999335774587,
+      "nll": 2.4208577385910486,
+      "max_probability": 0.4529599794787171,
+      "latency_ms": 15736.733355999604,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_clean_beitragsrechnung_009",
+      "category": "beitragsrechnung",
+      "split": "german_clean_primary",
+      "expected": "betrag_b",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "betrag_d",
+      "correct": false,
+      "strict_correct": false,
+      "error": null,
+      "probabilities": {
+        "betrag_a": 0.19684458099750818,
+        "betrag_b": 0.14628248155111767,
+        "betrag_c": 0.24307060637859218,
+        "betrag_d": 0.4070666796748218,
+        "daten_fehlen": 0.006735651397960167
+      },
+      "brier": 0.9924133607610977,
+      "nll": 1.9222157214538353,
+      "max_probability": 0.4070666796748218,
+      "latency_ms": 13913.892737000424,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_clean_beitragsrechnung_010",
+      "category": "beitragsrechnung",
+      "split": "german_clean_primary",
+      "expected": "betrag_a",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "betrag_a",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "betrag_a": 0.593108569560679,
+        "betrag_b": 0.26319034784700196,
+        "betrag_c": 0.03294213350639119,
+        "betrag_d": 0.09989578603272292,
+        "daten_fehlen": 0.010863163053204922
+      },
+      "brier": 0.24601215590335165,
+      "nll": 0.522377811479945,
+      "max_probability": 0.593108569560679,
+      "latency_ms": 13789.116780000768,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_clean_beitragsrechnung_011",
+      "category": "beitragsrechnung",
+      "split": "german_clean_primary",
+      "expected": "daten_fehlen",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "daten_fehlen",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "betrag_a": 0.009505660069519485,
+        "betrag_b": 0.006533138314017857,
+        "betrag_c": 0.006954489592506307,
+        "betrag_d": 0.007403015466156084,
+        "daten_fehlen": 0.9696036965578003
+      },
+      "brier": 0.00116014429602205,
+      "nll": 0.03086785121787721,
+      "max_probability": 0.9696036965578003,
+      "latency_ms": 14598.299733999738,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_clean_beitragsrechnung_012",
+      "category": "beitragsrechnung",
+      "split": "german_clean_primary",
+      "expected": "betrag_c",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "betrag_b",
+      "correct": false,
+      "strict_correct": false,
+      "error": null,
+      "probabilities": {
+        "betrag_a": 0.3679184478468794,
+        "betrag_b": 0.45788190313521615,
+        "betrag_c": 0.1474956695624161,
+        "betrag_d": 0.01831757991916253,
+        "daten_fehlen": 0.008386399536325837
+      },
+      "brier": 1.0721893203308954,
+      "nll": 1.9139564625321173,
+      "max_probability": 0.45788190313521615,
+      "latency_ms": 16331.139253998117,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_clean_vorgangsstand_001",
+      "category": "vorgangsstand",
+      "split": "german_clean_primary",
+      "expected": "einreichung_vorbereiten",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "einreichung_vorbereiten",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "einreichung_vorbereiten": 0.8484938338858852,
+        "status_anfragen": 0.03786729628846946,
+        "unterlagen_nachfordern": 0.03786729628846946,
+        "warten": 0.0367022414414437,
+        "zuordnung_klaeren": 0.03906933209573218
+      },
+      "brier": 0.028695449864227857,
+      "nll": 0.1642924614104132,
+      "max_probability": 0.8484938338858852,
+      "latency_ms": 16007.939400999021,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_clean_vorgangsstand_002",
+      "category": "vorgangsstand",
+      "split": "german_clean_primary",
+      "expected": "unterlagen_nachfordern",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "unterlagen_nachfordern",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "einreichung_vorbereiten": 0.019835118499921537,
+        "status_anfragen": 0.025468795008492397,
+        "unterlagen_nachfordern": 0.9190968412026292,
+        "warten": 0.01696587565490418,
+        "zuordnung_klaeren": 0.018633369634052658
+      },
+      "brier": 0.008222455949140032,
+      "nll": 0.08436378546150584,
+      "max_probability": 0.9190968412026292,
+      "latency_ms": 15864.336122001987,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_clean_vorgangsstand_003",
+      "category": "vorgangsstand",
+      "split": "german_clean_primary",
+      "expected": "status_anfragen",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "status_anfragen",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "einreichung_vorbereiten": 0.006443279323686586,
+        "status_anfragen": 0.9637674680317124,
+        "unterlagen_nachfordern": 0.007772077333394366,
+        "warten": 0.012037629250401976,
+        "zuordnung_klaeren": 0.0099795460608047
+      },
+      "brier": 0.0016592132649021465,
+      "nll": 0.036905229203524154,
+      "max_probability": 0.9637674680317124,
+      "latency_ms": 16571.667431002425,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_clean_vorgangsstand_004",
+      "category": "vorgangsstand",
+      "split": "german_clean_primary",
+      "expected": "warten",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "warten",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "einreichung_vorbereiten": 0.012804928952372892,
+        "status_anfragen": 0.1941401180862243,
+        "unterlagen_nachfordern": 0.012804928952372892,
+        "warten": 0.7678390612629213,
+        "zuordnung_klaeren": 0.012410962746108575
+      },
+      "brier": 0.09207105133305064,
+      "nll": 0.2641751234415553,
+      "max_probability": 0.7678390612629213,
+      "latency_ms": 16846.329208998213,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_clean_vorgangsstand_005",
+      "category": "vorgangsstand",
+      "split": "german_clean_primary",
+      "expected": "zuordnung_klaeren",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "zuordnung_klaeren",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "einreichung_vorbereiten": 0.00416123953385121,
+        "status_anfragen": 0.0055127473580901705,
+        "unterlagen_nachfordern": 0.007078506868450092,
+        "warten": 0.004033211552928013,
+        "zuordnung_klaeren": 0.9792142946866805
+      },
+      "brier": 0.0005461238981817407,
+      "nll": 0.02100476899864419,
+      "max_probability": 0.9792142946866805,
+      "latency_ms": 16233.114127997396,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_clean_vorgangsstand_006",
+      "category": "vorgangsstand",
+      "split": "german_clean_primary",
+      "expected": "einreichung_vorbereiten",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "einreichung_vorbereiten",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "einreichung_vorbereiten": 0.7361720361607054,
+        "status_anfragen": 0.0900082534546701,
+        "unterlagen_nachfordern": 0.05128515578596855,
+        "warten": 0.06794178825963805,
+        "zuordnung_klaeren": 0.05459276633901797
+      },
+      "brier": 0.08793330412600345,
+      "nll": 0.3062914427837494,
+      "max_probability": 0.7361720361607054,
+      "latency_ms": 15822.357978999207,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_clean_vorgangsstand_007",
+      "category": "vorgangsstand",
+      "split": "german_clean_primary",
+      "expected": "status_anfragen",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "status_anfragen",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "einreichung_vorbereiten": 0.0047059860825555055,
+        "status_anfragen": 0.9546409996495554,
+        "unterlagen_nachfordern": 0.007288774125193395,
+        "warten": 0.027507545862000694,
+        "zuordnung_klaeren": 0.005856694280694986
+      },
+      "brier": 0.002923677393296525,
+      "nll": 0.046419925773087393,
+      "max_probability": 0.9546409996495554,
+      "latency_ms": 17628.28710100075,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_clean_vorgangsstand_008",
+      "category": "vorgangsstand",
+      "split": "german_clean_primary",
+      "expected": "unterlagen_nachfordern",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "einreichung_vorbereiten",
+      "correct": false,
+      "strict_correct": false,
+      "error": null,
+      "probabilities": {
+        "einreichung_vorbereiten": 0.7432537757968952,
+        "status_anfragen": 0.045338772744001145,
+        "unterlagen_nachfordern": 0.1353565618621919,
+        "warten": 0.029272910534660263,
+        "zuordnung_klaeren": 0.046777979062251514
+      },
+      "brier": 1.3051351372813618,
+      "nll": 1.9998427834010644,
+      "max_probability": 0.7432537757968952,
+      "latency_ms": 15240.883194001071,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_clean_vorgangsstand_009",
+      "category": "vorgangsstand",
+      "split": "german_clean_primary",
+      "expected": "warten",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "warten",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "einreichung_vorbereiten": 0.024526137995679702,
+        "status_anfragen": 0.29415723845823055,
+        "unterlagen_nachfordern": 0.017943706463707833,
+        "warten": 0.6475376522962245,
+        "zuordnung_klaeren": 0.015835264786157374
+      },
+      "brier": 0.211932451143716,
+      "nll": 0.4345783368346659,
+      "max_probability": 0.6475376522962245,
+      "latency_ms": 17188.356648999616,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_clean_vorgangsstand_010",
+      "category": "vorgangsstand",
+      "split": "german_clean_primary",
+      "expected": "einreichung_vorbereiten",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "einreichung_vorbereiten",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "einreichung_vorbereiten": 0.9265873361903743,
+        "status_anfragen": 0.022482973451527347,
+        "unterlagen_nachfordern": 0.01644889464448793,
+        "warten": 0.01750975686709247,
+        "zuordnung_klaeren": 0.01697103884651796
+      },
+      "brier": 0.006760077182947394,
+      "nll": 0.07624697305782827,
+      "max_probability": 0.9265873361903743,
+      "latency_ms": 17976.42241200083,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_clean_vorgangsstand_011",
+      "category": "vorgangsstand",
+      "split": "german_clean_primary",
+      "expected": "status_anfragen",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "status_anfragen",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "einreichung_vorbereiten": 0.010157610223532402,
+        "status_anfragen": 0.9507828888897968,
+        "unterlagen_nachfordern": 0.013883807605889949,
+        "warten": 0.01648742881099507,
+        "zuordnung_klaeren": 0.008688264469785755
+      },
+      "brier": 0.0030655824334192383,
+      "nll": 0.05046954019800759,
+      "max_probability": 0.9507828888897968,
+      "latency_ms": 15794.719919002091,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_clean_vorgangsstand_012",
+      "category": "vorgangsstand",
+      "split": "german_clean_primary",
+      "expected": "zuordnung_klaeren",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "zuordnung_klaeren",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "einreichung_vorbereiten": 0.004379625848908434,
+        "status_anfragen": 0.005623550557081954,
+        "unterlagen_nachfordern": 0.006176262093600682,
+        "warten": 0.0042448788406899704,
+        "zuordnung_klaeren": 0.979575682659719
+      },
+      "brier": 0.000524123392081975,
+      "nll": 0.020635777956910992,
+      "max_probability": 0.979575682659719,
+      "latency_ms": 16062.056990998826,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_clean_rueckfrageplanung_001",
+      "category": "rueckfrageplanung",
+      "split": "german_clean_primary",
+      "expected": "zeitpunkt",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "keine_rueckfrage",
+      "correct": false,
+      "strict_correct": false,
+      "error": null,
+      "probabilities": {
+        "keine_rueckfrage": 0.8887290093467096,
+        "umfang": 0.02090090358713754,
+        "unterlage": 0.021564368545272647,
+        "zeitpunkt": 0.050928229190373486,
+        "zuordnung": 0.017877489330506702
+      },
+      "brier": 1.6917979525883817,
+      "nll": 2.977337908170295,
+      "max_probability": 0.8887290093467096,
+      "latency_ms": 16252.961434998724,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_clean_rueckfrageplanung_002",
+      "category": "rueckfrageplanung",
+      "split": "german_clean_primary",
+      "expected": "zuordnung",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "zuordnung",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "keine_rueckfrage": 0.01670635825241082,
+        "umfang": 0.011846582129444411,
+        "unterlage": 0.011128834189641425,
+        "zeitpunkt": 0.011846582129444411,
+        "zuordnung": 0.948471643299059
+      },
+      "brier": 0.0033388079170771842,
+      "nll": 0.052903386417643375,
+      "max_probability": 0.948471643299059,
+      "latency_ms": 15757.841201997508,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_clean_rueckfrageplanung_003",
+      "category": "rueckfrageplanung",
+      "split": "german_clean_primary",
+      "expected": "keine_rueckfrage",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "keine_rueckfrage",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "keine_rueckfrage": 0.8270348824755571,
+        "umfang": 0.037199091842845006,
+        "unterlage": 0.02256239020685634,
+        "zeitpunkt": 0.02256239020685634,
+        "zuordnung": 0.0906412452678852
+      },
+      "brier": 0.04053466256158257,
+      "nll": 0.18990840531284175,
+      "max_probability": 0.8270348824755571,
+      "latency_ms": 13912.927484998363,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_clean_rueckfrageplanung_004",
+      "category": "rueckfrageplanung",
+      "split": "german_clean_primary",
+      "expected": "unterlage",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "unterlage",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "keine_rueckfrage": 0.04019485571252549,
+        "umfang": 0.028060530478639788,
+        "unterlage": 0.8797840820168438,
+        "zeitpunkt": 0.024763331785853892,
+        "zuordnung": 0.027197200006137043
+      },
+      "brier": 0.018207797022336464,
+      "nll": 0.12807876296039997,
+      "max_probability": 0.8797840820168438,
+      "latency_ms": 15282.270176001475,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_clean_rueckfrageplanung_005",
+      "category": "rueckfrageplanung",
+      "split": "german_clean_primary",
+      "expected": "umfang",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "umfang",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "keine_rueckfrage": 0.1338899709813083,
+        "umfang": 0.7826169280586082,
+        "unterlage": 0.02555334810767463,
+        "zeitpunkt": 0.029874890155381334,
+        "zuordnung": 0.02806486269702762
+      },
+      "brier": 0.06751504347556303,
+      "nll": 0.24511193890231192,
+      "max_probability": 0.7826169280586082,
+      "latency_ms": 14991.94943600014,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_clean_rueckfrageplanung_006",
+      "category": "rueckfrageplanung",
+      "split": "german_clean_primary",
+      "expected": "keine_rueckfrage",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "keine_rueckfrage",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "keine_rueckfrage": 0.8852955168880188,
+        "umfang": 0.023045810111208334,
+        "unterlage": 0.03149988898262299,
+        "zeitpunkt": 0.019712126029373153,
+        "zuordnung": 0.040446657988776696
+      },
+      "brier": 0.016704970870645194,
+      "nll": 0.12183377232461899,
+      "max_probability": 0.8852955168880188,
+      "latency_ms": 16351.370429998497,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_clean_rueckfrageplanung_007",
+      "category": "rueckfrageplanung",
+      "split": "german_clean_primary",
+      "expected": "zeitpunkt",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "zeitpunkt",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "keine_rueckfrage": 0.021643872911058813,
+        "umfang": 0.006810546263302069,
+        "unterlage": 0.0066010075353834345,
+        "zeitpunkt": 0.9569822376024409,
+        "zuordnung": 0.007962335687814704
+      },
+      "brier": 0.0024723407467751256,
+      "nll": 0.04397044820044776,
+      "max_probability": 0.9569822376024409,
+      "latency_ms": 16449.197368998284,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_clean_rueckfrageplanung_008",
+      "category": "rueckfrageplanung",
+      "split": "german_clean_primary",
+      "expected": "unterlage",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "unterlage",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "keine_rueckfrage": 0.028639524112628514,
+        "umfang": 0.016836308413268303,
+        "unterlage": 0.9192312616640123,
+        "zeitpunkt": 0.017922156059802213,
+        "zuordnung": 0.017370749750288662
+      },
+      "brier": 0.008250219339490834,
+      "nll": 0.08421754338272462,
+      "max_probability": 0.9192312616640123,
+      "latency_ms": 14662.300660002074,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_clean_rueckfrageplanung_009",
+      "category": "rueckfrageplanung",
+      "split": "german_clean_primary",
+      "expected": "keine_rueckfrage",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "keine_rueckfrage",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "keine_rueckfrage": 0.925202157421193,
+        "umfang": 0.019127096919597623,
+        "unterlage": 0.019734255847242074,
+        "zeitpunkt": 0.01796824490598361,
+        "zuordnung": 0.01796824490598361
+      },
+      "brier": 0.0069957195948628864,
+      "nll": 0.07774301678451823,
+      "max_probability": 0.925202157421193,
+      "latency_ms": 15629.19115600016,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_clean_rueckfrageplanung_010",
+      "category": "rueckfrageplanung",
+      "split": "german_clean_primary",
+      "expected": "umfang",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "umfang",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "keine_rueckfrage": 0.09076020121574402,
+        "umfang": 0.6811931133270264,
+        "unterlage": 0.09076020121574402,
+        "zeitpunkt": 0.07292786240577698,
+        "zuordnung": 0.06435862183570862
+      },
+      "brier": 0.12757316455922663,
+      "nll": 0.3839094398644563,
+      "max_probability": 0.6811931133270264,
+      "latency_ms": 14940.90064899865,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_clean_rueckfrageplanung_011",
+      "category": "rueckfrageplanung",
+      "split": "german_clean_primary",
+      "expected": "zuordnung",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "zuordnung",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "keine_rueckfrage": 0.016682369230555744,
+        "umfang": 0.15102983645463758,
+        "unterlage": 0.02076154524479045,
+        "zeitpunkt": 0.047523646396012226,
+        "zuordnung": 0.764002602674004
+      },
+      "brier": 0.08147262321502788,
+      "nll": 0.26918408318005266,
+      "max_probability": 0.764002602674004,
+      "latency_ms": 14560.799711998698,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_clean_rueckfrageplanung_012",
+      "category": "rueckfrageplanung",
+      "split": "german_clean_primary",
+      "expected": "keine_rueckfrage",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "keine_rueckfrage",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "keine_rueckfrage": 0.9492918687590434,
+        "umfang": 0.013862034818729765,
+        "unterlage": 0.013862034818729765,
+        "zeitpunkt": 0.011492030801748548,
+        "zuordnung": 0.011492030801748548
+      },
+      "brier": 0.0032197601364781095,
+      "nll": 0.052038973643505654,
+      "max_probability": 0.9492918687590434,
+      "latency_ms": 17255.801007002447,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_clean_finanzservice_routing_001",
+      "category": "finanzservice_routing",
+      "split": "german_clean_primary",
+      "expected": "dokumentation",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "dokumentation",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "aenderung_vorbereiten": 0.010043517293568956,
+        "dokumentation": 0.9549078567827772,
+        "fachgespraech": 0.010362332281453576,
+        "rechenuebersicht": 0.01330549776662988,
+        "rueckfrage": 0.01138079587557034
+      },
+      "brier": 0.0025481103354391943,
+      "nll": 0.04614042820060043,
+      "max_probability": 0.9549078567827772,
+      "latency_ms": 15290.244858999358,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_clean_finanzservice_routing_002",
+      "category": "finanzservice_routing",
+      "split": "german_clean_primary",
+      "expected": "rechenuebersicht",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "rechenuebersicht",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "aenderung_vorbereiten": 0.011435525369923495,
+        "dokumentation": 0.005235565265550241,
+        "fachgespraech": 0.003952011745751736,
+        "rechenuebersicht": 0.974609861215902,
+        "rueckfrage": 0.004767036402872547
+      },
+      "brier": 0.0008411845645166301,
+      "nll": 0.02571803040526423,
+      "max_probability": 0.974609861215902,
+      "latency_ms": 15685.789014001784,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_clean_finanzservice_routing_003",
+      "category": "finanzservice_routing",
+      "split": "german_clean_primary",
+      "expected": "aenderung_vorbereiten",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "aenderung_vorbereiten",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "aenderung_vorbereiten": 0.9554372883656078,
+        "dokumentation": 0.011933584333036842,
+        "fachgespraech": 0.010531350539157984,
+        "rechenuebersicht": 0.010531350539157984,
+        "rueckfrage": 0.011566426223039383
+      },
+      "brier": 0.0024838466071739544,
+      "nll": 0.04558614972612717,
+      "max_probability": 0.9554372883656078,
+      "latency_ms": 20302.40469400087,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_clean_finanzservice_routing_004",
+      "category": "finanzservice_routing",
+      "split": "german_clean_primary",
+      "expected": "fachgespraech",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "fachgespraech",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "aenderung_vorbereiten": 0.015499082610463946,
+        "dokumentation": 0.09202230105207722,
+        "fachgespraech": 0.7949513307998608,
+        "rechenuebersicht": 0.028065216188298766,
+        "rueckfrage": 0.06946206934929922
+      },
+      "brier": 0.05636591763141603,
+      "nll": 0.2294743853214439,
+      "max_probability": 0.7949513307998608,
+      "latency_ms": 15775.362984000822,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_clean_finanzservice_routing_005",
+      "category": "finanzservice_routing",
+      "split": "german_clean_primary",
+      "expected": "rueckfrage",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "rueckfrage",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "aenderung_vorbereiten": 0.028758448474360956,
+        "dokumentation": 0.025379243131853434,
+        "fachgespraech": 0.015393289264836588,
+        "rechenuebersicht": 0.049690143754784574,
+        "rueckfrage": 0.8807788753741644
+      },
+      "brier": 0.01839089463840931,
+      "nll": 0.12694867731476625,
+      "max_probability": 0.8807788753741644,
+      "latency_ms": 17210.65540500058,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_clean_finanzservice_routing_006",
+      "category": "finanzservice_routing",
+      "split": "german_clean_primary",
+      "expected": "dokumentation",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "dokumentation",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "aenderung_vorbereiten": 0.008679611745805851,
+        "dokumentation": 0.9647936973734692,
+        "fachgespraech": 0.00742406502944334,
+        "rechenuebersicht": 0.008955131426674532,
+        "rueckfrage": 0.01014749442460705
+      },
+      "brier": 0.0015531021682166485,
+      "nll": 0.03584098560365746,
+      "max_probability": 0.9647936973734692,
+      "latency_ms": 17124.2904009996,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_clean_finanzservice_routing_007",
+      "category": "finanzservice_routing",
+      "split": "german_clean_primary",
+      "expected": "rechenuebersicht",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "rechenuebersicht",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "aenderung_vorbereiten": 0.006879241440768641,
+        "dokumentation": 0.006879241440768641,
+        "fachgespraech": 0.005357558659396962,
+        "rechenuebersicht": 0.9742163689138468,
+        "rueckfrage": 0.006667589545218997
+      },
+      "brier": 0.0008326037427200171,
+      "nll": 0.026121855334669448,
+      "max_probability": 0.9742163689138468,
+      "latency_ms": 16600.561267001467,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_clean_finanzservice_routing_008",
+      "category": "finanzservice_routing",
+      "split": "german_clean_primary",
+      "expected": "aenderung_vorbereiten",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "aenderung_vorbereiten",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "aenderung_vorbereiten": 0.9245635936004191,
+        "dokumentation": 0.02225928583934371,
+        "fachgespraech": 0.01680219185950005,
+        "rechenuebersicht": 0.017335550988730422,
+        "rueckfrage": 0.0190393777120067
+      },
+      "brier": 0.0071314600995871225,
+      "nll": 0.07843344350021202,
+      "max_probability": 0.9245635936004191,
+      "latency_ms": 16150.487307997537,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_clean_finanzservice_routing_009",
+      "category": "finanzservice_routing",
+      "split": "german_clean_primary",
+      "expected": "fachgespraech",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "fachgespraech",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "aenderung_vorbereiten": 0.005521162132822595,
+        "dokumentation": 0.014098781376719861,
+        "fachgespraech": 0.9655046568997169,
+        "rechenuebersicht": 0.00708931275981707,
+        "rueckfrage": 0.007786086830923583
+      },
+      "brier": 0.0015300690667568945,
+      "nll": 0.03510435382150568,
+      "max_probability": 0.9655046568997169,
+      "latency_ms": 16038.343510001141,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_clean_finanzservice_routing_010",
+      "category": "finanzservice_routing",
+      "split": "german_clean_primary",
+      "expected": "dokumentation",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "dokumentation",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "aenderung_vorbereiten": 0.009579175071592838,
+        "dokumentation": 0.9694985070028468,
+        "fachgespraech": 0.005994494488508952,
+        "rechenuebersicht": 0.007230740445594616,
+        "rueckfrage": 0.007697082991456849
+      },
+      "brier": 0.0011695643282493085,
+      "nll": 0.030976344266736174,
+      "max_probability": 0.9694985070028468,
+      "latency_ms": 15193.114444999082,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_clean_finanzservice_routing_011",
+      "category": "finanzservice_routing",
+      "split": "german_clean_primary",
+      "expected": "rechenuebersicht",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "rechenuebersicht",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "aenderung_vorbereiten": 0.005219050450729599,
+        "dokumentation": 0.005913959149150215,
+        "fachgespraech": 0.004326745129827192,
+        "rechenuebersicht": 0.9791555246333268,
+        "rueckfrage": 0.005384720636966257
+      },
+      "brier": 0.0005444214934935787,
+      "nll": 0.021064788360453803,
+      "max_probability": 0.9791555246333268,
+      "latency_ms": 17250.28124399978,
+      "probability_source": "unrounded"
+    },
+    {
+      "id": "de_clean_finanzservice_routing_012",
+      "category": "finanzservice_routing",
+      "split": "german_clean_primary",
+      "expected": "rueckfrage",
+      "present": true,
+      "choice_valid": true,
+      "schema_valid": true,
+      "probabilities_valid": true,
+      "prediction": "rueckfrage",
+      "correct": true,
+      "strict_correct": true,
+      "error": null,
+      "probabilities": {
+        "aenderung_vorbereiten": 0.010531226868974562,
+        "dokumentation": 0.029077648466580022,
+        "fachgespraech": 0.014394480413321843,
+        "rechenuebersicht": 0.012703084102949111,
+        "rueckfrage": 0.9332935601481744
+      },
+      "brier": 0.005774734909513141,
+      "nll": 0.06903548652191512,
+      "max_probability": 0.9332935601481744,
+      "latency_ms": 16048.478346998309,
+      "probability_source": "unrounded"
+    }
+  ],
+  "interpretation_warning": "72 independently authored synthetic, purposively selected German routing/check cases. No real customer data, production validation, free-answer evaluation, advice, eligibility or legal conclusions. Do not pool with previous benchmarks or infer manipulation robustness from this clean set.",
+  "outputs_file": "results/predictions.jsonl",
+  "request_sha256": "3e94e7c8dcda74f58a5402cfe361591da6ee10f818175ec791a3d79856195d84"
+}

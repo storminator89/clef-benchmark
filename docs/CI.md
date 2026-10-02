@@ -31,3 +31,7 @@ action tags are executed.
 
 The action manifests at these commits use the Node 24 action runtime. The job
 uses a GitHub-hosted Ubuntu 24.04 runner. No repository secrets need to be added.
+
+## Follow-up coverage
+
+The same offline job additionally verifies the clean72, image90, and seven-pair ablation artifacts with `scripts/check_followups.py`; it rebuilds `web/data/clean72.json` byte-for-byte and checks its importer failure modes. Dataset source images and model weights are not fetched. Browser/visual QA remains a separately disclosed unrun check.

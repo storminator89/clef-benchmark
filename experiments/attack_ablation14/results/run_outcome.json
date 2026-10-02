@@ -1,0 +1,29 @@
+{
+  "finished_at": "2026-10-02T08:43:37.976998+00:00",
+  "process_exit_code": 0,
+  "wall_seconds": 264.14195992799796,
+  "main_pass_attempts": 1,
+  "frozen_files_all_still_match": {
+    "README.md": true,
+    "build_ablation.py": true,
+    "cases.jsonl": true,
+    "design.json": true,
+    "gold.jsonl": true,
+    "guard_run.py": true,
+    "pairs.jsonl": true,
+    "policies.json": true,
+    "requests.jsonl": true,
+    "score_ablation.py": true,
+    "source_score.py": true,
+    "validate.py": true,
+    "pre_inference_review.md": true
+  },
+  "meminfo_after_process_exit": "MemTotal:       10206508 kB\nMemFree:         7156548 kB\nMemAvailable:    8217940 kB\nBuffers:            2468 kB\nCached:          1459504 kB\nSwapCached:            0 kB\nActive:           747736 kB\nInactive:        1737884 kB\nActive(anon):      62724 kB\nInactive(anon):  1186160 kB\nActive(file):     685012 kB\nInactive(file):   551724 kB\nUnevictable:       29920 kB\nMlocked:               0 kB\nSwapTotal:             0 kB\nSwapFree:              0 kB\nDirty:                64 kB\nWriteback:             0 kB\nAnonPages:       1053768 kB\nMapped:           347908 kB\nShmem:            195144 kB\nKReclaimable:     107512 kB\nSlab:             171436 kB\nSReclaimable:     107512 kB\nSUnreclaim:        63924 kB\nKernelStack:       10416 kB\nPageTables:        31616 kB\nSecPageTables:         0 kB\nNFS_Unstable:          0 kB\nBounce:                0 kB\nWritebackTmp:          0 kB\nCommitLimit:     5103252 kB\nCommitted_AS:    6891504 kB\nVmallocTotal:   34359738367 kB\nVmallocUsed:       11872 kB\nVmallocChunk:          0 kB\nPercpu:             3168 kB\nAnonHugePages:      6144 kB\nShmemHugePages:        0 kB\nShmemPmdMapped:        0 kB\nFileHugePages:     49152 kB\nFilePmdMapped:         0 kB\nBalloon:               0 kB\nHugePages_Total:       0\nHugePages_Free:        0\nHugePages_Rsvd:        0\nHugePages_Surp:        0\nHugepagesize:       2048 kB\nHugetlb:               0 kB\nDirectMap4k:      270336 kB\nDirectMap2M:     9031680 kB\nDirectMap1G:    17825792 kB\n",
+  "output_exists": true,
+  "outputs_sha256": {
+    "predictions.jsonl": "3a386120b9d7c4bcccd934ae962328fd12084f4d128d41de9ae45af8bdf0ba7c",
+    "predictions.metadata.json": "d311bbe761095412b947a3c43fc786292fd8ccbbe62e362adc58ddd30c122482",
+    "benchmark_run.log": "2082f250aa80baf72bb822be02d7651d86b01933910b372bada0a378204c6847",
+    "resource_monitor.jsonl": "ce5dfd28d52e1bd821e014656ca1e924821fbee36f296721314414cd6dd83231"
+  }
+}

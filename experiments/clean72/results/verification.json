@@ -1,0 +1,260 @@
+{
+  "verification_version": "independent-offline-v1",
+  "verified_at_utc": "2026-10-02T08:39:25.366613+00:00",
+  "status": "pass",
+  "complete_requests": 72,
+  "frozen_integrity": {
+    "manifest_sha256": "3224bfdd2d70afa6d20b6d9f0ed91b44029b332d36fdad47ea81ff9e99743135",
+    "files_checked": 16,
+    "all_match": true
+  },
+  "artifacts_sha256": {
+    "predictions.jsonl": "240063f1480ff1a2f69e72f03c9d7a2b04fb337c924ebb6b2941610b4402dc1a",
+    "predictions.metadata.json": "35e4e505e10bcb8922eee6cfcb2f70894a0f08b748a66fb03912a836cbe76ac1"
+  },
+  "started_at": "2026-10-02T08:18:04.037039+00:00",
+  "completed_at": "2026-10-02T08:38:32.903309+00:00",
+  "same_original_text_configuration": {
+    "checked_keys": [
+      "model",
+      "revision",
+      "mode",
+      "quantization",
+      "dtype",
+      "device",
+      "threads",
+      "batch_size",
+      "max_length",
+      "source_code_sha256",
+      "runner_sha256",
+      "seed",
+      "packages",
+      "joint_head_dtypes"
+    ],
+    "all_equal": true,
+    "original_metadata_sha256": "5582e6a30865bf15fad52a3315fb531a29f39937ea72fa5765aba934ea2a3d11",
+    "runner_sha256": "d06f85b922e1e4d0e905a1ddc8846aedcafa93c29f502f48b1529a36a9eb5906"
+  },
+  "all_native_schema_records_valid": true,
+  "all_untruncated": true,
+  "request_gold_isolation_verified": true,
+  "process_exit_code": 0,
+  "scored_main_pass_attempts": 1,
+  "model_integrity_evidence": {
+    "launch_rehashed_files": 17,
+    "all_launch_hashes_match_pinned_manifest": true,
+    "manifest_sha256": "09176750060287112e38af55684476e00255d2feb6edc3e5af7d16b11c6f728a",
+    "independent_reviewer_scope": "Independently checked recorded preflight hashes against pinned manifest and inspected hash-checking launcher; did not reread19GB weights during timed inference"
+  },
+  "execution_order": "Started after image completion and recorded exclusive RAM release",
+  "independent_extended_metrics": {
+    "all_category_macro_f1_calibration_and_fixed_deferral_thresholds_match": true,
+    "category_macro_f1": 0.8433333333333334,
+    "by_category": {
+      "anliegen_priorisierung": {
+        "macro_f1": 0.8266666666666667,
+        "multiclass_brier_sum": 0.1921601027971498,
+        "nll_clip_1e_12": 0.3700851317884656,
+        "ece_5_equal_width_bins": 0.12085147034629429
+      },
+      "beitragsrechnung": {
+        "macro_f1": 0.48095238095238096,
+        "multiclass_brier_sum": 0.5522348014988152,
+        "nll_clip_1e_12": 1.0181988344024426,
+        "ece_5_equal_width_bins": 0.19405761036673275
+      },
+      "finanzservice_routing": {
+        "macro_f1": 1.0,
+        "multiclass_brier_sum": 0.008263825798790985,
+        "nll_clip_1e_12": 0.06420374403144598,
+        "ece_5_equal_width_bins": 0.0606907399074906
+      },
+      "rueckfrageplanung": {
+        "macro_f1": 0.9111111111111111,
+        "multiclass_brier_sum": 0.17234025516895396,
+        "nll_clip_1e_12": 0.385519806595318,
+        "ece_5_equal_width_bins": 0.07935083461776998
+      },
+      "unterlagenabgleich": {
+        "macro_f1": 0.9365079365079365,
+        "multiclass_brier_sum": 0.1678299745814667,
+        "nll_clip_1e_12": 0.35823734592330947,
+        "ece_5_equal_width_bins": 0.1100402077086353
+      },
+      "vorgangsstand": {
+        "macro_f1": 0.9047619047619048,
+        "multiclass_brier_sum": 0.1457890539385274,
+        "nll_clip_1e_12": 0.29210217904341307,
+        "ece_5_equal_width_bins": 0.04858651077390841
+      }
+    }
+  },
+  "overall": {
+    "correct": 61,
+    "total": 72,
+    "accuracy": 0.8472222222222222
+  },
+  "per_category": {
+    "anliegen_priorisierung": {
+      "correct": 10,
+      "total": 12,
+      "accuracy": 0.8333333333333334
+    },
+    "beitragsrechnung": {
+      "correct": 6,
+      "total": 12,
+      "accuracy": 0.5
+    },
+    "finanzservice_routing": {
+      "correct": 12,
+      "total": 12,
+      "accuracy": 1.0
+    },
+    "rueckfrageplanung": {
+      "correct": 11,
+      "total": 12,
+      "accuracy": 0.9166666666666666
+    },
+    "unterlagenabgleich": {
+      "correct": 11,
+      "total": 12,
+      "accuracy": 0.9166666666666666
+    },
+    "vorgangsstand": {
+      "correct": 11,
+      "total": 12,
+      "accuracy": 0.9166666666666666
+    }
+  },
+  "by_information_status": {
+    "sufficient": {
+      "correct": 42,
+      "total": 50,
+      "accuracy": 0.84
+    },
+    "missing_or_unresolved": {
+      "correct": 19,
+      "total": 22,
+      "accuracy": 0.8636363636363636
+    }
+  },
+  "information_request_diagnostic": {
+    "true_information_requests": 19,
+    "unnecessary_information_requests": 0,
+    "missed_information_requests": 3,
+    "needed_context_denominator": 22,
+    "sufficient_context_denominator": 50,
+    "precision": 1.0,
+    "recall": 0.8636363636363636,
+    "unnecessary_rate": 0.0
+  },
+  "all_incorrect_cases": [
+    {
+      "id": "de_clean_beitragsrechnung_001",
+      "category": "beitragsrechnung",
+      "information_status": "sufficient",
+      "predicted": "betrag_b",
+      "expected": "betrag_c",
+      "correct": false,
+      "confidence": 0.39205485582351685
+    },
+    {
+      "id": "de_clean_beitragsrechnung_008",
+      "category": "beitragsrechnung",
+      "information_status": "sufficient",
+      "predicted": "betrag_a",
+      "expected": "betrag_d",
+      "correct": false,
+      "confidence": 0.45295998454093933
+    },
+    {
+      "id": "de_clean_vorgangsstand_008",
+      "category": "vorgangsstand",
+      "information_status": "missing_or_unresolved",
+      "predicted": "einreichung_vorbereiten",
+      "expected": "unterlagen_nachfordern",
+      "correct": false,
+      "confidence": 0.743253767490387
+    },
+    {
+      "id": "de_clean_rueckfrageplanung_001",
+      "category": "rueckfrageplanung",
+      "information_status": "missing_or_unresolved",
+      "predicted": "keine_rueckfrage",
+      "expected": "zeitpunkt",
+      "correct": false,
+      "confidence": 0.88872891664505
+    },
+    {
+      "id": "de_clean_beitragsrechnung_009",
+      "category": "beitragsrechnung",
+      "information_status": "sufficient",
+      "predicted": "betrag_d",
+      "expected": "betrag_b",
+      "correct": false,
+      "confidence": 0.40706667304039
+    },
+    {
+      "id": "de_clean_anliegen_priorisierung_005",
+      "category": "anliegen_priorisierung",
+      "information_status": "missing_or_unresolved",
+      "predicted": "bestandsaenderung",
+      "expected": "rueckfrage",
+      "correct": false,
+      "confidence": 0.45377400517463684
+    },
+    {
+      "id": "de_clean_beitragsrechnung_007",
+      "category": "beitragsrechnung",
+      "information_status": "sufficient",
+      "predicted": "betrag_a",
+      "expected": "betrag_c",
+      "correct": false,
+      "confidence": 0.558300256729126
+    },
+    {
+      "id": "de_clean_unterlagenabgleich_004",
+      "category": "unterlagenabgleich",
+      "information_status": "sufficient",
+      "predicted": "abweichung",
+      "expected": "konsistent",
+      "correct": false,
+      "confidence": 0.6416890025138855
+    },
+    {
+      "id": "de_clean_beitragsrechnung_005",
+      "category": "beitragsrechnung",
+      "information_status": "sufficient",
+      "predicted": "betrag_b",
+      "expected": "betrag_a",
+      "correct": false,
+      "confidence": 0.5123352408409119
+    },
+    {
+      "id": "de_clean_beitragsrechnung_012",
+      "category": "beitragsrechnung",
+      "information_status": "sufficient",
+      "predicted": "betrag_b",
+      "expected": "betrag_c",
+      "correct": false,
+      "confidence": 0.45788195729255676
+    },
+    {
+      "id": "de_clean_anliegen_priorisierung_010",
+      "category": "anliegen_priorisierung",
+      "information_status": "sufficient",
+      "predicted": "bestandsaenderung",
+      "expected": "schadenservice",
+      "correct": false,
+      "confidence": 0.6808939576148987
+    }
+  ],
+  "decision_error_count": 11,
+  "schema_or_runtime_error_count": 0,
+  "interpretation_limits": [
+    "72 synthetic, purposively authored German office cases in six structured choice tasks; not production, real-client or unconstrained advice validation",
+    "50 sufficient-context and22 missing-or-unresolved-context cases are predeclared subgroups, not separate population samples",
+    "No clean-versus-attack causal comparison or pooling with prior suites",
+    "One pinned CPU NF4 configuration with original BF16 decision head; no AMD hardware result"
+  ]
+}

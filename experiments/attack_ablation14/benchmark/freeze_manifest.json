@@ -1,0 +1,42 @@
+{
+  "diagnostic_version": "finance-injection-ablation-v1",
+  "status": "frozen_before_first_ablation_inference_after_original_finance_results",
+  "frozen_at_utc": "2026-10-02T07:18:39.487647+00:00",
+  "review": "Independent AI reviewer passed all seven deletions, preserved gold/policy/schema, selection, input isolation, deterministic order, source freeze integrity, and scoring edge cases. Reporting metadata handling hardened and independently rechecked before freeze. Reviewer did not inspect historic model predictions; original-result-aware project authors designed this post-hoc diagnostic.",
+  "planned_requests": 14,
+  "planned_pairs": 7,
+  "model_inference_started": false,
+  "ordering_gate": "Image benchmark must finish and release exclusive window before this diagnostic loads model.",
+  "sha256": {
+    "README.md": "01ae38c1b2a53db1b3200eafb0ce0e1f31f58caf270ceecbd8c2f8f63bede465",
+    "build_ablation.py": "7e52ad8aec427f3752379b44c427f60f6a89af6dc4331f035b162e65f001cfac",
+    "cases.jsonl": "18f014c62653768478e236a7c4608613350c89f7527ec7bb5555a2a2667c2930",
+    "design.json": "21b3542facfaa0c7c378d6e18cd7ed498b2a17e6a166d6e0839ade5e97163cb4",
+    "gold.jsonl": "4a5528ebb993e3ea935576c14124a5a1795e9da71e3fa54f3dda026f77e3dc8e",
+    "guard_run.py": "87d1a533e43ad33f0257785f203bb3dacbadc7d43cfabaaece4b55a10ed092b3",
+    "pairs.jsonl": "f7ef32713dcf4f110a600dacb46ab7cfda33e18740649b2448ce6c93df5c7831",
+    "policies.json": "7effaeec2ab4c0aaf6dd544b89c2b4316ba9484fff51a043d79b95195c2befbc",
+    "requests.jsonl": "295710d90546d9a0aa5fa4dd465a62cb7e285deba8fa5ab5b8ec4f3dd45f04d7",
+    "score_ablation.py": "1b75c0e23e366143d1190837074dd2d2458e7c33493e039fc85a79785be4f7c4",
+    "source_score.py": "a93515e3c3e857bbeb709df4d0a9f032b52f9c341065f8e671322610c9c3ff7a",
+    "validate.py": "92a39d5438578de37022d922b945ec607014808654475255449d713e9efb0ba2",
+    "pre_inference_review.md": "72c33be0e1cc94d2ffd8cbb452091254cb9bc86273f4b4c70286791944fa85d7"
+  },
+  "publication_note": "Portable public derivative. The original pre-inference freeze remains unchanged at source. Original file hashes are retained in original_sha256; sha256 validates the documented public copies. No case, request, gold label, order, numeric annotation or scoring formula changed.",
+  "original_manifest_sha256": "0668fe6c03a56077561311a924c82ca8a3c90e4d697532e287e7c567beec817f",
+  "original_sha256": {
+    "README.md": "d02c0ee900db8b489b822380471c0d555630d2fb19bf3560d55f6721888ffece",
+    "build_ablation.py": "4c146bb4863176f5ca73f66e3ea04e3f210f518e9aab4af528f7adff8e70ea6c",
+    "cases.jsonl": "18f014c62653768478e236a7c4608613350c89f7527ec7bb5555a2a2667c2930",
+    "design.json": "21b3542facfaa0c7c378d6e18cd7ed498b2a17e6a166d6e0839ade5e97163cb4",
+    "gold.jsonl": "4a5528ebb993e3ea935576c14124a5a1795e9da71e3fa54f3dda026f77e3dc8e",
+    "guard_run.py": "87d1a533e43ad33f0257785f203bb3dacbadc7d43cfabaaece4b55a10ed092b3",
+    "pairs.jsonl": "f7ef32713dcf4f110a600dacb46ab7cfda33e18740649b2448ce6c93df5c7831",
+    "policies.json": "7effaeec2ab4c0aaf6dd544b89c2b4316ba9484fff51a043d79b95195c2befbc",
+    "requests.jsonl": "295710d90546d9a0aa5fa4dd465a62cb7e285deba8fa5ab5b8ec4f3dd45f04d7",
+    "score_ablation.py": "a4f266dadaef78a8fee595a0aadeaa4b7a9a122bc5e0253dddb0e1b86450307f",
+    "source_score.py": "a93515e3c3e857bbeb709df4d0a9f032b52f9c341065f8e671322610c9c3ff7a",
+    "validate.py": "804c483fc55e35e8f2fbf9be448c213367940d5a7303164905939f4a39bdde92",
+    "pre_inference_review.md": "8e1ad1b791dfa45e14ea9dff1f77a80ca093586c3ae90dfdcd19f63442340b23"
+  }
+}

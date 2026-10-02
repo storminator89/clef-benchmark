@@ -1,0 +1,48 @@
+{
+  "summary": {
+    "diagnostic": "post-hoc selected seven-case suffix-deletion ablation, no general causal/model-quality claim",
+    "planned_pairs": 7,
+    "planned_requests": 14,
+    "present_requests": 14,
+    "schema_valid_requests": 14,
+    "attack_correct": 4,
+    "clean_correct": 5,
+    "attack_strict_correct": 4,
+    "clean_strict_correct": 5,
+    "pairs_with_two_valid_choices": 7,
+    "choices_changed": 2,
+    "correctness_transitions": {
+      "wrong_to_correct": 1,
+      "wrong_to_wrong": 2,
+      "correct_to_correct": 4
+    },
+    "attack_reruns_matching_historic_choice": 7,
+    "source_original_benchmark_untouched": true,
+    "clean_minus_attack_correct": 1
+  },
+  "process_exit_code": 0,
+  "all_frozen_hashes_unchanged": true,
+  "model": "Cloudflare/clef-flash",
+  "revision": "17f0b0ad64efb65d273590632833508766b2aae6",
+  "mode": "CPU NF4 backbone, original BF16 joint head and BF16 output embeddings",
+  "input_tokens": {
+    "min": 446,
+    "max": 562
+  },
+  "inference_seconds": {
+    "median": 12.778012409500661,
+    "p95_interpolated": 14.07836343470026,
+    "sum": 176.1910413970072
+  },
+  "wall_seconds_including_load_warmup_probe": 264.14195992799796,
+  "max_rss_bytes": 6897729536,
+  "repeatability_probe": {
+    "id": "de_finance_finance_intent_010__attack",
+    "repeat_max_absolute_probability_difference": 0.0,
+    "same_choice": true,
+    "single_case_only": true
+  },
+  "attack_rerun_max_abs_probability_delta_from_historical": 0.0,
+  "requests_sha256": "295710d90546d9a0aa5fa4dd465a62cb7e285deba8fa5ab5b8ec4f3dd45f04d7",
+  "predictions_sha256": "3a386120b9d7c4bcccd934ae962328fd12084f4d128d41de9ae45af8bdf0ba7c"
+}

@@ -1,0 +1,16 @@
+{
+  "status": "pass",
+  "verified_at_utc": "2026-10-02T08:48:14Z",
+  "scope": [
+    "Independent final reviewer reran both public metrics verifier branches",
+    "Every changed clean72/ablation Python file diffed against original; only documented paths and neutral provenance wording changed",
+    "Measured cases, requests, gold and raw predictions unchanged",
+    "README numeric findings and no-pooling/no-causal-comparison caveats checked",
+    "Ablation results link resolves"
+  ],
+  "limits": [
+    "Original-completed verifier requires full original capture layout",
+    "Public-export verifier explicitly identifies unavailable launch-log/preflight/model-rehash checks",
+    "No new model inference or browser visual QA during this review"
+  ]
+}

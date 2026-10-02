@@ -1,0 +1,11 @@
+This benchmark uses Cloudflare/clef-flash (Apache-2.0), pinned revision17f0b0ad64efb65d273590632833508766b2aae6.
+
+Chart source: YuukiAsuna, Synthetic Chart Dataset, HuggingFace repository YuukiAsuna/synthetic_chart, revision633cf14bc4c513f6c4806e319905e573afae12f4. Dataset card declares CC-BY-4.0. Attribution: https://huggingface.co/datasets/YuukiAsuna/synthetic_chart
+License: https://creativecommons.org/licenses/by/4.0/
+Original selected image bytes were not edited. The official model processor resizes/normalizes pixels; German/English evaluation questions and derived class/count decisions are benchmark additions.
+
+Invoice source: Belege (Immineal, 2026), Linus Oskar Linhof. Free sample of the paid Belege synthetic German invoice dataset, HuggingFace repository laterrr/belege-de-invoices-sample, revisionda6044a02bd0b6c1d065b9f5615fe021272ece45.
+Source: https://huggingface.co/datasets/laterrr/belege-de-invoices-sample
+Read licenses/BELEGE-LICENCE.txt. Local evaluation is explicitly permitted. This deliverable distributes evaluation scripts and results, not a repackaged invoice dataset or the original invoice image/label files. The report includes two exact-pixel documentary crops of totals areas under the licence clause permitting figures and sample images in documentation, credited to Belege (Immineal, 2026). Obtain the unmodified free sample from its publisher when reproducing.
+
+All invoice entities are fabricated according to the publisher. These are not customer records. Publisher licensing declarations are recorded; this is not an independent chain-of-title certification.

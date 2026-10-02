@@ -1,0 +1,40 @@
+{
+  "test_count": 19,
+  "passed_tests": [
+    "complete_fixture_72_all_correct",
+    "macro_f1_perfect",
+    "information_partition_and_routing_exclusion",
+    "empty_output_all_planned_denominator",
+    "partial_output_all_planned_denominator",
+    "reject_confidence_True",
+    "reject_confidence_nan",
+    "reject_probabilities_{'beitragsklaerung': 0, 'dokumentenservice': 0, 'bestandsaenderung': 0, 'schadenservice': 0, 'rueckfrage': 0}",
+    "reject_probabilities_{'beitragsklaerung': nan, 'dokumentenservice': 0, 'bestandsaenderung': 0, 'schadenservice': 0, 'rueckfrage': 0}",
+    "reject_probabilities_{'beitragsklaerung': True, 'dokumentenservice': 0, 'bestandsaenderung': 0, 'schadenservice': 0, 'rueckfrage': 0}",
+    "unrounded_argmax_conflict_invalidates_strict",
+    "known_brier_and_nll",
+    "known_ece",
+    "confidence_threshold_inclusive",
+    "information_diagnostic_counts",
+    "binary_and_exact_information_metrics_distinct",
+    "unknown_choice_is_invalid_and_wrong",
+    "runtime_failure_wrong",
+    "wrong_choice_brier_two"
+  ],
+  "scorer_sha256": "3e9ca13c88a383d2a413598d73e553b325c1e2ed66c7bd66e726d99fef3ea226",
+  "input_words": {
+    "min": 122,
+    "median": 130.5,
+    "max": 141,
+    "sum": 9400
+  },
+  "encoding_preflight_existing_report": {
+    "count": 72,
+    "model_instantiated": false,
+    "all_fit_without_truncation": true,
+    "min": 601,
+    "median": 647.5,
+    "max": 710
+  },
+  "note": "Only artificial in-memory fixtures. No target model, network, model loading or inference."
+}

@@ -1,0 +1,85 @@
+{
+  "status": "pass",
+  "verified_at_utc": "2026-10-02T08:48:14.657033+00:00",
+  "baseline_commit": "a7c2e351625b7425fdeacc1b68bc02efe1b6ed92",
+  "protected_original_data_runtime_and_amd_files": 63,
+  "original_text_requests": 280,
+  "followups": {
+    "clean72": {
+      "status": "completed_and_independently_verified",
+      "requests": 72,
+      "correct": 61
+    },
+    "images": {
+      "status": "completed_and_independently_verified",
+      "requests": 90,
+      "immutable_export_files": 57,
+      "three_ambiguous_chart_option_mismatches_disclosed": true
+    },
+    "attack_ablation14": {
+      "status": "completed_and_independently_verified",
+      "requests": 14,
+      "pairs": 7,
+      "attack_correct": 4,
+      "clean_correct": 5
+    }
+  },
+  "python_unit_tests": {
+    "run": 62,
+    "passed": 62
+  },
+  "node_tests": {
+    "run": 13,
+    "passed": 13
+  },
+  "offline_reproducibility_checks": [
+    "scripts/check_project.py",
+    "scripts/check_followups.py"
+  ],
+  "deterministic_web_data_rebuild": [
+    "general",
+    "finance",
+    "clean72"
+  ],
+  "local_http_checks": [
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 14695
+    },
+    {
+      "path": "/data/benchmark.json",
+      "status": 200,
+      "bytes": 639544
+    },
+    {
+      "path": "/data/finance.json",
+      "status": 200,
+      "bytes": 413522
+    },
+    {
+      "path": "/data/clean72.json",
+      "status": 200,
+      "bytes": 320768
+    },
+    {
+      "path": "/app.js",
+      "status": 200,
+      "bytes": 21998
+    },
+    {
+      "path": "/core.js",
+      "status": 200,
+      "bytes": 3708
+    },
+    {
+      "path": "/styles.css",
+      "status": 200,
+      "bytes": 29060
+    }
+  ],
+  "public_audit": "pass; zero heuristic findings",
+  "model_loading_or_inference_during_integration": false,
+  "live_backend": "text-only; unchanged",
+  "browser_visual_qa": "Not run for these changes. Existing sandbox browser socket/loopback restrictions remain; no bypass attempted. See docs/VALIDATION.md."
+}

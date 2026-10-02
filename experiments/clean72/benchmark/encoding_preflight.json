@@ -1,0 +1,375 @@
+{
+  "requests_sha256": "3e94e7c8dcda74f58a5402cfe361591da6ee10f818175ec791a3d79856195d84",
+  "native_encoder_sha256": "0e304cf7c6500e8bb59bef7e2afd2c6373f82596dfb3b57d1aa93c175e2dc3a3",
+  "count": 72,
+  "min_tokens": 601,
+  "median_tokens": 647.5,
+  "max_tokens": 710,
+  "all_fit_without_truncation": true,
+  "max_input_tokens": 2048,
+  "model_instantiated": false,
+  "model_inference_performed": false,
+  "local_files_only": true,
+  "items": [
+    {
+      "id": "de_clean_anliegen_priorisierung_011",
+      "tokens": 629,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_clean_rueckfrageplanung_011",
+      "tokens": 621,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_clean_rueckfrageplanung_005",
+      "tokens": 621,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_clean_finanzservice_routing_002",
+      "tokens": 695,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_clean_vorgangsstand_002",
+      "tokens": 697,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_clean_rueckfrageplanung_010",
+      "tokens": 636,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_clean_vorgangsstand_006",
+      "tokens": 698,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_clean_unterlagenabgleich_003",
+      "tokens": 651,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_clean_unterlagenabgleich_002",
+      "tokens": 660,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_clean_beitragsrechnung_001",
+      "tokens": 627,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_clean_beitragsrechnung_008",
+      "tokens": 631,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_clean_unterlagenabgleich_001",
+      "tokens": 661,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_clean_unterlagenabgleich_010",
+      "tokens": 655,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_clean_vorgangsstand_008",
+      "tokens": 698,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_clean_rueckfrageplanung_001",
+      "tokens": 647,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_clean_rueckfrageplanung_008",
+      "tokens": 623,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_clean_beitragsrechnung_009",
+      "tokens": 626,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_clean_beitragsrechnung_006",
+      "tokens": 614,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_clean_anliegen_priorisierung_004",
+      "tokens": 626,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_clean_finanzservice_routing_010",
+      "tokens": 674,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_clean_unterlagenabgleich_009",
+      "tokens": 652,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_clean_beitragsrechnung_003",
+      "tokens": 608,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_clean_rueckfrageplanung_002",
+      "tokens": 629,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_clean_anliegen_priorisierung_012",
+      "tokens": 613,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_clean_finanzservice_routing_005",
+      "tokens": 685,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_clean_unterlagenabgleich_011",
+      "tokens": 651,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_clean_unterlagenabgleich_006",
+      "tokens": 652,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_clean_anliegen_priorisierung_006",
+      "tokens": 641,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_clean_rueckfrageplanung_012",
+      "tokens": 658,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_clean_finanzservice_routing_004",
+      "tokens": 670,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_clean_vorgangsstand_004",
+      "tokens": 710,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_clean_finanzservice_routing_009",
+      "tokens": 688,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_clean_finanzservice_routing_012",
+      "tokens": 690,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_clean_rueckfrageplanung_003",
+      "tokens": 625,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_clean_finanzservice_routing_007",
+      "tokens": 670,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_clean_finanzservice_routing_001",
+      "tokens": 669,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_clean_unterlagenabgleich_005",
+      "tokens": 650,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_clean_vorgangsstand_009",
+      "tokens": 697,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_clean_vorgangsstand_011",
+      "tokens": 698,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_clean_rueckfrageplanung_007",
+      "tokens": 637,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_clean_anliegen_priorisierung_005",
+      "tokens": 617,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_clean_beitragsrechnung_007",
+      "tokens": 613,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_clean_beitragsrechnung_011",
+      "tokens": 615,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_clean_beitragsrechnung_004",
+      "tokens": 638,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_clean_anliegen_priorisierung_007",
+      "tokens": 628,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_clean_rueckfrageplanung_009",
+      "tokens": 624,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_clean_finanzservice_routing_003",
+      "tokens": 682,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_clean_vorgangsstand_007",
+      "tokens": 696,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_clean_anliegen_priorisierung_008",
+      "tokens": 604,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_clean_finanzservice_routing_011",
+      "tokens": 688,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_clean_unterlagenabgleich_007",
+      "tokens": 627,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_clean_unterlagenabgleich_004",
+      "tokens": 648,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_clean_finanzservice_routing_006",
+      "tokens": 682,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_clean_beitragsrechnung_002",
+      "tokens": 606,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_clean_anliegen_priorisierung_003",
+      "tokens": 625,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_clean_anliegen_priorisierung_009",
+      "tokens": 629,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_clean_anliegen_priorisierung_002",
+      "tokens": 611,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_clean_unterlagenabgleich_008",
+      "tokens": 643,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_clean_vorgangsstand_005",
+      "tokens": 684,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_clean_vorgangsstand_010",
+      "tokens": 709,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_clean_anliegen_priorisierung_001",
+      "tokens": 641,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_clean_beitragsrechnung_005",
+      "tokens": 618,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_clean_unterlagenabgleich_012",
+      "tokens": 652,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_clean_finanzservice_routing_008",
+      "tokens": 675,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_clean_beitragsrechnung_010",
+      "tokens": 601,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_clean_rueckfrageplanung_004",
+      "tokens": 655,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_clean_vorgangsstand_003",
+      "tokens": 687,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_clean_vorgangsstand_001",
+      "tokens": 702,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_clean_beitragsrechnung_012",
+      "tokens": 645,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_clean_anliegen_priorisierung_010",
+      "tokens": 623,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_clean_rueckfrageplanung_006",
+      "tokens": 633,
+      "fits_without_truncation": true
+    },
+    {
+      "id": "de_clean_vorgangsstand_012",
+      "tokens": 686,
+      "fits_without_truncation": true
+    }
+  ]
+}

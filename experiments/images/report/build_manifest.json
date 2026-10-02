@@ -1,0 +1,142 @@
+{
+  "created_at_utc": "2026-10-02T08:24:22.743548+00:00",
+  "output": "Clef_Bildbenchmark_2026-10-02.docx",
+  "output_sha256": "65a05379941bb646c58fbef97220ddaead430061cc28ef4bce1d4b2de7a40b88",
+  "report_script_sha256": "44b586699ee73f5e9b4ee81a5b923a4dec2fec1908baf86c4d4b74b1a2b3ae7c",
+  "inputs_sha256": {
+    "results/scores.json": "a49dcc576233f7a4f5b22c9dd464778685965770599349b1fd7c94f9a7f172fb",
+    "results/predictions.metadata.json": "5d5861d3126aa95d15149b7f8dae2afd7e1c54dac9b25e452a1c80fba2e781a3",
+    "benchmark/freeze_manifest.json": "ec093f838c18c1e19047e774eadc82d5fdd8fcd0c0839c2eb2c2e3b76a4cfb5b",
+    "benchmark/design_summary.json": "ed237fda856b68aa411e6567386aaeacfe34f3097e91d1ae8cf0158dfa4547ed",
+    "source/provenance.json": "33aa4df7ea03d8c3edadd71ea5713a2dc23c203f2c1c0d9e436a05e01f101a1e"
+  },
+  "intended_pages": 6,
+  "visual_qa": {
+    "status": "pass",
+    "pages_inspected": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "qa_file": "qa_report.json",
+    "qa_sha256": "17322ee6e442bab3a541e5d0a836ca70abb50b06acd886fb1e22a6ea5e1b4f60"
+  },
+  "no_source_images_embedded": false,
+  "documentary_figures_only": 2,
+  "documentary_figure_provenance": [
+    {
+      "case_id": "invoice-009",
+      "source_id": "beleg-000038",
+      "source_revision": "da6044a02bd0b6c1d065b9f5615fe021272ece45",
+      "source_image_sha256": "3fedbad12d63e215468ca50e2b690a2cb5ec28463cd865137771bc78733633d6",
+      "source_label_sha256": "10e148be9d9dfedb320425b89511ec2c440669eb5b07656ffa75db2afb01f590",
+      "crop_rect_xyxy": [
+        694,
+        642,
+        1030,
+        761
+      ],
+      "original_label_boxes": {
+        "net_total": [
+          937,
+          668,
+          1006,
+          680
+        ],
+        "vat_amount_19": [
+          945,
+          693,
+          1006,
+          705
+        ],
+        "gross_total": [
+          906,
+          719,
+          1006,
+          738
+        ]
+      },
+      "crop_sha256": "59cc1f9062bec9a3ba464c0dba915d509daee7ba352758038feef80552b7e670",
+      "crop_file": "report/evidence/invoice-009_totals.png",
+      "pixel_identical_to_source_region": true,
+      "retouched": false,
+      "amount_texts": {
+        "net_total": "-25.074,10",
+        "vat_amount_19": "-4.764,08",
+        "gross_total": "-29.838,18"
+      },
+      "attribution": "Belege (Immineal, 2026)"
+    },
+    {
+      "case_id": "invoice-016",
+      "source_id": "beleg-000028",
+      "source_revision": "da6044a02bd0b6c1d065b9f5615fe021272ece45",
+      "source_image_sha256": "960b58babf0263c6d4c986a15e646c6fbd1dbf282e7d3337650baa54cdf8f6d0",
+      "source_label_sha256": "871f56ed2489a101347bee4f3a1023cdeb07296b2f718c71d053a67183bde640",
+      "crop_rect_xyxy": [
+        1230,
+        580,
+        1840,
+        726
+      ],
+      "original_label_boxes": {
+        "net_total": [
+          1736,
+          609,
+          1821,
+          625
+        ],
+        "vat_amount_19": [
+          1745,
+          638,
+          1820,
+          654
+        ],
+        "gross_total": [
+          1696,
+          672,
+          1820,
+          697
+        ]
+      },
+      "crop_sha256": "f6bd6c966f94f09ab600bcb5d37aa6988c6ccaa9db93aadabf0b8ebaf63b10d0",
+      "crop_file": "report/evidence/invoice-016_totals.png",
+      "pixel_identical_to_source_region": true,
+      "retouched": false,
+      "amount_texts": {
+        "net_total": "-14.199,44",
+        "vat_amount_19": "-2.697,89",
+        "gross_total": "-16.897,33"
+      },
+      "attribution": "Belege (Immineal, 2026)"
+    }
+  ],
+  "chart_ambiguity_provenance": [
+    {
+      "case_id": "chart-001",
+      "source_id": "test-270",
+      "source_revision": "633cf14bc4c513f6c4806e319905e573afae12f4",
+      "image_sha256": "1158446f9f4068753dd2be4163bc94d62dabbd7e67e87157bfe2d28404a7afc7"
+    },
+    {
+      "case_id": "chart-002",
+      "source_id": "test-293",
+      "source_revision": "633cf14bc4c513f6c4806e319905e573afae12f4",
+      "image_sha256": "00fbd70006924eb1d1f660b564eccbf00e6850c4ab36370e3bb1d6389589a263"
+    },
+    {
+      "case_id": "chart-003",
+      "source_id": "test-286",
+      "source_revision": "633cf14bc4c513f6c4806e319905e573afae12f4",
+      "image_sha256": "007ccd50efe6ba6d6ac60740d037fe886916d02e0cf1c0735e97b5cff832d157"
+    }
+  ],
+  "pdf_export_script_sha256": "b4176c57a8d2076c18f206311169b81796af6ec6f776e8dd72b0d3af3b946a9b",
+  "pdf_output": "Clef_Bildbenchmark_2026-10-02.pdf",
+  "pdf_sha256": "372d6f9662cc03d8825f09eb43503dbb6dfee8f2654a96b68a38f7ad1f6edf83",
+  "final_page_count": 6,
+  "lossless_pdf_documentary_pixels_verified": true
+}

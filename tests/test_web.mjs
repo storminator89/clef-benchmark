@@ -50,3 +50,23 @@ test('pending inference keeps editor ownership across navigation and example rep
   assert.equal(session.isCurrent(token),false);
   assert.equal(session.isCurrent(newToken),true);
 });
+test('clean72 stays a separate completed German-only suite with exact recorded results',async()=>{
+ const data=JSON.parse(await readFile(new URL('../web/data/clean72.json',import.meta.url)));
+ assert.equal(data.status,'completed');assert.equal(data.suite.id,'clean72');assert.equal(data.cases.length,72);
+ assert.equal(new Set(data.cases.map(c=>c.id)).size,72);assert.equal(data.verification.status,'pass');
+ assert.equal(data.scores.splits.german_clean_primary.choice_accuracy_all_planned,61/72);
+ assert.equal(filterCases(data.cases,{split:'german_clean_primary',errors:true}).length,11);
+ assert.equal(filterCases(data.cases,{split:'german_clean_primary',category:'beitragsrechnung',errors:true}).length,6);
+ assert.deepEqual(data.scores.paired_all_planned,{});
+ for(const file of ['benchmark','finance']){
+  const original=JSON.parse(await readFile(new URL(`../web/data/${file}.json`,import.meta.url)));
+  const ids=new Set(original.cases.map(c=>c.id));assert.ok(data.cases.every(c=>!ids.has(c.id)));
+ }
+ assert.ok(data.cases.every(c=>c.result.schema_valid&&c.language==='de'));
+});
+test('follow-up report links and clean selector exist without an image upload control',async()=>{
+ const html=await readFile(new URL('../web/index.html',import.meta.url),'utf8');
+ assert.match(html,/value="clean72"/);assert.match(html,/experiments\/images\/README.md/);
+ assert.match(html,/experiments\/attack_ablation14\/RESULTS.md/);assert.doesNotMatch(html,/<input[^>]+type=["']file/i);
+ const app=await readFile(new URL('../web/app.js',import.meta.url),'utf8');assert.match(app,/\$\('paired-panel'\)\.hidden=id==='clean72'/);
+});
