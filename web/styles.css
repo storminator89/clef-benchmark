@@ -2800,7 +2800,9 @@ textarea:focus {
 /* Private custom suites stay visually and semantically separate from published studies. */
 .custom-view { max-width: 1440px; margin: 0 auto; }
 .custom-upload-grid { display:grid;grid-template-columns:1.4fr 1fr;gap:20px;margin:18px 0; }
-.custom-upload-grid label { display:grid;gap:8px;font-size:12px;font-weight:600;min-width:0; }
+/* Native selects must shrink inside the label's nested grid, even at 320px. */
+.custom-upload-grid label { display:grid;grid-template-columns:minmax(0,1fr);gap:8px;font-size:12px;font-weight:600;min-width:0; }
+.custom-upload-grid select { width:100%;min-width:0; }
 .custom-upload-grid input[type="file"] { border:1px dashed var(--line-strong);border-radius:9px;padding:12px;max-width:100%;font-size:12px;background:var(--surface-soft); }
 .custom-actions { display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin:16px 0; }
 .custom-errors { white-space:pre-wrap;max-height:300px;overflow:auto;overflow-wrap:anywhere; }

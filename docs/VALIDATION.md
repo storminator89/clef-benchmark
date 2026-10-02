@@ -201,3 +201,20 @@ screenshots plus a README fragment only after every browser check passes. The
 creation environment's earlier Chromium/loopback denial is respected. No real
 browser pass or screenshot is claimed by this source-only update; a later capture
 must carry its own commit/source hashes, browser diagnostics and visual review.
+
+### Echte CI-Browserprüfung: erster UI-Fund
+
+Der unterstützte vorhandene Chrome-Kanal startete auf dem Standard-Ubuntu-Runner
+mit aktivierter Sandbox und unverändertem AppArmor-Profil erfolgreich. Auf Commit
+`5c880d7c8c53c7606255f4384e4987cab1f67716` bestanden sieben Browser-Prüfgruppen,
+einschließlich aller fünf Suiten, Zwei-/Drei-Feld-Replay, privatem Dateiimport und
+390-Pixel-Ansichten. Bei 320 Pixeln fand die Prüfung 36 Pixel Überlauf am nativen
+Dateiformat-Select. Die 17 Diagnosebilder sind deshalb keine freigegebene Galerie.
+
+Die Korrektur macht nur das verschachtelte Label-Grid und die Select-Breite
+verkleinerbar; weder Seite noch Optionen werden abgeschnitten oder entfernt.
+Die ursprüngliche Überlaufprüfung bleibt erhalten, ergänzt um konkrete
+Select-/Preset-Begrenzungen und Tastaturfokus bei 320/390 Pixeln. Smartphone-Pane-
+Screenshots verwenden den tatsächlichen Viewport statt eines Vollseitenbilds,
+damit die fixe Navigation am Bildrand bleibt. Erst der erneute vollständige
+Capture und die Bildprüfung dürfen als visueller Erfolg bezeichnet werden.

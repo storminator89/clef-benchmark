@@ -36,8 +36,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 30466,
-      "sha256": "48eed010eaa60d9673e7b6285400d9ed6b576d58c3d8ad1bf7a69cb8557f85e3"
+      "bytes": 30603,
+      "sha256": "6dae1e22416da549ad229e59e67c9142e20d9fb3422be5172ee7ab7f4c05a001"
     },
     {
       "path": "benchmark/README.md",
@@ -181,8 +181,8 @@
     },
     {
       "path": "docs/VALIDATION.md",
-      "bytes": 14619,
-      "sha256": "37ecb7096a671659d1db427c374af92df18728975a78d502c07cb25f75ec7fb6"
+      "bytes": 15710,
+      "sha256": "9a53cbbc7ed478257d7edf7b36e6005438184c7eebccca8dac281910c63ae620"
     },
     {
       "path": "examples/custom_cases/support-spec.json",
@@ -1536,8 +1536,8 @@
     },
     {
       "path": "qa/ui_polish_review.json",
-      "bytes": 2288,
-      "sha256": "126c7f96b3a9ffe88bafdd8f8952ab4de40dfd26d4f5918c551ea5ab19b9f55a"
+      "bytes": 2858,
+      "sha256": "9d02d5659fd5b98f6a58e4832f14be08267296dfb5224952b8421eebf0623761"
     },
     {
       "path": "qa/verify_final_scores.py",
@@ -1901,8 +1901,8 @@
     },
     {
       "path": "tests/test_browser.py",
-      "bytes": 32818,
-      "sha256": "7f3188b56c234f5c62fa9e4eb46eb97495acb03237e5ae5320c7115fa5ae420e"
+      "bytes": 34356,
+      "sha256": "2016e3c000a07a9c53ccd7bc3b875227b8978f58248b6cd2a9a6e14e703cf3be"
     },
     {
       "path": "tests/test_browser_capture_contract.py",
@@ -1991,8 +1991,8 @@
     },
     {
       "path": "tests/test_workbench_dom.mjs",
-      "bytes": 40950,
-      "sha256": "4bc923237fa29db169580d182e07549a53847fa9d95f84e19b5e6d8d12233fc9"
+      "bytes": 41875,
+      "sha256": "375318379651afe53292823d5a57778854f35946a6b957a3fe598a2db621870b"
     },
     {
       "path": "web/app.js",
@@ -2056,8 +2056,8 @@
     },
     {
       "path": "web/styles.css",
-      "bytes": 68988,
-      "sha256": "04a47c655b8f907e33151116ef11708fd0ec95a888b8fb1051634ad9b3a0c066"
+      "bytes": 69159,
+      "sha256": "8a4aa7c06c5b777482a731fe6aac9e45967a69c27917bf22fb9e0f38853d9c4f"
     }
   ]
 }

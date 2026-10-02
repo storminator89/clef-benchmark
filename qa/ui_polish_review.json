@@ -9,7 +9,7 @@
       "failed": 0
     },
     "javascript_dom": {
-      "passed": 98,
+      "passed": 99,
       "failed": 0
     },
     "project_integrity": "passed",
@@ -24,7 +24,7 @@
     "private inputs absent from persistent browser storage and network until explicit local evaluation"
   ],
   "browser_capture": {
-    "status": "first_ci_attempt_blocked_before_rendering_supported_installed_channel_followup_prepared",
+    "status": "normal_sandboxed_chrome_working_mobile_select_fix_prepared",
     "screenshots_generated": 0,
     "reason": "Known cloud loopback/browser-process restrictions respected",
     "supported_workflow": ".github/workflows/browser-gallery.yml",
@@ -34,7 +34,17 @@
     "first_ci_commit": "97e055a45d65f6fc0f0d153958a39eead4b2cbfd",
     "first_ci_run": "https://github.com/storminator89/clef-benchmark/actions/runs/37017831993",
     "first_ci_failure": "Downloaded Chromium headless shell: No usable sandbox; zero screenshots/checks",
-    "followup": "Documented installed stable Chrome channel with chromium_sandbox=True and read-only existing AppArmor profile preflight; no OS changes, reinstall or fallback"
+    "followup": "Documented installed stable Chrome channel with chromium_sandbox=True and read-only existing AppArmor profile preflight; no OS changes, reinstall or fallback",
+    "second_ci_run": "https://github.com/storminator89/clef-benchmark/actions/runs/37019608947",
+    "second_ci_commit": "5c880d7c8c53c7606255f4384e4987cab1f67716",
+    "second_ci_result": {
+      "sandbox_launch": "passed",
+      "scenario_groups_passed": 7,
+      "diagnostic_screenshots": 17,
+      "remaining_defect": "320px expanded private-import native format selector overflowed36px",
+      "partial_images_published": false
+    },
+    "mobile_fix": "Shrinkable nested label grid and full-width native selects; original overflow gate retained and stricter control bounds/focus tests added"
   },
   "hardware_validation": "No model or GPU execution performed by this UI update",
   "cost_controls": {

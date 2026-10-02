@@ -423,7 +423,7 @@ class BrowserChecks:
             for pane in ('cases', 'document', 'result'):
                 page.locator(f'[data-pane="{pane}"]').click()
                 expect(page.locator('#workbench-shell')).to_have_attribute('data-mobile-pane', pane)
-                self.capture(f'insurance-{pane}-{width}.png', f'Insurance {pane} panel at {width} CSS pixels')
+                self.capture(f'insurance-{pane}-{width}.png', f'Insurance {pane} panel at {width} CSS pixels', full_page=False)
             for suite in SUITES:
                 self.suite(suite)
                 for pane in ('cases', 'document', 'result'):
@@ -439,6 +439,28 @@ class BrowserChecks:
             self.capture(f'custom-editor-{width}.png', f'Synthetic private editor at {width} CSS pixels')
             self.open_import()
             self.overflow(f'{width}px custom expanded import')
+            # Native select intrinsic widths must not grow the nested label grid.
+            # Cover the long format options and the conditionally visible CSV preset.
+            for format_value in ('auto', 'csv', 'jsonl'):
+                page.locator('#custom-format').select_option(format_value)
+                controls = ['custom-format'] + (['custom-preset'] if format_value == 'csv' else [])
+                for control_id in controls:
+                    control = page.locator('#' + control_id)
+                    expect(control).to_be_visible()
+                    control.focus()
+                    expect(control).to_be_focused()
+                    bounds = control.evaluate('''el => {
+                      const field = el.getBoundingClientRect();
+                      const label = el.closest('label').getBoundingClientRect();
+                      return {left: field.left, right: field.right, width: field.width,
+                        height: field.height, labelLeft: label.left, labelRight: label.right};
+                    }''')
+                    require(bounds['width'] > 0 and bounds['height'] >= 35 and
+                            bounds['left'] >= bounds['labelLeft'] - 1 and
+                            bounds['right'] <= bounds['labelRight'] + 1,
+                            f'{width}px {control_id} escapes its label: {bounds}')
+                self.overflow(f'{width}px custom expanded import, format {format_value}')
+            page.locator('#custom-format').select_option('auto')
             page.locator('#custom-import-box > summary').click()
             self.check(f'{width}px: all suites, three workbench panes, overview/live/method/private editor without horizontal overflow')
         page.set_viewport_size({'width': 1440, 'height': 1000})

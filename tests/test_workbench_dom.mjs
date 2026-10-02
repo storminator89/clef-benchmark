@@ -890,3 +890,18 @@ test('readiness immediately reflects a running single request and blocks a known
   assert.equal(await occupied.app.runLive(),false);
   assert.equal(occupied.calls.filter(c=>c.url==='/api/infer').length,0);
 });
+
+
+test('private import selects keep native labels/options and explicit shrinkable grid sizing', async () => {
+  const h = await harness({hash:'#custom'});
+  const css = await readFile(new URL('../web/styles.css', import.meta.url), 'utf8');
+  assert.match(css, /\.custom-upload-grid label\s*\{[^}]*grid-template-columns:\s*minmax\(0,\s*1fr\)/);
+  assert.match(css, /\.custom-upload-grid select\s*\{[^}]*width:\s*100%;[^}]*min-width:\s*0/);
+  assert.equal(h.$('custom-format').tagName, 'SELECT');
+  assert.match(h.$('custom-format').closest('label').textContent, /Dateiformat/);
+  assert.match(h.$('custom-format').querySelector('[value="csv"]').textContent, /Textspalten.*Fragenschema/);
+  h.change('custom-format','csv');
+  assert.equal(h.$('custom-import-fields').hidden,false);
+  assert.equal(h.$('custom-preset').tagName,'SELECT');
+  assert.match(h.$('custom-preset').closest('label').textContent,/CSV-Fragenschema/);
+});

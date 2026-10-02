@@ -323,7 +323,7 @@ Modelle, virtuelle Umgebungen, Caches, Schlüssel und private Pfade gehören nic
 
 ## Prüfung und Reproduktion
 
-Der dokumentierte lokale Integrationsstand umfasst **254 bestandene Python-Tests**, **98 bestandene JavaScript-/DOM-Tests** und **drei bestandene Integritätsgates**. Alle fünf UI-Datensätze wurden byte-identisch rekonstruiert. Diese modellfreien Prüfungen sind von echter Inferenz und visueller Browserprüfung getrennt. [Aktueller UI-Prüfnachweis](qa/ui_polish_review.json) · [Validierungsverlauf](docs/VALIDATION.md)
+Der dokumentierte lokale Integrationsstand umfasst **254 bestandene Python-Tests**, **99 bestandene JavaScript-/DOM-Tests** und **drei bestandene Integritätsgates**. Alle fünf UI-Datensätze wurden byte-identisch rekonstruiert. Diese modellfreien Prüfungen sind von echter Inferenz und visueller Browserprüfung getrennt. [Aktueller UI-Prüfnachweis](qa/ui_polish_review.json) · [Validierungsverlauf](docs/VALIDATION.md)
 
 Die folgenden Befehle laden kein Modell und führen keine Inferenz aus:
 
@@ -361,7 +361,7 @@ Die Importe verweigern unvollständige Läufe, fehlende IDs, geänderte Freeze-D
 
 Der vorbereitete [Browser-Gallery-Workflow](.github/workflows/browser-gallery.yml) verwendet **Playwright 1.62.0** und den normal installierten stabilen Google-Chrome-Kanal mit aktiviertem Chromium-Sandboxing auf einem gewöhnlichen `ubuntu-24.04`-Runner. Er prüft Desktop, Hell/Dunkel sowie 320-/390-Pixel-Ansichten mit öffentlichen synthetischen Fällen. Der Lauf verbietet Modellinferenz, nutzt keine Secrets und begrenzt das Artefakt auf **10 MiB mit einem Tag Aufbewahrung**, ohne Trace oder Video.
 
-**Browserstatus: noch kein erfolgreicher Capture nachgewiesen.** Der erste CI-Versuch mit dem heruntergeladenen Chromium-Headless-Shell stoppte vor dem ersten Bild an `No usable sandbox`. Der dokumentierte Folgeversuch nutzt den vorhandenen normalen Chrome-Kanal und dessen bestehendes AppArmor-Profil, ohne Sicherheitsänderungen oder Sandbox-Abschaltung. Auch in der Erstellungssandbox war der Browserstart blockiert. Unit-/DOM-Tests sind kein Ersatz für CSS-Layout, tatsächliches Clipping oder sichtbare Fokuszustände. Erst ein vollständig bestandener Lauf mit überprüften Quell-/Bildhashes und anschließend geöffneten, visuell geprüften PNGs darf als Galerie ergänzt werden. Smartphone-Viewports ersetzen keinen Test auf physischen Geräten oder ein Screenreader-Audit.
+**Browserstatus: noch kein erfolgreicher Capture nachgewiesen.** Der erste CI-Versuch mit dem heruntergeladenen Chromium-Headless-Shell stoppte vor dem ersten Bild an `No usable sandbox`. Der vorhandene normale Chrome-Kanal startete mit bestehendem AppArmor-Profil und aktivierter Sandbox erfolgreich. Die echte Prüfung fand anschließend einen 320-Pixel-Überlauf am privaten Dateiformat-Select; die Korrektur wird erneut geprüft. Es gab keine Sicherheitsänderung oder Sandbox-Abschaltung. Auch in der Erstellungssandbox war der Browserstart blockiert. Unit-/DOM-Tests sind kein Ersatz für CSS-Layout, tatsächliches Clipping oder sichtbare Fokuszustände. Erst ein vollständig bestandener Lauf mit überprüften Quell-/Bildhashes und anschließend geöffneten, visuell geprüften PNGs darf als Galerie ergänzt werden. Smartphone-Viewports ersetzen keinen Test auf physischen Geräten oder ein Screenreader-Audit.
 
 [Ausführen, prüfen und veröffentlichen](docs/BROWSER_GALLERY.md) · [Prüfgrenzen](docs/VALIDATION.md)
 
