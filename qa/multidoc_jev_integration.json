@@ -1,5 +1,5 @@
 {
-  "status": "offline_verified_browser_pending",
+  "status": "offline_and_browser_verified",
   "integration_base_commit": "ae751e09ef383d0fca7126d35f19fc8670b80b08",
   "new_suites": {
     "multidoc48": {
@@ -22,7 +22,7 @@
   },
   "offline_checks": {
     "python_root_tests": 310,
-    "javascript_dom_tests": 154,
+    "javascript_dom_tests": 156,
     "jev_mock_tests_separate": 23,
     "integrity_gates": 7,
     "byte_identical_ui_rebuilds": 9,
@@ -52,7 +52,7 @@
     "No calibration or joint-probability guarantee",
     "Inactive Jev mocks are software tests, not model observations"
   ],
-  "browser_status": "Pending exact-source genuine sandboxed Chrome regression; earlier galleries retain their original version labels.",
+  "browser_status": "Passed at exact source4289d761f1ab866ec29ffee6de5f6021a342558e;14 check groups,34 original PNGs,5 visually reviewed publication selections.",
   "browser_initial_capture": {
     "source_commit": "cd6dc492150709bb96b8d7edb1e7fb9dd3c1f88a",
     "run_id": 37048035002,
@@ -70,5 +70,16 @@
       "Disclosure spacing",
       "Mobile result capture reset to top"
     ]
+  },
+  "browser_capture": {
+    "source_commit": "4289d761f1ab866ec29ffee6de5f6021a342558e",
+    "run_id": 37048924234,
+    "status": "success",
+    "check_groups": 14,
+    "captured_pngs": 34,
+    "selected_pngs": 5,
+    "source_and_image_hashes_verified": true,
+    "ci_run_id": 37048924340,
+    "ci_conclusion": "success"
   }
 }

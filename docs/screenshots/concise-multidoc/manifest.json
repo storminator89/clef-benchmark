@@ -1,0 +1,152 @@
+{
+  "status": "pass",
+  "git_commit": "4289d761f1ab866ec29ffee6de5f6021a342558e",
+  "workflow_run_url": "https://github.com/storminator89/clef-benchmark/actions/runs/37048924234",
+  "completed_utc": "2026-10-02T18:41:12.891156+00:00",
+  "chromium_version": "154.0.8037.57",
+  "playwright_version": "1.62.0",
+  "chromium_sandbox": true,
+  "browser_channel": "chrome",
+  "model_inference_executed": false,
+  "real_browser_rendering": true,
+  "synthetic_inputs_only": true,
+  "source_sha256": {
+    "web/app.js": "d595466a4dc855ec76f801ed0783633f29e9135cc41de63603797675e4df26fc",
+    "web/core.js": "6c64f4947b0f66acb19273c4d78df8fe7c53a162b91241dd7f48e3c4edbb7b9d",
+    "web/custom-cases.js": "e43383817ac630b916e764ecedbe9ba9ee7e51129661b9816c58341ec9bf560e",
+    "web/custom-ui.js": "c588a5b04356eb3b279256c06ecd06b784fa6be403aab23bb8815f615efb1a75",
+    "web/data/bank-support.json": "d219b98b0716dd3efaee828ccd7bd8c8d6d12c235c499c29e0efd5dbc562e4fe",
+    "web/data/benchmark.json": "98729655de727e9941f5044111a0b456896b099a0709b49d0242746393611a1c",
+    "web/data/clarification.json": "308b6ce0ac90e21504828834ff6d1d705482dc810f1b336765ba5c02ea63dfae",
+    "web/data/clean72.json": "3762fa3a3e47332a9e83e4d1da0b592811b7ede047605f66b9376656a53890f6",
+    "web/data/finance.json": "75dc1e910766ae370258c25af82eac3f962036c6fa1bf859c6158d56b2ead999",
+    "web/data/insurance.json": "391c09b563b3aac960ceb800776965c8b9c451d41b7e8b9609873487d0e06891",
+    "web/data/minimal_pairs.json": "329bc858dc601edd61da9083a272587817f01d4d5008b2c7c6bbd007f87d3e80",
+    "web/data/multidoc.json": "e7fa5598b3811623fb2e0f97da85946b5f12cfc9e9009c28b17160cf1f323bc1",
+    "web/data/reliability.json": "9517be9286ba2ea11d0cdce706cdc3a08e7d916682a14b2e0fa887c7a54c5e2d",
+    "web/favicon.svg": "7b8afce9766a7ea3df9b177de7ccd950544087bf2236652a58f2e9c7d6dafb46",
+    "web/icons.js": "6902e919bf7b5d64ee22ec356de9f4a0cb285d7733eada71c7cd721613b399d2",
+    "web/index.html": "157a54302943862979e83424aef77b61d8a8ceac253911a806fa9523abd13327",
+    "web/pairs-ui.js": "0c2b2629bc70183dbd481d7f591984fe8dd4769e90bc124b2b9c9af27d589af6",
+    "web/pairs.css": "230e3472f2049500f799f5b3708a5b1706f301e12c33ef6620356db778d6320d",
+    "web/reliability-core.js": "34df335af53921bdf0684c62b2a7ed54f6d3b3adf49551ef349d754dc7234e27",
+    "web/reliability-ui.js": "25c5daeba2548cd7fffda2cdbe5e08836c4093c84e2deef7c4bf3c1f4769cd71",
+    "web/reliability.css": "8889290b78c465acbd1d0e7c24eeaffe5ec78adf3a76823e7489870700c0ba58",
+    "web/styles.css": "f4933a87fb94924c915b3651bc6e86a9112c704e6319e49cf59db9118bd774bf",
+    "examples/custom_cases/support.json": "fdc0199aebd33c8fa0cd411433bb3da0add536bfd2881f3bc0c372c81bc43fd0",
+    "tests/test_browser.py": "7a00e8a8a68d8dadd1f9dc1441526471a312a89dd9b8f6289934377447d9388b"
+  },
+  "schema_version": 1,
+  "scope": "Five visually reviewed original PNGs selected from a successful 34-image browser capture; this is a bounded gallery selection, not the full artifact.",
+  "full_capture_screenshot_count": 34,
+  "full_capture_check_groups": 14,
+  "full_capture_manifest_sha256": "ec388e3128b8d541c110f197a3d20079d92fcc630619b8fdf82a1ab15bf596e9",
+  "full_capture_zip_sha256": "93bc67a7bc43b0494f6560f71fda8556940b29b96245d8190dd68cc94d1bd9b2",
+  "screenshots": [
+    {
+      "file": "minimal-pairs-comparison-light.png",
+      "caption": "Minimal pair: exactly one changed span, shared fictional rule and both native responses",
+      "sha256": "f921dd40234f595b5460ebd6ab23d8db88418c71f549a5ee823b448670679889",
+      "image_pixels": [
+        1440,
+        1665
+      ],
+      "viewport_css_pixels": {
+        "width": 1440,
+        "height": 1000
+      },
+      "device_scale_factor": 1,
+      "full_page": true,
+      "route": "pairs",
+      "theme": "light",
+      "selected_case": "MD027",
+      "custom_case": "",
+      "content_kind": "public_synthetic_benchmark_or_results_only_editor",
+      "new_inference": false
+    },
+    {
+      "file": "reliability-determination-light.png",
+      "caption": "Minimal-pair determination: fixed threshold 0.90, four errors among 36 selected and separate coverage",
+      "sha256": "ad0f25a6c38b81d9cbe77c57ccda93b5948ad1bf64260e692c0a3e36c9943cd9",
+      "image_pixels": [
+        1440,
+        1000
+      ],
+      "viewport_css_pixels": {
+        "width": 1440,
+        "height": 1000
+      },
+      "device_scale_factor": 1,
+      "full_page": false,
+      "route": "reliability",
+      "theme": "light",
+      "selected_case": "MD027",
+      "custom_case": "",
+      "content_kind": "public_synthetic_benchmark_or_results_only_editor",
+      "new_inference": false
+    },
+    {
+      "file": "multidoc-workbench-light.png",
+      "caption": "Three complete fictional rules, precedence and preserved native source/determination answers",
+      "sha256": "3084d3f581395427c5abe75901bfe84d76e1345b17dfc03c1d250f9d41e939fb",
+      "image_pixels": [
+        1440,
+        1129
+      ],
+      "viewport_css_pixels": {
+        "width": 1440,
+        "height": 1000
+      },
+      "device_scale_factor": 1,
+      "full_page": true,
+      "route": "explorer?suite=multidoc&case=MD027&field=source",
+      "theme": "light",
+      "selected_case": "MD027",
+      "custom_case": "",
+      "content_kind": "public_synthetic_benchmark_or_results_only_editor",
+      "new_inference": false
+    },
+    {
+      "file": "multidoc-dashboard-light.png",
+      "caption": "Correct source selection does not imply correct determination; distinct finite-set denominators",
+      "sha256": "a20006ad568683cc03d02e58e956c30011725716c111b300b5bae135c2993a90",
+      "image_pixels": [
+        1440,
+        1468
+      ],
+      "viewport_css_pixels": {
+        "width": 1440,
+        "height": 1000
+      },
+      "device_scale_factor": 1,
+      "full_page": true,
+      "route": "overview",
+      "theme": "light",
+      "selected_case": "MD016",
+      "custom_case": "",
+      "content_kind": "public_synthetic_benchmark_or_results_only_editor",
+      "new_inference": false
+    },
+    {
+      "file": "multidoc-result-390.png",
+      "caption": "Source and determination inspection at 390 CSS pixels",
+      "sha256": "e77a6a2b14ba118739b9d868deb932b83323dfa3a7cf1bb13b6aff2e85f61354",
+      "image_pixels": [
+        390,
+        844
+      ],
+      "viewport_css_pixels": {
+        "width": 390,
+        "height": 844
+      },
+      "device_scale_factor": 1,
+      "full_page": false,
+      "route": "explorer?suite=multidoc&case=MD027&field=source",
+      "theme": "light",
+      "selected_case": "MD027",
+      "custom_case": "",
+      "content_kind": "public_synthetic_benchmark_or_results_only_editor",
+      "new_inference": false
+    }
+  ]
+}

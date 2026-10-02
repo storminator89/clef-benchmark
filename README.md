@@ -50,6 +50,28 @@ Die Scoreanalyse ist **post-hoc und deskriptiv**, ohne neue Inferenz, Kalibrieru
 
 [Befunde, Nenner und nächste Schritte auf Deutsch und Englisch](docs/PAIRS_RELIABILITY.md) · [Paarbericht](experiments/minimal_pairs/REPORT.md) · [Scorebericht](experiments/probability_reliability/REPORT_DE.md)
 
+## Klarere Oberfläche: echte aktuelle Aufnahmen
+
+Kurze Titel, beschriftete Icons und Details zum Aufklappen. Der [Vorher-/Nachher-Vergleich](docs/UI_REFINEMENT.md) zeigt die unveränderten früheren und die neuen echten Browseraufnahmen.
+
+![Mehrere Dokumente: vollständige Regeln, kurze Quellenauswahl und getrennte Prüfung](docs/screenshots/concise-multidoc/multidoc-workbench-light.png)
+
+<details>
+<summary>Minimalpaare, Scoreanalyse und Smartphone</summary>
+
+![Minimalpaare: kurzer Titel und direkter Variantenvergleich](docs/screenshots/concise-multidoc/minimal-pairs-comparison-light.png)
+
+![Scoreanalyse: feste Schwelle, beobachtete Fehler und Abdeckung](docs/screenshots/concise-multidoc/reliability-determination-light.png)
+
+[Multidokument-Ergebnisse](docs/screenshots/concise-multidoc/multidoc-dashboard-light.png) · [390px-Prüfansicht](docs/screenshots/concise-multidoc/multidoc-result-390.png)
+
+</details>
+
+Quelle `4289d761f1ab866ec29ffee6de5f6021a342558e` · [Browserlauf bestanden](https://github.com/storminator89/clef-benchmark/actions/runs/37048924234) · 14 Prüfgruppen, 34 hashgeprüfte Capture-PNGs, fünf ausgewählte PNGs · [Quell-/Bildhashes](docs/screenshots/concise-multidoc/manifest.json) · [Grenzen der visuellen Prüfung](qa/concise_multidoc_browser_review.json). Alle sieben Suiten, Hell/Dunkel, 320/390px, Navigation, Replay und synthetischer privater Import; keine Modellinferenz.
+
+<details>
+<summary>Historische, unveränderte Galerien</summary>
+
 ## Versionierte Browseraufnahmen
 
 Die folgenden Galerien zeigen ihre jeweils angegebenen Quellstände. Die spätere, textlich gestraffte Oberfläche und die Multidokument-Suite sind darin noch nicht enthalten.
@@ -128,6 +150,9 @@ Quell- und Bildhashes sowie Viewport, Theme und Fall-ID stehen im
 
 </details>
 <!-- CLEF_GALLERY_END -->
+
+
+</details>
 
 ## Schnellstart
 
@@ -483,6 +508,8 @@ Goldlabels dienen der Auswertung und gehen **nicht** in den Modellrequest. Es gi
 Modelle, virtuelle Umgebungen, Caches, Schlüssel und private Pfade gehören nicht ins Repository.
 
 ## Prüfung und Reproduktion
+
+Der UI-Quellstand `4289d761` besteht **310 Python-Tests**, **156 JavaScript-/DOM-Tests**, **23 separate Jev-Mocktests**, **sieben Integritätsgates** und **neun byte-identische UI-Rekonstruktionen**. [Exakte CI](https://github.com/storminator89/clef-benchmark/actions/runs/37048924340) · [Integrationsnachweis](qa/multidoc_jev_integration.json).
 
 Der **historische Rückfrage-Integrationsstand** dokumentiert **266 bestandene Python-Tests**, **111 bestandene JavaScript-/DOM-Tests** und **vier bestandene Integritätsgates**. Alle sechs damaligen UI-Datensätze wurden byte-identisch rekonstruiert. Diese Zahlen sind kein Prüfpass für spätere Änderungen an den Paar- und Scoreansichten. Modellfreie Prüfungen, echte Inferenz und visuelle Browserprüfung bleiben getrennt. [Rückfrage-Integrationsnachweis](qa/clarification_integration.json) · [Vorheriger UI-Prüfnachweis](qa/ui_polish_review.json) · [Validierungsverlauf](docs/VALIDATION.md)
 

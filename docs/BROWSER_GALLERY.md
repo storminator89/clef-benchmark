@@ -1,3 +1,7 @@
+## Aktuelle Auswahl: kompakte UI und Multidokumente
+
+Der [Chrome-Lauf 37048924234](https://github.com/storminator89/clef-benchmark/actions/runs/37048924234) auf `4289d761f1ab866ec29ffee6de5f6021a342558e` bestand 14 Prüfgruppen und erzeugte 34 echte, quell-/hashverifizierte PNGs. Eine visuell geprüfte [Fünf-Bilder-Auswahl](screenshots/concise-multidoc/manifest.json) dokumentiert die kürzere Oberfläche und die neue Suite. [Vorher/Nachher](UI_REFINEMENT.md) · [Prüfgrenzen](../qa/concise_multidoc_browser_review.json). Der initiale 390px-Titelüberlauf wurde korrigiert und mit unveränderter Sandbox erneut geprüft; die fehlgeschlagene Galerie wird nicht veröffentlicht. Historische Angaben unten bleiben an ihre früheren Quellen gebunden.
+
 # Genuine browser regression and README gallery
 
 **Current source-matched evidence:** [Sandboxed Chrome capture](https://github.com/storminator89/clef-benchmark/actions/runs/37041382266) passed 12 check groups at `a21344f8c1d3ebc848a753c88f90ae257c36608d`, with 30 source/hash-verified PNGs. It covers the six suites plus pair and per-field reliability views, all 78 field groups, light/dark, 320/390 CSS-pixel layouts, keyboard horizontal table access and reachable error details. See [diagnostic capture review](../qa/paired_reliability_browser_review.json). No model inference was performed.

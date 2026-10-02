@@ -1,0 +1,40 @@
+{
+  "status": "passed_bounded_visual_review",
+  "source_commit": "4289d761f1ab866ec29ffee6de5f6021a342558e",
+  "workflow_run_url": "https://github.com/storminator89/clef-benchmark/actions/runs/37048924234",
+  "checks_passed": 14,
+  "captured_png_count": 34,
+  "published_png_count": 5,
+  "published_selection": [
+    "minimal-pairs-comparison-light.png",
+    "reliability-determination-light.png",
+    "multidoc-workbench-light.png",
+    "multidoc-dashboard-light.png",
+    "multidoc-result-390.png"
+  ],
+  "actual_pngs_opened_and_reviewed": true,
+  "source_and_image_hashes_verified": true,
+  "browser_channel": "chrome",
+  "chromium_sandbox": true,
+  "new_model_inference": false,
+  "observations": [
+    "Compact diagnostic headings replace rhetorical copy; meaningful icons retain text labels",
+    "Native source choices use short display labels; IDs, full schemas and original probabilities remain accessible",
+    "Multidoc390px capture starts at the question and shows the complete Gold/model comparison",
+    "Important denominators, stored-run status and finite-set limitations remain visible",
+    "Disclosure spacing corrected; 390px insurance overview wrapping passed actual browser checks"
+  ],
+  "limitations": [
+    "One installed Chrome channel and emulated viewport sizes; no physical-device, screen-reader or contrast certification",
+    "Visual inspection covers selected states, not every pending/error or scroll state",
+    "Full-page mobile dashboard/reliability captures can place fixed navigation over a metric; those images are not in the published selection",
+    "No insurance overview PNG was captured; its layout pass is recorded by browser assertions"
+  ],
+  "previous_capture": {
+    "source_commit": "cd6dc492150709bb96b8d7edb1e7fb9dd3c1f88a",
+    "run_id": 37048035002,
+    "status": "failed",
+    "reason": "Narrow insurance overview title widened the grid; corrected and rerun with the unchanged sandbox channel",
+    "images_published": false
+  }
+}
