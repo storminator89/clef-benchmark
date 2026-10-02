@@ -9,7 +9,7 @@
   ],
   "exact_cases": 64,
   "python_tests": 266,
-  "js_dom_tests": 110,
+  "js_dom_tests": 111,
   "integrity_gates": [
     "check_project.py",
     "check_followups.py",
@@ -20,9 +20,10 @@
   "new_model_inference": false,
   "old_gallery_source_commit": "3b5b3743965f3ad77a5dd092296866920d2ca813",
   "old_gallery_scope": "Five-suite historical capture; no clarification72 images",
-  "real_browser_current_ui": "Pending exact-source sandboxed Chrome workflow; do not infer from historical gallery",
+  "real_browser_current_ui": "Presentation refinement pending exact-source recapture after the first successful clarification72 capture",
   "scope": "Separate suite and denominators; native outputs and all earlier scientific artifacts preserved; frozen export hash admitted before running its independent checker",
   "public_metadata_evolutions": 2,
   "public_curation": "General public scope only; no realized private omission identifiers; all frozen data and native outputs unchanged",
-  "public_inventory": "Aggregate-only format 2, deterministically excluding both self-reports; scientific freeze manifests unchanged"
+  "public_inventory": "Aggregate-only format 2, deterministically excluding both self-reports; scientific freeze manifests unchanged",
+  "previous_browser_run": "https://github.com/storminator89/clef-benchmark/actions/runs/37028729005"
 }

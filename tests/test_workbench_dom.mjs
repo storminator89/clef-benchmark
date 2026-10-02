@@ -1065,3 +1065,16 @@ test('malformed clarification deep links fall back without blocking healthy suit
     assert.equal(h.$('custom-example').disabled, false);
   }
 });
+
+
+test('clarification keeps native policies inspectable without burying answer comparison', async () => {
+  const h = await harness({hash:'#explorer?suite=clarification'}), c = datasets.clarification.cases[0];
+  assert.equal(h.document.querySelector('.question-title').textContent, 'Welcher nächste Schritt ist angemessen?');
+  assert.ok(h.document.querySelector('.field-schema pre').textContent.includes(c.questions.action.instructions));
+  assert.equal(h.document.querySelectorAll('#category-chart .category-row').length, 9);
+  assert.match(h.$('category-chart').textContent, /7\/12/);
+  assert.match(h.$('category-chart').textContent, /9\/12/);
+  h.click('[data-field="determination"]');
+  assert.equal(h.document.querySelector('.question-title').textContent, c.question);
+  assert.ok(h.document.querySelector('.field-schema pre').textContent.includes(c.questions.determination.instructions));
+});

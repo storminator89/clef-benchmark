@@ -389,7 +389,7 @@ Modelle, virtuelle Umgebungen, Caches, Schlüssel und private Pfade gehören nic
 
 ## Prüfung und Reproduktion
 
-Der dokumentierte lokale Integrationsstand umfasst **266 bestandene Python-Tests**, **110 bestandene JavaScript-/DOM-Tests** und **vier bestandene Integritätsgates**. Alle sechs UI-Datensätze wurden byte-identisch rekonstruiert. Diese modellfreien Prüfungen sind von echter Inferenz und visueller Browserprüfung getrennt. [Rückfrage-Integrationsnachweis](qa/clarification_integration.json) · [Vorheriger UI-Prüfnachweis](qa/ui_polish_review.json) · [Validierungsverlauf](docs/VALIDATION.md)
+Der dokumentierte lokale Integrationsstand umfasst **266 bestandene Python-Tests**, **111 bestandene JavaScript-/DOM-Tests** und **vier bestandene Integritätsgates**. Alle sechs UI-Datensätze wurden byte-identisch rekonstruiert. Diese modellfreien Prüfungen sind von echter Inferenz und visueller Browserprüfung getrennt. [Rückfrage-Integrationsnachweis](qa/clarification_integration.json) · [Vorheriger UI-Prüfnachweis](qa/ui_polish_review.json) · [Validierungsverlauf](docs/VALIDATION.md)
 
 Die folgenden Befehle laden kein Modell und führen keine Inferenz aus:
 

@@ -298,7 +298,7 @@ class BrowserChecks:
         page.keyboard.press('Enter')
         require(page.locator('html').get_attribute('data-theme') != prior, 'Theme button is not keyboard-operable.')
         page.keyboard.press('Enter')
-        self.check('All five suite denominators/errors, language controls, three bank fields, deep links, Back/Forward and keyboard')
+        self.check('All six suite denominators/errors, language controls, three bank fields, deep links, Back/Forward and keyboard')
 
     def clarification(self):
         page, expect = self.page, self.expect
@@ -308,6 +308,8 @@ class BrowserChecks:
             expect(page.locator('#document-content')).to_contain_text(text)
         expect(page.locator('[data-field]')).to_have_count(2)
         expect(page.locator('#inspection-header')).to_contain_text('Inkonsistente Felder')
+        expect(page.locator('.question-title')).to_have_text('Welcher nächste Schritt ist angemessen?')
+        expect(page.locator('.field-schema pre')).to_contain_text(case['questions']['action']['instructions'])
         self.capture('clarification-workbench-light.png', 'Clarification72: complete fictional rule, question and preserved inconsistent model fields')
         for choice, count in [('action', 7), ('determination', 6), ('diagnostic:missed_required_clarifications', 4), ('diagnostic:excess_clarifications', 2), ('diagnostic:inconsistent_fields', 3), ('diagnostic:risky_wrong_answers', 4)]:
             page.locator('#filter-outcome').select_option(choice)

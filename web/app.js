@@ -397,7 +397,9 @@ export function createWorkbench({
       gold = evidenceIDs(c, "gold"),
       model = evidenceIDs(c, "model");
     const question =
-      f.id === "decision" && c.claim
+      suite === "clarification"
+        ? (f.id === "action" ? "Welcher nächste Schritt ist angemessen?" : c.question)
+        : f.id === "decision" && c.claim
         ? c.claim
         : f.id === "evidence"
           ? "Welche Klauseln tragen die Entscheidung?"
@@ -603,8 +605,11 @@ export function createWorkbench({
         diagnostic("Inkonsistente Feldpaare", `${summary.events.inconsistent_fields.count} / ${s.total}`) +
         diagnostic("Riskante falsche Antworten unter konkreten Antworten", rate("risky_wrong_answers_among_substantive")) +
         '<p>Risiko hier: konkrete Ja/Nein-Antwort trotz Unentscheidbarkeit oder falschem Ergebnis. Keine reale Handlung. Beide Feldscores ≥ 0,90: 0 Fehler unter nur 5 konkreten Antworten (5/72 Fälle). Rohe marginale Scores, keine Kalibrierungs- oder Sicherheitsgarantie.</p>');
-      $("diagnosis-content").insertAdjacentHTML("beforeend", '<h3>Sechs gestaltete Fallgruppen</h3>' +
-        Object.entries(data.suite.strata).map(([id, label]) => diagnostic(label, `${summary.strata.stratum[id].all_fields_exact.numerator} / ${summary.strata.stratum[id].cases}`)).join(""));
+      $("category-chart").insertAdjacentHTML("beforeend", '<h3>Sechs gestaltete Fallgruppen</h3><p class="probability-note">Je 12 Fälle · vollständig richtig nur mit beiden Feldern</p>' +
+        Object.entries(data.suite.strata).map(([id, label]) => {
+          const group = summary.strata.stratum[id], metric = group.all_fields_exact;
+          return `<div class="category-row"><span>${e(label)}</span><div class="bar-track"><div class="bar-fill" style="width:${metric.rate * 100}%"></div></div><span class="category-value">${metric.numerator}/${group.cases}</span></div>`;
+        }).join(""));
     }
     $("inspect-errors").disabled = !done || !errors.length;
     const pairs = Object.values(data.scores?.paired_all_planned || {});
