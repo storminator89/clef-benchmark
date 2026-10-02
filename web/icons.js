@@ -22,6 +22,7 @@ const paths = {
   image:
     '<rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8" cy="8" r="1.5"/><path d="m3 16 5-5 5 5 4-4 4 4"/>',
   layers: '<path d="m12 3 10 5-10 5L2 8l10-5ZM2 12l10 5 10-5M2 16l10 5 10-5"/>',
+  refresh: '<path d="M20 7v5h-5M4 17v-5h5M6.1 7a7 7 0 0 1 11.6-2L20 8M4 16l2.3 3A7 7 0 0 0 17.9 17"/>',
   plus: '<path d="M12 4v16M4 12h16"/>',
   play: '<path d="m7 4 13 8-13 8V4Z"/>',
   history: '<path d="M3 12a9 9 0 1 0 2.6-6.4L3 8m0-5v5h5M12 7v5l3 2"/>',

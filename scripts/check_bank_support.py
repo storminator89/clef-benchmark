@@ -20,11 +20,34 @@ def run(*args):
                           capture_output=True, text=True, check=True)
 
 
-def main():
-    baseline = load(ROOT/'provenance/bank_support_baseline.json')
+FEATURE_RUNTIME_FILES = frozenset({
+    'runtime/check_backend.py', 'runtime/device_profiles.py', 'runtime/live_adapter.py',
+})
+
+
+def verify_protected_files(root=ROOT):
+    baseline = load(root/'provenance/bank_support_baseline.json')
     assert baseline['baseline_commit'] == '1b899c5900a74ad0406bd6a25ad2ab87eec2e26d'
-    for name, expected in baseline['protected_files_sha256'].items():
-        assert sha(ROOT/name) == expected, f'Pre-bank historical artifact changed: {name}'
+    evolution = load(root/'provenance/bank_feature_evolution.json')
+    assert evolution['schema_version'] == 1
+    assert evolution['baseline_commit'] == baseline['baseline_commit']
+    assert evolution['bank_release_tree'] == '915e65b952241d028e88b29941cb2ff9440e46d9'
+    changes = evolution['changes']
+    assert isinstance(changes, dict) and set(changes) == FEATURE_RUNTIME_FILES, 'Unexpected feature evolution scope'
+    protected = baseline['protected_files_sha256']
+    for name, change in changes.items():
+        assert set(change) == {'from_sha256', 'to_sha256', 'reason'}, name
+        assert change['from_sha256'] == protected[name], name
+        assert change['to_sha256'] != change['from_sha256'], name
+        assert isinstance(change['reason'], str) and change['reason'].strip(), name
+    for name, expected in protected.items():
+        current = changes[name]['to_sha256'] if name in changes else expected
+        assert sha(root/name) == current, f'Pre-bank historical artifact changed: {name}'
+    return len(protected), len(changes)
+
+
+def main():
+    protected_count, evolved_count = verify_protected_files()
     bank = ROOT/'experiments/bank-support'
     fresh = build(bank)
     assert fresh == load(ROOT/'web/data/bank-support.json'), 'Bank dashboard differs from admitted raw results'
@@ -49,7 +72,7 @@ def main():
         assert checked['passed'] is True and checked['mismatches'] == []
         for key in ('independently_recomputed', 'independently_recomputed_errors', 'prediction_count'):
             assert checked[key] == saved[key], f'Independent repeated check differs: {key}'
-    print('PASS: bank80 final QA/file hashes, all240 field decisions, exact-case and safety metrics, both scorers, live request limits, deterministic UI rebuild; all212 pre-bank data/runtime artifacts unchanged; no model loaded')
+    print(f'PASS: bank80 final QA/file hashes, all240 field decisions, exact-case and safety metrics, both scorers, live request limits, deterministic UI rebuild; unchanged baseline protects {protected_count - evolved_count} byte-identical historical artifacts plus {evolved_count} exact bounded runtime evolutions; no model loaded')
 
 
 if __name__ == '__main__':

@@ -64,10 +64,10 @@ test('clean72 stays a separate completed German-only suite with exact recorded r
  }
  assert.ok(data.cases.every(c=>c.result.schema_valid&&c.language==='de'));
 });
-test('follow-up report links and clean selector exist without an image upload control',async()=>{
+test('historical links remain and private upload accepts text files only',async()=>{
  const html=await readFile(new URL('../web/index.html',import.meta.url),'utf8');
  assert.match(html,/value="clean72"/);assert.match(html,/experiments\/images\/README.md/);
- assert.match(html,/experiments\/attack_ablation14\/RESULTS.md/);assert.doesNotMatch(html,/<input[^>]+type=["']file/i);
+ assert.match(html,/experiments\/attack_ablation14\/RESULTS.md/);assert.equal((html.match(/type="file"/g) || []).length, 2);assert.doesNotMatch(html, /accept="[^"]*(image\/|\.pdf|\.zip)/);
  // Separate-pair visibility is behavior-tested in test_workbench_dom.mjs.
 
 });

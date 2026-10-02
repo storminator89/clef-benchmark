@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "checked_at_utc": "2026-10-02T13:47:00Z",
+  "status": "model_free_checks_passed_browser_capture_pending",
+  "base_feature_candidate_tree": "296cdd369fc6bc4f7536d0cfa69248e4c1016c15",
+  "checks": {
+    "python_unittest": {
+      "passed": 253,
+      "failed": 0
+    },
+    "javascript_dom": {
+      "passed": 98,
+      "failed": 0
+    },
+    "project_integrity": "passed",
+    "followup_integrity": "passed",
+    "bank_support_integrity": "passed",
+    "all_five_ui_dataset_rebuilds": "byte_identical",
+    "independent_source_dom_review": "four_findings_fixed_and_retested"
+  },
+  "preserved": [
+    "all frozen datasets, predictions, probabilities, benchmark scores and provenance",
+    "sequential inference, cancellation and private export semantics",
+    "private inputs absent from persistent browser storage and network until explicit local evaluation"
+  ],
+  "browser_capture": {
+    "status": "prepared_not_executed_in_creation_environment",
+    "screenshots_generated": 0,
+    "reason": "Known cloud loopback/browser-process restrictions respected",
+    "supported_workflow": ".github/workflows/browser-gallery.yml",
+    "triggers": "manual or narrowly scoped UI-source push to main",
+    "requires": "ordinary permitted hosted runner, sandboxed Chromium, zero model inference, synthetic data only",
+    "publication": "only after exact-commit successful capture, artifact/source verification and visual inspection"
+  },
+  "hardware_validation": "No model or GPU execution performed by this UI update",
+  "cost_controls": {
+    "runner": "standard ubuntu-24.04",
+    "artifact_retention_days": 1,
+    "artifact_max_bytes": 10485760,
+    "trace_or_video_capture": false,
+    "dedicated_contract_test": "passed",
+    "final_python_tests_after_cost_guard": 254
+  }
+}

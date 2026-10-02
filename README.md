@@ -4,6 +4,31 @@ Ein nachvollziehbarer Test von **Cloudflare/Clef Flash** mit einer deutschsprach
 
 **Repository:** [storminator89/clef-benchmark](https://github.com/storminator89/clef-benchmark)
 
+## Mit einem Repository-Link vom Agenten einrichten lassen
+
+Ein Agent findet den vollständigen Einstieg in [`AGENTS.md`](AGENTS.md) und
+[`docs/AGENT_SETUP.md`](docs/AGENT_SETUP.md): Hardware-/Ressourcenprüfung als JSON,
+explizite Profilwahl, isolierte gepinnte Umgebung, offizieller revisionsfester
+Download, SHA-256-Prüfung und ein echter synthetischer Modell-Smoke.
+
+```bash
+# Erst nur prüfen: keine Installation, kein Download, kein Modellladen
+python3 -m runtime.setup --plan --profile cpu-nf4
+# Nach Freigabe und erfolgreicher Prüfung: ein Befehl für Setup + Verifikation + Smoke
+python3 -m runtime.setup --profile cpu-nf4 --execute --smoke
+```
+
+`cpu-nf4` ist **9B mit 4-Bit-Backbone**; `cpu-bf16` ist **dasselbe 9B-Modell
+unquantisiert** und noch nicht mit vollem Modell auf Zielhardware validiert.
+Die vorbereiteten AMD-GPU-Profile brauchen zusätzlich eine passende separate
+ROCm-Umgebung. Das größere **27B-Modell ist mit `--model clef-27b` ausdrücklich auswählbar**,
+aber nie Standard; alle 27B-Pfade sind vorbereitet und hardwareunvalidiert.
+Pro Modell ist der Download bei 4 Bit und unquantisiert gleich: **19,08 GB für
+Flash 9B**, **54,99 GB für Clef 27B**. 4 Bit wird erst beim Laden erzeugt.
+[Hardware-, RAM-/VRAM- und Festplattenempfehlungen](docs/HARDWARE.md) unterscheiden
+gemessene Werte von Schätzungen. Ein unbekanntes Betriebssystem, fehlende
+Rechte oder Treiber lassen sich nicht seriös vollautomatisch übergehen.
+
 ## Schnellstart: Website ohne Modell
 
 Voraussetzung: **Python 3.12+**. Keine Python-Pakete, kein npm, keine GPU und keine Internetverbindung erforderlich.
@@ -16,13 +41,16 @@ python3 server.py
 
 Dann **http://127.0.0.1:8765** öffnen. Unter Windows heißt der Befehl gegebenenfalls `python server.py`.
 
+- **Orientierung ohne Rätsel:** ausklappbarer Katalog aller fünf Testsuiten, eigene Nenner und klar getrennte Ergebnis-/Live-/Privatansichten
 - **Dokument-Workbench:** dreigeteilter Desktop-Arbeitsplatz mit Fallbibliothek, Klauselleser und Antwortprüfung; auf dem Smartphone eigene Ansichten für Fälle, Dokument und Prüfung
 - **Versicherungsverständnis:** 60 synthetische Fälle aus 12 fiktiven Dokumenten. Entscheidung und angebotene Evidenzmenge werden getrennt geprüft. Solange der Lauf nicht vollständig unabhängig geprüft ist, zeigt die UI nur Testdaten und keine Messwerte
 - **Bank-Kundensupport:** eigener Test mit 80 synthetischen Anfragen, fiktiver Servicerichtlinie und drei getrennten Feldern: Anliegen, Priorität, nächster Schritt. 68/80 Fälle vollständig richtig; Fehlpriorisierungen und Eskalationen separat
 - **Evidenz im Kontext:** direkte Gold-/Modellvergleiche, Navigation zu Klauseln, vollständige Belegmengen und alle Modellwahrscheinlichkeiten
 - **Frühere Texttests:** allgemeine Entscheidungen, Finanzen/Makler und clean72 bleiben getrennt verfügbar; eigene Nenner, Fehlerfilter und Sprachkontrollen
 - **Lokaler Playground:** 1–8 native `choice`-Fragen in einer Anfrage. Alle Felder werden angezeigt; unveränderte gespeicherte Antworten bleiben strikt von neuer Inferenz getrennt
-- Helles/dunkles Design, mobile Bereichsumschaltung, Tastaturbedienung, Fall-Deep-Links und JSON-Export
+- **Eigene Tests:** geführter privater Ablauf von JSON-/JSONL-/CSV-Vorschau über Editor und sequentiellen Lauf bis zum Export. Suche und Statusfilter, Stop nach dem aktuellen Fall, sichere Ersetzen-/Entfernen-Abfrage und transparente Gold-/Antwortabdeckung. [Schema, Vorlagen und Agenten-CLI](docs/CUSTOM_CASES.md)
+- **Ehrlicher Modellstatus:** Server erreichbar, Inferenz freigegeben und Modell geladen sind drei getrennte Stufen. „Status aktualisieren“ prüft nur das Backend und startet weder Download noch Inferenz
+- Helles/dunkles Design, mobile Bereichsumschaltung, Tastaturbedienung, sichtbare Editoränderungen, Fall-Deep-Links und JSON-Export
 
 Der Workbench braucht **kein npm** zum Starten. Nur die zusätzlichen entwicklungsseitigen DOM-Regressionstests verwenden die gepinnte Dev-Abhängigkeit LinkeDOM.
 Die Website funktioniert offline über den lokalen Server. Direktes Öffnen von `web/index.html` als `file://` wird wegen Modul-/Dateizugriffsbeschränkungen nicht unterstützt. Die statischen Dateien unter `web/` funktionieren auch auf einem gewöhnlichen Static-File-Server; echte Inferenz benötigt dagegen `server.py`.
@@ -38,11 +66,13 @@ Experimentell getestet auf **Linux x86-64, Python 3.12, CPU**. Andere Betriebssy
 Der gepinnte Download umfasst ungefähr **19 GB Modellgewichte**; zusätzliche Umgebung, Cache und temporäre Dateien brauchen weiteren Speicher. Im CPU-NF4-Profil verlangt der Adapter vor dem Laden **mindestens 7,5 GiB freien RAM**; mindestens 8 GiB verfügbarer RAM werden empfohlen. Das Modell belegt in dieser CPU-NF4-Konfiguration ungefähr 6–7,5 GB RAM. Die erste Anfrage prüft Datei-Hashes und lädt das Modell, was je nach Rechner mehrere Minuten dauern kann. Es erfolgt kein automatischer Download.
 
 ```bash
-bash runtime/setup_runtime.sh
-runtime/venv/bin/python runtime/download_model.py
-python3 scripts/verify_model_download.py
-runtime/venv/bin/python server.py --enable-inference --model-dir runtime/model
+python3 -m runtime.setup --plan --profile cpu-nf4
+# Nach Freigabe und erfolgreicher Prüfung:
+python3 -m runtime.setup --profile cpu-nf4 --execute --smoke
+# Danach den ausgegebenen start_server_argv-Befehl unverändert ausführen
 ```
+
+Das neue Setup wurde modellfrei mit simulierten Installationsschritten geprüft; eine frische Installation wurde hier nicht ausgeführt. Ein separater [aktueller HTTP-/Eigentest-Smoke](qa/setup_custom_smoke.json) mit vorhandener, hashgeprüfter Flash-9B-Umgebung belegt die echte CPU-NF4-Inferenz, nicht den Installer-Lebenszyklus. Historische Skripte wie `runtime/setup_runtime.sh` bleiben ausschließlich zur Reproduktion alter Läufe erhalten. `cpu-bf16` bietet volle BF16-Präzision, ist aber wie ROCm und 27B nicht hardwarevalidiert.
 
 Im Playground wird „Echte Inferenz starten“ erst aktiv, wenn der lokale Server explizit mit diesem Flag gestartet wurde. Neue Anfragen bleiben getrennt von den eingefrorenen Testdaten und verändern keine Scores. Nur eine Modellanfrage wird gleichzeitig ausgeführt; parallele Anfragen erhalten HTTP 409. Der Server lädt das Modell erst bei der ersten Anfrage. Das Schließen der Browserseite bricht eine bereits laufende Modellberechnung nicht ab.
 
@@ -61,7 +91,7 @@ Diese experimentelle CPU-Quantisierung ist nicht die BF16-/GPU-Herstellerkonfigu
 ### Sicherheit und Grenzen des Playgrounds
 
 - Bindet ausschließlich an `127.0.0.1`; keine öffentliche Modell-API
-- Validiert Host und Origin; kein CORS, kein URL-Proxy, kein Datei-Upload, keine API-Keys
+- Validiert Host und Origin; kein CORS, kein URL-Proxy, kein serverseitiger Datei-Upload, keine API-Keys. Eigene JSON-/JSONL-/CSV-Dateien werden nur im Browser gelesen
 - Keine externen Skripte, Fonts, Analytics oder CDN-Abhängigkeiten
 - Maximal 32 KiB Request, 6.000 Eingabezeichen, 1–8 `choice`-Fragen, je 2–12 Klassen
 - Richtlinie maximal 4.000 Zeichen; Klassenbeschreibung maximal 300 Zeichen
@@ -210,7 +240,7 @@ Node **22+** ist nur für die JavaScript-Tests erforderlich; getestet mit Node 2
 
 Die Unit-Test-Discovery importiert das optionale Browserskript ohne Browserstart; der Start erfolgt nur beim direkten Aufruf.
 
-Optionale echte Browserregression: `tests/test_browser.py` verwendet **Playwright 1.62.0** und ein lokal verfügbares Chromium (`CHROMIUM_PATH` setzt den Pfad). Die optionale Abhängigkeit steht in `tests/requirements-browser.txt`. Server vorher starten; dann `python3 tests/test_browser.py` ausführen. Browserlaunch und visuelle QA waren in der Erstellungssandbox blockiert; diese Prüfung ist **nicht als bestanden** ausgewiesen. Details in [`docs/VALIDATION.md`](docs/VALIDATION.md). Architektur und Bedienung: [`docs/UI_WORKBENCH.md`](docs/UI_WORKBENCH.md).
+Echte Browserregression und README-Screenshots: `tests/test_browser.py` verwendet **Playwright 1.62.0** mit seinem Chromium und aktivem Browser-Sandboxing. Der [Browser-Gallery-Workflow](.github/workflows/browser-gallery.yml) prüft bei UI-Änderungen auf `main` oder manuellem Start die echte Oberfläche auf Desktop, in Hell/Dunkel sowie bei 320/390 Pixeln. Er nutzt nur veröffentlichte synthetische Fälle und verbietet neue Inferenz. Erst ein vollständig bestandener Lauf erzeugt eine veröffentlichbare Galerie mit Quell-/Bildhashes und README-Text; keine Mockups oder Platzhalterbilder. Browserlaunch war in der Erstellungssandbox blockiert, deshalb ist der vorbereitete Browserlauf **nicht als bestanden** ausgewiesen. [Ausführung und Veröffentlichung](docs/BROWSER_GALLERY.md), [Prüfgrenzen](docs/VALIDATION.md), [Architektur und Bedienung](docs/UI_WORKBENCH.md).
 
 Für eine neue vollständige Modellreproduktion nach Einrichtung: `bash runtime/reproduce.sh`. Eigene Läufe in neue Dateien schreiben, niemals die archivierten Originalresultate überschreiben.
 

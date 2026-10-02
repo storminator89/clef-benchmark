@@ -23,6 +23,7 @@ import {
   runtimeLabel,
 } from "./core.js";
 import { icon } from "./icons.js";
+import { createCustomWorkspace } from "./custom-ui.js";
 const SUITES = {
   insurance: { file: "insurance", label: "Versicherungsdokumente" },
   general: { file: "benchmark", label: "Allgemeine Entscheidungen" },
@@ -84,11 +85,14 @@ export function createWorkbench({
     field = "decision",
     example = null,
     health = { inference_enabled: false },
+    backendConnected = false,
+    healthGeneration = 0,
     pane = "cases",
     highlight = "both",
     activeClause = null,
     toastTimer = null,
     suppressRoute = false;
+  let custom = null, customWasBusy = false;
   const filters = { split: "", category: "", tag: "", outcome: "", query: "" };
   const selectedCase = () => data?.cases.find((c) => c.id === selected) || null;
   function fillIcons() {
@@ -151,7 +155,7 @@ export function createWorkbench({
       "?",
     );
     return {
-      view: ["explorer", "overview", "playground", "method"].includes(raw)
+      view: ["explorer", "overview", "playground", "custom", "method"].includes(raw)
         ? raw
         : "explorer",
       params: new URLSearchParams(query),
@@ -195,6 +199,9 @@ export function createWorkbench({
     }
     suppressRoute = false;
     if (data) updateRoute();
+    doc.querySelector(".context-bar").hidden = view === "custom";
+    $("suite-catalog").hidden = view === "custom";
+    doc.title = `Clef Lab · ${{ explorer: "Workbench", overview: "Ergebnisse", playground: "Live testen", custom: "Eigene Tests", method: "Methodik" }[view]}`;
     doc.querySelectorAll(".view").forEach((v) => (v.hidden = v.id !== view));
     doc.querySelectorAll("[data-nav]").forEach((a) => {
       const active = a.dataset.nav === view;
@@ -655,7 +662,7 @@ export function createWorkbench({
       $("question-count").textContent = "Ungültiges JSON";
     }
     $("show-saved").disabled = session.busy || !example?.result || !unchanged();
-    $("run-live").disabled = session.busy || !health.inference_enabled;
+    $("run-live").disabled = session.busy || custom?.isBusy() || !health.inference_enabled || health.busy === true;
   }
   function loadExample(id) {
     if (session.busy) {
@@ -721,36 +728,74 @@ export function createWorkbench({
     return true;
   }
   function renderBackend() {
-    const enabled = health.inference_enabled;
-    $("backend-state").classList.toggle("live", !!enabled);
-    $("backend-state").innerHTML =
-      `<i></i>${enabled ? (health.model_loaded ? "Modell geladen" : "Live bereit · ungeladen") : "Ergebnismodus"}`;
-    const runtime = health.model_loaded
+    const enabled = health.inference_enabled === true,
+      loaded = enabled && health.model_loaded === true,
+      busy = health.busy === true || session.busy || custom?.isBusy();
+    const headline = !backendConnected ? "Server nicht erreichbar" : !enabled ? "Ergebnismodus · Modell nicht aktiviert" : busy ? "Lokale Berechnung läuft" : loaded ? "Modell geladen" : "Inferenz freigegeben · Modell noch ungeladen";
+    $("backend-state").classList.toggle("live", loaded);
+    $("backend-state").classList.toggle("enabled", enabled && !loaded);
+    $("backend-state").innerHTML = `<i></i>${!backendConnected ? "Offline-Ansicht" : busy ? "Berechnung läuft" : loaded ? "Modell geladen" : enabled ? "Modell ungeladen" : "Ergebnismodus"}`;
+    $("backend-state").title = `${headline}. Lokalen Modellstatus ansehen.`;
+    $("backend-summary").textContent = headline;
+    $("custom-backend-summary").textContent = headline;
+    const steps = [
+      ["Server", backendConnected, backendConnected ? "Erreichbar" : "Nicht verbunden"],
+      ["Inferenz", enabled, enabled ? "Explizit freigegeben" : "Nicht aktiviert"],
+      ["Modell", loaded, loaded ? "Im Speicher geladen" : "Noch nicht geladen"],
+    ];
+    $("backend-readiness").innerHTML = steps.map(([label, ready, note], i) => `<li data-readiness="${i}" data-status="${ready ? "ready" : "pending"}"><span class="readiness-number" aria-hidden="true">${ready ? icon("check") : `0${i + 1}`}</span><div><strong>${label}</strong><small>${note}</small></div></li>`).join("");
+    const runtime = loaded
       ? runtimeLabel(health.runtime)
       : enabled
         ? `Profil ${health.requested_profile || "unbekannt"} angefordert. Gerät noch nicht geladen/geprüft.`
         : "Live-Backend nicht aktiviert oder nicht erreichbar.";
-    $("runtime-details").textContent = runtime;
+    $("runtime-details").textContent = `${health.model_id || "Modell noch nicht bestätigt"} · ${runtime}`;
     $("playground-notice").innerHTML = enabled
-      ? `<strong>Lokale Inferenz aktiviert</strong> · ${e(runtime)}<br>Beim ersten Aufruf werden Dateien geprüft und das Modell geladen. Kein automatischer Geräte-Fallback.`
+      ? `<strong>Lokale Inferenz aktiviert</strong> · ${e(health.model_id || "Modell noch nicht bestätigt")} · ${e(runtime)}<br>Beim ersten Aufruf werden Dateien geprüft und das Modell geladen. Kein automatischer Geräte-Fallback. Geladen heißt nicht, dass jede Anfrage erfolgreich oder korrekt beantwortet wird.`
       : "<strong>Ergebnismodus · keine neue Inferenz verfügbar</strong><br>Gespeicherte Antworten lassen sich ansehen. Für neue Eingaben starte den lokalen Server ausdrücklich mit --enable-inference und --model-dir. Nur Text; kein Bild-Upload.";
     updateEditorState();
   }
   async function checkBackend() {
+    const generation = ++healthGeneration;
+    for (const id of ["refresh-backend", "custom-refresh-backend"]) { $(id).disabled = true; $(id).textContent = "Status wird geprüft …"; }
     try {
       const r = await fetcher("/api/health", { cache: "no-store" });
       if (!r.ok) throw Error();
       const value = await r.json();
-      health =
-        value && typeof value === "object"
-          ? value
-          : { inference_enabled: false };
+      if (!value || typeof value !== "object" || typeof value.inference_enabled !== "boolean" || typeof value.model_loaded !== "boolean" || typeof value.busy !== "boolean") throw Error("Ungültiger Modellstatus");
+      if (generation !== healthGeneration) return health;
+      health = value; backendConnected = true;
     } catch {
-      health = { inference_enabled: false };
+      if (generation !== healthGeneration) return health;
+      health = { inference_enabled: false }; backendConnected = false;
+    } finally {
+      if (generation === healthGeneration) {
+        for (const id of ["refresh-backend", "custom-refresh-backend"]) { $(id).disabled = false; $(id).textContent = "Status aktualisieren"; }
+        renderBackend(); custom?.refresh();
+      }
     }
-    renderBackend();
     return health;
   }
+  for (const id of ["refresh-backend", "custom-refresh-backend"]) $(id).addEventListener("click", checkBackend);
+  function renderSuiteCatalog() {
+    const descriptions = {
+      insurance: ["document", "Aussage und Beleg im Dokument"],
+      "bank-support": ["panels", "Anliegen, Priorität und nächster Schritt"],
+      general: ["layers", "Allgemeine Regeln und Sprachkontrollen"],
+      finance: ["chart", "Finanzfragen und Maklerfälle"],
+      clean72: ["shield", "Alltagstexte ohne Manipulationsanweisungen"],
+    };
+    $("suite-grid").innerHTML = Object.entries(descriptions).map(([id, [glyph, detail]]) => {
+      const item = suites[id], stats = item && suiteStats(item), selected = suite === id;
+      return `<button class="suite-card ${selected ? "selected" : ""}" data-suite="${id}" aria-pressed="${selected}" ${!item || session.busy || custom?.isBusy() ? "disabled" : ""}><span class="suite-card-icon">${icon(glyph)}</span><span class="suite-card-copy"><strong>${e(SUITES[id].label)}</strong><small>${e(detail)}</small><span>${item ? `${stats.total} deutsche Hauptfälle · ${item.status === "completed" ? "Gespeicherter Lauf" : "Testdaten ohne Ergebnisse"}` : "Nicht verfügbar"}</span></span><span class="suite-card-arrow" aria-hidden="true">${selected ? "✓" : "↗"}</span></button>`;
+    }).join("");
+  }
+  $("suite-grid").addEventListener("click", event => {
+    const button = event.target.closest("[data-suite]");
+    if (!button || button.disabled || !selectSuite(button.dataset.suite)) return;
+    $("suite-catalog").open = false;
+    $("suite-select").focus({ preventScroll: true });
+  });
   function setPending(busy) {
     for (const id of [
       "input-state",
@@ -761,11 +806,12 @@ export function createWorkbench({
     ])
       $(id).disabled = busy;
     $("open-playground").disabled = busy || !selected;
-    $("run-live").disabled = busy || !health.inference_enabled;
+    $("run-live").disabled = busy || !health.inference_enabled || health.busy === true;
     $("show-saved").disabled = busy || !example?.result || !unchanged();
+    renderSuiteCatalog();
   }
   async function runLive() {
-    if (session.busy || !health.inference_enabled) return false;
+    if (session.busy || custom?.isBusy() || !health.inference_enabled || health.busy === true) return false;
     let request;
     try {
       request = readEditor();
@@ -783,6 +829,8 @@ export function createWorkbench({
     const token = session.begin(),
       fingerprint = requestFingerprint(request);
     setPending(true);
+    renderBackend();
+    custom?.refresh();
     $("output-kind").textContent = "Lokale Inferenz läuft";
     $("editor-message").textContent =
       "Dateien prüfen, ggf. Modell laden, dann alle Antwortfelder berechnen. Bitte keine parallele Anfrage starten.";
@@ -827,7 +875,7 @@ export function createWorkbench({
             },
           ]),
         ),
-        `Neue lokale Inferenz · ${runtimeLabel(result.runtime)} · ${decimal(result.latency_ms / 1000)} s Forward · ${result.input_tokens} Tokens`,
+        `Neue lokale Inferenz · ${result.model || "Modell nicht angegeben"} · ${runtimeLabel(result.runtime)} · ${decimal(result.latency_ms / 1000)} s Forward · ${result.input_tokens} Tokens`,
       );
       $("output-kind").textContent = "Neue echte Inferenz";
       $("editor-message").textContent =
@@ -854,7 +902,7 @@ export function createWorkbench({
   }
   function selectSuite(id, { fromRoute = false } = {}) {
     if (!suites[id]) return false;
-    if (session.busy) {
+    if (session.busy || custom?.isBusy()) {
       $("suite-select").value = suite;
       toast(
         "Die Testsuite bleibt bis zum Ende der laufenden Anfrage erhalten.",
@@ -882,6 +930,7 @@ export function createWorkbench({
         ? "Keine Live-Berechnung beim Öffnen"
         : "Testdaten verfügbar · Modellresultate ausstehend";
     $("download-results").disabled = false;
+    renderSuiteCatalog();
     populateFilters();
     $("example-select").innerHTML = data.cases
       .map(
@@ -1067,6 +1116,8 @@ export function createWorkbench({
       $("app-error").hidden = false;
       $("app-error").textContent =
         "Die Testdaten konnten nicht geladen werden. Starte python server.py im Repository und öffne die lokale Adresse. Das direkte Öffnen per file:// wird nicht unterstützt.";
+      renderSuiteCatalog();
+      await checkBackend();
       return false;
     }
     selectSuite(initial, { fromRoute: true });
@@ -1080,8 +1131,19 @@ export function createWorkbench({
     await checkBackend();
     return true;
   }
+  custom = createCustomWorkspace({ document: doc, window: win, fetch: fetcher,
+    isBusy: () => session.busy,
+    getHealth: () => health,
+    onBusy: (busy) => {
+      const finished = customWasBusy && !busy;
+      customWasBusy = busy;
+      setPending(busy || session.busy); renderBackend();
+      if (finished && !session.busy) void checkBackend();
+    },
+  });
   emptyOutput();
   return {
+    custom,
     init,
     navigate,
     selectSuite,

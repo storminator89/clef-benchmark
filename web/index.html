@@ -22,8 +22,8 @@
         ><span class="brand-caption">Document Intelligence</span></a
       >
       <div class="header-actions">
-        <span class="backend-state" id="backend-state"
-          ><i></i>Ergebnismodus</span
+        <a class="backend-state" id="backend-state" href="#playground" title="Lokalen Modellstatus ansehen"
+          ><i></i>Ergebnismodus</a
         ><button
           class="icon-button"
           id="theme-toggle"
@@ -53,6 +53,8 @@
         ><span class="rail-icon" data-icon="flask"></span
         ><span>Live testen</span></a
       >
+      <a href="#custom" data-nav="custom" aria-label="Eigene Tests"
+        ><span class="rail-icon" data-icon="plus"></span><span>Eigene Tests</span></a>
       <a href="#method" data-nav="method" aria-label="Methodik"
         ><span class="rail-icon" data-icon="shield"></span
         ><span>Methodik</span></a
@@ -93,6 +95,10 @@
           <span data-icon="download"></span>Datensatz
         </button>
       </div>
+      <details id="suite-catalog" class="suite-catalog">
+        <summary><span data-icon="layers"></span><span>Alle Tests entdecken</span><span class="catalog-hint">Jede Suite einzeln betrachten</span></summary>
+        <div class="suite-grid" id="suite-grid" aria-label="Verfügbare Testsuiten"></div>
+      </details>
       <div id="app-error" class="notice danger" role="alert" hidden></div>
 
       <section
@@ -315,6 +321,56 @@
         </div>
       </section>
 
+      <section id="custom" class="view custom-view" aria-labelledby="custom-title" hidden>
+        <div class="view-heading"><div><div class="eyebrow">DEINE FÄLLE. DEINE SOLLANTWORTEN.</div>
+          <h1 id="custom-title">Eigene Tests<span class="title-dot">.</span></h1>
+          <p>Lokale Dateien prüfen, Texte bearbeiten und eine ganze Suite auswerten.</p></div>
+          <span class="badge text-only">Privat im Browser · nur Text</span></div>
+        <div class="notice privacy-notice"><span class="privacy-icon" data-icon="lock"></span><div><strong>Privat bis zum ausdrücklichen Export.</strong> Importierte Fälle bleiben im Arbeitsspeicher dieses Tabs. Erst „Suite lokal auswerten“ sendet Text und Fragen an deinen lokalen Clef-Server; Goldlabels bleiben hier. Keine externe Modell-API, kein automatisches Speichern oder Veröffentlichen. Neuladen entfernt die Suite. Bitte synthetische Daten verwenden.</div></div>
+        <ol class="workflow-steps" aria-label="Ablauf eigener Tests">
+          <li data-custom-step="import" aria-current="step"><span>01</span><div>Datei prüfen<small>Vorschau ohne Inferenz</small></div></li>
+          <li data-custom-step="edit"><span>02</span><div>Fälle vorbereiten<small>Eigene Texte &amp; Goldlabels</small></div></li>
+          <li data-custom-step="run"><span>03</span><div>Lokal auswerten<small>Eine Anfrage nach der anderen</small></div></li>
+          <li data-custom-step="export"><span>04</span><div>Bericht mitnehmen<small>Nur durch deinen Export</small></div></li>
+        </ol>
+        <details id="custom-import-box" class="surface custom-import" open>
+          <summary class="panel-heading"><h2 id="custom-import-title">Datei auswählen &amp; prüfen</h2><span class="badge">JSON · JSONL · CSV</span></summary>
+          <div class="custom-upload-grid">
+            <label>Lokale Testdatei<input id="custom-file" type="file" accept=".json,.jsonl,.csv,application/json,text/csv" aria-describedby="custom-limits" /></label>
+            <label>Dateiformat<select id="custom-format"><option value="auto">Aus Dateiendung erkennen</option><option value="json">JSON · vollständige Suite</option><option value="jsonl">JSONL · ein Fall pro Zeile</option><option value="csv">CSV · Textspalten + Fragenschema</option></select></label>
+          </div>
+          <div id="custom-import-fields" class="custom-upload-grid" hidden>
+            <label>CSV-Fragenschema<select id="custom-preset"><option value="support">Support: Anliegen + Priorität</option><option value="statement">Aussage: ja / nein / offen</option><option value="file">Eigene Spezifikationsdatei</option></select></label>
+            <label>Eigene CSV-Spezifikation (bei Auswahl oben)<input id="custom-spec-file" type="file" accept=".json,application/json" /></label>
+          </div>
+          <p id="custom-limits" class="input-help">Maximal 5 MiB, 500 Fälle, 1–8 choice-Fragen pro Fall. Keine ZIPs, Bilder, PDFs oder abgerufenen URLs. CSV: id,state,gold.FRAGE; leeres Goldfeld heißt unbeschriftet. Alle Zeilen werden validiert, keine still verworfen.</p>
+          <div class="custom-actions"><button id="custom-parse" class="button primary">Datei prüfen</button><button id="custom-example" class="button">Synthetisches Beispiel ansehen</button></div>
+          <p id="custom-import-message" class="editor-message custom-errors" role="status"></p>
+          <div id="custom-preview" class="custom-preview" hidden><h3>Validierte Vorschau</h3><p id="custom-preview-copy"></p><ol id="custom-preview-list"></ol><button id="custom-accept" class="button primary" disabled>Private Suite übernehmen</button><p class="input-help">Ersetzt eine bereits geladene private Suite samt Ergebnissen. Vorher bei Bedarf exportieren.</p></div>
+          <details class="custom-templates"><summary>Vorlagen herunterladen &amp; Agenten-CLI</summary><p>Das Supportbeispiel enthält einen vollständig beschrifteten, einen teilweise beschrifteten und einen unbeschrifteten Fall. CSV verwendet das Support-Preset oder die beigefügte Spezifikation.</p><div class="custom-actions"><button id="custom-template-json" class="quiet-button">JSON-Beispiel ↓</button><button id="custom-template-jsonl" class="quiet-button">JSONL-Beispiel ↓</button><button id="custom-template-csv" class="quiet-button">CSV-Beispiel ↓</button><button id="custom-template-spec" class="quiet-button">CSV-Spezifikation ↓</button></div><p>Für Agenten: python scripts/evaluate_custom.py --input user_cases/meine-tests.json --validate-only. Eine echte Auswertung nutzt denselben lokalen Server und prüft jede Antwort. Anleitung und alle Exportfelder in <a href="https://github.com/storminator89/clef-benchmark/blob/main/docs/CUSTOM_CASES.md" target="_blank" rel="noreferrer">docs/CUSTOM_CASES.md ↗</a>.</p></details>
+        </details>
+        <div id="custom-confirm" class="notice confirm-panel" role="region" aria-label="Private Suite ersetzen oder entfernen" hidden><div><strong id="custom-confirm-title"></strong><p id="custom-confirm-copy"></p></div><div class="custom-actions"><button id="custom-confirm-cancel" class="button">Behalten</button><button id="custom-confirm-action" class="button danger-button"></button></div></div>
+        <p id="custom-message" class="editor-message" role="status"></p>
+        <div id="custom-empty" class="custom-empty"><span class="eyebrow">NOCH KEINE PRIVATE SUITE</span><h2>Vom eigenen Beispiel<br />zur nachvollziehbaren Prüfung.</h2><p>Die Dateivorschau löst keine Inferenz aus. Goldlabels sind optional: ohne Sollantworten erhältst du echte Modellantworten, aber keinen erfundenen Qualitätsscore.</p></div>
+        <section id="custom-workspace" hidden aria-labelledby="custom-suite-title">
+          <div class="panel-heading"><div><span class="eyebrow">NUTZERDATEN · KEIN GEPRÜFTER BENCHMARK</span><h2 id="custom-suite-title" tabindex="-1"></h2></div><button id="custom-clear" class="quiet-button">Private Suite entfernen</button></div>
+          <div class="runtime-strip"><div><span class="eyebrow">LOKALES MODELL</span><p id="custom-backend-summary" role="status">Modellstatus wird geprüft …</p><a class="text-button" href="#playground">Einrichtung &amp; Modellstatus ansehen →</a></div><button id="custom-refresh-backend" class="button">Status aktualisieren</button></div>
+          <div class="custom-run-toolbar"><div class="custom-actions"><button id="custom-run" class="button primary" aria-describedby="custom-backend-summary custom-message" disabled>Suite lokal auswerten</button><button id="custom-cancel" class="button" disabled>Nach diesem Fall stoppen</button></div><div class="custom-actions export-actions" aria-label="Private Dateien exportieren"><span class="eyebrow">EXPORT</span><button id="custom-export-suite" class="quiet-button" disabled>Testfälle JSON ↓</button><button id="custom-export-json" class="quiet-button" disabled>Laufbericht JSON ↓</button><button id="custom-export-csv" class="quiet-button" disabled>Ergebnisse CSV ↓</button></div></div>
+          <p id="custom-runtime" class="input-help"></p>
+          <p id="custom-progress-text" role="status" aria-live="polite"></p><progress id="custom-progress" value="0" max="1" aria-label="Bearbeitete Testfälle"></progress>
+          <p id="custom-stop-note" class="input-help" hidden>Stop verhindert die nächste Anfrage. Der aktuelle Request wird nicht abgebrochen und kann noch mehrere Minuten rechnen. Browser schließen beendet die Modellberechnung nicht. Kein paralleler Modelllauf.</p>
+          <div id="custom-metrics" class="custom-metrics"></div><p id="custom-score-note" class="input-help"></p>
+          <details class="surface custom-field-summary"><summary>Bewertung je Frage-ID</summary><p class="input-help">Nur vorhandene Nutzer-Goldlabels. Frage-IDs sollten in deiner Suite dieselbe Bedeutung haben.</p><div id="custom-field-scores"></div></details>
+          <div class="custom-workbench"><aside class="surface custom-list-panel"><div class="custom-list-heading"><h3>Fälle &amp; Status</h3><span id="custom-list-count" class="count-badge"></span></div><div class="custom-list-tools"><label class="search-field"><span data-icon="search"></span><input id="custom-search" type="search" placeholder="ID oder Text suchen …" aria-label="Eigene Fälle durchsuchen" autocomplete="off" /></label><label class="sr-only" for="custom-filter">Eigene Fälle filtern</label><select id="custom-filter"><option value="all">Alle Status</option><option value="error">Mit Ausführungsfehler</option><option value="wrong">Mit falscher Antwort</option><option value="unlabelled">Ohne vollständige Goldlabels</option><option value="pending">Noch offen</option></select></div><div id="custom-list" class="custom-list" aria-label="Private Testfälle"></div></aside>
+          <section id="custom-editor" class="surface" aria-label="Privaten Testfall bearbeiten" hidden><div class="panel-heading"><h3 id="custom-case-id"></h3><span id="custom-editor-state" class="badge">Nur dieser Tab</span></div>
+            <label class="editor-label" for="custom-state">Eingabetext (unverändert an das Modell)</label><textarea id="custom-state" aria-describedby="custom-message" rows="8" spellcheck="false"></textarea>
+            <details><summary>Fragen &amp; eigene Sollantworten bearbeiten</summary><label class="editor-label" for="custom-questions">questions · natives Choice-Schema</label><textarea id="custom-questions" aria-describedby="custom-message" class="code-editor" rows="14" spellcheck="false"></textarea><label class="editor-label" for="custom-gold">gold · optional, zum Beispiel {"intent":"karte"}</label><textarea id="custom-gold" aria-describedby="custom-message" class="code-editor" rows="4" spellcheck="false"></textarea><p class="input-help">Nur bekannte Fragen und vorhandene Options-IDs. Fehlende Felder bleiben unbeschriftet. Jede Bearbeitung verwirft die bisherigen Ergebnisse der Suite sofort.</p></details>
+            <div class="custom-actions"><button id="custom-apply" class="button">Änderungen übernehmen</button><button id="custom-discard" class="quiet-button">Editor zurücksetzen</button></div>
+            <h3>Modellantwort &amp; Vergleich</h3><div id="custom-case-result" aria-live="polite"></div>
+          </section></div>
+        </section>
+      </section>
+
       <section
         id="playground"
         class="view playground-view"
@@ -336,6 +392,11 @@
             ><span data-icon="lock"></span>Nur Text · keine Cloud-API</span
           >
         </div>
+        <section class="readiness-card" aria-label="Bereitschaft des lokalen Modells">
+          <div class="readiness-heading"><div><span class="eyebrow">EHRLICHER MODELLSTATUS</span><h2 id="backend-summary">Lokalen Server prüfen</h2></div><button id="refresh-backend" class="button"><span data-icon="refresh"></span>Status aktualisieren</button></div>
+          <ol id="backend-readiness" class="readiness-steps" aria-label="Server, Freigabe und Modell"></ol>
+          <p class="input-help">Eine Freigabe ist noch kein geladenes Modell. Der erste echte Request prüft die Dateien und lädt die Gewichte; das kann mehrere Minuten dauern.</p>
+        </section>
         <div id="playground-notice" class="notice"></div>
         <div class="playground-grid">
           <section class="surface editor-panel" aria-label="Anfrage bearbeiten">
@@ -384,7 +445,7 @@
               nie mitgeschickt.
             </p>
             <div class="run-actions">
-              <button class="button primary" id="run-live" disabled>
+              <button class="button primary" id="run-live" aria-describedby="backend-summary editor-message" disabled>
                 <span data-icon="play"></span>Echte Inferenz starten</button
               ><button class="button" id="show-saved" disabled>
                 <span data-icon="history"></span>Gespeicherte Antwort

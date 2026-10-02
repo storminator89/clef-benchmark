@@ -94,8 +94,21 @@ class RecordedLiveSmokeTests(unittest.TestCase):
         module.validate_result(module.REQUEST, evidence['response'])
         for name, expected in module.EXPECTED_ANSWERS.items():
             self.assertEqual(evidence['response']['answers'][name]['choice'], expected)
+        # This proof belongs to the historical source snapshot, not later code.
+        # Never rewrite its hashes to imply a new execution took place.
+        archive = json.loads((ROOT / 'provenance/archived_live_smoke_sources.json').read_text())
+        self.assertEqual(archive['source_evidence'], 'qa/live_multifield_smoke.json')
+        self.assertEqual(archive['source_evidence_sha256'], hashlib.sha256((ROOT / archive['source_evidence']).read_bytes()).hexdigest())
+        self.assertEqual(set(archive['files']), set(evidence['source_files_sha256']))
         for name, expected in evidence['source_files_sha256'].items():
-            self.assertEqual(hashlib.sha256((ROOT / name).read_bytes()).hexdigest(), expected, name)
+            record = archive['files'][name]
+            self.assertEqual(record['sha256'], expected, name)
+            target = (ROOT / record['archived_path']).resolve()
+            self.assertTrue(target.is_relative_to(ROOT / 'provenance/archived_live_smoke_sources'))
+            self.assertEqual(hashlib.sha256(target.read_bytes()).hexdigest(), expected, name)
+            # Model data and official encoder stay unchanged today as well.
+            if name.startswith('runtime/') and name not in {'runtime/live_adapter.py', 'runtime/device_profiles.py'}:
+                self.assertEqual(hashlib.sha256((ROOT / name).read_bytes()).hexdigest(), expected, name)
 
     def test_process_completion_evidence_is_linked_and_ram_was_released(self):
         evidence_path = ROOT / 'qa/live_multifield_smoke.json'

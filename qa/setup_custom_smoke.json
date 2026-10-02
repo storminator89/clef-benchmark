@@ -1,0 +1,351 @@
+{
+  "schema_version": 1,
+  "status": "pass",
+  "purpose": "One genuine current-source custom-case HTTP smoke; excluded from every benchmark statistic.",
+  "input_origin": "New assistant-authored short synthetic request, no personal data or historical benchmark input.",
+  "benchmark_result": false,
+  "benchmark_inclusion": false,
+  "started_at_utc": "2026-10-02T13:28:31.093012+00:00",
+  "completed_at_utc": "2026-10-02T13:30:09.394282+00:00",
+  "assertions": {
+    "custom_evaluator_completed": true,
+    "exactly_one_real_http_200_post": true,
+    "request_has_only_state_questions": true,
+    "three_fields_in_request_order": true,
+    "full_option_ids_and_finite_normalized_probabilities": true,
+    "actual_identity": true,
+    "cold_lazy_load": true,
+    "state_ready": true,
+    "one_successful_request": true,
+    "finite_latency": true,
+    "no_truncation": true,
+    "excluded_from_benchmarks": true,
+    "no_busy_request": true,
+    "source_files_unchanged_during_run": true
+  },
+  "custom_evaluation_report": {
+    "schema_version": 1,
+    "report_type": "custom_suite_evaluation",
+    "benchmark_result": false,
+    "suite": {
+      "schema_version": 1,
+      "name": "Synthetic setup/custom HTTP integration smoke",
+      "cases": [
+        {
+          "id": "synthetic-feature-smoke-001",
+          "state": "Rein synthetischer Test. Regel: Leihgeräte nur mit blauem Schein ausgeben. Für Drucke genügt grün. Eine Person möchte ein Leihgerät und hat nur einen grünen Schein.",
+          "questions": {
+            "request_kind": {
+              "type": "choice",
+              "instructions": "Was wird angefragt?",
+              "criteria": {
+                "device": "Ein Leihgerät",
+                "print": "Ein Ausdruck"
+              }
+            },
+            "permission": {
+              "type": "choice",
+              "instructions": "Ist die genannte Ausgabevoraussetzung erfüllt?",
+              "criteria": {
+                "allowed": "Voraussetzung erfüllt",
+                "denied": "Voraussetzung nicht erfüllt"
+              }
+            },
+            "next_step": {
+              "type": "choice",
+              "instructions": "Wähle den regelkonformen nächsten Schritt.",
+              "criteria": {
+                "issue": "Leihgerät jetzt ausgeben",
+                "request_blue": "Zuerst blauen Schein anfordern"
+              }
+            }
+          },
+          "gold": {
+            "request_kind": "device",
+            "permission": "denied",
+            "next_step": "request_blue"
+          }
+        }
+      ]
+    },
+    "suite_sha256": "fa4bd8e23751c9b654ec2cd37d366f17a10779286e20fd177caf697ce1acf3b8",
+    "created_at": "2026-10-02T13:28:31.094623+00:00",
+    "updated_at": "2026-10-02T13:30:09.388155+00:00",
+    "status": "completed",
+    "result_provenance": "local_execution",
+    "endpoint": "http://127.0.0.1:44277",
+    "health_before": {
+      "inference_enabled": true,
+      "model_loaded": false,
+      "busy": false,
+      "mode": "local_cpu_nf4",
+      "requested_profile": "cpu-nf4",
+      "runtime_state": "unloaded",
+      "runtime": null,
+      "model_key": "flash-9b",
+      "model_id": "Cloudflare/clef-flash",
+      "model": "Cloudflare/clef-flash",
+      "model_size": "9B",
+      "revision": "17f0b0ad64efb65d273590632833508766b2aae6"
+    },
+    "health_after": {
+      "inference_enabled": true,
+      "model_loaded": true,
+      "busy": false,
+      "mode": "local_cpu_nf4",
+      "requested_profile": "cpu-nf4",
+      "runtime_state": "ready",
+      "runtime": {
+        "profile": "cpu-nf4",
+        "backend": "cpu",
+        "device": "cpu",
+        "device_name": "CPU",
+        "precision": "NF4 backbone; BF16 joint head and lexical output embeddings",
+        "quantization": "nf4-double",
+        "model_key": "flash-9b",
+        "model_id": "Cloudflare/clef-flash",
+        "revision": "17f0b0ad64efb65d273590632833508766b2aae6",
+        "model_size": "9B",
+        "validation_status": "tested_linux_x86_64",
+        "torch_version": "2.11.0+cpu",
+        "hip_version": null,
+        "gpu_architecture": null,
+        "gpu_free_gib_before_load": null,
+        "gpu_total_gib": null,
+        "gpu_shares_system_ram": false
+      },
+      "model_key": "flash-9b",
+      "model_id": "Cloudflare/clef-flash",
+      "model": "Cloudflare/clef-flash",
+      "model_size": "9B",
+      "revision": "17f0b0ad64efb65d273590632833508766b2aae6"
+    },
+    "model_identity": {
+      "model_key": "flash-9b",
+      "revision": "17f0b0ad64efb65d273590632833508766b2aae6",
+      "requested_profile": "cpu-nf4",
+      "model": "Cloudflare/clef-flash",
+      "model_id": "Cloudflare/clef-flash"
+    },
+    "model_identity_sha256": "0dcb063e4131cb9db82818fd11c98101621a787f3bb02f043e87cff3bfe7ab35",
+    "results": [
+      {
+        "id": "synthetic-feature-smoke-001",
+        "status": "success",
+        "response": {
+          "source": "live_local_inference",
+          "model_key": "flash-9b",
+          "model_id": "Cloudflare/clef-flash",
+          "model": "Cloudflare/clef-flash",
+          "revision": "17f0b0ad64efb65d273590632833508766b2aae6",
+          "requested_profile": "cpu-nf4",
+          "answers": {
+            "request_kind": {
+              "type": "choice",
+              "choice": "device",
+              "confidence": 0.9339,
+              "probabilities": {
+                "device": 0.9339,
+                "print": 0.0661
+              }
+            },
+            "permission": {
+              "type": "choice",
+              "choice": "denied",
+              "confidence": 0.9731,
+              "probabilities": {
+                "allowed": 0.0269,
+                "denied": 0.9731
+              }
+            },
+            "next_step": {
+              "type": "choice",
+              "choice": "request_blue",
+              "confidence": 0.9893,
+              "probabilities": {
+                "issue": 0.0107,
+                "request_blue": 0.9893
+              }
+            }
+          },
+          "probabilities_unrounded": {
+            "request_kind": {
+              "device": 0.9339146018028259,
+              "print": 0.06608538329601288
+            },
+            "permission": {
+              "allowed": 0.026861201971769333,
+              "denied": 0.9731387495994568
+            },
+            "next_step": {
+              "issue": 0.010735162533819675,
+              "request_blue": 0.9892648458480835
+            }
+          },
+          "input_tokens": 335,
+          "truncated": false,
+          "encode_seconds": 0.003708395001012832,
+          "inference_seconds": 20.227571627001453,
+          "latency_ms": 20227.571627001453,
+          "first_call_after_load": true,
+          "load_seconds": 57.78176745199744,
+          "verification_seconds": 16.718325218003883,
+          "device": "cpu",
+          "precision": "NF4 backbone; BF16 joint head and lexical output embeddings",
+          "runtime": {
+            "profile": "cpu-nf4",
+            "backend": "cpu",
+            "device": "cpu",
+            "device_name": "CPU",
+            "precision": "NF4 backbone; BF16 joint head and lexical output embeddings",
+            "quantization": "nf4-double",
+            "model_key": "flash-9b",
+            "model_id": "Cloudflare/clef-flash",
+            "revision": "17f0b0ad64efb65d273590632833508766b2aae6",
+            "model_size": "9B",
+            "validation_status": "tested_linux_x86_64",
+            "torch_version": "2.11.0+cpu",
+            "hip_version": null,
+            "gpu_architecture": null,
+            "gpu_free_gib_before_load": null,
+            "gpu_total_gib": null,
+            "gpu_shares_system_ram": false
+          },
+          "benchmark_result": false
+        },
+        "error": null,
+        "elapsed_seconds": 98.28827294799703
+      }
+    ],
+    "summary": {
+      "cases_total": 1,
+      "cases_succeeded": 1,
+      "cases_failed": 0,
+      "cases_pending": 0,
+      "fields_total": 3,
+      "labelled_fields": 3,
+      "unlabelled_fields": 0,
+      "evaluated_labelled_fields": 3,
+      "correct_labelled_fields": 3,
+      "fully_labelled_cases": 1,
+      "evaluated_fully_labelled_cases": 1,
+      "correct_fully_labelled_cases": 1,
+      "field_accuracy": 1.0,
+      "field_coverage": 1.0,
+      "case_accuracy": 1.0,
+      "case_coverage": 1.0,
+      "completion_coverage": 1.0,
+      "prediction_coverage": 1.0,
+      "gold_coverage": 1.0,
+      "by_field": {
+        "request_kind": {
+          "labelled": 1,
+          "evaluated": 1,
+          "correct": 1,
+          "accuracy": 1.0,
+          "coverage": 1.0
+        },
+        "permission": {
+          "labelled": 1,
+          "evaluated": 1,
+          "correct": 1,
+          "accuracy": 1.0,
+          "coverage": 1.0
+        },
+        "next_step": {
+          "labelled": 1,
+          "evaluated": 1,
+          "correct": 1,
+          "accuracy": 1.0,
+          "coverage": 1.0
+        }
+      }
+    }
+  },
+  "http_exchanges": [
+    {
+      "method": "GET",
+      "path": "/api/health",
+      "status": 200,
+      "body_sha256": null
+    },
+    {
+      "method": "POST",
+      "path": "/api/infer",
+      "status": 200,
+      "body_sha256": "fa1aca38414ac12470f166647db13a474f2fa4a3d4d0fefb1310064c9c39d97b"
+    },
+    {
+      "method": "GET",
+      "path": "/api/health",
+      "status": 200,
+      "body_sha256": null
+    }
+  ],
+  "runtime_status": {
+    "state": "ready",
+    "model": "Cloudflare/clef-flash",
+    "model_id": "Cloudflare/clef-flash",
+    "model_key": "flash-9b",
+    "model_size": "9B",
+    "revision": "17f0b0ad64efb65d273590632833508766b2aae6",
+    "requested_profile": "cpu-nf4",
+    "device": "cpu",
+    "precision": "NF4 backbone; BF16 joint head and lexical output embeddings",
+    "runtime": {
+      "profile": "cpu-nf4",
+      "backend": "cpu",
+      "device": "cpu",
+      "device_name": "CPU",
+      "precision": "NF4 backbone; BF16 joint head and lexical output embeddings",
+      "quantization": "nf4-double",
+      "model_key": "flash-9b",
+      "model_id": "Cloudflare/clef-flash",
+      "revision": "17f0b0ad64efb65d273590632833508766b2aae6",
+      "model_size": "9B",
+      "validation_status": "tested_linux_x86_64",
+      "torch_version": "2.11.0+cpu",
+      "hip_version": null,
+      "gpu_architecture": null,
+      "gpu_free_gib_before_load": null,
+      "gpu_total_gib": null,
+      "gpu_shares_system_ram": false
+    },
+    "threads": 6,
+    "max_length": 2048,
+    "load_seconds": 57.78176745199744,
+    "verification_seconds": 16.718325218003883,
+    "successful_requests": 1,
+    "error": null
+  },
+  "source_files_sha256": {
+    "scripts/smoke_setup_custom.py": "2d70586efee07da02e7caf0618bba2b796c4dcb70b0b075e90ba149ad2162a51",
+    "scripts/evaluate_custom.py": "7a40ae2e1d004c85c3fe9ffdc2cf2bde881a5d282f5698d942b6a3dc6b88be88",
+    "server.py": "b460f3a5e7799329ccc995d5af6ae40dc7f84d62b1895731b13eb83123d46e6d",
+    "runtime/live_adapter.py": "6874dcaacb73ad106530fe239120a81f53e746fed51f0aab79ce833747041d32",
+    "runtime/device_profiles.py": "2515d9424d641c611f8cb9d7837da23b507d0c90a1588b1ae4aacf79cafcbd98",
+    "runtime/model_registry.py": "ee3aa59e49087ede47e10a4d94ef36193ce2682b43021729e78e4db177b80c95",
+    "runtime/model_assets.py": "dcb6246ff349360bf37402c39da2f7096f397a0a673bacd6e0bd1d1a86b92802",
+    "runtime/check_backend.py": "3b7464fc1e1b4815f098e43c53f6b1ef971eda93f4a85f33673760503a387bb0",
+    "runtime/hardware_probe.py": "898b0ce764fe72954469b3d3c1f12d0619989763d5c776f4fe37e929f5b0f5d8",
+    "runtime/hardware_estimates.json": "515d9b590a8127b60e93909a6c4b6e58b7a015d4536ff46e666f5314f63f0902",
+    "runtime/setup.py": "d85c786bcb434054628c9d9d4b519649d61bacb7dc776e9d6056231efcac73f0",
+    "runtime/smoke_ready.py": "95e0c354e8dcc39a332fa2cb01f394b7909c7752e1d86b69e74caa58fcafcad5",
+    "runtime/joint_schema_model.py": "0e304cf7c6500e8bb59bef7e2afd2c6373f82596dfb3b57d1aa93c175e2dc3a3",
+    "runtime/config.json": "66f87f6fb2616b46604daf2a9c67ddc87938296d07156efa34d59b5be49e3238",
+    "runtime/joint_head_config.json": "77efe959a38b5b17b241543e129e695f3c77465ece55a25985279bd8176279a0",
+    "runtime/requirements_frozen.txt": "840f4cfbedc4eb2af8e8c1d5d100a10f7ccd145032176bc3b3d833330b2a02f6",
+    "runtime/model_file_manifest.json": "09176750060287112e38af55684476e00255d2feb6edc3e5af7d16b11c6f728a"
+  },
+  "model_manifest_sha256": "09176750060287112e38af55684476e00255d2feb6edc3e5af7d16b11c6f728a",
+  "actual_loaded_vendor_source_sha256": "0e304cf7c6500e8bb59bef7e2afd2c6373f82596dfb3b57d1aa93c175e2dc3a3",
+  "scope_limits": [
+    "Uses existing verified weights/environment: no fresh installation or download.",
+    "One HTTP call exercises the same ClefRuntime.infer path used by smoke_ready; no duplicate model load.",
+    "The installer lifecycle remains mock-tested only.",
+    "CPU-BF16, AMD ROCm and 27B remain not hardware-validated.",
+    "No browser visual QA or screenshot evidence.",
+    "Gold labels remain outside the model request; one smoke is not benchmark accuracy evidence.",
+    "Process exit and RAM release are recorded separately by the caller."
+  ]
+}

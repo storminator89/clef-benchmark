@@ -135,3 +135,69 @@ Die Browser-Darstellungsgrenze bleibt bestehen. Für diese UI-Integration wurde
 keine zusätzliche Modellinferenz gestartet und keine visuelle Abnahme behauptet.
 Die eigentlichen 80 Bank-Messungen und ihre Laufprovenienz stehen im separaten
 [Bankbericht](../experiments/bank-support/REPORT.md).
+
+## Agenten-Setup und private Eigentests (2. Oktober 2026)
+
+Der abschließende integrierte Stand besteht die **244 Python-Tests** und
+**87 JavaScript-/DOM-Tests**, die Original-/Follow-up-/Bank-Integritätsgates und
+die byte-identische Rekonstruktion aller fünf UI-Datensätze. Die bisherigen
+Bank-Felder, Zulassungsprüfungen und Ergebnisnenner bleiben erhalten.
+
+Die ursprüngliche `bank_support_baseline.json` ist unverändert. Von ihren
+212 geschützten Dateien sind 209 weiterhin byte-identisch; ausschließlich
+`runtime/check_backend.py`, `runtime/device_profiles.py` und
+`runtime/live_adapter.py` haben eng begrenzte Vorher-/Nachher-Hashbindungen in
+`provenance/bank_feature_evolution.json`. Keine historischen Eingaben,
+Vorhersagen, Scorer, Modellmanifeste, Vendor-Implementierungen oder ursprünglichen
+Runner werden ausgenommen. Die neun zum alten HTTP-Smoke gehörenden Quelldateien
+sind separat archiviert; alte Smoke-Nachweise wurden nicht auf neue Quellen
+umgeschrieben.
+
+Private Dateien werden im Browser eingelesen; nur `state` und `questions` gehen
+bei ausdrücklich gestarteter Inferenz an den lokalen Server. Goldlabels bleiben
+außerhalb der Modellanfrage. Neue Regressionen prüfen unter anderem das Entfernen
+privater Editor-/Vorschau-/Ergebnisinhalte auch aus dem ausgeblendeten DOM beim
+Leeren und Verwerfen einer Vorschau. Der Public-Audit weist `user_cases/`,
+`user_runs/`, `.clef/` und zusätzliche Umgebungs-/Modellverzeichnisse zurück.
+
+### Ein echter aktueller HTTP-/Eigentest-Smoke
+
+Mit vorhandenen, erneut hashgeprüften Flash-9B-Gewichten wurde genau eine neue,
+kurze synthetische Drei-Feld-Anfrage durch den echten Custom-Evaluator und
+`POST /api/infer` geschickt. HTTP 200, `state=ready`, Modellschlüssel `flash-9b`,
+Modell `Cloudflare/clef-flash`, Revision
+`17f0b0ad64efb65d273590632833508766b2aae6`, Profil `cpu-nf4`.
+Alle erwarteten Feld-/Options-IDs und endlichen normalisierten Wahrscheinlichkeiten
+sind vorhanden; 335 Tokens, keine Kürzung. Der Forward dauerte 20,23 Sekunden.
+Der Prozess endete mit Exitcode 0 und die RAM-Freigabe wurde anschließend geprüft.
+
+[Separater echter Nachweis](../qa/setup_custom_smoke.json) ·
+[Prozessabschluss](../qa/setup_custom_smoke_completion.json) ·
+[Integrationsübersicht](../qa/setup_custom_integration.json).
+Dieser Lauf ist ausdrücklich **kein Benchmark-Ergebnis**, wird nirgends in
+Benchmarkstatistiken aufgenommen und beweist keine allgemeine Qualität oder
+Geschwindigkeit. Er nutzt denselben `ClefRuntime.infer`-Pfad wie `smoke_ready`,
+ohne dafür ein zweites Modell zu laden.
+
+Keine frische Installation und kein Download wurden durchgeführt. Der neue
+Installer-Lebenszyklus bleibt mockgetestet; CPU-BF16, ROCm und 27B bleiben ohne
+Hardwarevalidierung. Browserdarstellung, Desktop-/Mobile-Screenshots und
+Screenreader-Abnahme wurden weiterhin nicht ausgeführt.
+
+
+## Additional UI polish and genuine screenshot contract
+
+The guided evaluation update keeps every frozen dataset, probability vector and
+benchmark score unchanged. Model-free DOM regressions additionally cover the
+five-suite catalogue, exact readiness stages, fail-closed malformed health,
+newest-refresh-wins behavior, no premature private accuracy display, cancellable
+replace/remove confirmation, dirty editor feedback, private search/status reset
+and complete private DOM clearing. These tests do not render CSS.
+
+The opt-in [browser gallery workflow](BROWSER_GALLERY.md) runs the actual app with
+sandboxed Playwright Chromium on an already permitted host. It forbids all model
+inference and off-origin requests, checks served source hashes, and generates
+screenshots plus a README fragment only after every browser check passes. The
+creation environment's earlier Chromium/loopback denial is respected. No real
+browser pass or screenshot is claimed by this source-only update; a later capture
+must carry its own commit/source hashes, browser diagnostics and visual review.

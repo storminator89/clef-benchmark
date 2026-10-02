@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Clef CSV question specification v1",
+  "description": "Use the local validator for the full constraints; this schema is an authoring aid.",
+  "type": "object", "additionalProperties": false,
+  "required": ["schema_version", "questions"],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "questions": { "$ref": "custom-suite-v1.schema.json#/$defs/questions" }
+  }
+}

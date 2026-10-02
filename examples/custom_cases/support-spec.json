@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "questions": {
+    "intent": {
+      "type": "choice",
+      "instructions": "Ordne das Hauptanliegen des synthetischen Supporttexts ein.",
+      "criteria": {
+        "zugang": "Anmeldung oder Passwort",
+        "karte": "Zahlungskarte",
+        "sonstiges": "Anderes Anliegen"
+      }
+    },
+    "priority": {
+      "type": "choice",
+      "instructions": "Ist ein akuter, im Text ausdrücklich beschriebener Schaden zu stoppen? Wunsch nach schneller Antwort allein ist nicht dringend.",
+      "criteria": {
+        "normal": "Kein akuter Schaden beschrieben",
+        "dringend": "Akuter Verlust, Missbrauch oder Schaden beschrieben"
+      }
+    }
+  }
+}

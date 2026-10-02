@@ -1,0 +1,142 @@
+{
+  "schema_version": 1,
+  "checked_date_utc": "2026-10-02",
+  "units": {
+    "GB": 1000000000,
+    "GiB": 1073741824
+  },
+  "status": "engineering_planning_estimates_not_validated_minimums",
+  "assumptions": [
+    "one loaded model",
+    "single device",
+    "one short text record at a time",
+    "modest question and option counts",
+    "no concurrent benchmark/model processes",
+    "no swap counted"
+  ],
+  "models": {
+    "flash-9b": {
+      "model_id": "Cloudflare/clef-flash",
+      "revision": "17f0b0ad64efb65d273590632833508766b2aae6",
+      "metadata_url": "https://huggingface.co/api/models/Cloudflare/clef-flash/revision/17f0b0ad64efb65d273590632833508766b2aae6?blobs=true",
+      "release_bytes": 19083377402,
+      "release_gib": 17.77278,
+      "nf4_download_same_as_native": true,
+      "fresh_cpu_reserve_gib": 28.77278,
+      "recommended_free_disk_gib_fresh_cpu": 40,
+      "recommended_free_disk_gib_existing_runtime": 30,
+      "two_untied_bf16_embeddings_bytes": 4068474880,
+      "joint_head_file_bytes": 243538016,
+      "profiles": {
+        "cpu-nf4": {
+          "available_system_ram_guard_gib": 7.5,
+          "recommended_total_ram_class_gb": [
+            16,
+            32
+          ],
+          "model_inference_tested_here": true
+        },
+        "cpu-bf16": {
+          "available_system_ram_guard_gib": 28,
+          "recommended_total_ram_class_gb": [
+            48,
+            64
+          ],
+          "model_inference_tested_here": false
+        },
+        "rocm-bf16": {
+          "free_gpu_memory_guard_gib": 22,
+          "host_available_reserve_gib": 2,
+          "shared_apu_available_system_ram_guard_gib": 24,
+          "recommended_shared_apu_total_ram_class_gb": 64,
+          "model_inference_tested_here": false
+        },
+        "rocm-fp16": {
+          "free_gpu_memory_guard_gib": 22,
+          "host_available_reserve_gib": 2,
+          "shared_apu_available_system_ram_guard_gib": 24,
+          "recommended_shared_apu_total_ram_class_gb": 64,
+          "model_inference_tested_here": false
+        }
+      }
+    },
+    "clef-27b": {
+      "model_id": "Cloudflare/clef",
+      "revision": "2f3de3dd85f379784083b0814d997ab627200f0c",
+      "metadata_url": "https://huggingface.co/api/models/Cloudflare/clef/revision/2f3de3dd85f379784083b0814d997ab627200f0c?blobs=true",
+      "release_bytes": 54989894057,
+      "release_gib": 51.21333,
+      "nf4_download_same_as_native": true,
+      "fresh_cpu_reserve_gib": 62.21333,
+      "recommended_free_disk_gib_fresh_cpu": 80,
+      "recommended_free_disk_gib_existing_runtime": 70,
+      "two_untied_bf16_embeddings_bytes": 5085593600,
+      "joint_head_file_bytes": 256125024,
+      "profiles": {
+        "cpu-nf4": {
+          "available_system_ram_guard_gib": 24,
+          "recommended_total_ram_class_gb": [
+            32,
+            64
+          ],
+          "model_inference_tested_here": false
+        },
+        "cpu-bf16": {
+          "available_system_ram_guard_gib": 68,
+          "recommended_total_ram_class_gb": [
+            96,
+            128
+          ],
+          "model_inference_tested_here": false
+        },
+        "rocm-bf16": {
+          "free_gpu_memory_guard_gib": 60,
+          "host_available_reserve_gib": 4,
+          "shared_apu_available_system_ram_guard_gib": 64,
+          "recommended_shared_apu_total_ram_class_gb": 128,
+          "model_inference_tested_here": false
+        },
+        "rocm-fp16": {
+          "free_gpu_memory_guard_gib": 60,
+          "host_available_reserve_gib": 4,
+          "shared_apu_available_system_ram_guard_gib": 64,
+          "recommended_shared_apu_total_ram_class_gb": 128,
+          "model_inference_tested_here": false
+        }
+      }
+    }
+  },
+  "observations": {
+    "flash_9b_cpu_nf4": {
+      "measured_here": true,
+      "process_memory_gib_approx": [
+        6,
+        7
+      ],
+      "host_total_gib_approx": 9.7,
+      "available_ram_guard_gib": 7.5,
+      "limitations": "Short tested workloads; process RSS is not a universal peak or total tensor-payload measurement."
+    }
+  },
+  "shared_memory_warning": "GPU-visible and system RAM overlap. Check both GPU free budget and combined physical backing plus host reserve; never add advertised RAM and shared VRAM.",
+  "vendor_latency": {
+    "source": "https://blog.cloudflare.com/clef-decision-models/",
+    "units": "milliseconds",
+    "values": {
+      "clef-flash": {
+        "median": 38.8,
+        "p95": 122.4
+      },
+      "clef": {
+        "median": 209.3,
+        "p95": 238.6
+      },
+      "jev": {
+        "median": 524.1,
+        "p95": 536.0
+      }
+    },
+    "scope": "Published vendor-environment evaluation; not local Ryzen/CPU/UI measurements and not a local performance guarantee",
+    "ryzen_subsecond_status": "Plausible goal for short warm Flash inputs; unmeasured here, requires target-hardware validation"
+  }
+}

@@ -55,10 +55,14 @@ export function completeFixture(source = datasets.insurance) {
 export function liveFixture(request) {
   return {
     source: "live_local_inference",
+    benchmark_result: false,
+    model_key: "flash-9b", model_id: "Cloudflare/clef-flash", model: "Cloudflare/clef-flash",
+    revision: "test-revision", requested_profile: "cpu-nf4", device: "cpu", precision: "NF4",
     answers: Object.fromEntries(
       Object.entries(request.questions).map(([id, q]) => [
         id,
-        { type: "choice", choice: Object.keys(q.criteria)[0] },
+        { type: "choice", choice: Object.keys(q.criteria)[0], confidence:0.75,
+          probabilities: Object.fromEntries(Object.keys(q.criteria).map((k,i)=>[k,i===0?0.75:Number((0.25/(Object.keys(q.criteria).length-1)).toFixed(4))])) },
       ]),
     ),
     probabilities_unrounded: Object.fromEntries(
@@ -80,6 +84,7 @@ export function liveFixture(request) {
     latency_ms: 1200,
     runtime: {
       backend: "cpu",
+      profile: "cpu-nf4", model_key: "flash-9b", model_id: "Cloudflare/clef-flash", revision: "test-revision",
       device: "cpu",
       device_name: "Test-only CPU fixture",
       precision: "NF4",
@@ -91,6 +96,7 @@ export async function harness({
   enabled = false,
   insurance,
   requestHandler,
+  healthHandler,
   failFiles = [],
   theme = null,
   storageThrows = false,
@@ -132,6 +138,7 @@ export async function harness({
   const history = [hash];
   const emit = (name) => (listeners.get(name) || []).forEach((fn) => fn());
   const location = {
+    href: "http://127.0.0.1:8765/",
     get hash() {
       return current;
     },
@@ -193,13 +200,16 @@ export async function harness({
   const $ = (id) => document.getElementById(id);
   const fetch = async (url, options = {}) => {
     calls.push({ url, options });
+    if (url === "/api/health" && healthHandler) return healthHandler();
     if (url === "/api/health")
       return {
         ok: true,
         json: async () => ({
           inference_enabled: enabled,
           model_loaded: false,
+          busy: false,
           requested_profile: enabled ? "cpu-nf4" : null,
+          model_key: "flash-9b", model_id: "Cloudflare/clef-flash", model: "Cloudflare/clef-flash", revision: "test-revision",
         }),
       };
     if (url === "/api/infer") {

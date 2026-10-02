@@ -20,7 +20,7 @@ PATTERNS = {
     'private_key': re.compile(r'BEGIN (?:RSA |EC |OPENSSH )?PRIVATE K[E]Y'),
     'bearer_credential': re.compile(r'(?i)Bearer\s+[A-Za-z0-9._-]{24,}'),
 }
-BAD_PARTS = {'.git', '.venv', 'venv', '__pycache__', 'node_modules', 'hf_cache', '.cache', '.aws', '.codex'}
+BAD_PARTS = {'.git', '.venv', '.venvs', '.venv-rocm', 'venv', '__pycache__', 'node_modules', 'hf_cache', '.cache', '.aws', '.codex', '.clef', 'user_cases', 'user_runs', 'model-clef-27b'}
 BAD_SUFFIXES = {'.safetensors', '.bin', '.gguf', '.pyc', '.log'}
 # .git is repository machinery and is never part of a published tree inventory.
 EXCLUDED = {'provenance/publication_audit.json', 'provenance/package_inventory.json'}

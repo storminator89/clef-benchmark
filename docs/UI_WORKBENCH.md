@@ -17,6 +17,8 @@ Es gibt keine externen Fonts, Skripte, Bilder, Trackingdienste oder Cloud-API.
   mit eigenen Nennern. Frühere Suiten behalten ihre Sprachkontrollen und Ergebnisse.
 - **Live testen:** eigenständiger Text-/Schemaeditor, 1–8 native Choice-Felder und
   ausdrückliches lokales Backend-Opt-in. Jedes Feld wird vollständig angezeigt.
+- **Eigene Tests:** eigener privater Import-/Editorbereich, ohne Vermischung mit
+  veröffentlichten Studien. [Schema und CLI](CUSTOM_CASES.md).
 - **Methodik:** Datengrundlage, Modellkonfiguration, Referenzannotation und Grenzen.
 
 Ab 1081 Pixeln bleibt die Desktopansicht dreigeteilt. Zwischen 761 und 1080 Pixeln
@@ -26,6 +28,10 @@ Hauptnavigation liegt auf dem Smartphone unten. Die lokale Browserprüfung für
 320 und 390 Pixel ist vorbereitet, aber hier nicht ausgeführt.
 
 ## Bedienung
+
+- **Alle Tests entdecken** öffnet einen kompakten Katalog. Jede Karte zeigt die
+  deutschen Hauptfälle und ob aufgezeichnete Ergebnisse vorliegen; Quoten werden
+  nicht zu einem gemeinsamen Gesamtscore zusammengerechnet.
 
 - Eine Fallkarte öffnet das zugehörige Dokument; auf dem Smartphone wechselt die
   Ansicht zum Dokument. Die Pfeile im Dokumentkopf öffnen den vorherigen/nächsten
@@ -46,6 +52,36 @@ Hauptnavigation liegt auf dem Smartphone unten. Die lokale Browserprüfung für
   schalten auf ihren passenden Split um. Back/Forward bleiben nutzbar.
 - Das Theme wird, sofern erlaubt, lokal gespeichert. Ohne verfügbaren Browser-
   Speicher funktioniert das Umschalten weiterhin für den offenen Tab.
+
+## Eigene Tests und Modellstatus
+
+Der private Ablauf hat vier Schritte: Datei prüfen, Fälle vorbereiten, lokal
+berechnen, Bericht exportieren. Nach dem ausdrücklichen Übernehmen klappt der
+Import zu, damit Fallliste und Editor im Mittelpunkt stehen. Er bleibt jederzeit
+über seine Überschrift erreichbar. Eine neue Suite ersetzt die geladene erst nach
+einer zweiten, sichtbaren Bestätigung. Entfernen hat dieselbe Schutzabfrage;
+**Behalten** oder Escape bricht sie ab. Tatsächliches Entfernen leert auch die
+Eingabefelder und abgeleiteten DOM-Inhalte, einschließlich versteckter Vorschau.
+
+Eine Liste mit bis zu 500 Fällen lässt sich nach ID/Text durchsuchen und nach
+Ausführungsfehlern, Goldabweichungen, fehlenden Goldlabels oder offenen Fällen
+filtern. Pfeiltasten, Home und End navigieren in der privaten Fallliste. Eine
+geänderte Eingabe erhält einen sichtbaren Hinweis und verwirft frühere Resultate
+sofort; vor Start/Export müssen Änderungen validiert oder verworfen werden.
+
+Vor einer Auswertung steht bei Qualitätsmetriken **—**, nicht eine vorgetäuschte
+Nullmessung. Die Goldabdeckung bleibt sichtbar. Ein Teillauf nennt bearbeitete,
+fehlgeschlagene und offene Fälle; Fehler bleiben im vorgesehenen Nenner. Antworten
+vergleichen Modellwahl und Nutzer-Gold nebeneinander, mit den vollständigen
+Optionswahrscheinlichkeiten. Goldfreie Felder erhalten keine Richtigkeitswertung.
+
+Der lokale Status trennt **Server**, **Inferenzfreigabe** und **geladenes Modell**.
+Ein erreichbarer Python-Server ist kein funktionsfähiges Modell. Die Aktualisierung
+liest nur `/api/health`; ungültige/unerreichbare Statusantworten erlauben keine
+neue Inferenz. Ein älterer paralleler Statuscheck kann einen neueren nicht
+überschreiben. Das Modell wird weiterhin nur bei einer echten, ausdrücklich
+gestarteten Anfrage geladen. Es gibt keine automatische Installation und keinen
+Modell-/Gerätewechsel im UI.
 
 ## Ergebniswahrheit
 
@@ -90,3 +126,7 @@ Kontrastwerte und Fokusaufrufe sind modellfrei geprüft; tatsächliche Pixel,
 verifiziert. Der optionale echte Browsertest steht in `tests/test_browser.py`.
 Es wurden keine Vorschau-Mockups als Screenshots ausgegeben. Weitere Einzelheiten:
 [VALIDATION.md](VALIDATION.md).
+
+Echte Desktop-/Telefonansichten und die README-Galerie werden ausschließlich durch
+den [reproduzierbaren Browserlauf](BROWSER_GALLERY.md) erstellt. Seine Existenz ist
+noch kein Beleg eines ausgeführten oder bestandenen Browsertests.

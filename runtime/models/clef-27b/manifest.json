@@ -1,0 +1,152 @@
+{
+  ".gitattributes": {
+    "bytes": 1570,
+    "hf_commit": "2f3de3dd85f379784083b0814d997ab627200f0c",
+    "sha256": "34448b82c17d60fec9b65b1f093c115ddbaadc04beb1b0140b6bfed2e012a930",
+    "hash_source": "downloaded_small_file_sha256_and_git_blob_checked"
+  },
+  "LICENSE": {
+    "bytes": 11544,
+    "hf_commit": "2f3de3dd85f379784083b0814d997ab627200f0c",
+    "sha256": "bbedc3fda3305820b977265f01b8619d87570a6739de3a5582c3464840f1e57a",
+    "hash_source": "downloaded_small_file_sha256_and_git_blob_checked"
+  },
+  "README.md": {
+    "bytes": 10214,
+    "hf_commit": "2f3de3dd85f379784083b0814d997ab627200f0c",
+    "sha256": "b0211b6ca10038b3168dde51f1482088b8c6b0fdccbbd765fce237dbc24f5d76",
+    "hash_source": "downloaded_small_file_sha256_and_git_blob_checked"
+  },
+  "chat_template.jinja": {
+    "bytes": 8952,
+    "hf_commit": "2f3de3dd85f379784083b0814d997ab627200f0c",
+    "sha256": "c3cf9e34abf4f9e36c2d72165aa9c132d3e2a725b6c2586aaa3a8af9d7a81041",
+    "hash_source": "downloaded_small_file_sha256_and_git_blob_checked"
+  },
+  "config.json": {
+    "bytes": 3688,
+    "hf_commit": "2f3de3dd85f379784083b0814d997ab627200f0c",
+    "sha256": "c42e88892bd3fd84e8276b2ad90df58c1c3b797676ea161035006a72ad468c58",
+    "hash_source": "downloaded_small_file_sha256_and_git_blob_checked"
+  },
+  "generation_config.json": {
+    "bytes": 214,
+    "hf_commit": "2f3de3dd85f379784083b0814d997ab627200f0c",
+    "sha256": "dc36854b2b25176764cfeeda32a3d80fb4fcffbef2b00d55c6614079bf21eb9f",
+    "hash_source": "downloaded_small_file_sha256_and_git_blob_checked"
+  },
+  "joint_head.safetensors": {
+    "bytes": 256125024,
+    "hf_commit": "2f3de3dd85f379784083b0814d997ab627200f0c",
+    "sha256": "a010ac04f078e699988e4049cbea5e62c962393f59fec366640b64e8d69a4953",
+    "hash_source": "official_hub_lfs_metadata_not_downloaded"
+  },
+  "joint_head_config.json": {
+    "bytes": 119,
+    "hf_commit": "2f3de3dd85f379784083b0814d997ab627200f0c",
+    "sha256": "890be585d75b981201eb96a35f98a9967afe37bc8d220cfdea2e72d56507534f",
+    "hash_source": "downloaded_small_file_sha256_and_git_blob_checked"
+  },
+  "joint_schema_model.py": {
+    "bytes": 23263,
+    "hf_commit": "2f3de3dd85f379784083b0814d997ab627200f0c",
+    "sha256": "0e304cf7c6500e8bb59bef7e2afd2c6373f82596dfb3b57d1aa93c175e2dc3a3",
+    "hash_source": "downloaded_small_file_sha256_and_git_blob_checked"
+  },
+  "model-00001-of-00012.safetensors": {
+    "bytes": 2542796928,
+    "hf_commit": "2f3de3dd85f379784083b0814d997ab627200f0c",
+    "sha256": "54d83c1d36631de231876217a8e0c2483eccee8746369a482b79442bdfc5d958",
+    "hash_source": "official_hub_lfs_metadata_not_downloaded"
+  },
+  "model-00002-of-00012.safetensors": {
+    "bytes": 4842451920,
+    "hf_commit": "2f3de3dd85f379784083b0814d997ab627200f0c",
+    "sha256": "464086af08be8e2ec14960a4dcff083ebc39974ade00d79d35497385f960ab3a",
+    "hash_source": "official_hub_lfs_metadata_not_downloaded"
+  },
+  "model-00003-of-00012.safetensors": {
+    "bytes": 4965227944,
+    "hf_commit": "2f3de3dd85f379784083b0814d997ab627200f0c",
+    "sha256": "092212d3a02fafacd6424723eda59d60e5282d2068d68f0e37cb891f63bbb658",
+    "hash_source": "official_hub_lfs_metadata_not_downloaded"
+  },
+  "model-00004-of-00012.safetensors": {
+    "bytes": 4912819264,
+    "hf_commit": "2f3de3dd85f379784083b0814d997ab627200f0c",
+    "sha256": "d06ff197668c782145fafa74bba61bbc296fb27e39afb15fd522918ce3514dc5",
+    "hash_source": "official_hub_lfs_metadata_not_downloaded"
+  },
+  "model-00005-of-00012.safetensors": {
+    "bytes": 4986198544,
+    "hf_commit": "2f3de3dd85f379784083b0814d997ab627200f0c",
+    "sha256": "cc693b8829614a72e0c2be303fb290cf05dbb4d7ded872a817b97bb222a78427",
+    "hash_source": "official_hub_lfs_metadata_not_downloaded"
+  },
+  "model-00006-of-00012.safetensors": {
+    "bytes": 4912819320,
+    "hf_commit": "2f3de3dd85f379784083b0814d997ab627200f0c",
+    "sha256": "e7cce15da2443cb8b84aaed66a9a71f0c87dc9d043f83b5f58f4a89f64ba60ad",
+    "hash_source": "official_hub_lfs_metadata_not_downloaded"
+  },
+  "model-00007-of-00012.safetensors": {
+    "bytes": 4932703272,
+    "hf_commit": "2f3de3dd85f379784083b0814d997ab627200f0c",
+    "sha256": "75fc7e76b57d5d17a5d85fff3e879d07dd33edc885a8ee04ad437a899bcd5307",
+    "hash_source": "official_hub_lfs_metadata_not_downloaded"
+  },
+  "model-00008-of-00012.safetensors": {
+    "bytes": 4966314576,
+    "hf_commit": "2f3de3dd85f379784083b0814d997ab627200f0c",
+    "sha256": "189b15cb6b1af48d5f118951446e15639bfeaf76081d5f20aed1f1b4253afe1d",
+    "hash_source": "official_hub_lfs_metadata_not_downloaded"
+  },
+  "model-00009-of-00012.safetensors": {
+    "bytes": 4964162248,
+    "hf_commit": "2f3de3dd85f379784083b0814d997ab627200f0c",
+    "sha256": "8101e2664bb14684fc7051f2e1f84903dbdf5489b17cae3212ac08a0af744a60",
+    "hash_source": "official_hub_lfs_metadata_not_downloaded"
+  },
+  "model-00010-of-00012.safetensors": {
+    "bytes": 4933789824,
+    "hf_commit": "2f3de3dd85f379784083b0814d997ab627200f0c",
+    "sha256": "a8e69016a1a8dab1c9ce8dd151c0d3224412ab864cf06d3a5e2b8a5775cfdfb8",
+    "hash_source": "official_hub_lfs_metadata_not_downloaded"
+  },
+  "model-00011-of-00012.safetensors": {
+    "bytes": 4965228032,
+    "hf_commit": "2f3de3dd85f379784083b0814d997ab627200f0c",
+    "sha256": "b328d21c36ab384696e40a30ac86a95aaf6dd82da89438ba009cb97d87c1d6b9",
+    "hash_source": "official_hub_lfs_metadata_not_downloaded"
+  },
+  "model-00012-of-00012.safetensors": {
+    "bytes": 2789094896,
+    "hf_commit": "2f3de3dd85f379784083b0814d997ab627200f0c",
+    "sha256": "7505eed910a84ea18e66953572476f8a8a6a6ef54192a6643d6e9cd21a3bb978",
+    "hash_source": "official_hub_lfs_metadata_not_downloaded"
+  },
+  "model.safetensors.index.json": {
+    "bytes": 111110,
+    "hf_commit": "2f3de3dd85f379784083b0814d997ab627200f0c",
+    "sha256": "a600c6626eb1eb653a3f078ab3dd1c7a8fab2e71185c7ef3aa923a39aaa637be",
+    "hash_source": "downloaded_small_file_sha256_and_git_blob_checked"
+  },
+  "processor_config.json": {
+    "bytes": 1191,
+    "hf_commit": "2f3de3dd85f379784083b0814d997ab627200f0c",
+    "sha256": "d89ef49ce9cd37fbf510158e13c1ef063d9286411c1ec9049932dbe0487143b1",
+    "hash_source": "downloaded_small_file_sha256_and_git_blob_checked"
+  },
+  "tokenizer.json": {
+    "bytes": 19989325,
+    "hf_commit": "2f3de3dd85f379784083b0814d997ab627200f0c",
+    "sha256": "06b9509352d2af50381ab2247e083b80d32d5c0aba91c272ca9ff729b6a0e523",
+    "hash_source": "official_hub_lfs_metadata_not_downloaded"
+  },
+  "tokenizer_config.json": {
+    "bytes": 1075,
+    "hf_commit": "2f3de3dd85f379784083b0814d997ab627200f0c",
+    "sha256": "91a08f825d370d085d692e04cf117cdd7faad7bf18e996f1e6031b6dab03db72",
+    "hash_source": "downloaded_small_file_sha256_and_git_blob_checked"
+  }
+}

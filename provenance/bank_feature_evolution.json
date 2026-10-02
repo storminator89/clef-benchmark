@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "baseline_commit": "1b899c5900a74ad0406bd6a25ad2ab87eec2e26d",
+  "bank_release_tree": "915e65b952241d028e88b29941cb2ff9440e46d9",
+  "purpose": "Exact reviewed feature-source evolution only. The original bank baseline remains unchanged. No historical inputs, predictions, scores, model manifests, original vendor code or runner may be exempted. This map itself is not model execution evidence.",
+  "changes": {
+    "runtime/check_backend.py": {
+      "from_sha256": "166927efa53593f7d185ec59724e97c0933541da9fb6207705b8379bc16ebf29",
+      "to_sha256": "3b7464fc1e1b4815f098e43c53f6b1ef971eda93f4a85f33673760503a387bb0",
+      "reason": "Explicit model/profile-aware preflight reporting for agent setup; no installation, download or fallback."
+    },
+    "runtime/device_profiles.py": {
+      "from_sha256": "7127e16e473f77f92e61ae41e7da8de871e574cfb78cbcdc5de42ebef1beac5a",
+      "to_sha256": "2515d9424d641c611f8cb9d7837da23b507d0c90a1588b1ae4aacf79cafcbd98",
+      "reason": "Explicit full-precision CPU-BF16 option and model-specific resource guards; original CPU-NF4 and ROCm choices retained."
+    },
+    "runtime/live_adapter.py": {
+      "from_sha256": "26777caed2bca7a13d743957efdb63cd727b0fce8d7ce9a6fff79e0b1069a103",
+      "to_sha256": "6874dcaacb73ad106530fe239120a81f53e746fed51f0aab79ce833747041d32",
+      "reason": "Pinned model selection and truthful model/profile identity for setup and private custom cases; original native head retained with no fallback."
+    }
+  }
+}

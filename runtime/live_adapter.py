@@ -19,7 +19,9 @@ import time
 from typing import Any
 
 try:
-    from runtime.device_profiles import BackendUnavailable, dtype_for_profile, resolve_profile, validate_profile
+    from runtime.device_profiles import BackendUnavailable, MIN_RAM_GIB, dtype_for_profile, is_cpu, required_host_ram_gib, resolve_profile, validate_profile
+    from runtime.hardware_probe import effective_memory
+    from runtime.model_registry import get_model, model_manifest
 except ModuleNotFoundError as error:
     if error.name != 'runtime':
         raise
@@ -31,9 +33,23 @@ except ModuleNotFoundError as error:
     _profiles = importlib.util.module_from_spec(_profile_spec)
     _profile_spec.loader.exec_module(_profiles)
     BackendUnavailable = _profiles.BackendUnavailable
+    MIN_RAM_GIB = _profiles.MIN_RAM_GIB
+    is_cpu = _profiles.is_cpu
+    required_host_ram_gib = _profiles.required_host_ram_gib
     dtype_for_profile = _profiles.dtype_for_profile
     resolve_profile = _profiles.resolve_profile
     validate_profile = _profiles.validate_profile
+    _probe_spec = importlib.util.spec_from_file_location('_clef_hardware_probe', Path(__file__).with_name('hardware_probe.py'))
+    if _probe_spec is None or _probe_spec.loader is None:
+        raise ImportError('Cannot import local hardware_probe.py')
+    _probe = importlib.util.module_from_spec(_probe_spec)
+    _probe_spec.loader.exec_module(_probe)
+    effective_memory = _probe.effective_memory
+    get_model = _profiles.get_model
+    _registry_spec = importlib.util.spec_from_file_location('_clef_registry_adapter', Path(__file__).with_name('model_registry.py'))
+    _registry = importlib.util.module_from_spec(_registry_spec)
+    _registry_spec.loader.exec_module(_registry)
+    model_manifest = _registry.model_manifest
 
 MODEL_ID = 'Cloudflare/clef-flash'
 REVISION = '17f0b0ad64efb65d273590632833508766b2aae6'
@@ -46,12 +62,14 @@ class ClefRuntime:
     """Create cheaply; the first infer() verifies files and loads the model once."""
 
     def __init__(self, model_dir: Path, threads: int = 6, max_length: int = 2048,
-                 profile: str = 'cpu-nf4', device_index: int = 0):
+                 profile: str = 'cpu-nf4', device_index: int = 0, model_key: str = 'flash-9b'):
         if not isinstance(threads, int) or not 1 <= threads <= 128:
             raise ValueError('threads must be an integer from 1 to 128')
         if not isinstance(max_length, int) or not 64 <= max_length <= 2048:
             raise ValueError('max_length must be an integer from 64 to 2048')
         validate_profile(profile, device_index)
+        self.model_key = model_key
+        self.model_spec = get_model(model_key)
         self.model_dir = Path(model_dir).expanduser().resolve()
         self.threads = threads
         self.max_length = max_length
@@ -70,8 +88,9 @@ class ClefRuntime:
         # Do not lock: the UI must be able to observe loading while infer runs.
         return {
             'state': self._state,
-            'model': MODEL_ID,
-            'revision': REVISION,
+            'model': self.model_spec['repo_id'], 'model_id': self.model_spec['repo_id'],
+            'model_key': self.model_key, 'model_size': self.model_spec['model_size'],
+            'revision': self.model_spec['revision'],
             # Requested profile is not evidence of a successfully loaded GPU.
             'requested_profile': self.profile,
             'device': self._runtime_info['device'] if self._state == 'ready' else None,
@@ -88,7 +107,8 @@ class ClefRuntime:
     def _verify_files(self) -> None:
         if not self.model_dir.is_dir():
             raise FileNotFoundError('Model directory is missing; download the pinned release explicitly first')
-        for name, expected in EXPECTED_FILES.items():
+        expected_files = EXPECTED_FILES if self.model_key == 'flash-9b' else model_manifest(self.model_key)
+        for name, expected in expected_files.items():
             path = self.model_dir / name
             if not path.is_file() or path.stat().st_size != expected['bytes']:
                 raise ValueError(f'Pinned release file missing or wrong size: {name}')
@@ -112,9 +132,13 @@ class ClefRuntime:
             import psutil
             import torch
             from transformers import AutoProcessor
-            self._runtime_info = resolve_profile(torch, self.profile, self.device_index)
-            minimum_ram = 7.5 if self.profile == 'cpu-nf4' else 2.0
-            if psutil.virtual_memory().available < minimum_ram * 1024**3:
+            self._runtime_info = resolve_profile(torch, self.profile, self.device_index, self.model_key)
+            minimum_ram = required_host_ram_gib(self.model_key, self.profile, self._runtime_info)
+            measured = effective_memory()['available_bytes']
+            available_ram = psutil.virtual_memory().available
+            if measured is not None:
+                available_ram = min(available_ram, measured)
+            if available_ram < minimum_ram * 1024**3:
                 raise BackendUnavailable(f'Live-Inferenz benötigt vor dem Laden mindestens {minimum_ram:g} GiB verfügbaren System-RAM zusätzlich zu den GPU-Speicheranforderungen des gewählten Profils. Kein automatischer Fallback.')
             torch.set_num_threads(self.threads)
             try:
@@ -124,9 +148,9 @@ class ClefRuntime:
                     raise RuntimeError('Set Torch interop threads to 1 before other Torch work in this server')
             torch.manual_seed(20261002)
             source = self.model_dir / 'joint_schema_model.py'
-            if hashlib.sha256(source.read_bytes()).hexdigest() != SOURCE_SHA256:
+            if hashlib.sha256(source.read_bytes()).hexdigest() != self.model_spec['source_sha256']:
                 raise ValueError('Official source changed after verification')
-            module_name = '_clef_pinned_' + REVISION
+            module_name = '_clef_pinned_' + self.model_spec['revision']
             spec = importlib.util.spec_from_file_location(module_name, source)
             if spec is None or spec.loader is None:
                 raise RuntimeError('Cannot import verified official Clef source')
@@ -148,7 +172,7 @@ class ClefRuntime:
             raise
 
     def _load_model(self, vendor, torch):
-        """Keep the exact CPU path; GPU loads the full native release without bnb."""
+        """Keep NF4 unchanged; every unquantized profile loads without bnb."""
         kwargs = {'local_files_only': True}
         if self.profile == 'cpu-nf4':
             from transformers import BitsAndBytesConfig
@@ -167,7 +191,7 @@ class ClefRuntime:
         dtype = dtype_for_profile(torch, self.profile)
         device = torch.device(self._runtime_info['device'])
         embedding = model.language_model.get_output_embeddings().weight
-        if embedding.dtype != dtype or tuple(embedding.shape) != (248320, 4096):
+        if embedding.dtype != dtype or tuple(embedding.shape) != (self.model_spec['vocab_size'], self.model_spec['hidden_size']):
             raise RuntimeError('Original lexical output embedding was not preserved at the selected precision')
         if any(parameter.dtype != dtype for parameter in model.head.parameters()):
             raise RuntimeError('Original joint head must use the selected native precision')
@@ -178,10 +202,10 @@ class ClefRuntime:
                 raise RuntimeError(f'Model parameter is not on the requested device: {name}')
             if self.profile != 'cpu-nf4' and (not parameter.is_floating_point()
                                              or parameter.dtype != dtype):
-                raise RuntimeError(f'Native GPU parameter has unexpected precision: {name}')
+                raise RuntimeError(f'Native parameter has unexpected precision: {name}')
 
     def _synchronize(self):
-        if self.profile != 'cpu-nf4':
+        if not is_cpu(self.profile):
             self._torch.cuda.synchronize(self._runtime_info['device'])
 
     @staticmethod
@@ -204,7 +228,7 @@ class ClefRuntime:
         if not isinstance(questions, dict) or not questions:
             raise ValueError('questions must be a nonempty object')
         # Never forward client metadata, filenames, image URLs, labels or gold data.
-        clean = {'model': 'clef-flash', 'state': request['state'], 'questions': questions}
+        clean = {'model': self.model_spec['api_model'], 'state': request['state'], 'questions': questions}
         with self._lock:
             first_call = self._model is None
             self._ensure_loaded()
@@ -259,7 +283,9 @@ class ClefRuntime:
                 'first_call_after_load': first_call,
                 'load_seconds': self._load_seconds if first_call else 0.0,
                 'verification_seconds': self._verify_seconds if first_call else 0.0,
-                'model': MODEL_ID, 'revision': REVISION,
+                'model': self.model_spec['repo_id'], 'model_id': self.model_spec['repo_id'],
+                'model_key': self.model_key, 'revision': self.model_spec['revision'],
+                'requested_profile': self.profile,
                 'device': self._runtime_info['device'],
                 'precision': self._runtime_info['precision'],
                 'runtime': dict(self._runtime_info),

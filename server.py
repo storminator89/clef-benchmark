@@ -12,6 +12,7 @@ from pathlib import Path
 from urllib.parse import unquote, urlsplit
 
 from runtime.device_profiles import BackendUnavailable, PROFILES, validate_profile
+from runtime.model_registry import MODEL_KEYS, DEFAULT_MODEL, get_model
 
 ROOT = Path(__file__).resolve().parent
 MAX_BODY = 32768
@@ -72,8 +73,10 @@ def validate_result(request, result):
 
 class Workbench:
     def __init__(self, enabled=False, model_dir=None, factory=None,
-                 profile='cpu-nf4', device_index=0):
+                 profile='cpu-nf4', device_index=0, model_key=DEFAULT_MODEL):
         validate_profile(profile, device_index)
+        self.model_spec = get_model(model_key)
+        self.model_key = model_key
         self.enabled = enabled
         self.model_dir = model_dir
         self.factory = factory
@@ -89,7 +92,9 @@ class Workbench:
                 'requested_profile':self.profile if self.enabled else None,
                 'runtime_state':status.get('state', 'unloaded'),
                 'runtime':status.get('runtime'),
-                'revision':'17f0b0ad64efb65d273590632833508766b2aae6'}
+                'model_key':self.model_key, 'model_id':self.model_spec['repo_id'],
+                'model':self.model_spec['repo_id'], 'model_size':self.model_spec['model_size'],
+                'revision':self.model_spec['revision']}
     def infer(self, request):
         if not self.enabled:
             return 503, {'error':'Live-Inferenz ist deaktiviert. Starte den Server explizit mit --enable-inference und --model-dir.'}
@@ -99,11 +104,17 @@ class Workbench:
             if self.runtime is None:
                 factory = self.factory or importlib.import_module('runtime.live_adapter').ClefRuntime
                 # Preserve the one-argument factory contract for the old default.
-                self.runtime = (factory(self.model_dir) if self.profile == 'cpu-nf4' else
-                                factory(self.model_dir, profile=self.profile, device_index=self.device_index))
+                if self.model_key == DEFAULT_MODEL:
+                    self.runtime = (factory(self.model_dir) if self.profile == 'cpu-nf4' else
+                                    factory(self.model_dir, profile=self.profile, device_index=self.device_index))
+                else:
+                    self.runtime = factory(self.model_dir, profile=self.profile,
+                                           device_index=self.device_index, model_key=self.model_key)
             result = self.runtime.infer(request)
             validate_result(request, result)
-            return 200, {'source':'live_local_inference','model':'Cloudflare/clef-flash','revision':self.health()['revision'], **result}
+            return 200, {'source':'live_local_inference', 'model_key':self.model_key,
+                         'model_id':self.model_spec['repo_id'], 'model':self.model_spec['repo_id'],
+                         'revision':self.model_spec['revision'], 'requested_profile':self.profile, **result}
         except ValueError as error:
             return 422, {'error':str(error)}
         except BackendUnavailable as error:
@@ -184,6 +195,7 @@ def main():
     parser.add_argument('--enable-inference',action='store_true',help='Lazily load the locally downloaded, pinned Clef model')
     parser.add_argument('--model-dir',type=Path,help='Directory from runtime/download_model.py; never downloaded automatically')
     parser.add_argument('--inference-profile',choices=PROFILES,default='cpu-nf4',help='Explicit CPU NF4 or experimental native AMD ROCm BF16/FP16; no automatic fallback')
+    parser.add_argument('--model', choices=MODEL_KEYS, default=DEFAULT_MODEL, help='Server-fixed model; Flash 9B default, Clef 27B explicit opt-in. No automatic download or fallback.')
     parser.add_argument('--device-index',type=int,default=0,help='Visible ROCm GPU index (default: 0)')
     args = parser.parse_args()
     if not 1024 <= args.port <= 65535: parser.error('Use a port from 1024 through 65535.')
@@ -194,9 +206,9 @@ def main():
     except ValueError as error:
         parser.error(str(error))
     server = make_server(args.port, Workbench(args.enable_inference,args.model_dir,
-                         profile=args.inference_profile,device_index=args.device_index))
+                         profile=args.inference_profile,device_index=args.device_index,model_key=args.model))
     print(f'Clef Workbench: http://127.0.0.1:{args.port}',flush=True)
-    print(f'Live inference enabled; requested profile: {args.inference_profile}. Device is verified only on first model load. See README and docs/AMD_GPU.md for memory requirements.' if args.enable_inference else 'Results-only mode. No model, GPU, network request, or additional packages required.',flush=True)
+    print(f'Live inference enabled; model: {args.model}; requested profile: {args.inference_profile}. Device is verified only on first model load. See README and docs/AMD_GPU.md for memory requirements.' if args.enable_inference else 'Results-only mode. No model, GPU, network request, or additional packages required.',flush=True)
     try: server.serve_forever()
     except KeyboardInterrupt: pass
     finally: server.server_close()

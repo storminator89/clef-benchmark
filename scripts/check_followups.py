@@ -17,7 +17,8 @@ def verify_protected_files(root=ROOT):
     evolution_path=root/'provenance/workbench_evolution.json'
     evolution=load(evolution_path) if evolution_path.is_file() else {'changes':{}}
     changes=evolution['changes']
-    allowed={'server.py','runtime/live_adapter.py','tests/test_device_profiles.py'}
+    allowed={'server.py','runtime/live_adapter.py','tests/test_device_profiles.py',
+             'runtime/device_profiles.py','runtime/check_backend.py','docs/AMD_GPU.md'}
     assert isinstance(changes,dict) and set(changes)<=allowed,'Unexpected protected-file evolution'
     for name,change in changes.items():
         assert name in protected['protected_files_sha256'],name
@@ -68,5 +69,5 @@ def main():
     saved=load(image/'results/scores.json');saved.pop('provenance',None)
     assert fresh==saved,'Image metrics differ'
     run(image/'qa/test_scorer.py')
-    print('PASS: original 280 text results, pinned model/source and AMD profiles preserved; exact bounded live-API evolution verified; clean72, image90 and seven-pair ablation complete, hash-checked and scores recomputed; no model or network used')
+    print('PASS: original 280 text results, pinned model/source preserved; explicit runtime/device-profile evolution hash-checked; exact bounded live-API evolution verified; clean72, image90 and seven-pair ablation complete, hash-checked and scores recomputed; no model or network used')
 if __name__=='__main__':main()

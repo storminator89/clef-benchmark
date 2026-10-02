@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "status": "pass",
+  "scope": "Agent-ready local setup and private custom testcase evaluation integrated over the reviewed bank release. No publication performed by this integration step.",
+  "bank_base_tree": "915e65b952241d028e88b29941cb2ff9440e46d9",
+  "baseline_manifest_unchanged_sha256": "b532ef0c20f26257afa5ffb00a6b914a09b6e01f0923fb81f550c8a80f1777ca",
+  "protected_baseline_files": 212,
+  "protected_baseline_byte_identical_files": 209,
+  "exact_runtime_evolutions": 3,
+  "tests": {
+    "python": 244,
+    "javascript_dom": 87
+  },
+  "checks": {
+    "original_gate": "pass",
+    "followup_gate": "pass",
+    "bank_gate": "pass",
+    "five_dataset_byte_identical_rebuilds": "pass",
+    "private_dom_cleanup_review": "pass",
+    "public_private_path_review": "pass"
+  },
+  "datasets_sha256": {
+    "web/data/benchmark.json": "98729655de727e9941f5044111a0b456896b099a0709b49d0242746393611a1c",
+    "web/data/finance.json": "75dc1e910766ae370258c25af82eac3f962036c6fa1bf859c6158d56b2ead999",
+    "web/data/clean72.json": "3762fa3a3e47332a9e83e4d1da0b592811b7ede047605f66b9376656a53890f6",
+    "web/data/insurance.json": "391c09b563b3aac960ceb800776965c8b9c451d41b7e8b9609873487d0e06891",
+    "web/data/bank-support.json": "d219b98b0716dd3efaee828ccd7bd8c8d6d12c235c499c29e0efd5dbc562e4fe"
+  },
+  "new_genuine_smoke": {
+    "proof": "qa/setup_custom_smoke.json",
+    "proof_sha256": "21f38546d1c412ed5712fc1aea8594595ab4709c192755d7c5e1b8d51f869cf2",
+    "completion": "qa/setup_custom_smoke_completion.json",
+    "completion_sha256": "d8d3bb08abe8c8ec77406dc6c87fd0c9e51c849e0e0bdd65e4af4d7dc17720e5",
+    "requests": 1,
+    "fields": 3,
+    "model_key": "flash-9b",
+    "profile": "cpu-nf4",
+    "benchmark_inclusion": false
+  },
+  "historical_smoke_evidence_rewritten": false,
+  "limits": {
+    "fresh_installer_lifecycle": "mock-tested only; no fresh install or download",
+    "cpu_bf16": "not hardware-validated",
+    "rocm": "not hardware-validated",
+    "clef_27b": "not downloaded or loaded; not hardware-validated",
+    "browser_visual_qa": "not run; prior restrictions respected",
+    "screenshots": "not captured"
+  }
+}

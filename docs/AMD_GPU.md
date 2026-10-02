@@ -1,5 +1,14 @@
 # Optionale AMD-GPU-Inferenz
 
+**Neuer Agenten-Einstieg:** [Setup mit expliziter Modellwahl](AGENT_SETUP.md) und
+[Hardware-/Speicherempfehlungen](HARDWARE.md). Die Beispiele und bisherigen
+Speicherangaben dieser Seite beziehen sich auf den Standard **Flash 9B**.
+`--model clef-27b` wählt ausdrücklich das größere Modell; es verlangt 60 GiB
+freien GPU-Speicher und mindestens 4 GiB Hostreserve. Auf erkannten
+Shared-Memory-APUs prüft der aktuelle Adapter zusätzlich mindestens 24 GiB
+verfügbaren physischen System-RAM für 9B bzw. 64 GiB für 27B. Die 27B-Gewichte
+wurden hier nicht heruntergeladen oder auf Hardware getestet.
+
 Stand der Quellenprüfung: **2. Oktober 2026**. Dies ist vorbereiteter Code mit modellfreien Tests, **kein erfolgreicher Clef-Lauf auf AMD-Hardware**. Das konkrete Rechner-, Prozessor-, Betriebssystem- und Speichermodell muss vor einer Installation geprüft werden. Aus einer Produktbezeichnung wie „Ryzen AI Max“ allein folgt keine verifizierte Systemkonfiguration.
 
 Der neue Pfad nutzt die **Radeon-GPU über ROCm/PyTorch**, einschließlich einer unterstützten integrierten Radeon-GPU. Er nutzt **nicht die Ryzen-AI-NPU**. Eine NVIDIA-, DirectML-, Vulkan- oder NPU-Implementierung ist nicht enthalten.

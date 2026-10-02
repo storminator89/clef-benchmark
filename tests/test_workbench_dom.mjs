@@ -367,7 +367,7 @@ test("responsive layout declares deliberate phone panes and protects shrinking c
       (el) => el.id,
     ),
   );
-  assert.equal(h.document.querySelectorAll('input[type="file"]').length, 0);
+  assert.equal(h.document.querySelectorAll('input[type="file"]').length, 2);
 });
 test("data-derived statistics distinguish fields, exact case and pending without pooling suites", () => {
   const fixture = completeFixture(),
@@ -809,4 +809,84 @@ test("final bank results keep field, exact-case and critical-case truths separat
     h.click(`[data-field="${field}"]`);
     assert.equal(h.document.querySelectorAll("#case-detail .prob-row").length,Object.keys(data.cases[0].questions[field].criteria).length);
   }
+});
+
+test("suite catalog offers separate denominators, selects honestly and never sums scores", async () => {
+  const h = await harness();
+  assert.equal(h.document.querySelectorAll('[data-suite]').length, 5);
+  const bank = h.document.querySelector('[data-suite="bank-support"]');
+  assert.match(bank.textContent, /80 deutsche Hauptfälle/);
+  assert.match(bank.textContent, /Gespeicherter Lauf/);
+  h.$('suite-catalog').open = true;
+  h.click('[data-suite="bank-support"]');
+  assert.equal(h.app.getState().suite, 'bank-support');
+  assert.equal(h.$('suite-catalog').open, false);
+  assert.equal(h.document.querySelector('[data-suite="bank-support"]').getAttribute('aria-pressed'), 'true');
+  assert.equal(h.$('suite-select').value, 'bank-support');
+  h.window.location.hash = 'custom';
+  assert.equal(h.$('suite-catalog').hidden, true);
+  assert.equal(h.document.title, 'Clef Lab · Eigene Tests');
+});
+
+test("readiness distinguishes server, explicit enablement and a loaded model without inferring readiness", async () => {
+  const value = { inference_enabled: false, model_loaded: false, busy: false };
+  const h = await harness({ healthHandler: async () => ({ ok: true, json: async () => ({ ...value }) }) });
+  const statuses = () => [...h.document.querySelectorAll('[data-readiness]')].map(el => el.dataset.status);
+  assert.deepEqual(statuses(), ['ready', 'pending', 'pending']);
+  assert.equal(h.$('run-live').disabled, true);
+  value.inference_enabled = true;
+  await h.app.checkBackend();
+  assert.deepEqual(statuses(), ['ready', 'ready', 'pending']);
+  assert.match(h.$('backend-summary').textContent, /noch ungeladen/);
+  assert.equal(h.$('run-live').disabled, false);
+  value.model_loaded = true;
+  await h.app.checkBackend();
+  assert.deepEqual(statuses(), ['ready', 'ready', 'ready']);
+  assert.match(h.$('backend-summary').textContent, /Modell geladen/);
+  assert.equal(h.calls.filter(c => c.url === '/api/infer').length, 0);
+});
+
+test("malformed health booleans fail closed for playground and readiness UI", async () => {
+  for (const mutation of [{inference_enabled:'false'}, {model_loaded:'true'}, {busy:0}]) {
+    const h = await harness({healthHandler: async () => ({ok:true,json:async () => ({inference_enabled:true,model_loaded:false,busy:false,...mutation})})});
+    assert.equal(h.$('run-live').disabled, true);
+    assert.match(h.$('backend-summary').textContent, /Server nicht erreichbar/);
+    assert.equal(await h.app.runLive(), false);
+    assert.equal(h.calls.filter(c => c.url === '/api/infer').length, 0);
+  }
+});
+
+test("newer health refresh wins if an older check finishes last", async () => {
+  let call = 0, resolve;
+  const deferred = new Promise(r => resolve = r);
+  const h = await harness({healthHandler: async () => ++call === 2 ? deferred : ({ok:true,json:async()=>({inference_enabled:false,model_loaded:false,busy:false})})});
+  const old = h.app.checkBackend();
+  await h.app.checkBackend();
+  resolve({ok:true,json:async()=>({inference_enabled:true,model_loaded:true,busy:false})});
+  await old;
+  assert.equal(h.app.getState().health.inference_enabled, false);
+  assert.equal(h.$('refresh-backend').disabled, false);
+  assert.equal(h.$('run-live').disabled, true);
+});
+
+test("failed benchmark loading does not block independent backend readiness or custom import", async () => {
+  const h = await harness({ failFiles: ['insurance', 'benchmark', 'finance', 'clean72', 'bank-support'] });
+  assert.equal(h.$('app-error').hidden, false);
+  assert.match(h.$('backend-summary').textContent, /Ergebnismodus/);
+  assert.equal(h.document.querySelectorAll('[data-suite]:disabled').length, 5);
+  assert.equal(h.$('custom-example').disabled, false);
+});
+
+test('readiness immediately reflects a running single request and blocks a known busy backend', async () => {
+  let release;
+  const deferred=new Promise(resolve=>release=resolve), h=await harness({enabled:true,requestHandler:()=>deferred});
+  const run=h.app.runLive();
+  assert.match(h.$('backend-summary').textContent,/Berechnung läuft/);
+  assert.match(h.$('backend-state').textContent,/Berechnung läuft/);
+  const request=JSON.parse(h.calls.find(c=>c.url==='/api/infer').options.body);
+  release({ok:true,json:async()=>liveFixture(request)});await run;
+  const occupied=await harness({healthHandler:async()=>({ok:true,json:async()=>({inference_enabled:true,model_loaded:true,busy:true})})});
+  assert.equal(occupied.$('run-live').disabled,true);
+  assert.equal(await occupied.app.runLive(),false);
+  assert.equal(occupied.calls.filter(c=>c.url==='/api/infer').length,0);
 });

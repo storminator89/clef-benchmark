@@ -1,21 +1,39 @@
 {
   "baseline_commit": "d79294a94b835a265b8c02d1ef5999a01cfe3d1c",
-  "purpose": "Explicit reviewed evolution of live workbench code only. Historical followup_baseline.json remains unchanged; benchmark inputs, official vendor code, model manifests, recorded outputs, scoring and device profiles stay protected byte-for-byte.",
+  "purpose": "Explicit narrowly scoped current-source evolution. Original followup baseline and prior smoke evidence stay unchanged. Exact historical sources are archived separately. Frozen benchmark inputs/results/scorers, official encoder/config/manifests remain protected; these changes are not evidence of a new model execution.",
   "changes": {
     "server.py": {
       "from_sha256": "d4076130d95ead0b272afbb96df335541b563626b276cd41b344e4e4b0ba28fb",
-      "to_sha256": "4ac5a11e2bf2d92578581ad75af55565661e6c957a1438beed8fa73aff701448",
-      "reason": "Bounded 1\u20138 question API validation and exact complete-response contract; loopback/origin/header protections retained."
+      "to_sha256": "b460f3a5e7799329ccc995d5af6ae40dc7f84d62b1895731b13eb83123d46e6d",
+      "reason": "Fixed explicit server model selection and truthful identity metadata for private sequential custom suites; exact state/questions HTTP contract, loopback/origin/header protections and default Flash9B retained."
     },
     "runtime/live_adapter.py": {
       "from_sha256": "169e3122538057a1eeabed1422e3967213d520c9ac2086fba630bc9ea3ec60f1",
-      "to_sha256": "26777caed2bca7a13d743957efdb63cd727b0fce8d7ce9a6fff79e0b1069a103",
-      "reason": "Reject missing, duplicate or misaligned questions/options rather than silently truncating zip output; CPU/ROCm loading and token limits retained."
+      "to_sha256": "6874dcaacb73ad106530fe239120a81f53e746fed51f0aab79ce833747041d32",
+      "reason": "Explicit pinned Flash9B/27B registry and CPU-BF16 option; native head, no fallback, model-specific shape/resource checks and response metadata. New branches are code-tested, not claimed hardware-validated."
     },
     "tests/test_device_profiles.py": {
       "from_sha256": "1ece735667aa0e5b9a23c6aad161acea1f04cf74406353d7a0db988e60b13bac",
       "to_sha256": "859008c2811c0a02c0fac50ea187c88b2f051147d814919133fa5acd99f8e9d3",
       "reason": "Update test-only runtime stubs for full native multi-field response validation; existing AMD profile assertions retained."
+    },
+    "runtime/device_profiles.py": {
+      "from_sha256": "7127e16e473f77f92e61ae41e7da8de871e574cfb78cbcdc5de42ebef1beac5a",
+      "to_sha256": "2515d9424d641c611f8cb9d7837da23b507d0c90a1588b1ae4aacf79cafcbd98",
+      "reason": "Explicit CPU-BF16 profile and bounded model-specific resource metadata; original CPU-NF4 and AMD ROCm options retained with no automatic fallback."
+    },
+    "runtime/check_backend.py": {
+      "from_sha256": "166927efa53593f7d185ec59724e97c0933541da9fb6207705b8379bc16ebf29",
+      "to_sha256": "3b7464fc1e1b4815f098e43c53f6b1ef971eda93f4a85f33673760503a387bb0",
+      "reason": "Standard-library planning/preflight reporting with explicit model/profile identification; no automatic download or device substitution."
+    },
+    "docs/AMD_GPU.md": {
+      "from_sha256": "d0d979f0f0c5aba866f4149f4da3ec0dea0e1ed83d90e694a015b654c40038f4",
+      "to_sha256": "402313b79433237d45375dee301ed0ecd5c0ff9c7fdbec5c55127ad52b36a667",
+      "reason": "Document explicit native precision/model options, conservative hardware estimates and untested combinations; no claim of new AMD or27B execution."
     }
-  }
+  },
+  "previous_evolution_record": "provenance/workbench_evolution_pre_custom.json",
+  "historical_smoke_sources": "provenance/archived_live_smoke_sources.json",
+  "new_hardware_validation": "Not performed for this feature delta; any current-source smoke must be a new, separately recorded real run."
 }

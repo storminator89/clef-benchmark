@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "name": "Synthetische Supportbeispiele",
+  "cases": [
+    {
+      "id": "beispiel_001",
+      "state": "Ich habe mein Passwort vergessen und kann mich nicht anmelden.",
+      "questions": {
+        "intent": {
+          "type": "choice",
+          "instructions": "Ordne das Hauptanliegen des synthetischen Supporttexts ein.",
+          "criteria": {
+            "zugang": "Anmeldung oder Passwort",
+            "karte": "Zahlungskarte",
+            "sonstiges": "Anderes Anliegen"
+          }
+        },
+        "priority": {
+          "type": "choice",
+          "instructions": "Ist ein akuter, im Text ausdrücklich beschriebener Schaden zu stoppen? Wunsch nach schneller Antwort allein ist nicht dringend.",
+          "criteria": {
+            "normal": "Kein akuter Schaden beschrieben",
+            "dringend": "Akuter Verlust, Missbrauch oder Schaden beschrieben"
+          }
+        }
+      },
+      "gold": {
+        "intent": "zugang",
+        "priority": "normal"
+      }
+    },
+    {
+      "id": "beispiel_002",
+      "state": "Meine Karte wurde gestohlen. Bitte sperren.",
+      "questions": {
+        "intent": {
+          "type": "choice",
+          "instructions": "Ordne das Hauptanliegen des synthetischen Supporttexts ein.",
+          "criteria": {
+            "zugang": "Anmeldung oder Passwort",
+            "karte": "Zahlungskarte",
+            "sonstiges": "Anderes Anliegen"
+          }
+        },
+        "priority": {
+          "type": "choice",
+          "instructions": "Ist ein akuter, im Text ausdrücklich beschriebener Schaden zu stoppen? Wunsch nach schneller Antwort allein ist nicht dringend.",
+          "criteria": {
+            "normal": "Kein akuter Schaden beschrieben",
+            "dringend": "Akuter Verlust, Missbrauch oder Schaden beschrieben"
+          }
+        }
+      },
+      "gold": {
+        "intent": "karte"
+      }
+    },
+    {
+      "id": "beispiel_003",
+      "state": "Wann beginnt die nächste Sprechstunde?",
+      "questions": {
+        "intent": {
+          "type": "choice",
+          "instructions": "Ordne das Hauptanliegen des synthetischen Supporttexts ein.",
+          "criteria": {
+            "zugang": "Anmeldung oder Passwort",
+            "karte": "Zahlungskarte",
+            "sonstiges": "Anderes Anliegen"
+          }
+        },
+        "priority": {
+          "type": "choice",
+          "instructions": "Ist ein akuter, im Text ausdrücklich beschriebener Schaden zu stoppen? Wunsch nach schneller Antwort allein ist nicht dringend.",
+          "criteria": {
+            "normal": "Kein akuter Schaden beschrieben",
+            "dringend": "Akuter Verlust, Missbrauch oder Schaden beschrieben"
+          }
+        }
+      }
+    }
+  ]
+}

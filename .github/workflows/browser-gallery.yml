@@ -1,0 +1,89 @@
+name: Capture genuine browser gallery
+
+# A UI-source push to main captures only; no PR trigger or automatic publication.
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'web/**'
+      - 'tests/test_browser.py'
+      - 'tests/test_browser_capture_contract.py'
+      - 'tests/requirements-browser.txt'
+      - 'examples/custom_cases/support.json'
+      - 'server.py'
+      - '.github/workflows/browser-gallery.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: browser-gallery-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  capture:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - name: Check out the selected commit without saved credentials
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.12'
+      - name: Set up Node
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: '24'
+          package-manager-cache: false
+      - name: Verify frozen results and offline Python regressions
+        run: |
+          python scripts/check_project.py
+          python scripts/check_followups.py
+          python scripts/check_bank_support.py
+          python -m unittest discover -s tests -p 'test_*.py' -v
+      - name: Rebuild every published UI dataset without changes
+        run: |
+          python scripts/build_web_data.py --suite general
+          python scripts/build_web_data.py --suite finance
+          python scripts/build_clean_web_data.py
+          python scripts/build_insurance_web_data.py
+          python scripts/build_bank_web_data.py
+          git diff --exit-code -- web/data/
+      - name: Run pinned DOM regressions
+        run: |
+          npm ci --ignore-scripts --no-audit --no-fund
+          npm test
+      - name: Install the pinned optional browser test dependency
+        run: |
+          python -m pip install -r tests/requirements-browser.txt
+          python -m playwright install chromium
+      - name: Capture with Chromium sandbox and a results-only local server
+        run: python tests/test_browser.py --start-server --output test-results/browser-gallery
+      - name: Verify screenshot provenance and current source hashes
+        run: python tests/test_browser.py --verify-artifact test-results/browser-gallery
+      - name: Limit the short-lived artifact to ten MiB
+        id: artifact-size
+        if: ${{ !cancelled() }}
+        run: |
+          python - <<'PYARTIFACT'
+          from pathlib import Path
+          root = Path('test-results/browser-gallery')
+          size = sum(p.stat().st_size for p in root.rglob('*') if p.is_file())
+          assert size <= 10 * 1024 * 1024, 'Gallery exceeds the 10 MiB artifact budget'
+          print(f'Gallery artifact: {size} bytes; retention one day')
+          PYARTIFACT
+      - name: Preserve capture results for review (never auto-publish)
+        if: ${{ !cancelled() && steps.artifact-size.outcome == 'success' }}
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: clef-browser-gallery-${{ github.sha }}
+          path: test-results/browser-gallery/
+          if-no-files-found: warn
+          retention-days: 1
+          include-hidden-files: false

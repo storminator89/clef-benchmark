@@ -1,10 +1,16 @@
 # Large model assets and environment files
 runtime/model/
+runtime/model-clef-27b/
 runtime/hf_cache/
 runtime/venv/
 runtime/tiny_smoke_model/
 .venv/
 .venv-rocm/
+.venvs/
+.clef/
+# Private inputs, labels, predictions, setup logs and reports; never publish by default
+user_cases/
+user_runs/
 venv/
 node_modules/
 __pycache__/

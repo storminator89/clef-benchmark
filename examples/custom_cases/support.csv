@@ -1,0 +1,4 @@
+﻿"id","state","gold.intent","gold.priority"
+"beispiel_001","Ich habe mein Passwort vergessen und kann mich nicht anmelden.","zugang","normal"
+"beispiel_002","Meine Karte wurde gestohlen. Bitte sperren.","karte",""
+"beispiel_003","Wann beginnt die nächste Sprechstunde?","",""

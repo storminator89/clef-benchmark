@@ -1,0 +1,43 @@
+{
+  "purpose": "Preserve exact historical sources without rewriting genuine prior execution evidence. New source is not hardware-validated by this archive.",
+  "source_evidence": "qa/live_multifield_smoke.json",
+  "source_evidence_sha256": "9352c6c923895f763fb6b85a92a2558f8e2b4fd4cfdba1508446f8d081d431eb",
+  "files": {
+    "scripts/smoke_multifield_http.py": {
+      "archived_path": "provenance/archived_live_smoke_sources/scripts/smoke_multifield_http.py",
+      "sha256": "13d85d3e62861af66bb8ab922438ca45eeb5a63b04209c919742a9c3c767df95"
+    },
+    "server.py": {
+      "archived_path": "provenance/archived_live_smoke_sources/server.py",
+      "sha256": "4ac5a11e2bf2d92578581ad75af55565661e6c957a1438beed8fa73aff701448"
+    },
+    "runtime/live_adapter.py": {
+      "archived_path": "provenance/archived_live_smoke_sources/runtime/live_adapter.py",
+      "sha256": "26777caed2bca7a13d743957efdb63cd727b0fce8d7ce9a6fff79e0b1069a103"
+    },
+    "runtime/device_profiles.py": {
+      "archived_path": "provenance/archived_live_smoke_sources/runtime/device_profiles.py",
+      "sha256": "7127e16e473f77f92e61ae41e7da8de871e574cfb78cbcdc5de42ebef1beac5a"
+    },
+    "runtime/joint_schema_model.py": {
+      "archived_path": "provenance/archived_live_smoke_sources/runtime/joint_schema_model.py",
+      "sha256": "0e304cf7c6500e8bb59bef7e2afd2c6373f82596dfb3b57d1aa93c175e2dc3a3"
+    },
+    "runtime/config.json": {
+      "archived_path": "provenance/archived_live_smoke_sources/runtime/config.json",
+      "sha256": "66f87f6fb2616b46604daf2a9c67ddc87938296d07156efa34d59b5be49e3238"
+    },
+    "runtime/joint_head_config.json": {
+      "archived_path": "provenance/archived_live_smoke_sources/runtime/joint_head_config.json",
+      "sha256": "77efe959a38b5b17b241543e129e695f3c77465ece55a25985279bd8176279a0"
+    },
+    "runtime/requirements_frozen.txt": {
+      "archived_path": "provenance/archived_live_smoke_sources/runtime/requirements_frozen.txt",
+      "sha256": "840f4cfbedc4eb2af8e8c1d5d100a10f7ccd145032176bc3b3d833330b2a02f6"
+    },
+    "runtime/model_file_manifest.json": {
+      "archived_path": "provenance/archived_live_smoke_sources/runtime/model_file_manifest.json",
+      "sha256": "09176750060287112e38af55684476e00255d2feb6edc3e5af7d16b11c6f728a"
+    }
+  }
+}

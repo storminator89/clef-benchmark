@@ -69,11 +69,11 @@ Zusätzlich bleiben unter anderem `source: "live_local_inference"`, `benchmark_r
 text_state = json.dumps(original_state, ensure_ascii=False, separators=(",", ":"), sort_keys=True)
 ```
 
-Bereits vorhandene Strings bleiben unverändert. Bei dieser kanonischen Projektion eines JSON-Objekts entsteht derselbe modellseitige Text wie beim ursprünglichen strukturierten `state`. Eine anders formatierte oder bearbeitete Projektion ist eine geänderte Eingabe. Der Client muss die Projektion und etwaige Bearbeitung sichtbar machen; die ursprüngliche strukturierte Quelle bleibt für Reproduktion und Replay erhalten. Diese Regel erlaubt weder Medienzugriff noch Datei-Uploads.
+Bereits vorhandene Strings bleiben unverändert. Bei dieser kanonischen Projektion eines JSON-Objekts entsteht derselbe modellseitige Text wie beim ursprünglichen strukturierten `state`. Eine anders formatierte oder bearbeitete Projektion ist eine geänderte Eingabe. Der Client muss die Projektion und etwaige Bearbeitung sichtbar machen; die ursprüngliche strukturierte Quelle bleibt für Reproduktion und Replay erhalten. Diese Regel erlaubt keinen Medienzugriff. Der getrennte [private Testfallimport](CUSTOM_CASES.md) liest JSON/JSONL/CSV im Browser und sendet ausschließlich einzelne validierte Textrequests an diese API. Es gibt keinen serverseitigen Dateiupload.
 
 ## Sicherheit, Fehler und Hardwarestatus
 
-- Nur Text; keine Top-Level-Medienfelder, lokalen Dateien, Uploads, Remote-URLs zum Laden oder automatische Downloads. URLs innerhalb eines normalen Eingabetexts werden nicht abgerufen
+- Nur Text; keine Top-Level-Medienfelder, vom Server geöffneten lokalen Dateien, serverseitigen Uploads, Remote-URLs zum Laden oder automatische Downloads. URLs innerhalb eines normalen Eingabetexts werden nicht abgerufen
 - Host-/Origin-Prüfung, Pflichtheader, Content-Security-Policy, `nosniff` und `no-store` bleiben unverändert; keine CORS-Freigabe
 - HTTP 400: ungültiges JSON, doppelte Schlüssel, unzulässiges Schema oder Zeichengrenzen; 413: leerer/zu großer Body; 415: falscher Content-Type oder fehlender Pflichtheader
 - HTTP 403: fremder Host/Origin; 409: Modell bereits beschäftigt; 422: Tokenbudget überschritten oder sonstiger Adapter-Validierungsfehler
@@ -128,3 +128,9 @@ Der separate neue HTTP-Smoke wurde nach dem Ende der Versicherungsinferenz von *
 [Sanitisierter vollständiger Laufnachweis](../qa/live_multifield_smoke.json) · [Separater Prozessende-/RAM-Nachweis](../qa/live_multifield_smoke_completion.json)
 
 Dieser einzelne neue Fall ist ausdrücklich kein Versicherungsscore und keine allgemeine Qualitätsbewertung. Die experimentellen AMD-Profile wurden dabei nicht ausgeführt.
+
+## Eigene Suiten und feste Modellidentität
+
+Die [private Suite-Auswertung](CUSTOM_CASES.md) und `scripts/evaluate_custom.py` verwenden dieselbe API, strikt eine Anfrage nach der anderen. Erwartete Labels werden nie übertragen. Nur der Serverstart wählt das Modell (`--model flash-9b` als Standard, `--model clef-27b` ausdrücklich opt-in); ein Request kann es nicht umschalten.
+
+Health und neue Antworten nennen `model_key`, `model_id`/`model` (offizielles Repository), die gepinnte `revision` und `requested_profile`. Vor dem Laden sind tatsächliches Gerät und Präzision weiterhin unbekannt. Erfolgreiche Antworten enthalten `runtime.profile`, tatsächliche `runtime.device` und `runtime.precision` sowie die unveränderten Timings. Batch-Berichte binden Suite und Modellidentität per Fingerprint und verweigern ein Resume mit anderem Modell, Pin oder Profil. Das ist Zuordnungsintegrität, keine unabhängige Zertifizierung eines Nutzerberichts.
