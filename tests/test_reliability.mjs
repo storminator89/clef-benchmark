@@ -184,3 +184,14 @@ test('overlapping routes share a fetch; latest route wins and route-away cannot 
   assert.equal(await showing, false); assert.equal(away.$('reliability').innerHTML, before);
   assert.equal(await away.view.show({ field: 'action' }), true); assert.equal(away.calls.length, 1);
 });
+
+
+test('responsive heading preserves word spacing and horizontal table controls have explicit guidance', async () => {
+  const h=harness(); await h.view.show();
+  assert.match(h.$('reliability-title').textContent,/bleibt bei hohen/);
+  const table=h.document.querySelector('.reliability-table-wrap');
+  assert.equal(table.getAttribute('tabindex'),'0');
+  assert.equal(table.getAttribute('aria-describedby'),'reliability-scroll-hint');
+  assert.match(h.$('reliability-scroll-hint').textContent,/seitlich scrollen/);
+  assert.match(h.$('reliability-scroll-hint').textContent,/Pfeiltasten/);
+});

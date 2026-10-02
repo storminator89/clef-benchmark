@@ -384,7 +384,7 @@ class BrowserChecks:
             self.capture(f'minimal-pairs-{width}.png', f'Pair comparison at {width} CSS pixels, unchanged wrong endpoints', full_page=True)
             page.locator('#pair-reset').click()
         page.set_viewport_size({'width': 1440, 'height': 1000})
-        self.check('Minimal pairs: exact highlighted edits, paired correctness, stable-wrong and unjustified-change filters, no-match clearing, deep links, Back/Forward, dark theme and 320/390px')
+        self.check('Minimal pairs: exact highlighted edits, paired correctness, stable-wrong and unjustified-change filters, no-match clearing, deep links, Back/Forward, dark theme, keyboard horizontal-scroll and reachable detail controls at 320/390px')
 
     def reliability(self):
         page, expect = self.page, self.expect
@@ -431,6 +431,27 @@ class BrowserChecks:
             page.locator('#reliability-suite').select_option('minimal_pairs48')
             page.locator('#reliability-field').select_option('determination')
             expect(page.locator('.reliability-risk')).to_contain_text('4 / 36')
+            expect(page.locator('#reliability-title')).to_contain_text('bleibt bei')
+            expect(page.locator('#reliability-scroll-hint')).to_be_visible()
+            table = page.locator('.reliability-table-wrap')
+            page.locator('#reliability-threshold').focus()
+            page.keyboard.press('Tab')
+            expect(table).to_be_focused()
+            require(table.evaluate('el => el.scrollWidth > el.clientWidth'), 'Narrow table should retain all columns in its scroll region')
+            for _ in range(14):
+                page.keyboard.press('ArrowRight')
+            page.wait_for_function("() => { const e=document.querySelector('.reliability-table-wrap'); return e.scrollLeft >= e.scrollWidth-e.clientWidth-1; }")
+            bounds = table.bounding_box()
+            risk = page.locator('.reliability-table thead th').last.bounding_box()
+            require(risk['x'] >= bounds['x'] - 1 and risk['x'] + risk['width'] <= bounds['x'] + bounds['width'] + 1,
+                    'Keyboard scroll must reveal the rightmost risk column')
+            for _ in range(14):
+                page.keyboard.press('ArrowLeft')
+            page.wait_for_function("() => document.querySelector('.reliability-table-wrap').scrollLeft <= 1")
+            detail = page.locator('[data-reliability-error] details').first
+            detail.locator('summary').click()
+            expect(detail).to_have_attribute('open', '')
+            detail.locator('summary').click()
             self.overflow(f'reliability {width}')
             self.capture(f'reliability-{width}.png', f'Separate field risk, coverage and bin evidence at {width} CSS pixels', full_page=True)
             page.locator('#reliability-metrics > summary').click()
@@ -439,7 +460,7 @@ class BrowserChecks:
             page.locator('#reliability-metrics > summary').click()
             page.locator('#reliability-method > summary').click()
         page.set_viewport_size({'width': 1440, 'height': 1000})
-        self.check('Reliability: all 78 separate field groups, exact fixed-threshold risk/coverage, dependent error evidence, image/blank caveats, undefined empty risk, dark theme and 320/390px')
+        self.check('Reliability: all 78 separate field groups, exact fixed-threshold risk/coverage, dependent error evidence, image/blank caveats, undefined empty risk, dark theme, keyboard horizontal-scroll and reachable detail controls at 320/390px')
 
     def readiness(self):
         page, expect = self.page, self.expect

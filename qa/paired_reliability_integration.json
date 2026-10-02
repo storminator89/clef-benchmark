@@ -17,13 +17,13 @@
   },
   "local_validation": {
     "python_tests": 289,
-    "js_dom_tests": 141,
+    "js_dom_tests": 142,
     "integrity_gates": 5,
     "deterministic_ui_datasets": 8,
     "retained_reliability_source_copies": 69
   },
   "independent_review": "Passed: source and metric integrity, numerical and DOM regressions, public-only provenance and honest descriptive claims. One overstated UI description was corrected before approval.",
-  "browser_validation": "New source-matched sandboxed Chrome capture pending. Previous galleries remain historical evidence for their recorded source commits.",
+  "browser_validation": "Fresh source-matched sandboxed Chrome capture pending after mobile heading-spacing polish and explicit keyboard horizontal-scroll/detail-reachability checks. Previous published galleries remain bound to their original sources.",
   "limitations": [
     "Post-hoc descriptive fixed-threshold analysis; no optimized operational threshold or calibration guarantee.",
     "Purposive related examples; paired endpoints and reused scenarios are dependent.",
