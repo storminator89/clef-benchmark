@@ -1,0 +1,29 @@
+{
+  "review_round": 1,
+  "scope": "All 24 pairs / 48 cases; data review only, protocol/scorer pending",
+  "pre_inference": true,
+  "reviewer_type": "Separate AI reviewer; no blind gold review or human/expert holdout claim",
+  "global_checks": {
+    "24_unique_pairs": true,
+    "48_unique_cases": true,
+    "all_file_case_ids_identical": true,
+    "48_unique_rows_in_all_case_files": true,
+    "each_case_in_one_pair": true,
+    "12_flip_12_invariant": true,
+    "8_pairs_per_domain": true,
+    "same_request_order_across_case_files": true,
+    "action_schema_exact_order": true
+  },
+  "mechanical_pair_checks_all_pass": true,
+  "semantic_pass_count": 23,
+  "semantic_fail_count": 1,
+  "dataset_file_sha256": {
+    "data/cases.jsonl": "1a28be1cd059b4ebeb96918345c1318eb150fe5ac198af7b9d0e3a5011ab9cb2",
+    "data/pairs.jsonl": "22f692ead14491dadd9674ca8dc84abec709b8febc02d834b16a0f1cda5cc3bf",
+    "data/gold.jsonl": "8f874b2c8087d1b45e6efa97da5afedb15a68ef99d81e6f96f54dfebf4555feb",
+    "data/requests.jsonl": "361eeeed4d642276c6bf085ae34929f8f0a42a9515c81b0f992936ee181c4a33",
+    "data/metadata.jsonl": "64df26f9a2d6ea9a9f06b2082270d3d933f8ca6301e1e8ab74357ffd85148efa",
+    "data/policy.json": "009a7b01208134f45e8433fba7d58bc23bfcec5c823cdcef888a3c2620e92057",
+    "data/design_summary.json": "5b25e864c7b4fceecfc096e42c806ad49ce0e95ae5a79eab40e4fef65135e0bd"
+  }
+}

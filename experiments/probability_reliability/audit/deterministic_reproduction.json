@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "method": "Reran primary analysis into a separate output directory using the unchanged source lock; exact byte comparison of every derived result file.",
+  "reproduced_files": {
+    "all_errors.jsonl": true,
+    "case_items.jsonl": true,
+    "case_metrics.json": true,
+    "execution.json": true,
+    "field_items.jsonl": true,
+    "field_metrics.json": true,
+    "integrity.json": true,
+    "normalized_fields.jsonl": true
+  },
+  "source_lock_sha256": "c02c5378121b67c91706c3f2edcff45b50224f2b752bbb6188849ec9f329bff4",
+  "model_inference_performed": false
+}

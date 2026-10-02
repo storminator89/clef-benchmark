@@ -1,0 +1,103 @@
+{
+  "tests": [
+    {
+      "test": "perfect_gold",
+      "passed": true
+    },
+    {
+      "test": "missing_fixed_denominators",
+      "passed": true
+    },
+    {
+      "test": "missing_invariant_never_stable",
+      "passed": true
+    },
+    {
+      "test": "stable_wrong_not_correct",
+      "passed": true
+    },
+    {
+      "test": "single_field_unjustified_change",
+      "passed": true
+    },
+    {
+      "test": "observed_change_is_not_directional_success",
+      "passed": true
+    },
+    {
+      "test": "correct_determination_insufficient",
+      "passed": true
+    },
+    {
+      "test": "duplicate_id_rejected",
+      "passed": true
+    },
+    {
+      "test": "unexpected_id_rejected",
+      "passed": true
+    },
+    {
+      "test": "missing_rounded_map_invalid",
+      "passed": true
+    },
+    {
+      "test": "rounded_map_mismatch_invalid",
+      "passed": true
+    },
+    {
+      "test": "boolean_tokens_invalid",
+      "passed": true
+    },
+    {
+      "test": "boolean_confidence_invalid",
+      "passed": true
+    },
+    {
+      "test": "boolean_telemetry_invalid",
+      "passed": true
+    },
+    {
+      "test": "truncation_invalid",
+      "passed": true
+    },
+    {
+      "test": "over_cap_invalid",
+      "passed": true
+    },
+    {
+      "test": "missing_fields_invalid",
+      "passed": true
+    },
+    {
+      "test": "bad_choice_invalid",
+      "passed": true
+    },
+    {
+      "test": "bad_option_set_invalid",
+      "passed": true
+    },
+    {
+      "test": "nan_probability_invalid",
+      "passed": true
+    },
+    {
+      "test": "unnormalized_invalid",
+      "passed": true
+    },
+    {
+      "test": "confidence_mismatch_invalid",
+      "passed": true
+    },
+    {
+      "test": "negative_timing_invalid",
+      "passed": true
+    },
+    {
+      "test": "latency_mismatch_invalid",
+      "passed": true
+    }
+  ],
+  "passed": 24,
+  "failed": 0,
+  "uses_synthetic_predictions_only": true
+}

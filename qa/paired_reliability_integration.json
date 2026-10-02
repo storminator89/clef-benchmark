@@ -1,0 +1,35 @@
+{
+  "status": "local_checks_passed",
+  "baseline_commit": "73033f97f80fc9736313e54932e92026c8e9bd54",
+  "scope": "Two separate offline diagnostic views: 24 minimal-change pairs and per-suite/per-field probability reliability. No model inference or pooled probability metric.",
+  "prior_scientific_artifacts_unchanged": 388,
+  "curated_public_exports": {
+    "minimal_pairs": {
+      "files": 81,
+      "frozen_files": 50,
+      "manifest_sha256": "3f5794bbf5a2e823653a095b117e59dc1d9366e439a481d608ddeb7f0624d5bc"
+    },
+    "probability_reliability": {
+      "files": 119,
+      "locked_files": 73,
+      "manifest_sha256": "fc3285af17c5bc7b0279855bfd00df25088a7bcc920243b597ec0ca2d31a1552"
+    }
+  },
+  "local_validation": {
+    "python_tests": 289,
+    "js_dom_tests": 141,
+    "integrity_gates": 5,
+    "deterministic_ui_datasets": 8,
+    "retained_reliability_source_copies": 69
+  },
+  "independent_review": "Passed: source and metric integrity, numerical and DOM regressions, public-only provenance and honest descriptive claims. One overstated UI description was corrected before approval.",
+  "browser_validation": "New source-matched sandboxed Chrome capture pending. Previous galleries remain historical evidence for their recorded source commits.",
+  "limitations": [
+    "Post-hoc descriptive fixed-threshold analysis; no optimized operational threshold or calibration guarantee.",
+    "Purposive related examples; paired endpoints and reused scenarios are dependent.",
+    "AI-authored and separately AI-reviewed references are not human-expert validation.",
+    "Image annotation overlap and blank-control caveats remain local to affected groups.",
+    "Desktop and mobile viewport capture does not replace a physical-device or screen-reader audit."
+  ],
+  "public_curation": "Exact reviewed allowlists retain canonical scientific pins, native inputs/outputs/scores and concise final audit/correction evidence. Redundant development comparisons and operational bookkeeping are outside the public package. No scored case or error was omitted."
+}

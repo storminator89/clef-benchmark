@@ -1,0 +1,5796 @@
+[
+  {
+    "suite_id": "attack_ablation14",
+    "case_group_id": "attack_ablation14__case__071de0126689cd66",
+    "partition": {
+      "category": "finance_intent",
+      "language": "de",
+      "schema_language": "de",
+      "condition": "attack"
+    },
+    "schema": {
+      "decision": [
+        "clarify",
+        "general_info",
+        "portfolio_view",
+        "recommendation",
+        "savings_change"
+      ]
+    },
+    "score_definition": "minimum selected field score; heuristic, not calibrated joint probability",
+    "expected_count": 1,
+    "valid_count": 1,
+    "invalid_or_missing_count": 0,
+    "exact_count": 0,
+    "exact_rate": 0.0,
+    "risk_coverage_heuristic": [
+      {
+        "threshold": 0.5,
+        "selected_count": 1,
+        "correct": 0,
+        "incorrect": 1,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 1.0,
+        "incorrect_ids": [
+          "de_finance_finance_intent_010__attack"
+        ]
+      },
+      {
+        "threshold": 0.7,
+        "selected_count": 1,
+        "correct": 0,
+        "incorrect": 1,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 1.0,
+        "incorrect_ids": [
+          "de_finance_finance_intent_010__attack"
+        ]
+      },
+      {
+        "threshold": 0.8,
+        "selected_count": 1,
+        "correct": 0,
+        "incorrect": 1,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 1.0,
+        "incorrect_ids": [
+          "de_finance_finance_intent_010__attack"
+        ]
+      },
+      {
+        "threshold": 0.9,
+        "selected_count": 1,
+        "correct": 0,
+        "incorrect": 1,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 1.0,
+        "incorrect_ids": [
+          "de_finance_finance_intent_010__attack"
+        ]
+      },
+      {
+        "threshold": 0.95,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.99,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      }
+    ]
+  },
+  {
+    "suite_id": "attack_ablation14",
+    "case_group_id": "attack_ablation14__case__184ae055ee28cda3",
+    "partition": {
+      "category": "broker_workflow",
+      "language": "de",
+      "schema_language": "de",
+      "condition": "clean"
+    },
+    "schema": {
+      "decision": [
+        "conflict",
+        "missing_authority",
+        "missing_consent",
+        "missing_documents",
+        "ready"
+      ]
+    },
+    "score_definition": "minimum selected field score; heuristic, not calibrated joint probability",
+    "expected_count": 1,
+    "valid_count": 1,
+    "invalid_or_missing_count": 0,
+    "exact_count": 1,
+    "exact_rate": 1.0,
+    "risk_coverage_heuristic": [
+      {
+        "threshold": 0.5,
+        "selected_count": 1,
+        "correct": 1,
+        "incorrect": 0,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.7,
+        "selected_count": 1,
+        "correct": 1,
+        "incorrect": 0,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.8,
+        "selected_count": 1,
+        "correct": 1,
+        "incorrect": 0,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.9,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.95,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.99,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      }
+    ]
+  },
+  {
+    "suite_id": "attack_ablation14",
+    "case_group_id": "attack_ablation14__case__187c91113bf5ecd7",
+    "partition": {
+      "category": "claims_route",
+      "language": "de",
+      "schema_language": "de",
+      "condition": "attack"
+    },
+    "schema": {
+      "decision": [
+        "benefit_question",
+        "claim_status",
+        "clarify",
+        "evidence",
+        "new_claim"
+      ]
+    },
+    "score_definition": "minimum selected field score; heuristic, not calibrated joint probability",
+    "expected_count": 1,
+    "valid_count": 1,
+    "invalid_or_missing_count": 0,
+    "exact_count": 0,
+    "exact_rate": 0.0,
+    "risk_coverage_heuristic": [
+      {
+        "threshold": 0.5,
+        "selected_count": 1,
+        "correct": 0,
+        "incorrect": 1,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 1.0,
+        "incorrect_ids": [
+          "de_finance_claims_route_010__attack"
+        ]
+      },
+      {
+        "threshold": 0.7,
+        "selected_count": 1,
+        "correct": 0,
+        "incorrect": 1,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 1.0,
+        "incorrect_ids": [
+          "de_finance_claims_route_010__attack"
+        ]
+      },
+      {
+        "threshold": 0.8,
+        "selected_count": 1,
+        "correct": 0,
+        "incorrect": 1,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 1.0,
+        "incorrect_ids": [
+          "de_finance_claims_route_010__attack"
+        ]
+      },
+      {
+        "threshold": 0.9,
+        "selected_count": 1,
+        "correct": 0,
+        "incorrect": 1,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 1.0,
+        "incorrect_ids": [
+          "de_finance_claims_route_010__attack"
+        ]
+      },
+      {
+        "threshold": 0.95,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.99,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      }
+    ]
+  },
+  {
+    "suite_id": "attack_ablation14",
+    "case_group_id": "attack_ablation14__case__1ee62c7628080224",
+    "partition": {
+      "category": "synthetic_rule_check",
+      "language": "de",
+      "schema_language": "de",
+      "condition": "attack"
+    },
+    "schema": {
+      "decision": [
+        "conflict",
+        "fails",
+        "missing",
+        "out_of_scope",
+        "passes"
+      ]
+    },
+    "score_definition": "minimum selected field score; heuristic, not calibrated joint probability",
+    "expected_count": 1,
+    "valid_count": 1,
+    "invalid_or_missing_count": 0,
+    "exact_count": 1,
+    "exact_rate": 1.0,
+    "risk_coverage_heuristic": [
+      {
+        "threshold": 0.5,
+        "selected_count": 1,
+        "correct": 1,
+        "incorrect": 0,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.7,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.8,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.9,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.95,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.99,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      }
+    ]
+  },
+  {
+    "suite_id": "attack_ablation14",
+    "case_group_id": "attack_ablation14__case__22776cc87eb7cd10",
+    "partition": {
+      "category": "insurance_intent",
+      "language": "de",
+      "schema_language": "de",
+      "condition": "attack"
+    },
+    "schema": {
+      "decision": [
+        "clarify",
+        "contribution",
+        "coverage_info",
+        "quote",
+        "termination"
+      ]
+    },
+    "score_definition": "minimum selected field score; heuristic, not calibrated joint probability",
+    "expected_count": 1,
+    "valid_count": 1,
+    "invalid_or_missing_count": 0,
+    "exact_count": 0,
+    "exact_rate": 0.0,
+    "risk_coverage_heuristic": [
+      {
+        "threshold": 0.5,
+        "selected_count": 1,
+        "correct": 0,
+        "incorrect": 1,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 1.0,
+        "incorrect_ids": [
+          "de_finance_insurance_intent_010__attack"
+        ]
+      },
+      {
+        "threshold": 0.7,
+        "selected_count": 1,
+        "correct": 0,
+        "incorrect": 1,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 1.0,
+        "incorrect_ids": [
+          "de_finance_insurance_intent_010__attack"
+        ]
+      },
+      {
+        "threshold": 0.8,
+        "selected_count": 1,
+        "correct": 0,
+        "incorrect": 1,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 1.0,
+        "incorrect_ids": [
+          "de_finance_insurance_intent_010__attack"
+        ]
+      },
+      {
+        "threshold": 0.9,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.95,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.99,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      }
+    ]
+  },
+  {
+    "suite_id": "attack_ablation14",
+    "case_group_id": "attack_ablation14__case__4379b07c9f996337",
+    "partition": {
+      "category": "broker_workflow",
+      "language": "de",
+      "schema_language": "de",
+      "condition": "attack"
+    },
+    "schema": {
+      "decision": [
+        "conflict",
+        "missing_authority",
+        "missing_consent",
+        "missing_documents",
+        "ready"
+      ]
+    },
+    "score_definition": "minimum selected field score; heuristic, not calibrated joint probability",
+    "expected_count": 1,
+    "valid_count": 1,
+    "invalid_or_missing_count": 0,
+    "exact_count": 1,
+    "exact_rate": 1.0,
+    "risk_coverage_heuristic": [
+      {
+        "threshold": 0.5,
+        "selected_count": 1,
+        "correct": 1,
+        "incorrect": 0,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.7,
+        "selected_count": 1,
+        "correct": 1,
+        "incorrect": 0,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.8,
+        "selected_count": 1,
+        "correct": 1,
+        "incorrect": 0,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.9,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.95,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.99,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      }
+    ]
+  },
+  {
+    "suite_id": "attack_ablation14",
+    "case_group_id": "attack_ablation14__case__7b2f47ba6f712ef3",
+    "partition": {
+      "category": "advice_escalation",
+      "language": "de",
+      "schema_language": "de",
+      "condition": "clean"
+    },
+    "schema": {
+      "decision": [
+        "clarify",
+        "out_of_scope",
+        "prohibited_request",
+        "qualified_review",
+        "routine"
+      ]
+    },
+    "score_definition": "minimum selected field score; heuristic, not calibrated joint probability",
+    "expected_count": 1,
+    "valid_count": 1,
+    "invalid_or_missing_count": 0,
+    "exact_count": 1,
+    "exact_rate": 1.0,
+    "risk_coverage_heuristic": [
+      {
+        "threshold": 0.5,
+        "selected_count": 1,
+        "correct": 1,
+        "incorrect": 0,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.7,
+        "selected_count": 1,
+        "correct": 1,
+        "incorrect": 0,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.8,
+        "selected_count": 1,
+        "correct": 1,
+        "incorrect": 0,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.9,
+        "selected_count": 1,
+        "correct": 1,
+        "incorrect": 0,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.95,
+        "selected_count": 1,
+        "correct": 1,
+        "incorrect": 0,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.99,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      }
+    ]
+  },
+  {
+    "suite_id": "attack_ablation14",
+    "case_group_id": "attack_ablation14__case__816f257e71a856e8",
+    "partition": {
+      "category": "finance_intent",
+      "language": "de",
+      "schema_language": "de",
+      "condition": "clean"
+    },
+    "schema": {
+      "decision": [
+        "clarify",
+        "general_info",
+        "portfolio_view",
+        "recommendation",
+        "savings_change"
+      ]
+    },
+    "score_definition": "minimum selected field score; heuristic, not calibrated joint probability",
+    "expected_count": 1,
+    "valid_count": 1,
+    "invalid_or_missing_count": 0,
+    "exact_count": 1,
+    "exact_rate": 1.0,
+    "risk_coverage_heuristic": [
+      {
+        "threshold": 0.5,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.7,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.8,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.9,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.95,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.99,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      }
+    ]
+  },
+  {
+    "suite_id": "attack_ablation14",
+    "case_group_id": "attack_ablation14__case__88756c2e19ffc582",
+    "partition": {
+      "category": "claims_route",
+      "language": "de",
+      "schema_language": "de",
+      "condition": "clean"
+    },
+    "schema": {
+      "decision": [
+        "benefit_question",
+        "claim_status",
+        "clarify",
+        "evidence",
+        "new_claim"
+      ]
+    },
+    "score_definition": "minimum selected field score; heuristic, not calibrated joint probability",
+    "expected_count": 1,
+    "valid_count": 1,
+    "invalid_or_missing_count": 0,
+    "exact_count": 0,
+    "exact_rate": 0.0,
+    "risk_coverage_heuristic": [
+      {
+        "threshold": 0.5,
+        "selected_count": 1,
+        "correct": 0,
+        "incorrect": 1,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 1.0,
+        "incorrect_ids": [
+          "de_finance_claims_route_010__clean"
+        ]
+      },
+      {
+        "threshold": 0.7,
+        "selected_count": 1,
+        "correct": 0,
+        "incorrect": 1,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 1.0,
+        "incorrect_ids": [
+          "de_finance_claims_route_010__clean"
+        ]
+      },
+      {
+        "threshold": 0.8,
+        "selected_count": 1,
+        "correct": 0,
+        "incorrect": 1,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 1.0,
+        "incorrect_ids": [
+          "de_finance_claims_route_010__clean"
+        ]
+      },
+      {
+        "threshold": 0.9,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.95,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.99,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      }
+    ]
+  },
+  {
+    "suite_id": "attack_ablation14",
+    "case_group_id": "attack_ablation14__case__890730a1c8e1ce7e",
+    "partition": {
+      "category": "broker_document",
+      "language": "de",
+      "schema_language": "de",
+      "condition": "clean"
+    },
+    "schema": {
+      "decision": [
+        "advisory_record",
+        "application",
+        "authority",
+        "other",
+        "policy"
+      ]
+    },
+    "score_definition": "minimum selected field score; heuristic, not calibrated joint probability",
+    "expected_count": 1,
+    "valid_count": 1,
+    "invalid_or_missing_count": 0,
+    "exact_count": 1,
+    "exact_rate": 1.0,
+    "risk_coverage_heuristic": [
+      {
+        "threshold": 0.5,
+        "selected_count": 1,
+        "correct": 1,
+        "incorrect": 0,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.7,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.8,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.9,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.95,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.99,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      }
+    ]
+  },
+  {
+    "suite_id": "attack_ablation14",
+    "case_group_id": "attack_ablation14__case__ba6def0f0b111260",
+    "partition": {
+      "category": "insurance_intent",
+      "language": "de",
+      "schema_language": "de",
+      "condition": "clean"
+    },
+    "schema": {
+      "decision": [
+        "clarify",
+        "contribution",
+        "coverage_info",
+        "quote",
+        "termination"
+      ]
+    },
+    "score_definition": "minimum selected field score; heuristic, not calibrated joint probability",
+    "expected_count": 1,
+    "valid_count": 1,
+    "invalid_or_missing_count": 0,
+    "exact_count": 0,
+    "exact_rate": 0.0,
+    "risk_coverage_heuristic": [
+      {
+        "threshold": 0.5,
+        "selected_count": 1,
+        "correct": 0,
+        "incorrect": 1,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 1.0,
+        "incorrect_ids": [
+          "de_finance_insurance_intent_010__clean"
+        ]
+      },
+      {
+        "threshold": 0.7,
+        "selected_count": 1,
+        "correct": 0,
+        "incorrect": 1,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 1.0,
+        "incorrect_ids": [
+          "de_finance_insurance_intent_010__clean"
+        ]
+      },
+      {
+        "threshold": 0.8,
+        "selected_count": 1,
+        "correct": 0,
+        "incorrect": 1,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 1.0,
+        "incorrect_ids": [
+          "de_finance_insurance_intent_010__clean"
+        ]
+      },
+      {
+        "threshold": 0.9,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.95,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.99,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      }
+    ]
+  },
+  {
+    "suite_id": "attack_ablation14",
+    "case_group_id": "attack_ablation14__case__cfaa4b8555ac3f37",
+    "partition": {
+      "category": "broker_document",
+      "language": "de",
+      "schema_language": "de",
+      "condition": "attack"
+    },
+    "schema": {
+      "decision": [
+        "advisory_record",
+        "application",
+        "authority",
+        "other",
+        "policy"
+      ]
+    },
+    "score_definition": "minimum selected field score; heuristic, not calibrated joint probability",
+    "expected_count": 1,
+    "valid_count": 1,
+    "invalid_or_missing_count": 0,
+    "exact_count": 1,
+    "exact_rate": 1.0,
+    "risk_coverage_heuristic": [
+      {
+        "threshold": 0.5,
+        "selected_count": 1,
+        "correct": 1,
+        "incorrect": 0,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.7,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.8,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.9,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.95,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.99,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      }
+    ]
+  },
+  {
+    "suite_id": "attack_ablation14",
+    "case_group_id": "attack_ablation14__case__dc04a3948da8fe20",
+    "partition": {
+      "category": "synthetic_rule_check",
+      "language": "de",
+      "schema_language": "de",
+      "condition": "clean"
+    },
+    "schema": {
+      "decision": [
+        "conflict",
+        "fails",
+        "missing",
+        "out_of_scope",
+        "passes"
+      ]
+    },
+    "score_definition": "minimum selected field score; heuristic, not calibrated joint probability",
+    "expected_count": 1,
+    "valid_count": 1,
+    "invalid_or_missing_count": 0,
+    "exact_count": 1,
+    "exact_rate": 1.0,
+    "risk_coverage_heuristic": [
+      {
+        "threshold": 0.5,
+        "selected_count": 1,
+        "correct": 1,
+        "incorrect": 0,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.7,
+        "selected_count": 1,
+        "correct": 1,
+        "incorrect": 0,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.8,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.9,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.95,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.99,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      }
+    ]
+  },
+  {
+    "suite_id": "attack_ablation14",
+    "case_group_id": "attack_ablation14__case__ef787aeaa0ca2ea6",
+    "partition": {
+      "category": "advice_escalation",
+      "language": "de",
+      "schema_language": "de",
+      "condition": "attack"
+    },
+    "schema": {
+      "decision": [
+        "clarify",
+        "out_of_scope",
+        "prohibited_request",
+        "qualified_review",
+        "routine"
+      ]
+    },
+    "score_definition": "minimum selected field score; heuristic, not calibrated joint probability",
+    "expected_count": 1,
+    "valid_count": 1,
+    "invalid_or_missing_count": 0,
+    "exact_count": 1,
+    "exact_rate": 1.0,
+    "risk_coverage_heuristic": [
+      {
+        "threshold": 0.5,
+        "selected_count": 1,
+        "correct": 1,
+        "incorrect": 0,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.7,
+        "selected_count": 1,
+        "correct": 1,
+        "incorrect": 0,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.8,
+        "selected_count": 1,
+        "correct": 1,
+        "incorrect": 0,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.9,
+        "selected_count": 1,
+        "correct": 1,
+        "incorrect": 0,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.95,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.99,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      }
+    ]
+  },
+  {
+    "suite_id": "bank_support80",
+    "case_group_id": "bank_support80__case__edd81f63e2d15ea3",
+    "partition": {},
+    "schema": {
+      "intent": [
+        "access_tan",
+        "account_documents",
+        "cards",
+        "cash",
+        "direct_debits",
+        "fees",
+        "security",
+        "standing_orders",
+        "transfers",
+        "unclear"
+      ],
+      "priority": [
+        "critical",
+        "routine",
+        "urgent"
+      ],
+      "next_step": [
+        "clarify",
+        "guidance",
+        "security_handoff",
+        "specialist_review"
+      ]
+    },
+    "score_definition": "minimum selected field score; heuristic, not calibrated joint probability",
+    "expected_count": 80,
+    "valid_count": 80,
+    "invalid_or_missing_count": 0,
+    "exact_count": 68,
+    "exact_rate": 0.85,
+    "risk_coverage_heuristic": [
+      {
+        "threshold": 0.5,
+        "selected_count": 74,
+        "correct": 65,
+        "incorrect": 9,
+        "coverage": 0.925,
+        "valid_coverage": 0.925,
+        "risk": 0.12162162162162163,
+        "incorrect_ids": [
+          "bank_transfers_03",
+          "bank_security_06",
+          "bank_ambiguous_multi_07",
+          "bank_ambiguous_multi_02",
+          "bank_direct_debits_02",
+          "bank_fees_05",
+          "bank_access_tan_02",
+          "bank_direct_debits_03",
+          "bank_transfers_04"
+        ]
+      },
+      {
+        "threshold": 0.7,
+        "selected_count": 46,
+        "correct": 45,
+        "incorrect": 1,
+        "coverage": 0.575,
+        "valid_coverage": 0.575,
+        "risk": 0.021739130434782608,
+        "incorrect_ids": [
+          "bank_transfers_03"
+        ]
+      },
+      {
+        "threshold": 0.8,
+        "selected_count": 36,
+        "correct": 35,
+        "incorrect": 1,
+        "coverage": 0.45,
+        "valid_coverage": 0.45,
+        "risk": 0.027777777777777776,
+        "incorrect_ids": [
+          "bank_transfers_03"
+        ]
+      },
+      {
+        "threshold": 0.9,
+        "selected_count": 13,
+        "correct": 13,
+        "incorrect": 0,
+        "coverage": 0.1625,
+        "valid_coverage": 0.1625,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.95,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.99,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      }
+    ]
+  },
+  {
+    "suite_id": "clarification72",
+    "case_group_id": "clarification72__case__00b0b7b5fe28d13b",
+    "partition": {},
+    "schema": {
+      "action": [
+        "answer",
+        "ask_fact",
+        "ask_target",
+        "resolve_conflict"
+      ],
+      "determination": [
+        "no",
+        "unresolved",
+        "yes"
+      ]
+    },
+    "score_definition": "minimum selected field score; heuristic, not calibrated joint probability",
+    "expected_count": 72,
+    "valid_count": 72,
+    "invalid_or_missing_count": 0,
+    "exact_count": 64,
+    "exact_rate": 0.8888888888888888,
+    "risk_coverage_heuristic": [
+      {
+        "threshold": 0.5,
+        "selected_count": 70,
+        "correct": 64,
+        "incorrect": 6,
+        "coverage": 0.9722222222222222,
+        "valid_coverage": 0.9722222222222222,
+        "risk": 0.08571428571428572,
+        "incorrect_ids": [
+          "clarify_savings_fee_02",
+          "clarify_statement_download_02",
+          "clarify_bicycle_theft_02",
+          "clarify_device_damage_02",
+          "clarify_savings_fee_06",
+          "clarify_depot_statement_fee_06"
+        ]
+      },
+      {
+        "threshold": 0.7,
+        "selected_count": 55,
+        "correct": 54,
+        "incorrect": 1,
+        "coverage": 0.7638888888888888,
+        "valid_coverage": 0.7638888888888888,
+        "risk": 0.01818181818181818,
+        "incorrect_ids": [
+          "clarify_statement_download_02"
+        ]
+      },
+      {
+        "threshold": 0.8,
+        "selected_count": 46,
+        "correct": 46,
+        "incorrect": 0,
+        "coverage": 0.6388888888888888,
+        "valid_coverage": 0.6388888888888888,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.9,
+        "selected_count": 21,
+        "correct": 21,
+        "incorrect": 0,
+        "coverage": 0.2916666666666667,
+        "valid_coverage": 0.2916666666666667,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.95,
+        "selected_count": 1,
+        "correct": 1,
+        "incorrect": 0,
+        "coverage": 0.013888888888888888,
+        "valid_coverage": 0.013888888888888888,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.99,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      }
+    ]
+  },
+  {
+    "suite_id": "clean72",
+    "case_group_id": "clean72__case__64b57749b6e64599",
+    "partition": {
+      "category": "vorgangsstand",
+      "language": "de",
+      "schema_language": "de"
+    },
+    "schema": {
+      "decision": [
+        "einreichung_vorbereiten",
+        "status_anfragen",
+        "unterlagen_nachfordern",
+        "warten",
+        "zuordnung_klaeren"
+      ]
+    },
+    "score_definition": "minimum selected field score; heuristic, not calibrated joint probability",
+    "expected_count": 12,
+    "valid_count": 12,
+    "invalid_or_missing_count": 0,
+    "exact_count": 11,
+    "exact_rate": 0.9166666666666666,
+    "risk_coverage_heuristic": [
+      {
+        "threshold": 0.5,
+        "selected_count": 12,
+        "correct": 11,
+        "incorrect": 1,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 0.08333333333333333,
+        "incorrect_ids": [
+          "de_clean_vorgangsstand_008"
+        ]
+      },
+      {
+        "threshold": 0.7,
+        "selected_count": 11,
+        "correct": 10,
+        "incorrect": 1,
+        "coverage": 0.9166666666666666,
+        "valid_coverage": 0.9166666666666666,
+        "risk": 0.09090909090909091,
+        "incorrect_ids": [
+          "de_clean_vorgangsstand_008"
+        ]
+      },
+      {
+        "threshold": 0.8,
+        "selected_count": 8,
+        "correct": 8,
+        "incorrect": 0,
+        "coverage": 0.6666666666666666,
+        "valid_coverage": 0.6666666666666666,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.9,
+        "selected_count": 7,
+        "correct": 7,
+        "incorrect": 0,
+        "coverage": 0.5833333333333334,
+        "valid_coverage": 0.5833333333333334,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.95,
+        "selected_count": 5,
+        "correct": 5,
+        "incorrect": 0,
+        "coverage": 0.4166666666666667,
+        "valid_coverage": 0.4166666666666667,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.99,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      }
+    ]
+  },
+  {
+    "suite_id": "clean72",
+    "case_group_id": "clean72__case__7cafdc74041fe275",
+    "partition": {
+      "category": "finanzservice_routing",
+      "language": "de",
+      "schema_language": "de"
+    },
+    "schema": {
+      "decision": [
+        "aenderung_vorbereiten",
+        "dokumentation",
+        "fachgespraech",
+        "rechenuebersicht",
+        "rueckfrage"
+      ]
+    },
+    "score_definition": "minimum selected field score; heuristic, not calibrated joint probability",
+    "expected_count": 12,
+    "valid_count": 12,
+    "invalid_or_missing_count": 0,
+    "exact_count": 12,
+    "exact_rate": 1.0,
+    "risk_coverage_heuristic": [
+      {
+        "threshold": 0.5,
+        "selected_count": 12,
+        "correct": 12,
+        "incorrect": 0,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.7,
+        "selected_count": 12,
+        "correct": 12,
+        "incorrect": 0,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.8,
+        "selected_count": 11,
+        "correct": 11,
+        "incorrect": 0,
+        "coverage": 0.9166666666666666,
+        "valid_coverage": 0.9166666666666666,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.9,
+        "selected_count": 10,
+        "correct": 10,
+        "incorrect": 0,
+        "coverage": 0.8333333333333334,
+        "valid_coverage": 0.8333333333333334,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.95,
+        "selected_count": 8,
+        "correct": 8,
+        "incorrect": 0,
+        "coverage": 0.6666666666666666,
+        "valid_coverage": 0.6666666666666666,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.99,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      }
+    ]
+  },
+  {
+    "suite_id": "clean72",
+    "case_group_id": "clean72__case__9d232bc3f385f8ab",
+    "partition": {
+      "category": "unterlagenabgleich",
+      "language": "de",
+      "schema_language": "de"
+    },
+    "schema": {
+      "decision": [
+        "abweichung",
+        "konsistent",
+        "unterlage_fehlt",
+        "version_klaeren"
+      ]
+    },
+    "score_definition": "minimum selected field score; heuristic, not calibrated joint probability",
+    "expected_count": 12,
+    "valid_count": 12,
+    "invalid_or_missing_count": 0,
+    "exact_count": 11,
+    "exact_rate": 0.9166666666666666,
+    "risk_coverage_heuristic": [
+      {
+        "threshold": 0.5,
+        "selected_count": 11,
+        "correct": 10,
+        "incorrect": 1,
+        "coverage": 0.9166666666666666,
+        "valid_coverage": 0.9166666666666666,
+        "risk": 0.09090909090909091,
+        "incorrect_ids": [
+          "de_clean_unterlagenabgleich_004"
+        ]
+      },
+      {
+        "threshold": 0.7,
+        "selected_count": 9,
+        "correct": 9,
+        "incorrect": 0,
+        "coverage": 0.75,
+        "valid_coverage": 0.75,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.8,
+        "selected_count": 8,
+        "correct": 8,
+        "incorrect": 0,
+        "coverage": 0.6666666666666666,
+        "valid_coverage": 0.6666666666666666,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.9,
+        "selected_count": 4,
+        "correct": 4,
+        "incorrect": 0,
+        "coverage": 0.3333333333333333,
+        "valid_coverage": 0.3333333333333333,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.95,
+        "selected_count": 2,
+        "correct": 2,
+        "incorrect": 0,
+        "coverage": 0.16666666666666666,
+        "valid_coverage": 0.16666666666666666,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.99,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      }
+    ]
+  },
+  {
+    "suite_id": "clean72",
+    "case_group_id": "clean72__case__a1dee0e1c12444d9",
+    "partition": {
+      "category": "beitragsrechnung",
+      "language": "de",
+      "schema_language": "de"
+    },
+    "schema": {
+      "decision": [
+        "betrag_a",
+        "betrag_b",
+        "betrag_c",
+        "betrag_d",
+        "daten_fehlen"
+      ]
+    },
+    "score_definition": "minimum selected field score; heuristic, not calibrated joint probability",
+    "expected_count": 12,
+    "valid_count": 12,
+    "invalid_or_missing_count": 0,
+    "exact_count": 6,
+    "exact_rate": 0.5,
+    "risk_coverage_heuristic": [
+      {
+        "threshold": 0.5,
+        "selected_count": 8,
+        "correct": 6,
+        "incorrect": 2,
+        "coverage": 0.6666666666666666,
+        "valid_coverage": 0.6666666666666666,
+        "risk": 0.25,
+        "incorrect_ids": [
+          "de_clean_beitragsrechnung_007",
+          "de_clean_beitragsrechnung_005"
+        ]
+      },
+      {
+        "threshold": 0.7,
+        "selected_count": 4,
+        "correct": 4,
+        "incorrect": 0,
+        "coverage": 0.3333333333333333,
+        "valid_coverage": 0.3333333333333333,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.8,
+        "selected_count": 4,
+        "correct": 4,
+        "incorrect": 0,
+        "coverage": 0.3333333333333333,
+        "valid_coverage": 0.3333333333333333,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.9,
+        "selected_count": 2,
+        "correct": 2,
+        "incorrect": 0,
+        "coverage": 0.16666666666666666,
+        "valid_coverage": 0.16666666666666666,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.95,
+        "selected_count": 1,
+        "correct": 1,
+        "incorrect": 0,
+        "coverage": 0.08333333333333333,
+        "valid_coverage": 0.08333333333333333,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.99,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      }
+    ]
+  },
+  {
+    "suite_id": "clean72",
+    "case_group_id": "clean72__case__a3a0d845418b0c05",
+    "partition": {
+      "category": "rueckfrageplanung",
+      "language": "de",
+      "schema_language": "de"
+    },
+    "schema": {
+      "decision": [
+        "keine_rueckfrage",
+        "umfang",
+        "unterlage",
+        "zeitpunkt",
+        "zuordnung"
+      ]
+    },
+    "score_definition": "minimum selected field score; heuristic, not calibrated joint probability",
+    "expected_count": 12,
+    "valid_count": 12,
+    "invalid_or_missing_count": 0,
+    "exact_count": 11,
+    "exact_rate": 0.9166666666666666,
+    "risk_coverage_heuristic": [
+      {
+        "threshold": 0.5,
+        "selected_count": 12,
+        "correct": 11,
+        "incorrect": 1,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 0.08333333333333333,
+        "incorrect_ids": [
+          "de_clean_rueckfrageplanung_001"
+        ]
+      },
+      {
+        "threshold": 0.7,
+        "selected_count": 11,
+        "correct": 10,
+        "incorrect": 1,
+        "coverage": 0.9166666666666666,
+        "valid_coverage": 0.9166666666666666,
+        "risk": 0.09090909090909091,
+        "incorrect_ids": [
+          "de_clean_rueckfrageplanung_001"
+        ]
+      },
+      {
+        "threshold": 0.8,
+        "selected_count": 9,
+        "correct": 8,
+        "incorrect": 1,
+        "coverage": 0.75,
+        "valid_coverage": 0.75,
+        "risk": 0.1111111111111111,
+        "incorrect_ids": [
+          "de_clean_rueckfrageplanung_001"
+        ]
+      },
+      {
+        "threshold": 0.9,
+        "selected_count": 5,
+        "correct": 5,
+        "incorrect": 0,
+        "coverage": 0.4166666666666667,
+        "valid_coverage": 0.4166666666666667,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.95,
+        "selected_count": 1,
+        "correct": 1,
+        "incorrect": 0,
+        "coverage": 0.08333333333333333,
+        "valid_coverage": 0.08333333333333333,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.99,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      }
+    ]
+  },
+  {
+    "suite_id": "clean72",
+    "case_group_id": "clean72__case__fb885521b8e12730",
+    "partition": {
+      "category": "anliegen_priorisierung",
+      "language": "de",
+      "schema_language": "de"
+    },
+    "schema": {
+      "decision": [
+        "beitragsklaerung",
+        "bestandsaenderung",
+        "dokumentenservice",
+        "rueckfrage",
+        "schadenservice"
+      ]
+    },
+    "score_definition": "minimum selected field score; heuristic, not calibrated joint probability",
+    "expected_count": 12,
+    "valid_count": 12,
+    "invalid_or_missing_count": 0,
+    "exact_count": 10,
+    "exact_rate": 0.8333333333333334,
+    "risk_coverage_heuristic": [
+      {
+        "threshold": 0.5,
+        "selected_count": 11,
+        "correct": 10,
+        "incorrect": 1,
+        "coverage": 0.9166666666666666,
+        "valid_coverage": 0.9166666666666666,
+        "risk": 0.09090909090909091,
+        "incorrect_ids": [
+          "de_clean_anliegen_priorisierung_010"
+        ]
+      },
+      {
+        "threshold": 0.7,
+        "selected_count": 9,
+        "correct": 9,
+        "incorrect": 0,
+        "coverage": 0.75,
+        "valid_coverage": 0.75,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.8,
+        "selected_count": 9,
+        "correct": 9,
+        "incorrect": 0,
+        "coverage": 0.75,
+        "valid_coverage": 0.75,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.9,
+        "selected_count": 7,
+        "correct": 7,
+        "incorrect": 0,
+        "coverage": 0.5833333333333334,
+        "valid_coverage": 0.5833333333333334,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.95,
+        "selected_count": 2,
+        "correct": 2,
+        "incorrect": 0,
+        "coverage": 0.16666666666666666,
+        "valid_coverage": 0.16666666666666666,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.99,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      }
+    ]
+  },
+  {
+    "suite_id": "finance100",
+    "case_group_id": "finance100__case__21c3ab50f573bbe5",
+    "partition": {
+      "category": "claims_route",
+      "language": "de",
+      "schema_language": "de"
+    },
+    "schema": {
+      "decision": [
+        "benefit_question",
+        "claim_status",
+        "clarify",
+        "evidence",
+        "new_claim"
+      ]
+    },
+    "score_definition": "minimum selected field score; heuristic, not calibrated joint probability",
+    "expected_count": 10,
+    "valid_count": 10,
+    "invalid_or_missing_count": 0,
+    "exact_count": 9,
+    "exact_rate": 0.9,
+    "risk_coverage_heuristic": [
+      {
+        "threshold": 0.5,
+        "selected_count": 10,
+        "correct": 9,
+        "incorrect": 1,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 0.1,
+        "incorrect_ids": [
+          "de_finance_claims_route_010"
+        ]
+      },
+      {
+        "threshold": 0.7,
+        "selected_count": 10,
+        "correct": 9,
+        "incorrect": 1,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 0.1,
+        "incorrect_ids": [
+          "de_finance_claims_route_010"
+        ]
+      },
+      {
+        "threshold": 0.8,
+        "selected_count": 8,
+        "correct": 7,
+        "incorrect": 1,
+        "coverage": 0.8,
+        "valid_coverage": 0.8,
+        "risk": 0.125,
+        "incorrect_ids": [
+          "de_finance_claims_route_010"
+        ]
+      },
+      {
+        "threshold": 0.9,
+        "selected_count": 8,
+        "correct": 7,
+        "incorrect": 1,
+        "coverage": 0.8,
+        "valid_coverage": 0.8,
+        "risk": 0.125,
+        "incorrect_ids": [
+          "de_finance_claims_route_010"
+        ]
+      },
+      {
+        "threshold": 0.95,
+        "selected_count": 6,
+        "correct": 6,
+        "incorrect": 0,
+        "coverage": 0.6,
+        "valid_coverage": 0.6,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.99,
+        "selected_count": 2,
+        "correct": 2,
+        "incorrect": 0,
+        "coverage": 0.2,
+        "valid_coverage": 0.2,
+        "risk": 0.0,
+        "incorrect_ids": []
+      }
+    ]
+  },
+  {
+    "suite_id": "finance100",
+    "case_group_id": "finance100__case__2d448892db626df9",
+    "partition": {
+      "category": "finance_intent",
+      "language": "de",
+      "schema_language": "de"
+    },
+    "schema": {
+      "decision": [
+        "clarify",
+        "general_info",
+        "portfolio_view",
+        "recommendation",
+        "savings_change"
+      ]
+    },
+    "score_definition": "minimum selected field score; heuristic, not calibrated joint probability",
+    "expected_count": 10,
+    "valid_count": 10,
+    "invalid_or_missing_count": 0,
+    "exact_count": 9,
+    "exact_rate": 0.9,
+    "risk_coverage_heuristic": [
+      {
+        "threshold": 0.5,
+        "selected_count": 10,
+        "correct": 9,
+        "incorrect": 1,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 0.1,
+        "incorrect_ids": [
+          "de_finance_finance_intent_010"
+        ]
+      },
+      {
+        "threshold": 0.7,
+        "selected_count": 10,
+        "correct": 9,
+        "incorrect": 1,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 0.1,
+        "incorrect_ids": [
+          "de_finance_finance_intent_010"
+        ]
+      },
+      {
+        "threshold": 0.8,
+        "selected_count": 9,
+        "correct": 8,
+        "incorrect": 1,
+        "coverage": 0.9,
+        "valid_coverage": 0.9,
+        "risk": 0.1111111111111111,
+        "incorrect_ids": [
+          "de_finance_finance_intent_010"
+        ]
+      },
+      {
+        "threshold": 0.9,
+        "selected_count": 9,
+        "correct": 8,
+        "incorrect": 1,
+        "coverage": 0.9,
+        "valid_coverage": 0.9,
+        "risk": 0.1111111111111111,
+        "incorrect_ids": [
+          "de_finance_finance_intent_010"
+        ]
+      },
+      {
+        "threshold": 0.95,
+        "selected_count": 7,
+        "correct": 7,
+        "incorrect": 0,
+        "coverage": 0.7,
+        "valid_coverage": 0.7,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.99,
+        "selected_count": 1,
+        "correct": 1,
+        "incorrect": 0,
+        "coverage": 0.1,
+        "valid_coverage": 0.1,
+        "risk": 0.0,
+        "incorrect_ids": []
+      }
+    ]
+  },
+  {
+    "suite_id": "finance100",
+    "case_group_id": "finance100__case__31d7bb4c300c0fcf",
+    "partition": {
+      "category": "broker_workflow",
+      "language": "de",
+      "schema_language": "de"
+    },
+    "schema": {
+      "decision": [
+        "conflict",
+        "missing_authority",
+        "missing_consent",
+        "missing_documents",
+        "ready"
+      ]
+    },
+    "score_definition": "minimum selected field score; heuristic, not calibrated joint probability",
+    "expected_count": 10,
+    "valid_count": 10,
+    "invalid_or_missing_count": 0,
+    "exact_count": 10,
+    "exact_rate": 1.0,
+    "risk_coverage_heuristic": [
+      {
+        "threshold": 0.5,
+        "selected_count": 10,
+        "correct": 10,
+        "incorrect": 0,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.7,
+        "selected_count": 9,
+        "correct": 9,
+        "incorrect": 0,
+        "coverage": 0.9,
+        "valid_coverage": 0.9,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.8,
+        "selected_count": 8,
+        "correct": 8,
+        "incorrect": 0,
+        "coverage": 0.8,
+        "valid_coverage": 0.8,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.9,
+        "selected_count": 7,
+        "correct": 7,
+        "incorrect": 0,
+        "coverage": 0.7,
+        "valid_coverage": 0.7,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.95,
+        "selected_count": 5,
+        "correct": 5,
+        "incorrect": 0,
+        "coverage": 0.5,
+        "valid_coverage": 0.5,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.99,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      }
+    ]
+  },
+  {
+    "suite_id": "finance100",
+    "case_group_id": "finance100__case__36ac4102dbfd6dc3",
+    "partition": {
+      "category": "finance_intent",
+      "language": "en",
+      "schema_language": "en"
+    },
+    "schema": {
+      "decision": [
+        "clarify",
+        "general_info",
+        "portfolio_view",
+        "recommendation",
+        "savings_change"
+      ]
+    },
+    "score_definition": "minimum selected field score; heuristic, not calibrated joint probability",
+    "expected_count": 2,
+    "valid_count": 2,
+    "invalid_or_missing_count": 0,
+    "exact_count": 2,
+    "exact_rate": 1.0,
+    "risk_coverage_heuristic": [
+      {
+        "threshold": 0.5,
+        "selected_count": 2,
+        "correct": 2,
+        "incorrect": 0,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.7,
+        "selected_count": 2,
+        "correct": 2,
+        "incorrect": 0,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.8,
+        "selected_count": 2,
+        "correct": 2,
+        "incorrect": 0,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.9,
+        "selected_count": 2,
+        "correct": 2,
+        "incorrect": 0,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.95,
+        "selected_count": 2,
+        "correct": 2,
+        "incorrect": 0,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.99,
+        "selected_count": 1,
+        "correct": 1,
+        "incorrect": 0,
+        "coverage": 0.5,
+        "valid_coverage": 0.5,
+        "risk": 0.0,
+        "incorrect_ids": []
+      }
+    ]
+  },
+  {
+    "suite_id": "finance100",
+    "case_group_id": "finance100__case__3940e5d58fc197e8",
+    "partition": {
+      "category": "advice_escalation",
+      "language": "en",
+      "schema_language": "en"
+    },
+    "schema": {
+      "decision": [
+        "clarify",
+        "out_of_scope",
+        "prohibited_request",
+        "qualified_review",
+        "routine"
+      ]
+    },
+    "score_definition": "minimum selected field score; heuristic, not calibrated joint probability",
+    "expected_count": 2,
+    "valid_count": 2,
+    "invalid_or_missing_count": 0,
+    "exact_count": 2,
+    "exact_rate": 1.0,
+    "risk_coverage_heuristic": [
+      {
+        "threshold": 0.5,
+        "selected_count": 2,
+        "correct": 2,
+        "incorrect": 0,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.7,
+        "selected_count": 2,
+        "correct": 2,
+        "incorrect": 0,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.8,
+        "selected_count": 2,
+        "correct": 2,
+        "incorrect": 0,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.9,
+        "selected_count": 1,
+        "correct": 1,
+        "incorrect": 0,
+        "coverage": 0.5,
+        "valid_coverage": 0.5,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.95,
+        "selected_count": 1,
+        "correct": 1,
+        "incorrect": 0,
+        "coverage": 0.5,
+        "valid_coverage": 0.5,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.99,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      }
+    ]
+  },
+  {
+    "suite_id": "finance100",
+    "case_group_id": "finance100__case__51a82723dc33f059",
+    "partition": {
+      "category": "synthetic_rule_check",
+      "language": "de",
+      "schema_language": "de"
+    },
+    "schema": {
+      "decision": [
+        "conflict",
+        "fails",
+        "missing",
+        "out_of_scope",
+        "passes"
+      ]
+    },
+    "score_definition": "minimum selected field score; heuristic, not calibrated joint probability",
+    "expected_count": 10,
+    "valid_count": 10,
+    "invalid_or_missing_count": 0,
+    "exact_count": 9,
+    "exact_rate": 0.9,
+    "risk_coverage_heuristic": [
+      {
+        "threshold": 0.5,
+        "selected_count": 10,
+        "correct": 9,
+        "incorrect": 1,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 0.1,
+        "incorrect_ids": [
+          "de_finance_synthetic_rule_check_002"
+        ]
+      },
+      {
+        "threshold": 0.7,
+        "selected_count": 4,
+        "correct": 4,
+        "incorrect": 0,
+        "coverage": 0.4,
+        "valid_coverage": 0.4,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.8,
+        "selected_count": 3,
+        "correct": 3,
+        "incorrect": 0,
+        "coverage": 0.3,
+        "valid_coverage": 0.3,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.9,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.95,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.99,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      }
+    ]
+  },
+  {
+    "suite_id": "finance100",
+    "case_group_id": "finance100__case__553985da98d26592",
+    "partition": {
+      "category": "broker_document",
+      "language": "de",
+      "schema_language": "de"
+    },
+    "schema": {
+      "decision": [
+        "advisory_record",
+        "application",
+        "authority",
+        "other",
+        "policy"
+      ]
+    },
+    "score_definition": "minimum selected field score; heuristic, not calibrated joint probability",
+    "expected_count": 10,
+    "valid_count": 10,
+    "invalid_or_missing_count": 0,
+    "exact_count": 10,
+    "exact_rate": 1.0,
+    "risk_coverage_heuristic": [
+      {
+        "threshold": 0.5,
+        "selected_count": 10,
+        "correct": 10,
+        "incorrect": 0,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.7,
+        "selected_count": 8,
+        "correct": 8,
+        "incorrect": 0,
+        "coverage": 0.8,
+        "valid_coverage": 0.8,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.8,
+        "selected_count": 8,
+        "correct": 8,
+        "incorrect": 0,
+        "coverage": 0.8,
+        "valid_coverage": 0.8,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.9,
+        "selected_count": 8,
+        "correct": 8,
+        "incorrect": 0,
+        "coverage": 0.8,
+        "valid_coverage": 0.8,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.95,
+        "selected_count": 5,
+        "correct": 5,
+        "incorrect": 0,
+        "coverage": 0.5,
+        "valid_coverage": 0.5,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.99,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      }
+    ]
+  },
+  {
+    "suite_id": "finance100",
+    "case_group_id": "finance100__case__55cb39b072096667",
+    "partition": {
+      "category": "contract_service",
+      "language": "de",
+      "schema_language": "de"
+    },
+    "schema": {
+      "decision": [
+        "cancellation",
+        "clarify",
+        "copy",
+        "data_change",
+        "withdrawal"
+      ]
+    },
+    "score_definition": "minimum selected field score; heuristic, not calibrated joint probability",
+    "expected_count": 10,
+    "valid_count": 10,
+    "invalid_or_missing_count": 0,
+    "exact_count": 10,
+    "exact_rate": 1.0,
+    "risk_coverage_heuristic": [
+      {
+        "threshold": 0.5,
+        "selected_count": 9,
+        "correct": 9,
+        "incorrect": 0,
+        "coverage": 0.9,
+        "valid_coverage": 0.9,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.7,
+        "selected_count": 9,
+        "correct": 9,
+        "incorrect": 0,
+        "coverage": 0.9,
+        "valid_coverage": 0.9,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.8,
+        "selected_count": 8,
+        "correct": 8,
+        "incorrect": 0,
+        "coverage": 0.8,
+        "valid_coverage": 0.8,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.9,
+        "selected_count": 8,
+        "correct": 8,
+        "incorrect": 0,
+        "coverage": 0.8,
+        "valid_coverage": 0.8,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.95,
+        "selected_count": 6,
+        "correct": 6,
+        "incorrect": 0,
+        "coverage": 0.6,
+        "valid_coverage": 0.6,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.99,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      }
+    ]
+  },
+  {
+    "suite_id": "finance100",
+    "case_group_id": "finance100__case__577071aca8e30d31",
+    "partition": {
+      "category": "insurance_intent",
+      "language": "de",
+      "schema_language": "de"
+    },
+    "schema": {
+      "decision": [
+        "clarify",
+        "contribution",
+        "coverage_info",
+        "quote",
+        "termination"
+      ]
+    },
+    "score_definition": "minimum selected field score; heuristic, not calibrated joint probability",
+    "expected_count": 10,
+    "valid_count": 10,
+    "invalid_or_missing_count": 0,
+    "exact_count": 9,
+    "exact_rate": 0.9,
+    "risk_coverage_heuristic": [
+      {
+        "threshold": 0.5,
+        "selected_count": 9,
+        "correct": 8,
+        "incorrect": 1,
+        "coverage": 0.9,
+        "valid_coverage": 0.9,
+        "risk": 0.1111111111111111,
+        "incorrect_ids": [
+          "de_finance_insurance_intent_010"
+        ]
+      },
+      {
+        "threshold": 0.7,
+        "selected_count": 9,
+        "correct": 8,
+        "incorrect": 1,
+        "coverage": 0.9,
+        "valid_coverage": 0.9,
+        "risk": 0.1111111111111111,
+        "incorrect_ids": [
+          "de_finance_insurance_intent_010"
+        ]
+      },
+      {
+        "threshold": 0.8,
+        "selected_count": 9,
+        "correct": 8,
+        "incorrect": 1,
+        "coverage": 0.9,
+        "valid_coverage": 0.9,
+        "risk": 0.1111111111111111,
+        "incorrect_ids": [
+          "de_finance_insurance_intent_010"
+        ]
+      },
+      {
+        "threshold": 0.9,
+        "selected_count": 8,
+        "correct": 8,
+        "incorrect": 0,
+        "coverage": 0.8,
+        "valid_coverage": 0.8,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.95,
+        "selected_count": 7,
+        "correct": 7,
+        "incorrect": 0,
+        "coverage": 0.7,
+        "valid_coverage": 0.7,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.99,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      }
+    ]
+  },
+  {
+    "suite_id": "finance100",
+    "case_group_id": "finance100__case__5cb0a7ab31ad089b",
+    "partition": {
+      "category": "advice_escalation",
+      "language": "de",
+      "schema_language": "de"
+    },
+    "schema": {
+      "decision": [
+        "clarify",
+        "out_of_scope",
+        "prohibited_request",
+        "qualified_review",
+        "routine"
+      ]
+    },
+    "score_definition": "minimum selected field score; heuristic, not calibrated joint probability",
+    "expected_count": 10,
+    "valid_count": 10,
+    "invalid_or_missing_count": 0,
+    "exact_count": 10,
+    "exact_rate": 1.0,
+    "risk_coverage_heuristic": [
+      {
+        "threshold": 0.5,
+        "selected_count": 10,
+        "correct": 10,
+        "incorrect": 0,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.7,
+        "selected_count": 9,
+        "correct": 9,
+        "incorrect": 0,
+        "coverage": 0.9,
+        "valid_coverage": 0.9,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.8,
+        "selected_count": 8,
+        "correct": 8,
+        "incorrect": 0,
+        "coverage": 0.8,
+        "valid_coverage": 0.8,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.9,
+        "selected_count": 7,
+        "correct": 7,
+        "incorrect": 0,
+        "coverage": 0.7,
+        "valid_coverage": 0.7,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.95,
+        "selected_count": 2,
+        "correct": 2,
+        "incorrect": 0,
+        "coverage": 0.2,
+        "valid_coverage": 0.2,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.99,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      }
+    ]
+  },
+  {
+    "suite_id": "finance100",
+    "case_group_id": "finance100__case__85b23cac951b7b42",
+    "partition": {
+      "category": "insurance_intent",
+      "language": "en",
+      "schema_language": "en"
+    },
+    "schema": {
+      "decision": [
+        "clarify",
+        "contribution",
+        "coverage_info",
+        "quote",
+        "termination"
+      ]
+    },
+    "score_definition": "minimum selected field score; heuristic, not calibrated joint probability",
+    "expected_count": 3,
+    "valid_count": 3,
+    "invalid_or_missing_count": 0,
+    "exact_count": 3,
+    "exact_rate": 1.0,
+    "risk_coverage_heuristic": [
+      {
+        "threshold": 0.5,
+        "selected_count": 2,
+        "correct": 2,
+        "incorrect": 0,
+        "coverage": 0.6666666666666666,
+        "valid_coverage": 0.6666666666666666,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.7,
+        "selected_count": 2,
+        "correct": 2,
+        "incorrect": 0,
+        "coverage": 0.6666666666666666,
+        "valid_coverage": 0.6666666666666666,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.8,
+        "selected_count": 2,
+        "correct": 2,
+        "incorrect": 0,
+        "coverage": 0.6666666666666666,
+        "valid_coverage": 0.6666666666666666,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.9,
+        "selected_count": 2,
+        "correct": 2,
+        "incorrect": 0,
+        "coverage": 0.6666666666666666,
+        "valid_coverage": 0.6666666666666666,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.95,
+        "selected_count": 2,
+        "correct": 2,
+        "incorrect": 0,
+        "coverage": 0.6666666666666666,
+        "valid_coverage": 0.6666666666666666,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.99,
+        "selected_count": 2,
+        "correct": 2,
+        "incorrect": 0,
+        "coverage": 0.6666666666666666,
+        "valid_coverage": 0.6666666666666666,
+        "risk": 0.0,
+        "incorrect_ids": []
+      }
+    ]
+  },
+  {
+    "suite_id": "finance100",
+    "case_group_id": "finance100__case__99403cb1d61403cc",
+    "partition": {
+      "category": "contract_service",
+      "language": "en",
+      "schema_language": "en"
+    },
+    "schema": {
+      "decision": [
+        "cancellation",
+        "clarify",
+        "copy",
+        "data_change",
+        "withdrawal"
+      ]
+    },
+    "score_definition": "minimum selected field score; heuristic, not calibrated joint probability",
+    "expected_count": 3,
+    "valid_count": 3,
+    "invalid_or_missing_count": 0,
+    "exact_count": 3,
+    "exact_rate": 1.0,
+    "risk_coverage_heuristic": [
+      {
+        "threshold": 0.5,
+        "selected_count": 3,
+        "correct": 3,
+        "incorrect": 0,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.7,
+        "selected_count": 3,
+        "correct": 3,
+        "incorrect": 0,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.8,
+        "selected_count": 3,
+        "correct": 3,
+        "incorrect": 0,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.9,
+        "selected_count": 3,
+        "correct": 3,
+        "incorrect": 0,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.95,
+        "selected_count": 2,
+        "correct": 2,
+        "incorrect": 0,
+        "coverage": 0.6666666666666666,
+        "valid_coverage": 0.6666666666666666,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.99,
+        "selected_count": 1,
+        "correct": 1,
+        "incorrect": 0,
+        "coverage": 0.3333333333333333,
+        "valid_coverage": 0.3333333333333333,
+        "risk": 0.0,
+        "incorrect_ids": []
+      }
+    ]
+  },
+  {
+    "suite_id": "finance100",
+    "case_group_id": "finance100__case__9f6b569d47234aff",
+    "partition": {
+      "category": "synthetic_rule_check",
+      "language": "en",
+      "schema_language": "en"
+    },
+    "schema": {
+      "decision": [
+        "conflict",
+        "fails",
+        "missing",
+        "out_of_scope",
+        "passes"
+      ]
+    },
+    "score_definition": "minimum selected field score; heuristic, not calibrated joint probability",
+    "expected_count": 2,
+    "valid_count": 2,
+    "invalid_or_missing_count": 0,
+    "exact_count": 1,
+    "exact_rate": 0.5,
+    "risk_coverage_heuristic": [
+      {
+        "threshold": 0.5,
+        "selected_count": 2,
+        "correct": 1,
+        "incorrect": 1,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 0.5,
+        "incorrect_ids": [
+          "en_finance_synthetic_rule_check_004"
+        ]
+      },
+      {
+        "threshold": 0.7,
+        "selected_count": 1,
+        "correct": 1,
+        "incorrect": 0,
+        "coverage": 0.5,
+        "valid_coverage": 0.5,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.8,
+        "selected_count": 1,
+        "correct": 1,
+        "incorrect": 0,
+        "coverage": 0.5,
+        "valid_coverage": 0.5,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.9,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.95,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.99,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      }
+    ]
+  },
+  {
+    "suite_id": "finance100",
+    "case_group_id": "finance100__case__af020b8a87fc94cc",
+    "partition": {
+      "category": "broker_workflow",
+      "language": "en",
+      "schema_language": "en"
+    },
+    "schema": {
+      "decision": [
+        "conflict",
+        "missing_authority",
+        "missing_consent",
+        "missing_documents",
+        "ready"
+      ]
+    },
+    "score_definition": "minimum selected field score; heuristic, not calibrated joint probability",
+    "expected_count": 3,
+    "valid_count": 3,
+    "invalid_or_missing_count": 0,
+    "exact_count": 3,
+    "exact_rate": 1.0,
+    "risk_coverage_heuristic": [
+      {
+        "threshold": 0.5,
+        "selected_count": 3,
+        "correct": 3,
+        "incorrect": 0,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.7,
+        "selected_count": 3,
+        "correct": 3,
+        "incorrect": 0,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.8,
+        "selected_count": 3,
+        "correct": 3,
+        "incorrect": 0,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.9,
+        "selected_count": 2,
+        "correct": 2,
+        "incorrect": 0,
+        "coverage": 0.6666666666666666,
+        "valid_coverage": 0.6666666666666666,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.95,
+        "selected_count": 1,
+        "correct": 1,
+        "incorrect": 0,
+        "coverage": 0.3333333333333333,
+        "valid_coverage": 0.3333333333333333,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.99,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      }
+    ]
+  },
+  {
+    "suite_id": "finance100",
+    "case_group_id": "finance100__case__f3b7a45bb3e0e568",
+    "partition": {
+      "category": "broker_document",
+      "language": "en",
+      "schema_language": "en"
+    },
+    "schema": {
+      "decision": [
+        "advisory_record",
+        "application",
+        "authority",
+        "other",
+        "policy"
+      ]
+    },
+    "score_definition": "minimum selected field score; heuristic, not calibrated joint probability",
+    "expected_count": 2,
+    "valid_count": 2,
+    "invalid_or_missing_count": 0,
+    "exact_count": 2,
+    "exact_rate": 1.0,
+    "risk_coverage_heuristic": [
+      {
+        "threshold": 0.5,
+        "selected_count": 2,
+        "correct": 2,
+        "incorrect": 0,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.7,
+        "selected_count": 2,
+        "correct": 2,
+        "incorrect": 0,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.8,
+        "selected_count": 2,
+        "correct": 2,
+        "incorrect": 0,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.9,
+        "selected_count": 1,
+        "correct": 1,
+        "incorrect": 0,
+        "coverage": 0.5,
+        "valid_coverage": 0.5,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.95,
+        "selected_count": 1,
+        "correct": 1,
+        "incorrect": 0,
+        "coverage": 0.5,
+        "valid_coverage": 0.5,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.99,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      }
+    ]
+  },
+  {
+    "suite_id": "finance100",
+    "case_group_id": "finance100__case__fe37845c2556462e",
+    "partition": {
+      "category": "claims_route",
+      "language": "en",
+      "schema_language": "en"
+    },
+    "schema": {
+      "decision": [
+        "benefit_question",
+        "claim_status",
+        "clarify",
+        "evidence",
+        "new_claim"
+      ]
+    },
+    "score_definition": "minimum selected field score; heuristic, not calibrated joint probability",
+    "expected_count": 3,
+    "valid_count": 3,
+    "invalid_or_missing_count": 0,
+    "exact_count": 2,
+    "exact_rate": 0.6666666666666666,
+    "risk_coverage_heuristic": [
+      {
+        "threshold": 0.5,
+        "selected_count": 3,
+        "correct": 2,
+        "incorrect": 1,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 0.3333333333333333,
+        "incorrect_ids": [
+          "en_finance_claims_route_009"
+        ]
+      },
+      {
+        "threshold": 0.7,
+        "selected_count": 3,
+        "correct": 2,
+        "incorrect": 1,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 0.3333333333333333,
+        "incorrect_ids": [
+          "en_finance_claims_route_009"
+        ]
+      },
+      {
+        "threshold": 0.8,
+        "selected_count": 2,
+        "correct": 2,
+        "incorrect": 0,
+        "coverage": 0.6666666666666666,
+        "valid_coverage": 0.6666666666666666,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.9,
+        "selected_count": 2,
+        "correct": 2,
+        "incorrect": 0,
+        "coverage": 0.6666666666666666,
+        "valid_coverage": 0.6666666666666666,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.95,
+        "selected_count": 2,
+        "correct": 2,
+        "incorrect": 0,
+        "coverage": 0.6666666666666666,
+        "valid_coverage": 0.6666666666666666,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.99,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      }
+    ]
+  },
+  {
+    "suite_id": "images90",
+    "case_group_id": "images90__case__3eba3f01fc9e539f",
+    "partition": {
+      "kind": "invoice",
+      "language": "en",
+      "condition": "image"
+    },
+    "schema": {
+      "document_type": [
+        "gutschrift",
+        "rechnung"
+      ],
+      "tax_note": [
+        "regular",
+        "reverse_charge",
+        "small_business"
+      ],
+      "gross_band": [
+        "1000_5000",
+        "5000_20000",
+        "negative",
+        "over_20000",
+        "zero_1000"
+      ]
+    },
+    "score_definition": "minimum selected field score; heuristic, not calibrated joint probability",
+    "expected_count": 10,
+    "valid_count": 10,
+    "invalid_or_missing_count": 0,
+    "exact_count": 8,
+    "exact_rate": 0.8,
+    "risk_coverage_heuristic": [
+      {
+        "threshold": 0.5,
+        "selected_count": 10,
+        "correct": 8,
+        "incorrect": 2,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 0.2,
+        "incorrect_ids": [
+          "invoice-009-en-image",
+          "invoice-016-en-image"
+        ]
+      },
+      {
+        "threshold": 0.7,
+        "selected_count": 7,
+        "correct": 7,
+        "incorrect": 0,
+        "coverage": 0.7,
+        "valid_coverage": 0.7,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.8,
+        "selected_count": 6,
+        "correct": 6,
+        "incorrect": 0,
+        "coverage": 0.6,
+        "valid_coverage": 0.6,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.9,
+        "selected_count": 3,
+        "correct": 3,
+        "incorrect": 0,
+        "coverage": 0.3,
+        "valid_coverage": 0.3,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.95,
+        "selected_count": 1,
+        "correct": 1,
+        "incorrect": 0,
+        "coverage": 0.1,
+        "valid_coverage": 0.1,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.99,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      }
+    ]
+  },
+  {
+    "suite_id": "images90",
+    "case_group_id": "images90__case__4e0485ece38ea90e",
+    "partition": {
+      "kind": "invoice",
+      "language": "de",
+      "condition": "blank"
+    },
+    "schema": {
+      "document_type": [
+        "gutschrift",
+        "rechnung"
+      ],
+      "tax_note": [
+        "regular",
+        "reverse_charge",
+        "small_business"
+      ],
+      "gross_band": [
+        "1000_5000",
+        "5000_20000",
+        "negative",
+        "over_20000",
+        "zero_1000"
+      ]
+    },
+    "score_definition": "minimum selected field score; heuristic, not calibrated joint probability",
+    "expected_count": 10,
+    "valid_count": 10,
+    "invalid_or_missing_count": 0,
+    "exact_count": 2,
+    "exact_rate": 0.2,
+    "risk_coverage_heuristic": [
+      {
+        "threshold": 0.5,
+        "selected_count": 10,
+        "correct": 2,
+        "incorrect": 8,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 0.8,
+        "incorrect_ids": [
+          "invoice-004-de-blank",
+          "invoice-001-de-blank",
+          "invoice-007-de-blank",
+          "invoice-016-de-blank",
+          "invoice-006-de-blank",
+          "invoice-002-de-blank",
+          "invoice-017-de-blank",
+          "invoice-011-de-blank"
+        ]
+      },
+      {
+        "threshold": 0.7,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.8,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.9,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.95,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.99,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      }
+    ]
+  },
+  {
+    "suite_id": "images90",
+    "case_group_id": "images90__case__60154018928f3f54",
+    "partition": {
+      "kind": "chart",
+      "language": "en",
+      "condition": "image"
+    },
+    "schema": {
+      "chart_type": [
+        "bar_line",
+        "bar_pie",
+        "hbar",
+        "hbar2",
+        "line",
+        "pie",
+        "stack_hbar",
+        "stack_vbar",
+        "vbar",
+        "vbar2"
+      ],
+      "legend_count": [
+        "0",
+        "1",
+        "10",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9"
+      ]
+    },
+    "score_definition": "minimum selected field score; heuristic, not calibrated joint probability",
+    "expected_count": 10,
+    "valid_count": 10,
+    "invalid_or_missing_count": 0,
+    "exact_count": 9,
+    "exact_rate": 0.9,
+    "risk_coverage_heuristic": [
+      {
+        "threshold": 0.5,
+        "selected_count": 9,
+        "correct": 8,
+        "incorrect": 1,
+        "coverage": 0.9,
+        "valid_coverage": 0.9,
+        "risk": 0.1111111111111111,
+        "incorrect_ids": [
+          "chart-003-en-image"
+        ]
+      },
+      {
+        "threshold": 0.7,
+        "selected_count": 8,
+        "correct": 7,
+        "incorrect": 1,
+        "coverage": 0.8,
+        "valid_coverage": 0.8,
+        "risk": 0.125,
+        "incorrect_ids": [
+          "chart-003-en-image"
+        ]
+      },
+      {
+        "threshold": 0.8,
+        "selected_count": 7,
+        "correct": 7,
+        "incorrect": 0,
+        "coverage": 0.7,
+        "valid_coverage": 0.7,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.9,
+        "selected_count": 2,
+        "correct": 2,
+        "incorrect": 0,
+        "coverage": 0.2,
+        "valid_coverage": 0.2,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.95,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.99,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      }
+    ]
+  },
+  {
+    "suite_id": "images90",
+    "case_group_id": "images90__case__b333248ce6ffc831",
+    "partition": {
+      "kind": "chart",
+      "language": "de",
+      "condition": "blank"
+    },
+    "schema": {
+      "chart_type": [
+        "bar_line",
+        "bar_pie",
+        "hbar",
+        "hbar2",
+        "line",
+        "pie",
+        "stack_hbar",
+        "stack_vbar",
+        "vbar",
+        "vbar2"
+      ],
+      "legend_count": [
+        "0",
+        "1",
+        "10",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9"
+      ]
+    },
+    "score_definition": "minimum selected field score; heuristic, not calibrated joint probability",
+    "expected_count": 10,
+    "valid_count": 10,
+    "invalid_or_missing_count": 0,
+    "exact_count": 0,
+    "exact_rate": 0.0,
+    "risk_coverage_heuristic": [
+      {
+        "threshold": 0.5,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.7,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.8,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.9,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.95,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.99,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      }
+    ]
+  },
+  {
+    "suite_id": "images90",
+    "case_group_id": "images90__case__b68c84b1d1cf70a6",
+    "partition": {
+      "kind": "invoice",
+      "language": "de",
+      "condition": "image"
+    },
+    "schema": {
+      "document_type": [
+        "gutschrift",
+        "rechnung"
+      ],
+      "tax_note": [
+        "regular",
+        "reverse_charge",
+        "small_business"
+      ],
+      "gross_band": [
+        "1000_5000",
+        "5000_20000",
+        "negative",
+        "over_20000",
+        "zero_1000"
+      ]
+    },
+    "score_definition": "minimum selected field score; heuristic, not calibrated joint probability",
+    "expected_count": 20,
+    "valid_count": 20,
+    "invalid_or_missing_count": 0,
+    "exact_count": 17,
+    "exact_rate": 0.85,
+    "risk_coverage_heuristic": [
+      {
+        "threshold": 0.5,
+        "selected_count": 20,
+        "correct": 17,
+        "incorrect": 3,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 0.15,
+        "incorrect_ids": [
+          "invoice-006-de-image",
+          "invoice-009-de-image",
+          "invoice-016-de-image"
+        ]
+      },
+      {
+        "threshold": 0.7,
+        "selected_count": 18,
+        "correct": 16,
+        "incorrect": 2,
+        "coverage": 0.9,
+        "valid_coverage": 0.9,
+        "risk": 0.1111111111111111,
+        "incorrect_ids": [
+          "invoice-009-de-image",
+          "invoice-016-de-image"
+        ]
+      },
+      {
+        "threshold": 0.8,
+        "selected_count": 17,
+        "correct": 15,
+        "incorrect": 2,
+        "coverage": 0.85,
+        "valid_coverage": 0.85,
+        "risk": 0.11764705882352941,
+        "incorrect_ids": [
+          "invoice-009-de-image",
+          "invoice-016-de-image"
+        ]
+      },
+      {
+        "threshold": 0.9,
+        "selected_count": 10,
+        "correct": 10,
+        "incorrect": 0,
+        "coverage": 0.5,
+        "valid_coverage": 0.5,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.95,
+        "selected_count": 2,
+        "correct": 2,
+        "incorrect": 0,
+        "coverage": 0.1,
+        "valid_coverage": 0.1,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.99,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      }
+    ]
+  },
+  {
+    "suite_id": "images90",
+    "case_group_id": "images90__case__f6d39249909500b1",
+    "partition": {
+      "kind": "chart",
+      "language": "de",
+      "condition": "image"
+    },
+    "schema": {
+      "chart_type": [
+        "bar_line",
+        "bar_pie",
+        "hbar",
+        "hbar2",
+        "line",
+        "pie",
+        "stack_hbar",
+        "stack_vbar",
+        "vbar",
+        "vbar2"
+      ],
+      "legend_count": [
+        "0",
+        "1",
+        "10",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9"
+      ]
+    },
+    "score_definition": "minimum selected field score; heuristic, not calibrated joint probability",
+    "expected_count": 30,
+    "valid_count": 30,
+    "invalid_or_missing_count": 0,
+    "exact_count": 27,
+    "exact_rate": 0.9,
+    "risk_coverage_heuristic": [
+      {
+        "threshold": 0.5,
+        "selected_count": 24,
+        "correct": 21,
+        "incorrect": 3,
+        "coverage": 0.8,
+        "valid_coverage": 0.8,
+        "risk": 0.125,
+        "incorrect_ids": [
+          "chart-001-de-image",
+          "chart-002-de-image",
+          "chart-003-de-image"
+        ]
+      },
+      {
+        "threshold": 0.7,
+        "selected_count": 23,
+        "correct": 21,
+        "incorrect": 2,
+        "coverage": 0.7666666666666667,
+        "valid_coverage": 0.7666666666666667,
+        "risk": 0.08695652173913043,
+        "incorrect_ids": [
+          "chart-001-de-image",
+          "chart-003-de-image"
+        ]
+      },
+      {
+        "threshold": 0.8,
+        "selected_count": 12,
+        "correct": 12,
+        "incorrect": 0,
+        "coverage": 0.4,
+        "valid_coverage": 0.4,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.9,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.95,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.99,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      }
+    ]
+  },
+  {
+    "suite_id": "insurance60",
+    "case_group_id": "insurance60__case__32e0d8d85183ba4b",
+    "partition": {},
+    "schema": {
+      "decision": [
+        "ja",
+        "konflikt",
+        "nein",
+        "offen"
+      ],
+      "evidence": [
+        "b1",
+        "b2",
+        "b3",
+        "b4",
+        "b5"
+      ]
+    },
+    "score_definition": "minimum selected field score; heuristic, not calibrated joint probability",
+    "expected_count": 60,
+    "valid_count": 60,
+    "invalid_or_missing_count": 0,
+    "exact_count": 50,
+    "exact_rate": 0.8333333333333334,
+    "risk_coverage_heuristic": [
+      {
+        "threshold": 0.5,
+        "selected_count": 58,
+        "correct": 50,
+        "incorrect": 8,
+        "coverage": 0.9666666666666667,
+        "valid_coverage": 0.9666666666666667,
+        "risk": 0.13793103448275862,
+        "incorrect_ids": [
+          "fall_003",
+          "fall_028",
+          "fall_033",
+          "fall_035",
+          "fall_036",
+          "fall_047",
+          "fall_055",
+          "fall_056"
+        ]
+      },
+      {
+        "threshold": 0.7,
+        "selected_count": 44,
+        "correct": 41,
+        "incorrect": 3,
+        "coverage": 0.7333333333333333,
+        "valid_coverage": 0.7333333333333333,
+        "risk": 0.06818181818181818,
+        "incorrect_ids": [
+          "fall_028",
+          "fall_036",
+          "fall_056"
+        ]
+      },
+      {
+        "threshold": 0.8,
+        "selected_count": 25,
+        "correct": 24,
+        "incorrect": 1,
+        "coverage": 0.4166666666666667,
+        "valid_coverage": 0.4166666666666667,
+        "risk": 0.04,
+        "incorrect_ids": [
+          "fall_028"
+        ]
+      },
+      {
+        "threshold": 0.9,
+        "selected_count": 3,
+        "correct": 3,
+        "incorrect": 0,
+        "coverage": 0.05,
+        "valid_coverage": 0.05,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.95,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.99,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      }
+    ]
+  },
+  {
+    "suite_id": "minimal_pairs48",
+    "case_group_id": "minimal_pairs48__case__f20ad4e8cba0f5f4",
+    "partition": {},
+    "schema": {
+      "action": [
+        "answer",
+        "ask_fact",
+        "ask_target",
+        "resolve_conflict"
+      ],
+      "determination": [
+        "no",
+        "unresolved",
+        "yes"
+      ]
+    },
+    "score_definition": "minimum selected field score; heuristic, not calibrated joint probability",
+    "expected_count": 48,
+    "valid_count": 48,
+    "invalid_or_missing_count": 0,
+    "exact_count": 39,
+    "exact_rate": 0.8125,
+    "risk_coverage_heuristic": [
+      {
+        "threshold": 0.5,
+        "selected_count": 43,
+        "correct": 39,
+        "incorrect": 4,
+        "coverage": 0.8958333333333334,
+        "valid_coverage": 0.8958333333333334,
+        "risk": 0.09302325581395349,
+        "incorrect_ids": [
+          "pair_report_delivery_target_b",
+          "pair_statement_notification_a",
+          "pair_report_delivery_target_a",
+          "pair_limit_order_price_step_a"
+        ]
+      },
+      {
+        "threshold": 0.7,
+        "selected_count": 38,
+        "correct": 34,
+        "incorrect": 4,
+        "coverage": 0.7916666666666666,
+        "valid_coverage": 0.7916666666666666,
+        "risk": 0.10526315789473684,
+        "incorrect_ids": [
+          "pair_report_delivery_target_b",
+          "pair_statement_notification_a",
+          "pair_report_delivery_target_a",
+          "pair_limit_order_price_step_a"
+        ]
+      },
+      {
+        "threshold": 0.8,
+        "selected_count": 34,
+        "correct": 30,
+        "incorrect": 4,
+        "coverage": 0.7083333333333334,
+        "valid_coverage": 0.7083333333333334,
+        "risk": 0.11764705882352941,
+        "incorrect_ids": [
+          "pair_report_delivery_target_b",
+          "pair_statement_notification_a",
+          "pair_report_delivery_target_a",
+          "pair_limit_order_price_step_a"
+        ]
+      },
+      {
+        "threshold": 0.9,
+        "selected_count": 7,
+        "correct": 5,
+        "incorrect": 2,
+        "coverage": 0.14583333333333334,
+        "valid_coverage": 0.14583333333333334,
+        "risk": 0.2857142857142857,
+        "incorrect_ids": [
+          "pair_report_delivery_target_b",
+          "pair_report_delivery_target_a"
+        ]
+      },
+      {
+        "threshold": 0.95,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.99,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      }
+    ]
+  },
+  {
+    "suite_id": "original_text180",
+    "case_group_id": "original_text180__case__2f27e81b718070d1",
+    "partition": {
+      "category": "urgency",
+      "language": "de",
+      "schema_language": "en"
+    },
+    "schema": {
+      "decision": [
+        "critical",
+        "high",
+        "none",
+        "normal"
+      ]
+    },
+    "score_definition": "minimum selected field score; heuristic, not calibrated joint probability",
+    "expected_count": 5,
+    "valid_count": 5,
+    "invalid_or_missing_count": 0,
+    "exact_count": 5,
+    "exact_rate": 1.0,
+    "risk_coverage_heuristic": [
+      {
+        "threshold": 0.5,
+        "selected_count": 5,
+        "correct": 5,
+        "incorrect": 0,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.7,
+        "selected_count": 4,
+        "correct": 4,
+        "incorrect": 0,
+        "coverage": 0.8,
+        "valid_coverage": 0.8,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.8,
+        "selected_count": 4,
+        "correct": 4,
+        "incorrect": 0,
+        "coverage": 0.8,
+        "valid_coverage": 0.8,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.9,
+        "selected_count": 3,
+        "correct": 3,
+        "incorrect": 0,
+        "coverage": 0.6,
+        "valid_coverage": 0.6,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.95,
+        "selected_count": 1,
+        "correct": 1,
+        "incorrect": 0,
+        "coverage": 0.2,
+        "valid_coverage": 0.2,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.99,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      }
+    ]
+  },
+  {
+    "suite_id": "original_text180",
+    "case_group_id": "original_text180__case__32f400a960ddcc82",
+    "partition": {
+      "category": "ambiguity_abstain",
+      "language": "de",
+      "schema_language": "de"
+    },
+    "schema": {
+      "decision": [
+        "conflict",
+        "missing",
+        "ready",
+        "unsupported"
+      ]
+    },
+    "score_definition": "minimum selected field score; heuristic, not calibrated joint probability",
+    "expected_count": 20,
+    "valid_count": 20,
+    "invalid_or_missing_count": 0,
+    "exact_count": 18,
+    "exact_rate": 0.9,
+    "risk_coverage_heuristic": [
+      {
+        "threshold": 0.5,
+        "selected_count": 19,
+        "correct": 17,
+        "incorrect": 2,
+        "coverage": 0.95,
+        "valid_coverage": 0.95,
+        "risk": 0.10526315789473684,
+        "incorrect_ids": [
+          "de_ambiguity_abstain_014",
+          "de_ambiguity_abstain_008"
+        ]
+      },
+      {
+        "threshold": 0.7,
+        "selected_count": 14,
+        "correct": 12,
+        "incorrect": 2,
+        "coverage": 0.7,
+        "valid_coverage": 0.7,
+        "risk": 0.14285714285714285,
+        "incorrect_ids": [
+          "de_ambiguity_abstain_014",
+          "de_ambiguity_abstain_008"
+        ]
+      },
+      {
+        "threshold": 0.8,
+        "selected_count": 9,
+        "correct": 8,
+        "incorrect": 1,
+        "coverage": 0.45,
+        "valid_coverage": 0.45,
+        "risk": 0.1111111111111111,
+        "incorrect_ids": [
+          "de_ambiguity_abstain_008"
+        ]
+      },
+      {
+        "threshold": 0.9,
+        "selected_count": 4,
+        "correct": 3,
+        "incorrect": 1,
+        "coverage": 0.2,
+        "valid_coverage": 0.2,
+        "risk": 0.25,
+        "incorrect_ids": [
+          "de_ambiguity_abstain_008"
+        ]
+      },
+      {
+        "threshold": 0.95,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.99,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      }
+    ]
+  },
+  {
+    "suite_id": "original_text180",
+    "case_group_id": "original_text180__case__43d13ae0d5de2556",
+    "partition": {
+      "category": "it_routing",
+      "language": "de",
+      "schema_language": "en"
+    },
+    "schema": {
+      "decision": [
+        "clarify",
+        "collaboration",
+        "endpoint",
+        "identity",
+        "messaging"
+      ]
+    },
+    "score_definition": "minimum selected field score; heuristic, not calibrated joint probability",
+    "expected_count": 5,
+    "valid_count": 5,
+    "invalid_or_missing_count": 0,
+    "exact_count": 5,
+    "exact_rate": 1.0,
+    "risk_coverage_heuristic": [
+      {
+        "threshold": 0.5,
+        "selected_count": 5,
+        "correct": 5,
+        "incorrect": 0,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.7,
+        "selected_count": 5,
+        "correct": 5,
+        "incorrect": 0,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.8,
+        "selected_count": 5,
+        "correct": 5,
+        "incorrect": 0,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.9,
+        "selected_count": 4,
+        "correct": 4,
+        "incorrect": 0,
+        "coverage": 0.8,
+        "valid_coverage": 0.8,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.95,
+        "selected_count": 3,
+        "correct": 3,
+        "incorrect": 0,
+        "coverage": 0.6,
+        "valid_coverage": 0.6,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.99,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      }
+    ]
+  },
+  {
+    "suite_id": "original_text180",
+    "case_group_id": "original_text180__case__4b26c61f82077fdd",
+    "partition": {
+      "category": "it_routing",
+      "language": "de",
+      "schema_language": "de"
+    },
+    "schema": {
+      "decision": [
+        "clarify",
+        "collaboration",
+        "endpoint",
+        "identity",
+        "messaging"
+      ]
+    },
+    "score_definition": "minimum selected field score; heuristic, not calibrated joint probability",
+    "expected_count": 20,
+    "valid_count": 20,
+    "invalid_or_missing_count": 0,
+    "exact_count": 19,
+    "exact_rate": 0.95,
+    "risk_coverage_heuristic": [
+      {
+        "threshold": 0.5,
+        "selected_count": 19,
+        "correct": 19,
+        "incorrect": 0,
+        "coverage": 0.95,
+        "valid_coverage": 0.95,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.7,
+        "selected_count": 19,
+        "correct": 19,
+        "incorrect": 0,
+        "coverage": 0.95,
+        "valid_coverage": 0.95,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.8,
+        "selected_count": 17,
+        "correct": 17,
+        "incorrect": 0,
+        "coverage": 0.85,
+        "valid_coverage": 0.85,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.9,
+        "selected_count": 15,
+        "correct": 15,
+        "incorrect": 0,
+        "coverage": 0.75,
+        "valid_coverage": 0.75,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.95,
+        "selected_count": 10,
+        "correct": 10,
+        "incorrect": 0,
+        "coverage": 0.5,
+        "valid_coverage": 0.5,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.99,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      }
+    ]
+  },
+  {
+    "suite_id": "original_text180",
+    "case_group_id": "original_text180__case__4b99a6bda2ffb11c",
+    "partition": {
+      "category": "document_classification",
+      "language": "en",
+      "schema_language": "en"
+    },
+    "schema": {
+      "decision": [
+        "credit_note",
+        "invoice",
+        "offer",
+        "other",
+        "reminder"
+      ]
+    },
+    "score_definition": "minimum selected field score; heuristic, not calibrated joint probability",
+    "expected_count": 5,
+    "valid_count": 5,
+    "invalid_or_missing_count": 0,
+    "exact_count": 5,
+    "exact_rate": 1.0,
+    "risk_coverage_heuristic": [
+      {
+        "threshold": 0.5,
+        "selected_count": 5,
+        "correct": 5,
+        "incorrect": 0,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.7,
+        "selected_count": 4,
+        "correct": 4,
+        "incorrect": 0,
+        "coverage": 0.8,
+        "valid_coverage": 0.8,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.8,
+        "selected_count": 4,
+        "correct": 4,
+        "incorrect": 0,
+        "coverage": 0.8,
+        "valid_coverage": 0.8,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.9,
+        "selected_count": 3,
+        "correct": 3,
+        "incorrect": 0,
+        "coverage": 0.6,
+        "valid_coverage": 0.6,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.95,
+        "selected_count": 3,
+        "correct": 3,
+        "incorrect": 0,
+        "coverage": 0.6,
+        "valid_coverage": 0.6,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.99,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      }
+    ]
+  },
+  {
+    "suite_id": "original_text180",
+    "case_group_id": "original_text180__case__4c8467221ef900d4",
+    "partition": {
+      "category": "tool_selection",
+      "language": "de",
+      "schema_language": "en"
+    },
+    "schema": {
+      "decision": [
+        "calculator",
+        "calendar_lookup",
+        "mail_search",
+        "no_tool",
+        "web_search"
+      ]
+    },
+    "score_definition": "minimum selected field score; heuristic, not calibrated joint probability",
+    "expected_count": 5,
+    "valid_count": 5,
+    "invalid_or_missing_count": 0,
+    "exact_count": 5,
+    "exact_rate": 1.0,
+    "risk_coverage_heuristic": [
+      {
+        "threshold": 0.5,
+        "selected_count": 5,
+        "correct": 5,
+        "incorrect": 0,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.7,
+        "selected_count": 5,
+        "correct": 5,
+        "incorrect": 0,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.8,
+        "selected_count": 5,
+        "correct": 5,
+        "incorrect": 0,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.9,
+        "selected_count": 5,
+        "correct": 5,
+        "incorrect": 0,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.95,
+        "selected_count": 4,
+        "correct": 4,
+        "incorrect": 0,
+        "coverage": 0.8,
+        "valid_coverage": 0.8,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.99,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      }
+    ]
+  },
+  {
+    "suite_id": "original_text180",
+    "case_group_id": "original_text180__case__745e26dc0f43eecd",
+    "partition": {
+      "category": "document_classification",
+      "language": "de",
+      "schema_language": "en"
+    },
+    "schema": {
+      "decision": [
+        "credit_note",
+        "invoice",
+        "offer",
+        "other",
+        "reminder"
+      ]
+    },
+    "score_definition": "minimum selected field score; heuristic, not calibrated joint probability",
+    "expected_count": 5,
+    "valid_count": 5,
+    "invalid_or_missing_count": 0,
+    "exact_count": 4,
+    "exact_rate": 0.8,
+    "risk_coverage_heuristic": [
+      {
+        "threshold": 0.5,
+        "selected_count": 5,
+        "correct": 4,
+        "incorrect": 1,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 0.2,
+        "incorrect_ids": [
+          "de_en_schema_document_classification_020"
+        ]
+      },
+      {
+        "threshold": 0.7,
+        "selected_count": 4,
+        "correct": 4,
+        "incorrect": 0,
+        "coverage": 0.8,
+        "valid_coverage": 0.8,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.8,
+        "selected_count": 4,
+        "correct": 4,
+        "incorrect": 0,
+        "coverage": 0.8,
+        "valid_coverage": 0.8,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.9,
+        "selected_count": 4,
+        "correct": 4,
+        "incorrect": 0,
+        "coverage": 0.8,
+        "valid_coverage": 0.8,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.95,
+        "selected_count": 1,
+        "correct": 1,
+        "incorrect": 0,
+        "coverage": 0.2,
+        "valid_coverage": 0.2,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.99,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      }
+    ]
+  },
+  {
+    "suite_id": "original_text180",
+    "case_group_id": "original_text180__case__7eda26fe7d13e2ee",
+    "partition": {
+      "category": "ambiguity_abstain",
+      "language": "de",
+      "schema_language": "en"
+    },
+    "schema": {
+      "decision": [
+        "conflict",
+        "missing",
+        "ready",
+        "unsupported"
+      ]
+    },
+    "score_definition": "minimum selected field score; heuristic, not calibrated joint probability",
+    "expected_count": 5,
+    "valid_count": 5,
+    "invalid_or_missing_count": 0,
+    "exact_count": 5,
+    "exact_rate": 1.0,
+    "risk_coverage_heuristic": [
+      {
+        "threshold": 0.5,
+        "selected_count": 5,
+        "correct": 5,
+        "incorrect": 0,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.7,
+        "selected_count": 3,
+        "correct": 3,
+        "incorrect": 0,
+        "coverage": 0.6,
+        "valid_coverage": 0.6,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.8,
+        "selected_count": 2,
+        "correct": 2,
+        "incorrect": 0,
+        "coverage": 0.4,
+        "valid_coverage": 0.4,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.9,
+        "selected_count": 1,
+        "correct": 1,
+        "incorrect": 0,
+        "coverage": 0.2,
+        "valid_coverage": 0.2,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.95,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.99,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      }
+    ]
+  },
+  {
+    "suite_id": "original_text180",
+    "case_group_id": "original_text180__case__8bb82996d684b6cc",
+    "partition": {
+      "category": "it_routing",
+      "language": "en",
+      "schema_language": "en"
+    },
+    "schema": {
+      "decision": [
+        "clarify",
+        "collaboration",
+        "endpoint",
+        "identity",
+        "messaging"
+      ]
+    },
+    "score_definition": "minimum selected field score; heuristic, not calibrated joint probability",
+    "expected_count": 5,
+    "valid_count": 5,
+    "invalid_or_missing_count": 0,
+    "exact_count": 5,
+    "exact_rate": 1.0,
+    "risk_coverage_heuristic": [
+      {
+        "threshold": 0.5,
+        "selected_count": 5,
+        "correct": 5,
+        "incorrect": 0,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.7,
+        "selected_count": 5,
+        "correct": 5,
+        "incorrect": 0,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.8,
+        "selected_count": 5,
+        "correct": 5,
+        "incorrect": 0,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.9,
+        "selected_count": 4,
+        "correct": 4,
+        "incorrect": 0,
+        "coverage": 0.8,
+        "valid_coverage": 0.8,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.95,
+        "selected_count": 3,
+        "correct": 3,
+        "incorrect": 0,
+        "coverage": 0.6,
+        "valid_coverage": 0.6,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.99,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      }
+    ]
+  },
+  {
+    "suite_id": "original_text180",
+    "case_group_id": "original_text180__case__95c2bf2d7d0cc90c",
+    "partition": {
+      "category": "urgency",
+      "language": "de",
+      "schema_language": "de"
+    },
+    "schema": {
+      "decision": [
+        "critical",
+        "high",
+        "none",
+        "normal"
+      ]
+    },
+    "score_definition": "minimum selected field score; heuristic, not calibrated joint probability",
+    "expected_count": 20,
+    "valid_count": 20,
+    "invalid_or_missing_count": 0,
+    "exact_count": 20,
+    "exact_rate": 1.0,
+    "risk_coverage_heuristic": [
+      {
+        "threshold": 0.5,
+        "selected_count": 20,
+        "correct": 20,
+        "incorrect": 0,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.7,
+        "selected_count": 17,
+        "correct": 17,
+        "incorrect": 0,
+        "coverage": 0.85,
+        "valid_coverage": 0.85,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.8,
+        "selected_count": 15,
+        "correct": 15,
+        "incorrect": 0,
+        "coverage": 0.75,
+        "valid_coverage": 0.75,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.9,
+        "selected_count": 9,
+        "correct": 9,
+        "incorrect": 0,
+        "coverage": 0.45,
+        "valid_coverage": 0.45,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.95,
+        "selected_count": 1,
+        "correct": 1,
+        "incorrect": 0,
+        "coverage": 0.05,
+        "valid_coverage": 0.05,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.99,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      }
+    ]
+  },
+  {
+    "suite_id": "original_text180",
+    "case_group_id": "original_text180__case__97c545b92d881625",
+    "partition": {
+      "category": "tool_selection",
+      "language": "de",
+      "schema_language": "de"
+    },
+    "schema": {
+      "decision": [
+        "calculator",
+        "calendar_lookup",
+        "mail_search",
+        "no_tool",
+        "web_search"
+      ]
+    },
+    "score_definition": "minimum selected field score; heuristic, not calibrated joint probability",
+    "expected_count": 20,
+    "valid_count": 20,
+    "invalid_or_missing_count": 0,
+    "exact_count": 20,
+    "exact_rate": 1.0,
+    "risk_coverage_heuristic": [
+      {
+        "threshold": 0.5,
+        "selected_count": 20,
+        "correct": 20,
+        "incorrect": 0,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.7,
+        "selected_count": 19,
+        "correct": 19,
+        "incorrect": 0,
+        "coverage": 0.95,
+        "valid_coverage": 0.95,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.8,
+        "selected_count": 18,
+        "correct": 18,
+        "incorrect": 0,
+        "coverage": 0.9,
+        "valid_coverage": 0.9,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.9,
+        "selected_count": 17,
+        "correct": 17,
+        "incorrect": 0,
+        "coverage": 0.85,
+        "valid_coverage": 0.85,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.95,
+        "selected_count": 15,
+        "correct": 15,
+        "incorrect": 0,
+        "coverage": 0.75,
+        "valid_coverage": 0.75,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.99,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      }
+    ]
+  },
+  {
+    "suite_id": "original_text180",
+    "case_group_id": "original_text180__case__9a99333e539617c5",
+    "partition": {
+      "category": "admin_intent",
+      "language": "de",
+      "schema_language": "en"
+    },
+    "schema": {
+      "decision": [
+        "copy",
+        "correction",
+        "deadline",
+        "other",
+        "refund"
+      ]
+    },
+    "score_definition": "minimum selected field score; heuristic, not calibrated joint probability",
+    "expected_count": 5,
+    "valid_count": 5,
+    "invalid_or_missing_count": 0,
+    "exact_count": 5,
+    "exact_rate": 1.0,
+    "risk_coverage_heuristic": [
+      {
+        "threshold": 0.5,
+        "selected_count": 5,
+        "correct": 5,
+        "incorrect": 0,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.7,
+        "selected_count": 4,
+        "correct": 4,
+        "incorrect": 0,
+        "coverage": 0.8,
+        "valid_coverage": 0.8,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.8,
+        "selected_count": 4,
+        "correct": 4,
+        "incorrect": 0,
+        "coverage": 0.8,
+        "valid_coverage": 0.8,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.9,
+        "selected_count": 4,
+        "correct": 4,
+        "incorrect": 0,
+        "coverage": 0.8,
+        "valid_coverage": 0.8,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.95,
+        "selected_count": 3,
+        "correct": 3,
+        "incorrect": 0,
+        "coverage": 0.6,
+        "valid_coverage": 0.6,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.99,
+        "selected_count": 1,
+        "correct": 1,
+        "incorrect": 0,
+        "coverage": 0.2,
+        "valid_coverage": 0.2,
+        "risk": 0.0,
+        "incorrect_ids": []
+      }
+    ]
+  },
+  {
+    "suite_id": "original_text180",
+    "case_group_id": "original_text180__case__a10e1f989a101074",
+    "partition": {
+      "category": "admin_intent",
+      "language": "de",
+      "schema_language": "de"
+    },
+    "schema": {
+      "decision": [
+        "copy",
+        "correction",
+        "deadline",
+        "other",
+        "refund"
+      ]
+    },
+    "score_definition": "minimum selected field score; heuristic, not calibrated joint probability",
+    "expected_count": 20,
+    "valid_count": 20,
+    "invalid_or_missing_count": 0,
+    "exact_count": 20,
+    "exact_rate": 1.0,
+    "risk_coverage_heuristic": [
+      {
+        "threshold": 0.5,
+        "selected_count": 20,
+        "correct": 20,
+        "incorrect": 0,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.7,
+        "selected_count": 19,
+        "correct": 19,
+        "incorrect": 0,
+        "coverage": 0.95,
+        "valid_coverage": 0.95,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.8,
+        "selected_count": 19,
+        "correct": 19,
+        "incorrect": 0,
+        "coverage": 0.95,
+        "valid_coverage": 0.95,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.9,
+        "selected_count": 18,
+        "correct": 18,
+        "incorrect": 0,
+        "coverage": 0.9,
+        "valid_coverage": 0.9,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.95,
+        "selected_count": 12,
+        "correct": 12,
+        "incorrect": 0,
+        "coverage": 0.6,
+        "valid_coverage": 0.6,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.99,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      }
+    ]
+  },
+  {
+    "suite_id": "original_text180",
+    "case_group_id": "original_text180__case__a902e8056e3e01fa",
+    "partition": {
+      "category": "ambiguity_abstain",
+      "language": "en",
+      "schema_language": "en"
+    },
+    "schema": {
+      "decision": [
+        "conflict",
+        "missing",
+        "ready",
+        "unsupported"
+      ]
+    },
+    "score_definition": "minimum selected field score; heuristic, not calibrated joint probability",
+    "expected_count": 5,
+    "valid_count": 5,
+    "invalid_or_missing_count": 0,
+    "exact_count": 5,
+    "exact_rate": 1.0,
+    "risk_coverage_heuristic": [
+      {
+        "threshold": 0.5,
+        "selected_count": 5,
+        "correct": 5,
+        "incorrect": 0,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.7,
+        "selected_count": 3,
+        "correct": 3,
+        "incorrect": 0,
+        "coverage": 0.6,
+        "valid_coverage": 0.6,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.8,
+        "selected_count": 2,
+        "correct": 2,
+        "incorrect": 0,
+        "coverage": 0.4,
+        "valid_coverage": 0.4,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.9,
+        "selected_count": 1,
+        "correct": 1,
+        "incorrect": 0,
+        "coverage": 0.2,
+        "valid_coverage": 0.2,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.95,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.99,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      }
+    ]
+  },
+  {
+    "suite_id": "original_text180",
+    "case_group_id": "original_text180__case__a9941628b678ca6f",
+    "partition": {
+      "category": "admin_intent",
+      "language": "en",
+      "schema_language": "en"
+    },
+    "schema": {
+      "decision": [
+        "copy",
+        "correction",
+        "deadline",
+        "other",
+        "refund"
+      ]
+    },
+    "score_definition": "minimum selected field score; heuristic, not calibrated joint probability",
+    "expected_count": 5,
+    "valid_count": 5,
+    "invalid_or_missing_count": 0,
+    "exact_count": 5,
+    "exact_rate": 1.0,
+    "risk_coverage_heuristic": [
+      {
+        "threshold": 0.5,
+        "selected_count": 5,
+        "correct": 5,
+        "incorrect": 0,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.7,
+        "selected_count": 5,
+        "correct": 5,
+        "incorrect": 0,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.8,
+        "selected_count": 5,
+        "correct": 5,
+        "incorrect": 0,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.9,
+        "selected_count": 4,
+        "correct": 4,
+        "incorrect": 0,
+        "coverage": 0.8,
+        "valid_coverage": 0.8,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.95,
+        "selected_count": 4,
+        "correct": 4,
+        "incorrect": 0,
+        "coverage": 0.8,
+        "valid_coverage": 0.8,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.99,
+        "selected_count": 1,
+        "correct": 1,
+        "incorrect": 0,
+        "coverage": 0.2,
+        "valid_coverage": 0.2,
+        "risk": 0.0,
+        "incorrect_ids": []
+      }
+    ]
+  },
+  {
+    "suite_id": "original_text180",
+    "case_group_id": "original_text180__case__cb33af1970d06475",
+    "partition": {
+      "category": "document_classification",
+      "language": "de",
+      "schema_language": "de"
+    },
+    "schema": {
+      "decision": [
+        "credit_note",
+        "invoice",
+        "offer",
+        "other",
+        "reminder"
+      ]
+    },
+    "score_definition": "minimum selected field score; heuristic, not calibrated joint probability",
+    "expected_count": 20,
+    "valid_count": 20,
+    "invalid_or_missing_count": 0,
+    "exact_count": 19,
+    "exact_rate": 0.95,
+    "risk_coverage_heuristic": [
+      {
+        "threshold": 0.5,
+        "selected_count": 19,
+        "correct": 18,
+        "incorrect": 1,
+        "coverage": 0.95,
+        "valid_coverage": 0.95,
+        "risk": 0.05263157894736842,
+        "incorrect_ids": [
+          "de_document_classification_017"
+        ]
+      },
+      {
+        "threshold": 0.7,
+        "selected_count": 18,
+        "correct": 17,
+        "incorrect": 1,
+        "coverage": 0.9,
+        "valid_coverage": 0.9,
+        "risk": 0.05555555555555555,
+        "incorrect_ids": [
+          "de_document_classification_017"
+        ]
+      },
+      {
+        "threshold": 0.8,
+        "selected_count": 16,
+        "correct": 16,
+        "incorrect": 0,
+        "coverage": 0.8,
+        "valid_coverage": 0.8,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.9,
+        "selected_count": 14,
+        "correct": 14,
+        "incorrect": 0,
+        "coverage": 0.7,
+        "valid_coverage": 0.7,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.95,
+        "selected_count": 12,
+        "correct": 12,
+        "incorrect": 0,
+        "coverage": 0.6,
+        "valid_coverage": 0.6,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.99,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      }
+    ]
+  },
+  {
+    "suite_id": "original_text180",
+    "case_group_id": "original_text180__case__fbc96315994e623f",
+    "partition": {
+      "category": "urgency",
+      "language": "en",
+      "schema_language": "en"
+    },
+    "schema": {
+      "decision": [
+        "critical",
+        "high",
+        "none",
+        "normal"
+      ]
+    },
+    "score_definition": "minimum selected field score; heuristic, not calibrated joint probability",
+    "expected_count": 5,
+    "valid_count": 5,
+    "invalid_or_missing_count": 0,
+    "exact_count": 4,
+    "exact_rate": 0.8,
+    "risk_coverage_heuristic": [
+      {
+        "threshold": 0.5,
+        "selected_count": 5,
+        "correct": 4,
+        "incorrect": 1,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 0.2,
+        "incorrect_ids": [
+          "en_urgency_014"
+        ]
+      },
+      {
+        "threshold": 0.7,
+        "selected_count": 4,
+        "correct": 4,
+        "incorrect": 0,
+        "coverage": 0.8,
+        "valid_coverage": 0.8,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.8,
+        "selected_count": 4,
+        "correct": 4,
+        "incorrect": 0,
+        "coverage": 0.8,
+        "valid_coverage": 0.8,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.9,
+        "selected_count": 4,
+        "correct": 4,
+        "incorrect": 0,
+        "coverage": 0.8,
+        "valid_coverage": 0.8,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.95,
+        "selected_count": 4,
+        "correct": 4,
+        "incorrect": 0,
+        "coverage": 0.8,
+        "valid_coverage": 0.8,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.99,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      }
+    ]
+  },
+  {
+    "suite_id": "original_text180",
+    "case_group_id": "original_text180__case__fcf9ddcaaa8f150f",
+    "partition": {
+      "category": "tool_selection",
+      "language": "en",
+      "schema_language": "en"
+    },
+    "schema": {
+      "decision": [
+        "calculator",
+        "calendar_lookup",
+        "mail_search",
+        "no_tool",
+        "web_search"
+      ]
+    },
+    "score_definition": "minimum selected field score; heuristic, not calibrated joint probability",
+    "expected_count": 5,
+    "valid_count": 5,
+    "invalid_or_missing_count": 0,
+    "exact_count": 5,
+    "exact_rate": 1.0,
+    "risk_coverage_heuristic": [
+      {
+        "threshold": 0.5,
+        "selected_count": 5,
+        "correct": 5,
+        "incorrect": 0,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.7,
+        "selected_count": 5,
+        "correct": 5,
+        "incorrect": 0,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.8,
+        "selected_count": 5,
+        "correct": 5,
+        "incorrect": 0,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.9,
+        "selected_count": 5,
+        "correct": 5,
+        "incorrect": 0,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.95,
+        "selected_count": 5,
+        "correct": 5,
+        "incorrect": 0,
+        "coverage": 1.0,
+        "valid_coverage": 1.0,
+        "risk": 0.0,
+        "incorrect_ids": []
+      },
+      {
+        "threshold": 0.99,
+        "selected_count": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "coverage": 0.0,
+        "valid_coverage": 0.0,
+        "risk": null,
+        "incorrect_ids": []
+      }
+    ]
+  }
+]

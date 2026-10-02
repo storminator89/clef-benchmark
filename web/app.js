@@ -24,6 +24,8 @@ import {
 } from "./core.js";
 import { icon } from "./icons.js";
 import { createCustomWorkspace } from "./custom-ui.js";
+import { createPairsView } from "./pairs-ui.js";
+import { createReliabilityView } from "./reliability-ui.js";
 const SUITES = {
   insurance: { file: "insurance", label: "Versicherungsdokumente" },
   general: { file: "benchmark", label: "Allgemeine Entscheidungen" },
@@ -94,6 +96,8 @@ export function createWorkbench({
     toastTimer = null,
     suppressRoute = false;
   let custom = null, customWasBusy = false;
+  const pairsView = createPairsView({document:doc,window:win,fetch:fetcher});
+  const reliabilityView = createReliabilityView({document:doc,window:win,fetch:fetcher});
   const filters = { split: "", category: "", tag: "", outcome: "", query: "" };
   const selectedCase = () => data?.cases.find((c) => c.id === selected) || null;
   function fillIcons() {
@@ -156,7 +160,7 @@ export function createWorkbench({
       "?",
     );
     return {
-      view: ["explorer", "overview", "playground", "custom", "method"].includes(raw)
+      view: ["explorer", "overview", "playground", "custom", "method", "pairs", "reliability"].includes(raw)
         ? raw
         : "explorer",
       params: new URLSearchParams(query),
@@ -165,7 +169,7 @@ export function createWorkbench({
   function navigate() {
     const { view, params } = route();
     suppressRoute = true;
-    if (data) {
+    if (data && !["pairs", "reliability"].includes(view)) {
       if (
         params.has("suite") &&
         suites[params.get("suite")] &&
@@ -200,16 +204,18 @@ export function createWorkbench({
     }
     suppressRoute = false;
     if (data) updateRoute();
-    doc.querySelector(".context-bar").hidden = view === "custom";
-    $("suite-catalog").hidden = view === "custom";
-    doc.title = `Clef Lab · ${{ explorer: "Workbench", overview: "Ergebnisse", playground: "Live testen", custom: "Eigene Tests", method: "Methodik" }[view]}`;
+    doc.querySelector(".context-bar").hidden = ["custom","pairs","reliability"].includes(view);
+    $("suite-catalog").hidden = ["custom","pairs","reliability"].includes(view);
+    doc.title = `Clef Lab · ${{ explorer: "Workbench", overview: "Ergebnisse", playground: "Live testen", custom: "Eigene Tests", method: "Methodik", pairs:"Minimalpaare", reliability:"Score & Fehlerrisiko" }[view]}`;
     doc.querySelectorAll(".view").forEach((v) => (v.hidden = v.id !== view));
     doc.querySelectorAll("[data-nav]").forEach((a) => {
-      const active = a.dataset.nav === view;
+      const active = a.dataset.nav === view || (view === "reliability" && a.dataset.nav === "pairs");
       a.classList.toggle("active", active);
       if (active) a.setAttribute("aria-current", "page");
       else a.removeAttribute("aria-current");
     });
+    if (view === "pairs") void pairsView.show(params); else pairsView.hide();
+    if (view === "reliability") void reliabilityView.show(params); else reliabilityView.hide();
   }
   win.addEventListener("hashchange", navigate);
   win.addEventListener("popstate", navigate);
@@ -1185,6 +1191,8 @@ export function createWorkbench({
   emptyOutput();
   return {
     custom,
+    pairsView,
+    reliabilityView,
     init,
     navigate,
     selectSuite,

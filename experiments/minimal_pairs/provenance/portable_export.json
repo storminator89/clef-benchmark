@@ -1,0 +1,9 @@
+{
+  "schema_version": 2,
+  "suite_id": "minimal_pairs",
+  "frozen_content_changed": false,
+  "frozen_manifest_sha256": "b060188d3690dbfa94019a51e9d74928f110e091c98a50e74cc151474c63afbb",
+  "frozen_file_count": 50,
+  "public_scope": "All frozen scientific files, native outputs and scores, canonical reproducibility pins, compact final validation and complete semantic error review.",
+  "excluded_scope": "Redundant development diagnostics, duplicate runtime inventories and operational bookkeeping are outside the public package; no scored case or error was omitted."
+}

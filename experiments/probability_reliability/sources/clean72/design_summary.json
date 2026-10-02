@@ -1,0 +1,142 @@
+{
+  "benchmark_version": "clean-realistic-de-v1",
+  "total": 72,
+  "language": "de",
+  "categories": {
+    "anliegen_priorisierung": 12,
+    "unterlagenabgleich": 12,
+    "beitragsrechnung": 12,
+    "vorgangsstand": 12,
+    "rueckfrageplanung": 12,
+    "finanzservice_routing": 12
+  },
+  "label_counts": {
+    "anliegen_priorisierung": {
+      "beitragsklaerung": 3,
+      "schadenservice": 3,
+      "bestandsaenderung": 2,
+      "dokumentenservice": 2,
+      "rueckfrage": 2
+    },
+    "unterlagenabgleich": {
+      "konsistent": 4,
+      "abweichung": 4,
+      "unterlage_fehlt": 2,
+      "version_klaeren": 2
+    },
+    "beitragsrechnung": {
+      "betrag_c": 3,
+      "betrag_a": 3,
+      "betrag_d": 2,
+      "betrag_b": 2,
+      "daten_fehlen": 2
+    },
+    "vorgangsstand": {
+      "einreichung_vorbereiten": 3,
+      "unterlagen_nachfordern": 2,
+      "status_anfragen": 3,
+      "warten": 2,
+      "zuordnung_klaeren": 2
+    },
+    "rueckfrageplanung": {
+      "zeitpunkt": 2,
+      "zuordnung": 2,
+      "keine_rueckfrage": 4,
+      "unterlage": 2,
+      "umfang": 2
+    },
+    "finanzservice_routing": {
+      "dokumentation": 3,
+      "rechenuebersicht": 3,
+      "aenderung_vorbereiten": 2,
+      "fachgespraech": 2,
+      "rueckfrage": 2
+    }
+  },
+  "information_status": {
+    "sufficient": 50,
+    "missing_or_unresolved": 22
+  },
+  "input_word_count": {
+    "min": 122,
+    "median": 130.5,
+    "max": 141,
+    "total": 9400
+  },
+  "tag_counts": {
+    "mehrfachanliegen": 13,
+    "verlauf": 23,
+    "priorisierung": 13,
+    "dokumentbezug": 35,
+    "referenzaufloesung": 10,
+    "mehrere_vertraege": 17,
+    "fehlende_prioritaet": 2,
+    "mehrere_vorgaenge": 3,
+    "zahlenkontext": 3,
+    "fehlender_kontext": 2,
+    "versionsstand": 11,
+    "mehrfeldvergleich": 11,
+    "pruefumfang": 13,
+    "fehlende_unterlage": 6,
+    "arithmetik": 15,
+    "versionskonflikt": 2,
+    "zeitbezug": 6,
+    "zahlenformat": 1,
+    "zeitabschnitte": 8,
+    "zahlungsrhythmus": 1,
+    "differenz": 2,
+    "pause": 2,
+    "teilzahlungen": 1,
+    "prozentrechnung": 2,
+    "reihenfolge": 1,
+    "fehlender_betrag": 2,
+    "anteilsrechnung": 1,
+    "explizite_regel": 1,
+    "rundung": 1,
+    "aggregation": 2,
+    "gutschrift": 2,
+    "sonderzahlung": 1,
+    "checkliste": 20,
+    "statuswechsel": 2,
+    "dokumentfunktion": 5,
+    "fristvergleich": 5,
+    "doppelversand_vermeiden": 3,
+    "fehlende_zuordnung": 2,
+    "uhrzeit": 2,
+    "fehlender_zeitpunkt": 2,
+    "mehrere_termine": 2,
+    "naechste_rueckfrage": 7,
+    "vollstaendig": 4,
+    "fehlender_umfang": 2,
+    "mehrere_personen": 1,
+    "mehrere_bausteine": 1,
+    "mehrfach_fehlend": 1,
+    "abhaengigkeit": 1,
+    "konkreter_aenderungswunsch": 2,
+    "individuelle_entscheidung": 2,
+    "mehrere_varianten": 2
+  },
+  "complexity_taxonomy": {
+    "mehrfachanliegen": "Mehr als ein natürliches Anliegen oder Nebenwunsch im Verlauf",
+    "verlauf": "Frühere und aktuelle Nachrichten müssen zeitlich zusammengeführt werden",
+    "priorisierung": "Explizite Reihenfolge, Erledigung oder Zurückstellung bestimmt den ersten Auftrag",
+    "dokumentbezug": "Nachricht und kurzer Akten-/Dokumentauszug werden zusammen ausgewertet",
+    "versionsstand": "Bestätigte Korrektur ersetzt einen älteren Stand",
+    "versionskonflikt": "Gleichrangige gültige Angaben erlauben keine eindeutige Referenz",
+    "mehrfeldvergleich": "Mindestens zwei angeforderte Dokumentfelder sind zu vergleichen",
+    "arithmetik": "Explizite Zahlen werden nach mitgelieferten Annahmen verrechnet",
+    "zeitabschnitte": "Beträge, Ausführungen oder Status wechseln innerhalb des Zeitraums",
+    "checkliste": "Vollständige kurze fiktive Arbeitscheckliste gegen die Akte prüfen",
+    "fristvergleich": "Stichtag gegen ausdrücklich dokumentierte Büro-Antwortfrist vergleichen",
+    "referenzaufloesung": "Vertrag, Dokument oder früherer Wunsch muss eindeutig zugeordnet werden",
+    "naechste_rueckfrage": "Die nützliche fehlende Information für den nächsten Schritt bestimmen",
+    "pruefumfang": "Nur die ausdrücklich genannten Felder, Verträge oder Zeiträume gehören zur Aufgabe",
+    "individuelle_entscheidung": "Persönliche Auswahlfrage nur zum Fachgespräch routen, nicht entscheiden"
+  },
+  "request_order_seed": 2026100204,
+  "no_attacks": true,
+  "synthetic": true,
+  "primary_metric": "choice_accuracy_all_planned on all 72 German cases; missing or invalid choices count as incorrect",
+  "baseline": "Uniform random expected accuracy: mean of 1/number_of_criteria per case; not an executed model baseline",
+  "design_independence": "New situations authored without reading prior model predictions, error lists or new outputs. Existing dataset schema and scorer inspected only for compatibility."
+}

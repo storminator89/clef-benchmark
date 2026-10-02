@@ -1,0 +1,45 @@
+{
+  "before_inference": true,
+  "model_outputs_seen": false,
+  "round1_snapshot_sha256": "1ce4a3826197fba4b5656552112d8aa0891301cb9099760afc5a58f2226a04fc",
+  "changes": [
+    {
+      "pair_id": "pair_rebalance_interval",
+      "reason": "Independent AI reviewer flagged unstated tariff applicability",
+      "change": "Add Es gilt der Basistarif. identically to both variants",
+      "gold_changed": false
+    },
+    {
+      "pair_id": "pair_tow_distance_records",
+      "reason": "Pre-inference design refinement to reduce clarify/yes confound",
+      "change": "Conflict25/12 resolves to25/25; answer endpoint becomes no",
+      "gold_changed": true
+    },
+    {
+      "pair_id": "pair_equipment_inspection",
+      "reason": "Pre-inference design refinement to include yes→clarify",
+      "change": "Initial certificate confirmed present instead of absent",
+      "gold_changed": true
+    },
+    {
+      "pair_id": "pair_baggage_weight_cap",
+      "reason": "Pre-inference balance of invariant within-region labels",
+      "change": "21→22 no/no changed to19→20 yes/yes",
+      "gold_changed": true
+    },
+    {
+      "pair_id": "pair_research_credit_age",
+      "reason": "Pre-inference balance of invariant within-region labels",
+      "change": "91→92 no/no changed to89→90 yes/yes",
+      "gold_changed": true
+    }
+  ],
+  "technical_corrections": [
+    "Reject booleans as tokens/confidence/telemetry and add tests",
+    "Correct sparse subtype×domain cell counts",
+    "Report wrong-valid and invalid/missing flip transitions separately",
+    "Strengthen unique pair, metadata, option-order and subtype validation",
+    "Validate full native rounded per-option maps and criterion-order tie-breaking; add mutation tests",
+    "Freeze every reviewer-approved retained artifact including full original round1 snapshot"
+  ]
+}

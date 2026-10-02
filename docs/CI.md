@@ -68,3 +68,14 @@ geladen und keine Aussage über Browserdarstellung oder AMD-Ausführung abgeleit
 ## Clarification72 integration
 
 The current workflow executes four integrity gates and rebuilds all six completed-result datasets byte-identically. The recorded local regression count is 266 Python and 111 JavaScript/DOM tests. `check_clarification.py` additionally checks both scorers, balanced denominators, all native vectors and exact public-curation evolution. The genuine sandboxed Chrome run is linked in the README and records its own source hash; it does not run a model. Public inventory format 2 exposes aggregate integrity only and excludes its two self-reports deterministically.
+
+
+## Paired and reliability release
+
+The next release adds `scripts/check_paired_reliability.py`, covering exact curated
+minimal-pair and probability-analysis exports, preservation of preceding scientific
+artifacts, independent result recomputation, synthetic scorer checks, and deterministic
+`web/data/minimal_pairs.json` / `web/data/reliability.json` rebuilds. These are separate
+diagnostic views, not additional pooled suite metrics. Browser capture retains the
+installed Chrome channel, active sandbox, results-only server, ten-MiB artifact budget
+and one-day retention. Historical galleries remain bound to their source hashes.

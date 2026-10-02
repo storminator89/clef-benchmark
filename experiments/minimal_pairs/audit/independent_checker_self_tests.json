@@ -1,0 +1,249 @@
+{
+  "synthetic_only": true,
+  "model_calls": 0,
+  "primary_scorer_imports_or_calls": 0,
+  "passed": 60,
+  "failed": 0,
+  "tests": [
+    {
+      "name": "perfect_native_all_48",
+      "passed": true
+    },
+    {
+      "name": "perfect_pairs_all_24",
+      "passed": true
+    },
+    {
+      "name": "perfect_direction_12",
+      "passed": true
+    },
+    {
+      "name": "fixed_48_case_denominator",
+      "passed": true
+    },
+    {
+      "name": "all_missing_retains_denominators",
+      "passed": true
+    },
+    {
+      "name": "all_missing_invariants_not_stable",
+      "passed": true
+    },
+    {
+      "name": "zero_valid_conditional_is_null",
+      "passed": true
+    },
+    {
+      "name": "stable_wrong_never_both_correct",
+      "passed": true
+    },
+    {
+      "name": "one_field_change_is_unjustified",
+      "passed": true
+    },
+    {
+      "name": "changed_reversed_endpoints_not_directional_success",
+      "passed": true
+    },
+    {
+      "name": "invalid_invariant_not_stable",
+      "passed": true
+    },
+    {
+      "name": "boolean_tokens",
+      "passed": true
+    },
+    {
+      "name": "zero_tokens",
+      "passed": true
+    },
+    {
+      "name": "over_cap_tokens",
+      "passed": true
+    },
+    {
+      "name": "wrong_preflight_tokens",
+      "passed": true
+    },
+    {
+      "name": "missing_tokens",
+      "passed": true
+    },
+    {
+      "name": "truncated_true",
+      "passed": true
+    },
+    {
+      "name": "truncated_zero",
+      "passed": true
+    },
+    {
+      "name": "missing_field",
+      "passed": true
+    },
+    {
+      "name": "extra_field",
+      "passed": true
+    },
+    {
+      "name": "native_type",
+      "passed": true
+    },
+    {
+      "name": "invalid_choice",
+      "passed": true
+    },
+    {
+      "name": "unhashable_choice",
+      "passed": true
+    },
+    {
+      "name": "boolean_confidence",
+      "passed": true
+    },
+    {
+      "name": "mismatched_confidence",
+      "passed": true
+    },
+    {
+      "name": "missing_rounded_map",
+      "passed": true
+    },
+    {
+      "name": "mismatched_rounded_map",
+      "passed": true
+    },
+    {
+      "name": "boolean_rounded_map",
+      "passed": true
+    },
+    {
+      "name": "extra_full_option",
+      "passed": true
+    },
+    {
+      "name": "missing_full_option",
+      "passed": true
+    },
+    {
+      "name": "nan_full_probability",
+      "passed": true
+    },
+    {
+      "name": "infinite_full_probability",
+      "passed": true
+    },
+    {
+      "name": "negative_full_probability",
+      "passed": true
+    },
+    {
+      "name": "unnormalized_full_probability",
+      "passed": true
+    },
+    {
+      "name": "boolean_full_probability",
+      "passed": true
+    },
+    {
+      "name": "negative_encode_time",
+      "passed": true
+    },
+    {
+      "name": "nan_forward_time",
+      "passed": true
+    },
+    {
+      "name": "boolean_forward_time",
+      "passed": true
+    },
+    {
+      "name": "wrong_latency_ms",
+      "passed": true
+    },
+    {
+      "name": "insufficient_total_time",
+      "passed": true
+    },
+    {
+      "name": "boolean_rss",
+      "passed": true
+    },
+    {
+      "name": "zero_rss",
+      "passed": true
+    },
+    {
+      "name": "missing_timing",
+      "passed": true
+    },
+    {
+      "name": "tie_first_criterion_accepted",
+      "passed": true
+    },
+    {
+      "name": "tie_later_criterion_rejected",
+      "passed": true
+    },
+    {
+      "name": "encoder_sorted_full_map_is_valid",
+      "passed": true
+    },
+    {
+      "name": "manifest_hash_byte_projection",
+      "passed": true
+    },
+    {
+      "name": "duplicate_id_stops_scores",
+      "passed": true
+    },
+    {
+      "name": "unexpected_id_stops_scores",
+      "passed": true
+    },
+    {
+      "name": "list_id_stops_without_exception",
+      "passed": true
+    },
+    {
+      "name": "null_id_stops_without_exception",
+      "passed": true
+    },
+    {
+      "name": "linear_p95_definition",
+      "passed": true
+    },
+    {
+      "name": "all_48_timing_rows",
+      "passed": true
+    },
+    {
+      "name": "all_24_pair_strata",
+      "passed": true
+    },
+    {
+      "name": "all_48_confusion_rows",
+      "passed": true
+    },
+    {
+      "name": "duplicate_json_member",
+      "passed": true
+    },
+    {
+      "name": "malformed_json",
+      "passed": true
+    },
+    {
+      "name": "non_object_json",
+      "passed": true
+    },
+    {
+      "name": "blank_jsonl",
+      "passed": true
+    },
+    {
+      "name": "nonfinite_preserved_in_audit_evidence",
+      "passed": true
+    }
+  ]
+}

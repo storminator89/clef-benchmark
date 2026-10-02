@@ -1,0 +1,60 @@
+BELEGE DATASET LICENCE
+Version 1.0, 14 August 2026
+
+Licensor ("the seller"): Linus Oskar Linhof, trading as Immineal, Germany.
+Full set and licence questions: https://j4zz.eu/belege/ or mail@j4zz.eu.
+
+This licence covers the invoice images, the JSON labels and the manifest in
+this archive ("the Files"). It does not cover the generator that produced them,
+which is not distributed here.
+
+WHAT YOU MAY DO
+
+You may use the Files for any purpose, commercial or non-commercial, including
+training, fine-tuning and evaluating machine learning models, and including
+benchmarking and internal research. Models you train on the Files are yours.
+Nothing in this licence attaches to the weights, the outputs, or any product
+you build with them, and you owe no attribution in your product.
+
+You may copy the Files within your own organisation and give them to
+contractors working on your behalf, provided those contractors are bound by
+these same terms.
+
+You may publish figures, sample images and results derived from the Files in
+papers, documentation and marketing, with attribution to "Belege
+(Immineal, 2026)".
+
+WHAT YOU MAY NOT DO
+
+You may not redistribute the Files themselves, in whole or in substantial part,
+whether for a fee or free of charge, and whether alone or bundled with other
+material. That includes uploading them to a public dataset host or a public
+repository. If someone else needs the dataset, send them to the seller.
+
+You may not present the Files, or a modified version of them, as your own
+dataset product.
+
+THE FREE 40-DOCUMENT SAMPLE
+
+Everything above applies to the full 1000-document set. The free preview —
+the 40 documents distributed as `belege-sample-40.zip`, unmodified — is
+licensed separately and more openly: it may be redistributed and mirrored,
+including on public dataset hosts, provided it is presented as a sample of
+the paid Belege set (not as a standalone dataset in its own right) and this
+file travels with it. This exception exists because a sample that cannot be
+seen where buyers actually look does not do its job as a sample.
+
+NO WARRANTY
+
+The Files are provided as they are, without any warranty. Every company,
+person, address, bank account, tax number and amount in them is fabricated. Any
+resemblance to a real business or person is coincidental and unintended. The
+licensor is not liable for any damage arising from use of the Files.
+
+If something in the data is wrong, write to the seller and it will be fixed in
+the next revision, which existing buyers receive at no charge.
+
+GERMAN LAW
+
+This licence is governed by German law. Immineal is a small business under
+§ 19 UStG, so no VAT is shown or charged.

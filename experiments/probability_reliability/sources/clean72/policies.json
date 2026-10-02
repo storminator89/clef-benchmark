@@ -1,0 +1,55 @@
+{
+  "anliegen_priorisierung": {
+    "instructions": "Synthetischer Bürotest mit frei erfundenen Abläufen. Wähle nur die passende Antwort für den beschriebenen Arbeitsschritt; führe nichts aus. Entscheide nicht über Produkteignung, Versicherbarkeit, Rechtsansprüche oder eine tatsächliche Zahlung. Verwende nur die mitgelieferten Angaben. Ordne den zuerst zu bearbeitenden aktuellen Kundenauftrag ein. Eine ausdrücklich gewünschte Reihenfolge gilt; bereits erledigte oder ausdrücklich zurückgestellte Wünsche zählen nicht. Ohne Reihenfolge dürfen mehrere Wünsche derselben Route zusammengefasst werden. Sind verschiedene Routen gleichrangig offen oder ist der Bezug unklar, ist eine Rückfrage nötig. Beitrag und Abbuchung gehen zur Beitragsklärung; vorhandene unveränderte Unterlagen zum Dokumentenservice; Änderungen von Adresse, Kontaktdaten oder Zahlungsrhythmus zum Bestandsservice; Meldungen, Unterlagen und Status eines konkreten Schadens zum Schadenservice.",
+    "criteria": {
+      "beitragsklaerung": "Beitrag oder Abbuchung klären",
+      "dokumentenservice": "Vorhandene unveränderte Unterlagen bereitstellen",
+      "bestandsaenderung": "Administrative Änderung aufnehmen",
+      "schadenservice": "Konkreten Schadenfall bearbeiten",
+      "rueckfrage": "Priorität oder Bezug zuerst erfragen"
+    }
+  },
+  "unterlagenabgleich": {
+    "instructions": "Synthetischer Bürotest mit frei erfundenen Abläufen. Wähle nur die passende Antwort für den beschriebenen Arbeitsschritt; führe nichts aus. Entscheide nicht über Produkteignung, Versicherbarkeit, Rechtsansprüche oder eine tatsächliche Zahlung. Verwende nur die mitgelieferten Angaben. Prüfe ausschließlich die im Auftrag genannten Felder zwischen Zielunterlage und bestätigter Referenz. Neuere ausdrücklich bestätigte Korrekturen ersetzen ältere Referenzen. Eine bloß neuere unbestätigte Fassung ersetzt nichts. Sind zwei als gültig bezeichnete Referenzen unvereinbar und ist keine führend, zuerst die Version klären. Fehlt ein für den Vergleich nötiges Feld oder Dokument, zuerst die Unterlage ergänzen. Sonst bedeutet mindestens eine Abweichung im Prüfbereich Abweichung, vollständige Übereinstimmung konsistent. Schreibweisen und rechnerisch gleiche Geldbeträge sind gleichwertig; Felder außerhalb des Prüfauftrags bleiben außer Betracht.",
+    "criteria": {
+      "konsistent": "Alle angeforderten Felder stimmen überein",
+      "abweichung": "Mindestens ein angefordertes Feld weicht ab",
+      "unterlage_fehlt": "Ein benötigtes Dokument oder Feld fehlt",
+      "version_klaeren": "Gültige Referenzen sind ungeklärt widersprüchlich"
+    }
+  },
+  "beitragsrechnung": {
+    "instructions": "Synthetischer Bürotest mit frei erfundenen Abläufen. Wähle nur die passende Antwort für den beschriebenen Arbeitsschritt; führe nichts aus. Entscheide nicht über Produkteignung, Versicherbarkeit, Rechtsansprüche oder eine tatsächliche Zahlung. Verwende nur die mitgelieferten Angaben. Berechne nur die ausdrücklich erfragte Summe oder Differenz anhand der mitgelieferten Rechenregeln. Es geht um eine administrative Zahlenübersicht, keine Zahlung, Empfehlung oder Leistungsentscheidung. Berücksichtige Zeitraum, Häufigkeit, Korrekturen und bereits enthaltene Posten. Keine zusätzliche Verzinsung, Steuer oder Gebühr annehmen. Erst am Ende auf zwei Nachkommastellen runden. Wähle den passenden Betrag; fehlt eine nötige Eingabe und ist sie nicht herleitbar, wähle daten_fehlen.",
+    "criteria": "Fallbezogene vier Beträge plus daten_fehlen; Beträge stehen nur in Kriterien, nicht in Goldbegründung des Requests."
+  },
+  "vorgangsstand": {
+    "instructions": "Synthetischer Bürotest mit frei erfundenen Abläufen. Wähle nur die passende Antwort für den beschriebenen Arbeitsschritt; führe nichts aus. Entscheide nicht über Produkteignung, Versicherbarkeit, Rechtsansprüche oder eine tatsächliche Zahlung. Verwende nur die mitgelieferten Angaben. Bestimme den nächsten internen Büroschritt nach dem aktuellen Verlauf. Die fiktive Checkliste im Aktenauszug ist vollständig für diesen Test. Fehlt eine laut Checkliste benötigte Unterlage, Unterlagen nachfordern. Ist das Paket vollständig und noch kein Versand protokolliert, zur Einreichung vorbereiten. Bei bereits erfolgtem Versand keine zweite Einreichung: Solange die dokumentierte Antwortfrist am Stichtag noch läuft, warten; nach ihrem Ende ohne Antwort den Status anfragen. Eine ausdrücklich angekündigte spätere Antwortfrist ersetzt die ältere. Lassen sich Vertrag oder Vorgang wegen mehrerer passender Kandidaten nicht eindeutig zuordnen, zuerst die Zuordnung klären. Es erfolgt weder Versand noch Fristen- oder Rechtsprüfung außerhalb dieser Büroregel.",
+    "criteria": {
+      "einreichung_vorbereiten": "Vollständiges unversandtes Paket intern vorbereiten",
+      "unterlagen_nachfordern": "Laut Checkliste fehlende Unterlage anfragen",
+      "status_anfragen": "Bei ausstehender Antwort nach dokumentiertem Fristende nachfragen",
+      "warten": "Dokumentierte Antwortfrist läuft noch",
+      "zuordnung_klaeren": "Vertrag oder Vorgang zuerst eindeutig zuordnen"
+    }
+  },
+  "rueckfrageplanung": {
+    "instructions": "Synthetischer Bürotest mit frei erfundenen Abläufen. Wähle nur die passende Antwort für den beschriebenen Arbeitsschritt; führe nichts aus. Entscheide nicht über Produkteignung, Versicherbarkeit, Rechtsansprüche oder eine tatsächliche Zahlung. Verwende nur die mitgelieferten Angaben. Wähle die eine noch benötigte Information für den angegebenen nächsten Arbeitsschritt. Nutze die vollständige fiktive Arbeitscheckliste im Aktenauszug. Bereits eindeutig ableitbare oder dort vorhandene Angaben nicht nochmals erfragen. Wenn mehrere Informationen fehlen, hat die im Aktenauszug genannte Abhängigkeit Vorrang. Zuordnung betrifft Vertrag/Vorgang; Zeitpunkt betrifft Beginn oder Zeitraum; Unterlage betrifft ein konkret benötigtes Dokument; Umfang betrifft Auswahl der betroffenen Bausteine oder Personen. Sind alle Checklistenangaben vorhanden, ist keine Rückfrage nötig. Keine zusätzliche gesetzliche Anforderung erfinden.",
+    "criteria": {
+      "zuordnung": "Welcher Vertrag oder Vorgang ist gemeint?",
+      "zeitpunkt": "Ab wann oder für welchen Zeitraum?",
+      "unterlage": "Das konkret fehlende Dokument anfordern",
+      "umfang": "Welche Teile oder Personen sind betroffen?",
+      "keine_rueckfrage": "Alle Angaben für den nächsten Schritt liegen vor"
+    }
+  },
+  "finanzservice_routing": {
+    "instructions": "Synthetischer Bürotest mit frei erfundenen Abläufen. Wähle nur die passende Antwort für den beschriebenen Arbeitsschritt; führe nichts aus. Entscheide nicht über Produkteignung, Versicherbarkeit, Rechtsansprüche oder eine tatsächliche Zahlung. Verwende nur die mitgelieferten Angaben. Ordne den aktuellen ersten Arbeitsauftrag zu, ohne Finanzberatung oder Transaktion auszuführen. Bestehende Nachweise und reine Bestandsangaben gehen zur Dokumentation. Eine aus gelieferten Zahlen zu erstellende Summe oder zeitliche Übersicht geht zur Rechenübersicht. Ein bereits konkret festgelegter Wunsch zu Betrag oder Pause eines bestehenden Sparplans geht zur administrativen Vorbereitung. Eine individuelle Auswahl, Eignungsbewertung, Kauf-/Verkaufs- oder Strategieempfehlung geht zum Fachgespräch, auch wenn dafür Unterlagen mitgeschickt werden. Wenn erst eine Rechnung oder Unterlage gewünscht und eine Empfehlung ausdrücklich auf später verschoben wird, zählt dieser erste Auftrag. Bei unaufgelöstem Bezug oder gleichrangigen unterschiedlichen Arbeitsaufträgen die Priorität bzw. Zuordnung erfragen.",
+    "criteria": {
+      "dokumentation": "Vorhandene Nachweise oder Bestandsangaben bereitstellen",
+      "rechenuebersicht": "Reine Zahlen- oder Zeitübersicht erstellen",
+      "aenderung_vorbereiten": "Festgelegten Sparplanwunsch administrativ vorbereiten",
+      "fachgespraech": "Individuelle Entscheidung fachlich besprechen lassen",
+      "rueckfrage": "Bezug oder Priorität zunächst klären"
+    }
+  }
+}

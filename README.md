@@ -6,7 +6,7 @@
 
 Eine lokale Workbench für **Cloudflare Clef**: deutsche Benchmarks, transparente Fehleranalyse und private Texttests mit dem **nativen Decision Head**.
 
-**Flash 9B als Standard · Sechs getrennte Textsuiten · Buildfreie Oberfläche · Apache-2.0**
+**Flash 9B als Standard · Sechs Textsuiten plus Paardiagnostik · Separate Scoreanalyse · Apache-2.0**
 
 [CI und Prüfverlauf](https://github.com/storminator89/clef-benchmark/actions/workflows/check.yml) · [Echter CPU-Smoke](qa/setup_custom_smoke.json) · [Lizenz](LICENSE)
 
@@ -24,7 +24,19 @@ Clef Lab macht aus Modellantworten prüfbare Ergebnisse: Originaltext, Aufgabenr
 
 **English:** [Executive summary and project profile](docs/PROJECT_BRIEF.md#english) · [Evaluation methodology and evidence](docs/EVALUATION_GUIDE.md)
 
-## Neu: Rückfragen und Unsicherheit sichtbar prüfen
+## Neu: Minimalpaare und hohe Scores getrennt prüfen
+
+Was passiert, wenn sich genau ein Textdetail ändert? **24 Minimalpaare mit 48 deutschen Fällen** ergänzen die sechs bestehenden Textsuiten als eigene Paardiagnostik. Die separate Wahrscheinlichkeitsanalyse wertet bereits gespeicherte Ergebnisse aus. In der Workbench öffnen **„Minimalpaare“ (`#pairs`)** und **„Score-Zuverlässigkeit“ (`#reliability`)** die beiden eigenen Ansichten.
+
+- **39/48 Fälle** und **17/24 Paare** vollständig richtig. Alle zwölf gewünschten Ergebniswechsel lösen eine Änderung aus, aber nur **8/12** sind an beiden Endpunkten richtig
+- **11/12** Paare mit unverändertem Soll-Ergebnis bleiben stabil; darunter sind **zwei stabil falsche Paare**. Nur **9/12** sind auf beiden Seiten richtig; **1/12** ändert sich unbegründet
+- Bei Feldscore ≥0,90 bleiben im Paartest **4/36 ausgewählte Feststellungen** und **2/7 ausgewählte Aktionen** falsch. Die zwei Aktionsfehler gehören zu demselben invarianten Paar
+
+Die Scoreanalyse ist **post-hoc und deskriptiv**, ohne neue Inferenz, Kalibrierung oder optimierte Schwelle. Ihre neun Quellsuiten, 716 Requests und 1.186 Feldbeobachtungen sind Inventarzahlen, keine unabhängige Stichprobe oder gepoolte Erfolgsquote. Feld-, Fall- und Nur-konkret-Auswertungen haben verschiedene Nenner. Die beiden neuen Ansichten sind nicht durch die historischen Screenshot-Galerien unten abgedeckt.
+
+[Befunde, Nenner und nächste Schritte auf Deutsch und Englisch](docs/PAIRS_RELIABILITY.md) · [Paarbericht](experiments/minimal_pairs/REPORT.md) · [Scorebericht](experiments/probability_reliability/REPORT_DE.md)
+
+## Dokumentierte Rückfragen-Ansicht
 
 Die sechste Suite hat eine eigene Ansicht mit getrennten Feldscores, verpassten und unnötigen Rückfragen sowie unveränderten inkonsistenten Antworten. Diese neuen Aufnahmen stammen aus einem **echten, modellfreien Chrome-Lauf**; sie ergänzen die unveränderte historische Galerie darunter.
 
@@ -103,6 +115,8 @@ python3 server.py
 | Verstehen, was getestet wurde | Suite-Katalog und Übersicht öffnen |
 | Eine Entscheidung überprüfen | Fall wählen, Regeln lesen, Gold und Modell vergleichen |
 | Versicherungsbelege prüfen | Dokument-Workbench mit Klauseln und Evidenzmengen öffnen |
+| Reaktion auf eine einzelne Änderung prüfen | „Minimalpaare“ öffnen, beide Varianten und den dokumentierten Textunterschied vergleichen |
+| Hohe Scores einordnen | „Score-Zuverlässigkeit“ öffnen und Suite, Feld, Schwelle und Nenner zusammen lesen |
 | Eigene Texte auswerten | „Eigene Tests“ öffnen und zuerst die Datei prüfen |
 | Das lokale Modell einrichten | Mit dem [Setup-Plan](#lokale-inferenz-einrichten) beginnen |
 
@@ -129,6 +143,8 @@ Ein Agent benötigt Zugriff auf den gewünschten Rechner und deine Freigabe für
 | Bereich | Was du bekommst |
 |---|---|
 | **Ergebnisse erkunden** | Sechs getrennte Textsuiten, eigene Nenner, Suche, Fehlerfilter, Fall-Deep-Links und passende Sprachkontrollen |
+| **Minimalpaare vergleichen** | Eigene Paardiagnostik mit 24 dokumentierten Änderungen, beiden Endpunkten, korrekten Übergängen und stabil falschen Antworten |
+| **Score-Zuverlässigkeit untersuchen** | Eigene post-hoc Ansicht für getrennte Feldgruppen, feste Schwellen und transparente Fehlerbelege; Ganzfall-Heuristiken im separaten Bericht |
 | **Dokumente verstehen** | Fallbibliothek, Klauselleser und Antwortprüfung auf dem Desktop; getrennte Bereiche auf schmalen Displays |
 | **Entscheidungen prüfen** | Gold-/Modellvergleich pro Feld, vollständige angebotene Belegmengen und alle ungerundeten Modellwahrscheinlichkeiten |
 | **Playground nutzen** | 1–8 native `choice`-Fragen pro Anfrage; gespeichertes Replay und neue lokale Inferenz klar getrennt |
@@ -154,7 +170,35 @@ Alle folgenden Werte stammen aus abgeschlossenen **Flash-9B-/CPU-NF4-Läufen**. 
 | **Finanzen & Makler** | 80 | **76/80 · 95,0 %** deutscher Haupttest | Weitere 20 ausgewählte englische Kontrollen; eigene Suite |
 | **clean72** | 72 | **61/72 · 84,7 %** deutsche Entscheidungen | Neue Bürofragen ohne Manipulation; andere Aufgaben und Schwierigkeit |
 
-Der Bildtest und die Angriffsentfernungs-Diagnose bleiben **separate Berichte**, keine weiteren Textsuiten im Dashboard. Die folgenden Details gehören zur Interpretation der Zahlen.
+Die Minimalpaare haben eine **eigene Paaransicht**, die Wahrscheinlichkeitsanalyse eine **eigene Analyseansicht**. Bildtest und Angriffsentfernungs-Diagnose bleiben separate Berichte. Keiner dieser Bereiche erweitert die obige Tabelle zu einem gemeinsamen Benchmark. Die folgenden Details gehören zur Interpretation der Zahlen.
+
+### Minimalpaare: Änderung, Übergang und Stabilität
+
+**24 neue Situationen mit je zwei Varianten**, acht Paare pro Bereich Banking, Versicherung und Finanzen. Zwölf Änderungen sollen das Ergebnis ändern, zwölf es erhalten. Je Paar ändert sich genau eine dokumentierte zusammenhängende Textstelle; Regel, Frage und Zwei-Feld-Schema bleiben gleich. Die Varianten wurden als einzelne Requests ausgeführt, ohne Paarinformation oder Gold im Modellinput.
+
+| Prüfkriterium | Ergebnis | Einordnung |
+|---|---:|---|
+| Beide Felder eines Falls richtig | **39/48** | Fallgenauigkeit |
+| Beide Varianten vollständig richtig | **17/24** | Strengere Paargenauigkeit |
+| Vollständig richtiger Wechsel | **8/12** | Alle 12 Ausgaben änderten sich; vier Übergänge blieben falsch |
+| Unbegründete Änderung trotz gleichem Soll | **1/12** | Gültige, aber unterschiedliche Ausgaben |
+| Stabile Ausgabe trotz Textänderung | **11/12** | Enthält zwei stabil falsche Paare; nur 9/12 beide richtig |
+
+Alle 48 Antworten sind technisch gültig und ungekürzt. Das belegt keine semantische Zuverlässigkeit. Die Paare sind abhängig; Schema und allgemeine Regelmuster stammen aus der Rückfragesuite, die Situationen und Regeltexte sind neu. Die kleine KI-verfasste und separat KI-geprüfte Diagnose hat keine menschliche Fachvalidierung und schätzt keine Produktionsfehlerquote.
+
+[Vorab-Protokoll](experiments/minimal_pairs/PROTOCOL.md) · [Ergebnis und alle Fehlerpaare](experiments/minimal_pairs/REPORT.md) · [Fehlerdetails](experiments/minimal_pairs/ERRORS.md)
+
+### Wie verlässlich sind hohe Wahrscheinlichkeiten?
+
+Die **post-hoc deskriptive Neuberechnung** verwendet unveränderte Ausgaben aus neun abgeschlossenen Quellsuiten. Die **716 Requests und 1.186 Feldbeobachtungen** beschreiben nur den Bestand. 78 Feldgruppen und 64 Fallgruppen bleiben getrennt, auch bei gleichen Optionsnamen. Die festen Schwellen sind 0,50 / 0,70 / 0,80 / 0,90 / 0,95 / 0,99; keine wurde als sichere Einsatzgrenze validiert.
+
+Bei **≥0,90** sind im Minimalpaartest **4/36 Feststellungen** und **2/7 Aktionen** falsch. Beide Aktionsfehler sind die Endpunkte desselben invarianten Paares, die vier Feststellungsfehler verteilen sich auf drei Paare. Die Rückfragesuite hat dagegen **0/49 Feststellungsfehler** und **0/25 Aktionsfehler** an dieser Feldschwelle. Das sind kleine, gezielt konstruierte und verwandte Mengen; null beobachtete Fehler belegen weder Kalibrierung noch Sicherheit.
+
+**Die Nenner unterscheiden sich:** Ein Feldscore filtert nur dieses Feld. Das Minimum aller Feldscores wählt in der Rückfragesuite bei ≥0,90 **21/72 ganze Fälle** aus, alle vollständig richtig. Die frühere Zusatzbedingung „konkrete Antwort“ (`answer` und `yes`/`no`) lässt davon nur **5/72** übrig. Im Paartest wählt das Fallminimum **7/48**, davon **zwei nicht vollständig richtig**. Dieses Minimum ist eine Heuristik, keine gemeinsame Korrektheitswahrscheinlichkeit. Bei leerer Auswahl ist die Fehlerquote undefiniert.
+
+Brier, NLL und Zehn-Bin-ECE beschreiben die archivierten Verteilungen relativ zum eingefrorenen Gold. Optionsanzahl, Klassenmix und Abhängigkeiten verhindern eine einfache Rangliste. Für Bildgruppen gelten zusätzlich lokale Grenzen: `bar_line`/`vbar2` haben überlappende Beschreibungen; Blank-Kontrollen behalten Originalbild-Gold ohne Originalinhalt. Solche Abweichungen sind nicht automatisch gewöhnliche Bildfehler. Die Quellbilder sind nicht enthalten und wurden für die Neuberechnung nicht neu geprüft.
+
+[Analyseprotokoll](experiments/probability_reliability/PROTOCOL.md) · [Felder, Bins und Schwellen](experiments/probability_reliability/FIELD_DETAILS.md) · [Separate Fallheuristiken](experiments/probability_reliability/CASE_HEURISTICS.md) · [Alle gold-relativen Abweichungen](experiments/probability_reliability/ERRORS.md)
 
 ### Rückfragen statt Raten
 
@@ -397,7 +441,7 @@ Goldlabels dienen der Auswertung und gehen **nicht** in den Modellrequest. Es gi
 | `runtime/` | Gepinnte Modellassets, Original-Head, Profile, Setup und Lazy-Live-Adapter |
 | `benchmark/`, `finance_benchmark/` | Getrennte eingefrorene Original-Textsuiten |
 | `results/` | Archivierte Originalresultate; Finance unter `results/finance/` |
-| `experiments/` | Separate Rückfrage-, Bank-, Versicherungs-, clean72-, Bild- und Ablationstests |
+| `experiments/` | Separate Minimalpaar-, Rückfrage-, Bank-, Versicherungs-, clean72-, Bild- und Ablationstests sowie post-hoc Wahrscheinlichkeitsanalyse |
 | `qa/`, `provenance/` | Unabhängige Gegenprüfungen und Herkunftsnachweise |
 | `scripts/`, `tests/` | Import-Gates, Integritätsprüfungen und Regressionstests |
 | `docs/`, `licenses/` | Einrichtung, Methodik, Validierung und Upstream-Lizenz |
@@ -406,7 +450,7 @@ Modelle, virtuelle Umgebungen, Caches, Schlüssel und private Pfade gehören nic
 
 ## Prüfung und Reproduktion
 
-Der dokumentierte lokale Integrationsstand umfasst **266 bestandene Python-Tests**, **111 bestandene JavaScript-/DOM-Tests** und **vier bestandene Integritätsgates**. Alle sechs UI-Datensätze wurden byte-identisch rekonstruiert. Diese modellfreien Prüfungen sind von echter Inferenz und visueller Browserprüfung getrennt. [Rückfrage-Integrationsnachweis](qa/clarification_integration.json) · [Vorheriger UI-Prüfnachweis](qa/ui_polish_review.json) · [Validierungsverlauf](docs/VALIDATION.md)
+Der **historische Rückfrage-Integrationsstand** dokumentiert **266 bestandene Python-Tests**, **111 bestandene JavaScript-/DOM-Tests** und **vier bestandene Integritätsgates**. Alle sechs damaligen UI-Datensätze wurden byte-identisch rekonstruiert. Diese Zahlen sind kein Prüfpass für spätere Änderungen an den Paar- und Scoreansichten. Modellfreie Prüfungen, echte Inferenz und visuelle Browserprüfung bleiben getrennt. [Rückfrage-Integrationsnachweis](qa/clarification_integration.json) · [Vorheriger UI-Prüfnachweis](qa/ui_polish_review.json) · [Validierungsverlauf](docs/VALIDATION.md)
 
 Die folgenden Befehle laden kein Modell und führen keine Inferenz aus:
 
@@ -444,7 +488,7 @@ Die Importe verweigern unvollständige Läufe, fehlende IDs, geänderte Freeze-D
 
 ### Browserprüfung und echte Screenshots
 
-**Aktueller Sechs-Suiten-Stand:** Der [Chrome-Lauf](https://github.com/storminator89/clef-benchmark/actions/runs/37029702253) auf `ce6369948d30d65b9674b5770f615879807580dd` bestand zehn Prüfgruppen und erzeugte 21 hashverifizierte echte PNGs. Die vier neuen Rückfrage-Aufnahmen wurden visuell geprüft. Desktop, Hell/Dunkel, 320/390 CSS-Pixel, alle sechs Suiten, Replay, Navigation und private synthetische Imports wurden ohne Modell geprüft. Die folgenden Angaben zur älteren Galerie bleiben historisch versioniert.
+**Versionierter Sechs-Suiten-Stand:** Der [Chrome-Lauf](https://github.com/storminator89/clef-benchmark/actions/runs/37029702253) auf `ce6369948d30d65b9674b5770f615879807580dd` bestand zehn Prüfgruppen und erzeugte 21 hashverifizierte echte PNGs. Die vier Rückfrage-Aufnahmen wurden visuell geprüft. Desktop, Hell/Dunkel, 320/390 CSS-Pixel, alle sechs Suiten, Replay, Navigation und private synthetische Imports wurden ohne Modell geprüft. Die späteren Paar- und Scoreansichten gehören nicht zu diesem Browsernachweis. Die folgenden Angaben zur älteren Galerie bleiben historisch versioniert.
 
 Der vorbereitete [Browser-Gallery-Workflow](.github/workflows/browser-gallery.yml) verwendet **Playwright 1.62.0** und den normal installierten stabilen Google-Chrome-Kanal mit aktiviertem Chromium-Sandboxing auf einem gewöhnlichen `ubuntu-24.04`-Runner. Er prüft Desktop, Hell/Dunkel sowie 320-/390-Pixel-Ansichten mit öffentlichen synthetischen Fällen. Der Lauf verbietet Modellinferenz, nutzt keine Secrets und begrenzt das Artefakt auf **10 MiB mit einem Tag Aufbewahrung**, ohne Trace oder Video.
 
@@ -479,6 +523,9 @@ Der vorbereitete [Browser-Gallery-Workflow](.github/workflows/browser-gallery.ym
 Die sinnvolle Richtung ist mehr belastbare Evidenz. Diese Punkte sind **offene Validierungsziele, keine zugesagten Features oder Termine**:
 
 - [x] Echte Desktop-/Mobile-Browserprüfung und eine ausschließlich daraus erzeugte, visuell geprüfte Galerie
+- [x] Separate Minimalpaardiagnostik und deskriptive Scoreanalyse mit vollständigen Fehlern abschließen
+- [ ] Neue Paar- und Scoreansichten in einem eigenen versionierten echten Browserlauf prüfen
+- [ ] Paarfamilien und Review-Regeln auf fachgeprüften, unangetasteten Daten testen; Scoregrenzen mit Abdeckung und Fehlerkosten validieren
 - [ ] Frische Installation mit dem neuen Setup auf einem dokumentierten Zielrechner vollständig ausführen
 - [ ] CPU-BF16, AMD-ROCm und 27B jeweils gesondert auf Hardware validieren; Qualität, Speicherbedarf und Zeiten getrennt messen
 - [ ] Größere, repräsentativere und menschlich fachgeprüfte Tests für die jeweilige Anwendung schaffen

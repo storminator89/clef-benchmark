@@ -1,0 +1,42 @@
+{
+  "suite_id": "minimal_pairs",
+  "case_count": 48,
+  "pair_count": 24,
+  "pair_domain_counts": {
+    "banking": 8,
+    "insurance": 8,
+    "finance": 8
+  },
+  "pair_kind_counts": {
+    "flip": 12,
+    "invariant": 12
+  },
+  "pair_subtype_counts": {
+    "yes_to_no": 3,
+    "no_to_yes": 3,
+    "clarify_to_answer": 3,
+    "answer_to_clarify": 3,
+    "irrelevant_text": 6,
+    "within_region_fact": 3,
+    "short_circuit_control": 3
+  },
+  "gold_action_counts": {
+    "answer": 36,
+    "ask_target": 4,
+    "resolve_conflict": 4,
+    "ask_fact": 4
+  },
+  "gold_determination_counts": {
+    "yes": 19,
+    "no": 17,
+    "unresolved": 12
+  },
+  "request_order_seed": 2026100248,
+  "reused_templates": [
+    "Exact two-field action/determination schema and English option IDs from clarification72",
+    "Generic closed-rule conjunctions, threshold boundaries, absent-versus-unknown distinction, ambiguous-target and equal-source conflict templates",
+    "Original pinned native runtime and tokenizer/freeze/guard workflow"
+  ],
+  "new_content": "24 newly authored scenario situations and rule texts; no source scenario copied",
+  "not_a_holdout": true
+}

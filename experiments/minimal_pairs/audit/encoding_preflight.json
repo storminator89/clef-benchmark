@@ -1,0 +1,347 @@
+{
+  "purpose": "Tokenizer-only pre-inference shape/cap check, no model loaded or outputs generated",
+  "requests_sha256": "6e4e5c43853032bd09e72c3bd9d0331dd15ab4b28833a7f0fa290170cb6d85c8",
+  "count": 48,
+  "min_tokens": 673,
+  "max_tokens": 730,
+  "max_state_characters": 635,
+  "max_request_bytes": 2686,
+  "cases": [
+    {
+      "id": "pair_fractional_sale_batch_a",
+      "input_tokens": 699,
+      "state_characters": 432,
+      "request_bytes": 2486,
+      "truncated": false
+    },
+    {
+      "id": "pair_tow_distance_records_b",
+      "input_tokens": 723,
+      "state_characters": 489,
+      "request_bytes": 2538,
+      "truncated": false
+    },
+    {
+      "id": "pair_equipment_inspection_a",
+      "input_tokens": 680,
+      "state_characters": 368,
+      "request_bytes": 2419,
+      "truncated": false
+    },
+    {
+      "id": "pair_report_delivery_target_b",
+      "input_tokens": 730,
+      "state_characters": 635,
+      "request_bytes": 2686,
+      "truncated": false
+    },
+    {
+      "id": "pair_paper_transfer_quota_b",
+      "input_tokens": 692,
+      "state_characters": 417,
+      "request_bytes": 2471,
+      "truncated": false
+    },
+    {
+      "id": "pair_rebalance_interval_b",
+      "input_tokens": 701,
+      "state_characters": 453,
+      "request_bytes": 2500,
+      "truncated": false
+    },
+    {
+      "id": "pair_baggage_weight_cap_b",
+      "input_tokens": 673,
+      "state_characters": 318,
+      "request_bytes": 2372,
+      "truncated": false
+    },
+    {
+      "id": "pair_rebalance_interval_a",
+      "input_tokens": 701,
+      "state_characters": 453,
+      "request_bytes": 2500,
+      "truncated": false
+    },
+    {
+      "id": "pair_rental_days_conflict_b",
+      "input_tokens": 719,
+      "state_characters": 505,
+      "request_bytes": 2556,
+      "truncated": false
+    },
+    {
+      "id": "pair_envelope_pickup_a",
+      "input_tokens": 707,
+      "state_characters": 426,
+      "request_bytes": 2471,
+      "truncated": false
+    },
+    {
+      "id": "pair_statement_notification_a",
+      "input_tokens": 690,
+      "state_characters": 409,
+      "request_bytes": 2456,
+      "truncated": false
+    },
+    {
+      "id": "pair_glass_cost_limit_a",
+      "input_tokens": 687,
+      "state_characters": 365,
+      "request_bytes": 2413,
+      "truncated": false
+    },
+    {
+      "id": "pair_report_delivery_target_a",
+      "input_tokens": 729,
+      "state_characters": 627,
+      "request_bytes": 2678,
+      "truncated": false
+    },
+    {
+      "id": "pair_gadget_theft_notice_b",
+      "input_tokens": 699,
+      "state_characters": 420,
+      "request_bytes": 2468,
+      "truncated": false
+    },
+    {
+      "id": "pair_equipment_inspection_b",
+      "input_tokens": 683,
+      "state_characters": 382,
+      "request_bytes": 2433,
+      "truncated": false
+    },
+    {
+      "id": "pair_fractional_sale_batch_b",
+      "input_tokens": 700,
+      "state_characters": 433,
+      "request_bytes": 2487,
+      "truncated": false
+    },
+    {
+      "id": "pair_rental_days_conflict_a",
+      "input_tokens": 719,
+      "state_characters": 505,
+      "request_bytes": 2555,
+      "truncated": false
+    },
+    {
+      "id": "pair_fx_pickup_stock_a",
+      "input_tokens": 706,
+      "state_characters": 440,
+      "request_bytes": 2496,
+      "truncated": false
+    },
+    {
+      "id": "pair_limit_order_price_step_b",
+      "input_tokens": 687,
+      "state_characters": 392,
+      "request_bytes": 2438,
+      "truncated": false
+    },
+    {
+      "id": "pair_savings_stamp_b",
+      "input_tokens": 680,
+      "state_characters": 362,
+      "request_bytes": 2407,
+      "truncated": false
+    },
+    {
+      "id": "pair_fund_switch_target_a",
+      "input_tokens": 711,
+      "state_characters": 551,
+      "request_bytes": 2601,
+      "truncated": false
+    },
+    {
+      "id": "pair_festival_cancellation_a",
+      "input_tokens": 682,
+      "state_characters": 395,
+      "request_bytes": 2442,
+      "truncated": false
+    },
+    {
+      "id": "pair_festival_cancellation_b",
+      "input_tokens": 684,
+      "state_characters": 410,
+      "request_bytes": 2457,
+      "truncated": false
+    },
+    {
+      "id": "pair_standing_order_express_a",
+      "input_tokens": 708,
+      "state_characters": 454,
+      "request_bytes": 2509,
+      "truncated": false
+    },
+    {
+      "id": "pair_research_credit_age_a",
+      "input_tokens": 673,
+      "state_characters": 326,
+      "request_bytes": 2375,
+      "truncated": false
+    },
+    {
+      "id": "pair_limit_order_price_step_a",
+      "input_tokens": 687,
+      "state_characters": 391,
+      "request_bytes": 2437,
+      "truncated": false
+    },
+    {
+      "id": "pair_locker_waitlist_a",
+      "input_tokens": 674,
+      "state_characters": 365,
+      "request_bytes": 2414,
+      "truncated": false
+    },
+    {
+      "id": "pair_locker_waitlist_b",
+      "input_tokens": 678,
+      "state_characters": 383,
+      "request_bytes": 2432,
+      "truncated": false
+    },
+    {
+      "id": "pair_coin_bag_limit_b",
+      "input_tokens": 682,
+      "state_characters": 340,
+      "request_bytes": 2391,
+      "truncated": false
+    },
+    {
+      "id": "pair_standing_order_express_b",
+      "input_tokens": 707,
+      "state_characters": 453,
+      "request_bytes": 2508,
+      "truncated": false
+    },
+    {
+      "id": "pair_tow_distance_records_a",
+      "input_tokens": 723,
+      "state_characters": 489,
+      "request_bytes": 2538,
+      "truncated": false
+    },
+    {
+      "id": "pair_gadget_theft_notice_a",
+      "input_tokens": 699,
+      "state_characters": 420,
+      "request_bytes": 2468,
+      "truncated": false
+    },
+    {
+      "id": "pair_paper_transfer_quota_a",
+      "input_tokens": 692,
+      "state_characters": 417,
+      "request_bytes": 2471,
+      "truncated": false
+    },
+    {
+      "id": "pair_fx_pickup_stock_b",
+      "input_tokens": 707,
+      "state_characters": 441,
+      "request_bytes": 2496,
+      "truncated": false
+    },
+    {
+      "id": "pair_baggage_weight_cap_a",
+      "input_tokens": 673,
+      "state_characters": 318,
+      "request_bytes": 2372,
+      "truncated": false
+    },
+    {
+      "id": "pair_savings_stamp_a",
+      "input_tokens": 680,
+      "state_characters": 362,
+      "request_bytes": 2407,
+      "truncated": false
+    },
+    {
+      "id": "pair_fund_switch_target_b",
+      "input_tokens": 707,
+      "state_characters": 520,
+      "request_bytes": 2570,
+      "truncated": false
+    },
+    {
+      "id": "pair_camera_rental_cover_a",
+      "input_tokens": 696,
+      "state_characters": 385,
+      "request_bytes": 2433,
+      "truncated": false
+    },
+    {
+      "id": "pair_redemption_window_conflict_b",
+      "input_tokens": 711,
+      "state_characters": 526,
+      "request_bytes": 2588,
+      "truncated": false
+    },
+    {
+      "id": "pair_savings_plan_components_a",
+      "input_tokens": 683,
+      "state_characters": 378,
+      "request_bytes": 2428,
+      "truncated": false
+    },
+    {
+      "id": "pair_glass_cost_limit_b",
+      "input_tokens": 687,
+      "state_characters": 365,
+      "request_bytes": 2413,
+      "truncated": false
+    },
+    {
+      "id": "pair_redemption_window_conflict_a",
+      "input_tokens": 710,
+      "state_characters": 532,
+      "request_bytes": 2594,
+      "truncated": false
+    },
+    {
+      "id": "pair_research_credit_age_b",
+      "input_tokens": 673,
+      "state_characters": 326,
+      "request_bytes": 2375,
+      "truncated": false
+    },
+    {
+      "id": "pair_envelope_pickup_b",
+      "input_tokens": 712,
+      "state_characters": 458,
+      "request_bytes": 2504,
+      "truncated": false
+    },
+    {
+      "id": "pair_coin_bag_limit_a",
+      "input_tokens": 682,
+      "state_characters": 340,
+      "request_bytes": 2391,
+      "truncated": false
+    },
+    {
+      "id": "pair_statement_notification_b",
+      "input_tokens": 691,
+      "state_characters": 414,
+      "request_bytes": 2461,
+      "truncated": false
+    },
+    {
+      "id": "pair_camera_rental_cover_b",
+      "input_tokens": 698,
+      "state_characters": 390,
+      "request_bytes": 2438,
+      "truncated": false
+    },
+    {
+      "id": "pair_savings_plan_components_b",
+      "input_tokens": 683,
+      "state_characters": 378,
+      "request_bytes": 2428,
+      "truncated": false
+    }
+  ]
+}

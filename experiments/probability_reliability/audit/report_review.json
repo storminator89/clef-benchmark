@@ -1,0 +1,41 @@
+{
+  "status": "PASS reports",
+  "report_checks": 3749,
+  "field_sections": 78,
+  "bin_rows": 780,
+  "field_threshold_rows": 468,
+  "case_sections": 64,
+  "case_threshold_rows": 384,
+  "errors": 124,
+  "high_score_errors_at_090": 20,
+  "local_interpretation_warnings": {
+    "chart_field_groups": 3,
+    "chart_case_groups": 3,
+    "chart_error_sections": 13,
+    "blank_error_sections": 37
+  },
+  "minimal_pair_error_clusters": {
+    "action": [
+      "pair_report_delivery_target"
+    ],
+    "determination": [
+      "pair_limit_order_price_step",
+      "pair_report_delivery_target",
+      "pair_statement_notification"
+    ]
+  },
+  "clarification_090": {
+    "action_fields": 25,
+    "determination_fields": 49,
+    "all_cases": 21,
+    "concrete_only_cases": 5
+  },
+  "privacy_marker_findings": [],
+  "report_sha256": {
+    "REPORT_DE.md": "20bec0e1019dc83b39c4541ff8371687addb20d1ccee15b4e0b912f21559cd40",
+    "FIELD_DETAILS.md": "1bea36e0590b7e22422c301417bafa996b27d870abc4be01565c25a3179d2064",
+    "CASE_HEURISTICS.md": "d42e7e3b9ad745eea20c35292a00d07fb146a8874b5c164290317fe783bcaf99",
+    "ERRORS.md": "3a5d6b44a42e3089ea90c734b4f85d81ca0886c49339d0a08f03db02b6cdc6ad",
+    "README.md": "d161abb12b2667a0b616f56794f329182ab75b8a024e443ddf0754ed20516873"
+  }
+}

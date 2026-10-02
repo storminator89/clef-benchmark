@@ -1,0 +1,453 @@
+{
+  "reviewer_type": "separate AI pre-inference reviewer",
+  "no_model_loaded": true,
+  "synthetic_predictions_only": true,
+  "primary_scorer_not_imported": true,
+  "test_method": "CLI black-box executions compared to a separate direct counting oracle",
+  "count": 30,
+  "passed": 30,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "gold_fixture",
+      "passed": true,
+      "expected": {
+        "case_exact": 48,
+        "both_correct": 24,
+        "directional": 12,
+        "observed_flip": 12,
+        "unjustified": 0,
+        "valid_inv": 12,
+        "failed_inv": 0,
+        "stable": 12,
+        "stable_wrong": 0
+      }
+    },
+    {
+      "name": "no_predictions",
+      "passed": true,
+      "expected": {
+        "case_exact": 0,
+        "both_correct": 0,
+        "directional": 0,
+        "observed_flip": 0,
+        "unjustified": 0,
+        "valid_inv": 0,
+        "failed_inv": 12,
+        "stable": 0,
+        "stable_wrong": 0
+      }
+    },
+    {
+      "name": "all_flip_directions_reversed",
+      "passed": true,
+      "expected": {
+        "case_exact": 24,
+        "both_correct": 12,
+        "directional": 0,
+        "observed_flip": 12,
+        "unjustified": 0,
+        "valid_inv": 12,
+        "failed_inv": 0,
+        "stable": 12,
+        "stable_wrong": 0
+      }
+    },
+    {
+      "name": "constant_answer_no",
+      "passed": true,
+      "expected": {
+        "case_exact": 17,
+        "both_correct": 4,
+        "directional": 0,
+        "observed_flip": 0,
+        "unjustified": 0,
+        "valid_inv": 12,
+        "failed_inv": 0,
+        "stable": 12,
+        "stable_wrong": 8
+      }
+    },
+    {
+      "name": "stable_wrong_invariant",
+      "passed": true,
+      "expected": {
+        "case_exact": 46,
+        "both_correct": 23,
+        "directional": 12,
+        "observed_flip": 12,
+        "unjustified": 0,
+        "valid_inv": 12,
+        "failed_inv": 0,
+        "stable": 12,
+        "stable_wrong": 1
+      }
+    },
+    {
+      "name": "one_field_unjustified_change",
+      "passed": true,
+      "expected": {
+        "case_exact": 47,
+        "both_correct": 23,
+        "directional": 12,
+        "observed_flip": 12,
+        "unjustified": 1,
+        "valid_inv": 12,
+        "failed_inv": 1,
+        "stable": 11,
+        "stable_wrong": 0
+      }
+    },
+    {
+      "name": "flip_one_field_wrong",
+      "passed": true,
+      "expected": {
+        "case_exact": 47,
+        "both_correct": 23,
+        "directional": 11,
+        "observed_flip": 12,
+        "unjustified": 0,
+        "valid_inv": 12,
+        "failed_inv": 0,
+        "stable": 12,
+        "stable_wrong": 0
+      }
+    },
+    {
+      "name": "missing_invariant_b",
+      "passed": true,
+      "expected": {
+        "case_exact": 47,
+        "both_correct": 23,
+        "directional": 12,
+        "observed_flip": 12,
+        "unjustified": 0,
+        "valid_inv": 11,
+        "failed_inv": 1,
+        "stable": 11,
+        "stable_wrong": 0
+      }
+    },
+    {
+      "name": "both_invariant_missing",
+      "passed": true,
+      "expected": {
+        "case_exact": 46,
+        "both_correct": 23,
+        "directional": 12,
+        "observed_flip": 12,
+        "unjustified": 0,
+        "valid_inv": 11,
+        "failed_inv": 1,
+        "stable": 11,
+        "stable_wrong": 0
+      }
+    },
+    {
+      "name": "missing_rounded_map",
+      "passed": true,
+      "expected": {
+        "case_exact": 47,
+        "both_correct": 23,
+        "directional": 12,
+        "observed_flip": 12,
+        "unjustified": 0,
+        "valid_inv": 11,
+        "failed_inv": 1,
+        "stable": 11,
+        "stable_wrong": 0
+      }
+    },
+    {
+      "name": "boolean_rounded_probability",
+      "passed": true,
+      "expected": {
+        "case_exact": 47,
+        "both_correct": 23,
+        "directional": 12,
+        "observed_flip": 12,
+        "unjustified": 0,
+        "valid_inv": 11,
+        "failed_inv": 1,
+        "stable": 11,
+        "stable_wrong": 0
+      }
+    },
+    {
+      "name": "wrong_rounded_probability",
+      "passed": true,
+      "expected": {
+        "case_exact": 47,
+        "both_correct": 23,
+        "directional": 12,
+        "observed_flip": 12,
+        "unjustified": 0,
+        "valid_inv": 11,
+        "failed_inv": 1,
+        "stable": 11,
+        "stable_wrong": 0
+      }
+    },
+    {
+      "name": "boolean_token",
+      "passed": true,
+      "expected": {
+        "case_exact": 47,
+        "both_correct": 23,
+        "directional": 12,
+        "observed_flip": 12,
+        "unjustified": 0,
+        "valid_inv": 11,
+        "failed_inv": 1,
+        "stable": 11,
+        "stable_wrong": 0
+      }
+    },
+    {
+      "name": "float_token",
+      "passed": true,
+      "expected": {
+        "case_exact": 47,
+        "both_correct": 23,
+        "directional": 12,
+        "observed_flip": 12,
+        "unjustified": 0,
+        "valid_inv": 11,
+        "failed_inv": 1,
+        "stable": 11,
+        "stable_wrong": 0
+      }
+    },
+    {
+      "name": "boolean_confidence",
+      "passed": true,
+      "expected": {
+        "case_exact": 47,
+        "both_correct": 23,
+        "directional": 12,
+        "observed_flip": 12,
+        "unjustified": 0,
+        "valid_inv": 11,
+        "failed_inv": 1,
+        "stable": 11,
+        "stable_wrong": 0
+      }
+    },
+    {
+      "name": "boolean_timing",
+      "passed": true,
+      "expected": {
+        "case_exact": 47,
+        "both_correct": 23,
+        "directional": 12,
+        "observed_flip": 12,
+        "unjustified": 0,
+        "valid_inv": 11,
+        "failed_inv": 1,
+        "stable": 11,
+        "stable_wrong": 0
+      }
+    },
+    {
+      "name": "boolean_rss",
+      "passed": true,
+      "expected": {
+        "case_exact": 47,
+        "both_correct": 23,
+        "directional": 12,
+        "observed_flip": 12,
+        "unjustified": 0,
+        "valid_inv": 11,
+        "failed_inv": 1,
+        "stable": 11,
+        "stable_wrong": 0
+      }
+    },
+    {
+      "name": "probability_nan",
+      "passed": true,
+      "expected": {
+        "case_exact": 47,
+        "both_correct": 23,
+        "directional": 12,
+        "observed_flip": 12,
+        "unjustified": 0,
+        "valid_inv": 11,
+        "failed_inv": 1,
+        "stable": 11,
+        "stable_wrong": 0
+      }
+    },
+    {
+      "name": "probability_boolean",
+      "passed": true,
+      "expected": {
+        "case_exact": 47,
+        "both_correct": 23,
+        "directional": 12,
+        "observed_flip": 12,
+        "unjustified": 0,
+        "valid_inv": 11,
+        "failed_inv": 1,
+        "stable": 11,
+        "stable_wrong": 0
+      }
+    },
+    {
+      "name": "missing_action_field",
+      "passed": true,
+      "expected": {
+        "case_exact": 47,
+        "both_correct": 23,
+        "directional": 12,
+        "observed_flip": 12,
+        "unjustified": 0,
+        "valid_inv": 11,
+        "failed_inv": 1,
+        "stable": 11,
+        "stable_wrong": 0
+      }
+    },
+    {
+      "name": "not_argmax",
+      "passed": true,
+      "expected": {
+        "case_exact": 47,
+        "both_correct": 23,
+        "directional": 12,
+        "observed_flip": 12,
+        "unjustified": 0,
+        "valid_inv": 11,
+        "failed_inv": 1,
+        "stable": 11,
+        "stable_wrong": 0
+      }
+    },
+    {
+      "name": "truncated",
+      "passed": true,
+      "expected": {
+        "case_exact": 47,
+        "both_correct": 23,
+        "directional": 12,
+        "observed_flip": 12,
+        "unjustified": 0,
+        "valid_inv": 11,
+        "failed_inv": 1,
+        "stable": 11,
+        "stable_wrong": 0
+      }
+    },
+    {
+      "name": "negative_latency",
+      "passed": true,
+      "expected": {
+        "case_exact": 47,
+        "both_correct": 23,
+        "directional": 12,
+        "observed_flip": 12,
+        "unjustified": 0,
+        "valid_inv": 11,
+        "failed_inv": 1,
+        "stable": 11,
+        "stable_wrong": 0
+      }
+    },
+    {
+      "name": "bad_confidence",
+      "passed": true,
+      "expected": {
+        "case_exact": 47,
+        "both_correct": 23,
+        "directional": 12,
+        "observed_flip": 12,
+        "unjustified": 0,
+        "valid_inv": 11,
+        "failed_inv": 1,
+        "stable": 11,
+        "stable_wrong": 0
+      }
+    },
+    {
+      "name": "identically_invalid_pair_not_stable",
+      "passed": true,
+      "expected": {
+        "case_exact": 46,
+        "both_correct": 23,
+        "directional": 12,
+        "observed_flip": 12,
+        "unjustified": 0,
+        "valid_inv": 11,
+        "failed_inv": 1,
+        "stable": 11,
+        "stable_wrong": 0
+      }
+    },
+    {
+      "name": "confidence_within_declared_tolerance_valid",
+      "passed": true,
+      "expected": {
+        "case_exact": 48,
+        "both_correct": 24,
+        "directional": 12,
+        "observed_flip": 12,
+        "unjustified": 0,
+        "valid_inv": 12,
+        "failed_inv": 0,
+        "stable": 12,
+        "stable_wrong": 0
+      }
+    },
+    {
+      "name": "argmax_tie_first_option_valid",
+      "passed": true,
+      "expected": {
+        "case_exact": 48,
+        "both_correct": 24,
+        "directional": 12,
+        "observed_flip": 12,
+        "unjustified": 0,
+        "valid_inv": 12,
+        "failed_inv": 0,
+        "stable": 12,
+        "stable_wrong": 0
+      }
+    },
+    {
+      "name": "argmax_tie_later_option_invalid",
+      "passed": true,
+      "expected": {
+        "case_exact": 47,
+        "both_correct": 23,
+        "directional": 12,
+        "observed_flip": 12,
+        "unjustified": 0,
+        "valid_inv": 11,
+        "failed_inv": 1,
+        "stable": 11,
+        "stable_wrong": 0
+      }
+    },
+    {
+      "name": "duplicate_id",
+      "passed": true,
+      "expected": {
+        "scoring_aborted": true
+      }
+    },
+    {
+      "name": "unexpected_id",
+      "passed": true,
+      "expected": {
+        "scoring_aborted": true
+      }
+    }
+  ],
+  "reviewed_sha256": {
+    "scripts/score.py": "64ac1545fb9be288a6515dcffa7a0609c39d8caf01fc9aaf5cb0b903bc89b8ee",
+    "data/requests.jsonl": "6e4e5c43853032bd09e72c3bd9d0331dd15ab4b28833a7f0fa290170cb6d85c8",
+    "data/cases.jsonl": "8a69f69464d1df858a8761cdf085ccda75f2236154ae005ff0569212d26371e4",
+    "data/gold.jsonl": "27979c66dce5261d12a8d51bc8dffb437c5c20f120888773a47dc0fce8f592d6",
+    "data/pairs.jsonl": "10ffcbbdc24288588598320b37b88276d046c7b44b57125906af546548b13fa1"
+  }
+}

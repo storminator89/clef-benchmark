@@ -1,0 +1,310 @@
+{
+  "suite_id": "minimal_pairs",
+  "case_count": 48,
+  "pair_count": 24,
+  "case_metrics": {
+    "action": {
+      "numerator": 40,
+      "denominator": 48,
+      "rate": 0.8333333333333334
+    },
+    "determination": {
+      "numerator": 42,
+      "denominator": 48,
+      "rate": 0.875
+    },
+    "all_fields_exact": {
+      "numerator": 39,
+      "denominator": 48,
+      "rate": 0.8125
+    },
+    "all_field_decisions": {
+      "numerator": 82,
+      "denominator": 96,
+      "rate": 0.8541666666666666
+    }
+  },
+  "pair_metrics": {
+    "both_correct": {
+      "numerator": 17,
+      "denominator": 24,
+      "rate": 0.7083333333333334
+    },
+    "correct_directional_change": {
+      "numerator": 8,
+      "denominator": 12,
+      "rate": 0.6666666666666666
+    },
+    "wrong_valid_flip_transition": {
+      "numerator": 4,
+      "denominator": 12,
+      "rate": 0.3333333333333333
+    },
+    "invalid_or_missing_flip_transition": {
+      "numerator": 0,
+      "denominator": 12,
+      "rate": 0.0
+    },
+    "observed_change_on_flip": {
+      "numerator": 12,
+      "denominator": 12,
+      "rate": 1.0
+    },
+    "unjustified_change": {
+      "numerator": 1,
+      "denominator": 12,
+      "rate": 0.08333333333333333
+    },
+    "unjustified_change_among_valid": {
+      "numerator": 1,
+      "denominator": 12,
+      "rate": 0.08333333333333333
+    },
+    "failed_invariance": {
+      "numerator": 1,
+      "denominator": 12,
+      "rate": 0.08333333333333333
+    },
+    "stable_invariant": {
+      "numerator": 11,
+      "denominator": 12,
+      "rate": 0.9166666666666666
+    },
+    "stable_but_incorrect": {
+      "numerator": 2,
+      "denominator": 12,
+      "rate": 0.16666666666666666
+    }
+  },
+  "pair_strata": {
+    "domain": {
+      "banking": {
+        "pairs": 8,
+        "both_correct": {
+          "numerator": 7,
+          "denominator": 8,
+          "rate": 0.875
+        },
+        "valid_pairs": 8,
+        "observed_changes": 4
+      },
+      "insurance": {
+        "pairs": 8,
+        "both_correct": {
+          "numerator": 5,
+          "denominator": 8,
+          "rate": 0.625
+        },
+        "valid_pairs": 8,
+        "observed_changes": 4
+      },
+      "finance": {
+        "pairs": 8,
+        "both_correct": {
+          "numerator": 5,
+          "denominator": 8,
+          "rate": 0.625
+        },
+        "valid_pairs": 8,
+        "observed_changes": 5
+      }
+    },
+    "kind": {
+      "flip": {
+        "pairs": 12,
+        "both_correct": {
+          "numerator": 8,
+          "denominator": 12,
+          "rate": 0.6666666666666666
+        },
+        "valid_pairs": 12,
+        "observed_changes": 12
+      },
+      "invariant": {
+        "pairs": 12,
+        "both_correct": {
+          "numerator": 9,
+          "denominator": 12,
+          "rate": 0.75
+        },
+        "valid_pairs": 12,
+        "observed_changes": 1
+      }
+    },
+    "subtype": {
+      "yes_to_no": {
+        "pairs": 3,
+        "both_correct": {
+          "numerator": 2,
+          "denominator": 3,
+          "rate": 0.6666666666666666
+        },
+        "valid_pairs": 3,
+        "observed_changes": 3
+      },
+      "no_to_yes": {
+        "pairs": 3,
+        "both_correct": {
+          "numerator": 3,
+          "denominator": 3,
+          "rate": 1.0
+        },
+        "valid_pairs": 3,
+        "observed_changes": 3
+      },
+      "clarify_to_answer": {
+        "pairs": 3,
+        "both_correct": {
+          "numerator": 1,
+          "denominator": 3,
+          "rate": 0.3333333333333333
+        },
+        "valid_pairs": 3,
+        "observed_changes": 3
+      },
+      "answer_to_clarify": {
+        "pairs": 3,
+        "both_correct": {
+          "numerator": 2,
+          "denominator": 3,
+          "rate": 0.6666666666666666
+        },
+        "valid_pairs": 3,
+        "observed_changes": 3
+      },
+      "irrelevant_text": {
+        "pairs": 6,
+        "both_correct": {
+          "numerator": 4,
+          "denominator": 6,
+          "rate": 0.6666666666666666
+        },
+        "valid_pairs": 6,
+        "observed_changes": 0
+      },
+      "within_region_fact": {
+        "pairs": 3,
+        "both_correct": {
+          "numerator": 3,
+          "denominator": 3,
+          "rate": 1.0
+        },
+        "valid_pairs": 3,
+        "observed_changes": 0
+      },
+      "short_circuit_control": {
+        "pairs": 3,
+        "both_correct": {
+          "numerator": 2,
+          "denominator": 3,
+          "rate": 0.6666666666666666
+        },
+        "valid_pairs": 3,
+        "observed_changes": 1
+      }
+    }
+  },
+  "case_domain_exact": {
+    "banking": {
+      "numerator": 15,
+      "denominator": 16,
+      "rate": 0.9375
+    },
+    "insurance": {
+      "numerator": 12,
+      "denominator": 16,
+      "rate": 0.75
+    },
+    "finance": {
+      "numerator": 12,
+      "denominator": 16,
+      "rate": 0.75
+    }
+  },
+  "technical": {
+    "recorded_predictions": 48,
+    "valid_cases": 48,
+    "missing_predictions": 0,
+    "invalid_existing_predictions": 0,
+    "invalid_or_missing_case_ids": [],
+    "invalid_pair_ids": [],
+    "valid_invariant_pairs": 12,
+    "input_tokens_min": 673,
+    "input_tokens_max": 730,
+    "forward_seconds_median": 17.298450598500494,
+    "forward_seconds_p95": 20.289244122945455,
+    "forward_seconds_total": 845.8542490289838,
+    "peak_observed_rss_bytes": 6183706624
+  },
+  "error_case_ids": [
+    "pair_tow_distance_records_b",
+    "pair_report_delivery_target_b",
+    "pair_rental_days_conflict_b",
+    "pair_statement_notification_a",
+    "pair_report_delivery_target_a",
+    "pair_rental_days_conflict_a",
+    "pair_limit_order_price_step_a",
+    "pair_gadget_theft_notice_a",
+    "pair_redemption_window_conflict_a"
+  ],
+  "error_pair_ids": [
+    "pair_statement_notification",
+    "pair_gadget_theft_notice",
+    "pair_tow_distance_records",
+    "pair_rental_days_conflict",
+    "pair_redemption_window_conflict",
+    "pair_report_delivery_target",
+    "pair_limit_order_price_step"
+  ],
+  "confusion_matrices": {
+    "action": {
+      "answer": {
+        "answer": 33,
+        "ask_target": 1,
+        "ask_fact": 1,
+        "resolve_conflict": 1
+      },
+      "ask_target": {
+        "answer": 2,
+        "ask_target": 2
+      },
+      "resolve_conflict": {
+        "ask_target": 2,
+        "resolve_conflict": 2
+      },
+      "ask_fact": {
+        "answer": 1,
+        "ask_fact": 3
+      }
+    },
+    "determination": {
+      "yes": {
+        "yes": 18,
+        "unresolved": 1
+      },
+      "no": {
+        "unresolved": 2,
+        "no": 15
+      },
+      "unresolved": {
+        "yes": 2,
+        "unresolved": 9,
+        "no": 1
+      }
+    }
+  },
+  "limitations": [
+    "AI-authored and separately AI-reviewed, not human-expert validated",
+    "Purposive dependent pairs, schema and generic rule templates reused, not a representative holdout",
+    "Bounded native output choices, not generated German answer/question quality",
+    "Marginal option scores are neither calibrated nor joint probabilities",
+    "Experimental CPU NF4, no stock-precision/GPU claim",
+    "No pooled prior-suite scores or independent-case statistical inference"
+  ],
+  "provenance": {
+    "requests_sha256": "6e4e5c43853032bd09e72c3bd9d0331dd15ab4b28833a7f0fa290170cb6d85c8",
+    "gold_sha256": "27979c66dce5261d12a8d51bc8dffb437c5c20f120888773a47dc0fce8f592d6",
+    "pairs_sha256": "10ffcbbdc24288588598320b37b88276d046c7b44b57125906af546548b13fa1",
+    "predictions_sha256": "c3cf3aa50f66340c9b43a0b8cfc168e280f130b2282d92f47ec80dd6e8fe200e"
+  }
+}

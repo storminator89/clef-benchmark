@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "baseline_commit": "73033f97f80fc9736313e54932e92026c8e9bd54",
+  "purpose": "Preserve every preceding experiment, benchmark, native result, runtime/source artifact and existing UI dataset while adding paired and reliability views. No scientific byte replacement is permitted.",
+  "selection": {
+    "directory_prefixes": [
+      "benchmark/",
+      "finance_benchmark/",
+      "experiments/",
+      "results/",
+      "runtime/",
+      "schemas/",
+      "examples/",
+      "licenses/",
+      "web/data/"
+    ],
+    "include_keys_from": "provenance/clarification_baseline.json:protected_files_sha256",
+    "excluded_additions": [
+      "experiments/minimal_pairs/",
+      "experiments/probability_reliability/",
+      "web/data/minimal_pairs.json",
+      "web/data/reliability.json"
+    ],
+    "ignored_path_component": "__pycache__"
+  },
+  "file_count": 388,
+  "total_bytes": 12998993,
+  "aggregate_sha256": "061b916d180ae5deb157c7514877923122da36479361e0f4da4bc51015a58c1e",
+  "digest_definition": "SHA-256 of UTF-8 compact sorted-key JSON for public scientific file entries (path, sha256), sorted by path. Per-file rows are not published."
+}

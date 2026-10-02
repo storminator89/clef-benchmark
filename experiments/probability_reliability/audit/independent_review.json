@@ -1,0 +1,29 @@
+{
+  "status": "PASS independent scientific, metric, report and public-scope review",
+  "source_lock_sha256": "c02c5378121b67c91706c3f2edcff45b50224f2b752bbb6188849ec9f329bff4",
+  "independent_comparisons": 65127,
+  "independent_synthetic_tests": 15,
+  "primary_synthetic_tests": 20,
+  "report_checks": 3749,
+  "suite_count": 9,
+  "request_count": 716,
+  "field_count": 1186,
+  "field_groups": 78,
+  "case_groups": 64,
+  "incorrect_fields": 124,
+  "model_inference_performed": false,
+  "calibration_fitting_performed": false,
+  "threshold_tuning_performed": false,
+  "primary_metric_imports_used": false,
+  "public_scope_findings": [],
+  "source_lock_unchanged": true,
+  "supplement_is_metric_input": false,
+  "release_condition": "Current complete artifact manifest must pass after every packaging change.",
+  "local_interpretation_warnings": {
+    "chart_field_groups": 3,
+    "chart_case_groups": 3,
+    "chart_error_sections": 13,
+    "blank_error_sections": 37
+  },
+  "reference_model_scope": "Retained public model configuration, original head, dependency versions and upstream weight-file digests document reproducibility; these references are not metric inputs."
+}

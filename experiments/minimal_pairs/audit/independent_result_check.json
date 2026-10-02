@@ -1,0 +1,29 @@
+{
+  "schema_version": 2,
+  "passed": true,
+  "mismatches": [],
+  "prediction_count": 48,
+  "predictions_sha256": "c3cf3aa50f66340c9b43a0b8cfc168e280f130b2282d92f47ec80dd6e8fe200e",
+  "summary_sha256": "4c556e74a0b9f7b67ad75d2029ddc20260ab2b76ca78e8bcf56408a3f78bf0d6",
+  "synthetic_fixture_only": false,
+  "check_count": 6972,
+  "independence": "Standard-library implementation from protocol/native contract; primary scorer never read, imported or called by this checker",
+  "scoring_stopped": false,
+  "coverage": {
+    "case_rows": 48,
+    "pair_rows": 24,
+    "native_field_checks": "All native choice/type/options/full probabilities/rounded maps/argmax/confidence/tokens/truncation/timing/RSS",
+    "fixed_denominators": [
+      48,
+      24,
+      12,
+      12
+    ],
+    "summary": "Every primary summary field, all strata, confusion matrices, timing and provenance compared recursively",
+    "error_records": "Exact erroneous ID sets, full input text, gold, predictions and unrounded probabilities; diagnostic issue presence independently checked, wording retained"
+  },
+  "timing_percentile_definition": "P95 uses linear interpolation at index (n-1)*0.95 in sorted valid forward seconds, matching the frozen primary definition; nearest-rank is also retained independently",
+  "audit_script_sha256": "a183de479f9f97654e71eeffbf946690a42a3daf6a7cfcb1ff4d4996ffb4f867",
+  "public_scope": "Compact final scientific verification. Canonical source records, independent calculation code and metric summaries remain public.",
+  "reproduction_scope": "Offline native-record scoring; no model reload, inference or fresh hardware verification."
+}

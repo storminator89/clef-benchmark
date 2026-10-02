@@ -1,0 +1,3 @@
+Clef native-score reliability analysis, 2026-10-02.
+
+The source datasets, native outputs and model references retain their original licensing and attribution. Model: Cloudflare/clef-flash, revision 17f0b0ad64efb65d273590632833508766b2aae6 (Apache-2.0). Source image licensing is retained under licenses/. Weights and raw source images are not redistributed here. No human-expert label validation, financial/legal/medical endorsement, population calibration or production suitability is implied. Private environment diagnostics omitted.

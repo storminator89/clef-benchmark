@@ -1,0 +1,11 @@
+{
+  "analysis_type": "post-hoc descriptive",
+  "model_inference_performed": false,
+  "source_lock_sha256": "c02c5378121b67c91706c3f2edcff45b50224f2b752bbb6188849ec9f329bff4",
+  "implementation_sha256": {
+    "scripts/analyze.py": "2e11f6465f4cb878d78775e28ef57b2d608df5493b1bf91291421073d8f42b82",
+    "scripts/metrics.py": "faa0a5128ee4a7d2e18670376f69dea178080c2c8b253cb14d451aa81ee49ff3"
+  },
+  "runtime": "Python standard library; no model or third-party packages loaded",
+  "python_version": "3.12.14"
+}

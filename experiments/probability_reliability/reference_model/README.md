@@ -1,0 +1,3 @@
+# Supplementary recorded model/runtime references
+
+These byte-identical public reference files preserve the pinned official model-file hashes, model/head configurations and complete recorded package inventories. They accompany the already source-locked per-suite runtime metadata. They were added as documentation after score computation and are not analysis inputs, selection criteria or changes to the source lock. The public artifact integrity manifest covers their bytes. The original model weights are not redistributed and no model was loaded for this analysis. Recomputing this analysis requires only Python's standard library, not these inference packages.

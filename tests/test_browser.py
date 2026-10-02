@@ -19,7 +19,7 @@ import struct
 import subprocess
 import sys
 import threading
-from urllib.parse import urlsplit
+from urllib.parse import urlsplit, urlencode
 
 ROOT = Path(__file__).resolve().parents[1]
 BASE_URL = 'http://127.0.0.1:8765'
@@ -333,6 +333,114 @@ class BrowserChecks:
         page.set_viewport_size({'width': 1440, 'height': 1000})
         self.check('clarification72: complete source context, two native fields, error subtypes, honest denominators, 320/390px panels')
 
+    def minimal_pairs(self):
+        page, expect = self.page, self.expect
+        self.nav('pairs')
+        expect(page.locator('[data-pair]')).to_have_count(24)
+        expect(page.locator('.pair-endpoint')).to_have_count(2)
+        expect(page.locator('.pair-message mark')).to_have_count(2)
+        expect(page.locator('.context-bar')).to_be_hidden()
+        expect(page.locator('#pairs')).to_contain_text('17')
+        expect(page.locator('#pair-detail')).to_contain_text('Laufende Überweisungsnummer 3 → 4')
+        self.capture('minimal-pairs-comparison-light.png', 'Minimal pair: exactly one changed span, shared fictional rule and both native responses')
+        page.locator('#pair-outcome').select_option('errors')
+        expect(page.locator('[data-pair]')).to_have_count(7)
+        page.locator('#pair-outcome').select_option('stable-wrong')
+        expect(page.locator('[data-pair]')).to_have_count(2)
+        page.locator('[data-pair="pair_report_delivery_target"]').click()
+        expect(page.locator('#pair-detail')).to_contain_text('zweimal falsch')
+        expect(page.locator('[data-pair="pair_report_delivery_target"]')).to_be_focused()
+        expect(page.locator('.pair-field.bad')).to_have_count(4)
+        self.capture('minimal-pairs-stable-wrong-light.png', 'Invariant report-title edit: two high-scoring wrong native endpoints remain visible')
+        page.locator('#pair-search').fill('no-existing-pair-matches-xyz')
+        expect(page.locator('[data-pair]')).to_have_count(0)
+        expect(page.locator('.pair-endpoint')).to_have_count(0)
+        page.locator('#pair-reset').click()
+        expect(page.locator('[data-pair]')).to_have_count(24)
+        page.locator('#pair-outcome').select_option('unjustified')
+        expect(page.locator('[data-pair]')).to_have_count(1)
+        expect(page.locator('#pair-detail')).to_contain_text('ungültige Preisstufe')
+        page.goto(BASE_URL + '/#pairs?pair=pair_gadget_theft_notice', wait_until='networkidle')
+        expect(page.locator('#pair-detail')).to_contain_text('Inkonsistente Feldkombination')
+        page.locator('.pair-raw > summary').first.click()
+        expect(page.locator('.pair-raw').first).to_have_attribute('open', '')
+        page.locator('#theme-toggle').click()
+        self.capture('minimal-pairs-comparison-dark.png', 'Preserved inconsistent boundary response and full native option scores in dark theme')
+        page.locator('#theme-toggle').click()
+        self.nav('method')
+        page.go_back()
+        expect(page.locator('#pairs')).to_be_visible()
+        expect(page.locator('#pair-detail')).to_contain_text('Meldeabstand 48 → 49 Stunden')
+        page.go_forward()
+        expect(page.locator('#method')).to_be_visible()
+        for width in (320, 390):
+            page.set_viewport_size({'width': width, 'height': 844})
+            self.nav('pairs')
+            expect(page.locator('[data-pair]')).to_have_count(24)
+            self.overflow(f'minimal pairs {width}')
+            page.locator('#pair-outcome').select_option('stable-wrong')
+            page.locator('[data-pair="pair_report_delivery_target"]').click()
+            self.overflow(f'minimal pairs stable-wrong {width}')
+            self.capture(f'minimal-pairs-{width}.png', f'Pair comparison at {width} CSS pixels, unchanged wrong endpoints', full_page=True)
+            page.locator('#pair-reset').click()
+        page.set_viewport_size({'width': 1440, 'height': 1000})
+        self.check('Minimal pairs: exact highlighted edits, paired correctness, stable-wrong and unjustified-change filters, no-match clearing, deep links, Back/Forward, dark theme and 320/390px')
+
+    def reliability(self):
+        page, expect = self.page, self.expect
+        page.goto(BASE_URL + '/#reliability', wait_until='networkidle')
+        expect(page.locator('#reliability-suite')).to_have_value('minimal_pairs48')
+        expect(page.locator('#reliability-field')).to_have_value('determination')
+        expect(page.locator('.reliability-risk')).to_contain_text('4 / 36')
+        expect(page.locator('[data-reliability-bin]')).to_have_count(10)
+        expect(page.locator('[data-reliability-error]')).to_have_count(6)
+        self.capture('reliability-determination-light.png', 'Minimal-pair determination: fixed threshold 0.90, four errors among 36 selected and separate coverage', full_page=False)
+        page.locator('#reliability-field').select_option('action')
+        expect(page.locator('.reliability-risk')).to_contain_text('2 / 7')
+        expect(page.locator('.reliability-caveats')).to_contain_text('Beide Fehler gehören zum selben Paar')
+        page.locator('#reliability-selected-errors').check()
+        expect(page.locator('[data-reliability-error]')).to_have_count(2)
+        page.locator('[data-reliability-error] summary').first.click()
+        expect(page.locator('.reliability-evidence').first).to_be_visible()
+        page.locator('#theme-toggle').click()
+        self.capture('reliability-action-dark.png', 'Dependent high-score action errors, original input and complete unrounded native option evidence')
+        page.locator('#theme-toggle').click()
+        # Every field group is inspected separately; the test never pools probabilities.
+        source = json.loads((ROOT / 'web/data/reliability.json').read_text())
+        for group in source['field_groups']:
+            query = urlencode({'suite': group['suite_id'], 'field': group['field'], 'group': group['group_id'], 'threshold': '.90'})
+            page.evaluate('(hash) => { location.hash = hash; }', '#reliability?' + query)
+            expect(page.locator('#reliability-group')).to_have_value(group['group_id'])
+            row = next(r for r in group['risk_coverage'] if r['threshold'] == .9)
+            expect(page.locator('.reliability-risk')).to_contain_text(f"{row['incorrect']} / {row['selected_count']}")
+            expect(page.locator('[data-reliability-bin]')).to_have_count(10)
+            if group['suite_id'] == 'images90' and group['partition']['condition'] == 'blank':
+                expect(page.locator('.reliability-caveats')).to_contain_text('BLANK-DIAGNOSTIK')
+            if group['suite_id'] == 'images90' and group['partition']['kind'] == 'chart':
+                expect(page.locator('.reliability-caveats')).to_contain_text('bar_line/vbar2')
+        page.goto(BASE_URL + '/#reliability?suite=minimal_pairs48&field=action&threshold=.99', wait_until='networkidle')
+        expect(page.locator('[data-reliability-risk]')).to_have_text('nicht definiert')
+        expect(page.locator('.reliability-risk')).to_contain_text('0/0 ist nicht definiert')
+        page.locator('#reliability-suite').select_option('clarification72')
+        page.locator('#reliability-field').select_option('determination')
+        page.locator('#reliability-threshold').select_option('0.9')
+        expect(page.locator('.reliability-risk')).to_contain_text('0 / 49')
+        expect(page.locator('.reliability-caveats')).to_contain_text('keine')
+        for width in (320, 390):
+            page.set_viewport_size({'width': width, 'height': 844})
+            page.locator('#reliability-suite').select_option('minimal_pairs48')
+            page.locator('#reliability-field').select_option('determination')
+            expect(page.locator('.reliability-risk')).to_contain_text('4 / 36')
+            self.overflow(f'reliability {width}')
+            self.capture(f'reliability-{width}.png', f'Separate field risk, coverage and bin evidence at {width} CSS pixels', full_page=True)
+            page.locator('#reliability-metrics > summary').click()
+            page.locator('#reliability-method > summary').click()
+            self.overflow(f'reliability expanded definitions {width}')
+            page.locator('#reliability-metrics > summary').click()
+            page.locator('#reliability-method > summary').click()
+        page.set_viewport_size({'width': 1440, 'height': 1000})
+        self.check('Reliability: all 78 separate field groups, exact fixed-threshold risk/coverage, dependent error evidence, image/blank caveats, undefined empty risk, dark theme and 320/390px')
+
     def readiness(self):
         page, expect = self.page, self.expect
         self.nav('playground')
@@ -571,6 +679,8 @@ def capture_run(output, start_server):
                 checks.all_suites_and_navigation()
                 checks.replay('clarification', 'clarify_order_cancellation_02', 2)
                 checks.clarification()
+                checks.minimal_pairs()
+                checks.reliability()
                 checks.readiness()
                 checks.custom_import_edit_export()
                 checks.phones()

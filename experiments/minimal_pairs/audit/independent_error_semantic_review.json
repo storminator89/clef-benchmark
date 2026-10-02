@@ -1,0 +1,152 @@
+{
+  "scope": "All 9 erroneous native cases and all 7 erroneous pairs after passing score/integrity verification",
+  "reviewer": "Independent post-run AI audit, not human expert validation",
+  "no_dataset_or_gold_changes": true,
+  "error_cases": [
+    {
+      "id": "pair_tow_distance_records_b",
+      "gold": {
+        "action": "answer",
+        "determination": "no"
+      },
+      "prediction": {
+        "action": "ask_target",
+        "determination": "unresolved"
+      },
+      "valid_native": true,
+      "frozen_gold_still_supported": true,
+      "diagnostic_category": "Unnecessary clarification after agreement",
+      "reason": "Both equal-status records give the same distance, 25 km. With a maximum of 20 km, the conjunction is definitively false. No target ambiguity or unresolved distance conflict remains.",
+      "evidence": "results/errors.jsonl and data/pairs.jsonl"
+    },
+    {
+      "id": "pair_report_delivery_target_b",
+      "gold": {
+        "action": "ask_target",
+        "determination": "unresolved"
+      },
+      "prediction": {
+        "action": "answer",
+        "determination": "yes"
+      },
+      "valid_native": true,
+      "frozen_gold_still_supported": true,
+      "diagnostic_category": "Ambiguous target ignored",
+      "reason": "The title-only edit does not choose between eligible report A and ineligible report B. The same unsupported answer/yes is repeated.",
+      "evidence": "results/errors.jsonl and data/pairs.jsonl"
+    },
+    {
+      "id": "pair_rental_days_conflict_b",
+      "gold": {
+        "action": "resolve_conflict",
+        "determination": "unresolved"
+      },
+      "prediction": {
+        "action": "ask_target",
+        "determination": "unresolved"
+      },
+      "valid_native": true,
+      "frozen_gold_still_supported": true,
+      "diagnostic_category": "Same-target conflict misclassified",
+      "reason": "Changing the car color leaves the same 3-versus-8-day conflict. The unresolved determination is correct, but ask_target is the wrong clarification action.",
+      "evidence": "results/errors.jsonl and data/pairs.jsonl"
+    },
+    {
+      "id": "pair_statement_notification_a",
+      "gold": {
+        "action": "ask_fact",
+        "determination": "unresolved"
+      },
+      "prediction": {
+        "action": "answer",
+        "determination": "no"
+      },
+      "valid_native": true,
+      "frozen_gold_still_supported": true,
+      "diagnostic_category": "Unknown treated as negative",
+      "reason": "Consent is not stated. The confirmed email condition holds, while either consent value remains possible. The closed rule therefore requires ask_fact/unresolved; no is not established.",
+      "evidence": "results/errors.jsonl and data/pairs.jsonl"
+    },
+    {
+      "id": "pair_report_delivery_target_a",
+      "gold": {
+        "action": "ask_target",
+        "determination": "unresolved"
+      },
+      "prediction": {
+        "action": "answer",
+        "determination": "yes"
+      },
+      "valid_native": true,
+      "frozen_gold_still_supported": true,
+      "diagnostic_category": "Ambiguous target ignored",
+      "reason": "Report A satisfies the rule and report B does not; the request explicitly leaves its target unspecified. Selecting yes resolves the target without evidence.",
+      "evidence": "results/errors.jsonl and data/pairs.jsonl"
+    },
+    {
+      "id": "pair_rental_days_conflict_a",
+      "gold": {
+        "action": "resolve_conflict",
+        "determination": "unresolved"
+      },
+      "prediction": {
+        "action": "ask_target",
+        "determination": "unresolved"
+      },
+      "valid_native": true,
+      "frozen_gold_still_supported": true,
+      "diagnostic_category": "Same-target conflict misclassified",
+      "reason": "The records describe the same rental but give 3 versus 8 days, across an inclusive 5-day boundary. The missing resolution concerns conflicting facts about one target, so resolve_conflict is required rather than ask_target.",
+      "evidence": "results/errors.jsonl and data/pairs.jsonl"
+    },
+    {
+      "id": "pair_limit_order_price_step_a",
+      "gold": {
+        "action": "answer",
+        "determination": "no"
+      },
+      "prediction": {
+        "action": "ask_fact",
+        "determination": "unresolved"
+      },
+      "valid_native": true,
+      "frozen_gold_still_supported": true,
+      "diagnostic_category": "Short-circuit control failure",
+      "reason": "EUR 12.34 is not a multiple of EUR 0.10. This false necessary conjunct already establishes no, even while the trading-window status is unknown. Asking for that status cannot change the result.",
+      "evidence": "results/errors.jsonl and data/pairs.jsonl"
+    },
+    {
+      "id": "pair_gadget_theft_notice_a",
+      "gold": {
+        "action": "answer",
+        "determination": "yes"
+      },
+      "prediction": {
+        "action": "answer",
+        "determination": "unresolved"
+      },
+      "valid_native": true,
+      "frozen_gold_still_supported": true,
+      "diagnostic_category": "Inclusive boundary treated as unresolved",
+      "reason": "The receipt is present and the fully calculated elapsed time is exactly 48 hours. The stated latest-48-hours condition is inclusive, so yes is established. The action answer is correct but the determination unresolved is not.",
+      "evidence": "results/errors.jsonl and data/pairs.jsonl"
+    },
+    {
+      "id": "pair_redemption_window_conflict_a",
+      "gold": {
+        "action": "answer",
+        "determination": "no"
+      },
+      "prediction": {
+        "action": "resolve_conflict",
+        "determination": "no"
+      },
+      "valid_native": true,
+      "frozen_gold_still_supported": true,
+      "diagnostic_category": "Agreement misclassified as conflict",
+      "reason": "Both reports say the same window is closed. This is agreement on a false necessary condition. Determination no is correct, while resolve_conflict invents an unresolved conflict.",
+      "evidence": "results/errors.jsonl and data/pairs.jsonl"
+    }
+  ],
+  "interpretation_limits": "These are descriptive patterns in a purposive dependent finite set; they do not establish population rates, calibrated probability reliability, generated-language quality, or general causal effects."
+}

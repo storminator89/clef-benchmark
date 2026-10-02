@@ -1,0 +1,21 @@
+{
+  "action": {
+    "type": "choice",
+    "instructions": "Beurteile ausschließlich die angefragte Ja/Nein-Eigenschaft nach der mitgelieferten fiktiven Regel. Keine echte Beratung oder Handlung. Erfinde keine fehlenden Fakten. Antworte, wenn die vorhandenen Angaben das Ergebnis bereits eindeutig festlegen; eine irrelevante Lücke oder eine bereits sicher verletzte notwendige Bedingung rechtfertigt keine Rückfrage. Rückfrage nur, wenn die Unklarheit das Ergebnis ändern kann: fehlende wesentliche Sachangabe, unbestimmter Zielvorgang mit unterschiedlichen Ergebnissen oder ungeklärte widersprüchliche Angaben zum selben Ziel. Gleichrangige widersprüchliche Quellen ohne ausdrückliche Korrektur haben keinen Vorrang nach Reihenfolge. Bei materieller Unklarheit ist die Feststellung unresolved. Eine als nicht vorhanden bestätigte Voraussetzung ist kein unbekannter Fakt. Frage keine Zugangsdaten, PIN, TAN oder vollständigen Konto-/Kartennummern ab. Welcher nächste Schritt ist angemessen?",
+    "criteria": {
+      "answer": "Die angefragte Eigenschaft ist eindeutig entscheidbar; Ja oder Nein angeben.",
+      "ask_fact": "Eine entscheidungswesentliche Sachangabe fehlt; gezielt danach fragen.",
+      "ask_target": "Mehrere mögliche Zielvorgänge haben unterschiedliche Ergebnisse; den gemeinten Zielvorgang erfragen.",
+      "resolve_conflict": "Widersprüchliche gleichrangige Angaben zum selben Ziel ändern das Ergebnis; Widerspruch klären."
+    }
+  },
+  "determination": {
+    "type": "choice",
+    "instructions": "Welche Feststellung ist nach derselben Regel und diesen Angaben möglich? Nur die angefragte Eigenschaft beurteilen, keine Leistung ausführen. Bei entscheidungswesentlicher fehlender Angabe, unklarem Ziel oder ungelöstem Widerspruch unresolved; sonst yes oder no.",
+    "criteria": {
+      "yes": "Die angefragte Eigenschaft ist sicher erfüllt.",
+      "no": "Die angefragte Eigenschaft ist sicher nicht erfüllt.",
+      "unresolved": "Die angefragte Eigenschaft ist mit den vorliegenden Angaben nicht eindeutig bestimmbar."
+    }
+  }
+}

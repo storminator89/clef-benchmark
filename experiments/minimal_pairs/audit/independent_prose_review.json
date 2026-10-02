@@ -1,0 +1,15 @@
+{
+  "schema_version": 2,
+  "passed": true,
+  "reviewer_type": "Independent AI audit; not human-expert validation",
+  "report_sha256": "5667227b89ea2c6cce95f3ce72b648d6375c44aa864120b6d6eaa55a079ca096",
+  "errors_md_sha256": "ef730d310a37a4ad7e7e00f348eaccca9e70f184c21615cbb902e8775e52aaf2",
+  "runtime_observations_sha256": "d67b6c8f0e5aedee242b91f8a44896f12c0be79f00660e64bfc37ff439bf0532",
+  "no_unresolved_gold_or_scoring_issue": true,
+  "reviewed_case_count": 48,
+  "reviewed_pair_count": 24,
+  "reviewed_error_case_count": 9,
+  "reviewed_error_pair_count": 7,
+  "scientific_conclusion": "The final report and complete error document agree with independently audited evidence. All nine erroneous gold labels remain supported. The observed-change 12/12 result and sixth inclusive-boundary failure pattern are correctly included. Optional-kernel and fast-path fallback wording is supported by the original execution log. No remaining prose, gold, scoring or privacy issue was identified.",
+  "public_curation": "Scientific conclusions and error evidence retained. Methodological correction history is summarized without duplicate developer diagnostics or private omission lineage."
+}

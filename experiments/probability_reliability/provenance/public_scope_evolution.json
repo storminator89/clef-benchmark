@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "change_type": "Public verification scope minimization",
+  "scientific_inputs_outputs_changed": false,
+  "locked_scientific_file_count": 73,
+  "retained_scope": "Canonical frozen source/protocol/model pins, native results, complete error evidence, independent scoring code, structured final verification and scientific limitations.",
+  "documentation_change": "Concise methodological correction and public-scope explanations replace redundant development material.",
+  "excluded_scope": "Redundant developer comparisons, duplicate runtime/reference inventories and operational bookkeeping.",
+  "provenance_policy": "Scope-only public provenance; no private predecessor identifiers or omission hashes."
+}

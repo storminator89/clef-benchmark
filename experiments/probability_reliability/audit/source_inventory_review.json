@@ -1,0 +1,1131 @@
+{
+  "review_version": "source-inventory-read-only-v1",
+  "reviewed_at_utc": "2026-10-02T15:36:05.387347+00:00",
+  "scope": "Read-only inventory and structural/provenance validation of older text and image probability sources, before new scoring. No model inference, Brier/ECE/NLL calculation, performance-based inclusion, source edits, or publication.",
+  "path_convention": "All listed paths are relative to this analysis package and identify its retained public scientific sources. Listed SHA-256 values identify retained public scientific files only. No private predecessor paths, host identifiers, process identifiers, or private execution-hash lineage is reproduced.",
+  "probability_contract": {
+    "canonical": "probabilities_unrounded[field][option_id]",
+    "native_origin": "Both retained runners compute per-field native joint-head logits.float().softmax(-1).tolist(); these are finite-precision softmax probabilities before the 4-decimal presentation rounding, not verbal confidence estimates.",
+    "rounded_fields": "answers[field].confidence and answers[field].probabilities are 4-decimal presentation derivatives; do not use them for new probability metrics.",
+    "schema": "request.questions[field].type must be choice; criteria keys define the per-request class universe. Match field and option by exact string ID, not object order. Gold labels must belong to that universe.",
+    "normalization": "Preserve retained values; structural checks use absolute sum tolerance 1e-5 and do not renormalize.",
+    "scientific_limit": "Unrounded means before display rounding, not infinite precision or inherently calibrated correctness probability."
+  },
+  "suites": [
+    {
+      "suite": "original_text180",
+      "eligibility": "eligible_for_separate_descriptive_rescoring_with_caveats",
+      "request_count": 180,
+      "case_record_count": 180,
+      "field_observation_count": 180,
+      "fields": {
+        "decision": 180
+      },
+      "partitions": {
+        "german_primary": 120,
+        "mixed_schema_diagnostic": 30,
+        "english_control": 30
+      },
+      "locations": {
+        "requests": "sources/original_text180/requests.jsonl",
+        "predictions": "sources/original_text180/predictions.jsonl",
+        "gold": "sources/original_text180/gold.jsonl",
+        "cases": [
+          "sources/original_text180/cases.jsonl",
+          "sources/original_text180/diagnostic_cases.jsonl"
+        ],
+        "metadata": "sources/original_text180/runtime_metadata.json"
+      },
+      "gold_selector": "gold.jsonl row.expected[field]",
+      "schema_variants": [
+        {
+          "category": "admin_intent",
+          "field": "decision",
+          "option_ids": [
+            "copy",
+            "correction",
+            "deadline",
+            "other",
+            "refund"
+          ],
+          "option_count": 5,
+          "observations": 30
+        },
+        {
+          "category": "ambiguity_abstain",
+          "field": "decision",
+          "option_ids": [
+            "conflict",
+            "missing",
+            "ready",
+            "unsupported"
+          ],
+          "option_count": 4,
+          "observations": 30
+        },
+        {
+          "category": "document_classification",
+          "field": "decision",
+          "option_ids": [
+            "credit_note",
+            "invoice",
+            "offer",
+            "other",
+            "reminder"
+          ],
+          "option_count": 5,
+          "observations": 30
+        },
+        {
+          "category": "it_routing",
+          "field": "decision",
+          "option_ids": [
+            "clarify",
+            "collaboration",
+            "endpoint",
+            "identity",
+            "messaging"
+          ],
+          "option_count": 5,
+          "observations": 30
+        },
+        {
+          "category": "tool_selection",
+          "field": "decision",
+          "option_ids": [
+            "calculator",
+            "calendar_lookup",
+            "mail_search",
+            "no_tool",
+            "web_search"
+          ],
+          "option_count": 5,
+          "observations": 30
+        },
+        {
+          "category": "urgency",
+          "field": "decision",
+          "option_ids": [
+            "critical",
+            "high",
+            "none",
+            "normal"
+          ],
+          "option_count": 4,
+          "observations": 30
+        }
+      ],
+      "checks": {
+        "unique_request_ids": true,
+        "unique_prediction_ids": true,
+        "unique_gold_ids": true,
+        "unique_case_ids": true,
+        "request_prediction_gold_id_sets_equal": true,
+        "metadata_request_count_matches": true,
+        "metadata_request_order_matches": true,
+        "prediction_order_matches_requests": true,
+        "metadata_request_sha256_matches": true,
+        "metadata_completed": true,
+        "all_untruncated": true,
+        "all_case_gold_schema_probability_and_native_answer_checks_pass": true,
+        "freeze_precedes_inference_start": true,
+        "all_listed_scientific_files_match_copied_source_inventory": true
+      },
+      "issues": [],
+      "max_absolute_probability_sum_residual": 1.3783574104309082e-07,
+      "freeze_validation": {
+        "status": "frozen_before_first_benchmark_inference",
+        "frozen_at_utc": "2026-10-02T04:33:38Z",
+        "inference_started_at_utc": "2026-10-02T04:34:18.446351+00:00",
+        "matching_retained_file_count": 11,
+        "missing_raw_pixel_file_count": 0,
+        "unexplained_missing_file_count": 0,
+        "unexplained_hash_mismatch_count": 0,
+        "note": "All current public freeze entries match retained bytes.",
+        "documented_portable_code_change_count": 0
+      },
+      "scientific_files": [
+        {
+          "path": "sources/original_text180/cases.jsonl",
+          "bytes": 282638,
+          "sha256": "6907780080b820d7d8a1b48d70b76ff1975d542acb2c7f71b61753727de52b63",
+          "matches_copied_source_inventory": true
+        },
+        {
+          "path": "sources/original_text180/diagnostic_cases.jsonl",
+          "bytes": 53813,
+          "sha256": "18e7b4d6818849976c136b2a54dbd8e4bb226961f998b283ed46130a19faa2ad",
+          "matches_copied_source_inventory": true
+        },
+        {
+          "path": "sources/original_text180/requests.jsonl",
+          "bytes": 297314,
+          "sha256": "1d02198e4940cfd8b4b4b1cb0eb55077e48b0f95129217bd787a972d38b44b84",
+          "matches_copied_source_inventory": true
+        },
+        {
+          "path": "sources/original_text180/gold.jsonl",
+          "bytes": 50927,
+          "sha256": "5199127584106e9f585695a05aa162e29a40afa546c5438d992c481cf92d0d95",
+          "matches_copied_source_inventory": true
+        },
+        {
+          "path": "sources/original_text180/predictions.jsonl",
+          "bytes": 116456,
+          "sha256": "2ba1c7df48957da6bf863c32f5adc8e490aab74e9020517d45a01ac2b49a0229",
+          "matches_copied_source_inventory": true
+        },
+        {
+          "path": "sources/original_text180/runtime_metadata.json",
+          "bytes": 8123,
+          "sha256": "ec163e581690e0c415c707ad42e364d2b1479b980624568e85c0aae0a8187e10",
+          "matches_copied_source_inventory": true
+        },
+        {
+          "path": "sources/original_text180/policies.json",
+          "bytes": 18782,
+          "sha256": "44dbfe0a6072eaa3bc05231a2a7e0ccd042746ba68dc7a7e459b5633e9de4728",
+          "matches_copied_source_inventory": true
+        },
+        {
+          "path": "sources/original_text180/pairs.jsonl",
+          "bytes": 5495,
+          "sha256": "613718e2f989ecccf81b391475db6bee0608ce75186391457d7bd4f9442f6250",
+          "matches_copied_source_inventory": true
+        }
+      ],
+      "caveats": [
+        "Case records are split across cases.jsonl (150) and diagnostic_cases.jsonl (30); requests and gold contain all 180. Join on id, never row position.",
+        "120 German primary cases, 30 English controls, and 30 German-input/English-schema diagnostic requests. The 180 outputs are not 180 independent scenarios; preserve paired controls and the 120 source-scenario structure.",
+        "Synthetic, AI-reviewed labels; no human-expert adjudication. Six category-specific option vocabularies; decision does not denote one common classification target.",
+        "Original scoring has frozen and robust versions. Rescore retained native vectors against frozen gold; do not source probabilities from score or UI derivatives."
+      ]
+    },
+    {
+      "suite": "finance100",
+      "eligibility": "eligible_for_separate_descriptive_rescoring_with_caveats",
+      "request_count": 100,
+      "case_record_count": 100,
+      "field_observation_count": 100,
+      "fields": {
+        "decision": 100
+      },
+      "partitions": {
+        "german_primary": 80,
+        "english_control": 20
+      },
+      "locations": {
+        "requests": "sources/finance100/requests.jsonl",
+        "predictions": "sources/finance100/predictions.jsonl",
+        "gold": "sources/finance100/gold.jsonl",
+        "cases": [
+          "sources/finance100/cases.jsonl"
+        ],
+        "metadata": "sources/finance100/runtime_metadata.json"
+      },
+      "gold_selector": "gold.jsonl row.expected[field]",
+      "schema_variants": [
+        {
+          "category": "advice_escalation",
+          "field": "decision",
+          "option_ids": [
+            "clarify",
+            "out_of_scope",
+            "prohibited_request",
+            "qualified_review",
+            "routine"
+          ],
+          "option_count": 5,
+          "observations": 12
+        },
+        {
+          "category": "broker_document",
+          "field": "decision",
+          "option_ids": [
+            "advisory_record",
+            "application",
+            "authority",
+            "other",
+            "policy"
+          ],
+          "option_count": 5,
+          "observations": 12
+        },
+        {
+          "category": "broker_workflow",
+          "field": "decision",
+          "option_ids": [
+            "conflict",
+            "missing_authority",
+            "missing_consent",
+            "missing_documents",
+            "ready"
+          ],
+          "option_count": 5,
+          "observations": 13
+        },
+        {
+          "category": "claims_route",
+          "field": "decision",
+          "option_ids": [
+            "benefit_question",
+            "claim_status",
+            "clarify",
+            "evidence",
+            "new_claim"
+          ],
+          "option_count": 5,
+          "observations": 13
+        },
+        {
+          "category": "contract_service",
+          "field": "decision",
+          "option_ids": [
+            "cancellation",
+            "clarify",
+            "copy",
+            "data_change",
+            "withdrawal"
+          ],
+          "option_count": 5,
+          "observations": 13
+        },
+        {
+          "category": "finance_intent",
+          "field": "decision",
+          "option_ids": [
+            "clarify",
+            "general_info",
+            "portfolio_view",
+            "recommendation",
+            "savings_change"
+          ],
+          "option_count": 5,
+          "observations": 12
+        },
+        {
+          "category": "insurance_intent",
+          "field": "decision",
+          "option_ids": [
+            "clarify",
+            "contribution",
+            "coverage_info",
+            "quote",
+            "termination"
+          ],
+          "option_count": 5,
+          "observations": 13
+        },
+        {
+          "category": "synthetic_rule_check",
+          "field": "decision",
+          "option_ids": [
+            "conflict",
+            "fails",
+            "missing",
+            "out_of_scope",
+            "passes"
+          ],
+          "option_count": 5,
+          "observations": 12
+        }
+      ],
+      "checks": {
+        "unique_request_ids": true,
+        "unique_prediction_ids": true,
+        "unique_gold_ids": true,
+        "unique_case_ids": true,
+        "request_prediction_gold_id_sets_equal": true,
+        "metadata_request_count_matches": true,
+        "metadata_request_order_matches": true,
+        "prediction_order_matches_requests": true,
+        "metadata_request_sha256_matches": true,
+        "metadata_completed": true,
+        "all_untruncated": true,
+        "all_case_gold_schema_probability_and_native_answer_checks_pass": true,
+        "freeze_precedes_inference_start": true,
+        "all_listed_scientific_files_match_copied_source_inventory": true
+      },
+      "issues": [],
+      "max_absolute_probability_sum_residual": 1.601874828338623e-07,
+      "freeze_validation": {
+        "status": "frozen_before_first_finance_extension_inference",
+        "frozen_at_utc": "2026-10-02T05:18:46Z",
+        "inference_started_at_utc": "2026-10-02T05:19:43.606050+00:00",
+        "matching_retained_file_count": 13,
+        "missing_raw_pixel_file_count": 0,
+        "unexplained_missing_file_count": 0,
+        "unexplained_hash_mismatch_count": 0,
+        "note": "All current public freeze entries match retained bytes.",
+        "documented_portable_code_change_count": 0
+      },
+      "scientific_files": [
+        {
+          "path": "sources/finance100/cases.jsonl",
+          "bytes": 205732,
+          "sha256": "5ff3c198cc30f3b19d83ca65545bcf71f4cad48f84f098c2c96b0cf5c5c06497",
+          "matches_copied_source_inventory": true
+        },
+        {
+          "path": "sources/finance100/requests.jsonl",
+          "bytes": 180581,
+          "sha256": "543b90344f7c67e6b94d35bca548d4c0235d2879daee9ff46205f585fe45fedb",
+          "matches_copied_source_inventory": true
+        },
+        {
+          "path": "sources/finance100/gold.jsonl",
+          "bytes": 32510,
+          "sha256": "240340f7df83b54bd9d41e8efec344dbde4c243fa4d9d1723f1fa272bffcf89d",
+          "matches_copied_source_inventory": true
+        },
+        {
+          "path": "sources/finance100/predictions.jsonl",
+          "bytes": 70077,
+          "sha256": "0dba4e020d22ed770279a406f67e19e465eb12affc8f838fde165e1cc458d627",
+          "matches_copied_source_inventory": true
+        },
+        {
+          "path": "sources/finance100/runtime_metadata.json",
+          "bytes": 6511,
+          "sha256": "5582e6a30865bf15fad52a3315fb531a29f39937ea72fa5765aba934ea2a3d11",
+          "matches_copied_source_inventory": true
+        },
+        {
+          "path": "sources/finance100/policies.json",
+          "bytes": 26596,
+          "sha256": "7effaeec2ab4c0aaf6dd544b89c2b4316ba9484fff51a043d79b95195c2befbc",
+          "matches_copied_source_inventory": true
+        },
+        {
+          "path": "sources/finance100/pairs.jsonl",
+          "bytes": 3376,
+          "sha256": "548f85152b0f3314883b08f9af53d8adee67c89fee0e41954e98ad652e48ecb4",
+          "matches_copied_source_inventory": true
+        }
+      ],
+      "caveats": [
+        "80 German primary cases and 20 deliberately selected English controls; preserve the paired 80-scenario structure and category-specific 5-option vocabularies.",
+        "Frozen before this extension inference; review was aware of prior general benchmark results but did not consult finance outputs. Synthetic rules and AI review, not legal/financial validation.",
+        "Keep separate from the original benchmark and later suites; no cross-suite pooled quality claim."
+      ]
+    },
+    {
+      "suite": "insurance60",
+      "eligibility": "eligible_for_separate_descriptive_rescoring_with_caveats",
+      "request_count": 60,
+      "case_record_count": 60,
+      "field_observation_count": 120,
+      "fields": {
+        "decision": 60,
+        "evidence": 60
+      },
+      "partitions": {
+        "insurance": 60
+      },
+      "locations": {
+        "requests": "sources/insurance60/requests.jsonl",
+        "predictions": "sources/insurance60/predictions.jsonl",
+        "gold": "sources/insurance60/benchmark.json",
+        "cases": [
+          "sources/insurance60/benchmark.json"
+        ],
+        "metadata": "sources/insurance60/runtime_metadata.json"
+      },
+      "gold_selector": "cases[*].expected[decision|evidence]",
+      "schema_variants": [
+        {
+          "category": "insurance",
+          "field": "decision",
+          "option_ids": [
+            "ja",
+            "konflikt",
+            "nein",
+            "offen"
+          ],
+          "option_count": 4,
+          "observations": 60
+        },
+        {
+          "category": "insurance",
+          "field": "evidence",
+          "option_ids": [
+            "b1",
+            "b2",
+            "b3",
+            "b4",
+            "b5"
+          ],
+          "option_count": 5,
+          "observations": 60
+        }
+      ],
+      "checks": {
+        "unique_request_ids": true,
+        "unique_prediction_ids": true,
+        "unique_gold_ids": true,
+        "unique_case_ids": true,
+        "request_prediction_gold_id_sets_equal": true,
+        "metadata_request_count_matches": true,
+        "metadata_request_order_matches": true,
+        "prediction_order_matches_requests": true,
+        "metadata_request_sha256_matches": true,
+        "metadata_completed": true,
+        "all_untruncated": true,
+        "all_case_gold_schema_probability_and_native_answer_checks_pass": true,
+        "freeze_precedes_inference_start": true,
+        "all_listed_scientific_files_match_copied_source_inventory": true,
+        "public_and_benchmark_inputs_identical": true,
+        "public_and_results_predictions_identical": true
+      },
+      "issues": [],
+      "max_absolute_probability_sum_residual": 1.341104507446289e-07,
+      "freeze_validation": {
+        "status": "frozen_before_inference",
+        "frozen_at_utc": "2026-10-02T09:25:20.120848+00:00",
+        "inference_started_at_utc": "2026-10-02T09:25:22.955750+00:00",
+        "matching_retained_file_count": 20,
+        "missing_raw_pixel_file_count": 0,
+        "unexplained_missing_file_count": 0,
+        "unexplained_hash_mismatch_count": 0,
+        "note": "All current public freeze entries match retained bytes.",
+        "documented_portable_code_change_count": 0
+      },
+      "scientific_files": [
+        {
+          "path": "sources/insurance60/benchmark.json",
+          "bytes": 107196,
+          "sha256": "8a0b1a6c4227b90b20c92de012c5d02a037e4ae4a79dac614b150345ed45c1bc",
+          "matches_copied_source_inventory": true
+        },
+        {
+          "path": "sources/insurance60/requests.jsonl",
+          "bytes": 184216,
+          "sha256": "03066c91f05878efcb7f3c358e91e0cfa9087091b205728c2788e61b0b8e1eba",
+          "matches_copied_source_inventory": true
+        },
+        {
+          "path": "sources/insurance60/predictions.jsonl",
+          "bytes": 52524,
+          "sha256": "45f226339495118db39f7be48ba903158ee1d04f2698c5a1e2d6245f0f554930",
+          "matches_copied_source_inventory": true
+        },
+        {
+          "path": "sources/insurance60/runtime_metadata.json",
+          "bytes": 3587,
+          "sha256": "a9419b00ad71d7e0744bd3b5a435fd7c33c142bd6b6296aa947e59f47a2d738d",
+          "matches_copied_source_inventory": true
+        }
+      ],
+      "caveats": [
+        "Gold is cases[*].expected in benchmark/benchmark.json. Only decision and evidence are model fields; evidence_clauses is supporting annotation, not a third predicted field.",
+        "All cases share decision options ja, nein, offen, konflikt, in varying request order. Evidence b1–b5 means a different offered clause set for each case; use each request and its case.evidence_options.",
+        "60 cases are clustered into 12 synthetic document packages with 5 cases each; 120 field observations are neither independent cases nor free evidence generation.",
+        "The earlier public export also contains byte-identical aliases of benchmark inputs and predictions. The analysis retains one canonical copy only."
+      ]
+    },
+    {
+      "suite": "clean72",
+      "eligibility": "eligible_for_separate_descriptive_rescoring_with_caveats",
+      "request_count": 72,
+      "case_record_count": 72,
+      "field_observation_count": 72,
+      "fields": {
+        "decision": 72
+      },
+      "partitions": {
+        "german_clean_primary": 72
+      },
+      "locations": {
+        "requests": "sources/clean72/requests.jsonl",
+        "predictions": "sources/clean72/predictions.jsonl",
+        "gold": "sources/clean72/gold.jsonl",
+        "cases": [
+          "sources/clean72/cases.jsonl"
+        ],
+        "metadata": "sources/clean72/runtime_metadata.json"
+      },
+      "gold_selector": "gold.jsonl row.expected[field]",
+      "schema_variants": [
+        {
+          "category": "anliegen_priorisierung",
+          "field": "decision",
+          "option_ids": [
+            "beitragsklaerung",
+            "bestandsaenderung",
+            "dokumentenservice",
+            "rueckfrage",
+            "schadenservice"
+          ],
+          "option_count": 5,
+          "observations": 12
+        },
+        {
+          "category": "beitragsrechnung",
+          "field": "decision",
+          "option_ids": [
+            "betrag_a",
+            "betrag_b",
+            "betrag_c",
+            "betrag_d",
+            "daten_fehlen"
+          ],
+          "option_count": 5,
+          "observations": 12
+        },
+        {
+          "category": "finanzservice_routing",
+          "field": "decision",
+          "option_ids": [
+            "aenderung_vorbereiten",
+            "dokumentation",
+            "fachgespraech",
+            "rechenuebersicht",
+            "rueckfrage"
+          ],
+          "option_count": 5,
+          "observations": 12
+        },
+        {
+          "category": "rueckfrageplanung",
+          "field": "decision",
+          "option_ids": [
+            "keine_rueckfrage",
+            "umfang",
+            "unterlage",
+            "zeitpunkt",
+            "zuordnung"
+          ],
+          "option_count": 5,
+          "observations": 12
+        },
+        {
+          "category": "unterlagenabgleich",
+          "field": "decision",
+          "option_ids": [
+            "abweichung",
+            "konsistent",
+            "unterlage_fehlt",
+            "version_klaeren"
+          ],
+          "option_count": 4,
+          "observations": 12
+        },
+        {
+          "category": "vorgangsstand",
+          "field": "decision",
+          "option_ids": [
+            "einreichung_vorbereiten",
+            "status_anfragen",
+            "unterlagen_nachfordern",
+            "warten",
+            "zuordnung_klaeren"
+          ],
+          "option_count": 5,
+          "observations": 12
+        }
+      ],
+      "checks": {
+        "unique_request_ids": true,
+        "unique_prediction_ids": true,
+        "unique_gold_ids": true,
+        "unique_case_ids": true,
+        "request_prediction_gold_id_sets_equal": true,
+        "metadata_request_count_matches": true,
+        "metadata_request_order_matches": true,
+        "prediction_order_matches_requests": true,
+        "metadata_request_sha256_matches": true,
+        "metadata_completed": true,
+        "all_untruncated": true,
+        "all_case_gold_schema_probability_and_native_answer_checks_pass": true,
+        "freeze_precedes_inference_start": true,
+        "all_listed_scientific_files_match_copied_source_inventory": true
+      },
+      "issues": [],
+      "max_absolute_probability_sum_residual": 1.7136335372924805e-07,
+      "freeze_validation": {
+        "status": "frozen_before_first_clean_benchmark_inference",
+        "frozen_at_utc": "2026-10-02T07:39:52.644456Z",
+        "inference_started_at_utc": "2026-10-02T08:18:04.037039+00:00",
+        "matching_retained_file_count": 16,
+        "missing_raw_pixel_file_count": 0,
+        "unexplained_missing_file_count": 0,
+        "unexplained_hash_mismatch_count": 0,
+        "note": "All current public freeze entries match retained bytes.",
+        "documented_portable_code_change_count": 0
+      },
+      "scientific_files": [
+        {
+          "path": "sources/clean72/cases.jsonl",
+          "bytes": 199057,
+          "sha256": "47e8239762c69d602adfecd306a00503a9f06bacab5ee451f0d420bc18c2a231",
+          "matches_copied_source_inventory": true
+        },
+        {
+          "path": "sources/clean72/requests.jsonl",
+          "bytes": 173622,
+          "sha256": "3e94e7c8dcda74f58a5402cfe361591da6ee10f818175ec791a3d79856195d84",
+          "matches_copied_source_inventory": true
+        },
+        {
+          "path": "sources/clean72/gold.jsonl",
+          "bytes": 30751,
+          "sha256": "c7e4389e90c50eb688e7b7c9a1fee48a11e041d68a043be794e54bfdaef51369",
+          "matches_copied_source_inventory": true
+        },
+        {
+          "path": "sources/clean72/predictions.jsonl",
+          "bytes": 51705,
+          "sha256": "240063f1480ff1a2f69e72f03c9d7a2b04fb337c924ebb6b2941610b4402dc1a",
+          "matches_copied_source_inventory": true
+        },
+        {
+          "path": "sources/clean72/runtime_metadata.json",
+          "bytes": 5448,
+          "sha256": "35e4e505e10bcb8922eee6cfcb2f70894a0f08b748a66fb03912a836cbe76ac1",
+          "matches_copied_source_inventory": true
+        },
+        {
+          "path": "sources/clean72/policies.json",
+          "bytes": 8120,
+          "sha256": "36e7f1aa2f23928ebbfc39d51267143c858c6f04536f27e6113efbd9e49ef41e",
+          "matches_copied_source_inventory": true
+        }
+      ],
+      "caveats": [
+        "72 new German synthetic cases, six categories of 12, one decision field each; no English or image controls.",
+        "50 information-sufficient and 22 missing-or-unresolved cases are source design labels, not outcome-selected cohorts.",
+        "Public freeze verifies public copies. Earlier-to-public code/document portability changes are documented; scientific cases, requests, order, and gold remain unchanged. No private predecessor hash lineage is reproduced here.",
+        "Independent AI review before this suite inference; not human adjudication or representative production validation."
+      ]
+    },
+    {
+      "suite": "attack_ablation14",
+      "eligibility": "eligible_for_separate_descriptive_rescoring_with_caveats",
+      "request_count": 14,
+      "case_record_count": 14,
+      "field_observation_count": 14,
+      "fields": {
+        "decision": 14
+      },
+      "partitions": {
+        "insurance": 14
+      },
+      "locations": {
+        "requests": "sources/attack_ablation14/requests.jsonl",
+        "predictions": "sources/attack_ablation14/predictions.jsonl",
+        "gold": "sources/attack_ablation14/gold.jsonl",
+        "cases": [
+          "sources/attack_ablation14/cases.jsonl"
+        ],
+        "metadata": "sources/attack_ablation14/runtime_metadata.json"
+      },
+      "gold_selector": "gold.jsonl row.expected[field]",
+      "schema_variants": [
+        {
+          "category": "advice_escalation",
+          "field": "decision",
+          "option_ids": [
+            "clarify",
+            "out_of_scope",
+            "prohibited_request",
+            "qualified_review",
+            "routine"
+          ],
+          "option_count": 5,
+          "observations": 2
+        },
+        {
+          "category": "broker_document",
+          "field": "decision",
+          "option_ids": [
+            "advisory_record",
+            "application",
+            "authority",
+            "other",
+            "policy"
+          ],
+          "option_count": 5,
+          "observations": 2
+        },
+        {
+          "category": "broker_workflow",
+          "field": "decision",
+          "option_ids": [
+            "conflict",
+            "missing_authority",
+            "missing_consent",
+            "missing_documents",
+            "ready"
+          ],
+          "option_count": 5,
+          "observations": 2
+        },
+        {
+          "category": "claims_route",
+          "field": "decision",
+          "option_ids": [
+            "benefit_question",
+            "claim_status",
+            "clarify",
+            "evidence",
+            "new_claim"
+          ],
+          "option_count": 5,
+          "observations": 2
+        },
+        {
+          "category": "finance_intent",
+          "field": "decision",
+          "option_ids": [
+            "clarify",
+            "general_info",
+            "portfolio_view",
+            "recommendation",
+            "savings_change"
+          ],
+          "option_count": 5,
+          "observations": 2
+        },
+        {
+          "category": "insurance_intent",
+          "field": "decision",
+          "option_ids": [
+            "clarify",
+            "contribution",
+            "coverage_info",
+            "quote",
+            "termination"
+          ],
+          "option_count": 5,
+          "observations": 2
+        },
+        {
+          "category": "synthetic_rule_check",
+          "field": "decision",
+          "option_ids": [
+            "conflict",
+            "fails",
+            "missing",
+            "out_of_scope",
+            "passes"
+          ],
+          "option_count": 5,
+          "observations": 2
+        }
+      ],
+      "checks": {
+        "unique_request_ids": true,
+        "unique_prediction_ids": true,
+        "unique_gold_ids": true,
+        "unique_case_ids": true,
+        "request_prediction_gold_id_sets_equal": true,
+        "metadata_request_count_matches": true,
+        "metadata_request_order_matches": true,
+        "prediction_order_matches_requests": true,
+        "metadata_request_sha256_matches": true,
+        "metadata_completed": true,
+        "all_untruncated": true,
+        "all_case_gold_schema_probability_and_native_answer_checks_pass": true,
+        "freeze_precedes_inference_start": true,
+        "all_listed_scientific_files_match_copied_source_inventory": true
+      },
+      "issues": [],
+      "max_absolute_probability_sum_residual": 6.705522537231445e-08,
+      "freeze_validation": {
+        "status": "frozen_before_first_ablation_inference_after_original_finance_results",
+        "frozen_at_utc": "2026-10-02T07:18:39.487647+00:00",
+        "inference_started_at_utc": "2026-10-02T08:39:17.396340+00:00",
+        "matching_retained_file_count": 13,
+        "missing_raw_pixel_file_count": 0,
+        "unexplained_missing_file_count": 0,
+        "unexplained_hash_mismatch_count": 0,
+        "note": "All current public freeze entries match retained bytes.",
+        "documented_portable_code_change_count": 0
+      },
+      "scientific_files": [
+        {
+          "path": "sources/attack_ablation14/cases.jsonl",
+          "bytes": 31170,
+          "sha256": "18f014c62653768478e236a7c4608613350c89f7527ec7bb5555a2a2667c2930",
+          "matches_copied_source_inventory": true
+        },
+        {
+          "path": "sources/attack_ablation14/requests.jsonl",
+          "bytes": 25962,
+          "sha256": "295710d90546d9a0aa5fa4dd465a62cb7e285deba8fa5ab5b8ec4f3dd45f04d7",
+          "matches_copied_source_inventory": true
+        },
+        {
+          "path": "sources/attack_ablation14/gold.jsonl",
+          "bytes": 4168,
+          "sha256": "4a5528ebb993e3ea935576c14124a5a1795e9da71e3fa54f3dda026f77e3dc8e",
+          "matches_copied_source_inventory": true
+        },
+        {
+          "path": "sources/attack_ablation14/predictions.jsonl",
+          "bytes": 9912,
+          "sha256": "3a386120b9d7c4bcccd934ae962328fd12084f4d128d41de9ae45af8bdf0ba7c",
+          "matches_copied_source_inventory": true
+        },
+        {
+          "path": "sources/attack_ablation14/runtime_metadata.json",
+          "bytes": 3300,
+          "sha256": "d311bbe761095412b947a3c43fc786292fd8ccbbe62e362adc58ddd30c122482",
+          "matches_copied_source_inventory": true
+        },
+        {
+          "path": "sources/attack_ablation14/policies.json",
+          "bytes": 26596,
+          "sha256": "7effaeec2ab4c0aaf6dd544b89c2b4316ba9484fff51a043d79b95195c2befbc",
+          "matches_copied_source_inventory": true
+        },
+        {
+          "path": "sources/attack_ablation14/pairs.jsonl",
+          "bytes": 5457,
+          "sha256": "f7ef32713dcf4f110a600dacb46ab7cfda33e18740649b2448ce6c93df5c7831",
+          "matches_copied_source_inventory": true
+        }
+      ],
+      "caveats": [
+        "Post-hoc diagnostic designed after original finance outputs, frozen before its own inference. Includes all seven German finance cases tagged prompt_injection, not an accuracy-selected subset within that stratum.",
+        "14 requests are seven attack/clean pairs tied by source_id and pairs.jsonl; these source scenarios overlap finance100 and are not a new independent 14-case benchmark.",
+        "Clean condition removes the exact appended injection and wrapper only. It also changes length and lexical content; avoid population-level causal or safety claims.",
+        "Public freeze verifies public copies; earlier-to-public portability changes do not alter cases, requests, gold, numeric annotations or scoring formulas. No private predecessor hash lineage is reproduced here."
+      ]
+    },
+    {
+      "suite": "images90",
+      "eligibility": "eligible_for_separate_descriptive_rescoring_with_caveats",
+      "request_count": 90,
+      "case_record_count": 50,
+      "field_observation_count": 220,
+      "fields": {
+        "chart_type": 50,
+        "legend_count": 50,
+        "document_type": 40,
+        "tax_note": 40,
+        "gross_band": 40
+      },
+      "partitions": {
+        "chart/de/image": 30,
+        "invoice/de/image": 20,
+        "chart/en/image": 10,
+        "invoice/en/image": 10,
+        "chart/de/blank": 10,
+        "invoice/de/blank": 10
+      },
+      "locations": {
+        "requests": "sources/images90/requests.jsonl",
+        "predictions": "sources/images90/predictions.jsonl",
+        "gold": "sources/images90/gold.jsonl",
+        "cases": [
+          "sources/images90/cases.jsonl"
+        ],
+        "metadata": "sources/images90/runtime_metadata.json"
+      },
+      "gold_selector": "gold.jsonl row.expected[field]",
+      "schema_variants": [
+        {
+          "category": "chart",
+          "field": "chart_type",
+          "option_ids": [
+            "bar_line",
+            "bar_pie",
+            "hbar",
+            "hbar2",
+            "line",
+            "pie",
+            "stack_hbar",
+            "stack_vbar",
+            "vbar",
+            "vbar2"
+          ],
+          "option_count": 10,
+          "observations": 50
+        },
+        {
+          "category": "chart",
+          "field": "legend_count",
+          "option_ids": [
+            "0",
+            "1",
+            "10",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9"
+          ],
+          "option_count": 11,
+          "observations": 50
+        },
+        {
+          "category": "invoice",
+          "field": "document_type",
+          "option_ids": [
+            "gutschrift",
+            "rechnung"
+          ],
+          "option_count": 2,
+          "observations": 40
+        },
+        {
+          "category": "invoice",
+          "field": "gross_band",
+          "option_ids": [
+            "1000_5000",
+            "5000_20000",
+            "negative",
+            "over_20000",
+            "zero_1000"
+          ],
+          "option_count": 5,
+          "observations": 40
+        },
+        {
+          "category": "invoice",
+          "field": "tax_note",
+          "option_ids": [
+            "regular",
+            "reverse_charge",
+            "small_business"
+          ],
+          "option_count": 3,
+          "observations": 40
+        }
+      ],
+      "checks": {
+        "unique_request_ids": true,
+        "unique_prediction_ids": true,
+        "unique_gold_ids": true,
+        "unique_case_ids": true,
+        "request_prediction_gold_id_sets_equal": true,
+        "metadata_request_count_matches": true,
+        "metadata_request_order_matches": true,
+        "prediction_order_matches_requests": true,
+        "metadata_request_sha256_matches": true,
+        "metadata_completed": true,
+        "all_untruncated": true,
+        "all_case_gold_schema_probability_and_native_answer_checks_pass": true,
+        "all_documented_portable_image_code_hashes_match": true,
+        "all_frozen_image_code_mismatches_documented": true,
+        "freeze_precedes_inference_start": true,
+        "all_listed_scientific_files_match_copied_source_inventory": true
+      },
+      "issues": [],
+      "max_absolute_probability_sum_residual": 2.4028122425079346e-07,
+      "freeze_validation": {
+        "status": "frozen_before_main_inference",
+        "frozen_at_utc": "2026-10-02T07:19:09.896751+00:00",
+        "inference_started_at_utc": "2026-10-02T07:19:26.187722+00:00",
+        "matching_retained_file_count": 17,
+        "missing_raw_pixel_file_count": 50,
+        "unexplained_missing_file_count": 0,
+        "unexplained_hash_mismatch_count": 0,
+        "note": "Image public code differences are independently matched to published export hashes. Missing image bytes are intentional and not required for recorded-output rescoring.",
+        "documented_portable_code_change_count": 4
+      },
+      "scientific_files": [
+        {
+          "path": "sources/images90/cases.jsonl",
+          "bytes": 40202,
+          "sha256": "225bfc9e51daf49dbab2d1d8c9df2080ee6ef23f385247e32f64f6c8490b43fb",
+          "matches_copied_source_inventory": true
+        },
+        {
+          "path": "sources/images90/requests.jsonl",
+          "bytes": 126230,
+          "sha256": "fbcc4b997f38d6fbffd468454e59cb0a233b8da1ae6879f7f4b786753df26d45",
+          "matches_copied_source_inventory": true
+        },
+        {
+          "path": "sources/images90/gold.jsonl",
+          "bytes": 16962,
+          "sha256": "aaf3d15688960ccd2fc1d8556c17260e2939e2ab8030278807970b294a2e9be6",
+          "matches_copied_source_inventory": true
+        },
+        {
+          "path": "sources/images90/predictions.jsonl",
+          "bytes": 177817,
+          "sha256": "4d8ed93f5f68ef315d9ce7206ae7dcb59e4a99a254a747df8d44ae36e057a269",
+          "matches_copied_source_inventory": true
+        },
+        {
+          "path": "sources/images90/runtime_metadata.json",
+          "bytes": 6966,
+          "sha256": "5d5861d3126aa95d15149b7f8dae2afd7e1c54dac9b25e452a1c80fba2e781a3",
+          "matches_copied_source_inventory": true
+        },
+        {
+          "path": "sources/images90/policies.json",
+          "bytes": 1982,
+          "sha256": "28845a76c3ce6e10134ef922ee4fd3e4fc74660b836a3e8db6d9683c49fbc20e",
+          "matches_copied_source_inventory": true
+        },
+        {
+          "path": "sources/images90/pairs.jsonl",
+          "bytes": 2320,
+          "sha256": "2f119926264a18212ea2c19c0c738286e68fbae143de3450fb645d2363f160f0",
+          "matches_copied_source_inventory": true
+        }
+      ],
+      "caveats": [
+        "50 German image requests are primary (30 charts, 20 invoices; 120 fields); 20 English-image and 20 German-blank controls add 100 fields. Total: 90 requests and 220 field observations.",
+        "All 90 are genuine recorded vision-path executions, including blank controls: pixel tensors, image grid, and exactly one BF16 vision hook per request are retained. This is archival evidence, not a rerun.",
+        "Source case_id links 50 source images to language/blank controls. Blank gold deliberately remains the original source-image label; blank scores describe forced-choice image dependence, not an answerable image task or calibrated abstention.",
+        "Chart labels are English in-image; German questions do not make the chart source German. Invoices are synthetic German examples and have no official test split.",
+        "Frozen chart_type options bar_line and vbar2 have overlapping descriptions (bars plus line versus vertical bars with two y-axes). Interpret strict source-label probability scores with this documented ambiguity; do not relabel or remove cases post hoc.",
+        "Tax-note gold follows the explicit footnote even where synthetic line-item tax rates conflict. Gross-band gold uses the signed printed total. Neither is a legal validity determination.",
+        "50 raw images and full source labels are intentionally omitted from the public result package. They are unnecessary for probability rescoring; no acquisition or fresh pixel re-audit was performed.",
+        "The four original-freeze image code hash differences are documented portable adaptations and match published export hashes. Retained cases, requests, gold and predictions match their scientific hashes. Full original pixel-hash verification cannot be repeated from this package."
+      ],
+      "vision_evidence": {
+        "records_with_pixel_values_and_grid": 90,
+        "records_with_exactly_one_vision_hook": 90,
+        "records_with_bf16_hook": 90,
+        "request_image_hash_matches_record": true,
+        "unique_primary_pixel_tensor_hashes": 50,
+        "language_pairs_identical_pixels": true,
+        "blank_pairs_different_pixels_same_grid_and_dimensions": true,
+        "pair_count": 20,
+        "vision_linear_quantized_count": 0,
+        "vision_parameter_dtypes": [
+          "torch.bfloat16"
+        ],
+        "raw_pixels_reacquired": false
+      }
+    }
+  ],
+  "image_pilots": [
+    {
+      "label": "initial engineering attempt",
+      "retained_prediction_records": 0,
+      "completion_status_retained": false,
+      "eligible": false,
+      "reason": "Metadata only; no retained output records or completed status. Not a scored benchmark."
+    },
+    {
+      "label": "completed low-resolution engineering pilot",
+      "retained_prediction_records": 1,
+      "retained_fields": 1,
+      "native_vectors_complete": true,
+      "vision_hooks_per_record": 1,
+      "eligible": false,
+      "reason": "Unscored technical pilot; no dedicated frozen benchmark gold. Different pixel cap from final run."
+    },
+    {
+      "label": "completed high-resolution engineering pilot",
+      "retained_prediction_records": 2,
+      "retained_fields": 4,
+      "native_vectors_complete": true,
+      "vision_hooks_per_record": 1,
+      "eligible": false,
+      "reason": "Unscored engineering pilot; no dedicated frozen benchmark gold. Pilot IDs do not appear in the final gold."
+    }
+  ],
+  "selection_rule": "Include every recorded request of each eligible final suite in its predeclared partition, subject only to protocol-specific primary/control separation. Exclude warmups, repeatability probes and engineering pilots. No new inclusion decision depends on observed accuracy or confidence.",
+  "overall_structural_pass": true
+}

@@ -1,0 +1,801 @@
+{
+  "case_exact": {
+    "numerator": 39,
+    "denominator": 48,
+    "rate": 0.8125
+  },
+  "field_accuracy": {
+    "action": {
+      "numerator": 40,
+      "denominator": 48,
+      "rate": 0.8333333333333334
+    },
+    "determination": {
+      "numerator": 42,
+      "denominator": 48,
+      "rate": 0.875
+    }
+  },
+  "all_field_decisions": {
+    "numerator": 82,
+    "denominator": 96,
+    "rate": 0.8541666666666666
+  },
+  "pair_both_correct": {
+    "numerator": 17,
+    "denominator": 24,
+    "rate": 0.7083333333333334
+  },
+  "flip_correct_directional_change": {
+    "numerator": 8,
+    "denominator": 12,
+    "rate": 0.6666666666666666
+  },
+  "flip_observed_change": {
+    "numerator": 12,
+    "denominator": 12,
+    "rate": 1.0
+  },
+  "flip_wrong_valid_transition": {
+    "numerator": 4,
+    "denominator": 12,
+    "rate": 0.3333333333333333
+  },
+  "flip_invalid_transition": {
+    "numerator": 0,
+    "denominator": 12,
+    "rate": 0.0
+  },
+  "flip_not_correct_transition": {
+    "numerator": 4,
+    "denominator": 12,
+    "rate": 0.3333333333333333
+  },
+  "invariant_unjustified_change": {
+    "numerator": 1,
+    "denominator": 12,
+    "rate": 0.08333333333333333
+  },
+  "invariant_unjustified_change_valid_conditional": {
+    "numerator": 1,
+    "denominator": 12,
+    "rate": 0.08333333333333333
+  },
+  "invariant_invalid": {
+    "numerator": 0,
+    "denominator": 12,
+    "rate": 0.0
+  },
+  "invariant_failed": {
+    "numerator": 1,
+    "denominator": 12,
+    "rate": 0.08333333333333333
+  },
+  "invariant_stable": {
+    "numerator": 11,
+    "denominator": 12,
+    "rate": 0.9166666666666666
+  },
+  "invariant_stable_wrong": {
+    "numerator": 2,
+    "denominator": 12,
+    "rate": 0.16666666666666666
+  },
+  "invariant_both_correct": {
+    "numerator": 9,
+    "denominator": 12,
+    "rate": 0.75
+  },
+  "missing_ids": [],
+  "invalid_ids": [],
+  "error_case_ids": [
+    "pair_tow_distance_records_b",
+    "pair_report_delivery_target_b",
+    "pair_rental_days_conflict_b",
+    "pair_statement_notification_a",
+    "pair_report_delivery_target_a",
+    "pair_rental_days_conflict_a",
+    "pair_limit_order_price_step_a",
+    "pair_gadget_theft_notice_a",
+    "pair_redemption_window_conflict_a"
+  ],
+  "error_pair_ids": [
+    "pair_statement_notification",
+    "pair_gadget_theft_notice",
+    "pair_tow_distance_records",
+    "pair_rental_days_conflict",
+    "pair_redemption_window_conflict",
+    "pair_report_delivery_target",
+    "pair_limit_order_price_step"
+  ],
+  "case_strata": {
+    "domain": {
+      "banking": {
+        "case_exact": {
+          "numerator": 15,
+          "denominator": 16,
+          "rate": 0.9375
+        },
+        "field_accuracy": {
+          "action": {
+            "numerator": 15,
+            "denominator": 16,
+            "rate": 0.9375
+          },
+          "determination": {
+            "numerator": 15,
+            "denominator": 16,
+            "rate": 0.9375
+          }
+        }
+      },
+      "finance": {
+        "case_exact": {
+          "numerator": 12,
+          "denominator": 16,
+          "rate": 0.75
+        },
+        "field_accuracy": {
+          "action": {
+            "numerator": 12,
+            "denominator": 16,
+            "rate": 0.75
+          },
+          "determination": {
+            "numerator": 13,
+            "denominator": 16,
+            "rate": 0.8125
+          }
+        }
+      },
+      "insurance": {
+        "case_exact": {
+          "numerator": 12,
+          "denominator": 16,
+          "rate": 0.75
+        },
+        "field_accuracy": {
+          "action": {
+            "numerator": 13,
+            "denominator": 16,
+            "rate": 0.8125
+          },
+          "determination": {
+            "numerator": 14,
+            "denominator": 16,
+            "rate": 0.875
+          }
+        }
+      }
+    },
+    "kind": {
+      "flip": {
+        "case_exact": {
+          "numerator": 20,
+          "denominator": 24,
+          "rate": 0.8333333333333334
+        },
+        "field_accuracy": {
+          "action": {
+            "numerator": 21,
+            "denominator": 24,
+            "rate": 0.875
+          },
+          "determination": {
+            "numerator": 21,
+            "denominator": 24,
+            "rate": 0.875
+          }
+        }
+      },
+      "invariant": {
+        "case_exact": {
+          "numerator": 19,
+          "denominator": 24,
+          "rate": 0.7916666666666666
+        },
+        "field_accuracy": {
+          "action": {
+            "numerator": 19,
+            "denominator": 24,
+            "rate": 0.7916666666666666
+          },
+          "determination": {
+            "numerator": 21,
+            "denominator": 24,
+            "rate": 0.875
+          }
+        }
+      }
+    },
+    "subtype": {
+      "answer_to_clarify": {
+        "case_exact": {
+          "numerator": 5,
+          "denominator": 6,
+          "rate": 0.8333333333333334
+        },
+        "field_accuracy": {
+          "action": {
+            "numerator": 5,
+            "denominator": 6,
+            "rate": 0.8333333333333334
+          },
+          "determination": {
+            "numerator": 6,
+            "denominator": 6,
+            "rate": 1.0
+          }
+        }
+      },
+      "clarify_to_answer": {
+        "case_exact": {
+          "numerator": 4,
+          "denominator": 6,
+          "rate": 0.6666666666666666
+        },
+        "field_accuracy": {
+          "action": {
+            "numerator": 4,
+            "denominator": 6,
+            "rate": 0.6666666666666666
+          },
+          "determination": {
+            "numerator": 4,
+            "denominator": 6,
+            "rate": 0.6666666666666666
+          }
+        }
+      },
+      "irrelevant_text": {
+        "case_exact": {
+          "numerator": 8,
+          "denominator": 12,
+          "rate": 0.6666666666666666
+        },
+        "field_accuracy": {
+          "action": {
+            "numerator": 8,
+            "denominator": 12,
+            "rate": 0.6666666666666666
+          },
+          "determination": {
+            "numerator": 10,
+            "denominator": 12,
+            "rate": 0.8333333333333334
+          }
+        }
+      },
+      "no_to_yes": {
+        "case_exact": {
+          "numerator": 6,
+          "denominator": 6,
+          "rate": 1.0
+        },
+        "field_accuracy": {
+          "action": {
+            "numerator": 6,
+            "denominator": 6,
+            "rate": 1.0
+          },
+          "determination": {
+            "numerator": 6,
+            "denominator": 6,
+            "rate": 1.0
+          }
+        }
+      },
+      "short_circuit_control": {
+        "case_exact": {
+          "numerator": 5,
+          "denominator": 6,
+          "rate": 0.8333333333333334
+        },
+        "field_accuracy": {
+          "action": {
+            "numerator": 5,
+            "denominator": 6,
+            "rate": 0.8333333333333334
+          },
+          "determination": {
+            "numerator": 5,
+            "denominator": 6,
+            "rate": 0.8333333333333334
+          }
+        }
+      },
+      "within_region_fact": {
+        "case_exact": {
+          "numerator": 6,
+          "denominator": 6,
+          "rate": 1.0
+        },
+        "field_accuracy": {
+          "action": {
+            "numerator": 6,
+            "denominator": 6,
+            "rate": 1.0
+          },
+          "determination": {
+            "numerator": 6,
+            "denominator": 6,
+            "rate": 1.0
+          }
+        }
+      },
+      "yes_to_no": {
+        "case_exact": {
+          "numerator": 5,
+          "denominator": 6,
+          "rate": 0.8333333333333334
+        },
+        "field_accuracy": {
+          "action": {
+            "numerator": 6,
+            "denominator": 6,
+            "rate": 1.0
+          },
+          "determination": {
+            "numerator": 5,
+            "denominator": 6,
+            "rate": 0.8333333333333334
+          }
+        }
+      }
+    }
+  },
+  "pair_strata": {
+    "domain": {
+      "banking": {
+        "both_correct": {
+          "numerator": 7,
+          "denominator": 8,
+          "rate": 0.875
+        },
+        "valid": 8,
+        "changed": 4,
+        "stable": 4
+      },
+      "finance": {
+        "both_correct": {
+          "numerator": 5,
+          "denominator": 8,
+          "rate": 0.625
+        },
+        "valid": 8,
+        "changed": 5,
+        "stable": 3
+      },
+      "insurance": {
+        "both_correct": {
+          "numerator": 5,
+          "denominator": 8,
+          "rate": 0.625
+        },
+        "valid": 8,
+        "changed": 4,
+        "stable": 4
+      }
+    },
+    "kind": {
+      "flip": {
+        "both_correct": {
+          "numerator": 8,
+          "denominator": 12,
+          "rate": 0.6666666666666666
+        },
+        "valid": 12,
+        "changed": 12,
+        "stable": 0
+      },
+      "invariant": {
+        "both_correct": {
+          "numerator": 9,
+          "denominator": 12,
+          "rate": 0.75
+        },
+        "valid": 12,
+        "changed": 1,
+        "stable": 11
+      }
+    },
+    "subtype": {
+      "answer_to_clarify": {
+        "both_correct": {
+          "numerator": 2,
+          "denominator": 3,
+          "rate": 0.6666666666666666
+        },
+        "valid": 3,
+        "changed": 3,
+        "stable": 0
+      },
+      "clarify_to_answer": {
+        "both_correct": {
+          "numerator": 1,
+          "denominator": 3,
+          "rate": 0.3333333333333333
+        },
+        "valid": 3,
+        "changed": 3,
+        "stable": 0
+      },
+      "irrelevant_text": {
+        "both_correct": {
+          "numerator": 4,
+          "denominator": 6,
+          "rate": 0.6666666666666666
+        },
+        "valid": 6,
+        "changed": 0,
+        "stable": 6
+      },
+      "no_to_yes": {
+        "both_correct": {
+          "numerator": 3,
+          "denominator": 3,
+          "rate": 1.0
+        },
+        "valid": 3,
+        "changed": 3,
+        "stable": 0
+      },
+      "short_circuit_control": {
+        "both_correct": {
+          "numerator": 2,
+          "denominator": 3,
+          "rate": 0.6666666666666666
+        },
+        "valid": 3,
+        "changed": 1,
+        "stable": 2
+      },
+      "within_region_fact": {
+        "both_correct": {
+          "numerator": 3,
+          "denominator": 3,
+          "rate": 1.0
+        },
+        "valid": 3,
+        "changed": 0,
+        "stable": 3
+      },
+      "yes_to_no": {
+        "both_correct": {
+          "numerator": 2,
+          "denominator": 3,
+          "rate": 0.6666666666666666
+        },
+        "valid": 3,
+        "changed": 3,
+        "stable": 0
+      }
+    },
+    "domain_subtype": {
+      "banking|answer_to_clarify": {
+        "both_correct": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0
+        },
+        "valid": 1,
+        "changed": 1,
+        "stable": 0
+      },
+      "banking|clarify_to_answer": {
+        "both_correct": {
+          "numerator": 0,
+          "denominator": 1,
+          "rate": 0.0
+        },
+        "valid": 1,
+        "changed": 1,
+        "stable": 0
+      },
+      "banking|irrelevant_text": {
+        "both_correct": {
+          "numerator": 2,
+          "denominator": 2,
+          "rate": 1.0
+        },
+        "valid": 2,
+        "changed": 0,
+        "stable": 2
+      },
+      "banking|no_to_yes": {
+        "both_correct": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0
+        },
+        "valid": 1,
+        "changed": 1,
+        "stable": 0
+      },
+      "banking|short_circuit_control": {
+        "both_correct": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0
+        },
+        "valid": 1,
+        "changed": 0,
+        "stable": 1
+      },
+      "banking|within_region_fact": {
+        "both_correct": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0
+        },
+        "valid": 1,
+        "changed": 0,
+        "stable": 1
+      },
+      "banking|yes_to_no": {
+        "both_correct": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0
+        },
+        "valid": 1,
+        "changed": 1,
+        "stable": 0
+      },
+      "finance|answer_to_clarify": {
+        "both_correct": {
+          "numerator": 0,
+          "denominator": 1,
+          "rate": 0.0
+        },
+        "valid": 1,
+        "changed": 1,
+        "stable": 0
+      },
+      "finance|clarify_to_answer": {
+        "both_correct": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0
+        },
+        "valid": 1,
+        "changed": 1,
+        "stable": 0
+      },
+      "finance|irrelevant_text": {
+        "both_correct": {
+          "numerator": 1,
+          "denominator": 2,
+          "rate": 0.5
+        },
+        "valid": 2,
+        "changed": 0,
+        "stable": 2
+      },
+      "finance|no_to_yes": {
+        "both_correct": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0
+        },
+        "valid": 1,
+        "changed": 1,
+        "stable": 0
+      },
+      "finance|short_circuit_control": {
+        "both_correct": {
+          "numerator": 0,
+          "denominator": 1,
+          "rate": 0.0
+        },
+        "valid": 1,
+        "changed": 1,
+        "stable": 0
+      },
+      "finance|within_region_fact": {
+        "both_correct": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0
+        },
+        "valid": 1,
+        "changed": 0,
+        "stable": 1
+      },
+      "finance|yes_to_no": {
+        "both_correct": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0
+        },
+        "valid": 1,
+        "changed": 1,
+        "stable": 0
+      },
+      "insurance|answer_to_clarify": {
+        "both_correct": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0
+        },
+        "valid": 1,
+        "changed": 1,
+        "stable": 0
+      },
+      "insurance|clarify_to_answer": {
+        "both_correct": {
+          "numerator": 0,
+          "denominator": 1,
+          "rate": 0.0
+        },
+        "valid": 1,
+        "changed": 1,
+        "stable": 0
+      },
+      "insurance|irrelevant_text": {
+        "both_correct": {
+          "numerator": 1,
+          "denominator": 2,
+          "rate": 0.5
+        },
+        "valid": 2,
+        "changed": 0,
+        "stable": 2
+      },
+      "insurance|no_to_yes": {
+        "both_correct": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0
+        },
+        "valid": 1,
+        "changed": 1,
+        "stable": 0
+      },
+      "insurance|short_circuit_control": {
+        "both_correct": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0
+        },
+        "valid": 1,
+        "changed": 0,
+        "stable": 1
+      },
+      "insurance|within_region_fact": {
+        "both_correct": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0
+        },
+        "valid": 1,
+        "changed": 0,
+        "stable": 1
+      },
+      "insurance|yes_to_no": {
+        "both_correct": {
+          "numerator": 0,
+          "denominator": 1,
+          "rate": 0.0
+        },
+        "valid": 1,
+        "changed": 1,
+        "stable": 0
+      }
+    }
+  },
+  "confusion": {
+    "action": {
+      "answer": {
+        "answer": 33,
+        "ask_fact": 1,
+        "ask_target": 1,
+        "resolve_conflict": 1,
+        "INVALID": 0
+      },
+      "ask_fact": {
+        "answer": 1,
+        "ask_fact": 3,
+        "ask_target": 0,
+        "resolve_conflict": 0,
+        "INVALID": 0
+      },
+      "ask_target": {
+        "answer": 2,
+        "ask_fact": 0,
+        "ask_target": 2,
+        "resolve_conflict": 0,
+        "INVALID": 0
+      },
+      "resolve_conflict": {
+        "answer": 0,
+        "ask_fact": 0,
+        "ask_target": 2,
+        "resolve_conflict": 2,
+        "INVALID": 0
+      }
+    },
+    "determination": {
+      "yes": {
+        "yes": 18,
+        "no": 0,
+        "unresolved": 1,
+        "INVALID": 0
+      },
+      "no": {
+        "yes": 0,
+        "no": 15,
+        "unresolved": 2,
+        "INVALID": 0
+      },
+      "unresolved": {
+        "yes": 2,
+        "no": 1,
+        "unresolved": 9,
+        "INVALID": 0
+      }
+    }
+  },
+  "timing": {
+    "encode_seconds": {
+      "count": 48,
+      "sum": 0.37625852303608553,
+      "mean": 0.007838719229918448,
+      "median": 0.007724523999058874,
+      "min": 0.005963479998172261,
+      "max": 0.010298157998477109,
+      "p95_nearest_rank": 0.009711396000056993,
+      "p95_linear": 0.009477702049844083
+    },
+    "inference_seconds": {
+      "count": 48,
+      "sum": 845.8542490289838,
+      "mean": 17.621963521437163,
+      "median": 17.298450598500494,
+      "min": 15.459769753004366,
+      "max": 21.634315838993643,
+      "p95_nearest_rank": 20.558421612993698,
+      "p95_linear": 20.289244122945455
+    },
+    "latency_ms": {
+      "count": 48,
+      "sum": 845854.2490289838,
+      "mean": 17621.963521437163,
+      "median": 17298.450598500494,
+      "min": 15459.769753004366,
+      "max": 21634.315838993643,
+      "p95_nearest_rank": 20558.421612993698,
+      "p95_linear": 20289.244122945456
+    },
+    "total_seconds": {
+      "count": 48,
+      "sum": 846.2343390210372,
+      "mean": 17.629882062938275,
+      "median": 17.306855562001147,
+      "min": 15.467599215000519,
+      "max": 21.64249943600589,
+      "p95_nearest_rank": 20.566187905991683,
+      "p95_linear": 20.297485753393993
+    },
+    "input_tokens": {
+      "count": 48,
+      "sum": 33398,
+      "mean": 695.7916666666666,
+      "median": 694.0,
+      "min": 673,
+      "max": 730,
+      "p95_nearest_rank": 723,
+      "p95_linear": 723.0
+    },
+    "rss_bytes": {
+      "count": 48,
+      "sum": 293622620160,
+      "mean": 6117137920,
+      "median": 6112843776.0,
+      "min": 6109552640,
+      "max": 6183706624,
+      "p95_nearest_rank": 6166970368,
+      "p95_linear": 6150214451.2
+    }
+  }
+}

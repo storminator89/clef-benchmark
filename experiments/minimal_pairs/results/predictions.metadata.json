@@ -1,0 +1,135 @@
+{
+  "model": "Cloudflare/clef-flash",
+  "revision": "17f0b0ad64efb65d273590632833508766b2aae6",
+  "mode": "CPU NF4 backbone, original BF16 joint head and BF16 output embeddings",
+  "quantization": {
+    "quant_method": "bitsandbytes",
+    "_load_in_8bit": false,
+    "_load_in_4bit": true,
+    "llm_int8_threshold": 6.0,
+    "llm_int8_skip_modules": [
+      "lm_head"
+    ],
+    "llm_int8_enable_fp32_cpu_offload": false,
+    "llm_int8_has_fp16_weight": false,
+    "bnb_4bit_quant_type": "nf4",
+    "bnb_4bit_use_double_quant": true,
+    "bnb_4bit_compute_dtype": "bfloat16",
+    "bnb_4bit_quant_storage": "uint8",
+    "load_in_4bit": true,
+    "load_in_8bit": false
+  },
+  "dtype": "bfloat16",
+  "device": "cpu",
+  "threads": 6,
+  "batch_size": 1,
+  "max_length": 2048,
+  "requests_sha256": "6e4e5c43853032bd09e72c3bd9d0331dd15ab4b28833a7f0fa290170cb6d85c8",
+  "source_code_sha256": "0e304cf7c6500e8bb59bef7e2afd2c6373f82596dfb3b57d1aa93c175e2dc3a3",
+  "runner_sha256": "d06f85b922e1e4d0e905a1ddc8846aedcafa93c29f502f48b1529a36a9eb5906",
+  "seed": 20261002,
+  "packages": {
+    "torch": "2.11.0+cpu",
+    "transformers": "5.10.2",
+    "bitsandbytes": "0.50.2",
+    "accelerate": "1.15.0",
+    "huggingface-hub": "1.33.0",
+    "safetensors": "0.8.0"
+  },
+  "started_at": "2026-10-02T14:52:28.878830+00:00",
+  "request_count": 48,
+  "request_order_ids": [
+    "pair_fractional_sale_batch_a",
+    "pair_tow_distance_records_b",
+    "pair_equipment_inspection_a",
+    "pair_report_delivery_target_b",
+    "pair_paper_transfer_quota_b",
+    "pair_rebalance_interval_b",
+    "pair_baggage_weight_cap_b",
+    "pair_rebalance_interval_a",
+    "pair_rental_days_conflict_b",
+    "pair_envelope_pickup_a",
+    "pair_statement_notification_a",
+    "pair_glass_cost_limit_a",
+    "pair_report_delivery_target_a",
+    "pair_gadget_theft_notice_b",
+    "pair_equipment_inspection_b",
+    "pair_fractional_sale_batch_b",
+    "pair_rental_days_conflict_a",
+    "pair_fx_pickup_stock_a",
+    "pair_limit_order_price_step_b",
+    "pair_savings_stamp_b",
+    "pair_fund_switch_target_a",
+    "pair_festival_cancellation_a",
+    "pair_festival_cancellation_b",
+    "pair_standing_order_express_a",
+    "pair_research_credit_age_a",
+    "pair_limit_order_price_step_a",
+    "pair_locker_waitlist_a",
+    "pair_locker_waitlist_b",
+    "pair_coin_bag_limit_b",
+    "pair_standing_order_express_b",
+    "pair_tow_distance_records_a",
+    "pair_gadget_theft_notice_a",
+    "pair_paper_transfer_quota_a",
+    "pair_fx_pickup_stock_b",
+    "pair_baggage_weight_cap_a",
+    "pair_savings_stamp_a",
+    "pair_fund_switch_target_b",
+    "pair_camera_rental_cover_a",
+    "pair_redemption_window_conflict_b",
+    "pair_savings_plan_components_a",
+    "pair_glass_cost_limit_b",
+    "pair_redemption_window_conflict_a",
+    "pair_research_credit_age_b",
+    "pair_envelope_pickup_b",
+    "pair_coin_bag_limit_a",
+    "pair_statement_notification_b",
+    "pair_camera_rental_cover_b",
+    "pair_savings_plan_components_b"
+  ],
+  "wrapper_prompt_language": "English (official release); user state and schema may be German",
+  "benchmark_requests_only_no_gold": true,
+  "load_seconds": 56.357182580999506,
+  "weight_memory_bytes": 7765103400,
+  "joint_head_parameter_count": 121762820,
+  "joint_head_dtypes": [
+    "torch.bfloat16"
+  ],
+  "rss_after_load_bytes": 6608363520,
+  "warmup": {
+    "answers": {
+      "decision": {
+        "type": "choice",
+        "choice": "technical",
+        "confidence": 0.9932,
+        "probabilities": {
+          "billing": 0.0068,
+          "technical": 0.9932
+        }
+      }
+    },
+    "probabilities_unrounded": {
+      "decision": {
+        "billing": 0.006797531619668007,
+        "technical": 0.9932025074958801
+      }
+    },
+    "input_tokens": 144,
+    "truncated": false,
+    "encode_seconds": 0.004703893995610997,
+    "inference_seconds": 14.939616174000548,
+    "latency_ms": 14939.616174000548,
+    "total_seconds": 14.944414870995388,
+    "rss_bytes": 6343053312
+  },
+  "repeatability_probe": {
+    "id": "pair_fractional_sale_batch_a",
+    "repeat_max_absolute_probability_difference": 0.0,
+    "same_choice": true,
+    "single_case_only": true
+  },
+  "completed_at": "2026-10-02T15:08:04.532442+00:00",
+  "max_rss_bytes": 6841180160,
+  "status": "completed"
+}

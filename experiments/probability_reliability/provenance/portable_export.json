@@ -1,0 +1,9 @@
+{
+  "schema_version": 2,
+  "suite_id": "probability_reliability",
+  "frozen_content_changed": false,
+  "frozen_manifest_sha256": "c02c5378121b67c91706c3f2edcff45b50224f2b752bbb6188849ec9f329bff4",
+  "frozen_file_count": 73,
+  "public_scope": "Retained scientific source data, native outputs, runtime metadata, locked protocol, deterministic reanalysis code, independent validation and reports.",
+  "excluded_scope": "Redundant console transcripts, duplicate reference inventories and private environment diagnostics omitted."
+}

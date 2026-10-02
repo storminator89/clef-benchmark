@@ -1,0 +1,19 @@
+{
+  "status": "passed",
+  "test_count": 20,
+  "scope": "synthetic fixtures only; no benchmark metrics computed",
+  "command": "PYTHONDONTWRITEBYTECODE=1 python -m unittest discover -s scripts -p test_metrics.py -v",
+  "checks": [
+    "perfect and maximally wrong predictions",
+    "multiclass sum Brier",
+    "zero gold and finite-only NLL",
+    "saved native ties",
+    "AUROC perfect reversed ties undefined",
+    "weighted ECE",
+    "exact and neighboring bin boundaries",
+    "fixed threshold equality",
+    "expected and valid denominators",
+    "invalid/missing/options/rounding/argmax/sums",
+    "unrounded preservation"
+  ]
+}

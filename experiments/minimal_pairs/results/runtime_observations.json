@@ -1,0 +1,7 @@
+{
+  "source": "Original native execution log; public-essential runtime observations only",
+  "optional_cpu_gemm_kernel_load_warning": true,
+  "attention_fast_path_fallback_warning": true,
+  "interpretation": "Optional kernel/attention fast paths were unavailable in the pinned package environment. The unmodified native loader/model continued with its available fallback implementations. No convenience backend or source patch was substituted. Full exact package/source/model facts are retained separately.",
+  "run_completed": true
+}
