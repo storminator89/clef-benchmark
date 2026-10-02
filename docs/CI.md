@@ -62,20 +62,33 @@ Veröffentlichungsbaum ohne installierte Entwicklungsabhängigkeiten angewendet.
 Export-/Freeze-/QA-Hashes, beide erneut ausgeführten Scorer, exakte Fall-/Feld- und
 Safety-Metriken und alle 80 nativen Requests gegen die vorhandenen Live-Grenzen.
 209 vorbestehende Daten-/Runtime-Artefakte bleiben byte-identisch geschützt; drei explizite Runtime-Erweiterungen sind separat hashgebunden.
-CI baut nun alle sechs UI-Datensätze deterministisch neu. Es wird kein Modell
+Der damalige CI-Stand baute sechs UI-Datensätze deterministisch neu. Es wird kein Modell
 geladen und keine Aussage über Browserdarstellung oder AMD-Ausführung abgeleitet.
 
 ## Clarification72 integration
 
-The current workflow executes four integrity gates and rebuilds all six completed-result datasets byte-identically. The recorded local regression count is 266 Python and 111 JavaScript/DOM tests. `check_clarification.py` additionally checks both scorers, balanced denominators, all native vectors and exact public-curation evolution. The genuine sandboxed Chrome run is linked in the README and records its own source hash; it does not run a model. Public inventory format 2 exposes aggregate integrity only and excludes its two self-reports deterministically.
+The clarification integration workflow executed four integrity gates and rebuilds all six completed-result datasets byte-identically. The recorded local regression count is 266 Python and 111 JavaScript/DOM tests. `check_clarification.py` additionally checks both scorers, balanced denominators, all native vectors and exact public-curation evolution. The genuine sandboxed Chrome run is linked in the README and records its own source hash; it does not run a model. Public inventory format 2 exposes aggregate integrity only and excludes its two self-reports deterministically.
 
 
 ## Paired and reliability release
 
-The next release adds `scripts/check_paired_reliability.py`, covering exact curated
+This release adds `scripts/check_paired_reliability.py`, covering exact curated
 minimal-pair and probability-analysis exports, preservation of preceding scientific
 artifacts, independent result recomputation, synthetic scorer checks, and deterministic
 `web/data/minimal_pairs.json` / `web/data/reliability.json` rebuilds. These are separate
 diagnostic views, not additional pooled suite metrics. Browser capture retains the
 installed Chrome channel, active sandbox, results-only server, ten-MiB artifact budget
 and one-day retention. Historical galleries remain bound to their source hashes.
+
+The current release passes **289 Python tests, 142 JavaScript/DOM tests, five
+integrity gates and eight byte-identical UI dataset rebuilds**. The public exports
+are exact allowlists: 81 paired files and 119 reliability files, preserving all
+50 paired frozen files, 73 reliability locks and 388 prior scientific artifacts.
+Redundant development diagnostics are outside the public package; compact checker
+correction history, native results, all errors and independent recomputation remain.
+
+The [genuine Chrome capture](https://github.com/storminator89/clef-benchmark/actions/runs/37041382266)
+passed 12 browser check groups and produced 30 source/hash-verified PNGs at
+`a21344f8c1d3ebc848a753c88f90ae257c36608d`. Its tests include every reliability
+field group, empty selection, dependent error context and narrow-table keyboard
+access. Browser evidence is source-versioned separately from final documentation CI.

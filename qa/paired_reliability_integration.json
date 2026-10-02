@@ -1,5 +1,5 @@
 {
-  "status": "local_checks_passed",
+  "status": "passed",
   "baseline_commit": "73033f97f80fc9736313e54932e92026c8e9bd54",
   "scope": "Two separate offline diagnostic views: 24 minimal-change pairs and per-suite/per-field probability reliability. No model inference or pooled probability metric.",
   "prior_scientific_artifacts_unchanged": 388,
@@ -23,7 +23,15 @@
     "retained_reliability_source_copies": 69
   },
   "independent_review": "Passed: source and metric integrity, numerical and DOM regressions, public-only provenance and honest descriptive claims. One overstated UI description was corrected before approval.",
-  "browser_validation": "Fresh source-matched sandboxed Chrome capture pending after mobile heading-spacing polish and explicit keyboard horizontal-scroll/detail-reachability checks. Previous published galleries remain bound to their original sources.",
+  "browser_validation": {
+    "status": "pass",
+    "source_commit": "a21344f8c1d3ebc848a753c88f90ae257c36608d",
+    "run_url": "https://github.com/storminator89/clef-benchmark/actions/runs/37041382266",
+    "png_count": 30,
+    "check_groups": 12,
+    "no_model_inference": true,
+    "scope_details": "qa/paired_reliability_browser_review.json"
+  },
   "limitations": [
     "Post-hoc descriptive fixed-threshold analysis; no optimized operational threshold or calibration guarantee.",
     "Purposive related examples; paired endpoints and reused scenarios are dependent.",

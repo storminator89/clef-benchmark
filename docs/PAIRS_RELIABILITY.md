@@ -2,7 +2,7 @@
 
 [Deutsch](#deutsch) · [English](#english) · [Project brief](PROJECT_BRIEF.md) · [Evaluation guide](EVALUATION_GUIDE.md) · [Workbench](../README.md#schnellstart)
 
-Two separate completed studies extend the existing results: a new paired inference diagnostic and a post-hoc analysis of already recorded probabilities. They have different purposes and evidence boundaries. The workbench opens them separately at `#pairs` and `#reliability`. Neither is a pooled leaderboard, a production qualification or a new visual-browser pass.
+Two separate completed studies extend the existing results: a new paired inference diagnostic and a post-hoc analysis of already recorded probabilities. They have different purposes and evidence boundaries. The workbench opens them separately at `#pairs` and `#reliability`. Neither is a pooled leaderboard or a production qualification. Scientific validation and the separately recorded browser evidence remain distinct.
 
 ## Deutsch
 
@@ -133,3 +133,9 @@ Recorded text inference uses Cloudflare/clef-flash revision `17f0b0ad64efb65d273
 Reliability recomputation uses the Python standard library and needs no model or original image pixels. Run the supplied verification/tests from the corresponding experiment directory, following its README; write any reproduced metrics to a new output directory. Do not overwrite frozen inputs, raw outputs, source locks or original derived results. Recomputable arithmetic supports traceability; it does not independently establish the truth of the reference labels.
 
 The historical five-suite and clarification Chrome galleries keep their original source commits, labels and hashes. They do not visually verify the later pair/reliability views. Scientific artifact audits, model-free integration tests and a real visual browser pass are separate evidence levels.
+
+A later, separate [sandboxed Chrome capture](https://github.com/storminator89/clef-benchmark/actions/runs/37041382266)
+now verifies the pair/reliability UI at `a21344f8c1d3ebc848a753c88f90ae257c36608d`: 12
+check groups, 30 hash-verified PNGs, all 78 field groups, desktop/320/390px and
+keyboard access to the full narrow table. See [visual review and limits](../qa/paired_reliability_browser_review.json).
+No new model inference, physical-device certification or screenreader audit is implied.

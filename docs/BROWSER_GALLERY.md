@@ -1,10 +1,12 @@
 # Genuine browser regression and README gallery
 
-**Current six-suite evidence:** [Sandboxed Chrome capture](https://github.com/storminator89/clef-benchmark/actions/runs/37029702253) passed ten check groups at `ce6369948d30d65b9674b5770f615879807580dd`, with 21 verified PNGs. See [clarification capture review](../qa/clarification_browser_review.json); the earlier gallery below retains its own source version.
+**Current source-matched evidence:** [Sandboxed Chrome capture](https://github.com/storminator89/clef-benchmark/actions/runs/37041382266) passed 12 check groups at `a21344f8c1d3ebc848a753c88f90ae257c36608d`, with 30 source/hash-verified PNGs. It covers the six suites plus pair and per-field reliability views, all 78 field groups, light/dark, 320/390 CSS-pixel layouts, keyboard horizontal table access and reachable error details. See [diagnostic capture review](../qa/paired_reliability_browser_review.json). No model inference was performed.
+
+**Earlier six-suite evidence:** [Sandboxed Chrome capture](https://github.com/storminator89/clef-benchmark/actions/runs/37029702253) passed ten check groups at `ce6369948d30d65b9674b5770f615879807580dd`, with 21 verified PNGs. See [clarification capture review](../qa/clarification_browser_review.json); the earlier gallery below retains its own source version.
 
 **Published historical evidence:** a real Chrome capture passed at source commit `3b5b3743965f3ad77a5dd092296866920d2ca813`; see [the verified capture](#verified-published-capture). The setup history below includes earlier failures. Later UI changes require a new capture before claiming equivalent browser coverage.
 
-## Current evidence boundary
+## Creation-environment boundary (historical)
 
 This workflow is prepared for an ordinary, permitted development machine or
 GitHub-hosted runner. It has **not been successfully browser-executed in the
@@ -15,7 +17,7 @@ script exists. Offline tests do not establish CSS layout or visual quality.
 
 `tests/test_browser.py` creates PNGs only with actual Chromium `page.screenshot`
 calls. It renders the real local application, the six checked-in public
-synthetic datasets and the bundled synthetic support example. It never replaces
+synthetic datasets, two separate diagnostic datasets and the bundled synthetic support example. It never replaces
 responses, changes rendered content for a picture, injects scores, or uses a
 model-response fixture. Existing benchmark results retain their recorded
 provenance. The private editor is captured **before any inference**.
@@ -220,3 +222,27 @@ of claiming a later source tree was captured.
 ## Clarification72 capture
 
 The unchanged [complete capture artifact](screenshots/clarification72/manifest.json) records all six suites and the new clarification views. The capture root preserves the original screenshots subdirectory, so it is directly accepted by `python tests/test_browser.py --verify-artifact docs/screenshots/clarification72` while the recorded source hashes match. The new README embeds three of the four visually reviewed clarification PNGs. Earlier gallery files, labels and hashes are unchanged.
+
+
+## Pair and reliability capture
+
+The [complete original capture artifact](screenshots/paired-reliability/manifest.json)
+preserves its 30 PNGs and original source manifest. Run
+`python tests/test_browser.py --verify-artifact docs/screenshots/paired-reliability`
+to verify it against the matching current UI source. The final gallery-only
+publication does not change web or browser-test source bytes.
+
+Nine diagnostic images were inspected directly, including corrected 320/390px
+reliability captures; unchanged images were also byte-compared with the prior
+inspection. A separate AI visual reviewer confirmed the corrected mobile heading,
+visible scrolling guidance and no new obvious visual regression. The source-matched
+browser test tabs into the narrow table, uses native arrow keys to reveal the
+rightmost risk column, returns left, and opens/closes below-fold evidence details.
+This verifies those Chrome interactions, not physical touch devices or screenreaders.
+Full-page mobile PNGs retain the fixed navigation at its viewport position; this
+is a capture characteristic, not a promise about every possible scroll state.
+
+The older five-suite and clarification galleries remain byte-identical and
+historically labeled. Do not use any gallery to certify a later changed UI source.
+
+`README-GALLERY.txt` is retained as the unmodified capture template. The published README uses explicit versioned image paths; copying the template into another layout requires adjusting those relative links.

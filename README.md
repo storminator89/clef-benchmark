@@ -32,9 +32,26 @@ Was passiert, wenn sich genau ein Textdetail ändert? **24 Minimalpaare mit 48 d
 - **11/12** Paare mit unverändertem Soll-Ergebnis bleiben stabil; darunter sind **zwei stabil falsche Paare**. Nur **9/12** sind auf beiden Seiten richtig; **1/12** ändert sich unbegründet
 - Bei Feldscore ≥0,90 bleiben im Paartest **4/36 ausgewählte Feststellungen** und **2/7 ausgewählte Aktionen** falsch. Die zwei Aktionsfehler gehören zu demselben invarianten Paar
 
-Die Scoreanalyse ist **post-hoc und deskriptiv**, ohne neue Inferenz, Kalibrierung oder optimierte Schwelle. Ihre neun Quellsuiten, 716 Requests und 1.186 Feldbeobachtungen sind Inventarzahlen, keine unabhängige Stichprobe oder gepoolte Erfolgsquote. Feld-, Fall- und Nur-konkret-Auswertungen haben verschiedene Nenner. Die beiden neuen Ansichten sind nicht durch die historischen Screenshot-Galerien unten abgedeckt.
+Die Scoreanalyse ist **post-hoc und deskriptiv**, ohne neue Inferenz, Kalibrierung oder optimierte Schwelle. Ihre neun Quellsuiten, 716 Requests und 1.186 Feldbeobachtungen sind Inventarzahlen, keine unabhängige Stichprobe oder gepoolte Erfolgsquote. Feld-, Fall- und Nur-konkret-Auswertungen haben verschiedene Nenner. Die neue source-versionierte Galerie unten dokumentiert die beiden Ansichten; die älteren Galerien behalten ihre eigenen Quellstände.
 
 [Befunde, Nenner und nächste Schritte auf Deutsch und Englisch](docs/PAIRS_RELIABILITY.md) · [Paarbericht](experiments/minimal_pairs/REPORT.md) · [Scorebericht](experiments/probability_reliability/REPORT_DE.md)
+
+## Neue Diagnostik: echte Browseraufnahmen
+
+Diese Ansichten wurden mit aktivierter Chrome-Sandbox tatsächlich geöffnet und geprüft. Es sind gespeicherte native Modellantworten, keine neue oder simulierte Inferenz.
+
+![Minimalpaar: genau eine markierte Textänderung, identische Regel und beide nativen Entscheidungen](docs/screenshots/paired-reliability/screenshots/minimal-pairs-comparison-light.png)
+
+![Score und beobachtete Fehler: 4/36 ausgewählte Feststellungen falsch, 36/48 Abdeckung und eigener Nenner](docs/screenshots/paired-reliability/screenshots/reliability-determination-light.png)
+
+<details>
+<summary>Auch stabil falsche Antworten bleiben sichtbar</summary>
+
+![Ein irrelevanter Titel ändert sich; beide hoch bewerteten Antworten bleiben falsch](docs/screenshots/paired-reliability/screenshots/minimal-pairs-stable-wrong-light.png)
+
+</details>
+
+Aufnahmequelle: `a21344f8c1d3ebc848a753c88f90ae257c36608d` · [Bestandener Browserlauf](https://github.com/storminator89/clef-benchmark/actions/runs/37041382266) · [30 PNGs mit Quell- und Bildhashes](docs/screenshots/paired-reliability/manifest.json) · [Prüfumfang und Grenzen](qa/paired_reliability_browser_review.json). Zwölf Prüfgruppen, einschließlich aller 78 getrennten Feldgruppen, Hell/Dunkel und 320/390 CSS-Pixel. Auf schmalen Displays ist die vollständige Tabelle seitlich scrollbar; auch der Tastaturzugriff bis zur Risikospalte wurde geprüft. Physische Geräte und Screenreader wurden nicht zertifiziert.
 
 ## Dokumentierte Rückfragen-Ansicht
 

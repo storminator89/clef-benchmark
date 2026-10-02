@@ -1,0 +1,51 @@
+{
+  "status": "pass_with_stated_scope",
+  "source_commit": "a21344f8c1d3ebc848a753c88f90ae257c36608d",
+  "capture_run_url": "https://github.com/storminator89/clef-benchmark/actions/runs/37041382266",
+  "source_ci_run_url": "https://github.com/storminator89/clef-benchmark/actions/runs/37041382234",
+  "artifact_id": 11242797379,
+  "artifact_zip_sha256": "829638a461fe2933c1e260e66031378d4a8e15ff83d9b8295fa833302c73ad37",
+  "artifact_zip_bytes": 5598170,
+  "captured_png_count": 30,
+  "browser_check_group_count": 12,
+  "browser_channel": "chrome",
+  "chromium_sandbox": true,
+  "chromium_version": "154.0.8037.57",
+  "playwright_version": "1.62.0",
+  "model_inference_executed": false,
+  "synthetic_inputs_only": true,
+  "original_capture_bytes_preserved": true,
+  "source_and_all_image_hashes_verified": true,
+  "diagnostic_images_visually_inspected": [
+    "minimal-pairs-comparison-light.png",
+    "minimal-pairs-stable-wrong-light.png",
+    "minimal-pairs-comparison-dark.png",
+    "minimal-pairs-320.png",
+    "minimal-pairs-390.png",
+    "reliability-determination-light.png",
+    "reliability-action-dark.png",
+    "reliability-320.png",
+    "reliability-390.png"
+  ],
+  "visual_review_method": "Direct PNG inspection by two AI reviewers. Corrected mobile captures were reopened; unchanged diagnostic PNGs were byte-compared with the directly inspected prior capture. No human accessibility certification.",
+  "browser_verified_interactions": [
+    "All 78 reliability field groups retain separate denominators and exact threshold counts",
+    "Paired edit, correctness, stable-wrong and unjustified-change filters; empty-result clearing; deep links and history",
+    "Native keyboard horizontal table navigation reveals the risk column at 320 and 390 CSS pixels",
+    "Below-fold error evidence details remain clickable, open and close at both narrow viewports",
+    "Existing six-suite, saved replay, real disabled backend, custom import/editor and light/dark regressions"
+  ],
+  "visual_findings": [
+    "Native A/B comparison and highlighted sole edit remain readable",
+    "Stable-wrong and inconsistent answers are displayed without repair",
+    "Risk, coverage, score and sample counts remain distinct with dependence and post-hoc caveats",
+    "Mobile heading spacing corrected; narrow-table scrolling guidance visible"
+  ],
+  "limitations": [
+    "One supported installed Chrome channel; no cross-browser certification",
+    "CSS viewport emulation, not physical touch-device testing",
+    "No screenreader audit or measured contrast conformance claim",
+    "Full-page mobile captures retain fixed navigation at its viewport position",
+    "Later UI-source changes require a new source-matched capture"
+  ]
+}
