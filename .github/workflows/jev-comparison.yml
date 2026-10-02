@@ -1,17 +1,17 @@
 # Reviewed activation template. Publish this code first; install only with an
-# immutable reviewed code commit in place of 851a2b649826f47d7a1fe8aad2bf06a0590754fd.
+# immutable reviewed code commit in place of 5ac03db03857cb3d8945affcd5c769878890f14b.
 # Manual dispatch is required; a push never calls the provider.
-name: Jev verified frozen comparison
+name: Jev continue 793 unattempted cases
 on:
   workflow_dispatch:
     inputs:
       approve_public_data:
-        description: 'Approve sending the frozen 974 public/synthetic text requests to TypeSafe'
+        description: 'Approve only the 793 never-attempted frozen text requests; do not resend the first 181'
         type: boolean
         required: true
         default: false
       approve_api_three_usd:
-        description: 'Approve one run, up to 1024 wire attempts and a local USD 3 API reservation guard'
+        description: 'Keep the prior 181 reservations within the shared 1024-attempt / USD 3 local cap'
         type: boolean
         required: true
         default: false
@@ -34,7 +34,7 @@ jobs:
       - name: Checkout immutable reviewed code
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
-          ref: 851a2b649826f47d7a1fe8aad2bf06a0590754fd
+          ref: 5ac03db03857cb3d8945affcd5c769878890f14b
           persist-credentials: false
           fetch-depth: 1
       - name: Verify frozen inputs and test offline
@@ -43,14 +43,14 @@ jobs:
         run: |
           python3 experiments/jev_comparison/scripts/check_bundle.py
           python3 -m unittest discover -s experiments/jev_comparison/tests -v
-          python3 -m unittest discover -s tests -p test_jev_execution.py -v
-          python3 experiments/jev_comparison/scripts/jev_runner.py --output "$RUNNER_TEMP/jev-plan.json"
-      - name: Verify secret, validate first request, then complete bounded comparison
+          python3 -m unittest discover -s tests -p test_jev_continuation.py -v
+          python3 scripts/run_jev_continuation.py --output "$RUNNER_TEMP/jev-plan.json"
+      - name: Continue only unattempted cases with the original shared budget
         env:
           JEV_API_KEY: ${{ secrets.JEV_API_KEY }}
           PYTHONDONTWRITEBYTECODE: '1'
         run: |
-          python3 scripts/run_jev_workflow.py --execute --approval one-pass-public-text-974 --approved-api-usd 3 --output "$RUNNER_TEMP/jev-run"
+          python3 scripts/run_jev_continuation.py --execute --approval continue-unattempted-public-text-793 --approved-api-usd 3 --output "$RUNNER_TEMP/jev-run"
       - name: Score complete and missing cases offline
         if: always()
         env:
@@ -63,13 +63,14 @@ jobs:
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
-          name: jev-frozen-comparison-${{ github.run_id }}
+          name: jev-continuation-${{ github.run_id }}
           retention-days: 1
           if-no-files-found: error
           include-hidden-files: false
           path: |
             ${{ runner.temp }}/jev-plan.json
             ${{ runner.temp }}/jev-run/connection_check.json
+            ${{ runner.temp }}/jev-run/validation_diagnostics.jsonl
             ${{ runner.temp }}/jev-run/attempts.jsonl
             ${{ runner.temp }}/jev-run/predictions.jsonl
             ${{ runner.temp }}/jev-run/run_summary.json

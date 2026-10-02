@@ -34,6 +34,6 @@ The original first-run files are immutable under [their scientific manifest](../
 
 ## Manual start
 
-Publication installs a separate reviewed code commit and pins the manual workflow to that full SHA. The workflow requires both default-false approvals, the expected repository and main branch, and the first attempt of a manual dispatch. The secret remains only in the execution step. The repository owner starts the continuation **once** when the published workflow is ready; ordinary pushes and CI never contact the provider.
+The published manual workflow pins reviewed code commit `5ac03db03857cb3d8945affcd5c769878890f14b`. It is installed and awaiting one explicit start. The workflow requires both default-false approvals, the expected repository and main branch, and the first attempt of a manual dispatch. The secret remains only in the execution step. The repository owner starts the continuation **once** when the published workflow is ready; ordinary pushes and CI never contact the provider.
 
 Concurrency serializes runs but does not prevent a second fresh manual dispatch. The cumulative guard applies to this one continuation plus its fixed predecessor, not to arbitrary future dispatches. Do not click an older initial-run workflow, use Re-run jobs, or launch another continuation. Any further attempt requires reconciling its retained ledger first. Results must be independently audited before reporting the completed comparison. MASSIVE's archived Clef baseline remains pending in the original comparison package until its separate final audit is integrated.

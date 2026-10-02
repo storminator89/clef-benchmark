@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "review_date_utc": "2026-10-02",
+  "status": "stage_b_offline_review_passed",
+  "reviewed_code_commit": "5ac03db03857cb3d8945affcd5c769878890f14b",
+  "scope": "Actual local activation delta: the existing manual workflow switches to the reviewed continuation template and immutable code pin, its activation record selects continuation793, and the continuation guide names the pin. This is a prepublication review, not confirmation of remote deployment, CI or execution.",
+  "reviewed_files_sha256": {
+    ".github/workflows/jev-comparison.yml": "13c48d584f8177287e40bd3edc1f263e3acf86747d1dd851fa1306c71d7199ba",
+    "provenance/jev_activation.json": "db9b5797f5a6d8ef311da997fb0125c753d52c2eea625d9dfb4544c1e129d76e",
+    "docs/JEV_CONTINUATION.md": "40d35922c42eed4bfea2c1c7b9ec69ed76d72917ff2a75d42e21f64bc941ce42",
+    "scripts/run_jev_continuation.py": "c8509f7886b5d95dc188a5e7fbf06fc3e0273c8b49b380fbdd6eace0eb58a048",
+    "scripts/workflows/jev-continuation.yml.in": "d8c63b9ee0746a176082a8a9b07dd49c0e810a2b09e31bb702c7c759ef288cd2",
+    "tests/test_jev_continuation.py": "e2c1942fdc789316512ee294896ad57246b5c42fd5a1a35d4c8b053336b532ad",
+    "execution/jev/continuation_plan.json": "617ccee8601d598fc623ed0722bb3a4c78f0252bfffd69e0769b670de08b3383",
+    "scripts/check_jev.py": "3cac3313f12a7aeb1e26b8242e3fdc0eae320d50f988fdbdf527b5d2af8a9826",
+    "provenance/jev_continuation_gate_evolution.json": "a44c328844a6a55d555eda9e57d89205500ccb8570ee4c7af84d55c3a24e2724",
+    "qa/jev_continuation_review.json": "18e7c72b0cd3fa85951e66b6a2ea31403c9572aa176fa1bbe7e297517a55c14a"
+  },
+  "blockers": [],
+  "verified_controls": [
+    "Applied workflow is byte-for-byte the frozen Stage A continuation template with only its immutable 40-character code SHA substituted.",
+    "The same workflow filename replaces the initial-run definition. Exactly one active workflow references the Jev secret; no second provider workflow is added.",
+    "Manual-only triggering, both default-false approvals, exact repository/main/first-attempt guards, fixed execution command, pinned actions and immutable checkout remain intact.",
+    "The execution secret is scoped to the bounded continuation step. Read-only repository permissions, disabled credential persistence, concurrency, timeout and explicit one-day artifact allowlist match Stage A.",
+    "Activation record preserves cumulative 974-case/1024-attempt/USD 3 scope while specifying 181 prior attempts, exactly 793 remaining initial requests, no retry of the prior failure and fixed first-run/plan hashes.",
+    "Collector, focused tests, plan, template, integration gate and gate-evolution record are unchanged from the Stage A reviewed hashes; all six historical source files retain their locked bytes.",
+    "The narrow gate verifies immutable wrapper and template hashes before running any continuation preflight and rejects an unreviewed additional secret workflow.",
+    "All other Stage A reviewed documents remain unchanged. The continuation guide delta is exactly the one sentence naming the reviewed code pin and awaiting-start state.",
+    "The original technical failure remains retained in the overall denominator. No continuation result, full benchmark score or completed MASSIVE comparison is asserted."
+  ],
+  "offline_evidence": {
+    "repository_unittests_passed_after_activation": 338,
+    "focused_jev_unittests_passed_after_activation": 37,
+    "focused_tests_included_in_repository_count": true,
+    "actual_activation_adversarial_rejections_passed": 12,
+    "adversarial_cases": [
+      "push trigger",
+      "default-true approval",
+      "branch checkout",
+      "changed wrapper rejected before subprocess",
+      "changed template rejected before subprocess",
+      "changed remaining count",
+      "changed prior count",
+      "prior-failure retry enabled",
+      "changed plan lock",
+      "changed first-run lock",
+      "unknown mode",
+      "additional secret workflow"
+    ],
+    "active_workflow_exact_template_substitution": true,
+    "documentation_delta_exactly_one_pin_sentence": true,
+    "public_content_audit_before_this_report": "passed; 999 files; zero findings",
+    "real_provider_api_calls": 0,
+    "model_inference_calls": 0,
+    "real_credential_inspections": 0,
+    "workflow_dispatches": 0
+  },
+  "publication_and_execution_limits": [
+    "The reviewed immutable code SHA was supplied by the publisher. This local review does not independently verify the remote commit tree, branch publication, CI status or Actions registration; those must be checked separately before claiming readiness.",
+    "No dispatch is authorized or performed by this report. The owner starts at most the one approved continuation with both explicit approvals after publication is verified.",
+    "Concurrency is not a durable cross-dispatch spend lock. A second fresh manual dispatch is technically possible and requires reconciliation of all retained attempts before any further execution.",
+    "All prior reservations continue to count; the USD 3 limit remains a local capacity-reservation guard under dated pricing, not a provider-enforced account cap.",
+    "Any actual continuation outputs require a separate independent audit before reporting complete comparisons. Offline mocks are not model observations."
+  ]
+}
