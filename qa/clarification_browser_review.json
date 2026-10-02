@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "status": "pass",
+  "captured_source_commit": "ce6369948d30d65b9674b5770f615879807580dd",
+  "capture_run_url": "https://github.com/storminator89/clef-benchmark/actions/runs/37029702253",
+  "capture_manifest_sha256": "c5cfe8dcf2bab53f029619c6ca8dc1f277600c12f382bc08f02a68e247694bf5",
+  "artifact_id": 11237375352,
+  "artifact_zip_sha256": "22089864ece37ea59266f3157ef31046a487b100330478f2cb03a007d3ac54c9",
+  "all_png_hashes_and_dimensions_verified": 21,
+  "check_groups_passed": 10,
+  "browser_channel": "chrome",
+  "chromium_sandbox": true,
+  "model_inference_executed": false,
+  "synthetic_inputs_only": true,
+  "visually_opened_pngs": [
+    "clarification-workbench-light.png",
+    "clarification-dashboard-light.png",
+    "clarification-result-320.png",
+    "clarification-result-390.png"
+  ],
+  "visual_review": "The clarification dashboard and native-answer comparison are readable; separate gold/model choices and unrepaired inconsistency remain visible. No horizontal overflow in the reviewed desktop or 320/390-CSS-pixel result views. Mobile screenshots show the top of the scrollable result pane, not every answer/probability at once. Emulated viewports are not physical-device, screenreader or cross-browser validation.",
+  "publication_directory": "docs/screenshots/clarification72",
+  "historical_gallery_unchanged": true,
+  "scope": "Exact captured UI source. Later documentation-only updates do not alter web source or browser test hashes."
+}

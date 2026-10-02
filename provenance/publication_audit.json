@@ -1,7 +1,7 @@
 {
   "status": "pass",
-  "files_scanned": 511,
-  "total_bytes": 17285267,
+  "files_scanned": 535,
+  "total_bytes": 20683760,
   "findings": [],
   "scope": "Heuristic secret/private-path/baggage scan of the public tree, including DOCX XML and extracted PDF text; not a guarantee for arbitrary later additions."
 }

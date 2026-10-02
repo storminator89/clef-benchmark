@@ -4,7 +4,7 @@
 It grants only `contents: read`, does not persist checkout credentials, and has a
 10-minute timeout. It uses Python 3.12 and Node 24. There are no Python or npm runtime dependencies, GPU, model download, inference, paid API or publishing steps. The pure DOM regression suite installs the lockfile-pinned development dependency LinkeDOM 0.18.13 with `npm ci --ignore-scripts`; it does not launch a browser.
 
-Checks cover both frozen manifests, artifact provenance, deterministic data
+Checks cover the suite-specific frozen manifests, artifact provenance, deterministic data
 reconstruction, scorer synthetic tests, independent metric recomputation on the
 saved complete predictions, HTTP server protections, adapter/importer safety,
 byte-identical rebuilding of the static workbench datasets, and Node's built-in
@@ -33,7 +33,7 @@ uses a GitHub-hosted Ubuntu 24.04 runner. No repository secrets need to be added
 
 ## Follow-up coverage
 
-The same offline job additionally verifies the clean72, image90, and seven-pair ablation artifacts with `scripts/check_followups.py`; it rebuilds `web/data/clean72.json` byte-for-byte and checks its importer failure modes. Dataset source images and model weights are not fetched. Browser/visual QA remains a separately disclosed unrun check.
+The same offline job additionally verifies the clean72, image90, and seven-pair ablation artifacts with `scripts/check_followups.py`; it rebuilds `web/data/clean72.json` byte-for-byte and checks its importer failure modes. Dataset source images and model weights are not fetched. Browser/visual QA is separately source-versioned; see [BROWSER_GALLERY.md](BROWSER_GALLERY.md) for actual captures.
 
 ## Dokumentverständnis und UI-Redesign
 
@@ -41,7 +41,7 @@ Die Versicherungssuite unter `experiments/insurance` bleibt eigenständig. Der
 Versicherungsimporter prüft vor der Rekonstruktion von `web/data/insurance.json`
 die vollständige unabhängige Verifikation, alle Quellhashes, 60 Fälle und 120
 Antwortfelder sowie die aus Rohoutputs nachgerechneten Resultate. CI rekonstruiert
-alle vier Text-UI-Datensätze byte-identisch.
+alle sechs Text-UI-Datensätze byte-identisch.
 
 `provenance/followup_baseline.json` bleibt unverändert. Die absichtlich erweiterten
 Dateien `server.py`, `runtime/live_adapter.py` und `tests/test_device_profiles.py`
@@ -61,6 +61,10 @@ Veröffentlichungsbaum ohne installierte Entwicklungsabhängigkeiten angewendet.
 `check_bank_support.py` prüft die abgeschlossene eigenständige Bank-Suite,
 Export-/Freeze-/QA-Hashes, beide erneut ausgeführten Scorer, exakte Fall-/Feld- und
 Safety-Metriken und alle 80 nativen Requests gegen die vorhandenen Live-Grenzen.
-212 vorbestehende Daten-/Runtime-Artefakte bleiben byte-identisch geschützt.
-CI baut nun alle fünf UI-Datensätze deterministisch neu. Es wird kein Modell
+209 vorbestehende Daten-/Runtime-Artefakte bleiben byte-identisch geschützt; drei explizite Runtime-Erweiterungen sind separat hashgebunden.
+CI baut nun alle sechs UI-Datensätze deterministisch neu. Es wird kein Modell
 geladen und keine Aussage über Browserdarstellung oder AMD-Ausführung abgeleitet.
+
+## Clarification72 integration
+
+The current workflow executes four integrity gates and rebuilds all six completed-result datasets byte-identically. The recorded local regression count is 266 Python and 111 JavaScript/DOM tests. `check_clarification.py` additionally checks both scorers, balanced denominators, all native vectors and exact public-curation evolution. The genuine sandboxed Chrome run is linked in the README and records its own source hash; it does not run a model. Public inventory format 2 exposes aggregate integrity only and excludes its two self-reports deterministically.

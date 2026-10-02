@@ -1,0 +1,507 @@
+{
+  "schema_version": 1,
+  "status": "pass",
+  "started_utc": "2026-10-02T15:50:12.358426+00:00",
+  "source_sha256": {
+    "web/app.js": "9686f43a0e9b4a05848db384d4e8067343333d135d16b3c875b6b8dbeb9553a2",
+    "web/core.js": "c2f17d6778f940cd4fd90fcb21ec836f6f3c316f0d0a84a640e4f807708af97d",
+    "web/custom-cases.js": "e43383817ac630b916e764ecedbe9ba9ee7e51129661b9816c58341ec9bf560e",
+    "web/custom-ui.js": "c588a5b04356eb3b279256c06ecd06b784fa6be403aab23bb8815f615efb1a75",
+    "web/data/bank-support.json": "d219b98b0716dd3efaee828ccd7bd8c8d6d12c235c499c29e0efd5dbc562e4fe",
+    "web/data/benchmark.json": "98729655de727e9941f5044111a0b456896b099a0709b49d0242746393611a1c",
+    "web/data/clarification.json": "308b6ce0ac90e21504828834ff6d1d705482dc810f1b336765ba5c02ea63dfae",
+    "web/data/clean72.json": "3762fa3a3e47332a9e83e4d1da0b592811b7ede047605f66b9376656a53890f6",
+    "web/data/finance.json": "75dc1e910766ae370258c25af82eac3f962036c6fa1bf859c6158d56b2ead999",
+    "web/data/insurance.json": "391c09b563b3aac960ceb800776965c8b9c451d41b7e8b9609873487d0e06891",
+    "web/favicon.svg": "7b8afce9766a7ea3df9b177de7ccd950544087bf2236652a58f2e9c7d6dafb46",
+    "web/icons.js": "6902e919bf7b5d64ee22ec356de9f4a0cb285d7733eada71c7cd721613b399d2",
+    "web/index.html": "0dda318678b0521a5955d85d07cafa264e463c9f7de113554794ea418319a1a1",
+    "web/styles.css": "8a4aa7c06c5b777482a731fe6aac9e45967a69c27917bf22fb9e0f38853d9c4f",
+    "examples/custom_cases/support.json": "fdc0199aebd33c8fa0cd411433bb3da0add536bfd2881f3bc0c372c81bc43fd0",
+    "tests/test_browser.py": "21cfe11a6af66e9df870e13dd69d7701377866fa05c099698055e44516b0bf53"
+  },
+  "python_version": "3.12.14",
+  "os": "Linux",
+  "architecture": "x86_64",
+  "base_url": "http://127.0.0.1:8765",
+  "git_commit": "ce6369948d30d65b9674b5770f615879807580dd",
+  "workflow_run_url": "https://github.com/storminator89/clef-benchmark/actions/runs/37029702253",
+  "chromium_sandbox": true,
+  "browser_channel": "chrome",
+  "browser_application": "Google Chrome",
+  "real_browser_rendering": true,
+  "model_inference_executed": false,
+  "synthetic_inputs_only": true,
+  "page_errors": [],
+  "console_errors": [],
+  "blocked_requests": [],
+  "request_failures": [],
+  "http_errors": [],
+  "checks": [
+    "Insurance document, evidence navigation, empty-filter clearing/reset, persisted dark theme",
+    "insurance: recorded 2-field replay; text, question-order and malformed-schema invalidation",
+    "bank-support: recorded 3-field replay; text, question-order and malformed-schema invalidation",
+    "All six suite denominators/errors, language controls, three bank fields, deep links, Back/Forward and keyboard",
+    "clarification: recorded 2-field replay; text, question-order and malformed-schema invalidation",
+    "clarification72: complete source context, two native fields, error subtypes, honest denominators, 320/390px panels",
+    "Real disabled backend, explicit health refresh and honest readiness; no fabricated ready state",
+    "Actual JSON/JSONL/CSV file input, preview/accept, invalid gold rejection, edit/discard, JSON download, search/status filters, replace/clear confirmations with cancel",
+    "390px: all suites, three workbench panes, overview/live/method/private editor without horizontal overflow",
+    "320px: all suites, three workbench panes, overview/live/method/private editor without horizontal overflow"
+  ],
+  "screenshots": [
+    {
+      "file": "insurance-workbench-light.png",
+      "caption": "Insurance document, independently recorded answers, light theme",
+      "sha256": "908cf64dd6dd77e844fc8f0e3e29033899865ff5a165b946748f2c39517655a6",
+      "image_pixels": [
+        1440,
+        1131
+      ],
+      "viewport_css_pixels": {
+        "width": 1440,
+        "height": 1000
+      },
+      "device_scale_factor": 1,
+      "full_page": true,
+      "route": "explorer?suite=insurance&case=fall_001&field=decision",
+      "theme": "light",
+      "selected_case": "fall_001",
+      "custom_case": "",
+      "content_kind": "public_synthetic_benchmark_or_results_only_editor",
+      "new_inference": false
+    },
+    {
+      "file": "insurance-workbench-dark.png",
+      "caption": "Same insurance workbench in persisted dark theme",
+      "sha256": "4056f4e843ed5c7308409b996b4bb8c891a6866c9b27c96a5fc8b5fb69a4b809",
+      "image_pixels": [
+        1440,
+        1131
+      ],
+      "viewport_css_pixels": {
+        "width": 1440,
+        "height": 1000
+      },
+      "device_scale_factor": 1,
+      "full_page": true,
+      "route": "explorer?suite=insurance&case=fall_001&field=decision",
+      "theme": "dark",
+      "selected_case": "fall_001",
+      "custom_case": "",
+      "content_kind": "public_synthetic_benchmark_or_results_only_editor",
+      "new_inference": false
+    },
+    {
+      "file": "bank-workbench-light.png",
+      "caption": "Bank support: synthetic message and three recorded response fields",
+      "sha256": "c5a4912e35ae038928ce2c75872fcd1e67adfbe21b9fca444204a3431800ad6f",
+      "image_pixels": [
+        1440,
+        1131
+      ],
+      "viewport_css_pixels": {
+        "width": 1440,
+        "height": 1000
+      },
+      "device_scale_factor": 1,
+      "full_page": true,
+      "route": "explorer?suite=bank-support&case=bank_cards_03&field=intent",
+      "theme": "light",
+      "selected_case": "bank_cards_03",
+      "custom_case": "",
+      "content_kind": "public_synthetic_benchmark_or_results_only_editor",
+      "new_inference": false
+    },
+    {
+      "file": "bank-dashboard-light.png",
+      "caption": "Separate bank-support denominators and honest recorded results",
+      "sha256": "a3eb88f8b58aeb819c9fb2e48eea3c5b937865428a3c216d8cfb958764c4a584",
+      "image_pixels": [
+        1440,
+        1825
+      ],
+      "viewport_css_pixels": {
+        "width": 1440,
+        "height": 1000
+      },
+      "device_scale_factor": 1,
+      "full_page": true,
+      "route": "overview",
+      "theme": "light",
+      "selected_case": "bank_cards_03",
+      "custom_case": "",
+      "content_kind": "public_synthetic_benchmark_or_results_only_editor",
+      "new_inference": false
+    },
+    {
+      "file": "clarification-workbench-light.png",
+      "caption": "Clarification72: complete fictional rule, question and preserved inconsistent model fields",
+      "sha256": "d1828acbebee1f9e8641e63c64b4c7dd69e3942419a2038eb543f4a5db236e44",
+      "image_pixels": [
+        1440,
+        1131
+      ],
+      "viewport_css_pixels": {
+        "width": 1440,
+        "height": 1000
+      },
+      "device_scale_factor": 1,
+      "full_page": true,
+      "route": "explorer?suite=clarification&case=clarify_order_cancellation_02&field=action",
+      "theme": "light",
+      "selected_case": "clarify_order_cancellation_02",
+      "custom_case": "",
+      "content_kind": "public_synthetic_benchmark_or_results_only_editor",
+      "new_inference": false
+    },
+    {
+      "file": "clarification-dashboard-light.png",
+      "caption": "Clarification72: separate scores, balanced denominators and confidence limitations",
+      "sha256": "66e63e2ce4616358cce32e221fbaa22d045ff3bcb84bc5a1840b39ba5707e12b",
+      "image_pixels": [
+        1440,
+        1653
+      ],
+      "viewport_css_pixels": {
+        "width": 1440,
+        "height": 1000
+      },
+      "device_scale_factor": 1,
+      "full_page": true,
+      "route": "overview",
+      "theme": "light",
+      "selected_case": "clarify_savings_fee_02",
+      "custom_case": "",
+      "content_kind": "public_synthetic_benchmark_or_results_only_editor",
+      "new_inference": false
+    },
+    {
+      "file": "clarification-result-320.png",
+      "caption": "Clarification72 recorded inconsistent response at 320 CSS pixels",
+      "sha256": "981d97267d7b9e875163f4d859b5ae56a1cfbd73892d528d0072c1df5caa6458",
+      "image_pixels": [
+        320,
+        844
+      ],
+      "viewport_css_pixels": {
+        "width": 320,
+        "height": 844
+      },
+      "device_scale_factor": 1,
+      "full_page": false,
+      "route": "explorer?suite=clarification&case=clarify_order_cancellation_02&field=action",
+      "theme": "light",
+      "selected_case": "clarify_order_cancellation_02",
+      "custom_case": "",
+      "content_kind": "public_synthetic_benchmark_or_results_only_editor",
+      "new_inference": false
+    },
+    {
+      "file": "clarification-result-390.png",
+      "caption": "Clarification72 recorded inconsistent response at 390 CSS pixels",
+      "sha256": "8eaf49aa00c1418262684fce934f013eddbef0cd4c97e99afda0d1c554fef4fb",
+      "image_pixels": [
+        390,
+        844
+      ],
+      "viewport_css_pixels": {
+        "width": 390,
+        "height": 844
+      },
+      "device_scale_factor": 1,
+      "full_page": false,
+      "route": "explorer?suite=clarification&case=clarify_order_cancellation_02&field=action",
+      "theme": "light",
+      "selected_case": "clarify_order_cancellation_02",
+      "custom_case": "",
+      "content_kind": "public_synthetic_benchmark_or_results_only_editor",
+      "new_inference": false
+    },
+    {
+      "file": "backend-readiness-light.png",
+      "caption": "Actual results-only backend; server reachability is not model readiness",
+      "sha256": "3950976a303e4130bb1b07f87294d7d884109dd4ae9620ea4ec7b22b06abb3af",
+      "image_pixels": [
+        1440,
+        1658
+      ],
+      "viewport_css_pixels": {
+        "width": 1440,
+        "height": 1000
+      },
+      "device_scale_factor": 1,
+      "full_page": true,
+      "route": "playground",
+      "theme": "light",
+      "selected_case": "clarify_order_cancellation_02",
+      "custom_case": "",
+      "content_kind": "public_synthetic_benchmark_or_results_only_editor",
+      "new_inference": false
+    },
+    {
+      "file": "custom-import-light.png",
+      "caption": "Validated public synthetic support example; nothing sent to a model",
+      "sha256": "7eb232c086771a7de107d391e06efc81ab2dbc5372efd087ee94ea1c64e6c44c",
+      "image_pixels": [
+        1440,
+        1388
+      ],
+      "viewport_css_pixels": {
+        "width": 1440,
+        "height": 1000
+      },
+      "device_scale_factor": 1,
+      "full_page": true,
+      "route": "custom",
+      "theme": "light",
+      "selected_case": "clarify_order_cancellation_02",
+      "custom_case": "",
+      "content_kind": "synthetic_private_input_without_inference",
+      "new_inference": false
+    },
+    {
+      "file": "custom-editor-light.png",
+      "caption": "Private editor showing only the bundled synthetic case, without predictions",
+      "sha256": "f4a97afa326eb59b3c15e6b7d80bfff082f897e5dd24ed963612d736fe3abf87",
+      "image_pixels": [
+        1440,
+        1671
+      ],
+      "viewport_css_pixels": {
+        "width": 1440,
+        "height": 1000
+      },
+      "device_scale_factor": 1,
+      "full_page": true,
+      "route": "custom",
+      "theme": "light",
+      "selected_case": "clarify_order_cancellation_02",
+      "custom_case": "beispiel_001",
+      "content_kind": "synthetic_private_input_without_inference",
+      "new_inference": false
+    },
+    {
+      "file": "insurance-cases-390.png",
+      "caption": "Insurance cases panel at 390 CSS pixels",
+      "sha256": "f3b3aeaf0a21fd4f4f0bf0637704c16b3cf9db08de0cd2157ae39cd00a291f35",
+      "image_pixels": [
+        390,
+        844
+      ],
+      "viewport_css_pixels": {
+        "width": 390,
+        "height": 844
+      },
+      "device_scale_factor": 1,
+      "full_page": false,
+      "route": "explorer?suite=insurance&case=fall_001&field=decision",
+      "theme": "light",
+      "selected_case": "fall_001",
+      "custom_case": "beispiel_001",
+      "content_kind": "public_synthetic_benchmark_or_results_only_editor",
+      "new_inference": false
+    },
+    {
+      "file": "insurance-document-390.png",
+      "caption": "Insurance document panel at 390 CSS pixels",
+      "sha256": "44b89bfc82052c0ac000a02424023aa70d5e157def908c7b192ba23e3ee1f9b0",
+      "image_pixels": [
+        390,
+        844
+      ],
+      "viewport_css_pixels": {
+        "width": 390,
+        "height": 844
+      },
+      "device_scale_factor": 1,
+      "full_page": false,
+      "route": "explorer?suite=insurance&case=fall_001&field=decision",
+      "theme": "light",
+      "selected_case": "fall_001",
+      "custom_case": "beispiel_001",
+      "content_kind": "public_synthetic_benchmark_or_results_only_editor",
+      "new_inference": false
+    },
+    {
+      "file": "insurance-result-390.png",
+      "caption": "Insurance result panel at 390 CSS pixels",
+      "sha256": "3694a8a080d18ef40ae6655445660303e4b3cddb9ac949d40379f0a76c90ba3f",
+      "image_pixels": [
+        390,
+        844
+      ],
+      "viewport_css_pixels": {
+        "width": 390,
+        "height": 844
+      },
+      "device_scale_factor": 1,
+      "full_page": false,
+      "route": "explorer?suite=insurance&case=fall_001&field=decision",
+      "theme": "light",
+      "selected_case": "fall_001",
+      "custom_case": "beispiel_001",
+      "content_kind": "public_synthetic_benchmark_or_results_only_editor",
+      "new_inference": false
+    },
+    {
+      "file": "bank-dashboard-390.png",
+      "caption": "Bank support dashboard at 390 CSS pixels",
+      "sha256": "dc87f41fb4f5f486fc2a4be72bdc081e0d3ccb0d3420e9af1f091d126015d870",
+      "image_pixels": [
+        390,
+        3013
+      ],
+      "viewport_css_pixels": {
+        "width": 390,
+        "height": 844
+      },
+      "device_scale_factor": 1,
+      "full_page": true,
+      "route": "overview",
+      "theme": "light",
+      "selected_case": "bank_cards_03",
+      "custom_case": "beispiel_001",
+      "content_kind": "public_synthetic_benchmark_or_results_only_editor",
+      "new_inference": false
+    },
+    {
+      "file": "custom-editor-390.png",
+      "caption": "Synthetic private editor at 390 CSS pixels",
+      "sha256": "e81c92bd3390110811d212285d695c8bb5a5895eb5aa800a8a56fab07ad0a04b",
+      "image_pixels": [
+        390,
+        3564
+      ],
+      "viewport_css_pixels": {
+        "width": 390,
+        "height": 844
+      },
+      "device_scale_factor": 1,
+      "full_page": true,
+      "route": "custom",
+      "theme": "light",
+      "selected_case": "bank_cards_03",
+      "custom_case": "beispiel_001",
+      "content_kind": "synthetic_private_input_without_inference",
+      "new_inference": false
+    },
+    {
+      "file": "insurance-cases-320.png",
+      "caption": "Insurance cases panel at 320 CSS pixels",
+      "sha256": "86b0c6d4ae3e1ad4a5ead47859a6031fddab2c00c4bd0913cba5340a078f82f1",
+      "image_pixels": [
+        320,
+        844
+      ],
+      "viewport_css_pixels": {
+        "width": 320,
+        "height": 844
+      },
+      "device_scale_factor": 1,
+      "full_page": false,
+      "route": "explorer?suite=insurance&case=fall_001&field=decision",
+      "theme": "light",
+      "selected_case": "fall_001",
+      "custom_case": "beispiel_001",
+      "content_kind": "public_synthetic_benchmark_or_results_only_editor",
+      "new_inference": false
+    },
+    {
+      "file": "insurance-document-320.png",
+      "caption": "Insurance document panel at 320 CSS pixels",
+      "sha256": "7cb572a9e962ce102bfbea6b23a5f144756912f35384964897f5def30da36495",
+      "image_pixels": [
+        320,
+        844
+      ],
+      "viewport_css_pixels": {
+        "width": 320,
+        "height": 844
+      },
+      "device_scale_factor": 1,
+      "full_page": false,
+      "route": "explorer?suite=insurance&case=fall_001&field=decision",
+      "theme": "light",
+      "selected_case": "fall_001",
+      "custom_case": "beispiel_001",
+      "content_kind": "public_synthetic_benchmark_or_results_only_editor",
+      "new_inference": false
+    },
+    {
+      "file": "insurance-result-320.png",
+      "caption": "Insurance result panel at 320 CSS pixels",
+      "sha256": "90790d61ed5ae7a132ca94d4ca4d9e0acf35e72f4e548ff3fc2b1f81d52d1825",
+      "image_pixels": [
+        320,
+        844
+      ],
+      "viewport_css_pixels": {
+        "width": 320,
+        "height": 844
+      },
+      "device_scale_factor": 1,
+      "full_page": false,
+      "route": "explorer?suite=insurance&case=fall_001&field=decision",
+      "theme": "light",
+      "selected_case": "fall_001",
+      "custom_case": "beispiel_001",
+      "content_kind": "public_synthetic_benchmark_or_results_only_editor",
+      "new_inference": false
+    },
+    {
+      "file": "bank-dashboard-320.png",
+      "caption": "Bank support dashboard at 320 CSS pixels",
+      "sha256": "be41e5112f2d0135dc3dc79fa5719471b18c07314cbad8c385ae61013c08faed",
+      "image_pixels": [
+        320,
+        3128
+      ],
+      "viewport_css_pixels": {
+        "width": 320,
+        "height": 844
+      },
+      "device_scale_factor": 1,
+      "full_page": true,
+      "route": "overview",
+      "theme": "light",
+      "selected_case": "bank_cards_03",
+      "custom_case": "beispiel_001",
+      "content_kind": "public_synthetic_benchmark_or_results_only_editor",
+      "new_inference": false
+    },
+    {
+      "file": "custom-editor-320.png",
+      "caption": "Synthetic private editor at 320 CSS pixels",
+      "sha256": "8fa6b613df092248e3f331af4741f010b662dd19c4cc9ab176627175ce40675d",
+      "image_pixels": [
+        320,
+        3846
+      ],
+      "viewport_css_pixels": {
+        "width": 320,
+        "height": 844
+      },
+      "device_scale_factor": 1,
+      "full_page": true,
+      "route": "custom",
+      "theme": "light",
+      "selected_case": "bank_cards_03",
+      "custom_case": "beispiel_001",
+      "content_kind": "synthetic_private_input_without_inference",
+      "new_inference": false
+    }
+  ],
+  "playwright_version": "1.62.0",
+  "chromium_version": "154.0.8037.57",
+  "backend": {
+    "mode": "results_only",
+    "model_key": "flash-9b",
+    "model_id": "Cloudflare/clef-flash",
+    "revision": "17f0b0ad64efb65d273590632833508766b2aae6",
+    "inference_enabled": false,
+    "model_loaded": false,
+    "runtime_state": "unloaded"
+  },
+  "completed_utc": "2026-10-02T15:50:29.848963+00:00"
+}

@@ -1,5 +1,5 @@
 {
-  "status": "local_checks_passed_browser_pending",
+  "status": "pass",
   "baseline_commit": "b084dc17e8e285e0eef20e00af07fae76d371ec2",
   "suite": "clarification",
   "case_count": 72,
@@ -20,10 +20,14 @@
   "new_model_inference": false,
   "old_gallery_source_commit": "3b5b3743965f3ad77a5dd092296866920d2ca813",
   "old_gallery_scope": "Five-suite historical capture; no clarification72 images",
-  "real_browser_current_ui": "Presentation refinement pending exact-source recapture after the first successful clarification72 capture",
+  "real_browser_current_ui": "Passed genuine sandboxed Chrome on the exact captured source",
   "scope": "Separate suite and denominators; native outputs and all earlier scientific artifacts preserved; frozen export hash admitted before running its independent checker",
   "public_metadata_evolutions": 2,
   "public_curation": "General public scope only; no realized private omission identifiers; all frozen data and native outputs unchanged",
   "public_inventory": "Aggregate-only format 2, deterministically excluding both self-reports; scientific freeze manifests unchanged",
-  "previous_browser_run": "https://github.com/storminator89/clef-benchmark/actions/runs/37028729005"
+  "previous_browser_run": "https://github.com/storminator89/clef-benchmark/actions/runs/37028729005",
+  "browser_source_commit": "ce6369948d30d65b9674b5770f615879807580dd",
+  "browser_run": "https://github.com/storminator89/clef-benchmark/actions/runs/37029702253",
+  "genuine_png_count": 21,
+  "browser_check_groups": 10
 }

@@ -24,6 +24,23 @@ Clef Lab macht aus Modellantworten prüfbare Ergebnisse: Originaltext, Aufgabenr
 
 **English:** [Executive summary and project profile](docs/PROJECT_BRIEF.md#english) · [Evaluation methodology and evidence](docs/EVALUATION_GUIDE.md)
 
+## Neu: Rückfragen und Unsicherheit sichtbar prüfen
+
+Die sechste Suite hat eine eigene Ansicht mit getrennten Feldscores, verpassten und unnötigen Rückfragen sowie unveränderten inkonsistenten Antworten. Diese neuen Aufnahmen stammen aus einem **echten, modellfreien Chrome-Lauf**; sie ergänzen die unveränderte historische Galerie darunter.
+
+![Rückfragen: vollständige fiktive Regel, Originalanfrage und unveränderte Gold-/Modellprüfung](docs/screenshots/clarification72/screenshots/clarification-workbench-light.png)
+
+<details>
+<summary>Rückfrage-Ergebnisse und Smartphone-Ansicht</summary>
+
+![Rückfragen: eigene Nenner, Fallgruppen und Grenzen hoher Modellscores](docs/screenshots/clarification72/screenshots/clarification-dashboard-light.png)
+
+![Rückfrageprüfung auf 390 CSS-Pixeln: getrennte Gold-/Modellspalten und Konsistenzhinweis](docs/screenshots/clarification72/screenshots/clarification-result-390.png)
+
+</details>
+
+Aufnahmequelle: `ce6369948d30d65b9674b5770f615879807580dd` · [Bestandener Browserlauf](https://github.com/storminator89/clef-benchmark/actions/runs/37029702253) · [Quell- und Bildhashes](docs/screenshots/clarification72/manifest.json) · [Visuelle Prüfung und Grenzen](qa/clarification_browser_review.json). Keine neue Modellinferenz.
+
 <!-- CLEF_GALLERY_START -->
 ## Ein Blick in die Workbench
 
@@ -426,6 +443,8 @@ Die gleichen modellfreien Checks laufen in [GitHub Actions](https://github.com/s
 Die Importe verweigern unvollständige Läufe, fehlende IDs, geänderte Freeze-Dateien und unpassende unabhängige Gegenprüfungen. `scripts/build_web_data.py --cases-only` erzeugt ausdrücklich ergebnisfreie Entwicklungsdaten, niemals partielle Scores. Eigene Reproduktionen gehören in **neue Dateien**, niemals über archivierte Originalresultate. Nach erfolgreicher Modelleinrichtung: `bash runtime/reproduce.sh`.
 
 ### Browserprüfung und echte Screenshots
+
+**Aktueller Sechs-Suiten-Stand:** Der [Chrome-Lauf](https://github.com/storminator89/clef-benchmark/actions/runs/37029702253) auf `ce6369948d30d65b9674b5770f615879807580dd` bestand zehn Prüfgruppen und erzeugte 21 hashverifizierte echte PNGs. Die vier neuen Rückfrage-Aufnahmen wurden visuell geprüft. Desktop, Hell/Dunkel, 320/390 CSS-Pixel, alle sechs Suiten, Replay, Navigation und private synthetische Imports wurden ohne Modell geprüft. Die folgenden Angaben zur älteren Galerie bleiben historisch versioniert.
 
 Der vorbereitete [Browser-Gallery-Workflow](.github/workflows/browser-gallery.yml) verwendet **Playwright 1.62.0** und den normal installierten stabilen Google-Chrome-Kanal mit aktiviertem Chromium-Sandboxing auf einem gewöhnlichen `ubuntu-24.04`-Runner. Er prüft Desktop, Hell/Dunkel sowie 320-/390-Pixel-Ansichten mit öffentlichen synthetischen Fällen. Der Lauf verbietet Modellinferenz, nutzt keine Secrets und begrenzt das Artefakt auf **10 MiB mit einem Tag Aufbewahrung**, ohne Trace oder Video.
 

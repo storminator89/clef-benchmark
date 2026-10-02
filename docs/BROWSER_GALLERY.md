@@ -1,5 +1,7 @@
 # Genuine browser regression and README gallery
 
+**Current six-suite evidence:** [Sandboxed Chrome capture](https://github.com/storminator89/clef-benchmark/actions/runs/37029702253) passed ten check groups at `ce6369948d30d65b9674b5770f615879807580dd`, with 21 verified PNGs. See [clarification capture review](../qa/clarification_browser_review.json); the earlier gallery below retains its own source version.
+
 **Published historical evidence:** a real Chrome capture passed at source commit `3b5b3743965f3ad77a5dd092296866920d2ca813`; see [the verified capture](#verified-published-capture). The setup history below includes earlier failures. Later UI changes require a new capture before claiming equivalent browser coverage.
 
 ## Current evidence boundary
@@ -214,3 +216,7 @@ TEMP_DIRECTORY` from this repository. The committed gallery is flattened for
 readable README image paths; the original hashes remain unchanged. If the
 checked source files evolve, compare against the recorded source commit instead
 of claiming a later source tree was captured.
+
+## Clarification72 capture
+
+The unchanged [complete capture artifact](screenshots/clarification72/manifest.json) records all six suites and the new clarification views. The capture root preserves the original screenshots subdirectory, so it is directly accepted by `python tests/test_browser.py --verify-artifact docs/screenshots/clarification72` while the recorded source hashes match. The new README embeds three of the four visually reviewed clarification PNGs. Earlier gallery files, labels and hashes are unchanged.
