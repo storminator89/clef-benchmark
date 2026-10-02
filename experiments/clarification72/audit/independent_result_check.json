@@ -1,0 +1,2505 @@
+{
+  "checker_schema_version": 1,
+  "reviewer_identity_type": "independent_ai_reviewer_task",
+  "checker_prepared_without_actual_predictions": true,
+  "primary_scorer_imported": false,
+  "model_loaded": false,
+  "checked_at_utc": "2026-10-02T14:27:34.476954+00:00",
+  "passed": true,
+  "prediction_count": 72,
+  "mismatches": [],
+  "predictions_sha256": "94256dd1931c19e73404bd9f84cc48f2593799a8622d685a90748f871ef769f4",
+  "summary_sha256": "cd2fd9ac42b30e15c5227e318f56e88db747e19f8469a6f91e79dc455665e0a3",
+  "errors_sha256": "3c0d02c56583babeff33f589ab75c1d0364e61bc515e3e97788090ca0deb72e2",
+  "freeze_manifest_sha256": "8eeb30bec0e06776298509328323e6fa2d7849e0d2ff75d03eb922edcf692f6a",
+  "checker_sha256": "c28786b53d7abee67c999e1e136482c4fa0ac430cb0d89e93c160da88c4c1707",
+  "recomputed_metrics": {
+    "suite_id": "clarification",
+    "case_count": 72,
+    "field_count": 2,
+    "metrics": {
+      "action": {
+        "numerator": 65,
+        "denominator": 72,
+        "rate": 0.9027777777777778
+      },
+      "determination": {
+        "numerator": 66,
+        "denominator": 72,
+        "rate": 0.9166666666666666
+      },
+      "all_fields_exact": {
+        "numerator": 64,
+        "denominator": 72,
+        "rate": 0.8888888888888888
+      },
+      "all_field_decisions": {
+        "numerator": 131,
+        "denominator": 144,
+        "rate": 0.9097222222222222
+      }
+    },
+    "denominators": {
+      "clarification_required": 36,
+      "answerable": 36,
+      "valid_cases": 72,
+      "substantive_answers": 37
+    },
+    "behavior_rates": {
+      "missed_required_clarifications": {
+        "numerator": 4,
+        "denominator": 36,
+        "rate": 0.1111111111111111
+      },
+      "required_clarifications_not_successfully_requested": {
+        "numerator": 4,
+        "denominator": 36,
+        "rate": 0.1111111111111111
+      },
+      "excess_clarifications": {
+        "numerator": 2,
+        "denominator": 36,
+        "rate": 0.05555555555555555
+      },
+      "wrong_clarification_kind": {
+        "numerator": 1,
+        "denominator": 36,
+        "rate": 0.027777777777777776
+      },
+      "risky_wrong_answers_all_cases": {
+        "numerator": 4,
+        "denominator": 72,
+        "rate": 0.05555555555555555
+      },
+      "risky_wrong_answers_among_substantive": {
+        "numerator": 4,
+        "denominator": 37,
+        "rate": 0.10810810810810811
+      }
+    },
+    "high_confidence": {
+      "0.8": {
+        "confident_answers": 23,
+        "confident_wrong": 0,
+        "wrong_rate_among_confident": {
+          "numerator": 0,
+          "denominator": 23,
+          "rate": 0.0
+        }
+      },
+      "0.9": {
+        "confident_answers": 5,
+        "confident_wrong": 0,
+        "wrong_rate_among_confident": {
+          "numerator": 0,
+          "denominator": 5,
+          "rate": 0.0
+        }
+      },
+      "0.95": {
+        "confident_answers": 0,
+        "confident_wrong": 0,
+        "wrong_rate_among_confident": {
+          "numerator": 0,
+          "denominator": 0,
+          "rate": null
+        }
+      }
+    },
+    "events": {
+      "invalid_or_missing": {
+        "count": 0,
+        "ids": []
+      },
+      "missed_required_clarifications": {
+        "count": 4,
+        "ids": [
+          "clarify_savings_fee_02",
+          "clarify_statement_download_02",
+          "clarify_bicycle_theft_02",
+          "clarify_device_damage_02"
+        ]
+      },
+      "required_clarifications_not_successfully_requested": {
+        "count": 4,
+        "ids": [
+          "clarify_savings_fee_02",
+          "clarify_statement_download_02",
+          "clarify_bicycle_theft_02",
+          "clarify_device_damage_02"
+        ]
+      },
+      "excess_clarifications": {
+        "count": 2,
+        "ids": [
+          "clarify_savings_fee_06",
+          "clarify_depot_statement_fee_06"
+        ]
+      },
+      "wrong_clarification_kind": {
+        "count": 1,
+        "ids": [
+          "clarify_order_cancellation_02"
+        ]
+      },
+      "inconsistent_fields": {
+        "count": 3,
+        "ids": [
+          "clarify_order_cancellation_02",
+          "clarify_device_damage_02",
+          "clarify_savings_fee_06"
+        ]
+      },
+      "substantive_answer_cases": {
+        "count": 37,
+        "ids": [
+          "clarify_savings_fee_02",
+          "clarify_statement_download_02",
+          "clarify_statement_download_04",
+          "clarify_card_replacement_04",
+          "clarify_bicycle_theft_04",
+          "clarify_welcome_bonus_04",
+          "clarify_luggage_delay_05",
+          "clarify_bicycle_theft_02",
+          "clarify_luggage_delay_04",
+          "clarify_depot_statement_fee_05",
+          "clarify_depot_statement_fee_04",
+          "clarify_order_cancellation_05",
+          "clarify_travel_delay_05",
+          "clarify_travel_delay_06",
+          "clarify_luggage_delay_06",
+          "clarify_welcome_bonus_05",
+          "clarify_savings_fee_04",
+          "clarify_device_damage_04",
+          "clarify_giro_fee_05",
+          "clarify_statement_download_06",
+          "clarify_statement_download_05",
+          "clarify_bicycle_theft_05",
+          "clarify_card_replacement_06",
+          "clarify_device_damage_06",
+          "clarify_transfer_recall_04",
+          "clarify_bicycle_theft_06",
+          "clarify_order_cancellation_04",
+          "clarify_transfer_recall_05",
+          "clarify_order_cancellation_06",
+          "clarify_savings_fee_05",
+          "clarify_travel_delay_04",
+          "clarify_transfer_recall_06",
+          "clarify_giro_fee_06",
+          "clarify_device_damage_05",
+          "clarify_giro_fee_04",
+          "clarify_welcome_bonus_06",
+          "clarify_card_replacement_05"
+        ]
+      },
+      "risky_wrong_answers": {
+        "count": 4,
+        "ids": [
+          "clarify_savings_fee_02",
+          "clarify_statement_download_02",
+          "clarify_bicycle_theft_02",
+          "clarify_giro_fee_06"
+        ]
+      },
+      "confident_answers_0.8": {
+        "count": 23,
+        "ids": [
+          "clarify_card_replacement_04",
+          "clarify_welcome_bonus_04",
+          "clarify_luggage_delay_04",
+          "clarify_depot_statement_fee_04",
+          "clarify_travel_delay_05",
+          "clarify_travel_delay_06",
+          "clarify_luggage_delay_06",
+          "clarify_savings_fee_04",
+          "clarify_device_damage_04",
+          "clarify_statement_download_06",
+          "clarify_statement_download_05",
+          "clarify_bicycle_theft_05",
+          "clarify_card_replacement_06",
+          "clarify_device_damage_06",
+          "clarify_transfer_recall_04",
+          "clarify_bicycle_theft_06",
+          "clarify_order_cancellation_04",
+          "clarify_order_cancellation_06",
+          "clarify_travel_delay_04",
+          "clarify_transfer_recall_06",
+          "clarify_device_damage_05",
+          "clarify_welcome_bonus_06",
+          "clarify_card_replacement_05"
+        ]
+      },
+      "confident_wrong_answers_0.8": {
+        "count": 0,
+        "ids": []
+      },
+      "confident_answers_0.9": {
+        "count": 5,
+        "ids": [
+          "clarify_travel_delay_06",
+          "clarify_savings_fee_04",
+          "clarify_statement_download_06",
+          "clarify_card_replacement_06",
+          "clarify_welcome_bonus_06"
+        ]
+      },
+      "confident_wrong_answers_0.9": {
+        "count": 0,
+        "ids": []
+      },
+      "confident_answers_0.95": {
+        "count": 0,
+        "ids": []
+      },
+      "confident_wrong_answers_0.95": {
+        "count": 0,
+        "ids": []
+      }
+    },
+    "confusion_matrices": {
+      "action": {
+        "ask_target": {
+          "ask_fact": 1,
+          "ask_target": 7,
+          "answer": 4
+        },
+        "answer": {
+          "answer": 34,
+          "ask_fact": 2
+        },
+        "resolve_conflict": {
+          "resolve_conflict": 12
+        },
+        "ask_fact": {
+          "ask_fact": 12
+        }
+      },
+      "determination": {
+        "unresolved": {
+          "no": 2,
+          "unresolved": 32,
+          "yes": 2
+        },
+        "yes": {
+          "yes": 18
+        },
+        "no": {
+          "no": 16,
+          "unresolved": 1,
+          "yes": 1
+        }
+      }
+    },
+    "strata": {
+      "domain": {
+        "finance": {
+          "cases": 24,
+          "all_fields_exact": {
+            "numerator": 20,
+            "denominator": 24,
+            "rate": 0.8333333333333334
+          },
+          "action": {
+            "numerator": 20,
+            "denominator": 24,
+            "rate": 0.8333333333333334
+          },
+          "determination": {
+            "numerator": 21,
+            "denominator": 24,
+            "rate": 0.875
+          }
+        },
+        "insurance": {
+          "cases": 24,
+          "all_fields_exact": {
+            "numerator": 22,
+            "denominator": 24,
+            "rate": 0.9166666666666666
+          },
+          "action": {
+            "numerator": 22,
+            "denominator": 24,
+            "rate": 0.9166666666666666
+          },
+          "determination": {
+            "numerator": 23,
+            "denominator": 24,
+            "rate": 0.9583333333333334
+          }
+        },
+        "banking": {
+          "cases": 24,
+          "all_fields_exact": {
+            "numerator": 22,
+            "denominator": 24,
+            "rate": 0.9166666666666666
+          },
+          "action": {
+            "numerator": 23,
+            "denominator": 24,
+            "rate": 0.9583333333333334
+          },
+          "determination": {
+            "numerator": 22,
+            "denominator": 24,
+            "rate": 0.9166666666666666
+          }
+        }
+      },
+      "stratum": {
+        "ambiguous_target": {
+          "cases": 12,
+          "all_fields_exact": {
+            "numerator": 7,
+            "denominator": 12,
+            "rate": 0.5833333333333334
+          },
+          "action": {
+            "numerator": 7,
+            "denominator": 12,
+            "rate": 0.5833333333333334
+          },
+          "determination": {
+            "numerator": 8,
+            "denominator": 12,
+            "rate": 0.6666666666666666
+          }
+        },
+        "complete_yes": {
+          "cases": 12,
+          "all_fields_exact": {
+            "numerator": 12,
+            "denominator": 12,
+            "rate": 1.0
+          },
+          "action": {
+            "numerator": 12,
+            "denominator": 12,
+            "rate": 1.0
+          },
+          "determination": {
+            "numerator": 12,
+            "denominator": 12,
+            "rate": 1.0
+          }
+        },
+        "conflicting_evidence": {
+          "cases": 12,
+          "all_fields_exact": {
+            "numerator": 12,
+            "denominator": 12,
+            "rate": 1.0
+          },
+          "action": {
+            "numerator": 12,
+            "denominator": 12,
+            "rate": 1.0
+          },
+          "determination": {
+            "numerator": 12,
+            "denominator": 12,
+            "rate": 1.0
+          }
+        },
+        "missing_fact": {
+          "cases": 12,
+          "all_fields_exact": {
+            "numerator": 12,
+            "denominator": 12,
+            "rate": 1.0
+          },
+          "action": {
+            "numerator": 12,
+            "denominator": 12,
+            "rate": 1.0
+          },
+          "determination": {
+            "numerator": 12,
+            "denominator": 12,
+            "rate": 1.0
+          }
+        },
+        "complete_no": {
+          "cases": 12,
+          "all_fields_exact": {
+            "numerator": 12,
+            "denominator": 12,
+            "rate": 1.0
+          },
+          "action": {
+            "numerator": 12,
+            "denominator": 12,
+            "rate": 1.0
+          },
+          "determination": {
+            "numerator": 12,
+            "denominator": 12,
+            "rate": 1.0
+          }
+        },
+        "sufficient_despite_omission": {
+          "cases": 12,
+          "all_fields_exact": {
+            "numerator": 9,
+            "denominator": 12,
+            "rate": 0.75
+          },
+          "action": {
+            "numerator": 10,
+            "denominator": 12,
+            "rate": 0.8333333333333334
+          },
+          "determination": {
+            "numerator": 10,
+            "denominator": 12,
+            "rate": 0.8333333333333334
+          }
+        }
+      },
+      "family": {
+        "order_cancellation": {
+          "cases": 6,
+          "all_fields_exact": {
+            "numerator": 5,
+            "denominator": 6,
+            "rate": 0.8333333333333334
+          },
+          "action": {
+            "numerator": 5,
+            "denominator": 6,
+            "rate": 0.8333333333333334
+          },
+          "determination": {
+            "numerator": 5,
+            "denominator": 6,
+            "rate": 0.8333333333333334
+          }
+        },
+        "travel_delay": {
+          "cases": 6,
+          "all_fields_exact": {
+            "numerator": 6,
+            "denominator": 6,
+            "rate": 1.0
+          },
+          "action": {
+            "numerator": 6,
+            "denominator": 6,
+            "rate": 1.0
+          },
+          "determination": {
+            "numerator": 6,
+            "denominator": 6,
+            "rate": 1.0
+          }
+        },
+        "savings_fee": {
+          "cases": 6,
+          "all_fields_exact": {
+            "numerator": 4,
+            "denominator": 6,
+            "rate": 0.6666666666666666
+          },
+          "action": {
+            "numerator": 4,
+            "denominator": 6,
+            "rate": 0.6666666666666666
+          },
+          "determination": {
+            "numerator": 5,
+            "denominator": 6,
+            "rate": 0.8333333333333334
+          }
+        },
+        "statement_download": {
+          "cases": 6,
+          "all_fields_exact": {
+            "numerator": 5,
+            "denominator": 6,
+            "rate": 0.8333333333333334
+          },
+          "action": {
+            "numerator": 5,
+            "denominator": 6,
+            "rate": 0.8333333333333334
+          },
+          "determination": {
+            "numerator": 5,
+            "denominator": 6,
+            "rate": 0.8333333333333334
+          }
+        },
+        "luggage_delay": {
+          "cases": 6,
+          "all_fields_exact": {
+            "numerator": 6,
+            "denominator": 6,
+            "rate": 1.0
+          },
+          "action": {
+            "numerator": 6,
+            "denominator": 6,
+            "rate": 1.0
+          },
+          "determination": {
+            "numerator": 6,
+            "denominator": 6,
+            "rate": 1.0
+          }
+        },
+        "device_damage": {
+          "cases": 6,
+          "all_fields_exact": {
+            "numerator": 5,
+            "denominator": 6,
+            "rate": 0.8333333333333334
+          },
+          "action": {
+            "numerator": 5,
+            "denominator": 6,
+            "rate": 0.8333333333333334
+          },
+          "determination": {
+            "numerator": 6,
+            "denominator": 6,
+            "rate": 1.0
+          }
+        },
+        "giro_fee": {
+          "cases": 6,
+          "all_fields_exact": {
+            "numerator": 5,
+            "denominator": 6,
+            "rate": 0.8333333333333334
+          },
+          "action": {
+            "numerator": 6,
+            "denominator": 6,
+            "rate": 1.0
+          },
+          "determination": {
+            "numerator": 5,
+            "denominator": 6,
+            "rate": 0.8333333333333334
+          }
+        },
+        "welcome_bonus": {
+          "cases": 6,
+          "all_fields_exact": {
+            "numerator": 6,
+            "denominator": 6,
+            "rate": 1.0
+          },
+          "action": {
+            "numerator": 6,
+            "denominator": 6,
+            "rate": 1.0
+          },
+          "determination": {
+            "numerator": 6,
+            "denominator": 6,
+            "rate": 1.0
+          }
+        },
+        "card_replacement": {
+          "cases": 6,
+          "all_fields_exact": {
+            "numerator": 6,
+            "denominator": 6,
+            "rate": 1.0
+          },
+          "action": {
+            "numerator": 6,
+            "denominator": 6,
+            "rate": 1.0
+          },
+          "determination": {
+            "numerator": 6,
+            "denominator": 6,
+            "rate": 1.0
+          }
+        },
+        "bicycle_theft": {
+          "cases": 6,
+          "all_fields_exact": {
+            "numerator": 5,
+            "denominator": 6,
+            "rate": 0.8333333333333334
+          },
+          "action": {
+            "numerator": 5,
+            "denominator": 6,
+            "rate": 0.8333333333333334
+          },
+          "determination": {
+            "numerator": 5,
+            "denominator": 6,
+            "rate": 0.8333333333333334
+          }
+        },
+        "depot_statement_fee": {
+          "cases": 6,
+          "all_fields_exact": {
+            "numerator": 5,
+            "denominator": 6,
+            "rate": 0.8333333333333334
+          },
+          "action": {
+            "numerator": 5,
+            "denominator": 6,
+            "rate": 0.8333333333333334
+          },
+          "determination": {
+            "numerator": 5,
+            "denominator": 6,
+            "rate": 0.8333333333333334
+          }
+        },
+        "transfer_recall": {
+          "cases": 6,
+          "all_fields_exact": {
+            "numerator": 6,
+            "denominator": 6,
+            "rate": 1.0
+          },
+          "action": {
+            "numerator": 6,
+            "denominator": 6,
+            "rate": 1.0
+          },
+          "determination": {
+            "numerator": 6,
+            "denominator": 6,
+            "rate": 1.0
+          }
+        }
+      }
+    },
+    "technical": {
+      "recorded_predictions": 72,
+      "valid_cases": 72,
+      "missing_predictions": 0,
+      "invalid_existing_predictions": 0,
+      "input_tokens_min": 689,
+      "input_tokens_max": 757,
+      "forward_seconds_median": 20.774946083998657,
+      "forward_seconds_p95": 25.30412962534647,
+      "forward_seconds_total": 1511.0174050940113,
+      "peak_observed_rss_bytes": 6152990720
+    }
+  },
+  "error_ids": [
+    "clarify_order_cancellation_02",
+    "clarify_savings_fee_02",
+    "clarify_statement_download_02",
+    "clarify_bicycle_theft_02",
+    "clarify_device_damage_02",
+    "clarify_savings_fee_06",
+    "clarify_depot_statement_fee_06",
+    "clarify_giro_fee_06"
+  ],
+  "case_scores": [
+    {
+      "id": "clarify_order_cancellation_02",
+      "valid": true,
+      "expected": {
+        "action": "ask_target",
+        "determination": "unresolved"
+      },
+      "predicted": {
+        "action": "ask_fact",
+        "determination": "no"
+      },
+      "field_correct": {
+        "action": false,
+        "determination": false
+      },
+      "all_fields_exact": false,
+      "selected_probabilities": {
+        "action": 0.4716009795665741,
+        "determination": 0.4846192002296448
+      },
+      "required_clarification": true,
+      "model_requested_clarification": true,
+      "risky_wrong_answer": false,
+      "technical_issues": []
+    },
+    {
+      "id": "clarify_travel_delay_02",
+      "valid": true,
+      "expected": {
+        "action": "ask_target",
+        "determination": "unresolved"
+      },
+      "predicted": {
+        "action": "ask_target",
+        "determination": "unresolved"
+      },
+      "field_correct": {
+        "action": true,
+        "determination": true
+      },
+      "all_fields_exact": true,
+      "selected_probabilities": {
+        "action": 0.9260349273681641,
+        "determination": 0.9349967837333679
+      },
+      "required_clarification": true,
+      "model_requested_clarification": true,
+      "risky_wrong_answer": false,
+      "technical_issues": []
+    },
+    {
+      "id": "clarify_savings_fee_02",
+      "valid": true,
+      "expected": {
+        "action": "ask_target",
+        "determination": "unresolved"
+      },
+      "predicted": {
+        "action": "answer",
+        "determination": "yes"
+      },
+      "field_correct": {
+        "action": false,
+        "determination": false
+      },
+      "all_fields_exact": false,
+      "selected_probabilities": {
+        "action": 0.7022560834884644,
+        "determination": 0.6171615719795227
+      },
+      "required_clarification": true,
+      "model_requested_clarification": false,
+      "risky_wrong_answer": true,
+      "technical_issues": []
+    },
+    {
+      "id": "clarify_statement_download_02",
+      "valid": true,
+      "expected": {
+        "action": "ask_target",
+        "determination": "unresolved"
+      },
+      "predicted": {
+        "action": "answer",
+        "determination": "yes"
+      },
+      "field_correct": {
+        "action": false,
+        "determination": false
+      },
+      "all_fields_exact": false,
+      "selected_probabilities": {
+        "action": 0.8642100095748901,
+        "determination": 0.7417110800743103
+      },
+      "required_clarification": true,
+      "model_requested_clarification": false,
+      "risky_wrong_answer": true,
+      "technical_issues": []
+    },
+    {
+      "id": "clarify_statement_download_04",
+      "valid": true,
+      "expected": {
+        "action": "answer",
+        "determination": "yes"
+      },
+      "predicted": {
+        "action": "answer",
+        "determination": "yes"
+      },
+      "field_correct": {
+        "action": true,
+        "determination": true
+      },
+      "all_fields_exact": true,
+      "selected_probabilities": {
+        "action": 0.7839004993438721,
+        "determination": 0.7180366516113281
+      },
+      "required_clarification": false,
+      "model_requested_clarification": false,
+      "risky_wrong_answer": false,
+      "technical_issues": []
+    },
+    {
+      "id": "clarify_luggage_delay_03",
+      "valid": true,
+      "expected": {
+        "action": "resolve_conflict",
+        "determination": "unresolved"
+      },
+      "predicted": {
+        "action": "resolve_conflict",
+        "determination": "unresolved"
+      },
+      "field_correct": {
+        "action": true,
+        "determination": true
+      },
+      "all_fields_exact": true,
+      "selected_probabilities": {
+        "action": 0.8479292988777161,
+        "determination": 0.9354478716850281
+      },
+      "required_clarification": true,
+      "model_requested_clarification": true,
+      "risky_wrong_answer": false,
+      "technical_issues": []
+    },
+    {
+      "id": "clarify_order_cancellation_03",
+      "valid": true,
+      "expected": {
+        "action": "resolve_conflict",
+        "determination": "unresolved"
+      },
+      "predicted": {
+        "action": "resolve_conflict",
+        "determination": "unresolved"
+      },
+      "field_correct": {
+        "action": true,
+        "determination": true
+      },
+      "all_fields_exact": true,
+      "selected_probabilities": {
+        "action": 0.9323844909667969,
+        "determination": 0.9105709195137024
+      },
+      "required_clarification": true,
+      "model_requested_clarification": true,
+      "risky_wrong_answer": false,
+      "technical_issues": []
+    },
+    {
+      "id": "clarify_device_damage_03",
+      "valid": true,
+      "expected": {
+        "action": "resolve_conflict",
+        "determination": "unresolved"
+      },
+      "predicted": {
+        "action": "resolve_conflict",
+        "determination": "unresolved"
+      },
+      "field_correct": {
+        "action": true,
+        "determination": true
+      },
+      "all_fields_exact": true,
+      "selected_probabilities": {
+        "action": 0.9334906339645386,
+        "determination": 0.9547419548034668
+      },
+      "required_clarification": true,
+      "model_requested_clarification": true,
+      "risky_wrong_answer": false,
+      "technical_issues": []
+    },
+    {
+      "id": "clarify_giro_fee_01",
+      "valid": true,
+      "expected": {
+        "action": "ask_fact",
+        "determination": "unresolved"
+      },
+      "predicted": {
+        "action": "ask_fact",
+        "determination": "unresolved"
+      },
+      "field_correct": {
+        "action": true,
+        "determination": true
+      },
+      "all_fields_exact": true,
+      "selected_probabilities": {
+        "action": 0.9275734424591064,
+        "determination": 0.9627516269683838
+      },
+      "required_clarification": true,
+      "model_requested_clarification": true,
+      "risky_wrong_answer": false,
+      "technical_issues": []
+    },
+    {
+      "id": "clarify_welcome_bonus_01",
+      "valid": true,
+      "expected": {
+        "action": "ask_fact",
+        "determination": "unresolved"
+      },
+      "predicted": {
+        "action": "ask_fact",
+        "determination": "unresolved"
+      },
+      "field_correct": {
+        "action": true,
+        "determination": true
+      },
+      "all_fields_exact": true,
+      "selected_probabilities": {
+        "action": 0.9344242811203003,
+        "determination": 0.9590050578117371
+      },
+      "required_clarification": true,
+      "model_requested_clarification": true,
+      "risky_wrong_answer": false,
+      "technical_issues": []
+    },
+    {
+      "id": "clarify_welcome_bonus_03",
+      "valid": true,
+      "expected": {
+        "action": "resolve_conflict",
+        "determination": "unresolved"
+      },
+      "predicted": {
+        "action": "resolve_conflict",
+        "determination": "unresolved"
+      },
+      "field_correct": {
+        "action": true,
+        "determination": true
+      },
+      "all_fields_exact": true,
+      "selected_probabilities": {
+        "action": 0.9338455200195312,
+        "determination": 0.895814836025238
+      },
+      "required_clarification": true,
+      "model_requested_clarification": true,
+      "risky_wrong_answer": false,
+      "technical_issues": []
+    },
+    {
+      "id": "clarify_card_replacement_04",
+      "valid": true,
+      "expected": {
+        "action": "answer",
+        "determination": "yes"
+      },
+      "predicted": {
+        "action": "answer",
+        "determination": "yes"
+      },
+      "field_correct": {
+        "action": true,
+        "determination": true
+      },
+      "all_fields_exact": true,
+      "selected_probabilities": {
+        "action": 0.8775623440742493,
+        "determination": 0.9580003023147583
+      },
+      "required_clarification": false,
+      "model_requested_clarification": false,
+      "risky_wrong_answer": false,
+      "technical_issues": []
+    },
+    {
+      "id": "clarify_giro_fee_02",
+      "valid": true,
+      "expected": {
+        "action": "ask_target",
+        "determination": "unresolved"
+      },
+      "predicted": {
+        "action": "ask_target",
+        "determination": "unresolved"
+      },
+      "field_correct": {
+        "action": true,
+        "determination": true
+      },
+      "all_fields_exact": true,
+      "selected_probabilities": {
+        "action": 0.8259579539299011,
+        "determination": 0.6220214366912842
+      },
+      "required_clarification": true,
+      "model_requested_clarification": true,
+      "risky_wrong_answer": false,
+      "technical_issues": []
+    },
+    {
+      "id": "clarify_luggage_delay_01",
+      "valid": true,
+      "expected": {
+        "action": "ask_fact",
+        "determination": "unresolved"
+      },
+      "predicted": {
+        "action": "ask_fact",
+        "determination": "unresolved"
+      },
+      "field_correct": {
+        "action": true,
+        "determination": true
+      },
+      "all_fields_exact": true,
+      "selected_probabilities": {
+        "action": 0.9198302626609802,
+        "determination": 0.9130680561065674
+      },
+      "required_clarification": true,
+      "model_requested_clarification": true,
+      "risky_wrong_answer": false,
+      "technical_issues": []
+    },
+    {
+      "id": "clarify_bicycle_theft_04",
+      "valid": true,
+      "expected": {
+        "action": "answer",
+        "determination": "yes"
+      },
+      "predicted": {
+        "action": "answer",
+        "determination": "yes"
+      },
+      "field_correct": {
+        "action": true,
+        "determination": true
+      },
+      "all_fields_exact": true,
+      "selected_probabilities": {
+        "action": 0.7006956934928894,
+        "determination": 0.6287585496902466
+      },
+      "required_clarification": false,
+      "model_requested_clarification": false,
+      "risky_wrong_answer": false,
+      "technical_issues": []
+    },
+    {
+      "id": "clarify_welcome_bonus_04",
+      "valid": true,
+      "expected": {
+        "action": "answer",
+        "determination": "yes"
+      },
+      "predicted": {
+        "action": "answer",
+        "determination": "yes"
+      },
+      "field_correct": {
+        "action": true,
+        "determination": true
+      },
+      "all_fields_exact": true,
+      "selected_probabilities": {
+        "action": 0.8645365238189697,
+        "determination": 0.8281701803207397
+      },
+      "required_clarification": false,
+      "model_requested_clarification": false,
+      "risky_wrong_answer": false,
+      "technical_issues": []
+    },
+    {
+      "id": "clarify_travel_delay_03",
+      "valid": true,
+      "expected": {
+        "action": "resolve_conflict",
+        "determination": "unresolved"
+      },
+      "predicted": {
+        "action": "resolve_conflict",
+        "determination": "unresolved"
+      },
+      "field_correct": {
+        "action": true,
+        "determination": true
+      },
+      "all_fields_exact": true,
+      "selected_probabilities": {
+        "action": 0.9149281978607178,
+        "determination": 0.9051315188407898
+      },
+      "required_clarification": true,
+      "model_requested_clarification": true,
+      "risky_wrong_answer": false,
+      "technical_issues": []
+    },
+    {
+      "id": "clarify_luggage_delay_05",
+      "valid": true,
+      "expected": {
+        "action": "answer",
+        "determination": "no"
+      },
+      "predicted": {
+        "action": "answer",
+        "determination": "no"
+      },
+      "field_correct": {
+        "action": true,
+        "determination": true
+      },
+      "all_fields_exact": true,
+      "selected_probabilities": {
+        "action": 0.7962766885757446,
+        "determination": 0.9755586981773376
+      },
+      "required_clarification": false,
+      "model_requested_clarification": false,
+      "risky_wrong_answer": false,
+      "technical_issues": []
+    },
+    {
+      "id": "clarify_bicycle_theft_02",
+      "valid": true,
+      "expected": {
+        "action": "ask_target",
+        "determination": "unresolved"
+      },
+      "predicted": {
+        "action": "answer",
+        "determination": "no"
+      },
+      "field_correct": {
+        "action": false,
+        "determination": false
+      },
+      "all_fields_exact": false,
+      "selected_probabilities": {
+        "action": 0.5767241716384888,
+        "determination": 0.6201667189598083
+      },
+      "required_clarification": true,
+      "model_requested_clarification": false,
+      "risky_wrong_answer": true,
+      "technical_issues": []
+    },
+    {
+      "id": "clarify_luggage_delay_02",
+      "valid": true,
+      "expected": {
+        "action": "ask_target",
+        "determination": "unresolved"
+      },
+      "predicted": {
+        "action": "ask_target",
+        "determination": "unresolved"
+      },
+      "field_correct": {
+        "action": true,
+        "determination": true
+      },
+      "all_fields_exact": true,
+      "selected_probabilities": {
+        "action": 0.8132782578468323,
+        "determination": 0.9245664477348328
+      },
+      "required_clarification": true,
+      "model_requested_clarification": true,
+      "risky_wrong_answer": false,
+      "technical_issues": []
+    },
+    {
+      "id": "clarify_depot_statement_fee_03",
+      "valid": true,
+      "expected": {
+        "action": "resolve_conflict",
+        "determination": "unresolved"
+      },
+      "predicted": {
+        "action": "resolve_conflict",
+        "determination": "unresolved"
+      },
+      "field_correct": {
+        "action": true,
+        "determination": true
+      },
+      "all_fields_exact": true,
+      "selected_probabilities": {
+        "action": 0.8151967525482178,
+        "determination": 0.8490986227989197
+      },
+      "required_clarification": true,
+      "model_requested_clarification": true,
+      "risky_wrong_answer": false,
+      "technical_issues": []
+    },
+    {
+      "id": "clarify_luggage_delay_04",
+      "valid": true,
+      "expected": {
+        "action": "answer",
+        "determination": "yes"
+      },
+      "predicted": {
+        "action": "answer",
+        "determination": "yes"
+      },
+      "field_correct": {
+        "action": true,
+        "determination": true
+      },
+      "all_fields_exact": true,
+      "selected_probabilities": {
+        "action": 0.8584396839141846,
+        "determination": 0.9668428301811218
+      },
+      "required_clarification": false,
+      "model_requested_clarification": false,
+      "risky_wrong_answer": false,
+      "technical_issues": []
+    },
+    {
+      "id": "clarify_depot_statement_fee_05",
+      "valid": true,
+      "expected": {
+        "action": "answer",
+        "determination": "no"
+      },
+      "predicted": {
+        "action": "answer",
+        "determination": "no"
+      },
+      "field_correct": {
+        "action": true,
+        "determination": true
+      },
+      "all_fields_exact": true,
+      "selected_probabilities": {
+        "action": 0.7468927502632141,
+        "determination": 0.9735752940177917
+      },
+      "required_clarification": false,
+      "model_requested_clarification": false,
+      "risky_wrong_answer": false,
+      "technical_issues": []
+    },
+    {
+      "id": "clarify_device_damage_02",
+      "valid": true,
+      "expected": {
+        "action": "ask_target",
+        "determination": "unresolved"
+      },
+      "predicted": {
+        "action": "answer",
+        "determination": "unresolved"
+      },
+      "field_correct": {
+        "action": false,
+        "determination": true
+      },
+      "all_fields_exact": false,
+      "selected_probabilities": {
+        "action": 0.8051720857620239,
+        "determination": 0.5104462504386902
+      },
+      "required_clarification": true,
+      "model_requested_clarification": false,
+      "risky_wrong_answer": false,
+      "technical_issues": []
+    },
+    {
+      "id": "clarify_depot_statement_fee_04",
+      "valid": true,
+      "expected": {
+        "action": "answer",
+        "determination": "yes"
+      },
+      "predicted": {
+        "action": "answer",
+        "determination": "yes"
+      },
+      "field_correct": {
+        "action": true,
+        "determination": true
+      },
+      "all_fields_exact": true,
+      "selected_probabilities": {
+        "action": 0.8842612504959106,
+        "determination": 0.9691521525382996
+      },
+      "required_clarification": false,
+      "model_requested_clarification": false,
+      "risky_wrong_answer": false,
+      "technical_issues": []
+    },
+    {
+      "id": "clarify_welcome_bonus_02",
+      "valid": true,
+      "expected": {
+        "action": "ask_target",
+        "determination": "unresolved"
+      },
+      "predicted": {
+        "action": "ask_target",
+        "determination": "unresolved"
+      },
+      "field_correct": {
+        "action": true,
+        "determination": true
+      },
+      "all_fields_exact": true,
+      "selected_probabilities": {
+        "action": 0.5739266872406006,
+        "determination": 0.8718777894973755
+      },
+      "required_clarification": true,
+      "model_requested_clarification": true,
+      "risky_wrong_answer": false,
+      "technical_issues": []
+    },
+    {
+      "id": "clarify_order_cancellation_05",
+      "valid": true,
+      "expected": {
+        "action": "answer",
+        "determination": "no"
+      },
+      "predicted": {
+        "action": "answer",
+        "determination": "no"
+      },
+      "field_correct": {
+        "action": true,
+        "determination": true
+      },
+      "all_fields_exact": true,
+      "selected_probabilities": {
+        "action": 0.7888472676277161,
+        "determination": 0.9690330624580383
+      },
+      "required_clarification": false,
+      "model_requested_clarification": false,
+      "risky_wrong_answer": false,
+      "technical_issues": []
+    },
+    {
+      "id": "clarify_travel_delay_05",
+      "valid": true,
+      "expected": {
+        "action": "answer",
+        "determination": "no"
+      },
+      "predicted": {
+        "action": "answer",
+        "determination": "no"
+      },
+      "field_correct": {
+        "action": true,
+        "determination": true
+      },
+      "all_fields_exact": true,
+      "selected_probabilities": {
+        "action": 0.8278504014015198,
+        "determination": 0.9812285304069519
+      },
+      "required_clarification": false,
+      "model_requested_clarification": false,
+      "risky_wrong_answer": false,
+      "technical_issues": []
+    },
+    {
+      "id": "clarify_travel_delay_06",
+      "valid": true,
+      "expected": {
+        "action": "answer",
+        "determination": "yes"
+      },
+      "predicted": {
+        "action": "answer",
+        "determination": "yes"
+      },
+      "field_correct": {
+        "action": true,
+        "determination": true
+      },
+      "all_fields_exact": true,
+      "selected_probabilities": {
+        "action": 0.9311609268188477,
+        "determination": 0.9750416278839111
+      },
+      "required_clarification": false,
+      "model_requested_clarification": false,
+      "risky_wrong_answer": false,
+      "technical_issues": []
+    },
+    {
+      "id": "clarify_bicycle_theft_01",
+      "valid": true,
+      "expected": {
+        "action": "ask_fact",
+        "determination": "unresolved"
+      },
+      "predicted": {
+        "action": "ask_fact",
+        "determination": "unresolved"
+      },
+      "field_correct": {
+        "action": true,
+        "determination": true
+      },
+      "all_fields_exact": true,
+      "selected_probabilities": {
+        "action": 0.9158427119255066,
+        "determination": 0.9534533023834229
+      },
+      "required_clarification": true,
+      "model_requested_clarification": true,
+      "risky_wrong_answer": false,
+      "technical_issues": []
+    },
+    {
+      "id": "clarify_luggage_delay_06",
+      "valid": true,
+      "expected": {
+        "action": "answer",
+        "determination": "yes"
+      },
+      "predicted": {
+        "action": "answer",
+        "determination": "yes"
+      },
+      "field_correct": {
+        "action": true,
+        "determination": true
+      },
+      "all_fields_exact": true,
+      "selected_probabilities": {
+        "action": 0.8962125778198242,
+        "determination": 0.9663621187210083
+      },
+      "required_clarification": false,
+      "model_requested_clarification": false,
+      "risky_wrong_answer": false,
+      "technical_issues": []
+    },
+    {
+      "id": "clarify_welcome_bonus_05",
+      "valid": true,
+      "expected": {
+        "action": "answer",
+        "determination": "no"
+      },
+      "predicted": {
+        "action": "answer",
+        "determination": "no"
+      },
+      "field_correct": {
+        "action": true,
+        "determination": true
+      },
+      "all_fields_exact": true,
+      "selected_probabilities": {
+        "action": 0.6577490568161011,
+        "determination": 0.7568880915641785
+      },
+      "required_clarification": false,
+      "model_requested_clarification": false,
+      "risky_wrong_answer": false,
+      "technical_issues": []
+    },
+    {
+      "id": "clarify_savings_fee_04",
+      "valid": true,
+      "expected": {
+        "action": "answer",
+        "determination": "yes"
+      },
+      "predicted": {
+        "action": "answer",
+        "determination": "yes"
+      },
+      "field_correct": {
+        "action": true,
+        "determination": true
+      },
+      "all_fields_exact": true,
+      "selected_probabilities": {
+        "action": 0.9052088856697083,
+        "determination": 0.9342613816261292
+      },
+      "required_clarification": false,
+      "model_requested_clarification": false,
+      "risky_wrong_answer": false,
+      "technical_issues": []
+    },
+    {
+      "id": "clarify_device_damage_04",
+      "valid": true,
+      "expected": {
+        "action": "answer",
+        "determination": "yes"
+      },
+      "predicted": {
+        "action": "answer",
+        "determination": "yes"
+      },
+      "field_correct": {
+        "action": true,
+        "determination": true
+      },
+      "all_fields_exact": true,
+      "selected_probabilities": {
+        "action": 0.8519704341888428,
+        "determination": 0.9644591212272644
+      },
+      "required_clarification": false,
+      "model_requested_clarification": false,
+      "risky_wrong_answer": false,
+      "technical_issues": []
+    },
+    {
+      "id": "clarify_order_cancellation_01",
+      "valid": true,
+      "expected": {
+        "action": "ask_fact",
+        "determination": "unresolved"
+      },
+      "predicted": {
+        "action": "ask_fact",
+        "determination": "unresolved"
+      },
+      "field_correct": {
+        "action": true,
+        "determination": true
+      },
+      "all_fields_exact": true,
+      "selected_probabilities": {
+        "action": 0.9026212692260742,
+        "determination": 0.9634277820587158
+      },
+      "required_clarification": true,
+      "model_requested_clarification": true,
+      "risky_wrong_answer": false,
+      "technical_issues": []
+    },
+    {
+      "id": "clarify_giro_fee_05",
+      "valid": true,
+      "expected": {
+        "action": "answer",
+        "determination": "no"
+      },
+      "predicted": {
+        "action": "answer",
+        "determination": "no"
+      },
+      "field_correct": {
+        "action": true,
+        "determination": true
+      },
+      "all_fields_exact": true,
+      "selected_probabilities": {
+        "action": 0.9606744050979614,
+        "determination": 0.6542177796363831
+      },
+      "required_clarification": false,
+      "model_requested_clarification": false,
+      "risky_wrong_answer": false,
+      "technical_issues": []
+    },
+    {
+      "id": "clarify_transfer_recall_03",
+      "valid": true,
+      "expected": {
+        "action": "resolve_conflict",
+        "determination": "unresolved"
+      },
+      "predicted": {
+        "action": "resolve_conflict",
+        "determination": "unresolved"
+      },
+      "field_correct": {
+        "action": true,
+        "determination": true
+      },
+      "all_fields_exact": true,
+      "selected_probabilities": {
+        "action": 0.9021599292755127,
+        "determination": 0.8464576601982117
+      },
+      "required_clarification": true,
+      "model_requested_clarification": true,
+      "risky_wrong_answer": false,
+      "technical_issues": []
+    },
+    {
+      "id": "clarify_statement_download_06",
+      "valid": true,
+      "expected": {
+        "action": "answer",
+        "determination": "yes"
+      },
+      "predicted": {
+        "action": "answer",
+        "determination": "yes"
+      },
+      "field_correct": {
+        "action": true,
+        "determination": true
+      },
+      "all_fields_exact": true,
+      "selected_probabilities": {
+        "action": 0.9101259112358093,
+        "determination": 0.9630193114280701
+      },
+      "required_clarification": false,
+      "model_requested_clarification": false,
+      "risky_wrong_answer": false,
+      "technical_issues": []
+    },
+    {
+      "id": "clarify_depot_statement_fee_01",
+      "valid": true,
+      "expected": {
+        "action": "ask_fact",
+        "determination": "unresolved"
+      },
+      "predicted": {
+        "action": "ask_fact",
+        "determination": "unresolved"
+      },
+      "field_correct": {
+        "action": true,
+        "determination": true
+      },
+      "all_fields_exact": true,
+      "selected_probabilities": {
+        "action": 0.9090748429298401,
+        "determination": 0.9512436985969543
+      },
+      "required_clarification": true,
+      "model_requested_clarification": true,
+      "risky_wrong_answer": false,
+      "technical_issues": []
+    },
+    {
+      "id": "clarify_transfer_recall_02",
+      "valid": true,
+      "expected": {
+        "action": "ask_target",
+        "determination": "unresolved"
+      },
+      "predicted": {
+        "action": "ask_target",
+        "determination": "unresolved"
+      },
+      "field_correct": {
+        "action": true,
+        "determination": true
+      },
+      "all_fields_exact": true,
+      "selected_probabilities": {
+        "action": 0.6457935571670532,
+        "determination": 0.8542980551719666
+      },
+      "required_clarification": true,
+      "model_requested_clarification": true,
+      "risky_wrong_answer": false,
+      "technical_issues": []
+    },
+    {
+      "id": "clarify_card_replacement_03",
+      "valid": true,
+      "expected": {
+        "action": "resolve_conflict",
+        "determination": "unresolved"
+      },
+      "predicted": {
+        "action": "resolve_conflict",
+        "determination": "unresolved"
+      },
+      "field_correct": {
+        "action": true,
+        "determination": true
+      },
+      "all_fields_exact": true,
+      "selected_probabilities": {
+        "action": 0.6981943845748901,
+        "determination": 0.9203409552574158
+      },
+      "required_clarification": true,
+      "model_requested_clarification": true,
+      "risky_wrong_answer": false,
+      "technical_issues": []
+    },
+    {
+      "id": "clarify_giro_fee_03",
+      "valid": true,
+      "expected": {
+        "action": "resolve_conflict",
+        "determination": "unresolved"
+      },
+      "predicted": {
+        "action": "resolve_conflict",
+        "determination": "unresolved"
+      },
+      "field_correct": {
+        "action": true,
+        "determination": true
+      },
+      "all_fields_exact": true,
+      "selected_probabilities": {
+        "action": 0.8546052575111389,
+        "determination": 0.8201408982276917
+      },
+      "required_clarification": true,
+      "model_requested_clarification": true,
+      "risky_wrong_answer": false,
+      "technical_issues": []
+    },
+    {
+      "id": "clarify_statement_download_05",
+      "valid": true,
+      "expected": {
+        "action": "answer",
+        "determination": "no"
+      },
+      "predicted": {
+        "action": "answer",
+        "determination": "no"
+      },
+      "field_correct": {
+        "action": true,
+        "determination": true
+      },
+      "all_fields_exact": true,
+      "selected_probabilities": {
+        "action": 0.8681782484054565,
+        "determination": 0.914972722530365
+      },
+      "required_clarification": false,
+      "model_requested_clarification": false,
+      "risky_wrong_answer": false,
+      "technical_issues": []
+    },
+    {
+      "id": "clarify_bicycle_theft_05",
+      "valid": true,
+      "expected": {
+        "action": "answer",
+        "determination": "no"
+      },
+      "predicted": {
+        "action": "answer",
+        "determination": "no"
+      },
+      "field_correct": {
+        "action": true,
+        "determination": true
+      },
+      "all_fields_exact": true,
+      "selected_probabilities": {
+        "action": 0.8591427803039551,
+        "determination": 0.944802463054657
+      },
+      "required_clarification": false,
+      "model_requested_clarification": false,
+      "risky_wrong_answer": false,
+      "technical_issues": []
+    },
+    {
+      "id": "clarify_savings_fee_06",
+      "valid": true,
+      "expected": {
+        "action": "answer",
+        "determination": "no"
+      },
+      "predicted": {
+        "action": "ask_fact",
+        "determination": "no"
+      },
+      "field_correct": {
+        "action": false,
+        "determination": true
+      },
+      "all_fields_exact": false,
+      "selected_probabilities": {
+        "action": 0.6402336359024048,
+        "determination": 0.602597713470459
+      },
+      "required_clarification": false,
+      "model_requested_clarification": true,
+      "risky_wrong_answer": false,
+      "technical_issues": []
+    },
+    {
+      "id": "clarify_depot_statement_fee_06",
+      "valid": true,
+      "expected": {
+        "action": "answer",
+        "determination": "no"
+      },
+      "predicted": {
+        "action": "ask_fact",
+        "determination": "unresolved"
+      },
+      "field_correct": {
+        "action": false,
+        "determination": false
+      },
+      "all_fields_exact": false,
+      "selected_probabilities": {
+        "action": 0.8534819483757019,
+        "determination": 0.6231972575187683
+      },
+      "required_clarification": false,
+      "model_requested_clarification": true,
+      "risky_wrong_answer": false,
+      "technical_issues": []
+    },
+    {
+      "id": "clarify_card_replacement_06",
+      "valid": true,
+      "expected": {
+        "action": "answer",
+        "determination": "yes"
+      },
+      "predicted": {
+        "action": "answer",
+        "determination": "yes"
+      },
+      "field_correct": {
+        "action": true,
+        "determination": true
+      },
+      "all_fields_exact": true,
+      "selected_probabilities": {
+        "action": 0.9182776808738708,
+        "determination": 0.9626730680465698
+      },
+      "required_clarification": false,
+      "model_requested_clarification": false,
+      "risky_wrong_answer": false,
+      "technical_issues": []
+    },
+    {
+      "id": "clarify_bicycle_theft_03",
+      "valid": true,
+      "expected": {
+        "action": "resolve_conflict",
+        "determination": "unresolved"
+      },
+      "predicted": {
+        "action": "resolve_conflict",
+        "determination": "unresolved"
+      },
+      "field_correct": {
+        "action": true,
+        "determination": true
+      },
+      "all_fields_exact": true,
+      "selected_probabilities": {
+        "action": 0.9182493090629578,
+        "determination": 0.9370824098587036
+      },
+      "required_clarification": true,
+      "model_requested_clarification": true,
+      "risky_wrong_answer": false,
+      "technical_issues": []
+    },
+    {
+      "id": "clarify_savings_fee_01",
+      "valid": true,
+      "expected": {
+        "action": "ask_fact",
+        "determination": "unresolved"
+      },
+      "predicted": {
+        "action": "ask_fact",
+        "determination": "unresolved"
+      },
+      "field_correct": {
+        "action": true,
+        "determination": true
+      },
+      "all_fields_exact": true,
+      "selected_probabilities": {
+        "action": 0.9022470712661743,
+        "determination": 0.9433589577674866
+      },
+      "required_clarification": true,
+      "model_requested_clarification": true,
+      "risky_wrong_answer": false,
+      "technical_issues": []
+    },
+    {
+      "id": "clarify_device_damage_06",
+      "valid": true,
+      "expected": {
+        "action": "answer",
+        "determination": "no"
+      },
+      "predicted": {
+        "action": "answer",
+        "determination": "no"
+      },
+      "field_correct": {
+        "action": true,
+        "determination": true
+      },
+      "all_fields_exact": true,
+      "selected_probabilities": {
+        "action": 0.8219807147979736,
+        "determination": 0.9721159338951111
+      },
+      "required_clarification": false,
+      "model_requested_clarification": false,
+      "risky_wrong_answer": false,
+      "technical_issues": []
+    },
+    {
+      "id": "clarify_transfer_recall_04",
+      "valid": true,
+      "expected": {
+        "action": "answer",
+        "determination": "yes"
+      },
+      "predicted": {
+        "action": "answer",
+        "determination": "yes"
+      },
+      "field_correct": {
+        "action": true,
+        "determination": true
+      },
+      "all_fields_exact": true,
+      "selected_probabilities": {
+        "action": 0.8727474808692932,
+        "determination": 0.9639235138893127
+      },
+      "required_clarification": false,
+      "model_requested_clarification": false,
+      "risky_wrong_answer": false,
+      "technical_issues": []
+    },
+    {
+      "id": "clarify_statement_download_01",
+      "valid": true,
+      "expected": {
+        "action": "ask_fact",
+        "determination": "unresolved"
+      },
+      "predicted": {
+        "action": "ask_fact",
+        "determination": "unresolved"
+      },
+      "field_correct": {
+        "action": true,
+        "determination": true
+      },
+      "all_fields_exact": true,
+      "selected_probabilities": {
+        "action": 0.7416185736656189,
+        "determination": 0.9234707355499268
+      },
+      "required_clarification": true,
+      "model_requested_clarification": true,
+      "risky_wrong_answer": false,
+      "technical_issues": []
+    },
+    {
+      "id": "clarify_bicycle_theft_06",
+      "valid": true,
+      "expected": {
+        "action": "answer",
+        "determination": "no"
+      },
+      "predicted": {
+        "action": "answer",
+        "determination": "no"
+      },
+      "field_correct": {
+        "action": true,
+        "determination": true
+      },
+      "all_fields_exact": true,
+      "selected_probabilities": {
+        "action": 0.8391949534416199,
+        "determination": 0.9642518162727356
+      },
+      "required_clarification": false,
+      "model_requested_clarification": false,
+      "risky_wrong_answer": false,
+      "technical_issues": []
+    },
+    {
+      "id": "clarify_order_cancellation_04",
+      "valid": true,
+      "expected": {
+        "action": "answer",
+        "determination": "yes"
+      },
+      "predicted": {
+        "action": "answer",
+        "determination": "yes"
+      },
+      "field_correct": {
+        "action": true,
+        "determination": true
+      },
+      "all_fields_exact": true,
+      "selected_probabilities": {
+        "action": 0.8471542596817017,
+        "determination": 0.9643581509590149
+      },
+      "required_clarification": false,
+      "model_requested_clarification": false,
+      "risky_wrong_answer": false,
+      "technical_issues": []
+    },
+    {
+      "id": "clarify_transfer_recall_05",
+      "valid": true,
+      "expected": {
+        "action": "answer",
+        "determination": "no"
+      },
+      "predicted": {
+        "action": "answer",
+        "determination": "no"
+      },
+      "field_correct": {
+        "action": true,
+        "determination": true
+      },
+      "all_fields_exact": true,
+      "selected_probabilities": {
+        "action": 0.6767811179161072,
+        "determination": 0.9506714344024658
+      },
+      "required_clarification": false,
+      "model_requested_clarification": false,
+      "risky_wrong_answer": false,
+      "technical_issues": []
+    },
+    {
+      "id": "clarify_order_cancellation_06",
+      "valid": true,
+      "expected": {
+        "action": "answer",
+        "determination": "yes"
+      },
+      "predicted": {
+        "action": "answer",
+        "determination": "yes"
+      },
+      "field_correct": {
+        "action": true,
+        "determination": true
+      },
+      "all_fields_exact": true,
+      "selected_probabilities": {
+        "action": 0.8571900725364685,
+        "determination": 0.9026680588722229
+      },
+      "required_clarification": false,
+      "model_requested_clarification": false,
+      "risky_wrong_answer": false,
+      "technical_issues": []
+    },
+    {
+      "id": "clarify_savings_fee_05",
+      "valid": true,
+      "expected": {
+        "action": "answer",
+        "determination": "no"
+      },
+      "predicted": {
+        "action": "answer",
+        "determination": "no"
+      },
+      "field_correct": {
+        "action": true,
+        "determination": true
+      },
+      "all_fields_exact": true,
+      "selected_probabilities": {
+        "action": 0.7191584706306458,
+        "determination": 0.9632964730262756
+      },
+      "required_clarification": false,
+      "model_requested_clarification": false,
+      "risky_wrong_answer": false,
+      "technical_issues": []
+    },
+    {
+      "id": "clarify_travel_delay_01",
+      "valid": true,
+      "expected": {
+        "action": "ask_fact",
+        "determination": "unresolved"
+      },
+      "predicted": {
+        "action": "ask_fact",
+        "determination": "unresolved"
+      },
+      "field_correct": {
+        "action": true,
+        "determination": true
+      },
+      "all_fields_exact": true,
+      "selected_probabilities": {
+        "action": 0.9323084950447083,
+        "determination": 0.9361684918403625
+      },
+      "required_clarification": true,
+      "model_requested_clarification": true,
+      "risky_wrong_answer": false,
+      "technical_issues": []
+    },
+    {
+      "id": "clarify_travel_delay_04",
+      "valid": true,
+      "expected": {
+        "action": "answer",
+        "determination": "yes"
+      },
+      "predicted": {
+        "action": "answer",
+        "determination": "yes"
+      },
+      "field_correct": {
+        "action": true,
+        "determination": true
+      },
+      "all_fields_exact": true,
+      "selected_probabilities": {
+        "action": 0.8838782906532288,
+        "determination": 0.965645432472229
+      },
+      "required_clarification": false,
+      "model_requested_clarification": false,
+      "risky_wrong_answer": false,
+      "technical_issues": []
+    },
+    {
+      "id": "clarify_transfer_recall_06",
+      "valid": true,
+      "expected": {
+        "action": "answer",
+        "determination": "no"
+      },
+      "predicted": {
+        "action": "answer",
+        "determination": "no"
+      },
+      "field_correct": {
+        "action": true,
+        "determination": true
+      },
+      "all_fields_exact": true,
+      "selected_probabilities": {
+        "action": 0.8687881231307983,
+        "determination": 0.9227682948112488
+      },
+      "required_clarification": false,
+      "model_requested_clarification": false,
+      "risky_wrong_answer": false,
+      "technical_issues": []
+    },
+    {
+      "id": "clarify_depot_statement_fee_02",
+      "valid": true,
+      "expected": {
+        "action": "ask_target",
+        "determination": "unresolved"
+      },
+      "predicted": {
+        "action": "ask_target",
+        "determination": "unresolved"
+      },
+      "field_correct": {
+        "action": true,
+        "determination": true
+      },
+      "all_fields_exact": true,
+      "selected_probabilities": {
+        "action": 0.749932587146759,
+        "determination": 0.8858633041381836
+      },
+      "required_clarification": true,
+      "model_requested_clarification": true,
+      "risky_wrong_answer": false,
+      "technical_issues": []
+    },
+    {
+      "id": "clarify_device_damage_01",
+      "valid": true,
+      "expected": {
+        "action": "ask_fact",
+        "determination": "unresolved"
+      },
+      "predicted": {
+        "action": "ask_fact",
+        "determination": "unresolved"
+      },
+      "field_correct": {
+        "action": true,
+        "determination": true
+      },
+      "all_fields_exact": true,
+      "selected_probabilities": {
+        "action": 0.9112423062324524,
+        "determination": 0.9620280861854553
+      },
+      "required_clarification": true,
+      "model_requested_clarification": true,
+      "risky_wrong_answer": false,
+      "technical_issues": []
+    },
+    {
+      "id": "clarify_giro_fee_06",
+      "valid": true,
+      "expected": {
+        "action": "answer",
+        "determination": "no"
+      },
+      "predicted": {
+        "action": "answer",
+        "determination": "yes"
+      },
+      "field_correct": {
+        "action": true,
+        "determination": false
+      },
+      "all_fields_exact": false,
+      "selected_probabilities": {
+        "action": 0.6186330318450928,
+        "determination": 0.47741711139678955
+      },
+      "required_clarification": false,
+      "model_requested_clarification": false,
+      "risky_wrong_answer": true,
+      "technical_issues": []
+    },
+    {
+      "id": "clarify_device_damage_05",
+      "valid": true,
+      "expected": {
+        "action": "answer",
+        "determination": "no"
+      },
+      "predicted": {
+        "action": "answer",
+        "determination": "no"
+      },
+      "field_correct": {
+        "action": true,
+        "determination": true
+      },
+      "all_fields_exact": true,
+      "selected_probabilities": {
+        "action": 0.8573128581047058,
+        "determination": 0.9804157614707947
+      },
+      "required_clarification": false,
+      "model_requested_clarification": false,
+      "risky_wrong_answer": false,
+      "technical_issues": []
+    },
+    {
+      "id": "clarify_card_replacement_02",
+      "valid": true,
+      "expected": {
+        "action": "ask_target",
+        "determination": "unresolved"
+      },
+      "predicted": {
+        "action": "ask_target",
+        "determination": "unresolved"
+      },
+      "field_correct": {
+        "action": true,
+        "determination": true
+      },
+      "all_fields_exact": true,
+      "selected_probabilities": {
+        "action": 0.7056142091751099,
+        "determination": 0.9300280809402466
+      },
+      "required_clarification": true,
+      "model_requested_clarification": true,
+      "risky_wrong_answer": false,
+      "technical_issues": []
+    },
+    {
+      "id": "clarify_giro_fee_04",
+      "valid": true,
+      "expected": {
+        "action": "answer",
+        "determination": "yes"
+      },
+      "predicted": {
+        "action": "answer",
+        "determination": "yes"
+      },
+      "field_correct": {
+        "action": true,
+        "determination": true
+      },
+      "all_fields_exact": true,
+      "selected_probabilities": {
+        "action": 0.9511323571205139,
+        "determination": 0.6387844681739807
+      },
+      "required_clarification": false,
+      "model_requested_clarification": false,
+      "risky_wrong_answer": false,
+      "technical_issues": []
+    },
+    {
+      "id": "clarify_welcome_bonus_06",
+      "valid": true,
+      "expected": {
+        "action": "answer",
+        "determination": "yes"
+      },
+      "predicted": {
+        "action": "answer",
+        "determination": "yes"
+      },
+      "field_correct": {
+        "action": true,
+        "determination": true
+      },
+      "all_fields_exact": true,
+      "selected_probabilities": {
+        "action": 0.910205066204071,
+        "determination": 0.9353055953979492
+      },
+      "required_clarification": false,
+      "model_requested_clarification": false,
+      "risky_wrong_answer": false,
+      "technical_issues": []
+    },
+    {
+      "id": "clarify_card_replacement_05",
+      "valid": true,
+      "expected": {
+        "action": "answer",
+        "determination": "no"
+      },
+      "predicted": {
+        "action": "answer",
+        "determination": "no"
+      },
+      "field_correct": {
+        "action": true,
+        "determination": true
+      },
+      "all_fields_exact": true,
+      "selected_probabilities": {
+        "action": 0.8146178722381592,
+        "determination": 0.9250335097312927
+      },
+      "required_clarification": false,
+      "model_requested_clarification": false,
+      "risky_wrong_answer": false,
+      "technical_issues": []
+    },
+    {
+      "id": "clarify_statement_download_03",
+      "valid": true,
+      "expected": {
+        "action": "resolve_conflict",
+        "determination": "unresolved"
+      },
+      "predicted": {
+        "action": "resolve_conflict",
+        "determination": "unresolved"
+      },
+      "field_correct": {
+        "action": true,
+        "determination": true
+      },
+      "all_fields_exact": true,
+      "selected_probabilities": {
+        "action": 0.9512521028518677,
+        "determination": 0.9544824361801147
+      },
+      "required_clarification": true,
+      "model_requested_clarification": true,
+      "risky_wrong_answer": false,
+      "technical_issues": []
+    },
+    {
+      "id": "clarify_savings_fee_03",
+      "valid": true,
+      "expected": {
+        "action": "resolve_conflict",
+        "determination": "unresolved"
+      },
+      "predicted": {
+        "action": "resolve_conflict",
+        "determination": "unresolved"
+      },
+      "field_correct": {
+        "action": true,
+        "determination": true
+      },
+      "all_fields_exact": true,
+      "selected_probabilities": {
+        "action": 0.5353063941001892,
+        "determination": 0.8883143067359924
+      },
+      "required_clarification": true,
+      "model_requested_clarification": true,
+      "risky_wrong_answer": false,
+      "technical_issues": []
+    },
+    {
+      "id": "clarify_card_replacement_01",
+      "valid": true,
+      "expected": {
+        "action": "ask_fact",
+        "determination": "unresolved"
+      },
+      "predicted": {
+        "action": "ask_fact",
+        "determination": "unresolved"
+      },
+      "field_correct": {
+        "action": true,
+        "determination": true
+      },
+      "all_fields_exact": true,
+      "selected_probabilities": {
+        "action": 0.9062455892562866,
+        "determination": 0.9635437726974487
+      },
+      "required_clarification": true,
+      "model_requested_clarification": true,
+      "risky_wrong_answer": false,
+      "technical_issues": []
+    },
+    {
+      "id": "clarify_transfer_recall_01",
+      "valid": true,
+      "expected": {
+        "action": "ask_fact",
+        "determination": "unresolved"
+      },
+      "predicted": {
+        "action": "ask_fact",
+        "determination": "unresolved"
+      },
+      "field_correct": {
+        "action": true,
+        "determination": true
+      },
+      "all_fields_exact": true,
+      "selected_probabilities": {
+        "action": 0.8544542193412781,
+        "determination": 0.9620753526687622
+      },
+      "required_clarification": true,
+      "model_requested_clarification": true,
+      "risky_wrong_answer": false,
+      "technical_issues": []
+    }
+  ],
+  "frozen_files_verified": 38
+}

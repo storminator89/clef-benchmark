@@ -42,16 +42,19 @@ jobs:
         run: python scripts/check_followups.py
       - name: Verify frozen bank-support export, safety metrics and previous results
         run: python scripts/check_bank_support.py
+      - name: Verify clarification72 and immutable earlier artifacts
+        run: python scripts/check_clarification.py
       - name: Run standard-library server, importer and adapter tests
         run: python -m unittest discover -s tests -p 'test_*.py' -v
-      - name: Rebuild all five completed-result UI datasets
+      - name: Rebuild all six completed-result UI datasets
         run: |
-          git ls-files --error-unmatch web/data/benchmark.json web/data/finance.json web/data/clean72.json web/data/insurance.json web/data/bank-support.json
+          git ls-files --error-unmatch web/data/benchmark.json web/data/finance.json web/data/clean72.json web/data/insurance.json web/data/bank-support.json web/data/clarification.json
           python scripts/build_web_data.py --suite general
           python scripts/build_web_data.py --suite finance
           python scripts/build_clean_web_data.py
           python scripts/build_insurance_web_data.py
           python scripts/build_bank_web_data.py
+          python scripts/build_clarification_web_data.py
           git diff --exit-code -- web/data/
       - name: Install pinned DOM test dependency (no runtime dependency)
         run: npm ci --ignore-scripts --no-audit --no-fund

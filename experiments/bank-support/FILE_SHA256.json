@@ -32,7 +32,7 @@
   "data/requests.jsonl": "a4ee04381c9d98e7d0365d487fadbe54a6f8c0e3dd751c1a08ebab14c0919562",
   "freeze_manifest.json": "11e895f000ada7286dc8ae5fabd00b63a862f81e57de1692ff86990e72a895d3",
   "licenses/Cloudflare-clef-flash-Apache-2.0.txt": "bbedc3fda3305820b977265f01b8619d87570a6739de3a5582c3464840f1e57a",
-  "provenance/portable_export.json": "d3a43c571af8b2f38aa351f0ac8a5b51b9a3b646fbd3b1f49d9c566649202312",
+  "provenance/portable_export.json": "7c42070ee153ca0b60e13cb132f05c419bd9fbca9c5b427e31e20b47e74e3193",
   "reference_runtime/config.json": "66f87f6fb2616b46604daf2a9c67ddc87938296d07156efa34d59b5be49e3238",
   "reference_runtime/download_model.py": "1b8320bf415567a1ae068fb5547aa015a20c043c1854302c42db9d770fd74170",
   "reference_runtime/guard_run.py": "87d1a533e43ad33f0257785f203bb3dacbadc7d43cfabaaece4b55a10ed092b3",

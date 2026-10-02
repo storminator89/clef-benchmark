@@ -1,0 +1,9 @@
+# Proposed next stages (not run, not frozen)
+
+## Minimal-change paired test
+
+Purpose: distinguish sensitivity to one decision-relevant fact from stability under a non-decision-relevant wording change. New German paired cases, exact family/item mapping, no inference until independent review and freeze. Prefer 24 base situations and one controlled edit per pair, split 12 consequential flips and 12 invariant edits across banking, insurance and finance. Every pair must differ in only one documented fact or narrowly bounded wording span. Record both-correct per pair, correct directional change among flip pairs, unjustified change among invariant pairs, and per-case exactness. These are related observations: report pair denominators, do not run naive independent-case comparisons. Any reuse of this suite's rule templates must be declared and does not create a held-out test. This is a separate dataset/result identity, not revision of this clarification set.
+
+## Probability reliability analysis
+
+Use frozen existing result files, without re-inference or probability tuning. For each field and each suite separately, report multiclass Brier score, NLL using unrounded native softmax probabilities, fixed-bin reliability counts and observed accuracy, high-score error IDs, and risk/coverage at preregistered score thresholds. Do not pool incomparable schemas or label distributions. Do not interpret the model's marginal option score as a joint or calibrated probability. A post-hoc calibration fit would require its own train/test separation and enough independent held-out items; these small AI-authored suites cannot establish production calibration. Review token counts, malformed outputs, missing probabilities and quantization mode before calculating. Classwise and domain results may be too sparse to support conclusions; expose counts rather than smoothing away the issue.

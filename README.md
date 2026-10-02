@@ -6,9 +6,9 @@
 
 Eine lokale Workbench für **Cloudflare Clef**: deutsche Benchmarks, transparente Fehleranalyse und private Texttests mit dem **nativen Decision Head**.
 
-**Flash 9B als Standard · Fünf getrennte Textsuiten · Buildfreie Oberfläche · Apache-2.0**
+**Flash 9B als Standard · Sechs getrennte Textsuiten · Buildfreie Oberfläche · Apache-2.0**
 
-[Geprüfte CI](https://github.com/storminator89/clef-benchmark/actions/runs/37020976072) · [Echter CPU-Smoke](qa/setup_custom_smoke.json) · [Lizenz](LICENSE)
+[CI und Prüfverlauf](https://github.com/storminator89/clef-benchmark/actions/workflows/check.yml) · [Echter CPU-Smoke](qa/setup_custom_smoke.json) · [Lizenz](LICENSE)
 
 [Schnellstart](#schnellstart) · [Ergebnisse](#ergebnisse) · [Eigene Tests](#eigene-tests) · [Modell & Hardware](#modell-und-hardware) · [Agenten-Setup](AGENTS.md)
 
@@ -20,8 +20,14 @@ Clef Lab macht aus Modellantworten prüfbare Ergebnisse: Originaltext, Aufgabenr
 
 **Der Fokus liegt auf nachvollziehbarer Evaluation.** Das Projekt ist ein unabhängiger, experimenteller Test von Cloudflare Clef. Die kleinen synthetischen Suiten belegen weder State-of-the-Art-Leistung noch Produktionsreife oder Sicherheit bei echten Kundenanfragen.
 
+**Für Entscheider und technische Reviewer:** Der [Projektüberblick auf Deutsch und Englisch](docs/PROJECT_BRIEF.md) fasst Ziel, zentrale Befunde und Grenzen kompakt zusammen. Der [Evaluationsleitfaden](docs/EVALUATION_GUIDE.md) verknüpft Methodik, tatsächlichen Prüfstand und Voraussetzungen für einen beaufsichtigten Pilot.
+
+**English:** [Executive summary and project profile](docs/PROJECT_BRIEF.md#english) · [Evaluation methodology and evidence](docs/EVALUATION_GUIDE.md)
+
 <!-- CLEF_GALLERY_START -->
 ## Ein Blick in die Workbench
+
+Historische Galerie: Die folgenden Bilder zeigen den geprüften Fünf-Suiten-Stand `3b5b374`. Die später ergänzte Rückfragesuite ist auf diesen Aufnahmen nicht enthalten. Aufnahmezeit, Labels und Quellhashes bleiben unverändert.
 
 Echte Google-Chrome-Screenshots (Chromium) aus dem modellfreien Browserlauf. Gezeigt werden ausschließlich
 synthetische Testdaten und bereits aufgezeichnete Benchmarkantworten. Der private Editor
@@ -105,7 +111,7 @@ Ein Agent benötigt Zugriff auf den gewünschten Rechner und deine Freigabe für
 
 | Bereich | Was du bekommst |
 |---|---|
-| **Ergebnisse erkunden** | Fünf getrennte Textsuiten, eigene Nenner, Suche, Fehlerfilter, Fall-Deep-Links und passende Sprachkontrollen |
+| **Ergebnisse erkunden** | Sechs getrennte Textsuiten, eigene Nenner, Suche, Fehlerfilter, Fall-Deep-Links und passende Sprachkontrollen |
 | **Dokumente verstehen** | Fallbibliothek, Klauselleser und Antwortprüfung auf dem Desktop; getrennte Bereiche auf schmalen Displays |
 | **Entscheidungen prüfen** | Gold-/Modellvergleich pro Feld, vollständige angebotene Belegmengen und alle ungerundeten Modellwahrscheinlichkeiten |
 | **Playground nutzen** | 1–8 native `choice`-Fragen pro Anfrage; gespeichertes Replay und neue lokale Inferenz klar getrennt |
@@ -116,7 +122,7 @@ Helles/dunkles Design, Tastaturbedienung, sichtbare Editoränderungen und mobile
 
 **Gespeicherte Antwort ≠ neue Inferenz:** Replay zeigt ausschließlich die unveränderte Antwort eines tatsächlichen Benchmark-Laufs. Eine Änderung an Text oder Schema deaktiviert Replay. Ohne aktives lokales Modell werden keine Antworten simuliert. „Status aktualisieren“ prüft nur das Backend und startet weder Download noch Inferenz.
 
-[Architektur und Bedienung](docs/UI_WORKBENCH.md) · [Live-API](docs/LIVE_API.md) · [Versicherungsdaten in der UI](docs/INSURANCE_UI_DATA.md) · [Bankdaten in der UI](docs/BANK_SUPPORT_UI_DATA.md)
+[Architektur und Bedienung](docs/UI_WORKBENCH.md) · [Live-API](docs/LIVE_API.md) · [Versicherungsdaten in der UI](docs/INSURANCE_UI_DATA.md) · [Bankdaten in der UI](docs/BANK_SUPPORT_UI_DATA.md) · [Rückfragen in der UI](docs/CLARIFICATION_UI_DATA.md)
 
 ## Ergebnisse
 
@@ -124,6 +130,7 @@ Alle folgenden Werte stammen aus abgeschlossenen **Flash-9B-/CPU-NF4-Läufen**. 
 
 | Textsuite | Eigenständige Szenarien | Hauptmaß | Wichtigste Einordnung |
 |---|---:|---:|---|
+| **Rückfragen statt Raten** | 72 | **64/72 · 88,9 %** beide Felder richtig | 4/36 nötige Rückfragen verpasst; drei inkonsistente Feldpaare |
 | **Bank-Kundensupport** | 80 | **68/80 · 85,0 %** alle drei Felder richtig | Anliegen, Priorität und nächster Schritt; nur 8/10 kritische Fälle vollständig richtig |
 | **Versicherungsdokumente** | 60 | **50/60 · 83,3 %** beide Felder richtig | Entscheidung und Evidenz; fünf korrelierte Fälle je Dokument |
 | **Allgemeine Entscheidungen** | 120 | **116/120 · 96,7 %** deutscher Haupttest | Weitere 60 Sprachkontroll-/Diagnose-Requests aus vorhandenen Szenarien |
@@ -131,6 +138,29 @@ Alle folgenden Werte stammen aus abgeschlossenen **Flash-9B-/CPU-NF4-Läufen**. 
 | **clean72** | 72 | **61/72 · 84,7 %** deutsche Entscheidungen | Neue Bürofragen ohne Manipulation; andere Aufgaben und Schwierigkeit |
 
 Der Bildtest und die Angriffsentfernungs-Diagnose bleiben **separate Berichte**, keine weiteren Textsuiten im Dashboard. Die folgenden Details gehören zur Interpretation der Zahlen.
+
+### Rückfragen statt Raten
+
+**72 neue synthetische deutsche Fälle**, je 24 aus Banking, Versicherung und Finanzen. **36 brauchen eine Rückfrage, 36 sind beantwortbar.** Der Test bestraft damit auch pauschales Nachfragen. Zwei native Felder prüfen den nächsten Schritt (`answer`, `ask_fact`, `ask_target`, `resolve_conflict`) und die Feststellung (`yes`, `no`, `unresolved`).
+
+| Prüfkriterium | Korrekt | Anteil |
+|---|---:|---:|
+| Nächster Schritt | 65 / 72 | 90,3 % |
+| Feststellung | 66 / 72 | 91,7 % |
+| **Beide Felder** | **64 / 72** | **88,9 %** |
+
+- **4/36** notwendige Rückfragen verpasst, **2/36** unnötige Rückfragen, **1/36** falsche Rückfrageart
+- **Drei inkonsistente Feldpaare**, obwohl alle 72 Ausgaben schema-gültig sind; der native Output wird nicht repariert
+- Vier riskante falsche konkrete Antworten unter 37 konkreten Modellantworten (**4/37**); keine realen Handlungen
+- Unklare Zielvorgänge: **7/12** vollständig richtig; trotz Lücke beantwortbare Fälle: **9/12**; die vier übrigen gestalteten Gruppen: jeweils **12/12**
+
+Die zwölf verwandten Regelfamilien sind keine unabhängigen Stichproben. Einfache fiktive UND-Regeln und teils ausdrücklich benannte Informationslücken erleichtern die Aufgabe. Die KI-verfassten Goldreferenzen wurden vor der Inferenz separat KI-geprüft; keine menschliche Fachvalidierung. Eine Rückfrageart auszuwählen bewertet nicht die Qualität einer frei formulierten deutschen Rückfrage.
+
+**Hohe Feldscores sind keine Zuverlässigkeitsgarantie:** Bei mindestens 0,90 in beiden Feldern gab es null falsche konkrete Antworten, aber nur **fünf** qualifizierten sich (5/72 Fälle). Bei 0,95 waren es null; die Fehlerquote ist dann undefiniert. Die marginalen Scores sind weder kalibriert noch eine gemeinsame Wahrscheinlichkeit. Alle ungerundeten Optionswerte und sämtliche Fehler bleiben einsehbar.
+
+CPU-NF4-Forward-Median **20,77 s**, ohne Laden/Warm-up; kein GPU- oder Präzisionsvergleich. Frühere Benchmarks und ihre Nenner bleiben unverändert.
+
+[Ergebnisbericht](experiments/clarification72/REPORT.md) · [Alle acht Fehlerfälle](experiments/clarification72/ERRORS.md) · [Vorab-Protokoll](experiments/clarification72/PROTOCOL.md) · [Originaldaten und Reproduktion](experiments/clarification72/README.md)
 
 ### Bank-Kundensupport
 
@@ -350,7 +380,7 @@ Goldlabels dienen der Auswertung und gehen **nicht** in den Modellrequest. Es gi
 | `runtime/` | Gepinnte Modellassets, Original-Head, Profile, Setup und Lazy-Live-Adapter |
 | `benchmark/`, `finance_benchmark/` | Getrennte eingefrorene Original-Textsuiten |
 | `results/` | Archivierte Originalresultate; Finance unter `results/finance/` |
-| `experiments/` | Separate Bank-, Versicherungs-, clean72-, Bild- und Ablationstests |
+| `experiments/` | Separate Rückfrage-, Bank-, Versicherungs-, clean72-, Bild- und Ablationstests |
 | `qa/`, `provenance/` | Unabhängige Gegenprüfungen und Herkunftsnachweise |
 | `scripts/`, `tests/` | Import-Gates, Integritätsprüfungen und Regressionstests |
 | `docs/`, `licenses/` | Einrichtung, Methodik, Validierung und Upstream-Lizenz |
@@ -359,7 +389,7 @@ Modelle, virtuelle Umgebungen, Caches, Schlüssel und private Pfade gehören nic
 
 ## Prüfung und Reproduktion
 
-Der dokumentierte lokale Integrationsstand umfasst **254 bestandene Python-Tests**, **99 bestandene JavaScript-/DOM-Tests** und **drei bestandene Integritätsgates**. Alle fünf UI-Datensätze wurden byte-identisch rekonstruiert. Diese modellfreien Prüfungen sind von echter Inferenz und visueller Browserprüfung getrennt. [Aktueller UI-Prüfnachweis](qa/ui_polish_review.json) · [Validierungsverlauf](docs/VALIDATION.md)
+Der dokumentierte lokale Integrationsstand umfasst **266 bestandene Python-Tests**, **110 bestandene JavaScript-/DOM-Tests** und **vier bestandene Integritätsgates**. Alle sechs UI-Datensätze wurden byte-identisch rekonstruiert. Diese modellfreien Prüfungen sind von echter Inferenz und visueller Browserprüfung getrennt. [Rückfrage-Integrationsnachweis](qa/clarification_integration.json) · [Vorheriger UI-Prüfnachweis](qa/ui_polish_review.json) · [Validierungsverlauf](docs/VALIDATION.md)
 
 Die folgenden Befehle laden kein Modell und führen keine Inferenz aus:
 
@@ -371,17 +401,19 @@ node --test tests/test_web.mjs
 npm ci --ignore-scripts --no-audit --no-fund
 npm test
 
-# Drei getrennte Integritätsgates
+# Vier getrennte Integritätsgates
 python3 scripts/check_project.py
 python3 scripts/check_followups.py
 python3 scripts/check_bank_support.py
+python3 scripts/check_clarification.py
 
-# Alle fünf Ergebnisdatensätze rekonstruieren
+# Alle sechs Ergebnisdatensätze rekonstruieren
 python3 scripts/build_web_data.py --suite general
 python3 scripts/build_web_data.py --suite finance
 python3 scripts/build_clean_web_data.py
 python3 scripts/build_insurance_web_data.py
 python3 scripts/build_bank_web_data.py
+python3 scripts/build_clarification_web_data.py
 
 # Nur im sauberen Export ohne node_modules/ oder lokale Caches
 python3 scripts/audit_public.py
@@ -397,7 +429,7 @@ Die Importe verweigern unvollständige Läufe, fehlende IDs, geänderte Freeze-D
 
 Der vorbereitete [Browser-Gallery-Workflow](.github/workflows/browser-gallery.yml) verwendet **Playwright 1.62.0** und den normal installierten stabilen Google-Chrome-Kanal mit aktiviertem Chromium-Sandboxing auf einem gewöhnlichen `ubuntu-24.04`-Runner. Er prüft Desktop, Hell/Dunkel sowie 320-/390-Pixel-Ansichten mit öffentlichen synthetischen Fällen. Der Lauf verbietet Modellinferenz, nutzt keine Secrets und begrenzt das Artefakt auf **10 MiB mit einem Tag Aufbewahrung**, ohne Trace oder Video.
 
-**Browserstatus: echte Desktop-/Mobile-Prüfung bestanden.** Der [vollständige Capture-Lauf](https://github.com/storminator89/clef-benchmark/actions/runs/37020974987) auf Commit `3b5b3743965f3ad77a5dd092296866920d2ca813` bestand am 2. Oktober 2026 alle acht Browser-Prüfgruppen und erzeugte 17 echte PNGs. Quell- und Bildhashes wurden abgeglichen, die veröffentlichten Bilder anschließend visuell geprüft. Geprüft wurden Desktop sowie 320/390 CSS-Pixel, Light/Dark, alle fünf Suiten, Replay, Navigation und privater Dateiimport. Der vorhandene Chrome-Kanal lief mit aktivierter Sandbox und unverändertem AppArmor-Profil; keine Modellinferenz war aktiv. Der zuvor entdeckte 320-Pixel-Select-Überlauf ist korrigiert und durch echte Browserprüfungen abgesichert. [Aufnahmenachweis](docs/screenshots/manifest.json) · [Prüfumfang und Grenzen](docs/BROWSER_GALLERY.md). Smartphone-Viewports ersetzen keinen Test auf physischen Geräten oder ein Screenreader-Audit.
+**Historischer Browserstatus für den Fünf-Suiten-Stand: echte Desktop-/Mobile-Prüfung bestanden.** Der [vollständige Capture-Lauf](https://github.com/storminator89/clef-benchmark/actions/runs/37020974987) auf Commit `3b5b3743965f3ad77a5dd092296866920d2ca813` bestand am 2. Oktober 2026 alle acht Browser-Prüfgruppen und erzeugte 17 echte PNGs. Quell- und Bildhashes wurden abgeglichen, die veröffentlichten Bilder anschließend visuell geprüft. Geprüft wurden Desktop sowie 320/390 CSS-Pixel, Light/Dark, alle fünf Suiten, Replay, Navigation und privater Dateiimport. Der vorhandene Chrome-Kanal lief mit aktivierter Sandbox und unverändertem AppArmor-Profil; keine Modellinferenz war aktiv. Der zuvor entdeckte 320-Pixel-Select-Überlauf ist korrigiert und durch echte Browserprüfungen abgesichert. [Aufnahmenachweis](docs/screenshots/manifest.json) · [Prüfumfang und Grenzen](docs/BROWSER_GALLERY.md). Smartphone-Viewports ersetzen keinen Test auf physischen Geräten oder ein Screenreader-Audit.
 
 [Ausführen, prüfen und veröffentlichen](docs/BROWSER_GALLERY.md) · [Prüfgrenzen](docs/VALIDATION.md)
 

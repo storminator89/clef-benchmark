@@ -1,0 +1,85 @@
+{
+  "status": "passed",
+  "checked_at_utc": "2026-10-02T13:56:19.923606+00:00",
+  "revision": "17f0b0ad64efb65d273590632833508766b2aae6",
+  "model_files": {
+    ".gitattributes": {
+      "sha256": "34448b82c17d60fec9b65b1f093c115ddbaadc04beb1b0140b6bfed2e012a930",
+      "bytes": 1570
+    },
+    "LICENSE": {
+      "sha256": "bbedc3fda3305820b977265f01b8619d87570a6739de3a5582c3464840f1e57a",
+      "bytes": 11544
+    },
+    "README.md": {
+      "sha256": "4aac13b2563900152eab8feaad0b310a91b55a96135abf4ad17ad4a302bd73e6",
+      "bytes": 10222
+    },
+    "chat_template.jinja": {
+      "sha256": "a4aee8afcf2e0711942cf848899be66016f8d14a889ff9ede07bca099c28f715",
+      "bytes": 7756
+    },
+    "config.json": {
+      "sha256": "66f87f6fb2616b46604daf2a9c67ddc87938296d07156efa34d59b5be49e3238",
+      "bytes": 2832
+    },
+    "generation_config.json": {
+      "sha256": "45707f8467bf4e54e112c6095a1b2d1f2d63651cf86816344cfff21f02dda0d4",
+      "bytes": 116
+    },
+    "joint_head.safetensors": {
+      "sha256": "19cdcec8c81dc9212be320fff47462ab342fbc1278be4368fb3da71241cf5ba0",
+      "bytes": 243538016
+    },
+    "joint_head_config.json": {
+      "sha256": "77efe959a38b5b17b241543e129e695f3c77465ece55a25985279bd8176279a0",
+      "bytes": 119
+    },
+    "joint_schema_model.py": {
+      "sha256": "0e304cf7c6500e8bb59bef7e2afd2c6373f82596dfb3b57d1aa93c175e2dc3a3",
+      "bytes": 23263
+    },
+    "model-00001-of-00004.safetensors": {
+      "sha256": "8b45a8e968141cdcc58fb71c9adfc258e2c77b5f062bc636c1fd5bc5d916b565",
+      "bytes": 4942706120
+    },
+    "model-00002-of-00004.safetensors": {
+      "sha256": "7590856c713eed844a2dcf48e6c43c4de165b788bc3f80e328311183cdbc7db8",
+      "bytes": 4987757928
+    },
+    "model-00003-of-00004.safetensors": {
+      "sha256": "e6eac2467952c33361ed7dcb3c7959d1086bbe57201cd3749c3d769fdc17fe63",
+      "bytes": 4954810240
+    },
+    "model-00004-of-00004.safetensors": {
+      "sha256": "9fcecc6556b39171238373a465f409794b7f821fb4cd1e6459e3a9c0fe317af7",
+      "bytes": 3934446832
+    },
+    "model.safetensors.index.json": {
+      "sha256": "941305ff9f77551e145a6cea976ef456cd5cb208cbece99f168376c752fcf96c",
+      "bytes": 69253
+    },
+    "processor_config.json": {
+      "sha256": "d89ef49ce9cd37fbf510158e13c1ef063d9286411c1ec9049932dbe0487143b1",
+      "bytes": 1191
+    },
+    "tokenizer.json": {
+      "sha256": "06b9509352d2af50381ab2247e083b80d32d5c0aba91c272ca9ff729b6a0e523",
+      "bytes": 19989325
+    },
+    "tokenizer_config.json": {
+      "sha256": "91a08f825d370d085d692e04cf117cdd7faad7bf18e996f1e6031b6dab03db72",
+      "bytes": 1075
+    }
+  },
+  "runner_sha256": "d06f85b922e1e4d0e905a1ddc8846aedcafa93c29f502f48b1529a36a9eb5906",
+  "packages": {
+    "torch": "2.11.0+cpu",
+    "transformers": "5.10.2",
+    "bitsandbytes": "0.50.2",
+    "accelerate": "1.15.0",
+    "huggingface-hub": "1.33.0",
+    "safetensors": "0.8.0"
+  },
+  "model_not_loaded": true
+}

@@ -27,4 +27,26 @@ class FeaturePublicAuditTests(unittest.TestCase):
             self.assertEqual(report['status'], 'pass')
 
 
+    def test_public_inventory_is_deterministic_aggregate_without_file_identifiers(self):
+        rows = [{'path': 'synthetic_example.json', 'bytes': 10, 'sha256': 'a' * 64},
+                {'path': 'second_example.json', 'bytes': 20, 'sha256': 'b' * 64}]
+        value = audit.public_inventory_summary(rows)
+        self.assertEqual(value, audit.public_inventory_summary(list(reversed(rows))))
+        self.assertEqual(value['file_count'], 2); self.assertEqual(value['total_bytes'], 30)
+        self.assertNotIn('files', value)
+        self.assertNotIn('synthetic_example.json', str(value))
+        self.assertNotIn('a' * 64, str(value))
+        changed = [dict(row) for row in rows]; changed[0]['bytes'] += 1
+        self.assertNotEqual(value['aggregate_sha256'], audit.public_inventory_summary(changed)['aggregate_sha256'])
+
+    def test_public_inventory_excludes_both_self_reports_without_recursion(self):
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td); (root / 'provenance').mkdir(); (root / 'README.md').write_text('public example')
+            with patch.object(audit, 'ROOT', root): _, first = audit.audit()
+            for name in audit.EXCLUDED: (root / name).write_text('self-report placeholder')
+            with patch.object(audit, 'ROOT', root): _, second = audit.audit()
+            self.assertEqual(first, second)
+            self.assertEqual(audit.public_inventory_summary(first), audit.public_inventory_summary(second))
+
+
 if __name__ == '__main__': unittest.main()

@@ -1,0 +1,688 @@
+{
+  "suite_id": "clarification",
+  "case_count": 72,
+  "field_count": 2,
+  "metrics": {
+    "action": {
+      "numerator": 65,
+      "denominator": 72,
+      "rate": 0.9027777777777778
+    },
+    "determination": {
+      "numerator": 66,
+      "denominator": 72,
+      "rate": 0.9166666666666666
+    },
+    "all_fields_exact": {
+      "numerator": 64,
+      "denominator": 72,
+      "rate": 0.8888888888888888
+    },
+    "all_field_decisions": {
+      "numerator": 131,
+      "denominator": 144,
+      "rate": 0.9097222222222222
+    }
+  },
+  "denominators": {
+    "clarification_required": 36,
+    "answerable": 36,
+    "valid_cases": 72,
+    "substantive_answers": 37
+  },
+  "behavior_rates": {
+    "missed_required_clarifications": {
+      "numerator": 4,
+      "denominator": 36,
+      "rate": 0.1111111111111111
+    },
+    "required_clarifications_not_successfully_requested": {
+      "numerator": 4,
+      "denominator": 36,
+      "rate": 0.1111111111111111
+    },
+    "excess_clarifications": {
+      "numerator": 2,
+      "denominator": 36,
+      "rate": 0.05555555555555555
+    },
+    "wrong_clarification_kind": {
+      "numerator": 1,
+      "denominator": 36,
+      "rate": 0.027777777777777776
+    },
+    "risky_wrong_answers_all_cases": {
+      "numerator": 4,
+      "denominator": 72,
+      "rate": 0.05555555555555555
+    },
+    "risky_wrong_answers_among_substantive": {
+      "numerator": 4,
+      "denominator": 37,
+      "rate": 0.10810810810810811
+    }
+  },
+  "high_confidence": {
+    "0.8": {
+      "confident_answers": 23,
+      "confident_wrong": 0,
+      "wrong_rate_among_confident": {
+        "numerator": 0,
+        "denominator": 23,
+        "rate": 0.0
+      }
+    },
+    "0.9": {
+      "confident_answers": 5,
+      "confident_wrong": 0,
+      "wrong_rate_among_confident": {
+        "numerator": 0,
+        "denominator": 5,
+        "rate": 0.0
+      }
+    },
+    "0.95": {
+      "confident_answers": 0,
+      "confident_wrong": 0,
+      "wrong_rate_among_confident": {
+        "numerator": 0,
+        "denominator": 0,
+        "rate": null
+      }
+    }
+  },
+  "events": {
+    "wrong_clarification_kind": {
+      "count": 1,
+      "ids": [
+        "clarify_order_cancellation_02"
+      ]
+    },
+    "inconsistent_fields": {
+      "count": 3,
+      "ids": [
+        "clarify_order_cancellation_02",
+        "clarify_device_damage_02",
+        "clarify_savings_fee_06"
+      ]
+    },
+    "missed_required_clarifications": {
+      "count": 4,
+      "ids": [
+        "clarify_savings_fee_02",
+        "clarify_statement_download_02",
+        "clarify_bicycle_theft_02",
+        "clarify_device_damage_02"
+      ]
+    },
+    "required_clarifications_not_successfully_requested": {
+      "count": 4,
+      "ids": [
+        "clarify_savings_fee_02",
+        "clarify_statement_download_02",
+        "clarify_bicycle_theft_02",
+        "clarify_device_damage_02"
+      ]
+    },
+    "substantive_answer_cases": {
+      "count": 37,
+      "ids": [
+        "clarify_savings_fee_02",
+        "clarify_statement_download_02",
+        "clarify_statement_download_04",
+        "clarify_card_replacement_04",
+        "clarify_bicycle_theft_04",
+        "clarify_welcome_bonus_04",
+        "clarify_luggage_delay_05",
+        "clarify_bicycle_theft_02",
+        "clarify_luggage_delay_04",
+        "clarify_depot_statement_fee_05",
+        "clarify_depot_statement_fee_04",
+        "clarify_order_cancellation_05",
+        "clarify_travel_delay_05",
+        "clarify_travel_delay_06",
+        "clarify_luggage_delay_06",
+        "clarify_welcome_bonus_05",
+        "clarify_savings_fee_04",
+        "clarify_device_damage_04",
+        "clarify_giro_fee_05",
+        "clarify_statement_download_06",
+        "clarify_statement_download_05",
+        "clarify_bicycle_theft_05",
+        "clarify_card_replacement_06",
+        "clarify_device_damage_06",
+        "clarify_transfer_recall_04",
+        "clarify_bicycle_theft_06",
+        "clarify_order_cancellation_04",
+        "clarify_transfer_recall_05",
+        "clarify_order_cancellation_06",
+        "clarify_savings_fee_05",
+        "clarify_travel_delay_04",
+        "clarify_transfer_recall_06",
+        "clarify_giro_fee_06",
+        "clarify_device_damage_05",
+        "clarify_giro_fee_04",
+        "clarify_welcome_bonus_06",
+        "clarify_card_replacement_05"
+      ]
+    },
+    "risky_wrong_answers": {
+      "count": 4,
+      "ids": [
+        "clarify_savings_fee_02",
+        "clarify_statement_download_02",
+        "clarify_bicycle_theft_02",
+        "clarify_giro_fee_06"
+      ]
+    },
+    "confident_answers_0.8": {
+      "count": 23,
+      "ids": [
+        "clarify_card_replacement_04",
+        "clarify_welcome_bonus_04",
+        "clarify_luggage_delay_04",
+        "clarify_depot_statement_fee_04",
+        "clarify_travel_delay_05",
+        "clarify_travel_delay_06",
+        "clarify_luggage_delay_06",
+        "clarify_savings_fee_04",
+        "clarify_device_damage_04",
+        "clarify_statement_download_06",
+        "clarify_statement_download_05",
+        "clarify_bicycle_theft_05",
+        "clarify_card_replacement_06",
+        "clarify_device_damage_06",
+        "clarify_transfer_recall_04",
+        "clarify_bicycle_theft_06",
+        "clarify_order_cancellation_04",
+        "clarify_order_cancellation_06",
+        "clarify_travel_delay_04",
+        "clarify_transfer_recall_06",
+        "clarify_device_damage_05",
+        "clarify_welcome_bonus_06",
+        "clarify_card_replacement_05"
+      ]
+    },
+    "confident_answers_0.9": {
+      "count": 5,
+      "ids": [
+        "clarify_travel_delay_06",
+        "clarify_savings_fee_04",
+        "clarify_statement_download_06",
+        "clarify_card_replacement_06",
+        "clarify_welcome_bonus_06"
+      ]
+    },
+    "excess_clarifications": {
+      "count": 2,
+      "ids": [
+        "clarify_savings_fee_06",
+        "clarify_depot_statement_fee_06"
+      ]
+    },
+    "invalid_or_missing": {
+      "count": 0,
+      "ids": []
+    },
+    "confident_wrong_answers_0.8": {
+      "count": 0,
+      "ids": []
+    },
+    "confident_wrong_answers_0.9": {
+      "count": 0,
+      "ids": []
+    },
+    "confident_answers_0.95": {
+      "count": 0,
+      "ids": []
+    },
+    "confident_wrong_answers_0.95": {
+      "count": 0,
+      "ids": []
+    }
+  },
+  "confusion_matrices": {
+    "action": {
+      "ask_target": {
+        "ask_fact": 1,
+        "ask_target": 7,
+        "answer": 4
+      },
+      "answer": {
+        "answer": 34,
+        "ask_fact": 2
+      },
+      "resolve_conflict": {
+        "resolve_conflict": 12
+      },
+      "ask_fact": {
+        "ask_fact": 12
+      }
+    },
+    "determination": {
+      "unresolved": {
+        "no": 2,
+        "unresolved": 32,
+        "yes": 2
+      },
+      "yes": {
+        "yes": 18
+      },
+      "no": {
+        "no": 16,
+        "unresolved": 1,
+        "yes": 1
+      }
+    }
+  },
+  "strata": {
+    "domain": {
+      "finance": {
+        "cases": 24,
+        "all_fields_exact": {
+          "numerator": 20,
+          "denominator": 24,
+          "rate": 0.8333333333333334
+        },
+        "action": {
+          "numerator": 20,
+          "denominator": 24,
+          "rate": 0.8333333333333334
+        },
+        "determination": {
+          "numerator": 21,
+          "denominator": 24,
+          "rate": 0.875
+        }
+      },
+      "insurance": {
+        "cases": 24,
+        "all_fields_exact": {
+          "numerator": 22,
+          "denominator": 24,
+          "rate": 0.9166666666666666
+        },
+        "action": {
+          "numerator": 22,
+          "denominator": 24,
+          "rate": 0.9166666666666666
+        },
+        "determination": {
+          "numerator": 23,
+          "denominator": 24,
+          "rate": 0.9583333333333334
+        }
+      },
+      "banking": {
+        "cases": 24,
+        "all_fields_exact": {
+          "numerator": 22,
+          "denominator": 24,
+          "rate": 0.9166666666666666
+        },
+        "action": {
+          "numerator": 23,
+          "denominator": 24,
+          "rate": 0.9583333333333334
+        },
+        "determination": {
+          "numerator": 22,
+          "denominator": 24,
+          "rate": 0.9166666666666666
+        }
+      }
+    },
+    "stratum": {
+      "ambiguous_target": {
+        "cases": 12,
+        "all_fields_exact": {
+          "numerator": 7,
+          "denominator": 12,
+          "rate": 0.5833333333333334
+        },
+        "action": {
+          "numerator": 7,
+          "denominator": 12,
+          "rate": 0.5833333333333334
+        },
+        "determination": {
+          "numerator": 8,
+          "denominator": 12,
+          "rate": 0.6666666666666666
+        }
+      },
+      "complete_yes": {
+        "cases": 12,
+        "all_fields_exact": {
+          "numerator": 12,
+          "denominator": 12,
+          "rate": 1.0
+        },
+        "action": {
+          "numerator": 12,
+          "denominator": 12,
+          "rate": 1.0
+        },
+        "determination": {
+          "numerator": 12,
+          "denominator": 12,
+          "rate": 1.0
+        }
+      },
+      "conflicting_evidence": {
+        "cases": 12,
+        "all_fields_exact": {
+          "numerator": 12,
+          "denominator": 12,
+          "rate": 1.0
+        },
+        "action": {
+          "numerator": 12,
+          "denominator": 12,
+          "rate": 1.0
+        },
+        "determination": {
+          "numerator": 12,
+          "denominator": 12,
+          "rate": 1.0
+        }
+      },
+      "missing_fact": {
+        "cases": 12,
+        "all_fields_exact": {
+          "numerator": 12,
+          "denominator": 12,
+          "rate": 1.0
+        },
+        "action": {
+          "numerator": 12,
+          "denominator": 12,
+          "rate": 1.0
+        },
+        "determination": {
+          "numerator": 12,
+          "denominator": 12,
+          "rate": 1.0
+        }
+      },
+      "complete_no": {
+        "cases": 12,
+        "all_fields_exact": {
+          "numerator": 12,
+          "denominator": 12,
+          "rate": 1.0
+        },
+        "action": {
+          "numerator": 12,
+          "denominator": 12,
+          "rate": 1.0
+        },
+        "determination": {
+          "numerator": 12,
+          "denominator": 12,
+          "rate": 1.0
+        }
+      },
+      "sufficient_despite_omission": {
+        "cases": 12,
+        "all_fields_exact": {
+          "numerator": 9,
+          "denominator": 12,
+          "rate": 0.75
+        },
+        "action": {
+          "numerator": 10,
+          "denominator": 12,
+          "rate": 0.8333333333333334
+        },
+        "determination": {
+          "numerator": 10,
+          "denominator": 12,
+          "rate": 0.8333333333333334
+        }
+      }
+    },
+    "family": {
+      "order_cancellation": {
+        "cases": 6,
+        "all_fields_exact": {
+          "numerator": 5,
+          "denominator": 6,
+          "rate": 0.8333333333333334
+        },
+        "action": {
+          "numerator": 5,
+          "denominator": 6,
+          "rate": 0.8333333333333334
+        },
+        "determination": {
+          "numerator": 5,
+          "denominator": 6,
+          "rate": 0.8333333333333334
+        }
+      },
+      "travel_delay": {
+        "cases": 6,
+        "all_fields_exact": {
+          "numerator": 6,
+          "denominator": 6,
+          "rate": 1.0
+        },
+        "action": {
+          "numerator": 6,
+          "denominator": 6,
+          "rate": 1.0
+        },
+        "determination": {
+          "numerator": 6,
+          "denominator": 6,
+          "rate": 1.0
+        }
+      },
+      "savings_fee": {
+        "cases": 6,
+        "all_fields_exact": {
+          "numerator": 4,
+          "denominator": 6,
+          "rate": 0.6666666666666666
+        },
+        "action": {
+          "numerator": 4,
+          "denominator": 6,
+          "rate": 0.6666666666666666
+        },
+        "determination": {
+          "numerator": 5,
+          "denominator": 6,
+          "rate": 0.8333333333333334
+        }
+      },
+      "statement_download": {
+        "cases": 6,
+        "all_fields_exact": {
+          "numerator": 5,
+          "denominator": 6,
+          "rate": 0.8333333333333334
+        },
+        "action": {
+          "numerator": 5,
+          "denominator": 6,
+          "rate": 0.8333333333333334
+        },
+        "determination": {
+          "numerator": 5,
+          "denominator": 6,
+          "rate": 0.8333333333333334
+        }
+      },
+      "luggage_delay": {
+        "cases": 6,
+        "all_fields_exact": {
+          "numerator": 6,
+          "denominator": 6,
+          "rate": 1.0
+        },
+        "action": {
+          "numerator": 6,
+          "denominator": 6,
+          "rate": 1.0
+        },
+        "determination": {
+          "numerator": 6,
+          "denominator": 6,
+          "rate": 1.0
+        }
+      },
+      "device_damage": {
+        "cases": 6,
+        "all_fields_exact": {
+          "numerator": 5,
+          "denominator": 6,
+          "rate": 0.8333333333333334
+        },
+        "action": {
+          "numerator": 5,
+          "denominator": 6,
+          "rate": 0.8333333333333334
+        },
+        "determination": {
+          "numerator": 6,
+          "denominator": 6,
+          "rate": 1.0
+        }
+      },
+      "giro_fee": {
+        "cases": 6,
+        "all_fields_exact": {
+          "numerator": 5,
+          "denominator": 6,
+          "rate": 0.8333333333333334
+        },
+        "action": {
+          "numerator": 6,
+          "denominator": 6,
+          "rate": 1.0
+        },
+        "determination": {
+          "numerator": 5,
+          "denominator": 6,
+          "rate": 0.8333333333333334
+        }
+      },
+      "welcome_bonus": {
+        "cases": 6,
+        "all_fields_exact": {
+          "numerator": 6,
+          "denominator": 6,
+          "rate": 1.0
+        },
+        "action": {
+          "numerator": 6,
+          "denominator": 6,
+          "rate": 1.0
+        },
+        "determination": {
+          "numerator": 6,
+          "denominator": 6,
+          "rate": 1.0
+        }
+      },
+      "card_replacement": {
+        "cases": 6,
+        "all_fields_exact": {
+          "numerator": 6,
+          "denominator": 6,
+          "rate": 1.0
+        },
+        "action": {
+          "numerator": 6,
+          "denominator": 6,
+          "rate": 1.0
+        },
+        "determination": {
+          "numerator": 6,
+          "denominator": 6,
+          "rate": 1.0
+        }
+      },
+      "bicycle_theft": {
+        "cases": 6,
+        "all_fields_exact": {
+          "numerator": 5,
+          "denominator": 6,
+          "rate": 0.8333333333333334
+        },
+        "action": {
+          "numerator": 5,
+          "denominator": 6,
+          "rate": 0.8333333333333334
+        },
+        "determination": {
+          "numerator": 5,
+          "denominator": 6,
+          "rate": 0.8333333333333334
+        }
+      },
+      "depot_statement_fee": {
+        "cases": 6,
+        "all_fields_exact": {
+          "numerator": 5,
+          "denominator": 6,
+          "rate": 0.8333333333333334
+        },
+        "action": {
+          "numerator": 5,
+          "denominator": 6,
+          "rate": 0.8333333333333334
+        },
+        "determination": {
+          "numerator": 5,
+          "denominator": 6,
+          "rate": 0.8333333333333334
+        }
+      },
+      "transfer_recall": {
+        "cases": 6,
+        "all_fields_exact": {
+          "numerator": 6,
+          "denominator": 6,
+          "rate": 1.0
+        },
+        "action": {
+          "numerator": 6,
+          "denominator": 6,
+          "rate": 1.0
+        },
+        "determination": {
+          "numerator": 6,
+          "denominator": 6,
+          "rate": 1.0
+        }
+      }
+    }
+  },
+  "technical": {
+    "recorded_predictions": 72,
+    "valid_cases": 72,
+    "missing_predictions": 0,
+    "invalid_existing_predictions": 0,
+    "input_tokens_min": 689,
+    "input_tokens_max": 757,
+    "forward_seconds_median": 20.774946083998657,
+    "forward_seconds_p95": 25.30412962534647,
+    "forward_seconds_total": 1511.0174050940113,
+    "peak_observed_rss_bytes": 6152990720
+  },
+  "limitations": [
+    "AI authored and AI reviewed, not human-expert validated",
+    "Purposeful related scenario families, not a representative or independent population sample",
+    "Native bounded choices, not generated German clarification questions",
+    "Marginal choice probabilities are not validated calibration or a joint probability",
+    "Experimental CPU NF4, not stock vendor BF16/GPU behavior"
+  ],
+  "provenance": {
+    "requests_sha256": "6dbe7ca4621e7e8350ca0c929383f782d3f56782ca8f79f48d1be6fdef75fb14",
+    "gold_sha256": "10b4223eae817647d37b34669cf88225d170400cdc8f7742b5d61c4b76e59c39",
+    "predictions_sha256": "94256dd1931c19e73404bd9f84cc48f2593799a8622d685a90748f871ef769f4"
+  }
+}

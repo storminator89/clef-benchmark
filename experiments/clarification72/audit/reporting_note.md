@@ -1,0 +1,3 @@
+# Post-run reporting provenance
+
+The pre-inference frozen `scripts/build_reports.py` is retained byte-for-byte. Its prose about two pre-run wording corrections could imply that gold labels changed. They did not: only the explicit inclusive 24-month boundary and exact €49 input wording were corrected. `scripts/finalize_report.py` runs the original report builder and then makes this prose correction and adds the observed error-pattern/low-coverage interpretation. It does not change inputs, gold, predictions, metrics or frozen files. The delivered report can be regenerated with `python scripts/finalize_report.py` on the original recorded results.

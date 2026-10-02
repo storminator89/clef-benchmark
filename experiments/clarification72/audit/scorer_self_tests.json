@@ -1,0 +1,39 @@
+{
+  "purpose": "Synthetic scorer self-tests; no model outputs",
+  "tests": [
+    {
+      "name": "oracle 72/72 and no risky errors",
+      "passed": true
+    },
+    {
+      "name": "always yes misses 36 clarification cases and is wrong on 54/72",
+      "passed": true
+    },
+    {
+      "name": "always clarify penalized by 36 answerable controls",
+      "passed": true
+    },
+    {
+      "name": "missing row retains denominator72 and is incorrect",
+      "passed": true
+    },
+    {
+      "name": "NaN invalidates whole case without denominator loss",
+      "passed": true
+    },
+    {
+      "name": "inconsistent answer-unresolved visible without fake substantive answer",
+      "passed": true
+    },
+    {
+      "name": "duplicates rejected",
+      "passed": true
+    },
+    {
+      "name": "unexpected IDs rejected",
+      "passed": true
+    }
+  ],
+  "passed": 8,
+  "failed": 0
+}

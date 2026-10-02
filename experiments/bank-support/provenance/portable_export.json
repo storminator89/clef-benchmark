@@ -1,8 +1,11 @@
 {
+  "schema_version": 2,
   "suite_id": "bank-support",
-  "created_at_utc": "2026-10-02T12:38:06.793966+00:00",
   "frozen_content_changed": false,
   "frozen_manifest_sha256": "11e895f000ada7286dc8ae5fabd00b63a862f81e57de1692ff86990e72a895d3",
+  "frozen_file_count": 34,
+  "public_scope": "Frozen scientific inputs and source code, all scored native predictions and option probabilities, completion metadata, timing, scores, errors and independent verification remain unchanged.",
+  "excluded_scope": "Operational diagnostics and private export bookkeeping are outside the public package. No scored case, model probability or inference error was omitted.",
   "frozen_file_mapping": [
     {
       "original_path": "SOURCES.md",
@@ -208,147 +211,5 @@
       "published_path": "scripts/validate.py",
       "published_sha256": "304cbc80807c4e0bbc1e4558d6e51f4b3143b7248996555d3e8510c7702bea0c"
     }
-  ],
-  "nonfrozen_file_mapping": [
-    {
-      "original_path": "REPORT.md",
-      "original_sha256": "88789f762add121cc9689ddb937bccdbf1d631300e4867eb314f9b25c04351e8",
-      "published_path": "REPORT.md",
-      "published_sha256": "45ea57130b8a6d454a5097402a3d7067f3525bf2e662225f0fcce1910637d1ba",
-      "change": "Public safety revision: omit private diagnostic narrative or constrain re-export to reviewed manifest; scientific inputs/results unchanged"
-    },
-    {
-      "original_path": "scripts/build_reports.py",
-      "original_sha256": "f217b8060d80876fc707cb0b37bba94e96ad743d3a1ba8c29d8f641dcf7fe3b9",
-      "published_path": "scripts/build_reports.py",
-      "published_sha256": "61d2b1d6b01886b549605826825921665cd63f2eafa1363577efdf7e0c0ed1c3",
-      "change": "Public safety revision: omit private diagnostic narrative or constrain re-export to reviewed manifest; scientific inputs/results unchanged"
-    },
-    {
-      "original_path": "README.md",
-      "original_sha256": "1f1d0c1c974788feac4d91a2e378ba577204994453f6568e339c42a6534261a2",
-      "published_path": "README.md",
-      "published_sha256": "6af6c04387a68e59d892a0e98d42c71ff5d98e6bb9716cb68308fb8d1e29cb71",
-      "change": "Public safety revision: omit private diagnostic narrative or constrain re-export to reviewed manifest; scientific inputs/results unchanged"
-    },
-    {
-      "original_path": "scripts/export_public.py",
-      "original_sha256": "4dbc09118e8e259130a785ed7a0df0b1c304277552b6d9bfbb6bc271b7400db7",
-      "published_path": "scripts/export_public.py",
-      "published_sha256": "9f149d70ee5c7674647fc10288892243ce82282320aa0461fa60adecfc0150f4",
-      "change": "Public safety revision: omit private diagnostic narrative or constrain re-export to reviewed manifest; scientific inputs/results unchanged"
-    }
-  ],
-  "omitted_original_files": [
-    {
-      "original_path": "results/main_run.log",
-      "original_sha256": "f3d0e4b2bfc9df6ad3519969c5e95dd4f9f5fee91fa926befd63053e1f7860e4",
-      "reason": "raw local execution log, redundant resource log, generated cache or previous export manifest"
-    },
-    {
-      "original_path": "scripts/__pycache__/build_dataset.cpython-312.pyc",
-      "original_sha256": "7f033b36b91310759a49c8dda86109735151dfd0da96ec36d9569fe9b11368af",
-      "reason": "raw local execution log, redundant resource log, generated cache or previous export manifest"
-    },
-    {
-      "original_path": "scripts/__pycache__/build_reports.cpython-312.pyc",
-      "original_sha256": "2a2414b360a9af5c9ae9b7d80358951dfc437211854e2a03b18483f982cf3cbf",
-      "reason": "raw local execution log, redundant resource log, generated cache or previous export manifest"
-    },
-    {
-      "original_path": "scripts/__pycache__/export_public.cpython-312.pyc",
-      "original_sha256": "105499a51c03eec5e1a8024c9b8a35c43f449269bea43a7af5f9dc62e39c677a",
-      "reason": "raw local execution log, redundant resource log, generated cache or previous export manifest"
-    },
-    {
-      "original_path": "scripts/__pycache__/freeze.cpython-312.pyc",
-      "original_sha256": "0558615c98228a40911eae12fd068406ce41645faf29dfcb48687949333bf114",
-      "reason": "raw local execution log, redundant resource log, generated cache or previous export manifest"
-    },
-    {
-      "original_path": "scripts/__pycache__/guard_run.cpython-312.pyc",
-      "original_sha256": "3380d304df68dc960d83e810404e15855d974c9e83a3dce817b4abc1fdea1443",
-      "reason": "raw local execution log, redundant resource log, generated cache or previous export manifest"
-    },
-    {
-      "original_path": "scripts/__pycache__/preflight.cpython-312.pyc",
-      "original_sha256": "c88a996cad0f5406c02b7bbc49528de96da707721def387f576d80d550ecee36",
-      "reason": "raw local execution log, redundant resource log, generated cache or previous export manifest"
-    },
-    {
-      "original_path": "scripts/__pycache__/score.cpython-312.pyc",
-      "original_sha256": "301914f4f0b61fd51f54ca98d361bcb445405eba404124d88a4a2e6f137354ee",
-      "reason": "raw local execution log, redundant resource log, generated cache or previous export manifest"
-    },
-    {
-      "original_path": "scripts/__pycache__/test_scorer.cpython-312.pyc",
-      "original_sha256": "c1d6b30071e1e544e014429f1cbd50ef68e2a7f8589a2b9dc3795faa168131a9",
-      "reason": "raw local execution log, redundant resource log, generated cache or previous export manifest"
-    },
-    {
-      "original_path": "scripts/__pycache__/validate.cpython-312.pyc",
-      "original_sha256": "af764fcacfcd85608059eacaab3af200c2a8c8e805f9ce9d61a2443a16c01fd4",
-      "reason": "raw local execution log, redundant resource log, generated cache or previous export manifest"
-    },
-    {
-      "original_path": "scripts/resource_monitor.jsonl",
-      "original_sha256": "e93fd34918e1888600167be5e8f3e071a9dec2ba683e4c9293c929d7933f118a",
-      "reason": "raw local execution log, redundant resource log, generated cache or previous export manifest"
-    },
-    {
-      "original_path": "provenance/RESTORATION.md",
-      "original_sha256": "95fb9b8d8d9229c64788803e6c8aba9ce6739389cc102d13bf720af29390b675",
-      "reason": "Private nonfrozen restoration/host/filesystem or process resource diagnostics intentionally omitted from public scope"
-    },
-    {
-      "original_path": "provenance/environment_comparison.json",
-      "original_sha256": "68eb141d3cc68b82c448ef53e7305586d54de7a59c3ed319b9262d2104c21e98",
-      "reason": "Private nonfrozen restoration/host/filesystem or process resource diagnostics intentionally omitted from public scope"
-    },
-    {
-      "original_path": "provenance/history_smoke_comparison.json",
-      "original_sha256": "52c185ed7a99572dca72769575fc1e622b7bad50d85e871603ca6edd0ce13fd3",
-      "reason": "Private nonfrozen restoration/host/filesystem or process resource diagnostics intentionally omitted from public scope"
-    },
-    {
-      "original_path": "provenance/requirements_restored.txt",
-      "original_sha256": "840f4cfbedc4eb2af8e8c1d5d100a10f7ccd145032176bc3b3d833330b2a02f6",
-      "reason": "Private nonfrozen restoration/host/filesystem or process resource diagnostics intentionally omitted from public scope"
-    },
-    {
-      "original_path": "provenance/verification_before_execution.json",
-      "original_sha256": "2dcf861fd7a8e6eee085242c089b787be800963b126b284b1347f28dac06f586",
-      "reason": "Private nonfrozen restoration/host/filesystem or process resource diagnostics intentionally omitted from public scope"
-    },
-    {
-      "original_path": "results/resource_monitor.jsonl",
-      "original_sha256": "e93fd34918e1888600167be5e8f3e071a9dec2ba683e4c9293c929d7933f118a",
-      "reason": "Private nonfrozen restoration/host/filesystem or process resource diagnostics intentionally omitted from public scope"
-    },
-    {
-      "original_path": "results/execution_events.jsonl",
-      "original_sha256": "359917bb2bc709ed5df6b83de19f2e4d4f3183c691989446b9675d2e4a5cf505",
-      "reason": "Redundant nonfrozen operational progress record omitted from public scope; scored predictions/timings remain unchanged"
-    }
-  ],
-  "omission_note": "All frozen scientific inputs/sources and all80 scored predictions, probabilities, timings, completion metadata, score/error outputs and independent QA remain unchanged. Nonfrozen restoration/host/filesystem diagnostics, historical restoration comparison and raw process/host resource telemetry are intentionally private. No scored case or inference error was dropped.",
-  "public_revision": {
-    "superseded_file_manifest_sha256": "96321f61a98dcda9cccc159065b0857eb73b4db4c4318329d4d33bbd143040d5",
-    "reason": "Explicit public-safety scope reduction, preserving frozen inputs and scored results",
-    "omitted_candidate_files": [
-      "provenance/RESTORATION.md",
-      "provenance/environment_comparison.json",
-      "provenance/history_smoke_comparison.json",
-      "provenance/requirements_restored.txt",
-      "provenance/verification_before_execution.json",
-      "results/resource_monitor.jsonl",
-      "results/execution_events.jsonl"
-    ],
-    "changed_nonfrozen_files": [
-      "REPORT.md",
-      "scripts/build_reports.py",
-      "README.md",
-      "scripts/export_public.py"
-    ]
-  }
+  ]
 }

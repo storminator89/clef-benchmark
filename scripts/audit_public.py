@@ -68,6 +68,17 @@ def audit():
     report = {'status': 'pass' if not findings else 'fail', 'files_scanned': len(inventory), 'total_bytes': sum(row['bytes'] for row in inventory), 'findings': findings, 'scope': 'Heuristic secret/private-path/baggage scan of the public tree, including DOCX XML and extracted PDF text; not a guarantee for arbitrary later additions.'}
     return report, inventory
 
+def public_inventory_summary(inventory):
+    """Publish aggregate integrity only; retain no broad per-file metadata list."""
+    ordered = sorted(inventory, key=lambda row: row['path'])
+    encoded = json.dumps(ordered, ensure_ascii=False, sort_keys=True, separators=(',', ':')).encode('utf-8')
+    return {'format_version': 2, 'file_count': len(ordered),
+            'total_bytes': sum(row['bytes'] for row in ordered),
+            'aggregate_sha256': hashlib.sha256(encoded).hexdigest(),
+            'digest_definition': 'SHA-256 of UTF-8 compact sorted-key JSON for public file entries (path, bytes, sha256), sorted by path. The two audit self-reports are excluded to avoid recursive hashing.',
+            'format_evolution': 'Aggregate-only public summary replaces the redundant broad per-file inventory. Scientific freeze manifests and the Git tree retain their independent integrity proofs.'}
+
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--write', action='store_true', help='Save public audit and SHA-256 inventory')
@@ -75,6 +86,6 @@ if __name__ == '__main__':
     report, inventory = audit()
     if args.write:
         (ROOT / 'provenance/publication_audit.json').write_text(json.dumps(report, indent=2) + '\n')
-        (ROOT / 'provenance/package_inventory.json').write_text(json.dumps({'excluded_self_reports': sorted(EXCLUDED), 'files': inventory}, indent=2) + '\n')
+        (ROOT / 'provenance/package_inventory.json').write_text(json.dumps(public_inventory_summary(inventory), indent=2) + '\n')
     print(json.dumps(report, indent=2))
     raise SystemExit(0 if report['status'] == 'pass' else 1)

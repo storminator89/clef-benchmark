@@ -110,7 +110,7 @@ test('private UI previews without network, handles import errors atomically and 
   assert.equal(h.$('custom').hidden,false); assert.equal(h.$('explorer').hidden,true);
   assert.equal(await h.app.custom.importText(JSON.stringify(exampleSuite())),true); assert.equal(h.app.custom.getState().suite,null); assert.equal(h.calls.length,before);
   await h.app.custom.acceptPreview(); assert.equal(h.app.custom.getState().suite.cases.length,3); assert.equal(h.document.querySelectorAll('[data-custom-case]').length,3);
-  assert.equal(h.app.getState().suite,'insurance'); assert.equal(h.$('suite-select').querySelectorAll('option').length,5);
+  assert.equal(h.app.getState().suite,'insurance'); assert.equal(h.$('suite-select').querySelectorAll('option').length,6);
   assert.equal(h.storage.size,0); assert.match(h.$('custom-score-note').textContent,/Vorläufig/);
   assert.equal(await h.app.custom.importText('{'),false); assert.equal(h.app.custom.getState().suite.cases.length,3); assert.equal(h.app.custom.getState().preview,null);
 });

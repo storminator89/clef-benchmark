@@ -1,0 +1,515 @@
+{
+  "purpose": "Tokenizer-only pre-inference shape/cap check, no model loaded or outputs generated",
+  "requests_sha256": "6dbe7ca4621e7e8350ca0c929383f782d3f56782ca8f79f48d1be6fdef75fb14",
+  "count": 72,
+  "min_tokens": 689,
+  "max_tokens": 757,
+  "max_state_characters": 684,
+  "max_request_bytes": 2734,
+  "cases": [
+    {
+      "id": "clarify_order_cancellation_02",
+      "input_tokens": 729,
+      "state_characters": 573,
+      "request_bytes": 2636,
+      "truncated": false
+    },
+    {
+      "id": "clarify_travel_delay_02",
+      "input_tokens": 743,
+      "state_characters": 615,
+      "request_bytes": 2672,
+      "truncated": false
+    },
+    {
+      "id": "clarify_savings_fee_02",
+      "input_tokens": 728,
+      "state_characters": 541,
+      "request_bytes": 2599,
+      "truncated": false
+    },
+    {
+      "id": "clarify_statement_download_02",
+      "input_tokens": 724,
+      "state_characters": 545,
+      "request_bytes": 2596,
+      "truncated": false
+    },
+    {
+      "id": "clarify_statement_download_04",
+      "input_tokens": 698,
+      "state_characters": 447,
+      "request_bytes": 2497,
+      "truncated": false
+    },
+    {
+      "id": "clarify_luggage_delay_03",
+      "input_tokens": 729,
+      "state_characters": 557,
+      "request_bytes": 2613,
+      "truncated": false
+    },
+    {
+      "id": "clarify_order_cancellation_03",
+      "input_tokens": 722,
+      "state_characters": 581,
+      "request_bytes": 2642,
+      "truncated": false
+    },
+    {
+      "id": "clarify_device_damage_03",
+      "input_tokens": 713,
+      "state_characters": 584,
+      "request_bytes": 2635,
+      "truncated": false
+    },
+    {
+      "id": "clarify_giro_fee_01",
+      "input_tokens": 718,
+      "state_characters": 528,
+      "request_bytes": 2579,
+      "truncated": false
+    },
+    {
+      "id": "clarify_welcome_bonus_01",
+      "input_tokens": 709,
+      "state_characters": 496,
+      "request_bytes": 2548,
+      "truncated": false
+    },
+    {
+      "id": "clarify_welcome_bonus_03",
+      "input_tokens": 737,
+      "state_characters": 567,
+      "request_bytes": 2620,
+      "truncated": false
+    },
+    {
+      "id": "clarify_card_replacement_04",
+      "input_tokens": 710,
+      "state_characters": 534,
+      "request_bytes": 2583,
+      "truncated": false
+    },
+    {
+      "id": "clarify_giro_fee_02",
+      "input_tokens": 735,
+      "state_characters": 582,
+      "request_bytes": 2635,
+      "truncated": false
+    },
+    {
+      "id": "clarify_luggage_delay_01",
+      "input_tokens": 712,
+      "state_characters": 491,
+      "request_bytes": 2547,
+      "truncated": false
+    },
+    {
+      "id": "clarify_bicycle_theft_04",
+      "input_tokens": 720,
+      "state_characters": 537,
+      "request_bytes": 2585,
+      "truncated": false
+    },
+    {
+      "id": "clarify_welcome_bonus_04",
+      "input_tokens": 710,
+      "state_characters": 477,
+      "request_bytes": 2528,
+      "truncated": false
+    },
+    {
+      "id": "clarify_travel_delay_03",
+      "input_tokens": 728,
+      "state_characters": 562,
+      "request_bytes": 2620,
+      "truncated": false
+    },
+    {
+      "id": "clarify_luggage_delay_05",
+      "input_tokens": 707,
+      "state_characters": 486,
+      "request_bytes": 2543,
+      "truncated": false
+    },
+    {
+      "id": "clarify_bicycle_theft_02",
+      "input_tokens": 757,
+      "state_characters": 684,
+      "request_bytes": 2734,
+      "truncated": false
+    },
+    {
+      "id": "clarify_luggage_delay_02",
+      "input_tokens": 729,
+      "state_characters": 558,
+      "request_bytes": 2613,
+      "truncated": false
+    },
+    {
+      "id": "clarify_depot_statement_fee_03",
+      "input_tokens": 723,
+      "state_characters": 566,
+      "request_bytes": 2622,
+      "truncated": false
+    },
+    {
+      "id": "clarify_luggage_delay_04",
+      "input_tokens": 710,
+      "state_characters": 498,
+      "request_bytes": 2555,
+      "truncated": false
+    },
+    {
+      "id": "clarify_depot_statement_fee_05",
+      "input_tokens": 697,
+      "state_characters": 442,
+      "request_bytes": 2496,
+      "truncated": false
+    },
+    {
+      "id": "clarify_device_damage_02",
+      "input_tokens": 709,
+      "state_characters": 550,
+      "request_bytes": 2600,
+      "truncated": false
+    },
+    {
+      "id": "clarify_depot_statement_fee_04",
+      "input_tokens": 697,
+      "state_characters": 451,
+      "request_bytes": 2505,
+      "truncated": false
+    },
+    {
+      "id": "clarify_welcome_bonus_02",
+      "input_tokens": 733,
+      "state_characters": 554,
+      "request_bytes": 2605,
+      "truncated": false
+    },
+    {
+      "id": "clarify_order_cancellation_05",
+      "input_tokens": 704,
+      "state_characters": 474,
+      "request_bytes": 2533,
+      "truncated": false
+    },
+    {
+      "id": "clarify_travel_delay_05",
+      "input_tokens": 711,
+      "state_characters": 490,
+      "request_bytes": 2547,
+      "truncated": false
+    },
+    {
+      "id": "clarify_travel_delay_06",
+      "input_tokens": 716,
+      "state_characters": 502,
+      "request_bytes": 2557,
+      "truncated": false
+    },
+    {
+      "id": "clarify_bicycle_theft_01",
+      "input_tokens": 728,
+      "state_characters": 576,
+      "request_bytes": 2625,
+      "truncated": false
+    },
+    {
+      "id": "clarify_luggage_delay_06",
+      "input_tokens": 717,
+      "state_characters": 516,
+      "request_bytes": 2571,
+      "truncated": false
+    },
+    {
+      "id": "clarify_welcome_bonus_05",
+      "input_tokens": 721,
+      "state_characters": 491,
+      "request_bytes": 2541,
+      "truncated": false
+    },
+    {
+      "id": "clarify_savings_fee_04",
+      "input_tokens": 704,
+      "state_characters": 463,
+      "request_bytes": 2519,
+      "truncated": false
+    },
+    {
+      "id": "clarify_device_damage_04",
+      "input_tokens": 697,
+      "state_characters": 496,
+      "request_bytes": 2545,
+      "truncated": false
+    },
+    {
+      "id": "clarify_order_cancellation_01",
+      "input_tokens": 716,
+      "state_characters": 541,
+      "request_bytes": 2606,
+      "truncated": false
+    },
+    {
+      "id": "clarify_giro_fee_05",
+      "input_tokens": 704,
+      "state_characters": 476,
+      "request_bytes": 2528,
+      "truncated": false
+    },
+    {
+      "id": "clarify_transfer_recall_03",
+      "input_tokens": 729,
+      "state_characters": 598,
+      "request_bytes": 2663,
+      "truncated": false
+    },
+    {
+      "id": "clarify_statement_download_06",
+      "input_tokens": 707,
+      "state_characters": 508,
+      "request_bytes": 2558,
+      "truncated": false
+    },
+    {
+      "id": "clarify_depot_statement_fee_01",
+      "input_tokens": 699,
+      "state_characters": 475,
+      "request_bytes": 2529,
+      "truncated": false
+    },
+    {
+      "id": "clarify_transfer_recall_02",
+      "input_tokens": 725,
+      "state_characters": 589,
+      "request_bytes": 2648,
+      "truncated": false
+    },
+    {
+      "id": "clarify_card_replacement_03",
+      "input_tokens": 730,
+      "state_characters": 598,
+      "request_bytes": 2648,
+      "truncated": false
+    },
+    {
+      "id": "clarify_giro_fee_03",
+      "input_tokens": 738,
+      "state_characters": 598,
+      "request_bytes": 2652,
+      "truncated": false
+    },
+    {
+      "id": "clarify_statement_download_05",
+      "input_tokens": 695,
+      "state_characters": 427,
+      "request_bytes": 2477,
+      "truncated": false
+    },
+    {
+      "id": "clarify_bicycle_theft_05",
+      "input_tokens": 720,
+      "state_characters": 536,
+      "request_bytes": 2584,
+      "truncated": false
+    },
+    {
+      "id": "clarify_savings_fee_06",
+      "input_tokens": 714,
+      "state_characters": 526,
+      "request_bytes": 2584,
+      "truncated": false
+    },
+    {
+      "id": "clarify_depot_statement_fee_06",
+      "input_tokens": 704,
+      "state_characters": 489,
+      "request_bytes": 2544,
+      "truncated": false
+    },
+    {
+      "id": "clarify_card_replacement_06",
+      "input_tokens": 714,
+      "state_characters": 539,
+      "request_bytes": 2588,
+      "truncated": false
+    },
+    {
+      "id": "clarify_bicycle_theft_03",
+      "input_tokens": 741,
+      "state_characters": 625,
+      "request_bytes": 2682,
+      "truncated": false
+    },
+    {
+      "id": "clarify_savings_fee_01",
+      "input_tokens": 712,
+      "state_characters": 511,
+      "request_bytes": 2568,
+      "truncated": false
+    },
+    {
+      "id": "clarify_device_damage_06",
+      "input_tokens": 701,
+      "state_characters": 503,
+      "request_bytes": 2552,
+      "truncated": false
+    },
+    {
+      "id": "clarify_transfer_recall_04",
+      "input_tokens": 710,
+      "state_characters": 525,
+      "request_bytes": 2588,
+      "truncated": false
+    },
+    {
+      "id": "clarify_statement_download_01",
+      "input_tokens": 707,
+      "state_characters": 492,
+      "request_bytes": 2543,
+      "truncated": false
+    },
+    {
+      "id": "clarify_bicycle_theft_06",
+      "input_tokens": 726,
+      "state_characters": 594,
+      "request_bytes": 2644,
+      "truncated": false
+    },
+    {
+      "id": "clarify_order_cancellation_04",
+      "input_tokens": 710,
+      "state_characters": 508,
+      "request_bytes": 2568,
+      "truncated": false
+    },
+    {
+      "id": "clarify_transfer_recall_05",
+      "input_tokens": 713,
+      "state_characters": 517,
+      "request_bytes": 2578,
+      "truncated": false
+    },
+    {
+      "id": "clarify_order_cancellation_06",
+      "input_tokens": 716,
+      "state_characters": 536,
+      "request_bytes": 2596,
+      "truncated": false
+    },
+    {
+      "id": "clarify_savings_fee_05",
+      "input_tokens": 704,
+      "state_characters": 458,
+      "request_bytes": 2514,
+      "truncated": false
+    },
+    {
+      "id": "clarify_travel_delay_01",
+      "input_tokens": 717,
+      "state_characters": 526,
+      "request_bytes": 2583,
+      "truncated": false
+    },
+    {
+      "id": "clarify_travel_delay_04",
+      "input_tokens": 717,
+      "state_characters": 516,
+      "request_bytes": 2573,
+      "truncated": false
+    },
+    {
+      "id": "clarify_transfer_recall_06",
+      "input_tokens": 721,
+      "state_characters": 568,
+      "request_bytes": 2628,
+      "truncated": false
+    },
+    {
+      "id": "clarify_depot_statement_fee_02",
+      "input_tokens": 726,
+      "state_characters": 566,
+      "request_bytes": 2621,
+      "truncated": false
+    },
+    {
+      "id": "clarify_device_damage_01",
+      "input_tokens": 697,
+      "state_characters": 517,
+      "request_bytes": 2567,
+      "truncated": false
+    },
+    {
+      "id": "clarify_giro_fee_06",
+      "input_tokens": 716,
+      "state_characters": 516,
+      "request_bytes": 2568,
+      "truncated": false
+    },
+    {
+      "id": "clarify_device_damage_05",
+      "input_tokens": 689,
+      "state_characters": 475,
+      "request_bytes": 2526,
+      "truncated": false
+    },
+    {
+      "id": "clarify_card_replacement_02",
+      "input_tokens": 730,
+      "state_characters": 585,
+      "request_bytes": 2638,
+      "truncated": false
+    },
+    {
+      "id": "clarify_giro_fee_04",
+      "input_tokens": 704,
+      "state_characters": 472,
+      "request_bytes": 2522,
+      "truncated": false
+    },
+    {
+      "id": "clarify_welcome_bonus_06",
+      "input_tokens": 719,
+      "state_characters": 533,
+      "request_bytes": 2586,
+      "truncated": false
+    },
+    {
+      "id": "clarify_card_replacement_05",
+      "input_tokens": 706,
+      "state_characters": 501,
+      "request_bytes": 2550,
+      "truncated": false
+    },
+    {
+      "id": "clarify_statement_download_03",
+      "input_tokens": 719,
+      "state_characters": 539,
+      "request_bytes": 2598,
+      "truncated": false
+    },
+    {
+      "id": "clarify_savings_fee_03",
+      "input_tokens": 723,
+      "state_characters": 565,
+      "request_bytes": 2622,
+      "truncated": false
+    },
+    {
+      "id": "clarify_card_replacement_01",
+      "input_tokens": 711,
+      "state_characters": 561,
+      "request_bytes": 2610,
+      "truncated": false
+    },
+    {
+      "id": "clarify_transfer_recall_01",
+      "input_tokens": 720,
+      "state_characters": 560,
+      "request_bytes": 2622,
+      "truncated": false
+    }
+  ]
+}

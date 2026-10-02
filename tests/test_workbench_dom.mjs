@@ -296,7 +296,7 @@ test("unavailable suite falls back honestly, complete load failure gives a usefu
   assert.equal(h.$("app-error").hidden, false);
   assert.match(h.$("app-error").textContent, /Versicherungsdokumente/);
   const all = await harness({
-    failFiles: ["insurance", "benchmark", "finance", "clean72", "bank-support"],
+    failFiles: ["insurance", "benchmark", "finance", "clean72", "bank-support", "clarification"],
   });
   assert.equal(all.app.getState().suite, null);
   assert.match(all.$("app-error").textContent, /python server.py/);
@@ -813,7 +813,7 @@ test("final bank results keep field, exact-case and critical-case truths separat
 
 test("suite catalog offers separate denominators, selects honestly and never sums scores", async () => {
   const h = await harness();
-  assert.equal(h.document.querySelectorAll('[data-suite]').length, 5);
+  assert.equal(h.document.querySelectorAll('[data-suite]').length, 6);
   const bank = h.document.querySelector('[data-suite="bank-support"]');
   assert.match(bank.textContent, /80 deutsche Hauptfälle/);
   assert.match(bank.textContent, /Gespeicherter Lauf/);
@@ -870,10 +870,10 @@ test("newer health refresh wins if an older check finishes last", async () => {
 });
 
 test("failed benchmark loading does not block independent backend readiness or custom import", async () => {
-  const h = await harness({ failFiles: ['insurance', 'benchmark', 'finance', 'clean72', 'bank-support'] });
+  const h = await harness({ failFiles: ['insurance', 'benchmark', 'finance', 'clean72', 'bank-support', 'clarification'] });
   assert.equal(h.$('app-error').hidden, false);
   assert.match(h.$('backend-summary').textContent, /Ergebnismodus/);
-  assert.equal(h.document.querySelectorAll('[data-suite]:disabled').length, 5);
+  assert.equal(h.document.querySelectorAll('[data-suite]:disabled').length, 6);
   assert.equal(h.$('custom-example').disabled, false);
 });
 
@@ -904,4 +904,164 @@ test('private import selects keep native labels/options and explicit shrinkable 
   assert.equal(h.$('custom-import-fields').hidden,false);
   assert.equal(h.$('custom-preset').tagName,'SELECT');
   assert.match(h.$('custom-preset').closest('label').textContent,/CSV-Fragenschema/);
+});
+
+test('clarification suite admits 72 authentic two-field cases with independent denominators', async () => {
+  const data = datasets.clarification;
+  assert.equal(validateDataset(data, 'clarification'), data);
+  const stats = suiteStats(data);
+  assert.equal(stats.total, 72); assert.equal(stats.exact, 64);
+  assert.equal(stats.fields.action.correct, 65); assert.equal(stats.fields.determination.correct, 66);
+  const h = await harness({hash:'#explorer?suite=clarification&case=clarify_order_cancellation_02&field=determination'});
+  assert.equal(h.app.getState().suite, 'clarification');
+  assert.equal(h.document.querySelectorAll('.case-item').length,72);
+  assert.equal(h.document.querySelectorAll('[data-field]').length,2);
+  assert.match(h.$('stats').textContent, /64 \/ 72 Fälle: beide Felder richtig/);
+  assert.match(h.$('stats').textContent, /65 \/ 72/);
+  assert.match(h.$('stats').textContent, /66 \/ 72/);
+  assert.equal(h.$('paired-panel').hidden,true);
+  assert.match(h.$('inspection-header').textContent,/Inkonsistente Felder/);
+  assert.match(h.$('diagnosis-content').textContent,/4 \/ 36/);
+  assert.match(h.$('diagnosis-content').textContent,/2 \/ 36/);
+  assert.match(h.$('diagnosis-content').textContent,/4 \/ 37/);
+  assert.match(h.$('diagnosis-content').textContent,/nur 5/);
+});
+test('clarification renders rule, request and question together with exact original state',async()=>{
+  const h=await harness({hash:'#explorer?suite=clarification'});
+  const c=datasets.clarification.cases[0];
+  for(const text of [c.rule,c.message,c.question,c.input]) assert.ok(h.$('document-content').textContent.includes(text));
+  assert.equal(h.document.querySelectorAll('.document-section').length,3);
+  assert.equal(h.document.querySelector('#highlight-select'),null);
+  assert.match(h.$('method-scope').textContent,/keine Bewertung frei formulierter/);
+});
+test('clarification error filters preserve missed, excess, wrong-kind, inconsistency and risk categories',async()=>{
+  const h=await harness({hash:'#explorer?suite=clarification'});
+  for(const [filter,count] of [['errors',8],['action',7],['determination',6],['diagnostic:missed_required_clarifications',4],['diagnostic:excess_clarifications',2],['diagnostic:wrong_clarification_kind',1],['diagnostic:inconsistent_fields',3],['diagnostic:risky_wrong_answers',4]]) {
+    h.change('filter-outcome',filter);
+    assert.equal(h.document.querySelectorAll('.case-item').length,count,filter);
+  }
+  h.click('#reset-filters'); assert.equal(h.document.querySelectorAll('.case-item').length,72);
+  h.change('filter-tag','ambiguous_target'); assert.equal(h.document.querySelectorAll('.case-item').length,12);
+});
+test('clarification replay preserves inconsistent fields and edits invalidate saved answers',async()=>{
+  const h=await harness({hash:'#explorer?suite=clarification&case=clarify_order_cancellation_02'});
+  h.click('#open-playground'); h.click('#show-saved');
+  assert.equal(h.document.querySelectorAll('[data-output-field]').length,2);
+  assert.match(h.$('playground-output').textContent,/ask_fact/);
+  assert.match(h.$('playground-output').textContent,/no/);
+  h.change('input-state',h.$('input-state').value+' changed','input');
+  assert.equal(h.$('show-saved').disabled,true);
+});
+test('clarification invalid scope, field set or incomplete source context fail admission',()=>{
+  for(const edit of [d=>d.cases.pop(),d=>delete d.cases[0].rule,d=>d.cases[0].input=d.cases[0].message,d=>delete d.cases[0].questions.determination,d=>d.cases[0].result.fields.action.prediction='unknown']) {
+    const d=structuredClone(datasets.clarification);edit(d);assert.throws(()=>validateDataset(d,'clarification'));
+  }
+});
+
+test('clarification rejects missing presentation structures before rendering', () => {
+  const edits = [
+    d => { delete d.summary; }, d => { d.summary = null; },
+    d => { delete d.suite.strata; }, d => { d.suite.strata = []; },
+    d => { delete d.suite.strata.missing_fact; },
+    d => { d.suite.strata.missing_fact = ''; },
+    d => { delete d.suite.categories; },
+    d => { delete d.cases[0].diagnostic_events; },
+    d => { d.cases[0].diagnostic_events = null; },
+    ...['metrics', 'denominators', 'behavior_rates', 'high_confidence', 'events', 'strata']
+      .flatMap(key => [d => { delete d.summary[key]; }, d => { d.summary[key] = []; }]),
+  ];
+  for (const edit of edits) {
+    const data = structuredClone(datasets.clarification); edit(data);
+    assert.throws(() => validateDataset(data, 'clarification'), /unvollständig oder nicht verifiziert/);
+  }
+});
+
+test('clarification cross-checks every score, rate, denominator and confidence bucket', () => {
+  const source = datasets.clarification;
+  for (const section of ['metrics', 'behavior_rates']) {
+    for (const key of Object.keys(source.summary[section])) {
+      for (const field of ['numerator', 'denominator', 'rate']) {
+        const data = structuredClone(source); data.summary[section][key][field] += 1;
+        assert.throws(() => validateDataset(data, 'clarification'), `${section}.${key}.${field}`);
+      }
+    }
+  }
+  for (const key of Object.keys(source.summary.denominators)) {
+    const data = structuredClone(source); data.summary.denominators[key] += 1;
+    assert.throws(() => validateDataset(data, 'clarification'), `denominators.${key}`);
+  }
+  for (const threshold of Object.keys(source.summary.high_confidence)) {
+    for (const field of ['confident_answers', 'confident_wrong']) {
+      const data = structuredClone(source); data.summary.high_confidence[threshold][field] += 1;
+      assert.throws(() => validateDataset(data, 'clarification'), `${threshold}.${field}`);
+    }
+    for (const field of ['numerator', 'denominator', 'rate']) {
+      const data = structuredClone(source); data.summary.high_confidence[threshold].wrong_rate_among_confident[field] = 999;
+      assert.throws(() => validateDataset(data, 'clarification'), `${threshold}.wrong_rate.${field}`);
+    }
+  }
+});
+
+test('clarification rejects dishonest event membership even when counts match', () => {
+  const source = datasets.clarification;
+  for (const key of Object.keys(source.summary.events)) {
+    const changedCount = structuredClone(source); changedCount.summary.events[key].count += 1;
+    assert.throws(() => validateDataset(changedCount, 'clarification'), `${key} count`);
+    const changedID = structuredClone(source), event = changedID.summary.events[key];
+    if (event.ids.length) event.ids[0] = 'unknown_case';
+    else { event.ids.push(source.cases[0].id); event.count = 1; }
+    assert.throws(() => validateDataset(changedID, 'clarification'), `${key} IDs`);
+  }
+  for (const events of [[], ['inconsistent_fields'], ['inconsistent_fields', 'inconsistent_fields'],
+    ['inconsistent_fields', 'wrong_clarification_kind', 'unknown_event']]) {
+    const data = structuredClone(source); data.cases[0].diagnostic_events = events;
+    assert.throws(() => validateDataset(data, 'clarification'));
+  }
+});
+
+test('clarification verifies each domain, stratum and family against native cases', () => {
+  const source = datasets.clarification;
+  for (const [attribute, groups] of Object.entries(source.summary.strata)) {
+    for (const key of Object.keys(groups)) {
+      for (const mutate of [g => { g.cases += 1; }, g => { delete g.action; },
+        ...['action', 'determination', 'all_fields_exact'].flatMap(metric =>
+          ['numerator', 'denominator', 'rate'].map(field => g => { g[metric][field] += 1; }))]) {
+        const data = structuredClone(source); mutate(data.summary.strata[attribute][key]);
+        assert.throws(() => validateDataset(data, 'clarification'), `${attribute}.${key}`);
+      }
+    }
+    const data = structuredClone(source); delete data.summary.strata[attribute];
+    assert.throws(() => validateDataset(data, 'clarification'));
+  }
+  for (const field of ['category', 'stratum', 'family']) {
+    const data = structuredClone(source); data.cases[0][field] = 'unknown_group';
+    assert.throws(() => validateDataset(data, 'clarification'));
+  }
+  const tags = structuredClone(source); tags.cases[0].tags = [];
+  assert.throws(() => validateDataset(tags, 'clarification'));
+});
+
+test('clarification admission preserves native inconsistent pairs and all probability bytes', () => {
+  const data = structuredClone(datasets.clarification), before = JSON.stringify(data);
+  assert.equal(validateDataset(data, 'clarification'), data);
+  assert.equal(JSON.stringify(data), before);
+  const inconsistent = data.cases.filter(c => c.diagnostic_events.includes('inconsistent_fields'));
+  assert.equal(inconsistent.length, 3);
+  assert.ok(inconsistent.some(c => c.result.fields.action.prediction === 'answer' &&
+    c.result.fields.determination.prediction === 'unresolved'));
+  assert.ok(inconsistent.some(c => c.result.fields.action.prediction !== 'answer' &&
+    ['yes', 'no'].includes(c.result.fields.determination.prediction)));
+});
+
+test('malformed clarification deep links fall back without blocking healthy suites or backend', async () => {
+  for (const edit of [d => { delete d.summary; }, d => { delete d.suite.strata; },
+    d => { d.summary.behavior_rates.missed_required_clarifications.numerator = 0; }]) {
+    const data = structuredClone(datasets.clarification); edit(data);
+    const h = await harness({ hash: '#explorer?suite=clarification', overrides: { clarification: data } });
+    assert.equal(h.app.getState().suite, 'insurance');
+    assert.equal(h.document.querySelector('option[value="clarification"]').disabled, true);
+    assert.match(h.$('app-error').textContent, /Rückfragen statt Raten/);
+    assert.match(h.$('backend-summary').textContent, /Ergebnismodus/);
+    assert.equal(h.$('custom-example').disabled, false);
+  }
 });

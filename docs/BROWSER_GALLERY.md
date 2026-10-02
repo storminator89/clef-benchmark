@@ -1,5 +1,7 @@
 # Genuine browser regression and README gallery
 
+**Published historical evidence:** a real Chrome capture passed at source commit `3b5b3743965f3ad77a5dd092296866920d2ca813`; see [the verified capture](#verified-published-capture). The setup history below includes earlier failures. Later UI changes require a new capture before claiming equivalent browser coverage.
+
 ## Current evidence boundary
 
 This workflow is prepared for an ordinary, permitted development machine or
@@ -10,7 +12,7 @@ No screenshot files or placeholder image links are included merely because this
 script exists. Offline tests do not establish CSS layout or visual quality.
 
 `tests/test_browser.py` creates PNGs only with actual Chromium `page.screenshot`
-calls. It renders the real local application, the five checked-in public
+calls. It renders the real local application, the six checked-in public
 synthetic datasets and the bundled synthetic support example. It never replaces
 responses, changes rendered content for a picture, injects scores, or uses a
 model-response fixture. Existing benchmark results retain their recorded

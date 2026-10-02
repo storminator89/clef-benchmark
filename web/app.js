@@ -30,6 +30,7 @@ const SUITES = {
   finance: { file: "finance", label: "Finanzen & Makler" },
   clean72: { file: "clean72", label: "Alltagsnah ohne Manipulation" },
   "bank-support": { file: "bank-support", label: "Bank-Kundensupport" },
+  clarification: { file: "clarification", label: "Rückfragen statt Raten" },
 };
 const EMPTY_SCHEMA = {
   decision: {
@@ -244,12 +245,13 @@ export function createWorkbench({
       '<option value="">Alle Tags</option>' +
       [...new Set(data.cases.flatMap((c) => c.tags || []))]
         .sort()
-        .map((t) => `<option value="${e(t)}">${e(t)}</option>`)
+        .map((t) => `<option value="${e(t)}">${e(config.strata?.[t] || t)}</option>`)
         .join("");
     const fieldIDs = [...new Set(data.cases.flatMap((c) => Object.keys(c.questions)))];
     $("filter-outcome").innerHTML =
       '<option value="">Alle Ergebnisse</option><option value="errors">Alle Fehler</option>' +
       fieldIDs.map((id) => `<option value="${e(id)}">${e(fieldLabel(id))} falsch</option>`).join("") +
+      (suite === "clarification" ? '<option value="diagnostic:missed_required_clarifications">Erforderliche Rückfrage verpasst</option><option value="diagnostic:excess_clarifications">Unnötige Rückfrage</option><option value="diagnostic:wrong_clarification_kind">Falsche Rückfrageart</option><option value="diagnostic:inconsistent_fields">Inkonsistente Felder</option><option value="diagnostic:risky_wrong_answers">Riskante falsche Antwort</option>' : "") +
       '<option value="correct">Alles richtig</option><option value="unscored">Ohne Ergebnis</option>';
     resetFilters(false);
   }
@@ -326,8 +328,12 @@ export function createWorkbench({
       index = rows.findIndex((r) => r.id === c.id),
       gold = evidenceIDs(c, "gold"),
       model = evidenceIDs(c, "model");
-    const isBank = suite === "bank-support";
-    const clauses = isBank
+    const isBank = suite === "bank-support", isClarification = suite === "clarification";
+    const clauses = isClarification
+      ? [{ id: "Regel", title: "Mitgelieferte fiktive Testregel", text: c.rule },
+         { id: "Anfrage", title: "Synthetische Anfrage und Unterlagen", text: c.message },
+         { id: "Frage", title: "Zu beurteilende Eigenschaft", text: c.question }]
+      : isBank
       ? [{ id: "Nachricht", title: "Kundennachricht", text: c.message },
          { id: "Servicerichtlinie", title: "Mitgelieferte fiktive Servicerichtlinie", text: c.service_policy }]
       : d?.clauses ||
@@ -339,11 +345,11 @@ export function createWorkbench({
       `<span class="document-icon">${icon("document")}</span><div class="document-heading-text"><h2 tabindex="-1">${e(d?.title || data.suite.categories?.[c.category] || "Originaleingabe")}</h2><p>${e(d?.id || c.id)} · ${d ? `${clauses.length} Klauseln · synthetischer Auszug` : "Originaltext · synthetischer Fall"}</p></div><div class="case-nav"><button data-direction="-1" ${index < 1 ? "disabled" : ""} aria-label="Vorheriger Fall" title="Vorheriger Fall">‹</button><button data-direction="1" ${index >= rows.length - 1 ? "disabled" : ""} aria-label="Nächster Fall" title="Nächster Fall">›</button></div>`;
     $("document-toolbar").innerHTML =
       `<div class="document-tool-row"><label>Markierung <select id="highlight-select" aria-label="Evidenzmarkierung" ${!d ? "disabled" : ""}><option value="both">Gold &amp; Modell</option><option value="gold">Nur Goldreferenz</option><option value="model">Nur Modellwahl</option><option value="none">Keine</option></select></label><div class="evidence-legend"><span><i></i>Gold</span><span><i></i>Modell</span></div></div><nav class="clause-nav" aria-label="${d ? "Klauseln" : "Absätze"}">${clauses.map((cl) => `<button data-clause="${e(cl.id)}" class="${activeClause === cl.id ? "active" : ""}" title="${e(cl.id)} im Dokument anzeigen">${e(cl.id)}</button>`).join("")}</nav>`;
-    if (isBank) $("document-toolbar").innerHTML =
-      `<nav class="clause-nav" aria-label="Nachricht und Richtlinie">${clauses.map((cl) => `<button data-clause="${e(cl.id)}" class="${activeClause === cl.id ? "active" : ""}">${e(cl.id)}</button>`).join("")}</nav>`;
+    if (isBank || isClarification) $("document-toolbar").innerHTML =
+      `<nav class="clause-nav" aria-label="Originaltext und mitgelieferte Regeln">${clauses.map((cl) => `<button data-clause="${e(cl.id)}" class="${activeClause === cl.id ? "active" : ""}">${e(cl.id)}</button>`).join("")}</nav>`;
     else $("highlight-select").value = highlight;
     $("document-content").innerHTML =
-      `<article class="document-page"><div class="document-kicker"><span>${e(d?.id || c.id)}</span><span>${isBank ? "FIKTIVER BANK-KUNDENSUPPORT" : d ? "FIKTIVE VERSICHERUNGSUNTERLAGEN" : "SYNTHETISCHER EINGABETEXT"}</span></div><h2 tabindex="-1">${e(d?.title || data.suite.categories?.[c.category] || "Dokument & Sachverhalt")}</h2><p class="document-deck">${isBank ? "Synthetische Kundennachricht mit fiktiver Servicerichtlinie in den Feldanweisungen. Keine reale Bankvorgabe oder Kundenakte. Anliegen, Priorität und nächster Schritt werden getrennt bewertet." : d ? "Ausschließlich die hier bereitgestellten Klauseln sind maßgeblich. Keine reale Police oder Rechtsauskunft." : "Unveränderter Eingabetext des ausgewählten Benchmark-Falls. Gold und Modellantwort stehen getrennt in der Prüfung."}</p>${d ? `<div class="scenario-card"><div class="eyebrow">DER SACHVERHALT · ${e(c.id)}</div><p>${e(c.scenario)}</p></div>` : ""}${clauses
+      `<article class="document-page"><div class="document-kicker"><span>${e(d?.id || c.id)}</span><span>${isClarification ? "RÜCKFRAGEN STATT RATEN · FIKTIVE REGELN" : isBank ? "FIKTIVER BANK-KUNDENSUPPORT" : d ? "FIKTIVE VERSICHERUNGSUNTERLAGEN" : "SYNTHETISCHER EINGABETEXT"}</span></div><h2 tabindex="-1">${e(d?.title || data.suite.categories?.[c.category] || "Dokument & Sachverhalt")}</h2><p class="document-deck">${isClarification ? "Regel, Anfrage und Frage gehören gemeinsam zum unveränderten Modelleingang. Die Felder werden getrennt bewertet; widersprüchliche Modellantworten bleiben sichtbar." : isBank ? "Synthetische Kundennachricht mit fiktiver Servicerichtlinie in den Feldanweisungen. Keine reale Bankvorgabe oder Kundenakte. Anliegen, Priorität und nächster Schritt werden getrennt bewertet." : d ? "Ausschließlich die hier bereitgestellten Klauseln sind maßgeblich. Keine reale Police oder Rechtsauskunft." : "Unveränderter Eingabetext des ausgewählten Benchmark-Falls. Gold und Modellantwort stehen getrennt in der Prüfung."}</p>${d ? `<div class="scenario-card"><div class="eyebrow">DER SACHVERHALT · ${e(c.id)}</div><p>${e(c.scenario)}</p></div>` : ""}${clauses
         .map((cl) => {
           const g =
               gold.includes(cl.id) && ["both", "gold"].includes(highlight),
@@ -378,6 +384,8 @@ export function createWorkbench({
     const f = fields.find((f) => f.id === field);
     $("inspection-header").innerHTML =
       `<div class="inspection-title"><h2>Antwortprüfung</h2>${chip(c)}</div><p>${fields.length} ${fields.length === 1 ? "Antwortfeld" : "Antwortfelder"} · ${c.result ? "gespeicherter Benchmark-Lauf" : "noch keine geprüften Resultate"}</p>`;
+    if (suite === "clarification" && c.diagnostic_events?.includes("inconsistent_fields"))
+      $("inspection-header").insertAdjacentHTML("beforeend", '<p class="notice">Inkonsistente Felder: Rückfrage mit Ja/Nein oder Antwort mit „unresolved“. Der native Output wird unverändert gezeigt.</p>');
     if (!f) {
       $("case-detail").innerHTML =
         '<div class="empty-state">Kein natives Fragenschema verfügbar.</div>';
@@ -418,10 +426,13 @@ export function createWorkbench({
     const s = suiteStats(data),
       isInsurance = suite === "insurance",
       isBank = suite === "bank-support",
+      isClarification = suite === "clarification",
       rows = s.primary,
       done = s.complete,
       summary = data.summary;
-    $("overview-title").innerHTML = isInsurance
+    $("overview-title").innerHTML = isClarification
+      ? "Wann fragt Clef<br><em>erst einmal nach?</em>"
+      : isInsurance
       ? "Was versteht Clef<br><em>im Dokument?</em>"
       : isBank
         ? "Was erkennt Clef<br><em>im Bank-Support?</em>"
@@ -430,7 +441,9 @@ export function createWorkbench({
         : suite === "finance"
           ? "Was entscheidet Clef<br><em>im Makleralltag?</em>"
           : "Was entscheidet Clef<br><em>auf Deutsch?</em>";
-    $("hero-copy").textContent = isInsurance
+    $("hero-copy").textContent = isClarification
+      ? "36 Fälle brauchen eine Rückfrage, 36 sind entscheidbar. Zwei native Felder zeigen, ob Clef Unsicherheit erkennt und trotzdem beantwortbare Fragen beantwortet."
+      : isInsurance
       ? "Eine Aussage einordnen und die passende Klauselmenge finden. Antworten und Evidenz getrennt prüfen, Fehler im Dokument nachvollziehen."
       : isBank
         ? "Typische deutschsprachige Kundenanfragen: Anliegen, Priorität und nächster Schritt nach mitgelieferten fiktiven Serviceregeln. Eigene, kleine synthetische Stichprobe ohne Manipulation."
@@ -447,13 +460,14 @@ export function createWorkbench({
       ? "<strong>Abgeschlossener Lauf · unabhängig gegengeprüft</strong><br>Experimentelle CPU-NF4-Konfiguration. Synthetische Auswahlaufgaben, kein Produktionstauglichkeitsnachweis."
       : "<strong>Testdaten verfügbar · Ergebnisse noch ausstehend</strong><br>Goldreferenzen lassen sich bereits prüfen. Bis zum vollständigen Lauf und seiner unabhängigen Verifikation werden keine Scores oder Modellantworten angezeigt.";
     let stats;
-    if (isBank) {
+    if (isBank || isClarification) {
       stats = Object.entries(s.fields).map(([id, metric]) => [
         fieldLabel(id), done ? percent(metric.correct / metric.total) : "—",
         done ? `${metric.correct} / ${metric.total} Felder richtig${id === "priority" ? ` · Routine-Baseline ${percent(rows.filter((c) => c.expected.priority === "routine").length / s.total)}` : ""}` : `${metric.total} geplante Felder`, "check",
       ]);
       stats.push(["Vollständig richtig", done ? percent(s.exact / s.total) : "—",
-        done ? `${s.exact} / ${s.total} Fälle: alle drei Felder richtig` : "Anliegen, Priorität UND nächster Schritt", "layers"]);
+        done ? `${s.exact} / ${s.total} Fälle: ${isClarification ? "beide" : "alle drei"} Felder richtig` : "Alle Antwortfelder zusammen", "layers"]);
+      if (isClarification) stats.push(["Schema-Gültigkeit", done ? percent(s.valid / s.total) : "—", `${s.valid} / ${s.total} Requests gültig · Konsistenz separat`, "shield"]);
     } else if (isInsurance) {
       stats = [
         [
@@ -544,7 +558,9 @@ export function createWorkbench({
         return `<div class="category-row"><span>${e(label)}</span><div class="bar-track"><div class="bar-fill" style="width:${v !== null ? v * 100 : 0}%"></div></div><span class="category-value">${v !== null ? `${n}/${subset.length}` : "—"}</span></div>`;
       })
       .join("");
-    $("category-note").textContent = isInsurance
+    $("category-note").textContent = isClarification
+      ? "Beide Felder müssen stimmen. Je 24 Fälle aus drei Bereichen, zwölf verwandte Regelfamilien; keine unabhängige oder repräsentative Stichprobe. Kein gepoolter Gesamtscore."
+      : isInsurance
       ? "Vollständig richtige Fälle: Entscheidung UND Evidenzauswahl müssen stimmen. Je fünf Fälle teilen sich ein Dokument und sind deshalb nicht unabhängig."
       : isBank
         ? `Vollständig richtige Fälle: alle drei Felder müssen stimmen. ${s.total} synthetische Fälle nach fiktiven Serviceregeln; keine repräsentative Stichprobe. Andere Suiten werden nicht addiert.`
@@ -577,6 +593,19 @@ export function createWorkbench({
          diagnostic("Baseline: immer Routine", `${urgency.gold_routine} / ${s.total} · ${percent(urgency.gold_routine / s.total)}`) +
          '<p>Prioritätsfolge: critical &gt; urgent &gt; routine. Eine kritische Anfrage zählt auch bei urgent als zu niedrig priorisiert. Ein Security-Handoff ist unnötig, wenn die Goldreferenz einen anderen nächsten Schritt verlangt. Unnötige Eskalationen: Gold guidance/clarify, Modell specialist_review/security_handoff. Die Baseline gilt für diese gestaltete Stichprobe, nicht für Bank-Traffic.</p>' : ""));
     }
+    if (isClarification && done) {
+      const diagnostic = (label, value) => `<div class="diagnosis-item"><span>${e(label)}</span><strong>${e(value)}</strong></div>`;
+      const rate = key => `${summary.behavior_rates[key].numerator} / ${summary.behavior_rates[key].denominator}`;
+      $("diagnosis-content").insertAdjacentHTML("afterbegin",
+        diagnostic("Erforderliche Rückfragen verpasst", rate("missed_required_clarifications")) +
+        diagnostic("Unnötige Rückfragen bei beantwortbaren Fällen", rate("excess_clarifications")) +
+        diagnostic("Falsche Rückfrageart", rate("wrong_clarification_kind")) +
+        diagnostic("Inkonsistente Feldpaare", `${summary.events.inconsistent_fields.count} / ${s.total}`) +
+        diagnostic("Riskante falsche Antworten unter konkreten Antworten", rate("risky_wrong_answers_among_substantive")) +
+        '<p>Risiko hier: konkrete Ja/Nein-Antwort trotz Unentscheidbarkeit oder falschem Ergebnis. Keine reale Handlung. Beide Feldscores ≥ 0,90: 0 Fehler unter nur 5 konkreten Antworten (5/72 Fälle). Rohe marginale Scores, keine Kalibrierungs- oder Sicherheitsgarantie.</p>');
+      $("diagnosis-content").insertAdjacentHTML("beforeend", '<h3>Sechs gestaltete Fallgruppen</h3>' +
+        Object.entries(data.suite.strata).map(([id, label]) => diagnostic(label, `${summary.strata.stratum[id].all_fields_exact.numerator} / ${summary.strata.stratum[id].cases}`)).join(""));
+    }
     $("inspect-errors").disabled = !done || !errors.length;
     const pairs = Object.values(data.scores?.paired_all_planned || {});
     $("paired-panel").hidden = !pairs.length;
@@ -591,19 +620,25 @@ export function createWorkbench({
           `<div class="paired-row"><div><span>${e(pairLabels[p.left] || p.left)}</span><strong>${percent(p.left_accuracy_all_planned)}</strong></div><span class="paired-vs">${e(p.n_pairs_planned)} gleiche Fälle</span><div><span>${e(pairLabels[p.right] || p.right)}</span><strong>${percent(p.right_accuracy_all_planned)}</strong></div><small>${e(p.counts.both_correct)} beide richtig · ${e(p.counts.left_only_correct)} nur links · ${e(p.counts.right_only_correct)} nur rechts · ${e(p.counts.both_wrong)} beide falsch</small></div>`,
       )
       .join("");
-    $("method-scope").textContent = isInsurance
+    $("method-scope").textContent = isClarification
+      ? "Ein separater Test mit fiktiven Regeln: fehlende entscheidende Fakten, unklare Zielvorgänge, Konflikte, vollständiges Ja/Nein und trotz Lücke entscheidbare Fälle. Auswahl einer Rückfrageart, keine Bewertung frei formulierter deutscher Rückfragen."
+      : isInsurance
       ? "Diese Suite prüft das Verständnis kurzer, fiktiver Versicherungsunterlagen: eine Aussage anhand des Sachverhalts einordnen und aus fünf angebotenen Belegmengen wählen. Keine vollständigen Policen, OCR, Recherche, freie Antwortgenerierung oder arithmetische Leistungsprüfung."
       : isBank
         ? "Separater deutschsprachiger Test mit typischen, synthetischen Bank-Kundenanfragen ohne Manipulation. Drei native Auswahlfelder werden nach einer fiktiven, mitgelieferten Servicerichtlinie bewertet. Kein realer Kundendatenbestand, keine freie Antwortgenerierung, keine Ausführung von Bankvorgängen und kein Produktionsnachweis. Die kleine Stichprobe erlaubt keine belastbare Aussage über seltene Risiken; Fehlpriorisierungen werden gesondert gezeigt."
         : suite === "clean72"
         ? "Separater synthetischer Bürotest ohne Manipulationsanweisungen. Andere Aufgaben und Schwierigkeiten als die früheren Tests; Quotendifferenzen belegen keinen kausalen Manipulationseffekt."
         : "Synthetische, vorab definierte Auswahlaufgaben mit expliziten Regeln. Explorative Sprachkontrollen, keine repräsentative Feldstudie und keine Bewertung freier Beratung.";
-    $("method-measures").textContent = isBank
+    $("method-measures").textContent = isClarification
+      ? "Nächster Schritt und Ja/Nein/offen-Feststellung separat; vollständig richtig nur bei beiden richtigen Feldern. 36 notwendige Rückfragen und 36 beantwortbare Fälle verhindern eine pauschale Nachfragen-Strategie. Drei inkonsistente Feldpaare bleiben unverändert sichtbar."
+      : isBank
       ? "Anliegen, Priorität und nächster Schritt werden getrennt bewertet. Vollständig richtig ist ein Fall nur mit allen drei richtigen Feldern. Eine hohe Prioritätsquote allein genügt nicht: Routine-Baseline und Fehlpriorisierungen gehören dazu."
       : isInsurance
         ? "Antwort, Evidenz und vollständig richtige Fälle werden getrennt ausgewiesen. Ein richtiger Beleg ersetzt keine richtige Antwort."
         : "Antwortqualität und technische Schema-Gültigkeit werden getrennt ausgewiesen. Jede Suite und Sprachvariante behält ihren eigenen Nenner.";
-    $("method-synthetic").textContent = isBank
+    $("method-synthetic").textContent = isClarification
+      ? "72 KI-verfasste und separat KI-geprüfte Fälle, zwölf verwandte Regelfamilien, keine menschliche Fachvalidierung. Einfache UND-Regeln und teils ausdrücklich benannte Lücken erleichtern die Aufgabe; keine repräsentativen Kundengespräche oder Bevölkerungsgenauigkeit."
+      : isBank
       ? "Die 80 Fälle sind KI-verfasst und gezielt gestaltet, keine repräsentative Stichprobe aus realem Bank-Traffic und kein BANKING77. Eine zweite KI-Prüfung ersetzt kein menschliches Annotationsteam. Die Serviceregeln sind fiktiv, keine Bank-, Finanz- oder Rechtsauskunft."
       : isInsurance
         ? "Die Fälle sind KI-verfasst und keine repräsentative Stichprobe aus dem Versicherungsalltag. Eine zweite KI-Prüfung ersetzt kein menschliches Annotationsteam. Fiktive Klauseln sind keine echte Versicherungs- oder Rechtsauskunft."
@@ -781,6 +816,7 @@ export function createWorkbench({
     const descriptions = {
       insurance: ["document", "Aussage und Beleg im Dokument"],
       "bank-support": ["panels", "Anliegen, Priorität und nächster Schritt"],
+      clarification: ["shield", "Nachfragen, entscheiden und Feldkonsistenz prüfen"],
       general: ["layers", "Allgemeine Regeln und Sprachkontrollen"],
       finance: ["chart", "Finanzfragen und Maklerfälle"],
       clean72: ["shield", "Alltagstexte ohne Manipulationsanweisungen"],

@@ -1,0 +1,9 @@
+{
+  "schema_version": 2,
+  "suite_id": "clarification",
+  "frozen_content_changed": false,
+  "frozen_manifest_sha256": "8eeb30bec0e06776298509328323e6fa2d7849e0d2ff75d03eb922edcf692f6a",
+  "frozen_file_count": 38,
+  "public_scope": "Frozen scientific inputs and source code, all scored native predictions and option probabilities, completion metadata, timing, scores, errors and independent verification remain unchanged.",
+  "excluded_scope": "Operational diagnostics and private export bookkeeping are outside the public package. No scored case, model probability or inference error was omitted."
+}

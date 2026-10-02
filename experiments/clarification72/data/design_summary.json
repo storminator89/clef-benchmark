@@ -1,0 +1,36 @@
+{
+  "suite_id": "clarification",
+  "case_count": 72,
+  "field_count": 2,
+  "family_count": 12,
+  "order_seed": 202610021,
+  "domain_counts": {
+    "finance": 24,
+    "insurance": 24,
+    "banking": 24
+  },
+  "stratum_counts": {
+    "ambiguous_target": 12,
+    "complete_yes": 12,
+    "conflicting_evidence": 12,
+    "missing_fact": 12,
+    "complete_no": 12,
+    "sufficient_despite_omission": 12
+  },
+  "label_counts": {
+    "action": {
+      "ask_target": 12,
+      "answer": 36,
+      "resolve_conflict": 12,
+      "ask_fact": 12
+    },
+    "determination": {
+      "unresolved": 36,
+      "yes": 18,
+      "no": 18
+    }
+  },
+  "purposeful_not_population_sample": true,
+  "related_cases_share_rule_families": true,
+  "not_expert_validated": true
+}

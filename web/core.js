@@ -12,6 +12,7 @@ export const SPLIT = {
   mixed_schema_diagnostic: "Deutsch / Englisch",
   german_clean_primary: "Deutsch · ohne Manipulation",
   german_insurance_primary: "Deutsch · Dokumente",
+  german_clarification_primary: "Deutsch · Rückfragen",
   german_bank_support_primary: "Deutsch · Bank-Kundensupport",
 };
 export const LIMITS = Object.freeze({
@@ -45,6 +46,7 @@ export const decimal = (value, digits = 2) =>
 export const isObject = (value) =>
   value !== null && typeof value === "object" && !Array.isArray(value);
 const FIELD_LABELS = Object.freeze({ decision: "Entscheidung", evidence: "Evidenz",
+  action: "Nächster Schritt", determination: "Feststellung",
   intent: "Anliegen", priority: "Priorität", next_step: "Nächster Schritt" });
 export const fieldLabel = (id) => Object.hasOwn(FIELD_LABELS, id)
   ? FIELD_LABELS[id] : id.replace(/_/g, " ");
@@ -118,7 +120,8 @@ export function filterCases(cases, filters = {}) {
       (kind === "errors" && ["partial", "wrong"].includes(o)) ||
       (kind === "correct" && o === "correct") ||
       (kind === "unscored" && o === "unscored") ||
-      fields.some((f) => f.id === kind && f.result?.correct === false);
+      fields.some((f) => f.id === kind && f.result?.correct === false) ||
+      (kind.startsWith("diagnostic:") && (c.diagnostic_events || []).includes(kind.slice(11)));
     return (
       (!filters.split || c.split === filters.split) &&
       (!filters.category || c.category === filters.category) &&
@@ -444,6 +447,99 @@ export class InferenceSession {
     return true;
   }
 }
+/** Recompute clarification presentation data from admitted native choices.
+ * This verifies annotations; it never repairs inconsistent model field pairs. */
+function validateClarificationSummary(data, fail) {
+  const rows = data.cases, summary = data.summary;
+  const fields = ["action", "determination"], thresholds = [0.8, 0.9, 0.95];
+  const strata = ["ambiguous_target", "missing_fact", "conflicting_evidence",
+    "complete_yes", "complete_no", "sufficient_despite_omission"];
+  const equal = (actual, expected) => canonicalJSON(actual) === canonicalJSON(expected);
+  const labels = (value, keys) => isObject(value) &&
+    equal(Object.keys(value).sort(), [...keys].sort()) &&
+    Object.values(value).every(v => typeof v === "string" && v.trim());
+  if (!labels(data.suite.strata, strata) ||
+      !labels(data.suite.categories, ["finance", "insurance", "banking"])) fail();
+  if (data.status !== "completed") return;
+  if (!isObject(summary) || summary.suite_id !== "clarification" ||
+      summary.case_count !== rows.length || summary.field_count !== 2) fail();
+  const ratio = (numerator, denominator) => ({ numerator, denominator,
+    rate: denominator ? numerator / denominator : null });
+  const correct = (c, f) => c.result.fields[f].prediction === c.expected[f];
+  const metrics = group => Object.fromEntries([
+    ...fields.map(f => [f, ratio(group.filter(c => correct(c, f)).length, group.length)]),
+    ["all_fields_exact", ratio(group.filter(c => fields.every(f => correct(c, f))).length, group.length)],
+  ]);
+  const events = Object.fromEntries([
+    "invalid_or_missing", "missed_required_clarifications",
+    "required_clarifications_not_successfully_requested", "excess_clarifications",
+    "wrong_clarification_kind", "inconsistent_fields", "substantive_answer_cases",
+    "risky_wrong_answers", ...thresholds.flatMap(t =>
+      [`confident_answers_${t}`, `confident_wrong_answers_${t}`]),
+  ].map(name => [name, []]));
+  for (const c of rows) {
+    const action = c.result.fields.action, determination = c.result.fields.determination;
+    const required = c.expected.action !== "answer", asked = action.prediction !== "answer";
+    const concrete = !asked && determination.prediction !== "unresolved";
+    const risky = concrete && (required || !correct(c, "determination"));
+    const flags = {
+      missed_required_clarifications: required && !asked,
+      required_clarifications_not_successfully_requested: required && !asked,
+      excess_clarifications: !required && asked,
+      wrong_clarification_kind: required && asked && !correct(c, "action"),
+      inconsistent_fields: asked ? determination.prediction !== "unresolved" : determination.prediction === "unresolved",
+      substantive_answer_cases: concrete, risky_wrong_answers: risky,
+    };
+    for (const threshold of thresholds) {
+      const confident = concrete && action.probabilities[action.prediction] >= threshold &&
+        determination.probabilities[determination.prediction] >= threshold;
+      flags[`confident_answers_${threshold}`] = confident;
+      flags[`confident_wrong_answers_${threshold}`] = confident && risky;
+    }
+    const expectedEvents = Object.keys(flags).filter(name => flags[name]);
+    if (!equal([...c.diagnostic_events].sort(), expectedEvents.sort()) ||
+        !equal([...c.tags].sort(), [c.stratum, c.family].sort())) fail();
+    for (const name of expectedEvents) events[name].push(c.id);
+  }
+  const count = name => events[name].length;
+  const required = rows.filter(c => c.expected.action !== "answer").length;
+  const answerable = rows.length - required, expectedMetrics = metrics(rows);
+  expectedMetrics.all_field_decisions = ratio(fields.reduce((n, f) =>
+    n + expectedMetrics[f].numerator, 0), rows.length * 2);
+  const behavior = Object.fromEntries([
+    ["missed_required_clarifications", required],
+    ["required_clarifications_not_successfully_requested", required],
+    ["excess_clarifications", answerable], ["wrong_clarification_kind", required],
+    ["risky_wrong_answers_all_cases", rows.length],
+    ["risky_wrong_answers_among_substantive", count("substantive_answer_cases")],
+  ].map(([name, denominator]) => [name,
+    ratio(count(name.startsWith("risky_wrong_answers_") ? "risky_wrong_answers" : name), denominator)]));
+  const high = Object.fromEntries(thresholds.map(t => {
+    const confident = count(`confident_answers_${t}`), wrong = count(`confident_wrong_answers_${t}`);
+    return [t, { confident_answers: confident, confident_wrong: wrong,
+      wrong_rate_among_confident: ratio(wrong, confident) }];
+  }));
+  const grouped = Object.fromEntries([["domain", "category"], ["stratum", "stratum"], ["family", "family"]]
+    .map(([name, attribute]) => [name, Object.fromEntries([...new Set(rows.map(c => c[attribute]))].map(id => {
+      const group = rows.filter(c => c[attribute] === id);
+      return [id, { cases: group.length, ...metrics(group) }];
+    }))]));
+  // These balances also support the fixed explanatory copy for this frozen suite.
+  if (required !== 36 || answerable !== 36 || count("inconsistent_fields") !== 3 ||
+      high["0.9"].confident_answers !== 5 || high["0.9"].confident_wrong !== 0 ||
+      !equal(Object.keys(grouped.domain).sort(), Object.keys(data.suite.categories).sort()) ||
+      Object.values(grouped.domain).some(g => g.cases !== 24) ||
+      !equal(Object.keys(grouped.stratum).sort(), [...strata].sort()) ||
+      Object.values(grouped.stratum).some(g => g.cases !== 12) ||
+      Object.keys(grouped.family).length !== 12 || Object.values(grouped.family).some(g => g.cases !== 6)) fail();
+  for (const [key, expected] of Object.entries({
+    metrics: expectedMetrics,
+    denominators: { clarification_required: required, answerable, valid_cases: rows.length,
+      substantive_answers: count("substantive_answer_cases") },
+    behavior_rates: behavior, high_confidence: high, strata: grouped,
+    events: Object.fromEntries(Object.entries(events).map(([name, ids]) => [name, { count: ids.length, ids }])),
+  })) if (!isObject(summary[key]) || !equal(summary[key], expected)) fail();
+}
 /** Admit a stored suite only after full local structural checks. This supplements,
  * rather than replaces, the frozen-file/independent-hash importer gate. */
 export function validateDataset(data, expectedID) {
@@ -466,6 +562,7 @@ export function validateDataset(data, expectedID) {
     finance: [100, 80, "german_primary"],
     clean72: [72, 72, "german_clean_primary"],
     "bank-support": [80, 80, "german_bank_support_primary"],
+    clarification: [72, 72, "german_clarification_primary"],
   };
   const plan = plans[expectedID];
   if (
@@ -552,7 +649,7 @@ export function validateDataset(data, expectedID) {
     )
       fail();
     if (
-      !["insurance", "bank-support"].includes(expectedID) &&
+      !["insurance", "bank-support", "clarification"].includes(expectedID) &&
       Object.keys(c.questions).join("|") !== "decision"
     )
       fail();
@@ -569,6 +666,16 @@ export function validateDataset(data, expectedID) {
         c.synthetic !== true || c.manipulation !== false ||
         c.document_id !== undefined)
     ) fail();
+    if (expectedID === "clarification" && (
+      Object.keys(c.questions).join("|") !== "action|determination" ||
+      Object.keys(c.questions.action?.criteria || {}).sort().join("|") !== "answer|ask_fact|ask_target|resolve_conflict" ||
+      Object.keys(c.questions.determination?.criteria || {}).sort().join("|") !== "no|unresolved|yes" ||
+      Object.keys(c.expected).sort().join("|") !== "action|determination" ||
+      [c.rule, c.message, c.question, c.gold_rationale, c.family, c.stratum].some(v => typeof v !== "string" || !v.trim()) ||
+      c.input !== `Fiktive Testregel:\n${c.rule}\n\nSynthetische Anfrage und Unterlagen:\n${c.message}\n\nZu beurteilende Eigenschaft:\n${c.question}` ||
+      !Array.isArray(c.diagnostic_events) || c.diagnostic_events.some(v => typeof v !== "string") ||
+      c.synthetic !== true || c.manipulation !== false || c.document_id !== undefined
+    )) fail();
     if (!complete && c.result !== undefined) fail();
     const fields = fieldsForCase(c),
       questionIDs = Object.keys(c.questions).sort();
@@ -653,5 +760,6 @@ export function validateDataset(data, expectedID) {
     }
   }
   if (!data.cases.some((c) => c.split === data.suite.primary_split)) fail();
+  if (expectedID === "clarification") validateClarificationSummary(data, fail);
   return data;
 }

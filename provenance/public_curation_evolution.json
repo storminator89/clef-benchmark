@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "baseline_commit": "b084dc17e8e285e0eef20e00af07fae76d371ec2",
+  "changes": {
+    "experiments/bank-support/provenance/portable_export.json": {
+      "from_sha256": "d3a43c571af8b2f38aa351f0ac8a5b51b9a3b646fbd3b1f49d9c566649202312",
+      "to_sha256": "7c42070ee153ca0b60e13cb132f05c419bd9fbca9c5b427e31e20b47e74e3193",
+      "reason": "Current-revision public provenance minimization and refreshed public inventory only; all frozen sources, native outputs and scores are unchanged. Git history is preserved."
+    },
+    "experiments/bank-support/FILE_SHA256.json": {
+      "from_sha256": "babc2c4968d32a8b159590c095eae64fa5cd8e4ead95aa782638f0d38e02ca39",
+      "to_sha256": "06d9bc3b45db2e63a6ec992abe9a29e15f08d0820054c55139979a1db9c6bdcd",
+      "reason": "Current-revision public provenance minimization and refreshed public inventory only; all frozen sources, native outputs and scores are unchanged. Git history is preserved."
+    }
+  }
+}

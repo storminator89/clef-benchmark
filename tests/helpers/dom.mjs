@@ -8,7 +8,7 @@ const html = await readFile(
 );
 export const datasets = Object.fromEntries(
   await Promise.all(
-    ["insurance", "benchmark", "finance", "clean72", "bank-support"].map(async (id) => [
+    ["insurance", "benchmark", "finance", "clean72", "bank-support", "clarification"].map(async (id) => [
       id,
       JSON.parse(
         await readFile(new URL(`../../web/data/${id}.json`, import.meta.url)),

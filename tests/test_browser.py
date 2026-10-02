@@ -30,6 +30,7 @@ SUITES = {
     'general': ('benchmark', 120, 4, True),
     'finance': ('finance', 80, 4, True),
     'clean72': ('clean72', 72, 11, False),
+    'clarification': ('clarification', 72, 8, False),
 }
 GALLERY = (
     ('insurance-workbench-light.png', 'Versicherungsdokument: Originaltext, Goldreferenz und gespeicherte Modellantwort'),
@@ -249,7 +250,7 @@ class BrowserChecks:
         page, expect = self.page, self.expect
         self.nav('explorer')
         page.locator('#suite-catalog > summary').click()
-        expect(page.locator('[data-suite]')).to_have_count(5)
+        expect(page.locator('[data-suite]')).to_have_count(6)
         page.locator('[data-suite="bank-support"]').click()
         expect(page.locator('#suite-select')).to_have_value('bank-support')
         expect(page.locator('#suite-catalog')).not_to_have_attribute('open', '')
@@ -298,6 +299,37 @@ class BrowserChecks:
         require(page.locator('html').get_attribute('data-theme') != prior, 'Theme button is not keyboard-operable.')
         page.keyboard.press('Enter')
         self.check('All five suite denominators/errors, language controls, three bank fields, deep links, Back/Forward and keyboard')
+
+    def clarification(self):
+        page, expect = self.page, self.expect
+        self.suite('clarification')
+        case = self.datasets['clarification']['cases'][0]
+        for text in (case['rule'], case['message'], case['question']):
+            expect(page.locator('#document-content')).to_contain_text(text)
+        expect(page.locator('[data-field]')).to_have_count(2)
+        expect(page.locator('#inspection-header')).to_contain_text('Inkonsistente Felder')
+        self.capture('clarification-workbench-light.png', 'Clarification72: complete fictional rule, question and preserved inconsistent model fields')
+        for choice, count in [('action', 7), ('determination', 6), ('diagnostic:missed_required_clarifications', 4), ('diagnostic:excess_clarifications', 2), ('diagnostic:inconsistent_fields', 3), ('diagnostic:risky_wrong_answers', 4)]:
+            page.locator('#filter-outcome').select_option(choice)
+            expect(page.locator('.case-item')).to_have_count(count)
+        page.locator('#reset-filters').click()
+        self.nav('overview')
+        for metric in ('65 / 72', '66 / 72', '64 / 72', '72 / 72'):
+            expect(page.locator('#stats')).to_contain_text(metric)
+        for metric in ('4 / 36', '2 / 36', '3 / 72', '4 / 37', 'nur 5'):
+            expect(page.locator('#diagnosis-content')).to_contain_text(metric)
+        self.capture('clarification-dashboard-light.png', 'Clarification72: separate scores, balanced denominators and confidence limitations')
+        for width in (320, 390):
+            page.set_viewport_size({'width': width, 'height': 844})
+            self.nav('overview')
+            self.overflow(f'clarification overview {width}')
+            self.suite('clarification')
+            for pane in ('cases', 'document', 'result'):
+                page.locator(f'[data-pane="{pane}"]').click()
+                self.overflow(f'clarification {pane} {width}')
+            self.capture(f'clarification-result-{width}.png', f'Clarification72 recorded inconsistent response at {width} CSS pixels', full_page=False)
+        page.set_viewport_size({'width': 1440, 'height': 1000})
+        self.check('clarification72: complete source context, two native fields, error subtypes, honest denominators, 320/390px panels')
 
     def readiness(self):
         page, expect = self.page, self.expect
@@ -535,6 +567,8 @@ def capture_run(output, start_server):
                 checks.replay('insurance', 'fall_002', 2)
                 checks.replay('bank-support', 'bank_cards_03', 3)
                 checks.all_suites_and_navigation()
+                checks.replay('clarification', 'clarify_order_cancellation_02', 2)
+                checks.clarification()
                 checks.readiness()
                 checks.custom_import_edit_export()
                 checks.phones()
