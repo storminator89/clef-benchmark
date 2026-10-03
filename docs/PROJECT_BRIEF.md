@@ -2,11 +2,11 @@
 
 Clef Lab untersucht strukturierte deutsche Entscheidungsaufgaben mit Cloudflare Clef Flash 9B und vergleicht sie mit Jev 1.13.0. Testeingaben, Referenzlabels, native Antworten und Auswertung bleiben fallweise prüfbar. Eine lokale Oberfläche macht diese Ergebnisse ohne Modellinstallation zugänglich.
 
-Der [aktuelle Vergleich](../README.md#ergebnisse-im-direkten-vergleich) zeigt die genauen Zähler, Nenner und technische Abdeckung je Suite. Auf den dort ausgewiesenen gemeinsamen Fällen erzielt Jev mehr vollständig richtige Antworten. Beispielsweise sind es bei mehreren Dokumenten 44/48 gegenüber Clef 24/48, bei notwendigen Rückfragen 71/72 gegenüber 64/72. Das sind Ergebnisse kleiner synthetischer Aufgaben, kein allgemeines Modellranking.
+Der [aktuelle Vergleich](../README.md#ergebnisse-im-direkten-vergleich) zeigt die genauen Zähler und gleichen Nenner je Suite. Auf den dort ausgewiesenen Testgruppen erzielt Jev mehr vollständig richtige Antworten. Beispielsweise sind es bei mehreren Dokumenten 44/48 gegenüber Clef 24/48, bei notwendigen Rückfragen 71/72 gegenüber 64/72. Das sind Ergebnisse kleiner synthetischer Aufgaben, kein allgemeines Modellranking.
 
 Die separate Clef-Sprachvariantendiagnose erreicht 64/72 vollständige Fälle und 40/48 an beiden Endpunkten richtige invariante Paare. Alle acht Fehler betreffen Zielunklarheit; keine richtige Basis wird durch ihre Variante falsch. Abhängige Varianten und KI-verfasste Labels begrenzen die Aussagekraft.
 
-Zum Nachlesen: [Methodik](EVALUATION_GUIDE.md), [Jev-Vergleich](JEV_COMPARISON.md), [Reproduktion](REPRODUCE.md), [Workbench](../README.md#ergebnisse-lokal-ansehen). Die genaue lokale Modellkonfiguration, technische Ausschlüsse und noch fehlende Baselines stehen jeweils neben den Ergebnissen. Menschliche Fachvalidierung, reale Kundeneignung, Sicherheit und wirtschaftlicher Nutzen wurden nicht nachgewiesen.
+Zum Nachlesen: [Methodik](EVALUATION_GUIDE.md), [Jev-Vergleich](JEV_COMPARISON.md), [Reproduktion](REPRODUCE.md), [Workbench](../README.md#ergebnisse-lokal-ansehen). Die genaue lokale Modellkonfiguration, Auswertungsdefinitionen und fehlende Baselines stehen jeweils neben den Ergebnissen. Menschliche Fachvalidierung, reale Kundeneignung, Sicherheit und wirtschaftlicher Nutzen wurden nicht nachgewiesen.
 
 ## English
 

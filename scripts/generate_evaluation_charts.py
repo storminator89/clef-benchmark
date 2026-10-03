@@ -20,16 +20,8 @@ GROUPS = [
     ('minimal_pairs48', 'diagnostic_pairs', 'Minimalpaare · einzelne Fälle'),
     ('multidoc48', 'german_primary', 'Mehrere Dokumente'),
 ]
-EXTRA = {
-    ('original_text180', 'mixed_schema_diagnostic'): 'Allgemein · englisches Schema',
-    ('original_text180', 'english_control'): 'Allgemein · Englischkontrolle',
-    ('finance100', 'english_control'): 'Finanzen · Englischkontrolle',
-    ('attack_ablation14', 'posthoc_attack/attack'): 'Angriffsentfernung · mit Angriff',
-    ('attack_ablation14', 'posthoc_clean/clean'): 'Angriffsentfernung · ohne Angriff',
-    ('massive300', 'german_test_primary'): 'MASSIVE de-DE',
-}
-SOURCES = ['studies/jev974/scoring/case_comparison.jsonl',
-           'studies/jev974/scoring/comparison_summary.json',
+SOURCES = ['studies/jev974-answer-correctness-v1/case_comparison.jsonl',
+           'studies/jev974-answer-correctness-v1/comparison_summary.json',
            'studies/language72/scored/case_scores.jsonl',
            'studies/language72/scored/summary.json']
 
@@ -41,19 +33,23 @@ def load_data(root):
     partitions = []
     for p in summary['partitions']:
         selected = [r for r in rows if (r['suite'], r['split']) == (p['suite'], p['split'])]
-        valid = [r for r in selected if r['exact']['jev'] is not None]
-        matched = [r for r in valid if r['exact']['clef'] is not None]
-        clef = sum(r['exact']['clef'] is True for r in matched)
-        jev = sum(r['exact']['jev'] is True for r in matched)
-        checks = [len(selected) == p['expected'], len(valid) == p['jev_valid'],
-                  len(matched) == p['both_valid'],
-                  clef == p['both_correct'] + p['clef_only_correct'],
-                  jev == p['both_correct'] + p['jev_only_correct'],
-                  sum(r['exact']['jev'] is True for r in valid) == p['jev_correct']]
-        if not all(checks):
-            raise ValueError(f"Case/summary mismatch: {p['suite']} / {p['split']}")
+        counts = {}
+        for model in ('clef', 'jev'):
+            answered = sum(r['evaluable'][model] is True for r in selected)
+            correct = sum(r['exact'][model] is True for r in selected)
+            for r in selected:
+                choice = r['choices'][model]
+                recomputed = choice == r['expected'] if choice is not None else False
+                if (r['exact'][model] is True) != recomputed:
+                    raise ValueError(f"Native-choice correctness mismatch: {r['id']} / {model}")
+            expected_correct = correct if answered else None
+            if answered != (p[f'{model}_answered'] or 0) or expected_correct != p[f'{model}_correct']:
+                raise ValueError(f"Case/summary mismatch: {p['suite']} / {model}")
+            counts[model] = expected_correct
+        if len(selected) != p['planned'] or p['expected'] != p['planned']:
+            raise ValueError('Planned-case denominator mismatch')
         partitions.append(dict(suite=p['suite'], split=p['split'], expected=len(selected),
-                               valid=len(valid), matched=len(matched), clef=clef, jev=jev))
+                               clef=counts['clef'], jev=counts['jev']))
     if sum(p['expected'] for p in partitions) != len(rows):
         raise ValueError('Partition coverage mismatch')
     language = [json.loads(s) for s in (root / SOURCES[2]).read_text().splitlines()]
@@ -94,37 +90,21 @@ def render(root):
     partitions, diagnostic = load_data(root)
     lookup = {(p['suite'],p['split']):p for p in partitions}
     s=start('Vollständig richtige Fälle im direkten Vergleich',
-            'Je Testgruppe dieselben Fälle für beide Modelle · alle geforderten Felder müssen stimmen',890)
+            'Je Testgruppe alle geplanten Fälle · alle geforderten Felder müssen stimmen',890)
     s += [rect(32,96,18,12,'#355fa4'),txt(59,107,'Clef Flash 9B · CPU-NF4',14),
           rect(330,96,18,12,'#087f78'),txt(357,107,'Jev 1.13.0 · gehostete API',14),
-          txt(890,142,'Richtig / gemeinsam',13),txt(32,142,'Gemeinsam / geplant',13,color='#526174')]
+          txt(890,142,'Richtig / Fälle',13),txt(32,142,'Gleicher Fallumfang',13,color='#526174')]
     axis(s,164,798)
     for i,(suite,split,label) in enumerate(GROUPS):
-        p=lookup[suite,split]; y=188+i*78; n=p['matched']
-        if not n: raise ValueError('Matched group has no comparable cases')
-        s += [txt(32,y,label,16,weight='bold'),txt(32,y+23,f"Abdeckung {n}/{p['expected']}",14,color='#526174')]
+        p=lookup[suite,split]; y=188+i*78; n=p['expected']
+        if not n or p['clef'] is None or p['jev'] is None:
+            raise ValueError('Main group needs planned cases and both baselines')
+        s += [txt(32,y,label,16,weight='bold'),txt(32,y+23,f"{n} Fälle pro Modell",14,color='#526174')]
         for dy,k,color in [(-15,'clef','#355fa4'),(13,'jev','#087f78')]:
             s += [rect(380,y+dy,480*p[k]/n,19,color,2),txt(888,y+dy+15,f"{p[k]}/{n}  ·  {pct(p[k],n)}",15)]
-    s += [txt(32,837,'Reihenfolge wie in der Ergebnistabelle. Keine Gesamtgenauigkeit über unterschiedliche Tests.',15),
+    s += [txt(32,837,'Nicht auswertbare Antworten zählen nicht als richtig. Jede Testgruppe behält ihren eigenen Nenner.',15),
           txt(32,861,'Kleine, überwiegend synthetische und teils abhängige Fälle; keine allgemeine Modellrangliste.',14,color='#526174')]
     result={'matched_accuracy.svg':'\n'.join(s+['</g></svg>'])+'\n'}
-    labels={(a,b):c for a,b,c in GROUPS}; labels.update(EXTRA)
-    valid=sum(p['valid'] for p in partitions); total=sum(p['expected'] for p in partitions)
-    s=start('Jev: technische Abdeckung des vollständigen Laufs',
-            f'{valid}/{total} strikt gültige Antworten · {total-valid} technische Ausschlüsse · keine Genauigkeitsaggregation',1020)
-    s += [rect(32,98,18,12,'#087f78'),txt(59,109,'Strikt gültig',14),
-          rect(224,98,18,12,'#b36b23'),txt(252,109,'Technisch ausgeschlossen',14),
-          txt(885,145,'Gültig / geplant',13),txt(1080,145,'Ausg.',13,anchor='end')]
-    axis(s,169,890)
-    for i,p in enumerate(partitions):
-        y=181+i*49; ratio=p['valid']/p['expected']; invalid=p['expected']-p['valid']
-        s += [txt(32,y+15,labels[p['suite'],p['split']],15),rect(380,y,480*ratio,21,'#087f78'),
-              rect(380+480*ratio,y,480*(1-ratio),21,'#b36b23'),
-              txt(885,y+15,f"{p['valid']}/{p['expected']}",15),txt(1080,y+15,invalid,15,anchor='end')]
-    s += [txt(32,940,'Gültigkeit folgt dem eingefrorenen Benchmark-Validator, einschließlich Summenprüfung 1e−5.',14),
-          txt(32,965,'Ein technischer Ausschluss belegt keinen fachlichen Fehler. MASSIVE hat noch keine auditierte Clef-Baseline.',14),
-          txt(32,990,'Sprachkontrollen und Angriffsentfernung bleiben getrennt; die Summe beschreibt nur die Abdeckung.',14,color='#526174')]
-    result['jev_coverage.svg']='\n'.join(s+['</g></svg>'])+'\n'
     s=start('Deutsche Sprachvarianten: Fehler konzentrieren sich auf Zielunklarheit',
             'Clef · 72 einzelne Fälle · deskriptive Aufteilung nach dem erwarteten Aktionstyp',450)
     s += [rect(32,99,18,12,'#355fa4'),txt(59,110,'Alle Felder richtig',14),

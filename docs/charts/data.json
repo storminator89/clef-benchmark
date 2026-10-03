@@ -1,7 +1,7 @@
 {
   "sources_sha256": {
-    "studies/jev974/scoring/case_comparison.jsonl": "817b93fdcea947a4d19d648484de01dbfec50c5370e654614d03d1b89ab29736",
-    "studies/jev974/scoring/comparison_summary.json": "df914c25dfe5087de792f1b87981d82bcebd5958d3f9c7b1863c5100f22b7cfe",
+    "studies/jev974-answer-correctness-v1/case_comparison.jsonl": "78e7f2ac9808558f9122bc1e1a6411ecb5cf21f4c83c35d8ce63e7cc5e8a027f",
+    "studies/jev974-answer-correctness-v1/comparison_summary.json": "d6baab78043591bb3e99024ac1b7d866bf66766126dc4cfbe25db2a455d2b83d",
     "studies/language72/scored/case_scores.jsonl": "9d6c6c25a00d9e7a55e54473a01e2036fb6fd80f521ca24514f17f42c1565fde",
     "studies/language72/scored/summary.json": "3da92c94c2f9d9bcd273d4393470f7369e7e9fcb301ccd6a88d460f622af46c5"
   },
@@ -10,8 +10,6 @@
       "suite": "minimal_pairs48",
       "split": "diagnostic_pairs",
       "expected": 48,
-      "valid": 48,
-      "matched": 48,
       "clef": 39,
       "jev": 47
     },
@@ -19,8 +17,6 @@
       "suite": "clarification72",
       "split": "german_primary",
       "expected": 72,
-      "valid": 72,
-      "matched": 72,
       "clef": 64,
       "jev": 71
     },
@@ -28,17 +24,13 @@
       "suite": "bank_support80",
       "split": "german_primary",
       "expected": 80,
-      "valid": 79,
-      "matched": 79,
-      "clef": 67,
+      "clef": 68,
       "jev": 75
     },
     {
       "suite": "original_text180",
       "split": "german_primary",
       "expected": 120,
-      "valid": 120,
-      "matched": 120,
       "clef": 116,
       "jev": 119
     },
@@ -46,8 +38,6 @@
       "suite": "original_text180",
       "split": "mixed_schema_diagnostic",
       "expected": 30,
-      "valid": 30,
-      "matched": 30,
       "clef": 29,
       "jev": 30
     },
@@ -55,8 +45,6 @@
       "suite": "original_text180",
       "split": "english_control",
       "expected": 30,
-      "valid": 30,
-      "matched": 30,
       "clef": 29,
       "jev": 30
     },
@@ -64,17 +52,13 @@
       "suite": "finance100",
       "split": "german_primary",
       "expected": 80,
-      "valid": 79,
-      "matched": 79,
-      "clef": 75,
+      "clef": 76,
       "jev": 78
     },
     {
       "suite": "finance100",
       "split": "english_control",
       "expected": 20,
-      "valid": 20,
-      "matched": 20,
       "clef": 18,
       "jev": 20
     },
@@ -82,8 +66,6 @@
       "suite": "insurance60",
       "split": "german_primary",
       "expected": 60,
-      "valid": 60,
-      "matched": 60,
       "clef": 50,
       "jev": 56
     },
@@ -91,8 +73,6 @@
       "suite": "clean72",
       "split": "german_clean_primary",
       "expected": 72,
-      "valid": 72,
-      "matched": 72,
       "clef": 61,
       "jev": 67
     },
@@ -100,8 +80,6 @@
       "suite": "attack_ablation14",
       "split": "posthoc_attack/attack",
       "expected": 7,
-      "valid": 7,
-      "matched": 7,
       "clef": 4,
       "jev": 6
     },
@@ -109,17 +87,13 @@
       "suite": "attack_ablation14",
       "split": "posthoc_clean/clean",
       "expected": 7,
-      "valid": 6,
-      "matched": 6,
-      "clef": 4,
-      "jev": 6
+      "clef": 5,
+      "jev": 7
     },
     {
       "suite": "multidoc48",
       "split": "german_primary",
       "expected": 48,
-      "valid": 48,
-      "matched": 48,
       "clef": 24,
       "jev": 44
     },
@@ -127,10 +101,8 @@
       "suite": "massive300",
       "split": "german_test_primary",
       "expected": 300,
-      "valid": 266,
-      "matched": 0,
-      "clef": 0,
-      "jev": 0
+      "clef": null,
+      "jev": 233
     }
   ],
   "language_diagnostic": [

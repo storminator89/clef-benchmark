@@ -1,0 +1,8 @@
+{
+  "studies/jev974-answer-correctness-v1/README.md": "406b00492eb486de474d6e1c184dfe2594365121f2fe39ea3c97241830c594aa",
+  "studies/jev974-answer-correctness-v1/case_comparison.jsonl": "78e7f2ac9808558f9122bc1e1a6411ecb5cf21f4c83c35d8ce63e7cc5e8a027f",
+  "studies/jev974-answer-correctness-v1/comparison_summary.json": "d6baab78043591bb3e99024ac1b7d866bf66766126dc4cfbe25db2a455d2b83d",
+  "studies/jev974-answer-correctness-v1/restored_native_answers.json": "27e6bf14ce62b08448e3dddbcaa707150e90f34208e6f4b39549705ba6253d56",
+  "scripts/derive_jev_answer_correctness_v1.py": "57fd699fce1ccba6f3e3016ad29b59e78157c1d816958c3a2f51bf1efa0a2218",
+  "tests/test_jev_answer_correctness_v1.py": "4455edc51d68ec948fbb9d49f994daa873a6683f830525958a259a23f105f060"
+}

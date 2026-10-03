@@ -100,6 +100,9 @@ def build_all(root=ROOT):
    namespace={'__file__':str(root/'scripts/study_jev_adapter.py'),'__name__':'study_jev_adapter'}
    exec(compile((root/'scripts/study_jev_adapter.py').read_bytes(),namespace['__file__'],'exec'),namespace)
    result[ident]=namespace['build'](source,admission,root)
+   direct={'__file__':str(root/'scripts/study_jev_direct_adapter.py'),'__name__':'study_jev_direct_adapter'}
+   exec(compile((root/'scripts/study_jev_direct_adapter.py').read_bytes(),direct['__file__'],'exec'),direct)
+   result[ident]=direct['apply'](result[ident],root)
   else:
    require(ident in BUILDERS,'No reviewed adapter for admitted study')
    result[ident]=BUILDERS[ident](source,admission)

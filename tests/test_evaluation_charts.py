@@ -10,20 +10,21 @@ CHARTS = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(CHARTS)
 
 class EvaluationChartsTests(unittest.TestCase):
-    def test_matched_denominators(self):
+    def test_planned_denominators(self):
         partitions, diagnostic = CHARTS.load_data(ROOT)
         data = {(r['suite'],r['split']):r for r in partitions}
-        for suite, clef, jev in [('bank_support80',67,75),('finance100',75,78)]:
+        for suite, clef, jev in [('bank_support80',68,75),('finance100',76,78)]:
             row=data[suite,'german_primary']
-            self.assertEqual((row['clef'],row['jev'],row['matched'],row['expected']),(clef,jev,79,80))
+            self.assertEqual((row['clef'],row['jev'],row['expected']),(clef,jev,80))
         self.assertEqual(sum(r['expected'] for r in partitions),974)
-        self.assertEqual(sum(r['valid'] for r in partitions),937)
         self.assertEqual([(r['correct'],r['total']) for r in diagnostic],[(5,13),(59,59)])
-        self.assertEqual(data['massive300','german_test_primary']['matched'],0)
+        self.assertIsNone(data['massive300','german_test_primary']['clef'])
+        self.assertEqual(data['massive300','german_test_primary']['jev'],233)
 
     def test_svg_assets_are_current_and_accessible(self):
         first=CHARTS.render(ROOT)
         self.assertEqual(first,CHARTS.render(ROOT))
+        self.assertNotIn('jev_coverage.svg', first)
         for name,content in first.items():
             self.assertEqual((ROOT/'docs/charts'/name).read_text(),content,name)
             if name.endswith('.svg'):

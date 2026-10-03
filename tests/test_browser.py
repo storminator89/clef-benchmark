@@ -626,7 +626,7 @@ class BrowserChecks:
         for entry in index['studies']:
             page.locator(f'[data-study="{entry["id"]}"]').click()
             expect(page.locator(f'[data-study="{entry["id"]}"]')).to_have_attribute('aria-pressed', 'true')
-            if entry['status'] == 'pending':
+            if entry['status'] != 'completed':
                 expect(page.locator('.study-pending')).to_contain_text('Keine Messwerte freigegeben')
                 expect(page.locator('.study-metrics')).to_have_count(0)
                 expect(page.locator('.study-case')).to_have_count(0)

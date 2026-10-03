@@ -25,37 +25,9 @@
       "unit": "Anfragen",
       "data_file": "./studies-data/jev974.json",
       "methods": [
-        "Die Vergleichszahlen beziehen sich je Teilgruppe nur auf Fälle mit zwei gültigen Modellantworten.",
-        "Jev-Abdeckung wird separat gezeigt. 37 technische Ausschlüsse werden nicht als beobachtete semantische Fehler bezeichnet.",
-        "Für MASSIVE fehlt hier die native Clef-Baseline. Jevs gültige Antworten bleiben ein Einzelmodell-Ergebnis."
-      ]
-    },
-    {
-      "id": "massive300",
-      "label": "MASSIVE Deutsch",
-      "subtitle": "300-Fälle-Replikation vorzeitig beendet",
-      "status": "cancelled",
-      "planned_requests": 300,
-      "unit": "Anfragen",
-      "note": "Auf Nutzerwunsch beendet: 219 vollständige native Ausgaben, eine unterbrochene und 80 nicht gestartete Anfragen. Diese Teilmenge ist hier nicht als Genauigkeitsscore freigegeben; eine vollständige Clef-Baseline fehlt.",
-      "methods": [
-        "Eigene feste 300-Fälle-Stichprobe des offiziellen deutschen Testsets, kein vollständiger Leaderboardlauf.",
-        "Das Protokoll definiert 60 angebotene Labels und getrennte Makro-F1-Konventionen; der abgebrochene Lauf bleibt unbewertet.",
-        "Die früher berichtete Messung ist hier nicht als wiederhergestellte Rohdaten enthalten."
-      ]
-    },
-    {
-      "id": "multiturn48",
-      "label": "Gesprächskontext",
-      "subtitle": "Geplanter Test mit 24 Fallpaaren",
-      "status": "cancelled",
-      "planned_requests": 48,
-      "unit": "Anfragen",
-      "note": "Auf Nutzerwunsch vor dem Lauf abgesagt. Keine neuen Messwerte; historische, nicht wiederhergestellte Ergebnisse werden nicht angezeigt.",
-      "methods": [
-        "Vollständig serialisierte Verläufe, keine laufende Konversation und kein Gedächtnistest.",
-        "Darstellung, Länge und Explizitheit können sich unterscheiden; die Paarergebnisse bleiben getrennt.",
-        "KI-verfasste fiktive Fälle; keine menschliche Fachexperten- oder Produktionsvalidierung."
+        "Beide Modelle erhalten dieselben geplanten Fälle; der Nenner bleibt je Testgruppe gleich.",
+        "Gezählt werden die nativen Antwortoptionen gegen die Referenzlabels. Alle Felder müssen stimmen.",
+        "Für MASSIVE fehlt eine vollständige Clef-Baseline; Jevs Ergebnis bleibt ein Einzelmodell-Ergebnis."
       ]
     }
   ]

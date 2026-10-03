@@ -14,8 +14,8 @@ Für Jev bleiben Zustand, Texte, Fragen, Feld- und Optionsreihenfolge sowie Aufg
 - **Fallgenauigkeit:** sämtliche verlangten Felder eines Falls richtig. Ein gutes Quellenfeld gleicht eine falsche Entscheidung nicht aus.
 - **Paargenauigkeit:** beide vollständigen Endpunkte richtig. Ein beliebiger Ausgabewechsel ist kein korrekter Übergang; unveränderte Ausgaben können stabil falsch sein.
 - **Technische Gültigkeit:** Antwort erfüllt den festgelegten Vertrag für Felder, Optionen, vollständige Wahrscheinlichkeiten, Modellidentität und Nutzungsangaben. Das ist von fachlicher Richtigkeit getrennt.
-- **Gesamter geplanter Umfang:** richtige gültige Fälle geteilt durch alle geplanten Fälle. Fehlende oder technisch ausgeschlossene Antworten erhöhen den Zähler nicht.
-- **Gemeinsame gültige Auswahl:** beide Modelle werden auf denselben Fällen mit gültiger Jev-Antwort und verfügbarer Clef-Baseline verglichen. Diese bedingte Genauigkeit muss zusammen mit der Abdeckung erscheinen.
+- **Gesamter geplanter Umfang:** vollständig richtige native Antworten geteilt durch alle geplanten Fälle. Nicht auswertbare Antworten erhöhen den Zähler nicht. Die Wahrscheinlichkeits-Summenprüfung bestimmt in der neuen Antwort-Richtigkeitsanalyse nicht die fachliche Bewertung.
+- **Direkter Modellvergleich:** beide Modelle verwenden dieselben geplanten Fälle und denselben Nenner je Gruppe. Nicht auswertbare Antworten zählen nicht als richtig und werden knapp benannt. Die separat erhaltene strikte Antwortvertragsanalyse hat eine andere Einschlussregel.
 
 Suiten und Kontrollgruppen haben eigene Nenner. Es gibt keinen gepoolten Gesamtscore. Die 974 Jev-Requests und 1.362 nativen Fragen beschreiben den Ausführungsumfang, keine unabhängige Stichprobe. Für MASSIVE fehlt aktuell die auditierte Clef-Baseline; eine Null im technischen Baseline-Inventar bedeutet dort kein Modellresultat.
 

@@ -1,0 +1,247 @@
+[
+  {
+    "suite": "attack_ablation14",
+    "id": "de_finance_synthetic_rule_check_004__clean",
+    "native_probability_sums": {
+      "decision": 0.9900000000000001
+    }
+  },
+  {
+    "suite": "massive300",
+    "id": "massive_de_test_10759",
+    "native_probability_sums": {
+      "intent": 0.9900000000000001
+    }
+  },
+  {
+    "suite": "massive300",
+    "id": "massive_de_test_170",
+    "native_probability_sums": {
+      "intent": 0.99
+    }
+  },
+  {
+    "suite": "massive300",
+    "id": "massive_de_test_322",
+    "native_probability_sums": {
+      "intent": 0.99
+    }
+  },
+  {
+    "suite": "massive300",
+    "id": "massive_de_test_16158",
+    "native_probability_sums": {
+      "intent": 0.9900000000000001
+    }
+  },
+  {
+    "suite": "massive300",
+    "id": "massive_de_test_3595",
+    "native_probability_sums": {
+      "intent": 0.99
+    }
+  },
+  {
+    "suite": "massive300",
+    "id": "massive_de_test_2717",
+    "native_probability_sums": {
+      "intent": 0.99
+    }
+  },
+  {
+    "suite": "massive300",
+    "id": "massive_de_test_3184",
+    "native_probability_sums": {
+      "intent": 0.99
+    }
+  },
+  {
+    "suite": "massive300",
+    "id": "massive_de_test_16874",
+    "native_probability_sums": {
+      "intent": 0.9900000000000001
+    }
+  },
+  {
+    "suite": "massive300",
+    "id": "massive_de_test_10868",
+    "native_probability_sums": {
+      "intent": 0.9900000000000001
+    }
+  },
+  {
+    "suite": "massive300",
+    "id": "massive_de_test_4702",
+    "native_probability_sums": {
+      "intent": 0.99
+    }
+  },
+  {
+    "suite": "massive300",
+    "id": "massive_de_test_15382",
+    "native_probability_sums": {
+      "intent": 0.9900000000000001
+    }
+  },
+  {
+    "suite": "massive300",
+    "id": "massive_de_test_16275",
+    "native_probability_sums": {
+      "intent": 0.9900000000000001
+    }
+  },
+  {
+    "suite": "massive300",
+    "id": "massive_de_test_1640",
+    "native_probability_sums": {
+      "intent": 0.9900000000000001
+    }
+  },
+  {
+    "suite": "massive300",
+    "id": "massive_de_test_3460",
+    "native_probability_sums": {
+      "intent": 0.99
+    }
+  },
+  {
+    "suite": "massive300",
+    "id": "massive_de_test_4268",
+    "native_probability_sums": {
+      "intent": 0.9900000000000001
+    }
+  },
+  {
+    "suite": "massive300",
+    "id": "massive_de_test_14",
+    "native_probability_sums": {
+      "intent": 0.9900000000000001
+    }
+  },
+  {
+    "suite": "massive300",
+    "id": "massive_de_test_11417",
+    "native_probability_sums": {
+      "intent": 0.99
+    }
+  },
+  {
+    "suite": "massive300",
+    "id": "massive_de_test_17052",
+    "native_probability_sums": {
+      "intent": 0.99
+    }
+  },
+  {
+    "suite": "massive300",
+    "id": "massive_de_test_1510",
+    "native_probability_sums": {
+      "intent": 0.99
+    }
+  },
+  {
+    "suite": "massive300",
+    "id": "massive_de_test_5600",
+    "native_probability_sums": {
+      "intent": 0.9900000000000001
+    }
+  },
+  {
+    "suite": "massive300",
+    "id": "massive_de_test_1065",
+    "native_probability_sums": {
+      "intent": 0.9900000000000001
+    }
+  },
+  {
+    "suite": "massive300",
+    "id": "massive_de_test_2113",
+    "native_probability_sums": {
+      "intent": 0.9900000000000001
+    }
+  },
+  {
+    "suite": "massive300",
+    "id": "massive_de_test_6856",
+    "native_probability_sums": {
+      "intent": 0.9900000000000001
+    }
+  },
+  {
+    "suite": "massive300",
+    "id": "massive_de_test_5199",
+    "native_probability_sums": {
+      "intent": 0.9900000000000001
+    }
+  },
+  {
+    "suite": "massive300",
+    "id": "massive_de_test_10224",
+    "native_probability_sums": {
+      "intent": 0.99
+    }
+  },
+  {
+    "suite": "massive300",
+    "id": "massive_de_test_1360",
+    "native_probability_sums": {
+      "intent": 0.9900000000000001
+    }
+  },
+  {
+    "suite": "massive300",
+    "id": "massive_de_test_15948",
+    "native_probability_sums": {
+      "intent": 0.9900000000000001
+    }
+  },
+  {
+    "suite": "massive300",
+    "id": "massive_de_test_15205",
+    "native_probability_sums": {
+      "intent": 0.9900000000000001
+    }
+  },
+  {
+    "suite": "massive300",
+    "id": "massive_de_test_1076",
+    "native_probability_sums": {
+      "intent": 0.9900000000000001
+    }
+  },
+  {
+    "suite": "massive300",
+    "id": "massive_de_test_16529",
+    "native_probability_sums": {
+      "intent": 0.99
+    }
+  },
+  {
+    "suite": "massive300",
+    "id": "massive_de_test_7908",
+    "native_probability_sums": {
+      "intent": 0.9900000000000001
+    }
+  },
+  {
+    "suite": "massive300",
+    "id": "massive_de_test_10909",
+    "native_probability_sums": {
+      "intent": 0.9900000000000001
+    }
+  },
+  {
+    "suite": "massive300",
+    "id": "massive_de_test_9156",
+    "native_probability_sums": {
+      "intent": 0.99
+    }
+  },
+  {
+    "suite": "massive300",
+    "id": "massive_de_test_9875",
+    "native_probability_sums": {
+      "intent": 0.99
+    }
+  }
+]

@@ -2,48 +2,47 @@
 
 Verglichen werden Cloudflare Clef Flash 9B im lokalen CPU-NF4-Profil und der gehostete Dienst `jev-1.13.0`. Beide erhalten dieselben eingefrorenen Texte, nativen Fragen und Antwortoptionen. Ein Fall ist nur vollständig richtig, wenn jedes verlangte Feld dem Goldlabel entspricht.
 
-Der abgeschlossene Durchlauf enthält **974 einmal versuchte Anfragen**, **937 strikt gültige Antworten**, **37 technische Ausschlüsse**, **keine fehlenden Fälle** und **keine Wiederholungsanfragen**. Das ist eine Vollständigkeitsbilanz über zehn Quellsuiten, kein Gesamtscore. Die Auswertung wurde unabhängig nachgerechnet und stimmt mit den gespeicherten Scorerdateien überein.
+## Ergebnisse auf denselben Fällen
 
-## Getrennte Ergebnisse und Abdeckung
+Beide Modelle werden je Zeile auf demselben geplanten Umfang bewertet. Gezählt werden die unveränderten nativen Antwortoptionen: Nur wenn alle Felder dem Gold entsprechen, ist der Fall richtig. Die Teilgruppen bleiben getrennt.
 
-„Gemeinsam“ verwendet in jeder Zeile dieselben Fälle für beide Modelle: strikt gültige Jev-Antworten mit vorhandener Clef-Baseline. Die letzten beiden Spalten verwenden dagegen alle geplanten Fälle der jeweiligen Gruppe. Bei Jev zählen technische Ausschlüsse dort nicht als erfolgreich beantwortet. **Eine bedingte Genauigkeit auf gültigen Antworten und ein Ergebnis auf dem gesamten Umfang beantworten verschiedene Fragen.**
+| Testgruppe | Clef richtig | Jev richtig |
+|---|---:|---:|
+| Minimalpaare, einzelne Fälle | 39/48 | 47/48 |
+| Rückfragen | 64/72 | 71/72 |
+| Bank-Support | 68/80 | 75/80 |
+| Allgemeine Entscheidungen, Deutsch | 116/120 | 119/120 |
+| Allgemeine Entscheidungen, deutscher Eingabetext / englisches Schema | 29/30 | 30/30 |
+| Allgemeine Entscheidungen, Englischkontrolle | 29/30 | 30/30 |
+| Finanzen, Deutsch | 76/80 | 78/80 |
+| Finanzen, Englischkontrolle | 18/20 | 20/20 |
+| Versicherungsdokumente | 50/60 | 56/60 |
+| clean72 | 61/72 | 67/72 |
+| Angriffsentfernung, mit Angriff | 4/7 | 6/7 |
+| Angriffsentfernung, ohne Angriff | 5/7 | 7/7 |
+| Mehrere Dokumente | 24/48 | 44/48 |
+| MASSIVE de-DE | nicht verfügbar | 233/300 |
 
-| Testgruppe | Clef gemeinsam richtig | Jev gültig richtig | Jev-Abdeckung | Technisch ausgeschlossen | Clef richtig / geplant | Jev gültig richtig / geplant |
-|---|---:|---:|---:|---:|---:|---:|
-| Minimalpaare, einzelne Fälle | 39/48 | 47/48 | 48/48 | 0 | 39/48 | 47/48 |
-| Rückfragen | 64/72 | 71/72 | 72/72 | 0 | 64/72 | 71/72 |
-| Bank-Support | 67/79 | 75/79 | 79/80 | 1 | 68/80 | 75/80 |
-| Allgemeine Entscheidungen, Deutsch | 116/120 | 119/120 | 120/120 | 0 | 116/120 | 119/120 |
-| Allgemeine Entscheidungen, deutscher Eingabetext / englisches Schema | 29/30 | 30/30 | 30/30 | 0 | 29/30 | 30/30 |
-| Allgemeine Entscheidungen, Englischkontrolle | 29/30 | 30/30 | 30/30 | 0 | 29/30 | 30/30 |
-| Finanzen, Deutsch | 75/79 | 78/79 | 79/80 | 1 | 76/80 | 78/80 |
-| Finanzen, Englischkontrolle | 18/20 | 20/20 | 20/20 | 0 | 18/20 | 20/20 |
-| Versicherungsdokumente | 50/60 | 56/60 | 60/60 | 0 | 50/60 | 56/60 |
-| clean72 | 61/72 | 67/72 | 72/72 | 0 | 61/72 | 67/72 |
-| Angriffsentfernung, mit Angriff | 4/7 | 6/7 | 7/7 | 0 | 4/7 | 6/7 |
-| Angriffsentfernung, ohne Angriff | 4/6 | 6/6 | 6/7 | 1 | 5/7 | 6/7 |
-| Mehrere Dokumente | 24/48 | 44/48 | 48/48 | 0 | 24/48 | 44/48 |
-| MASSIVE de-DE | nicht verfügbar | 219/266 | 266/300 | 34 | nicht verfügbar | 219/300 |
+Bei Jev fehlt im Bank- und deutschen Finanztest jeweils eine auswertbare Antwort. Beide Fälle bleiben im Nenner und zählen nicht als richtig; sie belegen keine fachliche Fehlentscheidung.
 
-Beispiel Bank-Support: Auf den 79 gemeinsam auswertbaren Fällen erreicht Clef 67/79 und Jev 75/79. Clefs vollständiger Lauf erreicht 68/80; Jev liefert für 79/80 Fälle eine strikt gültige Antwort. Man darf weder Clef 68/80 unmittelbar gegen Jev 75/79 stellen noch die ausgeschlossene Antwort als gültige fachliche Antwort behandeln.
-
-Auf den acht deutschen Haupt- und Minimalpaargruppen im [README](../README.md#ergebnisse-im-direkten-vergleich) hat Jev jeweils mehr vollständig richtige Fälle. Das gilt für diese Aufgaben und die dokumentierten Konfigurationen. Die kleine synthetische Auswahl, abhängige Fälle und unterschiedliche Ausführung erlauben kein allgemeines Überlegenheits- oder Produktionsversprechen.
-
-## Technische Antwortprüfung
-
-Die eingefrorene lokale Summenregel lautet `abs(math.fsum(p.values()) - 1) <= 1e-5`. Jede Optionswahrscheinlichkeit muss außerdem endlich und zwischen 0 und 1 liegen; Optionsmenge und Felder müssen exakt passen, die gewählte Option ein natives Maximum sein. Der [Validator](../experiments/jev_comparison/scripts/jev_runner.py#L62-L82) prüft zusätzlich Modellkennung, Konfidenzbereich und Nutzungsangaben. **Die Toleranz 1e-5 ist eine Regel dieses Benchmarks, keine bestätigte Jev-Anbietergarantie.** Die Anbieterbeschreibung einer nur ungefähren Summe von 1 belegt diese konkrete Toleranz nicht. Ein daran scheiternder Vektor ist daher nicht automatisch eine falsche fachliche Auswahl oder ein nachgewiesener Verstoß gegen den Anbietervertrag.
-
-Die Ausschlüsse bestehen aus zwei bereits dokumentierten technischen Fehlern sowie 35 weiteren Antworten, deren native Wahrscheinlichkeitsvektoren die festgelegte Summenprüfung verfehlen: 34 MASSIVE-Fälle und ein Angriffsentfernungsfall ohne Angriff. Diese 35 wurden unverändert separat aufbewahrt und nicht durch Normalisierung oder Reparatur in gültige Ergebnisse umgewandelt. Alle übrigen vorgegebenen Prüfungen bleiben bestehen.
-
-Bank und deutscher Finanztest haben je einen technischen Ausschluss, Angriffsentfernung ohne Angriff einen und MASSIVE 34. Die übrigen Gruppen haben vollständige technische Abdeckung. Ein HTTP-Erfolg allein genügt nicht als gültiges Benchmarkresultat. Die ausgeschlossenen Antworten bleiben in der Vollständigkeitsbilanz sichtbar; valid-only Werte beschreiben eine ausgewählte Teilmenge.
+Die acht Hauptgruppen zeigen jeweils mehr richtige Jev-Antworten. Die kleine synthetische Auswahl, abhängige Fälle und unterschiedliche Ausführung erlauben kein allgemeines Überlegenheits- oder Produktionsversprechen.
 
 ## MASSIVE und weitere Tests
 
-Jev hat 219 richtige unter 266 strikt gültigen MASSIVE-Antworten, also 219/266 bedingte Genauigkeit bei 266/300 Abdeckung. 219/300 beschreibt gültig und richtig beantwortete Fälle bezogen auf den gesamten geplanten Umfang. Beide Größen gehören nebeneinander.
+Jev beantwortet 233/300 MASSIVE-Fälle richtig. Für Clef liegt keine vollständige auditierte Baseline auf denselben 300 Fällen vor; ein direkter Vergleich ist daher nicht verfügbar.
 
-Eine vollständige auditierte Clef-Baseline für genau diese 300 Fälle ist nicht verfügbar. Die neue Replikation wurde auf Nutzerwunsch nach 219 vollständigen nativen Ausgaben beendet; eine Anfrage wurde unterbrochen, 80 wurden nicht gestartet. Diese Teilmenge wird hier nicht als Genauigkeitsscore ausgewiesen. Frühere historische native Outputs sind nicht verfügbar. Es gibt weder einen gepaarten MASSIVE-Score noch einen nachgewiesenen Clef-Jev-Vorsprung auf dieser Suite. Der geplante neue Clef-Mehrturntest wurde vor dem Lauf abgesagt.
+Die separate [deutsche Sprachvariantenstudie](../studies/language72/REPORT_DE.md) enthält Clef-Ergebnisse. Die 90 Bildrequests sind außerhalb des Jev-Vergleichs, weil der Dienst keinen nativen Bildeingang hat; ein OCR-Ersatz wurde nicht eingesetzt.
 
-Die separate [deutsche Sprachvariantenstudie](../studies/language72/REPORT_DE.md) enthält Clef-Ergebnisse. Zusätzliche Jev-Sprachvarianten- und Mehrturntests sind noch nicht ausgeführt. Die 90 Bildrequests des ursprünglichen Projekts sind vollständig außerhalb dieses Vergleichs, weil Jev keinen nativen Bildeingang hat; ein OCR-Ersatz wurde nicht eingesetzt.
+<details>
+<summary>Auswertungsdefinition und ursprünglicher Antwortvertrag</summary>
+
+Die Antwort-Richtigkeitsanalyse bewertet alle rekonstruierbaren nativen Entscheidungen gegen dieselben Goldlabels. Sie umfasst auch 35 vollständig erhaltene Antworten, deren Wahrscheinlichkeiten die ursprüngliche lokale Summenprüfung `abs(math.fsum(p.values()) - 1) <= 1e-5` verfehlen. Eine Summenabweichung ist kein fachlicher Auswahlfehler. Die Vektoren werden weder normalisiert noch verändert; alle übrigen Prüfungen der Antwortfelder und Auswahloptionen bleiben bestehen.
+
+Das ist eine separat versionierte Auswertung mit einer anderen Einschlussregel als der ursprüngliche strikte Scorer. Die frühere Auswertung und ihre 937 strikt gültigen Antworten bleiben unverändert nachvollziehbar. Die Summenschwelle ist eine lokale Benchmarkregel, keine bestätigte Anbietergarantie. Zwei ältere Antworten sind nicht vollständig erhalten und werden nicht nachträglich rekonstruiert.
+
+[Antwort-Richtigkeitsanalyse](../studies/jev974-answer-correctness-v1/README.md) · [Ursprüngliche strikte Auswertung](../studies/jev974/scoring/comparison_summary.json)
+
+</details>
 
 ## Vergleichsbedingungen
 
@@ -61,7 +60,7 @@ Die vollständigen eingefrorenen [Requests, Labels und verfügbaren Clef-Baselin
 - [Abschließender Audit](../studies/jev974/audit.json) und [Verifikation](../studies/jev974/verification.json)
 - [Native Antworten und technische Ergebniszeilen](../studies/jev974/run/predictions.jsonl)
 - [Unveränderte, separat markierte native Antworten](../studies/jev974/run/flagged_native.jsonl)
-- [Alle Ergebnisgruppen](../studies/jev974/scoring/comparison_summary.json) und [fallweiser Vergleich](../studies/jev974/scoring/case_comparison.jsonl)
+- [Alle Ergebnisgruppen](../studies/jev974-answer-correctness-v1/comparison_summary.json) und [fallweiser Vergleich](../studies/jev974-answer-correctness-v1/case_comparison.jsonl)
 - [Feldmetriken](../studies/jev974/scoring/field_metrics.json), [Paardiagnosen](../studies/jev974/scoring/special_diagnostics.json) und [getrennte Zeitmessungen](../studies/jev974/scoring/latency.json)
 
 Die exakten modellfreien Audit- und Scorerbefehle stehen unter [Jev nachrechnen](REPRODUCE.md#jev-nachrechnen-oder-neu-ausführen).

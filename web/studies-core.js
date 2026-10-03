@@ -27,9 +27,16 @@ export function validateStudyData(value, entry) {
   if (value.limitations !== undefined && (!Array.isArray(value.limitations) || !value.limitations.every(x=>typeof x==='string'))) fail('Ungültige Methodikhinweise.');
   if (value.findings !== undefined && (!Array.isArray(value.findings) || !value.findings.every(x=>typeof x==='string'))) fail('Ungültige Ergebnisnotiz.');
   if (value.directional_note !== undefined && typeof value.directional_note !== 'string') fail('Ungültige Paarnotiz.');
+  const direct=value.analysis==='native-answer-correctness-v1';
+  if (direct && (value.id!=='jev974' || value.audit.analysis_manifest_sha256!=='468f87729b3a104cf183092e0d53fa9aa120212c3f817d3fc0df673becae114e')) fail('Direkte Auswertung ist nicht verifiziert.');
   if (value.comparisons !== undefined) {
     if (!Array.isArray(value.comparisons)) fail('Ungültige Vergleichsteilgruppen.');
     for (const row of value.comparisons) {
+      if(direct){
+        if(typeof row.label!=='string'||typeof row.baseline_ready!=='boolean'||![row.expected,row.jev_correct,row.jev_answered,row.jev_no_answer].every(Number.isInteger)||row.expected<1||row.jev_correct<0||row.jev_correct>row.jev_answered||row.jev_answered<0||row.jev_no_answer<0||row.jev_answered+row.jev_no_answer!==row.expected)fail('Direkter geplanter Nenner stimmt nicht.');
+        if(row.baseline_ready?(!Number.isInteger(row.clef_correct)||row.clef_correct<0||row.clef_correct>row.expected):row.clef_correct!==null)fail('Clef-Baseline fehlt oder ist ungültig.');
+        continue;
+      }
       if (typeof row.label !== 'string' || typeof row.baseline_ready !== 'boolean' || ![row.expected,row.matched,row.jev_valid,row.jev_correct_valid_only].every(Number.isInteger) || row.expected < 1 || row.matched < 0 || row.matched > row.jev_valid || row.jev_valid > row.expected || row.jev_correct_valid_only < 0 || row.jev_correct_valid_only > row.jev_valid) fail('Vergleichsnenner stimmen nicht überein.');
       if (row.matched && (![row.clef_correct,row.jev_correct].every(Number.isInteger) || row.clef_correct < 0 || row.jev_correct < 0 || row.clef_correct > row.matched || row.jev_correct > row.matched || !row.baseline_ready)) fail('Direkter Vergleich verwendet ungültige Fälle.');
       if (!row.baseline_ready && (row.matched || row.clef_correct !== null || row.jev_correct !== null)) fail('Fehlende Baseline wird als Modellresultat angezeigt.');
@@ -44,12 +51,13 @@ export function validateStudyData(value, entry) {
     for (const field of fields) {
       if (!Object.hasOwn(row.expected,field) || typeof row.expected[field] !== 'string' || !object(row.questions[field]) || row.questions[field].type !== 'choice' || !object(row.questions[field].criteria) || !Object.hasOwn(row.questions[field].criteria,row.expected[field])) fail('Goldlabel fehlt im nativen Schema.');
     }
+    if(row.sum_only_deviation!==undefined && (!direct||row.sum_only_deviation!==true||!row.valid))fail('Unzulässige Summen-Ausnahme.');
     if (row.valid) {
       if (!object(row.prediction) || !object(row.probabilities) || Object.keys(row.prediction).length !== fields.length || Object.keys(row.probabilities).length !== fields.length) fail('Native Antwortfelder fehlen.');
       for (const field of fields) {
         const p = row.probabilities[field], criteria = row.questions[field].criteria;
         if (!object(p) || Object.keys(p).length !== Object.keys(criteria).length || !Object.keys(criteria).every(k => Object.hasOwn(p,k)) || !Object.values(p).every(v => Number.isFinite(v) && v >= 0 && v <= 1)) fail('Native Wahrscheinlichkeiten fehlen.');
-        if (Math.abs(Object.values(p).reduce((a,b)=>a+b,0)-1) > 1e-5) fail('Native Verteilung verletzt den Normalisierungsvertrag.');
+        if (!(direct && row.sum_only_deviation===true) && Math.abs(Object.values(p).reduce((a,b)=>a+b,0)-1) > 1e-5) fail('Native Verteilung verletzt den Normalisierungsvertrag.');
         if (!Object.hasOwn(p,row.prediction[field]) || p[row.prediction[field]] !== Math.max(...Object.values(p))) fail('Vorhersage stimmt nicht mit nativen Optionen überein.');
       }
       if (row.correct !== fields.every(f => row.expected[f] === row.prediction[f])) fail('Ergebnis stimmt nicht mit Gold überein.');

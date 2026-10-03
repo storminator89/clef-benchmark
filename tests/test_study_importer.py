@@ -23,13 +23,13 @@ class StudyImporterTests(unittest.TestCase):
   self.assertEqual([(m['numerator'],m['denominator']) for m in data['metrics']],[(64,72),(72,72),(40,48)])
   self.assertEqual({r['expected']['action'] for r in data['cases'] if not r['correct']},{'ask_target'})
   self.assertTrue(all('native_answers' in r for r in data['cases']))
- def test_jev_matched_denominators_and_pending_baseline(self):
-  data=builder.build_all()['jev974'];self.assertEqual(len(data['cases']),974);self.assertEqual(sum(r['valid'] for r in data['cases']),937)
-  self.assertEqual(sum('native_quarantine' in r for r in data['cases']),35)
+ def test_jev_planned_denominators_and_missing_baseline(self):
+  data=builder.build_all()['jev974'];self.assertEqual(len(data['cases']),974);self.assertEqual(sum(r['valid'] for r in data['cases']),972)
+  self.assertEqual(sum(r.get('sum_only_deviation',False) for r in data['cases']),35)
   by={(r['suite'],r['split']):r for r in data['comparisons']}
-  bank=by['bank_support80','german_primary'];self.assertEqual((bank['clef_correct'],bank['jev_correct'],bank['matched'],bank['expected']),(67,75,79,80))
-  finance=by['finance100','german_primary'];self.assertEqual((finance['clef_correct'],finance['jev_correct'],finance['matched']),(75,78,79))
-  massive=by['massive300','german_test_primary'];self.assertFalse(massive['baseline_ready']);self.assertIsNone(massive['clef_correct']);self.assertEqual((massive['jev_correct_valid_only'],massive['jev_valid'],massive['expected']),(219,266,300))
+  bank=by['bank_support80','german_primary'];self.assertEqual((bank['clef_correct'],bank['jev_correct'],bank['jev_answered'],bank['expected']),(68,75,79,80))
+  finance=by['finance100','german_primary'];self.assertEqual((finance['clef_correct'],finance['jev_correct'],finance['expected']),(76,78,80))
+  massive=by['massive300','german_test_primary'];self.assertFalse(massive['baseline_ready']);self.assertIsNone(massive['clef_correct']);self.assertEqual((massive['jev_correct'],massive['jev_answered'],massive['expected']),(233,300,300))
  def test_index_and_admitted_data_match(self):
   data=builder.build_all();index=json.loads((ROOT/'web/studies-data/index.json').read_text());self.assertEqual({x['id'] for x in index['studies'] if x['status']=='completed'},set(data))
   for ident,value in data.items():self.assertEqual(value,json.loads((ROOT/f'web/studies-data/{ident}.json').read_text()))
