@@ -23,7 +23,7 @@ Der abgeschlossene Durchlauf enthält **974 einmal versuchte Anfragen**, **937 s
 | Angriffsentfernung, mit Angriff | 4/7 | 6/7 | 7/7 | 0 | 4/7 | 6/7 |
 | Angriffsentfernung, ohne Angriff | 4/6 | 6/6 | 6/7 | 1 | 5/7 | 6/7 |
 | Mehrere Dokumente | 24/48 | 44/48 | 48/48 | 0 | 24/48 | 44/48 |
-| MASSIVE de-DE | ausstehend | 219/266 | 266/300 | 34 | ausstehend | 219/300 |
+| MASSIVE de-DE | nicht verfügbar | 219/266 | 266/300 | 34 | nicht verfügbar | 219/300 |
 
 Beispiel Bank-Support: Auf den 79 gemeinsam auswertbaren Fällen erreicht Clef 67/79 und Jev 75/79. Clefs vollständiger Lauf erreicht 68/80; Jev liefert für 79/80 Fälle eine strikt gültige Antwort. Man darf weder Clef 68/80 unmittelbar gegen Jev 75/79 stellen noch die ausgeschlossene Antwort als gültige fachliche Antwort behandeln.
 
@@ -41,7 +41,7 @@ Bank und deutscher Finanztest haben je einen technischen Ausschluss, Angriffsent
 
 Jev hat 219 richtige unter 266 strikt gültigen MASSIVE-Antworten, also 219/266 bedingte Genauigkeit bei 266/300 Abdeckung. 219/300 beschreibt gültig und richtig beantwortete Fälle bezogen auf den gesamten geplanten Umfang. Beide Größen gehören nebeneinander.
 
-Eine auditierte Clef-Baseline für genau diese 300 Fälle steht noch aus. Frühere historische native Outputs sind nicht verfügbar; die neue exakte 300-Fall-Replikation wird erst nach ihrem abgeschlossenen Audit aufgenommen. Bis dahin gibt es weder einen gepaarten MASSIVE-Score noch einen nachgewiesenen Clef-Jev-Vorsprung auf dieser Suite.
+Eine vollständige auditierte Clef-Baseline für genau diese 300 Fälle ist nicht verfügbar. Die neue Replikation wurde auf Nutzerwunsch nach 219 vollständigen nativen Ausgaben beendet; eine Anfrage wurde unterbrochen, 80 wurden nicht gestartet. Diese Teilmenge wird hier nicht als Genauigkeitsscore ausgewiesen. Frühere historische native Outputs sind nicht verfügbar. Es gibt weder einen gepaarten MASSIVE-Score noch einen nachgewiesenen Clef-Jev-Vorsprung auf dieser Suite. Der geplante neue Clef-Mehrturntest wurde vor dem Lauf abgesagt.
 
 Die separate [deutsche Sprachvariantenstudie](../studies/language72/REPORT_DE.md) enthält Clef-Ergebnisse. Zusätzliche Jev-Sprachvarianten- und Mehrturntests sind noch nicht ausgeführt. Die 90 Bildrequests des ursprünglichen Projekts sind vollständig außerhalb dieses Vergleichs, weil Jev keinen nativen Bildeingang hat; ein OCR-Ersatz wurde nicht eingesetzt.
 

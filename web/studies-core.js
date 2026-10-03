@@ -7,9 +7,9 @@ export function validateStudyIndex(value) {
   for (const item of value.studies) {
     if (!object(item) || !/^[a-z][a-z0-9_-]*$/.test(item.id) || ids.has(item.id)) fail('Ungültige Studien-ID.');
     ids.add(item.id);
-    if (!['pending','completed'].includes(item.status) || typeof item.label !== 'string' || !Number.isInteger(item.planned_requests) || item.planned_requests < 1) fail('Ungültiger Studienstatus.');
+    if (!['pending','completed','cancelled'].includes(item.status) || typeof item.label !== 'string' || !Number.isInteger(item.planned_requests) || item.planned_requests < 1) fail('Ungültiger Studienstatus.');
     if (!Array.isArray(item.methods) || !item.methods.every(x => typeof x === 'string')) fail('Methodik fehlt.');
-    if (item.status === 'pending' && ('metrics' in item || 'cases' in item || 'data_file' in item)) fail('Ausstehender Test enthält scheinbare Messwerte.');
+    if (item.status !== 'completed' && ('metrics' in item || 'cases' in item || 'data_file' in item)) fail('Ausstehender Test enthält scheinbare Messwerte.');
     if (item.status === 'completed' && item.data_file !== `./studies-data/${item.id}.json`) fail('Ungültiger Ergebnisdateipfad.');
   }
   return value;

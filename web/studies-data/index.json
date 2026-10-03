@@ -33,25 +33,25 @@
     {
       "id": "massive300",
       "label": "MASSIVE Deutsch",
-      "subtitle": "Neue 300-Fälle-Replikation",
-      "status": "pending",
+      "subtitle": "300-Fälle-Replikation vorzeitig beendet",
+      "status": "cancelled",
       "planned_requests": 300,
       "unit": "Anfragen",
-      "note": "Eine neue Replikation ist vorbereitet. Noch keine verifizierten nativen Ergebnisse in dieser Ansicht.",
+      "note": "Auf Nutzerwunsch beendet: 219 vollständige native Ausgaben, eine unterbrochene und 80 nicht gestartete Anfragen. Diese Teilmenge ist hier nicht als Genauigkeitsscore freigegeben; eine vollständige Clef-Baseline fehlt.",
       "methods": [
         "Eigene feste 300-Fälle-Stichprobe des offiziellen deutschen Testsets, kein vollständiger Leaderboardlauf.",
-        "60 angebotene Labels; goldgestützte Makro-F1 und feste Labelkonvention werden getrennt ausgewiesen.",
+        "Das Protokoll definiert 60 angebotene Labels und getrennte Makro-F1-Konventionen; der abgebrochene Lauf bleibt unbewertet.",
         "Die früher berichtete Messung ist hier nicht als wiederhergestellte Rohdaten enthalten."
       ]
     },
     {
       "id": "multiturn48",
       "label": "Gesprächskontext",
-      "subtitle": "Neuer Test mit 24 Fallpaaren",
-      "status": "pending",
+      "subtitle": "Geplanter Test mit 24 Fallpaaren",
+      "status": "cancelled",
       "planned_requests": 48,
       "unit": "Anfragen",
-      "note": "Ein neuer Test wird vorbereitet. Vergangene, nicht wiederhergestellte Ergebnisse werden nicht als Messwerte angezeigt.",
+      "note": "Auf Nutzerwunsch vor dem Lauf abgesagt. Keine neuen Messwerte; historische, nicht wiederhergestellte Ergebnisse werden nicht angezeigt.",
       "methods": [
         "Vollständig serialisierte Verläufe, keine laufende Konversation und kein Gedächtnistest.",
         "Darstellung, Länge und Explizitheit können sich unterscheiden; die Paarergebnisse bleiben getrennt.",

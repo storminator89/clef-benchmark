@@ -89,7 +89,7 @@ python3 experiments/jev_comparison/scripts/compare.py \
   --output /tmp/jev974-replay
 ```
 
-`/tmp/jev974-replay` darf noch nicht existieren. Der Audit prüft Vollständigkeit und den eingefrorenen Antwortvertrag; der Scorer erzeugt die getrennten Vergleichsdateien neu. Die Ergebnisse sollten den Dateien unter [studies/jev974/scoring](../studies/jev974/scoring/) entsprechen. Die Clef-MASSIVE-Baseline bleibt darin ausdrücklich ausstehend. Die Summenregel `abs(math.fsum(p.values()) - 1) <= 1e-5` ist eine lokale Benchmarkregel, keine bestätigte Jev-Anbietergarantie; [Details](JEV_COMPARISON.md#technische-antwortprüfung).
+`/tmp/jev974-replay` darf noch nicht existieren. Der Audit prüft Vollständigkeit und den eingefrorenen Antwortvertrag; der Scorer erzeugt die getrennten Vergleichsdateien neu. Die Ergebnisse sollten den Dateien unter [studies/jev974/scoring](../studies/jev974/scoring/) entsprechen. Die vollständige Clef-MASSIVE-Baseline bleibt darin ausdrücklich nicht verfügbar; die neue Replikation wurde auf Nutzerwunsch vorzeitig beendet. Die Summenregel `abs(math.fsum(p.values()) - 1) <= 1e-5` ist eine lokale Benchmarkregel, keine bestätigte Jev-Anbietergarantie; [Details](JEV_COMPARISON.md#technische-antwortprüfung).
 
 Neue API-Aufrufe sind ein eigener, kostenpflichtiger und datenübertragender Lauf: Modellversion, freigegebene Eingaben, Anbieterbedingungen und Budget müssen vorher feststehen. Einen API-Schlüssel niemals in Chat, Repository oder Kommandozeile ablegen. Die [eingefrorene Vorbereitung](../experiments/jev_comparison/README.md) dokumentiert den ursprünglichen Vertrag; historische Preise dort sind keine aktuelle Preiszusage.
 
