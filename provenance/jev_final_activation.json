@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "revision": "recovery-2026-10-03-v1",
+  "base_commit": "80f407f08a7c4e2680c455718e117cfe7a64d96e",
+  "status": "prepared_inert_not_activated",
+  "reviewed_code_commit": null,
+  "workflow": ".github/workflows/jev-comparison.yml",
+  "workflow_sha256": "64458f1abb017e4f61c44bc34b889dc22a159b4b773eae045440febc168ec3b2",
+  "source_sha256": {
+    "scripts/run_jev_final_continuation.py": "d330604cbc6b9745b84b20df188301d04bc6c6deaa62250205e3f29ca753b459",
+    "scripts/audit_jev_final_continuation.py": "891a8f62fd4635c490b5acb3539910c2632569d3c77b088739b0297d12d7b56b",
+    "scripts/workflows/jev-final-continuation.yml.in": "b03cca534e285eac6d7d6bb6732fcd9b728ee6d5c4c128bdc885c270013d2bd6",
+    "execution/jev/final_continuation_plan.json": "7bb0133d6d8dcb4d977b19e6ab59b2eae83250be56053055fd6a905eb7cb32a9",
+    "execution/jev/second-run/FILE_SHA256.json": "16eba9a3e8e89bf4666567d07eb937cdd0d7c74ecec5866c937cb7c831d759b0",
+    "experiments/jev_comparison/FILE_SHA256.json": "c62021bbcb33b94c653cc9649d7d06dcbdf1633d4dc7b7f19dee2db2cb8be2f4"
+  },
+  "remaining_initial_requests": 520,
+  "prior_wire_attempts": 454,
+  "prior_valid": 452,
+  "prior_failed": 2,
+  "retry_prior_cases": false,
+  "max_total_attempts": 1024,
+  "max_global_retries": 50,
+  "local_api_usd_cap": "3",
+  "missing_massive_baseline": "pending_owner_final_audit",
+  "frozen_bundle_changed": false,
+  "original_uncommitted_code_recovered": false,
+  "source_recovery": "The seven-file historical observation archive and original continuation plan are exact recovered bytes. Collector, auditor, tests and activation code are a newly reviewed recovery revision."
+}

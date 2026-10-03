@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "workflow_run_id": 37061364247,
+  "workflow_run_url": "https://github.com/storminator89/clef-benchmark/actions/runs/37061364247",
+  "workflow_commit": "80f407f08a7c4e2680c455718e117cfe7a64d96e",
+  "reviewed_code_commit": "5ac03db03857cb3d8945affcd5c769878890f14b",
+  "artifact_id": 11250517665,
+  "artifact_zip_bytes": 247801,
+  "artifact_zip_sha256": "284785613ec44ad14333f6c68795f657c13ff539f970816c0d01bfb7a63fb301",
+  "scope": "Exact allowlisted cumulative native observations, reservation ledger and safe structural diagnostics from the second manual run. The original 181-case prefix is retained unchanged. No raw provider body, header, credential or private host detail is retained.",
+  "completed": 452,
+  "failed": 2,
+  "unattempted": 520,
+  "prior_wire_attempts": 454,
+  "prior_retries": 0,
+  "known_success_input_tokens": 437597,
+  "known_success_cost_usd": "0.018379074",
+  "capacity_reserved_usd": "1.249640448",
+  "latest_rejection": "The evaluator strict 1e-5 probability normalization criterion rejected a finite in-range five-option vector. Other structural, choice and billing checks passed. Its actual sum/vector was not retained; the cause of the first rejection remains unknown."
+}

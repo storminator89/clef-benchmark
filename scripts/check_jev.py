@@ -35,7 +35,14 @@ def check(source=SOURCE,root=ROOT):
     require('default: false' in template and 'github.run_attempt == 1' in template,'Bounded template guards missing')
     activation_file = root/'provenance/jev_activation.json'
     approved_workflow = None
-    if activation_file.exists():
+    final_activation_file = root/'provenance/jev_final_activation.json'
+    if final_activation_file.exists():
+        import importlib.util
+        spec = importlib.util.spec_from_file_location('jev_final_activation_gate', root/'scripts/check_jev_final_activation.py')
+        final_gate = importlib.util.module_from_spec(spec); spec.loader.exec_module(final_gate)
+        final_gate.check(root)
+        approved_workflow = root/'.github/workflows/jev-comparison.yml'
+    elif activation_file.exists():
         activation = json.loads(activation_file.read_text())
         import re
         require(re.fullmatch('[0-9a-f]{40}', activation['reviewed_code_commit']) is not None, 'Invalid immutable code ref')

@@ -1,0 +1,84 @@
+# New recovery revision: reviewed source must be committed before activation.
+# A push, PR or schedule never calls the provider. Manual approval is required.
+name: Jev continue 520 untouched cases (recovery revision)
+on:
+  workflow_dispatch:
+    inputs:
+      approve_public_data:
+        description: 'Approve only 520 never-attempted frozen public text cases; retain the original 454 attempts'
+        type: boolean
+        required: true
+        default: false
+      approve_api_three_usd:
+        description: 'Include all prior reservations in the shared 1024-attempt and USD 3 local cap'
+        type: boolean
+        required: true
+        default: false
+permissions:
+  contents: read
+concurrency:
+  group: jev-bounded-comparison
+  cancel-in-progress: false
+jobs:
+  compare:
+    if: >-
+      github.repository == 'storminator89/clef-benchmark' &&
+      github.ref == 'refs/heads/main' &&
+      github.run_attempt == 1 &&
+      github.event_name == 'workflow_dispatch' &&
+      inputs.approve_public_data && inputs.approve_api_three_usd
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - name: Checkout immutable reviewed code
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          ref: REVIEWED_FINAL_CONTINUATION_COMMIT
+          persist-credentials: false
+          fetch-depth: 1
+      - name: Verify archived evidence and new revision offline
+        env:
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: |
+          python3 experiments/jev_comparison/scripts/check_bundle.py
+          python3 scripts/check_jev_final_activation.py
+          python3 -m unittest discover -s experiments/jev_comparison/tests -v
+          python3 -m unittest discover -s tests -p 'test_jev_final*.py' -v
+          python3 scripts/run_jev_final_continuation.py --output "$RUNNER_TEMP/jev-plan.json"
+      - name: Continue only untouched cases within the shared budget
+        env:
+          JEV_API_KEY: ${{ secrets.JEV_API_KEY }}
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: |
+          python3 scripts/run_jev_final_continuation.py --execute --approval continue-unattempted-public-text-520-validation-v2 --approved-api-usd 3 --output "$RUNNER_TEMP/jev-run"
+      - name: Audit before unchanged frozen scoring
+        if: always()
+        env:
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: |
+          if test -f "$RUNNER_TEMP/jev-run/predictions.jsonl"; then
+            python3 scripts/audit_jev_final_continuation.py --run "$RUNNER_TEMP/jev-run" --output "$RUNNER_TEMP/jev-audit.json"
+            python3 experiments/jev_comparison/scripts/compare.py --root experiments/jev_comparison --run "$RUNNER_TEMP/jev-run" --output "$RUNNER_TEMP/jev-comparison"
+          fi
+      - name: Retain bounded sanitized evidence, including quarantine
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: jev-final-continuation-${{ github.run_id }}
+          retention-days: 7
+          if-no-files-found: error
+          include-hidden-files: false
+          path: |
+            ${{ runner.temp }}/jev-plan.json
+            ${{ runner.temp }}/jev-audit.json
+            ${{ runner.temp }}/jev-run/connection_check.json
+            ${{ runner.temp }}/jev-run/validation_diagnostics.jsonl
+            ${{ runner.temp }}/jev-run/attempts.jsonl
+            ${{ runner.temp }}/jev-run/predictions.jsonl
+            ${{ runner.temp }}/jev-run/run_summary.json
+            ${{ runner.temp }}/jev-run/flagged_native.jsonl
+            ${{ runner.temp }}/jev-comparison/comparison_summary.json
+            ${{ runner.temp }}/jev-comparison/field_metrics.json
+            ${{ runner.temp }}/jev-comparison/special_diagnostics.json
+            ${{ runner.temp }}/jev-comparison/latency.json
+            ${{ runner.temp }}/jev-comparison/case_comparison.jsonl

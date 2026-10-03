@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "revision": "recovery-2026-10-03-v1",
+  "base_commit": "80f407f08a7c4e2680c455718e117cfe7a64d96e",
+  "new_code_not_original_recovery": true,
+  "raw_scientific_evidence_recovered_exactly": true,
+  "frozen_scientific_bundle_changed": false,
+  "past_observations_replayed": false,
+  "historical_observed_cases": 454,
+  "historical_strict_valid": 452,
+  "historical_technical_failed": 2,
+  "remaining_unattempted": 520,
+  "massive_native_baseline": "pending_owner_final_audit; missing offline overlay not reconstructed",
+  "checks": {
+    "root_python_tests": 371,
+    "frozen_jev_tests": 23,
+    "focused_final_revision_tests": 33,
+    "offline_frozen_preflight": "passed",
+    "independent_source_review": "passed after fixing final-case fatal outcome falsely relabelled complete; adversarial regressions included",
+    "provider_calls": 0,
+    "credential_reads": 0
+  },
+  "activation": "Stage A inert. A separate exact reviewed commit pin and single manual dispatch are required.",
+  "artifact_retention_days": 7,
+  "limitations": [
+    "Mock tests and source review are not provider execution evidence.",
+    "HTTP response body digests are linkage evidence; discarded raw bodies cannot be recomputed.",
+    "Sum-only quarantined vectors remain technical failures; no normalization or promotion to scored-valid.",
+    "No complete paired MASSIVE comparison is claimed."
+  ]
+}

@@ -51,9 +51,13 @@ class JevPreparationTests(unittest.TestCase):
         self.assertEqual(template.count('default: false'),2)
         for p in (ROOT/'.github/workflows').iterdir():
             if p.name == 'jev-comparison.yml':
-                activation=json.loads((ROOT/'provenance/jev_activation.json').read_text())
+                activation=json.loads((ROOT/'provenance/jev_final_activation.json').read_text())
                 self.assertEqual(hashlib.sha256(p.read_bytes()).hexdigest(),activation['workflow_sha256'])
-                self.assertIn('ref: '+activation['reviewed_code_commit'],p.read_text())
+                if activation['status']=='prepared_inert_not_activated':
+                    self.assertNotIn('JEV_API_KEY',p.read_text())
+                    self.assertNotIn('--execute',p.read_text())
+                else:
+                    self.assertIn('ref: '+activation['reviewed_code_commit'],p.read_text())
                 continue
             self.assertNotIn('JEV_API_KEY',p.read_text())
             self.assertNotIn('jev_runner.py --execute',p.read_text())

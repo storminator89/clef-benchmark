@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "base_public_commit": "80f407f08a7c4e2680c455718e117cfe7a64d96e",
+  "gate": "scripts/check_jev.py",
+  "from_sha256": "3cac3313f12a7aeb1e26b8242e3fdc0eae320d50f988fdbdf527b5d2af8a9826",
+  "to_sha256": "7d5b6e73f734d12209e1cbd76373294448db4bae1df38e8bc4c61d17d1f55b4f",
+  "new_gate_sha256": "12c35ae16958be81505ab20766b4f5bd4a5cf9b77c2e3778a16d2cb86c9ffd85",
+  "purpose": "Add explicitly pinned recovery revision while preserving original activation history and frozen scientific bundle. Current workflow is inert until separate reviewed-commit activation."
+}

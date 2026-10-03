@@ -36,7 +36,7 @@ Die Workbench zeigt Vorrangregel, alle Dokumente, Fakten, Soll und native Antwor
 
 [Multidokument-Bericht](experiments/multidoc48/REPORT.md) · [Alle 24 Fehlerfälle](experiments/multidoc48/ERRORS.md) · [Bedienung und Methodik](docs/MULTIDOC_UI_DATA.md)
 
-**Jev: erster Teillauf geprüft.** Minimalpaare 47/48 gegenüber Clef 39/48; Rückfragen 71/72 gegenüber 64/72. Nach 180 gültigen Antworten stoppte eine HTTP-200-Antwort an der strikten Antwort-/Abrechnungsprüfung. 793 Anfragen sind noch unversucht. [Audit](execution/jev/first-run-audit/PUBLIC_AUDIT.md) · [Begrenzte Fortsetzung](docs/JEV_CONTINUATION.md)
+**Jev: 452 gültige Antworten, zwei technische Fehler, 520 Anfragen unversucht.** Die [Originaldaten des zweiten Teillaufs](execution/jev/second-run/SOURCE.json) sind unverändert archiviert. Die [neue 520-Fälle-Fortsetzung](docs/JEV_FINAL_CONTINUATION.md) wird getrennt freigegeben; der [Aktivierungsstand](provenance/jev_final_activation.json) ist explizit dokumentiert. Der vollständige Vergleich steht aus; die native MASSIVE-Clef-Baseline ist in diesem Wiederherstellungsstand nicht verfügbar. Die früher berichteten Ergebnisse des [ersten Teillaufs](execution/jev/first-run-audit/PUBLIC_AUDIT.md) bleiben historische Teilergebnisse.
 
 ## Minimalpaare und hohe Scores getrennt prüfen
 
@@ -611,4 +611,4 @@ Die im eingefrorenen Jev-Vorbereitungspaket enthaltenen **MASSIVE de-DE Testanfr
 
 ### Jev fortsetzen
 
-Die [geprüfte Fortsetzung](docs/JEV_CONTINUATION.md) verwendet nur die 793 noch unversuchten Anfragen. Alle 181 bisherigen Reservierungen bleiben im gemeinsamen Limit. Die fehlgeschlagene Antwort wird nicht wiederholt. Der erste Teillauf ist erhalten; der vollständige Vergleich steht noch aus.
+Die [neu geprüfte Wiederherstellungsrevision](docs/JEV_FINAL_CONTINUATION.md) bereitet nur die 520 noch unversuchten Anfragen vor. Alle 454 bisherigen Reservierungen bleiben im gemeinsamen Limit von 1.024 Versuchen und 3 USD; keiner der bisherigen Fälle wird erneut gesendet. Abweichungen ausschließlich in der Wahrscheinlichkeitssumme bleiben technische Fehler und werden mit unveränderten nativen Vektoren separat aufbewahrt. Der eingefrorene Scorer bleibt unverändert, die MASSIVE-Clef-Baseline weiterhin ausstehend. Die Ausführung erfordert eine getrennte Freigabe eines geprüften Commit-SHA und einen einzelnen manuellen Start.
