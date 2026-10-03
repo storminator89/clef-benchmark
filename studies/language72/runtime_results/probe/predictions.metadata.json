@@ -1,0 +1,80 @@
+{
+  "model": "Cloudflare/clef-flash",
+  "revision": "17f0b0ad64efb65d273590632833508766b2aae6",
+  "mode": "CPU NF4 backbone, original BF16 joint head and BF16 output embeddings",
+  "quantization": {
+    "quant_method": "bitsandbytes",
+    "_load_in_8bit": false,
+    "_load_in_4bit": true,
+    "llm_int8_threshold": 6.0,
+    "llm_int8_skip_modules": [
+      "lm_head"
+    ],
+    "llm_int8_enable_fp32_cpu_offload": false,
+    "llm_int8_has_fp16_weight": false,
+    "bnb_4bit_quant_type": "nf4",
+    "bnb_4bit_use_double_quant": true,
+    "bnb_4bit_compute_dtype": "bfloat16",
+    "bnb_4bit_quant_storage": "uint8",
+    "load_in_4bit": true,
+    "load_in_8bit": false
+  },
+  "dtype": "bfloat16",
+  "device": "cpu",
+  "threads": 6,
+  "batch_size": 1,
+  "max_length": 2048,
+  "requests_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "source_code_sha256": "0e304cf7c6500e8bb59bef7e2afd2c6373f82596dfb3b57d1aa93c175e2dc3a3",
+  "runner_sha256": "d06f85b922e1e4d0e905a1ddc8846aedcafa93c29f502f48b1529a36a9eb5906",
+  "seed": 20261002,
+  "packages": {
+    "torch": "2.11.0+cpu",
+    "transformers": "5.10.2",
+    "bitsandbytes": "0.50.2",
+    "accelerate": "1.15.0",
+    "huggingface-hub": "1.33.0",
+    "safetensors": "0.8.0"
+  },
+  "started_at": "2026-10-03T06:20:13.966467+00:00",
+  "request_count": 0,
+  "request_order_ids": [],
+  "wrapper_prompt_language": "English (official release); user state and schema may be German",
+  "benchmark_requests_only_no_gold": true,
+  "load_seconds": 53.402731301999665,
+  "weight_memory_bytes": 7765103400,
+  "joint_head_parameter_count": 121762820,
+  "joint_head_dtypes": [
+    "torch.bfloat16"
+  ],
+  "rss_after_load_bytes": 6648090624,
+  "warmup": {
+    "answers": {
+      "decision": {
+        "type": "choice",
+        "choice": "technical",
+        "confidence": 0.9932,
+        "probabilities": {
+          "billing": 0.0068,
+          "technical": 0.9932
+        }
+      }
+    },
+    "probabilities_unrounded": {
+      "decision": {
+        "billing": 0.006797531619668007,
+        "technical": 0.9932025074958801
+      }
+    },
+    "input_tokens": 144,
+    "truncated": false,
+    "encode_seconds": 0.0044119859994680155,
+    "inference_seconds": 10.141286985999614,
+    "latency_ms": 10141.286985999614,
+    "total_seconds": 10.145770429999175,
+    "rss_bytes": 6460067840
+  },
+  "completed_at": "2026-10-03T06:21:18.694092+00:00",
+  "max_rss_bytes": 7036891136,
+  "status": "completed"
+}

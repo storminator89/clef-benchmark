@@ -1,0 +1,4836 @@
+{
+  "status": "passed",
+  "checked_at": "2026-10-03T06:13:14.675605+00:00",
+  "requests_sha256": "0a5d7e070afdb17c10ee8fd4c74c321aafd3ee8197dcd0ef7d2d253d816c2e12",
+  "count": 72,
+  "min_tokens": 647,
+  "max_tokens": 712,
+  "all_full_cap_equal": true,
+  "model_weights_loaded": false,
+  "cases": [
+    {
+      "id": "gv_b1_canonical",
+      "input_tokens": 667,
+      "full_cap_equal": true,
+      "truncated": false,
+      "encoded_questions": [
+        {
+          "question_id": "action",
+          "question_type": 1,
+          "question_span": [
+            139,
+            341
+          ],
+          "option_spans": [
+            [
+              352,
+              377
+            ],
+            [
+              383,
+              407
+            ],
+            [
+              413,
+              444
+            ],
+            [
+              450,
+              480
+            ]
+          ],
+          "option_ids": [
+            "answer",
+            "ask_fact",
+            "ask_target",
+            "resolve_conflict"
+          ]
+        },
+        {
+          "question_id": "determination",
+          "question_type": 1,
+          "question_span": [
+            501,
+            559
+          ],
+          "option_spans": [
+            [
+              570,
+              589
+            ],
+            [
+              595,
+              621
+            ],
+            [
+              627,
+              645
+            ]
+          ],
+          "option_ids": [
+            "no",
+            "unresolved",
+            "yes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gv_b1_typo",
+      "input_tokens": 668,
+      "full_cap_equal": true,
+      "truncated": false,
+      "encoded_questions": [
+        {
+          "question_id": "action",
+          "question_type": 1,
+          "question_span": [
+            140,
+            342
+          ],
+          "option_spans": [
+            [
+              353,
+              378
+            ],
+            [
+              384,
+              408
+            ],
+            [
+              414,
+              445
+            ],
+            [
+              451,
+              481
+            ]
+          ],
+          "option_ids": [
+            "answer",
+            "ask_fact",
+            "ask_target",
+            "resolve_conflict"
+          ]
+        },
+        {
+          "question_id": "determination",
+          "question_type": 1,
+          "question_span": [
+            502,
+            560
+          ],
+          "option_spans": [
+            [
+              571,
+              590
+            ],
+            [
+              596,
+              622
+            ],
+            [
+              628,
+              646
+            ]
+          ],
+          "option_ids": [
+            "no",
+            "unresolved",
+            "yes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gv_b1_compact_colloquial",
+      "input_tokens": 666,
+      "full_cap_equal": true,
+      "truncated": false,
+      "encoded_questions": [
+        {
+          "question_id": "action",
+          "question_type": 1,
+          "question_span": [
+            138,
+            340
+          ],
+          "option_spans": [
+            [
+              351,
+              376
+            ],
+            [
+              382,
+              406
+            ],
+            [
+              412,
+              443
+            ],
+            [
+              449,
+              479
+            ]
+          ],
+          "option_ids": [
+            "answer",
+            "ask_fact",
+            "ask_target",
+            "resolve_conflict"
+          ]
+        },
+        {
+          "question_id": "determination",
+          "question_type": 1,
+          "question_span": [
+            500,
+            558
+          ],
+          "option_spans": [
+            [
+              569,
+              588
+            ],
+            [
+              594,
+              620
+            ],
+            [
+              626,
+              644
+            ]
+          ],
+          "option_ids": [
+            "no",
+            "unresolved",
+            "yes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gv_b1_abbreviation",
+      "input_tokens": 665,
+      "full_cap_equal": true,
+      "truncated": false,
+      "encoded_questions": [
+        {
+          "question_id": "action",
+          "question_type": 1,
+          "question_span": [
+            137,
+            339
+          ],
+          "option_spans": [
+            [
+              350,
+              375
+            ],
+            [
+              381,
+              405
+            ],
+            [
+              411,
+              442
+            ],
+            [
+              448,
+              478
+            ]
+          ],
+          "option_ids": [
+            "answer",
+            "ask_fact",
+            "ask_target",
+            "resolve_conflict"
+          ]
+        },
+        {
+          "question_id": "determination",
+          "question_type": 1,
+          "question_span": [
+            499,
+            557
+          ],
+          "option_spans": [
+            [
+              568,
+              587
+            ],
+            [
+              593,
+              619
+            ],
+            [
+              625,
+              643
+            ]
+          ],
+          "option_ids": [
+            "no",
+            "unresolved",
+            "yes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gv_b1_de_en_mix",
+      "input_tokens": 667,
+      "full_cap_equal": true,
+      "truncated": false,
+      "encoded_questions": [
+        {
+          "question_id": "action",
+          "question_type": 1,
+          "question_span": [
+            139,
+            341
+          ],
+          "option_spans": [
+            [
+              352,
+              377
+            ],
+            [
+              383,
+              407
+            ],
+            [
+              413,
+              444
+            ],
+            [
+              450,
+              480
+            ]
+          ],
+          "option_ids": [
+            "answer",
+            "ask_fact",
+            "ask_target",
+            "resolve_conflict"
+          ]
+        },
+        {
+          "question_id": "determination",
+          "question_type": 1,
+          "question_span": [
+            501,
+            559
+          ],
+          "option_spans": [
+            [
+              570,
+              589
+            ],
+            [
+              595,
+              621
+            ],
+            [
+              627,
+              645
+            ]
+          ],
+          "option_ids": [
+            "no",
+            "unresolved",
+            "yes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gv_b2_canonical",
+      "input_tokens": 666,
+      "full_cap_equal": true,
+      "truncated": false,
+      "encoded_questions": [
+        {
+          "question_id": "action",
+          "question_type": 1,
+          "question_span": [
+            138,
+            340
+          ],
+          "option_spans": [
+            [
+              351,
+              376
+            ],
+            [
+              382,
+              406
+            ],
+            [
+              412,
+              443
+            ],
+            [
+              449,
+              479
+            ]
+          ],
+          "option_ids": [
+            "answer",
+            "ask_fact",
+            "ask_target",
+            "resolve_conflict"
+          ]
+        },
+        {
+          "question_id": "determination",
+          "question_type": 1,
+          "question_span": [
+            500,
+            558
+          ],
+          "option_spans": [
+            [
+              569,
+              588
+            ],
+            [
+              594,
+              620
+            ],
+            [
+              626,
+              644
+            ]
+          ],
+          "option_ids": [
+            "no",
+            "unresolved",
+            "yes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gv_b2_typo",
+      "input_tokens": 667,
+      "full_cap_equal": true,
+      "truncated": false,
+      "encoded_questions": [
+        {
+          "question_id": "action",
+          "question_type": 1,
+          "question_span": [
+            139,
+            341
+          ],
+          "option_spans": [
+            [
+              352,
+              377
+            ],
+            [
+              383,
+              407
+            ],
+            [
+              413,
+              444
+            ],
+            [
+              450,
+              480
+            ]
+          ],
+          "option_ids": [
+            "answer",
+            "ask_fact",
+            "ask_target",
+            "resolve_conflict"
+          ]
+        },
+        {
+          "question_id": "determination",
+          "question_type": 1,
+          "question_span": [
+            501,
+            559
+          ],
+          "option_spans": [
+            [
+              570,
+              589
+            ],
+            [
+              595,
+              621
+            ],
+            [
+              627,
+              645
+            ]
+          ],
+          "option_ids": [
+            "no",
+            "unresolved",
+            "yes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gv_b2_compact_colloquial",
+      "input_tokens": 666,
+      "full_cap_equal": true,
+      "truncated": false,
+      "encoded_questions": [
+        {
+          "question_id": "action",
+          "question_type": 1,
+          "question_span": [
+            138,
+            340
+          ],
+          "option_spans": [
+            [
+              351,
+              376
+            ],
+            [
+              382,
+              406
+            ],
+            [
+              412,
+              443
+            ],
+            [
+              449,
+              479
+            ]
+          ],
+          "option_ids": [
+            "answer",
+            "ask_fact",
+            "ask_target",
+            "resolve_conflict"
+          ]
+        },
+        {
+          "question_id": "determination",
+          "question_type": 1,
+          "question_span": [
+            500,
+            558
+          ],
+          "option_spans": [
+            [
+              569,
+              588
+            ],
+            [
+              594,
+              620
+            ],
+            [
+              626,
+              644
+            ]
+          ],
+          "option_ids": [
+            "no",
+            "unresolved",
+            "yes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gv_b2_abbreviation",
+      "input_tokens": 662,
+      "full_cap_equal": true,
+      "truncated": false,
+      "encoded_questions": [
+        {
+          "question_id": "action",
+          "question_type": 1,
+          "question_span": [
+            134,
+            336
+          ],
+          "option_spans": [
+            [
+              347,
+              372
+            ],
+            [
+              378,
+              402
+            ],
+            [
+              408,
+              439
+            ],
+            [
+              445,
+              475
+            ]
+          ],
+          "option_ids": [
+            "answer",
+            "ask_fact",
+            "ask_target",
+            "resolve_conflict"
+          ]
+        },
+        {
+          "question_id": "determination",
+          "question_type": 1,
+          "question_span": [
+            496,
+            554
+          ],
+          "option_spans": [
+            [
+              565,
+              584
+            ],
+            [
+              590,
+              616
+            ],
+            [
+              622,
+              640
+            ]
+          ],
+          "option_ids": [
+            "no",
+            "unresolved",
+            "yes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gv_b2_de_en_mix",
+      "input_tokens": 666,
+      "full_cap_equal": true,
+      "truncated": false,
+      "encoded_questions": [
+        {
+          "question_id": "action",
+          "question_type": 1,
+          "question_span": [
+            138,
+            340
+          ],
+          "option_spans": [
+            [
+              351,
+              376
+            ],
+            [
+              382,
+              406
+            ],
+            [
+              412,
+              443
+            ],
+            [
+              449,
+              479
+            ]
+          ],
+          "option_ids": [
+            "answer",
+            "ask_fact",
+            "ask_target",
+            "resolve_conflict"
+          ]
+        },
+        {
+          "question_id": "determination",
+          "question_type": 1,
+          "question_span": [
+            500,
+            558
+          ],
+          "option_spans": [
+            [
+              569,
+              588
+            ],
+            [
+              594,
+              620
+            ],
+            [
+              626,
+              644
+            ]
+          ],
+          "option_ids": [
+            "no",
+            "unresolved",
+            "yes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gv_b3_canonical",
+      "input_tokens": 675,
+      "full_cap_equal": true,
+      "truncated": false,
+      "encoded_questions": [
+        {
+          "question_id": "action",
+          "question_type": 1,
+          "question_span": [
+            147,
+            349
+          ],
+          "option_spans": [
+            [
+              360,
+              385
+            ],
+            [
+              391,
+              415
+            ],
+            [
+              421,
+              452
+            ],
+            [
+              458,
+              488
+            ]
+          ],
+          "option_ids": [
+            "answer",
+            "ask_fact",
+            "ask_target",
+            "resolve_conflict"
+          ]
+        },
+        {
+          "question_id": "determination",
+          "question_type": 1,
+          "question_span": [
+            509,
+            567
+          ],
+          "option_spans": [
+            [
+              578,
+              597
+            ],
+            [
+              603,
+              629
+            ],
+            [
+              635,
+              653
+            ]
+          ],
+          "option_ids": [
+            "no",
+            "unresolved",
+            "yes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gv_b3_typo",
+      "input_tokens": 676,
+      "full_cap_equal": true,
+      "truncated": false,
+      "encoded_questions": [
+        {
+          "question_id": "action",
+          "question_type": 1,
+          "question_span": [
+            148,
+            350
+          ],
+          "option_spans": [
+            [
+              361,
+              386
+            ],
+            [
+              392,
+              416
+            ],
+            [
+              422,
+              453
+            ],
+            [
+              459,
+              489
+            ]
+          ],
+          "option_ids": [
+            "answer",
+            "ask_fact",
+            "ask_target",
+            "resolve_conflict"
+          ]
+        },
+        {
+          "question_id": "determination",
+          "question_type": 1,
+          "question_span": [
+            510,
+            568
+          ],
+          "option_spans": [
+            [
+              579,
+              598
+            ],
+            [
+              604,
+              630
+            ],
+            [
+              636,
+              654
+            ]
+          ],
+          "option_ids": [
+            "no",
+            "unresolved",
+            "yes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gv_b3_compact_colloquial",
+      "input_tokens": 673,
+      "full_cap_equal": true,
+      "truncated": false,
+      "encoded_questions": [
+        {
+          "question_id": "action",
+          "question_type": 1,
+          "question_span": [
+            145,
+            347
+          ],
+          "option_spans": [
+            [
+              358,
+              383
+            ],
+            [
+              389,
+              413
+            ],
+            [
+              419,
+              450
+            ],
+            [
+              456,
+              486
+            ]
+          ],
+          "option_ids": [
+            "answer",
+            "ask_fact",
+            "ask_target",
+            "resolve_conflict"
+          ]
+        },
+        {
+          "question_id": "determination",
+          "question_type": 1,
+          "question_span": [
+            507,
+            565
+          ],
+          "option_spans": [
+            [
+              576,
+              595
+            ],
+            [
+              601,
+              627
+            ],
+            [
+              633,
+              651
+            ]
+          ],
+          "option_ids": [
+            "no",
+            "unresolved",
+            "yes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gv_b3_abbreviation",
+      "input_tokens": 668,
+      "full_cap_equal": true,
+      "truncated": false,
+      "encoded_questions": [
+        {
+          "question_id": "action",
+          "question_type": 1,
+          "question_span": [
+            140,
+            342
+          ],
+          "option_spans": [
+            [
+              353,
+              378
+            ],
+            [
+              384,
+              408
+            ],
+            [
+              414,
+              445
+            ],
+            [
+              451,
+              481
+            ]
+          ],
+          "option_ids": [
+            "answer",
+            "ask_fact",
+            "ask_target",
+            "resolve_conflict"
+          ]
+        },
+        {
+          "question_id": "determination",
+          "question_type": 1,
+          "question_span": [
+            502,
+            560
+          ],
+          "option_spans": [
+            [
+              571,
+              590
+            ],
+            [
+              596,
+              622
+            ],
+            [
+              628,
+              646
+            ]
+          ],
+          "option_ids": [
+            "no",
+            "unresolved",
+            "yes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gv_b3_de_en_mix",
+      "input_tokens": 672,
+      "full_cap_equal": true,
+      "truncated": false,
+      "encoded_questions": [
+        {
+          "question_id": "action",
+          "question_type": 1,
+          "question_span": [
+            144,
+            346
+          ],
+          "option_spans": [
+            [
+              357,
+              382
+            ],
+            [
+              388,
+              412
+            ],
+            [
+              418,
+              449
+            ],
+            [
+              455,
+              485
+            ]
+          ],
+          "option_ids": [
+            "answer",
+            "ask_fact",
+            "ask_target",
+            "resolve_conflict"
+          ]
+        },
+        {
+          "question_id": "determination",
+          "question_type": 1,
+          "question_span": [
+            506,
+            564
+          ],
+          "option_spans": [
+            [
+              575,
+              594
+            ],
+            [
+              600,
+              626
+            ],
+            [
+              632,
+              650
+            ]
+          ],
+          "option_ids": [
+            "no",
+            "unresolved",
+            "yes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gv_b4_canonical",
+      "input_tokens": 699,
+      "full_cap_equal": true,
+      "truncated": false,
+      "encoded_questions": [
+        {
+          "question_id": "action",
+          "question_type": 1,
+          "question_span": [
+            171,
+            373
+          ],
+          "option_spans": [
+            [
+              384,
+              409
+            ],
+            [
+              415,
+              439
+            ],
+            [
+              445,
+              476
+            ],
+            [
+              482,
+              512
+            ]
+          ],
+          "option_ids": [
+            "answer",
+            "ask_fact",
+            "ask_target",
+            "resolve_conflict"
+          ]
+        },
+        {
+          "question_id": "determination",
+          "question_type": 1,
+          "question_span": [
+            533,
+            591
+          ],
+          "option_spans": [
+            [
+              602,
+              621
+            ],
+            [
+              627,
+              653
+            ],
+            [
+              659,
+              677
+            ]
+          ],
+          "option_ids": [
+            "no",
+            "unresolved",
+            "yes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gv_b4_typo",
+      "input_tokens": 701,
+      "full_cap_equal": true,
+      "truncated": false,
+      "encoded_questions": [
+        {
+          "question_id": "action",
+          "question_type": 1,
+          "question_span": [
+            173,
+            375
+          ],
+          "option_spans": [
+            [
+              386,
+              411
+            ],
+            [
+              417,
+              441
+            ],
+            [
+              447,
+              478
+            ],
+            [
+              484,
+              514
+            ]
+          ],
+          "option_ids": [
+            "answer",
+            "ask_fact",
+            "ask_target",
+            "resolve_conflict"
+          ]
+        },
+        {
+          "question_id": "determination",
+          "question_type": 1,
+          "question_span": [
+            535,
+            593
+          ],
+          "option_spans": [
+            [
+              604,
+              623
+            ],
+            [
+              629,
+              655
+            ],
+            [
+              661,
+              679
+            ]
+          ],
+          "option_ids": [
+            "no",
+            "unresolved",
+            "yes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gv_b4_compact_colloquial",
+      "input_tokens": 692,
+      "full_cap_equal": true,
+      "truncated": false,
+      "encoded_questions": [
+        {
+          "question_id": "action",
+          "question_type": 1,
+          "question_span": [
+            164,
+            366
+          ],
+          "option_spans": [
+            [
+              377,
+              402
+            ],
+            [
+              408,
+              432
+            ],
+            [
+              438,
+              469
+            ],
+            [
+              475,
+              505
+            ]
+          ],
+          "option_ids": [
+            "answer",
+            "ask_fact",
+            "ask_target",
+            "resolve_conflict"
+          ]
+        },
+        {
+          "question_id": "determination",
+          "question_type": 1,
+          "question_span": [
+            526,
+            584
+          ],
+          "option_spans": [
+            [
+              595,
+              614
+            ],
+            [
+              620,
+              646
+            ],
+            [
+              652,
+              670
+            ]
+          ],
+          "option_ids": [
+            "no",
+            "unresolved",
+            "yes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gv_b4_abbreviation",
+      "input_tokens": 692,
+      "full_cap_equal": true,
+      "truncated": false,
+      "encoded_questions": [
+        {
+          "question_id": "action",
+          "question_type": 1,
+          "question_span": [
+            164,
+            366
+          ],
+          "option_spans": [
+            [
+              377,
+              402
+            ],
+            [
+              408,
+              432
+            ],
+            [
+              438,
+              469
+            ],
+            [
+              475,
+              505
+            ]
+          ],
+          "option_ids": [
+            "answer",
+            "ask_fact",
+            "ask_target",
+            "resolve_conflict"
+          ]
+        },
+        {
+          "question_id": "determination",
+          "question_type": 1,
+          "question_span": [
+            526,
+            584
+          ],
+          "option_spans": [
+            [
+              595,
+              614
+            ],
+            [
+              620,
+              646
+            ],
+            [
+              652,
+              670
+            ]
+          ],
+          "option_ids": [
+            "no",
+            "unresolved",
+            "yes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gv_b4_de_en_mix",
+      "input_tokens": 694,
+      "full_cap_equal": true,
+      "truncated": false,
+      "encoded_questions": [
+        {
+          "question_id": "action",
+          "question_type": 1,
+          "question_span": [
+            166,
+            368
+          ],
+          "option_spans": [
+            [
+              379,
+              404
+            ],
+            [
+              410,
+              434
+            ],
+            [
+              440,
+              471
+            ],
+            [
+              477,
+              507
+            ]
+          ],
+          "option_ids": [
+            "answer",
+            "ask_fact",
+            "ask_target",
+            "resolve_conflict"
+          ]
+        },
+        {
+          "question_id": "determination",
+          "question_type": 1,
+          "question_span": [
+            528,
+            586
+          ],
+          "option_spans": [
+            [
+              597,
+              616
+            ],
+            [
+              622,
+              648
+            ],
+            [
+              654,
+              672
+            ]
+          ],
+          "option_ids": [
+            "no",
+            "unresolved",
+            "yes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gv_i1_canonical",
+      "input_tokens": 669,
+      "full_cap_equal": true,
+      "truncated": false,
+      "encoded_questions": [
+        {
+          "question_id": "action",
+          "question_type": 1,
+          "question_span": [
+            141,
+            343
+          ],
+          "option_spans": [
+            [
+              354,
+              379
+            ],
+            [
+              385,
+              409
+            ],
+            [
+              415,
+              446
+            ],
+            [
+              452,
+              482
+            ]
+          ],
+          "option_ids": [
+            "answer",
+            "ask_fact",
+            "ask_target",
+            "resolve_conflict"
+          ]
+        },
+        {
+          "question_id": "determination",
+          "question_type": 1,
+          "question_span": [
+            503,
+            561
+          ],
+          "option_spans": [
+            [
+              572,
+              591
+            ],
+            [
+              597,
+              623
+            ],
+            [
+              629,
+              647
+            ]
+          ],
+          "option_ids": [
+            "no",
+            "unresolved",
+            "yes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gv_i1_typo",
+      "input_tokens": 670,
+      "full_cap_equal": true,
+      "truncated": false,
+      "encoded_questions": [
+        {
+          "question_id": "action",
+          "question_type": 1,
+          "question_span": [
+            142,
+            344
+          ],
+          "option_spans": [
+            [
+              355,
+              380
+            ],
+            [
+              386,
+              410
+            ],
+            [
+              416,
+              447
+            ],
+            [
+              453,
+              483
+            ]
+          ],
+          "option_ids": [
+            "answer",
+            "ask_fact",
+            "ask_target",
+            "resolve_conflict"
+          ]
+        },
+        {
+          "question_id": "determination",
+          "question_type": 1,
+          "question_span": [
+            504,
+            562
+          ],
+          "option_spans": [
+            [
+              573,
+              592
+            ],
+            [
+              598,
+              624
+            ],
+            [
+              630,
+              648
+            ]
+          ],
+          "option_ids": [
+            "no",
+            "unresolved",
+            "yes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gv_i1_compact_colloquial",
+      "input_tokens": 668,
+      "full_cap_equal": true,
+      "truncated": false,
+      "encoded_questions": [
+        {
+          "question_id": "action",
+          "question_type": 1,
+          "question_span": [
+            140,
+            342
+          ],
+          "option_spans": [
+            [
+              353,
+              378
+            ],
+            [
+              384,
+              408
+            ],
+            [
+              414,
+              445
+            ],
+            [
+              451,
+              481
+            ]
+          ],
+          "option_ids": [
+            "answer",
+            "ask_fact",
+            "ask_target",
+            "resolve_conflict"
+          ]
+        },
+        {
+          "question_id": "determination",
+          "question_type": 1,
+          "question_span": [
+            502,
+            560
+          ],
+          "option_spans": [
+            [
+              571,
+              590
+            ],
+            [
+              596,
+              622
+            ],
+            [
+              628,
+              646
+            ]
+          ],
+          "option_ids": [
+            "no",
+            "unresolved",
+            "yes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gv_i1_abbreviation",
+      "input_tokens": 665,
+      "full_cap_equal": true,
+      "truncated": false,
+      "encoded_questions": [
+        {
+          "question_id": "action",
+          "question_type": 1,
+          "question_span": [
+            137,
+            339
+          ],
+          "option_spans": [
+            [
+              350,
+              375
+            ],
+            [
+              381,
+              405
+            ],
+            [
+              411,
+              442
+            ],
+            [
+              448,
+              478
+            ]
+          ],
+          "option_ids": [
+            "answer",
+            "ask_fact",
+            "ask_target",
+            "resolve_conflict"
+          ]
+        },
+        {
+          "question_id": "determination",
+          "question_type": 1,
+          "question_span": [
+            499,
+            557
+          ],
+          "option_spans": [
+            [
+              568,
+              587
+            ],
+            [
+              593,
+              619
+            ],
+            [
+              625,
+              643
+            ]
+          ],
+          "option_ids": [
+            "no",
+            "unresolved",
+            "yes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gv_i1_de_en_mix",
+      "input_tokens": 669,
+      "full_cap_equal": true,
+      "truncated": false,
+      "encoded_questions": [
+        {
+          "question_id": "action",
+          "question_type": 1,
+          "question_span": [
+            141,
+            343
+          ],
+          "option_spans": [
+            [
+              354,
+              379
+            ],
+            [
+              385,
+              409
+            ],
+            [
+              415,
+              446
+            ],
+            [
+              452,
+              482
+            ]
+          ],
+          "option_ids": [
+            "answer",
+            "ask_fact",
+            "ask_target",
+            "resolve_conflict"
+          ]
+        },
+        {
+          "question_id": "determination",
+          "question_type": 1,
+          "question_span": [
+            503,
+            561
+          ],
+          "option_spans": [
+            [
+              572,
+              591
+            ],
+            [
+              597,
+              623
+            ],
+            [
+              629,
+              647
+            ]
+          ],
+          "option_ids": [
+            "no",
+            "unresolved",
+            "yes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gv_i2_canonical",
+      "input_tokens": 661,
+      "full_cap_equal": true,
+      "truncated": false,
+      "encoded_questions": [
+        {
+          "question_id": "action",
+          "question_type": 1,
+          "question_span": [
+            133,
+            335
+          ],
+          "option_spans": [
+            [
+              346,
+              371
+            ],
+            [
+              377,
+              401
+            ],
+            [
+              407,
+              438
+            ],
+            [
+              444,
+              474
+            ]
+          ],
+          "option_ids": [
+            "answer",
+            "ask_fact",
+            "ask_target",
+            "resolve_conflict"
+          ]
+        },
+        {
+          "question_id": "determination",
+          "question_type": 1,
+          "question_span": [
+            495,
+            553
+          ],
+          "option_spans": [
+            [
+              564,
+              583
+            ],
+            [
+              589,
+              615
+            ],
+            [
+              621,
+              639
+            ]
+          ],
+          "option_ids": [
+            "no",
+            "unresolved",
+            "yes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gv_i2_typo",
+      "input_tokens": 663,
+      "full_cap_equal": true,
+      "truncated": false,
+      "encoded_questions": [
+        {
+          "question_id": "action",
+          "question_type": 1,
+          "question_span": [
+            135,
+            337
+          ],
+          "option_spans": [
+            [
+              348,
+              373
+            ],
+            [
+              379,
+              403
+            ],
+            [
+              409,
+              440
+            ],
+            [
+              446,
+              476
+            ]
+          ],
+          "option_ids": [
+            "answer",
+            "ask_fact",
+            "ask_target",
+            "resolve_conflict"
+          ]
+        },
+        {
+          "question_id": "determination",
+          "question_type": 1,
+          "question_span": [
+            497,
+            555
+          ],
+          "option_spans": [
+            [
+              566,
+              585
+            ],
+            [
+              591,
+              617
+            ],
+            [
+              623,
+              641
+            ]
+          ],
+          "option_ids": [
+            "no",
+            "unresolved",
+            "yes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gv_i2_compact_colloquial",
+      "input_tokens": 661,
+      "full_cap_equal": true,
+      "truncated": false,
+      "encoded_questions": [
+        {
+          "question_id": "action",
+          "question_type": 1,
+          "question_span": [
+            133,
+            335
+          ],
+          "option_spans": [
+            [
+              346,
+              371
+            ],
+            [
+              377,
+              401
+            ],
+            [
+              407,
+              438
+            ],
+            [
+              444,
+              474
+            ]
+          ],
+          "option_ids": [
+            "answer",
+            "ask_fact",
+            "ask_target",
+            "resolve_conflict"
+          ]
+        },
+        {
+          "question_id": "determination",
+          "question_type": 1,
+          "question_span": [
+            495,
+            553
+          ],
+          "option_spans": [
+            [
+              564,
+              583
+            ],
+            [
+              589,
+              615
+            ],
+            [
+              621,
+              639
+            ]
+          ],
+          "option_ids": [
+            "no",
+            "unresolved",
+            "yes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gv_i2_abbreviation",
+      "input_tokens": 658,
+      "full_cap_equal": true,
+      "truncated": false,
+      "encoded_questions": [
+        {
+          "question_id": "action",
+          "question_type": 1,
+          "question_span": [
+            130,
+            332
+          ],
+          "option_spans": [
+            [
+              343,
+              368
+            ],
+            [
+              374,
+              398
+            ],
+            [
+              404,
+              435
+            ],
+            [
+              441,
+              471
+            ]
+          ],
+          "option_ids": [
+            "answer",
+            "ask_fact",
+            "ask_target",
+            "resolve_conflict"
+          ]
+        },
+        {
+          "question_id": "determination",
+          "question_type": 1,
+          "question_span": [
+            492,
+            550
+          ],
+          "option_spans": [
+            [
+              561,
+              580
+            ],
+            [
+              586,
+              612
+            ],
+            [
+              618,
+              636
+            ]
+          ],
+          "option_ids": [
+            "no",
+            "unresolved",
+            "yes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gv_i2_de_en_mix",
+      "input_tokens": 661,
+      "full_cap_equal": true,
+      "truncated": false,
+      "encoded_questions": [
+        {
+          "question_id": "action",
+          "question_type": 1,
+          "question_span": [
+            133,
+            335
+          ],
+          "option_spans": [
+            [
+              346,
+              371
+            ],
+            [
+              377,
+              401
+            ],
+            [
+              407,
+              438
+            ],
+            [
+              444,
+              474
+            ]
+          ],
+          "option_ids": [
+            "answer",
+            "ask_fact",
+            "ask_target",
+            "resolve_conflict"
+          ]
+        },
+        {
+          "question_id": "determination",
+          "question_type": 1,
+          "question_span": [
+            495,
+            553
+          ],
+          "option_spans": [
+            [
+              564,
+              583
+            ],
+            [
+              589,
+              615
+            ],
+            [
+              621,
+              639
+            ]
+          ],
+          "option_ids": [
+            "no",
+            "unresolved",
+            "yes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gv_i3_canonical",
+      "input_tokens": 668,
+      "full_cap_equal": true,
+      "truncated": false,
+      "encoded_questions": [
+        {
+          "question_id": "action",
+          "question_type": 1,
+          "question_span": [
+            140,
+            342
+          ],
+          "option_spans": [
+            [
+              353,
+              378
+            ],
+            [
+              384,
+              408
+            ],
+            [
+              414,
+              445
+            ],
+            [
+              451,
+              481
+            ]
+          ],
+          "option_ids": [
+            "answer",
+            "ask_fact",
+            "ask_target",
+            "resolve_conflict"
+          ]
+        },
+        {
+          "question_id": "determination",
+          "question_type": 1,
+          "question_span": [
+            502,
+            560
+          ],
+          "option_spans": [
+            [
+              571,
+              590
+            ],
+            [
+              596,
+              622
+            ],
+            [
+              628,
+              646
+            ]
+          ],
+          "option_ids": [
+            "no",
+            "unresolved",
+            "yes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gv_i3_typo",
+      "input_tokens": 668,
+      "full_cap_equal": true,
+      "truncated": false,
+      "encoded_questions": [
+        {
+          "question_id": "action",
+          "question_type": 1,
+          "question_span": [
+            140,
+            342
+          ],
+          "option_spans": [
+            [
+              353,
+              378
+            ],
+            [
+              384,
+              408
+            ],
+            [
+              414,
+              445
+            ],
+            [
+              451,
+              481
+            ]
+          ],
+          "option_ids": [
+            "answer",
+            "ask_fact",
+            "ask_target",
+            "resolve_conflict"
+          ]
+        },
+        {
+          "question_id": "determination",
+          "question_type": 1,
+          "question_span": [
+            502,
+            560
+          ],
+          "option_spans": [
+            [
+              571,
+              590
+            ],
+            [
+              596,
+              622
+            ],
+            [
+              628,
+              646
+            ]
+          ],
+          "option_ids": [
+            "no",
+            "unresolved",
+            "yes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gv_i3_compact_colloquial",
+      "input_tokens": 670,
+      "full_cap_equal": true,
+      "truncated": false,
+      "encoded_questions": [
+        {
+          "question_id": "action",
+          "question_type": 1,
+          "question_span": [
+            142,
+            344
+          ],
+          "option_spans": [
+            [
+              355,
+              380
+            ],
+            [
+              386,
+              410
+            ],
+            [
+              416,
+              447
+            ],
+            [
+              453,
+              483
+            ]
+          ],
+          "option_ids": [
+            "answer",
+            "ask_fact",
+            "ask_target",
+            "resolve_conflict"
+          ]
+        },
+        {
+          "question_id": "determination",
+          "question_type": 1,
+          "question_span": [
+            504,
+            562
+          ],
+          "option_spans": [
+            [
+              573,
+              592
+            ],
+            [
+              598,
+              624
+            ],
+            [
+              630,
+              648
+            ]
+          ],
+          "option_ids": [
+            "no",
+            "unresolved",
+            "yes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gv_i3_abbreviation",
+      "input_tokens": 663,
+      "full_cap_equal": true,
+      "truncated": false,
+      "encoded_questions": [
+        {
+          "question_id": "action",
+          "question_type": 1,
+          "question_span": [
+            135,
+            337
+          ],
+          "option_spans": [
+            [
+              348,
+              373
+            ],
+            [
+              379,
+              403
+            ],
+            [
+              409,
+              440
+            ],
+            [
+              446,
+              476
+            ]
+          ],
+          "option_ids": [
+            "answer",
+            "ask_fact",
+            "ask_target",
+            "resolve_conflict"
+          ]
+        },
+        {
+          "question_id": "determination",
+          "question_type": 1,
+          "question_span": [
+            497,
+            555
+          ],
+          "option_spans": [
+            [
+              566,
+              585
+            ],
+            [
+              591,
+              617
+            ],
+            [
+              623,
+              641
+            ]
+          ],
+          "option_ids": [
+            "no",
+            "unresolved",
+            "yes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gv_i3_de_en_mix",
+      "input_tokens": 665,
+      "full_cap_equal": true,
+      "truncated": false,
+      "encoded_questions": [
+        {
+          "question_id": "action",
+          "question_type": 1,
+          "question_span": [
+            137,
+            339
+          ],
+          "option_spans": [
+            [
+              350,
+              375
+            ],
+            [
+              381,
+              405
+            ],
+            [
+              411,
+              442
+            ],
+            [
+              448,
+              478
+            ]
+          ],
+          "option_ids": [
+            "answer",
+            "ask_fact",
+            "ask_target",
+            "resolve_conflict"
+          ]
+        },
+        {
+          "question_id": "determination",
+          "question_type": 1,
+          "question_span": [
+            499,
+            557
+          ],
+          "option_spans": [
+            [
+              568,
+              587
+            ],
+            [
+              593,
+              619
+            ],
+            [
+              625,
+              643
+            ]
+          ],
+          "option_ids": [
+            "no",
+            "unresolved",
+            "yes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gv_i4_canonical",
+      "input_tokens": 709,
+      "full_cap_equal": true,
+      "truncated": false,
+      "encoded_questions": [
+        {
+          "question_id": "action",
+          "question_type": 1,
+          "question_span": [
+            181,
+            383
+          ],
+          "option_spans": [
+            [
+              394,
+              419
+            ],
+            [
+              425,
+              449
+            ],
+            [
+              455,
+              486
+            ],
+            [
+              492,
+              522
+            ]
+          ],
+          "option_ids": [
+            "answer",
+            "ask_fact",
+            "ask_target",
+            "resolve_conflict"
+          ]
+        },
+        {
+          "question_id": "determination",
+          "question_type": 1,
+          "question_span": [
+            543,
+            601
+          ],
+          "option_spans": [
+            [
+              612,
+              631
+            ],
+            [
+              637,
+              663
+            ],
+            [
+              669,
+              687
+            ]
+          ],
+          "option_ids": [
+            "no",
+            "unresolved",
+            "yes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gv_i4_typo",
+      "input_tokens": 710,
+      "full_cap_equal": true,
+      "truncated": false,
+      "encoded_questions": [
+        {
+          "question_id": "action",
+          "question_type": 1,
+          "question_span": [
+            182,
+            384
+          ],
+          "option_spans": [
+            [
+              395,
+              420
+            ],
+            [
+              426,
+              450
+            ],
+            [
+              456,
+              487
+            ],
+            [
+              493,
+              523
+            ]
+          ],
+          "option_ids": [
+            "answer",
+            "ask_fact",
+            "ask_target",
+            "resolve_conflict"
+          ]
+        },
+        {
+          "question_id": "determination",
+          "question_type": 1,
+          "question_span": [
+            544,
+            602
+          ],
+          "option_spans": [
+            [
+              613,
+              632
+            ],
+            [
+              638,
+              664
+            ],
+            [
+              670,
+              688
+            ]
+          ],
+          "option_ids": [
+            "no",
+            "unresolved",
+            "yes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gv_i4_compact_colloquial",
+      "input_tokens": 712,
+      "full_cap_equal": true,
+      "truncated": false,
+      "encoded_questions": [
+        {
+          "question_id": "action",
+          "question_type": 1,
+          "question_span": [
+            184,
+            386
+          ],
+          "option_spans": [
+            [
+              397,
+              422
+            ],
+            [
+              428,
+              452
+            ],
+            [
+              458,
+              489
+            ],
+            [
+              495,
+              525
+            ]
+          ],
+          "option_ids": [
+            "answer",
+            "ask_fact",
+            "ask_target",
+            "resolve_conflict"
+          ]
+        },
+        {
+          "question_id": "determination",
+          "question_type": 1,
+          "question_span": [
+            546,
+            604
+          ],
+          "option_spans": [
+            [
+              615,
+              634
+            ],
+            [
+              640,
+              666
+            ],
+            [
+              672,
+              690
+            ]
+          ],
+          "option_ids": [
+            "no",
+            "unresolved",
+            "yes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gv_i4_abbreviation",
+      "input_tokens": 709,
+      "full_cap_equal": true,
+      "truncated": false,
+      "encoded_questions": [
+        {
+          "question_id": "action",
+          "question_type": 1,
+          "question_span": [
+            181,
+            383
+          ],
+          "option_spans": [
+            [
+              394,
+              419
+            ],
+            [
+              425,
+              449
+            ],
+            [
+              455,
+              486
+            ],
+            [
+              492,
+              522
+            ]
+          ],
+          "option_ids": [
+            "answer",
+            "ask_fact",
+            "ask_target",
+            "resolve_conflict"
+          ]
+        },
+        {
+          "question_id": "determination",
+          "question_type": 1,
+          "question_span": [
+            543,
+            601
+          ],
+          "option_spans": [
+            [
+              612,
+              631
+            ],
+            [
+              637,
+              663
+            ],
+            [
+              669,
+              687
+            ]
+          ],
+          "option_ids": [
+            "no",
+            "unresolved",
+            "yes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gv_i4_de_en_mix",
+      "input_tokens": 707,
+      "full_cap_equal": true,
+      "truncated": false,
+      "encoded_questions": [
+        {
+          "question_id": "action",
+          "question_type": 1,
+          "question_span": [
+            179,
+            381
+          ],
+          "option_spans": [
+            [
+              392,
+              417
+            ],
+            [
+              423,
+              447
+            ],
+            [
+              453,
+              484
+            ],
+            [
+              490,
+              520
+            ]
+          ],
+          "option_ids": [
+            "answer",
+            "ask_fact",
+            "ask_target",
+            "resolve_conflict"
+          ]
+        },
+        {
+          "question_id": "determination",
+          "question_type": 1,
+          "question_span": [
+            541,
+            599
+          ],
+          "option_spans": [
+            [
+              610,
+              629
+            ],
+            [
+              635,
+              661
+            ],
+            [
+              667,
+              685
+            ]
+          ],
+          "option_ids": [
+            "no",
+            "unresolved",
+            "yes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gv_f1_canonical",
+      "input_tokens": 663,
+      "full_cap_equal": true,
+      "truncated": false,
+      "encoded_questions": [
+        {
+          "question_id": "action",
+          "question_type": 1,
+          "question_span": [
+            135,
+            337
+          ],
+          "option_spans": [
+            [
+              348,
+              373
+            ],
+            [
+              379,
+              403
+            ],
+            [
+              409,
+              440
+            ],
+            [
+              446,
+              476
+            ]
+          ],
+          "option_ids": [
+            "answer",
+            "ask_fact",
+            "ask_target",
+            "resolve_conflict"
+          ]
+        },
+        {
+          "question_id": "determination",
+          "question_type": 1,
+          "question_span": [
+            497,
+            555
+          ],
+          "option_spans": [
+            [
+              566,
+              585
+            ],
+            [
+              591,
+              617
+            ],
+            [
+              623,
+              641
+            ]
+          ],
+          "option_ids": [
+            "no",
+            "unresolved",
+            "yes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gv_f1_typo",
+      "input_tokens": 664,
+      "full_cap_equal": true,
+      "truncated": false,
+      "encoded_questions": [
+        {
+          "question_id": "action",
+          "question_type": 1,
+          "question_span": [
+            136,
+            338
+          ],
+          "option_spans": [
+            [
+              349,
+              374
+            ],
+            [
+              380,
+              404
+            ],
+            [
+              410,
+              441
+            ],
+            [
+              447,
+              477
+            ]
+          ],
+          "option_ids": [
+            "answer",
+            "ask_fact",
+            "ask_target",
+            "resolve_conflict"
+          ]
+        },
+        {
+          "question_id": "determination",
+          "question_type": 1,
+          "question_span": [
+            498,
+            556
+          ],
+          "option_spans": [
+            [
+              567,
+              586
+            ],
+            [
+              592,
+              618
+            ],
+            [
+              624,
+              642
+            ]
+          ],
+          "option_ids": [
+            "no",
+            "unresolved",
+            "yes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gv_f1_compact_colloquial",
+      "input_tokens": 660,
+      "full_cap_equal": true,
+      "truncated": false,
+      "encoded_questions": [
+        {
+          "question_id": "action",
+          "question_type": 1,
+          "question_span": [
+            132,
+            334
+          ],
+          "option_spans": [
+            [
+              345,
+              370
+            ],
+            [
+              376,
+              400
+            ],
+            [
+              406,
+              437
+            ],
+            [
+              443,
+              473
+            ]
+          ],
+          "option_ids": [
+            "answer",
+            "ask_fact",
+            "ask_target",
+            "resolve_conflict"
+          ]
+        },
+        {
+          "question_id": "determination",
+          "question_type": 1,
+          "question_span": [
+            494,
+            552
+          ],
+          "option_spans": [
+            [
+              563,
+              582
+            ],
+            [
+              588,
+              614
+            ],
+            [
+              620,
+              638
+            ]
+          ],
+          "option_ids": [
+            "no",
+            "unresolved",
+            "yes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gv_f1_abbreviation",
+      "input_tokens": 659,
+      "full_cap_equal": true,
+      "truncated": false,
+      "encoded_questions": [
+        {
+          "question_id": "action",
+          "question_type": 1,
+          "question_span": [
+            131,
+            333
+          ],
+          "option_spans": [
+            [
+              344,
+              369
+            ],
+            [
+              375,
+              399
+            ],
+            [
+              405,
+              436
+            ],
+            [
+              442,
+              472
+            ]
+          ],
+          "option_ids": [
+            "answer",
+            "ask_fact",
+            "ask_target",
+            "resolve_conflict"
+          ]
+        },
+        {
+          "question_id": "determination",
+          "question_type": 1,
+          "question_span": [
+            493,
+            551
+          ],
+          "option_spans": [
+            [
+              562,
+              581
+            ],
+            [
+              587,
+              613
+            ],
+            [
+              619,
+              637
+            ]
+          ],
+          "option_ids": [
+            "no",
+            "unresolved",
+            "yes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gv_f1_de_en_mix",
+      "input_tokens": 662,
+      "full_cap_equal": true,
+      "truncated": false,
+      "encoded_questions": [
+        {
+          "question_id": "action",
+          "question_type": 1,
+          "question_span": [
+            134,
+            336
+          ],
+          "option_spans": [
+            [
+              347,
+              372
+            ],
+            [
+              378,
+              402
+            ],
+            [
+              408,
+              439
+            ],
+            [
+              445,
+              475
+            ]
+          ],
+          "option_ids": [
+            "answer",
+            "ask_fact",
+            "ask_target",
+            "resolve_conflict"
+          ]
+        },
+        {
+          "question_id": "determination",
+          "question_type": 1,
+          "question_span": [
+            496,
+            554
+          ],
+          "option_spans": [
+            [
+              565,
+              584
+            ],
+            [
+              590,
+              616
+            ],
+            [
+              622,
+              640
+            ]
+          ],
+          "option_ids": [
+            "no",
+            "unresolved",
+            "yes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gv_f2_canonical",
+      "input_tokens": 671,
+      "full_cap_equal": true,
+      "truncated": false,
+      "encoded_questions": [
+        {
+          "question_id": "action",
+          "question_type": 1,
+          "question_span": [
+            143,
+            345
+          ],
+          "option_spans": [
+            [
+              356,
+              381
+            ],
+            [
+              387,
+              411
+            ],
+            [
+              417,
+              448
+            ],
+            [
+              454,
+              484
+            ]
+          ],
+          "option_ids": [
+            "answer",
+            "ask_fact",
+            "ask_target",
+            "resolve_conflict"
+          ]
+        },
+        {
+          "question_id": "determination",
+          "question_type": 1,
+          "question_span": [
+            505,
+            563
+          ],
+          "option_spans": [
+            [
+              574,
+              593
+            ],
+            [
+              599,
+              625
+            ],
+            [
+              631,
+              649
+            ]
+          ],
+          "option_ids": [
+            "no",
+            "unresolved",
+            "yes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gv_f2_typo",
+      "input_tokens": 672,
+      "full_cap_equal": true,
+      "truncated": false,
+      "encoded_questions": [
+        {
+          "question_id": "action",
+          "question_type": 1,
+          "question_span": [
+            144,
+            346
+          ],
+          "option_spans": [
+            [
+              357,
+              382
+            ],
+            [
+              388,
+              412
+            ],
+            [
+              418,
+              449
+            ],
+            [
+              455,
+              485
+            ]
+          ],
+          "option_ids": [
+            "answer",
+            "ask_fact",
+            "ask_target",
+            "resolve_conflict"
+          ]
+        },
+        {
+          "question_id": "determination",
+          "question_type": 1,
+          "question_span": [
+            506,
+            564
+          ],
+          "option_spans": [
+            [
+              575,
+              594
+            ],
+            [
+              600,
+              626
+            ],
+            [
+              632,
+              650
+            ]
+          ],
+          "option_ids": [
+            "no",
+            "unresolved",
+            "yes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gv_f2_compact_colloquial",
+      "input_tokens": 669,
+      "full_cap_equal": true,
+      "truncated": false,
+      "encoded_questions": [
+        {
+          "question_id": "action",
+          "question_type": 1,
+          "question_span": [
+            141,
+            343
+          ],
+          "option_spans": [
+            [
+              354,
+              379
+            ],
+            [
+              385,
+              409
+            ],
+            [
+              415,
+              446
+            ],
+            [
+              452,
+              482
+            ]
+          ],
+          "option_ids": [
+            "answer",
+            "ask_fact",
+            "ask_target",
+            "resolve_conflict"
+          ]
+        },
+        {
+          "question_id": "determination",
+          "question_type": 1,
+          "question_span": [
+            503,
+            561
+          ],
+          "option_spans": [
+            [
+              572,
+              591
+            ],
+            [
+              597,
+              623
+            ],
+            [
+              629,
+              647
+            ]
+          ],
+          "option_ids": [
+            "no",
+            "unresolved",
+            "yes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gv_f2_abbreviation",
+      "input_tokens": 668,
+      "full_cap_equal": true,
+      "truncated": false,
+      "encoded_questions": [
+        {
+          "question_id": "action",
+          "question_type": 1,
+          "question_span": [
+            140,
+            342
+          ],
+          "option_spans": [
+            [
+              353,
+              378
+            ],
+            [
+              384,
+              408
+            ],
+            [
+              414,
+              445
+            ],
+            [
+              451,
+              481
+            ]
+          ],
+          "option_ids": [
+            "answer",
+            "ask_fact",
+            "ask_target",
+            "resolve_conflict"
+          ]
+        },
+        {
+          "question_id": "determination",
+          "question_type": 1,
+          "question_span": [
+            502,
+            560
+          ],
+          "option_spans": [
+            [
+              571,
+              590
+            ],
+            [
+              596,
+              622
+            ],
+            [
+              628,
+              646
+            ]
+          ],
+          "option_ids": [
+            "no",
+            "unresolved",
+            "yes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gv_f2_de_en_mix",
+      "input_tokens": 670,
+      "full_cap_equal": true,
+      "truncated": false,
+      "encoded_questions": [
+        {
+          "question_id": "action",
+          "question_type": 1,
+          "question_span": [
+            142,
+            344
+          ],
+          "option_spans": [
+            [
+              355,
+              380
+            ],
+            [
+              386,
+              410
+            ],
+            [
+              416,
+              447
+            ],
+            [
+              453,
+              483
+            ]
+          ],
+          "option_ids": [
+            "answer",
+            "ask_fact",
+            "ask_target",
+            "resolve_conflict"
+          ]
+        },
+        {
+          "question_id": "determination",
+          "question_type": 1,
+          "question_span": [
+            504,
+            562
+          ],
+          "option_spans": [
+            [
+              573,
+              592
+            ],
+            [
+              598,
+              624
+            ],
+            [
+              630,
+              648
+            ]
+          ],
+          "option_ids": [
+            "no",
+            "unresolved",
+            "yes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gv_f3_canonical",
+      "input_tokens": 666,
+      "full_cap_equal": true,
+      "truncated": false,
+      "encoded_questions": [
+        {
+          "question_id": "action",
+          "question_type": 1,
+          "question_span": [
+            138,
+            340
+          ],
+          "option_spans": [
+            [
+              351,
+              376
+            ],
+            [
+              382,
+              406
+            ],
+            [
+              412,
+              443
+            ],
+            [
+              449,
+              479
+            ]
+          ],
+          "option_ids": [
+            "answer",
+            "ask_fact",
+            "ask_target",
+            "resolve_conflict"
+          ]
+        },
+        {
+          "question_id": "determination",
+          "question_type": 1,
+          "question_span": [
+            500,
+            558
+          ],
+          "option_spans": [
+            [
+              569,
+              588
+            ],
+            [
+              594,
+              620
+            ],
+            [
+              626,
+              644
+            ]
+          ],
+          "option_ids": [
+            "no",
+            "unresolved",
+            "yes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gv_f3_typo",
+      "input_tokens": 667,
+      "full_cap_equal": true,
+      "truncated": false,
+      "encoded_questions": [
+        {
+          "question_id": "action",
+          "question_type": 1,
+          "question_span": [
+            139,
+            341
+          ],
+          "option_spans": [
+            [
+              352,
+              377
+            ],
+            [
+              383,
+              407
+            ],
+            [
+              413,
+              444
+            ],
+            [
+              450,
+              480
+            ]
+          ],
+          "option_ids": [
+            "answer",
+            "ask_fact",
+            "ask_target",
+            "resolve_conflict"
+          ]
+        },
+        {
+          "question_id": "determination",
+          "question_type": 1,
+          "question_span": [
+            501,
+            559
+          ],
+          "option_spans": [
+            [
+              570,
+              589
+            ],
+            [
+              595,
+              621
+            ],
+            [
+              627,
+              645
+            ]
+          ],
+          "option_ids": [
+            "no",
+            "unresolved",
+            "yes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gv_f3_compact_colloquial",
+      "input_tokens": 668,
+      "full_cap_equal": true,
+      "truncated": false,
+      "encoded_questions": [
+        {
+          "question_id": "action",
+          "question_type": 1,
+          "question_span": [
+            140,
+            342
+          ],
+          "option_spans": [
+            [
+              353,
+              378
+            ],
+            [
+              384,
+              408
+            ],
+            [
+              414,
+              445
+            ],
+            [
+              451,
+              481
+            ]
+          ],
+          "option_ids": [
+            "answer",
+            "ask_fact",
+            "ask_target",
+            "resolve_conflict"
+          ]
+        },
+        {
+          "question_id": "determination",
+          "question_type": 1,
+          "question_span": [
+            502,
+            560
+          ],
+          "option_spans": [
+            [
+              571,
+              590
+            ],
+            [
+              596,
+              622
+            ],
+            [
+              628,
+              646
+            ]
+          ],
+          "option_ids": [
+            "no",
+            "unresolved",
+            "yes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gv_f3_abbreviation",
+      "input_tokens": 664,
+      "full_cap_equal": true,
+      "truncated": false,
+      "encoded_questions": [
+        {
+          "question_id": "action",
+          "question_type": 1,
+          "question_span": [
+            136,
+            338
+          ],
+          "option_spans": [
+            [
+              349,
+              374
+            ],
+            [
+              380,
+              404
+            ],
+            [
+              410,
+              441
+            ],
+            [
+              447,
+              477
+            ]
+          ],
+          "option_ids": [
+            "answer",
+            "ask_fact",
+            "ask_target",
+            "resolve_conflict"
+          ]
+        },
+        {
+          "question_id": "determination",
+          "question_type": 1,
+          "question_span": [
+            498,
+            556
+          ],
+          "option_spans": [
+            [
+              567,
+              586
+            ],
+            [
+              592,
+              618
+            ],
+            [
+              624,
+              642
+            ]
+          ],
+          "option_ids": [
+            "no",
+            "unresolved",
+            "yes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gv_f3_de_en_mix",
+      "input_tokens": 665,
+      "full_cap_equal": true,
+      "truncated": false,
+      "encoded_questions": [
+        {
+          "question_id": "action",
+          "question_type": 1,
+          "question_span": [
+            137,
+            339
+          ],
+          "option_spans": [
+            [
+              350,
+              375
+            ],
+            [
+              381,
+              405
+            ],
+            [
+              411,
+              442
+            ],
+            [
+              448,
+              478
+            ]
+          ],
+          "option_ids": [
+            "answer",
+            "ask_fact",
+            "ask_target",
+            "resolve_conflict"
+          ]
+        },
+        {
+          "question_id": "determination",
+          "question_type": 1,
+          "question_span": [
+            499,
+            557
+          ],
+          "option_spans": [
+            [
+              568,
+              587
+            ],
+            [
+              593,
+              619
+            ],
+            [
+              625,
+              643
+            ]
+          ],
+          "option_ids": [
+            "no",
+            "unresolved",
+            "yes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gv_f4_canonical",
+      "input_tokens": 704,
+      "full_cap_equal": true,
+      "truncated": false,
+      "encoded_questions": [
+        {
+          "question_id": "action",
+          "question_type": 1,
+          "question_span": [
+            176,
+            378
+          ],
+          "option_spans": [
+            [
+              389,
+              414
+            ],
+            [
+              420,
+              444
+            ],
+            [
+              450,
+              481
+            ],
+            [
+              487,
+              517
+            ]
+          ],
+          "option_ids": [
+            "answer",
+            "ask_fact",
+            "ask_target",
+            "resolve_conflict"
+          ]
+        },
+        {
+          "question_id": "determination",
+          "question_type": 1,
+          "question_span": [
+            538,
+            596
+          ],
+          "option_spans": [
+            [
+              607,
+              626
+            ],
+            [
+              632,
+              658
+            ],
+            [
+              664,
+              682
+            ]
+          ],
+          "option_ids": [
+            "no",
+            "unresolved",
+            "yes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gv_f4_typo",
+      "input_tokens": 705,
+      "full_cap_equal": true,
+      "truncated": false,
+      "encoded_questions": [
+        {
+          "question_id": "action",
+          "question_type": 1,
+          "question_span": [
+            177,
+            379
+          ],
+          "option_spans": [
+            [
+              390,
+              415
+            ],
+            [
+              421,
+              445
+            ],
+            [
+              451,
+              482
+            ],
+            [
+              488,
+              518
+            ]
+          ],
+          "option_ids": [
+            "answer",
+            "ask_fact",
+            "ask_target",
+            "resolve_conflict"
+          ]
+        },
+        {
+          "question_id": "determination",
+          "question_type": 1,
+          "question_span": [
+            539,
+            597
+          ],
+          "option_spans": [
+            [
+              608,
+              627
+            ],
+            [
+              633,
+              659
+            ],
+            [
+              665,
+              683
+            ]
+          ],
+          "option_ids": [
+            "no",
+            "unresolved",
+            "yes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gv_f4_compact_colloquial",
+      "input_tokens": 698,
+      "full_cap_equal": true,
+      "truncated": false,
+      "encoded_questions": [
+        {
+          "question_id": "action",
+          "question_type": 1,
+          "question_span": [
+            170,
+            372
+          ],
+          "option_spans": [
+            [
+              383,
+              408
+            ],
+            [
+              414,
+              438
+            ],
+            [
+              444,
+              475
+            ],
+            [
+              481,
+              511
+            ]
+          ],
+          "option_ids": [
+            "answer",
+            "ask_fact",
+            "ask_target",
+            "resolve_conflict"
+          ]
+        },
+        {
+          "question_id": "determination",
+          "question_type": 1,
+          "question_span": [
+            532,
+            590
+          ],
+          "option_spans": [
+            [
+              601,
+              620
+            ],
+            [
+              626,
+              652
+            ],
+            [
+              658,
+              676
+            ]
+          ],
+          "option_ids": [
+            "no",
+            "unresolved",
+            "yes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gv_f4_abbreviation",
+      "input_tokens": 696,
+      "full_cap_equal": true,
+      "truncated": false,
+      "encoded_questions": [
+        {
+          "question_id": "action",
+          "question_type": 1,
+          "question_span": [
+            168,
+            370
+          ],
+          "option_spans": [
+            [
+              381,
+              406
+            ],
+            [
+              412,
+              436
+            ],
+            [
+              442,
+              473
+            ],
+            [
+              479,
+              509
+            ]
+          ],
+          "option_ids": [
+            "answer",
+            "ask_fact",
+            "ask_target",
+            "resolve_conflict"
+          ]
+        },
+        {
+          "question_id": "determination",
+          "question_type": 1,
+          "question_span": [
+            530,
+            588
+          ],
+          "option_spans": [
+            [
+              599,
+              618
+            ],
+            [
+              624,
+              650
+            ],
+            [
+              656,
+              674
+            ]
+          ],
+          "option_ids": [
+            "no",
+            "unresolved",
+            "yes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gv_f4_de_en_mix",
+      "input_tokens": 699,
+      "full_cap_equal": true,
+      "truncated": false,
+      "encoded_questions": [
+        {
+          "question_id": "action",
+          "question_type": 1,
+          "question_span": [
+            171,
+            373
+          ],
+          "option_spans": [
+            [
+              384,
+              409
+            ],
+            [
+              415,
+              439
+            ],
+            [
+              445,
+              476
+            ],
+            [
+              482,
+              512
+            ]
+          ],
+          "option_ids": [
+            "answer",
+            "ask_fact",
+            "ask_target",
+            "resolve_conflict"
+          ]
+        },
+        {
+          "question_id": "determination",
+          "question_type": 1,
+          "question_span": [
+            533,
+            591
+          ],
+          "option_spans": [
+            [
+              602,
+              621
+            ],
+            [
+              627,
+              653
+            ],
+            [
+              659,
+              677
+            ]
+          ],
+          "option_ids": [
+            "no",
+            "unresolved",
+            "yes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gv_banking_missing_fact_a",
+      "input_tokens": 650,
+      "full_cap_equal": true,
+      "truncated": false,
+      "encoded_questions": [
+        {
+          "question_id": "action",
+          "question_type": 1,
+          "question_span": [
+            122,
+            324
+          ],
+          "option_spans": [
+            [
+              335,
+              360
+            ],
+            [
+              366,
+              390
+            ],
+            [
+              396,
+              427
+            ],
+            [
+              433,
+              463
+            ]
+          ],
+          "option_ids": [
+            "answer",
+            "ask_fact",
+            "ask_target",
+            "resolve_conflict"
+          ]
+        },
+        {
+          "question_id": "determination",
+          "question_type": 1,
+          "question_span": [
+            484,
+            542
+          ],
+          "option_spans": [
+            [
+              553,
+              572
+            ],
+            [
+              578,
+              604
+            ],
+            [
+              610,
+              628
+            ]
+          ],
+          "option_ids": [
+            "no",
+            "unresolved",
+            "yes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gv_banking_missing_fact_b",
+      "input_tokens": 654,
+      "full_cap_equal": true,
+      "truncated": false,
+      "encoded_questions": [
+        {
+          "question_id": "action",
+          "question_type": 1,
+          "question_span": [
+            126,
+            328
+          ],
+          "option_spans": [
+            [
+              339,
+              364
+            ],
+            [
+              370,
+              394
+            ],
+            [
+              400,
+              431
+            ],
+            [
+              437,
+              467
+            ]
+          ],
+          "option_ids": [
+            "answer",
+            "ask_fact",
+            "ask_target",
+            "resolve_conflict"
+          ]
+        },
+        {
+          "question_id": "determination",
+          "question_type": 1,
+          "question_span": [
+            488,
+            546
+          ],
+          "option_spans": [
+            [
+              557,
+              576
+            ],
+            [
+              582,
+              608
+            ],
+            [
+              614,
+              632
+            ]
+          ],
+          "option_ids": [
+            "no",
+            "unresolved",
+            "yes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gv_banking_missing_target_a",
+      "input_tokens": 666,
+      "full_cap_equal": true,
+      "truncated": false,
+      "encoded_questions": [
+        {
+          "question_id": "action",
+          "question_type": 1,
+          "question_span": [
+            138,
+            340
+          ],
+          "option_spans": [
+            [
+              351,
+              376
+            ],
+            [
+              382,
+              406
+            ],
+            [
+              412,
+              443
+            ],
+            [
+              449,
+              479
+            ]
+          ],
+          "option_ids": [
+            "answer",
+            "ask_fact",
+            "ask_target",
+            "resolve_conflict"
+          ]
+        },
+        {
+          "question_id": "determination",
+          "question_type": 1,
+          "question_span": [
+            500,
+            558
+          ],
+          "option_spans": [
+            [
+              569,
+              588
+            ],
+            [
+              594,
+              620
+            ],
+            [
+              626,
+              644
+            ]
+          ],
+          "option_ids": [
+            "no",
+            "unresolved",
+            "yes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gv_banking_missing_target_b",
+      "input_tokens": 671,
+      "full_cap_equal": true,
+      "truncated": false,
+      "encoded_questions": [
+        {
+          "question_id": "action",
+          "question_type": 1,
+          "question_span": [
+            143,
+            345
+          ],
+          "option_spans": [
+            [
+              356,
+              381
+            ],
+            [
+              387,
+              411
+            ],
+            [
+              417,
+              448
+            ],
+            [
+              454,
+              484
+            ]
+          ],
+          "option_ids": [
+            "answer",
+            "ask_fact",
+            "ask_target",
+            "resolve_conflict"
+          ]
+        },
+        {
+          "question_id": "determination",
+          "question_type": 1,
+          "question_span": [
+            505,
+            563
+          ],
+          "option_spans": [
+            [
+              574,
+              593
+            ],
+            [
+              599,
+              625
+            ],
+            [
+              631,
+              649
+            ]
+          ],
+          "option_ids": [
+            "no",
+            "unresolved",
+            "yes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gv_insurance_missing_fact_a",
+      "input_tokens": 647,
+      "full_cap_equal": true,
+      "truncated": false,
+      "encoded_questions": [
+        {
+          "question_id": "action",
+          "question_type": 1,
+          "question_span": [
+            119,
+            321
+          ],
+          "option_spans": [
+            [
+              332,
+              357
+            ],
+            [
+              363,
+              387
+            ],
+            [
+              393,
+              424
+            ],
+            [
+              430,
+              460
+            ]
+          ],
+          "option_ids": [
+            "answer",
+            "ask_fact",
+            "ask_target",
+            "resolve_conflict"
+          ]
+        },
+        {
+          "question_id": "determination",
+          "question_type": 1,
+          "question_span": [
+            481,
+            539
+          ],
+          "option_spans": [
+            [
+              550,
+              569
+            ],
+            [
+              575,
+              601
+            ],
+            [
+              607,
+              625
+            ]
+          ],
+          "option_ids": [
+            "no",
+            "unresolved",
+            "yes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gv_insurance_missing_fact_b",
+      "input_tokens": 651,
+      "full_cap_equal": true,
+      "truncated": false,
+      "encoded_questions": [
+        {
+          "question_id": "action",
+          "question_type": 1,
+          "question_span": [
+            123,
+            325
+          ],
+          "option_spans": [
+            [
+              336,
+              361
+            ],
+            [
+              367,
+              391
+            ],
+            [
+              397,
+              428
+            ],
+            [
+              434,
+              464
+            ]
+          ],
+          "option_ids": [
+            "answer",
+            "ask_fact",
+            "ask_target",
+            "resolve_conflict"
+          ]
+        },
+        {
+          "question_id": "determination",
+          "question_type": 1,
+          "question_span": [
+            485,
+            543
+          ],
+          "option_spans": [
+            [
+              554,
+              573
+            ],
+            [
+              579,
+              605
+            ],
+            [
+              611,
+              629
+            ]
+          ],
+          "option_ids": [
+            "no",
+            "unresolved",
+            "yes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gv_insurance_missing_target_a",
+      "input_tokens": 662,
+      "full_cap_equal": true,
+      "truncated": false,
+      "encoded_questions": [
+        {
+          "question_id": "action",
+          "question_type": 1,
+          "question_span": [
+            134,
+            336
+          ],
+          "option_spans": [
+            [
+              347,
+              372
+            ],
+            [
+              378,
+              402
+            ],
+            [
+              408,
+              439
+            ],
+            [
+              445,
+              475
+            ]
+          ],
+          "option_ids": [
+            "answer",
+            "ask_fact",
+            "ask_target",
+            "resolve_conflict"
+          ]
+        },
+        {
+          "question_id": "determination",
+          "question_type": 1,
+          "question_span": [
+            496,
+            554
+          ],
+          "option_spans": [
+            [
+              565,
+              584
+            ],
+            [
+              590,
+              616
+            ],
+            [
+              622,
+              640
+            ]
+          ],
+          "option_ids": [
+            "no",
+            "unresolved",
+            "yes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gv_insurance_missing_target_b",
+      "input_tokens": 668,
+      "full_cap_equal": true,
+      "truncated": false,
+      "encoded_questions": [
+        {
+          "question_id": "action",
+          "question_type": 1,
+          "question_span": [
+            140,
+            342
+          ],
+          "option_spans": [
+            [
+              353,
+              378
+            ],
+            [
+              384,
+              408
+            ],
+            [
+              414,
+              445
+            ],
+            [
+              451,
+              481
+            ]
+          ],
+          "option_ids": [
+            "answer",
+            "ask_fact",
+            "ask_target",
+            "resolve_conflict"
+          ]
+        },
+        {
+          "question_id": "determination",
+          "question_type": 1,
+          "question_span": [
+            502,
+            560
+          ],
+          "option_spans": [
+            [
+              571,
+              590
+            ],
+            [
+              596,
+              622
+            ],
+            [
+              628,
+              646
+            ]
+          ],
+          "option_ids": [
+            "no",
+            "unresolved",
+            "yes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gv_finance_missing_fact_a",
+      "input_tokens": 651,
+      "full_cap_equal": true,
+      "truncated": false,
+      "encoded_questions": [
+        {
+          "question_id": "action",
+          "question_type": 1,
+          "question_span": [
+            123,
+            325
+          ],
+          "option_spans": [
+            [
+              336,
+              361
+            ],
+            [
+              367,
+              391
+            ],
+            [
+              397,
+              428
+            ],
+            [
+              434,
+              464
+            ]
+          ],
+          "option_ids": [
+            "answer",
+            "ask_fact",
+            "ask_target",
+            "resolve_conflict"
+          ]
+        },
+        {
+          "question_id": "determination",
+          "question_type": 1,
+          "question_span": [
+            485,
+            543
+          ],
+          "option_spans": [
+            [
+              554,
+              573
+            ],
+            [
+              579,
+              605
+            ],
+            [
+              611,
+              629
+            ]
+          ],
+          "option_ids": [
+            "no",
+            "unresolved",
+            "yes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gv_finance_missing_fact_b",
+      "input_tokens": 655,
+      "full_cap_equal": true,
+      "truncated": false,
+      "encoded_questions": [
+        {
+          "question_id": "action",
+          "question_type": 1,
+          "question_span": [
+            127,
+            329
+          ],
+          "option_spans": [
+            [
+              340,
+              365
+            ],
+            [
+              371,
+              395
+            ],
+            [
+              401,
+              432
+            ],
+            [
+              438,
+              468
+            ]
+          ],
+          "option_ids": [
+            "answer",
+            "ask_fact",
+            "ask_target",
+            "resolve_conflict"
+          ]
+        },
+        {
+          "question_id": "determination",
+          "question_type": 1,
+          "question_span": [
+            489,
+            547
+          ],
+          "option_spans": [
+            [
+              558,
+              577
+            ],
+            [
+              583,
+              609
+            ],
+            [
+              615,
+              633
+            ]
+          ],
+          "option_ids": [
+            "no",
+            "unresolved",
+            "yes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gv_finance_missing_target_a",
+      "input_tokens": 667,
+      "full_cap_equal": true,
+      "truncated": false,
+      "encoded_questions": [
+        {
+          "question_id": "action",
+          "question_type": 1,
+          "question_span": [
+            139,
+            341
+          ],
+          "option_spans": [
+            [
+              352,
+              377
+            ],
+            [
+              383,
+              407
+            ],
+            [
+              413,
+              444
+            ],
+            [
+              450,
+              480
+            ]
+          ],
+          "option_ids": [
+            "answer",
+            "ask_fact",
+            "ask_target",
+            "resolve_conflict"
+          ]
+        },
+        {
+          "question_id": "determination",
+          "question_type": 1,
+          "question_span": [
+            501,
+            559
+          ],
+          "option_spans": [
+            [
+              570,
+              589
+            ],
+            [
+              595,
+              621
+            ],
+            [
+              627,
+              645
+            ]
+          ],
+          "option_ids": [
+            "no",
+            "unresolved",
+            "yes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gv_finance_missing_target_b",
+      "input_tokens": 673,
+      "full_cap_equal": true,
+      "truncated": false,
+      "encoded_questions": [
+        {
+          "question_id": "action",
+          "question_type": 1,
+          "question_span": [
+            145,
+            347
+          ],
+          "option_spans": [
+            [
+              358,
+              383
+            ],
+            [
+              389,
+              413
+            ],
+            [
+              419,
+              450
+            ],
+            [
+              456,
+              486
+            ]
+          ],
+          "option_ids": [
+            "answer",
+            "ask_fact",
+            "ask_target",
+            "resolve_conflict"
+          ]
+        },
+        {
+          "question_id": "determination",
+          "question_type": 1,
+          "question_span": [
+            507,
+            565
+          ],
+          "option_spans": [
+            [
+              576,
+              595
+            ],
+            [
+              601,
+              627
+            ],
+            [
+              633,
+              651
+            ]
+          ],
+          "option_ids": [
+            "no",
+            "unresolved",
+            "yes"
+          ]
+        }
+      ]
+    }
+  ]
+}

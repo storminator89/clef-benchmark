@@ -1,0 +1,13 @@
+{
+  "mode": "probe",
+  "started_at": "2026-10-03T06:20:11.468991+00:00",
+  "finished_at": "2026-10-03T06:21:21.506138+00:00",
+  "elapsed_seconds": 70.0371607369998,
+  "native_exit_code": 0,
+  "guard_reason": null,
+  "supervisor_error": null,
+  "bound_minutes": 8,
+  "status": "completed",
+  "validated_at": "2026-10-03T06:21:21.509381+00:00",
+  "admission_minimum_8gib_passed": true
+}

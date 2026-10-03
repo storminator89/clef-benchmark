@@ -1,0 +1,389 @@
+{
+  "status": "PASS_SYNTHETIC_ONLY",
+  "identity": "new recovery code and tests; no restoration of historical source hash or historical test evidence",
+  "checked_at_utc": "2026-10-03T06:13:41.125657+00:00",
+  "synthetic_only": true,
+  "model_loaded": false,
+  "api_called": false,
+  "benchmark_predictions_or_results_read": false,
+  "token_fixture": "real_tokenizer_preflight",
+  "token_fixture_sha256": "7f5c1cd243945c381ca56f42e66c3e89bd937aa700142c55578e2e108717eb5b",
+  "passed": 93,
+  "failed": 0,
+  "scorer_sha256": "a606df34726dffe8e7be59827d1cba5320733ca7bea651f2061601cc5a29a22b",
+  "self_test_sha256": "11d5ae085362ced4c7e37186ae528c54e42ae2d14a7915e0c2124578807c61ef",
+  "tests": [
+    {
+      "test": "perfect_all_case_pair_cluster_group_style_domain_denominators",
+      "passed": true
+    },
+    {
+      "test": "missing_shared_canonical_four_pairs_one_unique_case",
+      "passed": true
+    },
+    {
+      "test": "missing_variant_loss_not_observed_change",
+      "passed": true
+    },
+    {
+      "test": "empty_missing_and_zero_denominators_na",
+      "passed": true
+    },
+    {
+      "test": "stable_wrong_is_not_both_correct",
+      "passed": true
+    },
+    {
+      "test": "loss_improvement_shared_canonical_conditional_denominator",
+      "passed": true
+    },
+    {
+      "test": "ambiguity_requires_exact_direction_and_excluded_from_invariance",
+      "passed": true
+    },
+    {
+      "test": "inclusive_raw_090_min_gate_rounded_boundary_both_field_gates",
+      "passed": true
+    },
+    {
+      "test": "low_confidence_valid_and_zero_selected_na",
+      "passed": true
+    },
+    {
+      "test": "exact_tie_first_criteria",
+      "passed": true
+    },
+    {
+      "test": "exact_tie_wrong_later_choice",
+      "passed": true
+    },
+    {
+      "test": "rounded_tie_uses_raw_argmax",
+      "passed": true
+    },
+    {
+      "test": "map_order_is_not_tie_order",
+      "passed": true
+    },
+    {
+      "test": "determination_native_criteria_order_not_lexical",
+      "passed": true
+    },
+    {
+      "test": "determination_lexical_tie_choice_invalid",
+      "passed": true
+    },
+    {
+      "test": "rounded_sum_not_exactly_one_valid",
+      "passed": true
+    },
+    {
+      "test": "raw_sum_inside_tolerance",
+      "passed": true
+    },
+    {
+      "test": "raw_sum_outside_tolerance",
+      "passed": true
+    },
+    {
+      "test": "missing_answers_invalid",
+      "passed": true
+    },
+    {
+      "test": "answers_list_invalid",
+      "passed": true
+    },
+    {
+      "test": "missing_field_invalid",
+      "passed": true
+    },
+    {
+      "test": "extra_field_invalid",
+      "passed": true
+    },
+    {
+      "test": "answer_list_invalid",
+      "passed": true
+    },
+    {
+      "test": "extra_answer_key_invalid",
+      "passed": true
+    },
+    {
+      "test": "wrong_type_invalid",
+      "passed": true
+    },
+    {
+      "test": "wrong_choice_invalid",
+      "passed": true
+    },
+    {
+      "test": "list_choice_invalid",
+      "passed": true
+    },
+    {
+      "test": "missing_raw_invalid",
+      "passed": true
+    },
+    {
+      "test": "raw_list_invalid",
+      "passed": true
+    },
+    {
+      "test": "field_raw_list_invalid",
+      "passed": true
+    },
+    {
+      "test": "missing_raw_field_invalid",
+      "passed": true
+    },
+    {
+      "test": "missing_raw_option_invalid",
+      "passed": true
+    },
+    {
+      "test": "extra_raw_option_invalid",
+      "passed": true
+    },
+    {
+      "test": "negative_probability_invalid",
+      "passed": true
+    },
+    {
+      "test": "over_one_probability_invalid",
+      "passed": true
+    },
+    {
+      "test": "boolean_probability_invalid",
+      "passed": true
+    },
+    {
+      "test": "string_probability_invalid",
+      "passed": true
+    },
+    {
+      "test": "unnormalized_invalid",
+      "passed": true
+    },
+    {
+      "test": "rounded_list_invalid",
+      "passed": true
+    },
+    {
+      "test": "missing_rounded_invalid",
+      "passed": true
+    },
+    {
+      "test": "rounded_missing_option_invalid",
+      "passed": true
+    },
+    {
+      "test": "rounded_extra_option_invalid",
+      "passed": true
+    },
+    {
+      "test": "rounded_boolean_invalid",
+      "passed": true
+    },
+    {
+      "test": "rounded_negative_invalid",
+      "passed": true
+    },
+    {
+      "test": "rounded_near_not_exact_invalid",
+      "passed": true
+    },
+    {
+      "test": "confidence_boolean_invalid",
+      "passed": true
+    },
+    {
+      "test": "confidence_near_not_exact_invalid",
+      "passed": true
+    },
+    {
+      "test": "boolean_tokens_invalid",
+      "passed": true
+    },
+    {
+      "test": "float_tokens_invalid",
+      "passed": true
+    },
+    {
+      "test": "zero_tokens_invalid",
+      "passed": true
+    },
+    {
+      "test": "overcap_tokens_invalid",
+      "passed": true
+    },
+    {
+      "test": "preflight_mismatch_invalid",
+      "passed": true
+    },
+    {
+      "test": "truncated_invalid",
+      "passed": true
+    },
+    {
+      "test": "truncated_integer_false_invalid",
+      "passed": true
+    },
+    {
+      "test": "missing_telemetry_invalid",
+      "passed": true
+    },
+    {
+      "test": "negative_telemetry_invalid",
+      "passed": true
+    },
+    {
+      "test": "boolean_telemetry_invalid",
+      "passed": true
+    },
+    {
+      "test": "latency_mismatch_invalid",
+      "passed": true
+    },
+    {
+      "test": "explicit_error_invalid",
+      "passed": true
+    },
+    {
+      "test": "invalid_variant_degradation",
+      "passed": true
+    },
+    {
+      "test": "duplicate_id_global_stop",
+      "passed": true
+    },
+    {
+      "test": "unexpected_id_global_stop",
+      "passed": true
+    },
+    {
+      "test": "unassignable_id_global_stop",
+      "passed": true
+    },
+    {
+      "test": "nonobject_row_global_stop",
+      "passed": true
+    },
+    {
+      "test": "malformed_json_global_stop",
+      "passed": true
+    },
+    {
+      "test": "duplicate_json_key_global_stop",
+      "passed": true
+    },
+    {
+      "test": "nested_duplicate_key_global_stop",
+      "passed": true
+    },
+    {
+      "test": "bare_NaN_global_stop",
+      "passed": true
+    },
+    {
+      "test": "bare_Infinity_global_stop",
+      "passed": true
+    },
+    {
+      "test": "bare_-Infinity_global_stop",
+      "passed": true
+    },
+    {
+      "test": "overflow_invalid_raw_bytes_error_evidence_retained_no_overwrite",
+      "passed": true
+    },
+    {
+      "test": "telemetry_uses_unique_main_requests_not_pairs",
+      "passed": true
+    },
+    {
+      "test": "preflight_wrong_request_hash",
+      "passed": true
+    },
+    {
+      "test": "preflight_missing_id",
+      "passed": true
+    },
+    {
+      "test": "preflight_duplicate_id",
+      "passed": true
+    },
+    {
+      "test": "preflight_invalid_tokens",
+      "passed": true
+    },
+    {
+      "test": "preflight_truncated",
+      "passed": true
+    },
+    {
+      "test": "preflight_missing_root_full_cap_evidence",
+      "passed": true
+    },
+    {
+      "test": "preflight_false_root_full_cap_evidence",
+      "passed": true
+    },
+    {
+      "test": "preflight_missing_case_full_cap_evidence",
+      "passed": true
+    },
+    {
+      "test": "preflight_false_case_full_cap_evidence",
+      "passed": true
+    },
+    {
+      "test": "preflight_missing_truncation_evidence",
+      "passed": true
+    },
+    {
+      "test": "preflight_missing_encoded_questions",
+      "passed": true
+    },
+    {
+      "test": "preflight_missing_encoded_option_ids",
+      "passed": true
+    },
+    {
+      "test": "preflight_missing_encoded_spans",
+      "passed": true
+    },
+    {
+      "test": "preflight_encoded_span_outside_tokens",
+      "passed": true
+    },
+    {
+      "test": "preflight_encoded_boolean_question_type",
+      "passed": true
+    },
+    {
+      "test": "lexical_encoded_options_distinct_from_native_tie_order",
+      "passed": true
+    },
+    {
+      "test": "duplicate_case_id_stops",
+      "passed": true
+    },
+    {
+      "test": "wrong_pair_endpoint_stops",
+      "passed": true
+    },
+    {
+      "test": "wrong_pair_domain_stops",
+      "passed": true
+    },
+    {
+      "test": "gold_disagreement_stops",
+      "passed": true
+    },
+    {
+      "test": "changed_request_bytes_stops",
+      "passed": true
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "status": "derived_from_immutable_reported_usage_not_provider_invoice",
+  "pricing_basis": "USD 0.042 per million input tokens",
+  "strict_valid_cases": 937,
+  "strict_valid_input_tokens": 999960,
+  "strict_valid_cost_usd": "0.04199832",
+  "flagged_cases_with_usage": 35,
+  "flagged_input_tokens": 44096,
+  "flagged_cost_usd": "0.001852032",
+  "known_usage_cases": 972,
+  "known_input_tokens": 1044056,
+  "known_usage_cost_usd": "0.043850352",
+  "unpriced_cases": 2,
+  "unpriced_case_ids": [
+    "bank_access_tan_01",
+    "de_finance_advice_escalation_005"
+  ],
+  "original_guard_reserved_capacity_usd": "2.680946688",
+  "caveats": [
+    "Two historical cases have unknown actual usage; no zero-cost assumption.",
+    "Reserved capacity is a local safety guard, not actual billed charges.",
+    "Original run_summary known_success_cost_usd covers strict-valid rows only; flagged cost is separate.",
+    "All original collector and scorer bytes are preserved."
+  ]
+}

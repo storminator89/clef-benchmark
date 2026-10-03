@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "base_commit": "db4812a0947166c4ecadd5aef921b1254996c87d",
+  "scope": "Reader documentation and read-only, separately partitioned native evidence browser. No inference or execution-policy changes.",
+  "admitted_sources": {
+    "language72": {
+      "manifest_sha256": "8d092cd96f86e4e5a79e2382cc81e430b96b18d7ebcf5310b45812c9f44a4427",
+      "public_files": 62,
+      "native_cases": 72
+    },
+    "jev974": {
+      "manifest_sha256": "af1055142305bc2cd2207f51e6396383ff58c54ee1af1da8b4760c661375ae35",
+      "public_files": 17,
+      "native_cases": 974,
+      "strict_valid": 937,
+      "technical_excluded": 37,
+      "unchanged_quarantined_vectors": 35
+    }
+  },
+  "pending_studies": [
+    "new exact-300 native MASSIVE replication",
+    "new multiturn48 evaluation"
+  ],
+  "checks": {
+    "python_tests": 379,
+    "javascript_dom_tests": 171,
+    "historical_integrity_gates": 7,
+    "documented_audit_rescore_commands": 4,
+    "jev_replayed_output_files_byte_identical": 5,
+    "language_replayed_output_files_byte_identical": 6,
+    "language_independent_assertions": 1698,
+    "independent_UI_mapping_review": "passed for all72 and974 rows, source/gold/native maps, matched denominators and strict exclusion separation",
+    "browser_capture": "not run locally; prepared for the approved standard GitHub runner"
+  },
+  "preservation": {
+    "immutable_study_source_bytes_unchanged": true,
+    "existing_workflow_collector_auditor_and_execution_pins_unchanged": true,
+    "historical_frozen_scientific_files_unchanged": true
+  },
+  "limits": [
+    "Public synthetic tests and explicitly licensed MASSIVE data; not representative population claims.",
+    "Jev direct comparisons use matched valid cases per partition; coverage remains separate.",
+    "Missing MASSIVE Clef baseline is pending, never displayed as zero correct.",
+    "Technical failures are not grouped as semantic errors; quarantined values are never normalized.",
+    "No pooled model accuracy, probability metric or cross-hardware speed ratio.",
+    "No new browser screenshot is claimed before runner capture and visual review."
+  ],
+  "new_model_calls": 0,
+  "new_provider_calls": 0
+}

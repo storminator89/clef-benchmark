@@ -1,0 +1,13 @@
+{
+  "mode": "segment02",
+  "started_at": "2026-10-03T06:33:11.642652+00:00",
+  "finished_at": "2026-10-03T06:43:13.886417+00:00",
+  "elapsed_seconds": 602.2437774189984,
+  "native_exit_code": 0,
+  "guard_reason": null,
+  "supervisor_error": null,
+  "bound_minutes": 40,
+  "status": "completed",
+  "validated_at": "2026-10-03T06:43:13.896483+00:00",
+  "admission_minimum_8gib_passed": true
+}

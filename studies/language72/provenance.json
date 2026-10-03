@@ -1,0 +1,23 @@
+{
+  "identity": "german_variants_recovered_execution_v2_public",
+  "scientific_input_identity_restored": true,
+  "requests_sha256": "0a5d7e070afdb17c10ee8fd4c74c321aafd3ee8197dcd0ef7d2d253d816c2e12",
+  "historical_matching_first_segment_sha256": "975748f859d7dececef5df26eeb0b6b3c4ab2c1f229bc23ef294e48327b47ec0",
+  "recovery_limits": "Original full preparation archive and failed-attempt raw logs were unavailable after workspace loss. Requests were reconstructed and matched their previously recorded hashes; gold, scoring code and reviews are new recovery records.",
+  "historical_status": [
+    {
+      "at": "2026-10-02T21:21:59Z",
+      "exit_signal": "SIGKILL",
+      "scored_rows": 0
+    },
+    {
+      "at": "2026-10-02T21:31:19Z",
+      "exit_signal": "SIGKILL",
+      "scored_rows": 0
+    }
+  ],
+  "historical_failure_cause": "not established",
+  "current_remedy": "Rebuilt verified environment; unchanged native model/configuration, corrected available-memory admission of at least8GiB; separate warmup-only probe before main evaluation.",
+  "interpretation": "Successful recovery does not retroactively establish the historical termination cause.",
+  "public_curation": "Operational and private environment diagnostics omitted; all inputs, gold, native scientific outputs/probabilities, scores, errors, and essential model/package facts retained."
+}

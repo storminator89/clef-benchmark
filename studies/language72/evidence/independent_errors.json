@@ -1,0 +1,202 @@
+[
+  {
+    "id": "gv_b4_canonical",
+    "domain": "banking",
+    "group": "invariant",
+    "style": "canonical",
+    "expected": {
+      "action": "ask_target",
+      "determination": "unresolved"
+    },
+    "predicted": {
+      "action": "ask_target",
+      "determination": "no"
+    },
+    "valid": true,
+    "field_correct": {
+      "action": true,
+      "determination": false
+    },
+    "minimum_selected_probability": 0.47664913535118103,
+    "high_score_selected": false,
+    "rule": "Ein fiktiver Archivauftrag ist genau dann freigegeben, wenn er geprüft ist. Bei mehreren möglichen Aufträgen muss der gemeinte Auftrag feststehen, sofern ihre Ergebnisse verschieden sind.",
+    "question": "Ist der gemeinte Archivauftrag freigegeben?",
+    "message": "Archivauftrag A ist geprüft. Archivauftrag B ist nicht geprüft. Welchen der beiden ich meine, ist nicht festgelegt.",
+    "independently_reviewed_gold_basis": "A is checked and B is not; the unspecified target changes the release result."
+  },
+  {
+    "id": "gv_b4_typo",
+    "domain": "banking",
+    "group": "invariant",
+    "style": "typo",
+    "expected": {
+      "action": "ask_target",
+      "determination": "unresolved"
+    },
+    "predicted": {
+      "action": "ask_target",
+      "determination": "no"
+    },
+    "valid": true,
+    "field_correct": {
+      "action": true,
+      "determination": false
+    },
+    "minimum_selected_probability": 0.3641519844532013,
+    "high_score_selected": false,
+    "rule": "Ein fiktiver Archivauftrag ist genau dann freigegeben, wenn er geprüft ist. Bei mehreren möglichen Aufträgen muss der gemeinte Auftrag feststehen, sofern ihre Ergebnisse verschieden sind.",
+    "question": "Ist der gemeinte Archivauftrag freigegeben?",
+    "message": "Archivauftrag A ist geprüft. Archivauftrag B ist nicht geprüft. Welchen der beidne ich meine, ist nicht festgelegt.",
+    "independently_reviewed_gold_basis": "A is checked and B is not; the unspecified target changes the release result."
+  },
+  {
+    "id": "gv_b4_de_en_mix",
+    "domain": "banking",
+    "group": "invariant",
+    "style": "de_en_mix",
+    "expected": {
+      "action": "ask_target",
+      "determination": "unresolved"
+    },
+    "predicted": {
+      "action": "answer",
+      "determination": "unresolved"
+    },
+    "valid": true,
+    "field_correct": {
+      "action": false,
+      "determination": true
+    },
+    "minimum_selected_probability": 0.4420018494129181,
+    "high_score_selected": false,
+    "rule": "Ein fiktiver Archivauftrag ist genau dann freigegeben, wenn er geprüft ist. Bei mehreren möglichen Aufträgen muss der gemeinte Auftrag feststehen, sofern ihre Ergebnisse verschieden sind.",
+    "question": "Ist der gemeinte Archivauftrag freigegeben?",
+    "message": "Archivauftrag A ist checked. B ist not checked. Welchen Auftrag ich meine, ist nicht festgelegt.",
+    "independently_reviewed_gold_basis": "A is checked and B is not; the unspecified target changes the release result."
+  },
+  {
+    "id": "gv_f4_canonical",
+    "domain": "finance",
+    "group": "invariant",
+    "style": "canonical",
+    "expected": {
+      "action": "ask_target",
+      "determination": "unresolved"
+    },
+    "predicted": {
+      "action": "answer",
+      "determination": "unresolved"
+    },
+    "valid": true,
+    "field_correct": {
+      "action": false,
+      "determination": true
+    },
+    "minimum_selected_probability": 0.6124475002288818,
+    "high_score_selected": false,
+    "rule": "Ein fiktiver Depotbeleg ist genau dann digital abrufbar, wenn sein Digitalzugang aktiviert ist. Bei mehreren möglichen Belegen muss das Ziel feststehen, sofern ihre Ergebnisse verschieden sind.",
+    "question": "Ist der gemeinte Depotbeleg digital abrufbar?",
+    "message": "Bei Depotbeleg A ist der Digitalzugang aktiviert. Bei Depotbeleg B ist er nicht aktiviert. Welchen Beleg ich meine, ist offen.",
+    "independently_reviewed_gold_basis": "A has enabled access and B does not; the intended document is unspecified."
+  },
+  {
+    "id": "gv_f4_de_en_mix",
+    "domain": "finance",
+    "group": "invariant",
+    "style": "de_en_mix",
+    "expected": {
+      "action": "ask_target",
+      "determination": "unresolved"
+    },
+    "predicted": {
+      "action": "answer",
+      "determination": "unresolved"
+    },
+    "valid": true,
+    "field_correct": {
+      "action": false,
+      "determination": true
+    },
+    "minimum_selected_probability": 0.5436817407608032,
+    "high_score_selected": false,
+    "rule": "Ein fiktiver Depotbeleg ist genau dann digital abrufbar, wenn sein Digitalzugang aktiviert ist. Bei mehreren möglichen Belegen muss das Ziel feststehen, sofern ihre Ergebnisse verschieden sind.",
+    "question": "Ist der gemeinte Depotbeleg digital abrufbar?",
+    "message": "Bei Depotbeleg A ist der Digitalzugang enabled. Bei B ist er not enabled. Welchen Beleg ich meine, ist offen.",
+    "independently_reviewed_gold_basis": "A has enabled access and B does not; the intended document is unspecified."
+  },
+  {
+    "id": "gv_banking_missing_target_b",
+    "domain": "banking",
+    "group": "ambiguity_change",
+    "style": "target_removed",
+    "expected": {
+      "action": "ask_target",
+      "determination": "unresolved"
+    },
+    "predicted": {
+      "action": "answer",
+      "determination": "no"
+    },
+    "valid": true,
+    "field_correct": {
+      "action": false,
+      "determination": false
+    },
+    "minimum_selected_probability": 0.8279700875282288,
+    "high_score_selected": false,
+    "rule": "Ein fiktives Adressblatt ist genau dann verwendbar, wenn es geprüft ist.",
+    "question": "Ist das gemeinte Adressblatt verwendbar?",
+    "message": "Adressblatt A ist geprüft. Adressblatt B ist nicht geprüft. Welches der beiden ich meine, ist nicht festgelegt.",
+    "independently_reviewed_gold_basis": "A and B have different predicate values, and the target is no longer selected."
+  },
+  {
+    "id": "gv_insurance_missing_target_b",
+    "domain": "insurance",
+    "group": "ambiguity_change",
+    "style": "target_removed",
+    "expected": {
+      "action": "ask_target",
+      "determination": "unresolved"
+    },
+    "predicted": {
+      "action": "answer",
+      "determination": "no"
+    },
+    "valid": true,
+    "field_correct": {
+      "action": false,
+      "determination": false
+    },
+    "minimum_selected_probability": 0.7095847725868225,
+    "high_score_selected": false,
+    "rule": "Ein fiktives Schadenblatt ist genau dann verwendbar, wenn es bestätigt ist.",
+    "question": "Ist das gemeinte Schadenblatt verwendbar?",
+    "message": "Schadenblatt A ist bestätigt. Schadenblatt B ist nicht bestätigt. Welches der beiden ich meine, ist nicht festgelegt.",
+    "independently_reviewed_gold_basis": "A and B have different predicate values, and the target is no longer selected."
+  },
+  {
+    "id": "gv_finance_missing_target_b",
+    "domain": "finance",
+    "group": "ambiguity_change",
+    "style": "target_removed",
+    "expected": {
+      "action": "ask_target",
+      "determination": "unresolved"
+    },
+    "predicted": {
+      "action": "answer",
+      "determination": "no"
+    },
+    "valid": true,
+    "field_correct": {
+      "action": false,
+      "determination": false
+    },
+    "minimum_selected_probability": 0.590904951095581,
+    "high_score_selected": false,
+    "rule": "Ein fiktives Exportblatt ist genau dann verwendbar, wenn es freigegeben ist.",
+    "question": "Ist das gemeinte Exportblatt verwendbar?",
+    "message": "Exportblatt A ist freigegeben. Exportblatt B ist nicht freigegeben. Welches der beiden ich meine, ist nicht festgelegt.",
+    "independently_reviewed_gold_basis": "A and B have different predicate values, and the target is no longer selected."
+  }
+]

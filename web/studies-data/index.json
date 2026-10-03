@@ -1,0 +1,62 @@
+{
+  "format_version": 1,
+  "studies": [
+    {
+      "id": "language72",
+      "label": "Sprachvarianten",
+      "subtitle": "Gleiche Regeln, andere Formulierungen",
+      "status": "completed",
+      "planned_requests": 72,
+      "unit": "Anfragen",
+      "note": "Vollständiger nativer Lauf, unabhängig geprüft.",
+      "methods": [
+        "72 Anfragen: 60 in zwölf Basisgruppen und zwölf Anfragen in sechs Bedeutungswechsel-Kontrollpaaren.",
+        "48 Paarvergleiche teilen sich Basisfälle. Paarzahlen sind keine Zahl unabhängiger Beobachtungen.",
+        "KI-verfasste deutsche Varianten; keine repräsentative Dialekt- oder Bevölkerungsstudie."
+      ],
+      "data_file": "./studies-data/language72.json"
+    },
+    {
+      "id": "jev974",
+      "label": "Clef & Jev",
+      "subtitle": "Gleiche Fälle, getrennte Teilgruppen",
+      "status": "completed",
+      "planned_requests": 974,
+      "unit": "Anfragen",
+      "data_file": "./studies-data/jev974.json",
+      "methods": [
+        "Die Vergleichszahlen beziehen sich je Teilgruppe nur auf Fälle mit zwei gültigen Modellantworten.",
+        "Jev-Abdeckung wird separat gezeigt. 37 technische Ausschlüsse werden nicht als beobachtete semantische Fehler bezeichnet.",
+        "Für MASSIVE fehlt hier die native Clef-Baseline. Jevs gültige Antworten bleiben ein Einzelmodell-Ergebnis."
+      ]
+    },
+    {
+      "id": "massive300",
+      "label": "MASSIVE Deutsch",
+      "subtitle": "Neue 300-Fälle-Replikation",
+      "status": "pending",
+      "planned_requests": 300,
+      "unit": "Anfragen",
+      "note": "Eine neue Replikation ist vorbereitet. Noch keine verifizierten nativen Ergebnisse in dieser Ansicht.",
+      "methods": [
+        "Eigene feste 300-Fälle-Stichprobe des offiziellen deutschen Testsets, kein vollständiger Leaderboardlauf.",
+        "60 angebotene Labels; goldgestützte Makro-F1 und feste Labelkonvention werden getrennt ausgewiesen.",
+        "Die früher berichtete Messung ist hier nicht als wiederhergestellte Rohdaten enthalten."
+      ]
+    },
+    {
+      "id": "multiturn48",
+      "label": "Gesprächskontext",
+      "subtitle": "Neuer Test mit 24 Fallpaaren",
+      "status": "pending",
+      "planned_requests": 48,
+      "unit": "Anfragen",
+      "note": "Ein neuer Test wird vorbereitet. Vergangene, nicht wiederhergestellte Ergebnisse werden nicht als Messwerte angezeigt.",
+      "methods": [
+        "Vollständig serialisierte Verläufe, keine laufende Konversation und kein Gedächtnistest.",
+        "Darstellung, Länge und Explizitheit können sich unterscheiden; die Paarergebnisse bleiben getrennt.",
+        "KI-verfasste fiktive Fälle; keine menschliche Fachexperten- oder Produktionsvalidierung."
+      ]
+    }
+  ]
+}

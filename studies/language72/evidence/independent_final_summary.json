@@ -1,0 +1,73 @@
+{
+  "status": "PASS_INDEPENDENT_COMPLETED_RESULT_AUDIT",
+  "checked_at": "2026-10-03T06:44:02.138855+00:00",
+  "independent_native_rows": 72,
+  "invalid_native_rows": 0,
+  "independent_oracle_assertions": 1698,
+  "case_artifacts_checked": 72,
+  "pair_artifacts_checked": 54,
+  "cluster_artifacts_checked": 12,
+  "all_error_artifacts_checked": 8,
+  "primary_scorer_imported": false,
+  "pre_run_primary_tests": 93,
+  "pre_run_independent_scenarios": 22,
+  "pre_run_independent_assertions": 28922,
+  "native_validator_synthetic_checks": 14,
+  "scope": "All native rows, scored artifacts, fixed metrics, scientific byte identity, runtime order and exact assembly checked independently; separate full-error semantic review supplied.",
+  "runtime_modes": [
+    {
+      "mode": "probe",
+      "scored_rows": 0,
+      "started_at": "2026-10-03T06:20:11.468991+00:00",
+      "finished_at": "2026-10-03T06:21:21.506138+00:00",
+      "load_seconds": 53.402731301999665,
+      "warmup_tokens": 144,
+      "repeat_summary": null,
+      "predictions_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "native_metadata_sha256": "cdce275163422041841737eda3e8b0014b73b780d7186a5e8ae785d21e5cca7c"
+    },
+    {
+      "mode": "segment01",
+      "scored_rows": 36,
+      "started_at": "2026-10-03T06:21:45.003460+00:00",
+      "finished_at": "2026-10-03T06:31:59.261243+00:00",
+      "load_seconds": 51.77237930500087,
+      "warmup_tokens": 144,
+      "repeat_summary": {
+        "id": "gv_f4_compact_colloquial",
+        "repeat_max_absolute_probability_difference": 0.0,
+        "same_choice": true,
+        "single_case_only": true
+      },
+      "predictions_sha256": "62485e9b73fde3e8e3b44474fc1e7106b9257b8b8c4d1874de033a92f7e23011",
+      "native_metadata_sha256": "4481ac293448a0c63ba3e34cc2fc2f7507b8c887c7b685e94568ea363a4e11be"
+    },
+    {
+      "mode": "segment02",
+      "scored_rows": 36,
+      "started_at": "2026-10-03T06:33:11.642652+00:00",
+      "finished_at": "2026-10-03T06:43:13.886417+00:00",
+      "load_seconds": 53.81870273799905,
+      "warmup_tokens": 144,
+      "repeat_summary": {
+        "id": "gv_banking_missing_target_b",
+        "repeat_max_absolute_probability_difference": 0.0,
+        "same_choice": true,
+        "single_case_only": true
+      },
+      "predictions_sha256": "a02787bc5edc96a201dd9b787dd2a1d02930238e8b7a0b3c3674d3c9220ea097",
+      "native_metadata_sha256": "2ea08a077697ccf81ec3383837020a803aa7eebd3980125b5e0b72151870c548"
+    }
+  ],
+  "scored_calls": 72,
+  "separate_technical_calls": 5,
+  "total_successful_native_calls": 77,
+  "limits": [
+    "Synthetic purposefully constructed cases; AI review, not human expert validation.",
+    "Shared canonical endpoints make pair observations dependent.",
+    "Native repeat exposes only summary, not a separate full row/timing.",
+    "Runtime resource samples are not a continuous ceiling.",
+    "Historical failed-attempt raw logs were unavailable; known status facts are not reconstructed logs.",
+    "Full model hashes were checked before execution; final audit checked that retained verification record, not another independent reread of all weight bytes."
+  ]
+}

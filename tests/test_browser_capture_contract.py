@@ -84,7 +84,7 @@ class BrowserCaptureContractTests(unittest.TestCase):
 
     def test_success_flags_do_not_override_changed_sources(self):
         manifest = {'status': 'pass', 'real_browser_rendering': True,
-                    'model_inference_executed': False, 'synthetic_inputs_only': True,
+                    'model_inference_executed': False, 'public_benchmark_inputs_only': True, 'private_user_inputs_included': False,
                     'chromium_sandbox': True, 'browser_channel': 'chrome', 'source_sha256': {'web/app.js': 'old'}}
         with tempfile.TemporaryDirectory() as tmp, patch.object(capture, 'source_hashes', return_value={'web/app.js': 'new'}):
             root = Path(tmp)
@@ -94,7 +94,7 @@ class BrowserCaptureContractTests(unittest.TestCase):
 
     def test_clean_flags_without_real_pngs_are_insufficient(self):
         manifest = {'status': 'pass', 'real_browser_rendering': True,
-                    'model_inference_executed': False, 'synthetic_inputs_only': True,
+                    'model_inference_executed': False, 'public_benchmark_inputs_only': True, 'private_user_inputs_included': False,
                     'chromium_sandbox': True, 'browser_channel': 'chrome', 'source_sha256': {},
                     'page_errors': [], 'console_errors': [], 'blocked_requests': [],
                     'request_failures': [], 'http_errors': [], 'screenshots': []}

@@ -1,0 +1,11 @@
+{
+  "changes": [
+    {
+      "component": "Portable public verification wrapper",
+      "initial_issue": "Misinterpreted independent native validator boolean/reason tuple as a truthy issue",
+      "correction": "Unpack boolean and reason, record only false-validity outcomes",
+      "scientific_inputs_predictions_gold_scores_changed": false
+    }
+  ],
+  "failed_checker_dump_retained_in_public_export": false
+}

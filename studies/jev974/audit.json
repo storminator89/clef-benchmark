@@ -1,0 +1,27 @@
+{
+  "status": "passed",
+  "audit_revision": "independent-recovery-2026-10-03-v1",
+  "cases_observed": 974,
+  "strict_valid": 937,
+  "technical_failed": 37,
+  "missing": 0,
+  "quarantined_new_cases": 35,
+  "wire_attempts": 974,
+  "retries": 0,
+  "frozen_expected_cases": 974,
+  "massive_baseline": "pending_owner_final_audit",
+  "historical_prefix_bytes_preserved": true,
+  "scorer_imported": false,
+  "collector_imported": false,
+  "network_calls": 0,
+  "credential_reads": 0,
+  "raw_http_body_hashes": "linkage only; discarded bodies cannot be rehashed",
+  "files_sha256": {
+    "attempts.jsonl": "de94031863b4db043e050f1cc17282d49b4d2601b1c6085c9edd10497ed8976f",
+    "connection_check.json": "fcb58d8fc035eb8a2b9953084e11c1ae05032e6cc32f28357cbe7be6a1523f5d",
+    "flagged_native.jsonl": "6051955fb6848ba65b803fe54c64d3e7733b2be2892a5748fda3685bf403d53a",
+    "predictions.jsonl": "758a2fac4d9d6bd4c95996766caebffdb0c9e60ecce5b8a9fb5192811517e943",
+    "run_summary.json": "2d1ac393aadd1ef5a38939e50312f45b46065ba3d238ab459756c0fbe5d16311",
+    "validation_diagnostics.jsonl": "107909d40ea797696c926adc33c80cd492703798cdcf9521c13d588b1edd94c6"
+  }
+}

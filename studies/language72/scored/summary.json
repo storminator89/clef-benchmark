@@ -1,0 +1,5979 @@
+{
+  "suite_id": "german_variant_robustness_recovery_v1",
+  "scoring_contract": {
+    "identity": "new recovery scorer; no original-source-hash restoration claim",
+    "sum_absolute_error_strictly_less_than": 1e-05,
+    "latency_ms_absolute_error_strictly_less_than": 1e-05,
+    "native_rounding": "exact Python round(raw,4) for every map value and selected confidence",
+    "ties": "first maximum in original request criteria order; not lexical encoder option order",
+    "tokens": "integer 1..2048, exactly matching per-ID preflight; truncated is false",
+    "shape": "exact action/determination field maps, exact option membership, exact native answer keys",
+    "invalid_rows": "all fields incorrect; invalid rows are excluded from high-score selection",
+    "high_score": "valid output and min(selected unrounded marginals)>=0.90; not a joint probability",
+    "field_gates": "fields: own marginal>=0.90; fields_on_case_gate: same min-score gate as case",
+    "zero_denominator": "rate=null means NA",
+    "complete_pair": "both endpoint outputs valid",
+    "telemetry": "one observation per recorded main request with finite nonnegative value; no pair weighting, load, warmup or repeat observations",
+    "evidence": "original raw text retained unchanged; nonfinite parsed numbers tagged only in derived JSON"
+  },
+  "design": {
+    "unique_requests": 72,
+    "invariant_unique_requests": 60,
+    "ambiguity_unique_requests": 12,
+    "pairs": 54,
+    "invariant_pairs": 48,
+    "ambiguity_pairs": 6,
+    "invariant_clusters": 12,
+    "conceptual_clusters": 18,
+    "canonical_executions": 12,
+    "canonical_pair_uses": 48
+  },
+  "all_cases": {
+    "count": 72,
+    "valid_outputs": {
+      "numerator": 72,
+      "denominator": 72,
+      "rate": 1.0
+    },
+    "all_fields_exact": {
+      "numerator": 64,
+      "denominator": 72,
+      "rate": 0.8888888888888888
+    },
+    "action_exact": {
+      "numerator": 66,
+      "denominator": 72,
+      "rate": 0.9166666666666666
+    },
+    "determination_exact": {
+      "numerator": 67,
+      "denominator": 72,
+      "rate": 0.9305555555555556
+    },
+    "field_inconsistency": {
+      "numerator": 5,
+      "denominator": 72,
+      "rate": 0.06944444444444445
+    },
+    "high_score": {
+      "selected": {
+        "numerator": 21,
+        "denominator": 72,
+        "rate": 0.2916666666666667
+      },
+      "wrong_and_selected": {
+        "numerator": 0,
+        "denominator": 72,
+        "rate": 0.0
+      },
+      "wrong_among_selected": {
+        "numerator": 0,
+        "denominator": 21,
+        "rate": 0.0
+      },
+      "threshold": 0.9,
+      "fields": {
+        "action": {
+          "selected": {
+            "numerator": 22,
+            "denominator": 72,
+            "rate": 0.3055555555555556
+          },
+          "wrong_and_selected": {
+            "numerator": 0,
+            "denominator": 72,
+            "rate": 0.0
+          },
+          "wrong_among_selected": {
+            "numerator": 0,
+            "denominator": 22,
+            "rate": 0.0
+          }
+        },
+        "determination": {
+          "selected": {
+            "numerator": 59,
+            "denominator": 72,
+            "rate": 0.8194444444444444
+          },
+          "wrong_and_selected": {
+            "numerator": 1,
+            "denominator": 72,
+            "rate": 0.013888888888888888
+          },
+          "wrong_among_selected": {
+            "numerator": 1,
+            "denominator": 59,
+            "rate": 0.01694915254237288
+          }
+        }
+      },
+      "fields_on_case_gate": {
+        "action": {
+          "selected": {
+            "numerator": 21,
+            "denominator": 72,
+            "rate": 0.2916666666666667
+          },
+          "wrong_and_selected": {
+            "numerator": 0,
+            "denominator": 72,
+            "rate": 0.0
+          },
+          "wrong_among_selected": {
+            "numerator": 0,
+            "denominator": 21,
+            "rate": 0.0
+          }
+        },
+        "determination": {
+          "selected": {
+            "numerator": 21,
+            "denominator": 72,
+            "rate": 0.2916666666666667
+          },
+          "wrong_and_selected": {
+            "numerator": 0,
+            "denominator": 72,
+            "rate": 0.0
+          },
+          "wrong_among_selected": {
+            "numerator": 0,
+            "denominator": 21,
+            "rate": 0.0
+          }
+        }
+      }
+    }
+  },
+  "by_group": {
+    "invariant": {
+      "count": 60,
+      "valid_outputs": {
+        "numerator": 60,
+        "denominator": 60,
+        "rate": 1.0
+      },
+      "all_fields_exact": {
+        "numerator": 55,
+        "denominator": 60,
+        "rate": 0.9166666666666666
+      },
+      "action_exact": {
+        "numerator": 57,
+        "denominator": 60,
+        "rate": 0.95
+      },
+      "determination_exact": {
+        "numerator": 58,
+        "denominator": 60,
+        "rate": 0.9666666666666667
+      },
+      "field_inconsistency": {
+        "numerator": 5,
+        "denominator": 60,
+        "rate": 0.08333333333333333
+      },
+      "high_score": {
+        "selected": {
+          "numerator": 17,
+          "denominator": 60,
+          "rate": 0.2833333333333333
+        },
+        "wrong_and_selected": {
+          "numerator": 0,
+          "denominator": 60,
+          "rate": 0.0
+        },
+        "wrong_among_selected": {
+          "numerator": 0,
+          "denominator": 17,
+          "rate": 0.0
+        },
+        "threshold": 0.9,
+        "fields": {
+          "action": {
+            "selected": {
+              "numerator": 18,
+              "denominator": 60,
+              "rate": 0.3
+            },
+            "wrong_and_selected": {
+              "numerator": 0,
+              "denominator": 60,
+              "rate": 0.0
+            },
+            "wrong_among_selected": {
+              "numerator": 0,
+              "denominator": 18,
+              "rate": 0.0
+            }
+          },
+          "determination": {
+            "selected": {
+              "numerator": 49,
+              "denominator": 60,
+              "rate": 0.8166666666666667
+            },
+            "wrong_and_selected": {
+              "numerator": 0,
+              "denominator": 60,
+              "rate": 0.0
+            },
+            "wrong_among_selected": {
+              "numerator": 0,
+              "denominator": 49,
+              "rate": 0.0
+            }
+          }
+        },
+        "fields_on_case_gate": {
+          "action": {
+            "selected": {
+              "numerator": 17,
+              "denominator": 60,
+              "rate": 0.2833333333333333
+            },
+            "wrong_and_selected": {
+              "numerator": 0,
+              "denominator": 60,
+              "rate": 0.0
+            },
+            "wrong_among_selected": {
+              "numerator": 0,
+              "denominator": 17,
+              "rate": 0.0
+            }
+          },
+          "determination": {
+            "selected": {
+              "numerator": 17,
+              "denominator": 60,
+              "rate": 0.2833333333333333
+            },
+            "wrong_and_selected": {
+              "numerator": 0,
+              "denominator": 60,
+              "rate": 0.0
+            },
+            "wrong_among_selected": {
+              "numerator": 0,
+              "denominator": 17,
+              "rate": 0.0
+            }
+          }
+        }
+      }
+    },
+    "ambiguity_change": {
+      "count": 12,
+      "valid_outputs": {
+        "numerator": 12,
+        "denominator": 12,
+        "rate": 1.0
+      },
+      "all_fields_exact": {
+        "numerator": 9,
+        "denominator": 12,
+        "rate": 0.75
+      },
+      "action_exact": {
+        "numerator": 9,
+        "denominator": 12,
+        "rate": 0.75
+      },
+      "determination_exact": {
+        "numerator": 9,
+        "denominator": 12,
+        "rate": 0.75
+      },
+      "field_inconsistency": {
+        "numerator": 0,
+        "denominator": 12,
+        "rate": 0.0
+      },
+      "high_score": {
+        "selected": {
+          "numerator": 4,
+          "denominator": 12,
+          "rate": 0.3333333333333333
+        },
+        "wrong_and_selected": {
+          "numerator": 0,
+          "denominator": 12,
+          "rate": 0.0
+        },
+        "wrong_among_selected": {
+          "numerator": 0,
+          "denominator": 4,
+          "rate": 0.0
+        },
+        "threshold": 0.9,
+        "fields": {
+          "action": {
+            "selected": {
+              "numerator": 4,
+              "denominator": 12,
+              "rate": 0.3333333333333333
+            },
+            "wrong_and_selected": {
+              "numerator": 0,
+              "denominator": 12,
+              "rate": 0.0
+            },
+            "wrong_among_selected": {
+              "numerator": 0,
+              "denominator": 4,
+              "rate": 0.0
+            }
+          },
+          "determination": {
+            "selected": {
+              "numerator": 10,
+              "denominator": 12,
+              "rate": 0.8333333333333334
+            },
+            "wrong_and_selected": {
+              "numerator": 1,
+              "denominator": 12,
+              "rate": 0.08333333333333333
+            },
+            "wrong_among_selected": {
+              "numerator": 1,
+              "denominator": 10,
+              "rate": 0.1
+            }
+          }
+        },
+        "fields_on_case_gate": {
+          "action": {
+            "selected": {
+              "numerator": 4,
+              "denominator": 12,
+              "rate": 0.3333333333333333
+            },
+            "wrong_and_selected": {
+              "numerator": 0,
+              "denominator": 12,
+              "rate": 0.0
+            },
+            "wrong_among_selected": {
+              "numerator": 0,
+              "denominator": 4,
+              "rate": 0.0
+            }
+          },
+          "determination": {
+            "selected": {
+              "numerator": 4,
+              "denominator": 12,
+              "rate": 0.3333333333333333
+            },
+            "wrong_and_selected": {
+              "numerator": 0,
+              "denominator": 12,
+              "rate": 0.0
+            },
+            "wrong_among_selected": {
+              "numerator": 0,
+              "denominator": 4,
+              "rate": 0.0
+            }
+          }
+        }
+      }
+    }
+  },
+  "invariant_views": {
+    "canonical": {
+      "count": 12,
+      "valid_outputs": {
+        "numerator": 12,
+        "denominator": 12,
+        "rate": 1.0
+      },
+      "all_fields_exact": {
+        "numerator": 10,
+        "denominator": 12,
+        "rate": 0.8333333333333334
+      },
+      "action_exact": {
+        "numerator": 11,
+        "denominator": 12,
+        "rate": 0.9166666666666666
+      },
+      "determination_exact": {
+        "numerator": 11,
+        "denominator": 12,
+        "rate": 0.9166666666666666
+      },
+      "field_inconsistency": {
+        "numerator": 2,
+        "denominator": 12,
+        "rate": 0.16666666666666666
+      },
+      "high_score": {
+        "selected": {
+          "numerator": 3,
+          "denominator": 12,
+          "rate": 0.25
+        },
+        "wrong_and_selected": {
+          "numerator": 0,
+          "denominator": 12,
+          "rate": 0.0
+        },
+        "wrong_among_selected": {
+          "numerator": 0,
+          "denominator": 3,
+          "rate": 0.0
+        },
+        "threshold": 0.9,
+        "fields": {
+          "action": {
+            "selected": {
+              "numerator": 3,
+              "denominator": 12,
+              "rate": 0.25
+            },
+            "wrong_and_selected": {
+              "numerator": 0,
+              "denominator": 12,
+              "rate": 0.0
+            },
+            "wrong_among_selected": {
+              "numerator": 0,
+              "denominator": 3,
+              "rate": 0.0
+            }
+          },
+          "determination": {
+            "selected": {
+              "numerator": 10,
+              "denominator": 12,
+              "rate": 0.8333333333333334
+            },
+            "wrong_and_selected": {
+              "numerator": 0,
+              "denominator": 12,
+              "rate": 0.0
+            },
+            "wrong_among_selected": {
+              "numerator": 0,
+              "denominator": 10,
+              "rate": 0.0
+            }
+          }
+        },
+        "fields_on_case_gate": {
+          "action": {
+            "selected": {
+              "numerator": 3,
+              "denominator": 12,
+              "rate": 0.25
+            },
+            "wrong_and_selected": {
+              "numerator": 0,
+              "denominator": 12,
+              "rate": 0.0
+            },
+            "wrong_among_selected": {
+              "numerator": 0,
+              "denominator": 3,
+              "rate": 0.0
+            }
+          },
+          "determination": {
+            "selected": {
+              "numerator": 3,
+              "denominator": 12,
+              "rate": 0.25
+            },
+            "wrong_and_selected": {
+              "numerator": 0,
+              "denominator": 12,
+              "rate": 0.0
+            },
+            "wrong_among_selected": {
+              "numerator": 0,
+              "denominator": 3,
+              "rate": 0.0
+            }
+          }
+        }
+      }
+    },
+    "typo": {
+      "count": 12,
+      "valid_outputs": {
+        "numerator": 12,
+        "denominator": 12,
+        "rate": 1.0
+      },
+      "all_fields_exact": {
+        "numerator": 11,
+        "denominator": 12,
+        "rate": 0.9166666666666666
+      },
+      "action_exact": {
+        "numerator": 12,
+        "denominator": 12,
+        "rate": 1.0
+      },
+      "determination_exact": {
+        "numerator": 11,
+        "denominator": 12,
+        "rate": 0.9166666666666666
+      },
+      "field_inconsistency": {
+        "numerator": 1,
+        "denominator": 12,
+        "rate": 0.08333333333333333
+      },
+      "high_score": {
+        "selected": {
+          "numerator": 4,
+          "denominator": 12,
+          "rate": 0.3333333333333333
+        },
+        "wrong_and_selected": {
+          "numerator": 0,
+          "denominator": 12,
+          "rate": 0.0
+        },
+        "wrong_among_selected": {
+          "numerator": 0,
+          "denominator": 4,
+          "rate": 0.0
+        },
+        "threshold": 0.9,
+        "fields": {
+          "action": {
+            "selected": {
+              "numerator": 4,
+              "denominator": 12,
+              "rate": 0.3333333333333333
+            },
+            "wrong_and_selected": {
+              "numerator": 0,
+              "denominator": 12,
+              "rate": 0.0
+            },
+            "wrong_among_selected": {
+              "numerator": 0,
+              "denominator": 4,
+              "rate": 0.0
+            }
+          },
+          "determination": {
+            "selected": {
+              "numerator": 10,
+              "denominator": 12,
+              "rate": 0.8333333333333334
+            },
+            "wrong_and_selected": {
+              "numerator": 0,
+              "denominator": 12,
+              "rate": 0.0
+            },
+            "wrong_among_selected": {
+              "numerator": 0,
+              "denominator": 10,
+              "rate": 0.0
+            }
+          }
+        },
+        "fields_on_case_gate": {
+          "action": {
+            "selected": {
+              "numerator": 4,
+              "denominator": 12,
+              "rate": 0.3333333333333333
+            },
+            "wrong_and_selected": {
+              "numerator": 0,
+              "denominator": 12,
+              "rate": 0.0
+            },
+            "wrong_among_selected": {
+              "numerator": 0,
+              "denominator": 4,
+              "rate": 0.0
+            }
+          },
+          "determination": {
+            "selected": {
+              "numerator": 4,
+              "denominator": 12,
+              "rate": 0.3333333333333333
+            },
+            "wrong_and_selected": {
+              "numerator": 0,
+              "denominator": 12,
+              "rate": 0.0
+            },
+            "wrong_among_selected": {
+              "numerator": 0,
+              "denominator": 4,
+              "rate": 0.0
+            }
+          }
+        }
+      }
+    },
+    "compact_colloquial": {
+      "count": 12,
+      "valid_outputs": {
+        "numerator": 12,
+        "denominator": 12,
+        "rate": 1.0
+      },
+      "all_fields_exact": {
+        "numerator": 12,
+        "denominator": 12,
+        "rate": 1.0
+      },
+      "action_exact": {
+        "numerator": 12,
+        "denominator": 12,
+        "rate": 1.0
+      },
+      "determination_exact": {
+        "numerator": 12,
+        "denominator": 12,
+        "rate": 1.0
+      },
+      "field_inconsistency": {
+        "numerator": 0,
+        "denominator": 12,
+        "rate": 0.0
+      },
+      "high_score": {
+        "selected": {
+          "numerator": 5,
+          "denominator": 12,
+          "rate": 0.4166666666666667
+        },
+        "wrong_and_selected": {
+          "numerator": 0,
+          "denominator": 12,
+          "rate": 0.0
+        },
+        "wrong_among_selected": {
+          "numerator": 0,
+          "denominator": 5,
+          "rate": 0.0
+        },
+        "threshold": 0.9,
+        "fields": {
+          "action": {
+            "selected": {
+              "numerator": 5,
+              "denominator": 12,
+              "rate": 0.4166666666666667
+            },
+            "wrong_and_selected": {
+              "numerator": 0,
+              "denominator": 12,
+              "rate": 0.0
+            },
+            "wrong_among_selected": {
+              "numerator": 0,
+              "denominator": 5,
+              "rate": 0.0
+            }
+          },
+          "determination": {
+            "selected": {
+              "numerator": 10,
+              "denominator": 12,
+              "rate": 0.8333333333333334
+            },
+            "wrong_and_selected": {
+              "numerator": 0,
+              "denominator": 12,
+              "rate": 0.0
+            },
+            "wrong_among_selected": {
+              "numerator": 0,
+              "denominator": 10,
+              "rate": 0.0
+            }
+          }
+        },
+        "fields_on_case_gate": {
+          "action": {
+            "selected": {
+              "numerator": 5,
+              "denominator": 12,
+              "rate": 0.4166666666666667
+            },
+            "wrong_and_selected": {
+              "numerator": 0,
+              "denominator": 12,
+              "rate": 0.0
+            },
+            "wrong_among_selected": {
+              "numerator": 0,
+              "denominator": 5,
+              "rate": 0.0
+            }
+          },
+          "determination": {
+            "selected": {
+              "numerator": 5,
+              "denominator": 12,
+              "rate": 0.4166666666666667
+            },
+            "wrong_and_selected": {
+              "numerator": 0,
+              "denominator": 12,
+              "rate": 0.0
+            },
+            "wrong_among_selected": {
+              "numerator": 0,
+              "denominator": 5,
+              "rate": 0.0
+            }
+          }
+        }
+      }
+    },
+    "abbreviation": {
+      "count": 12,
+      "valid_outputs": {
+        "numerator": 12,
+        "denominator": 12,
+        "rate": 1.0
+      },
+      "all_fields_exact": {
+        "numerator": 12,
+        "denominator": 12,
+        "rate": 1.0
+      },
+      "action_exact": {
+        "numerator": 12,
+        "denominator": 12,
+        "rate": 1.0
+      },
+      "determination_exact": {
+        "numerator": 12,
+        "denominator": 12,
+        "rate": 1.0
+      },
+      "field_inconsistency": {
+        "numerator": 0,
+        "denominator": 12,
+        "rate": 0.0
+      },
+      "high_score": {
+        "selected": {
+          "numerator": 3,
+          "denominator": 12,
+          "rate": 0.25
+        },
+        "wrong_and_selected": {
+          "numerator": 0,
+          "denominator": 12,
+          "rate": 0.0
+        },
+        "wrong_among_selected": {
+          "numerator": 0,
+          "denominator": 3,
+          "rate": 0.0
+        },
+        "threshold": 0.9,
+        "fields": {
+          "action": {
+            "selected": {
+              "numerator": 4,
+              "denominator": 12,
+              "rate": 0.3333333333333333
+            },
+            "wrong_and_selected": {
+              "numerator": 0,
+              "denominator": 12,
+              "rate": 0.0
+            },
+            "wrong_among_selected": {
+              "numerator": 0,
+              "denominator": 4,
+              "rate": 0.0
+            }
+          },
+          "determination": {
+            "selected": {
+              "numerator": 10,
+              "denominator": 12,
+              "rate": 0.8333333333333334
+            },
+            "wrong_and_selected": {
+              "numerator": 0,
+              "denominator": 12,
+              "rate": 0.0
+            },
+            "wrong_among_selected": {
+              "numerator": 0,
+              "denominator": 10,
+              "rate": 0.0
+            }
+          }
+        },
+        "fields_on_case_gate": {
+          "action": {
+            "selected": {
+              "numerator": 3,
+              "denominator": 12,
+              "rate": 0.25
+            },
+            "wrong_and_selected": {
+              "numerator": 0,
+              "denominator": 12,
+              "rate": 0.0
+            },
+            "wrong_among_selected": {
+              "numerator": 0,
+              "denominator": 3,
+              "rate": 0.0
+            }
+          },
+          "determination": {
+            "selected": {
+              "numerator": 3,
+              "denominator": 12,
+              "rate": 0.25
+            },
+            "wrong_and_selected": {
+              "numerator": 0,
+              "denominator": 12,
+              "rate": 0.0
+            },
+            "wrong_among_selected": {
+              "numerator": 0,
+              "denominator": 3,
+              "rate": 0.0
+            }
+          }
+        }
+      }
+    },
+    "de_en_mix": {
+      "count": 12,
+      "valid_outputs": {
+        "numerator": 12,
+        "denominator": 12,
+        "rate": 1.0
+      },
+      "all_fields_exact": {
+        "numerator": 10,
+        "denominator": 12,
+        "rate": 0.8333333333333334
+      },
+      "action_exact": {
+        "numerator": 10,
+        "denominator": 12,
+        "rate": 0.8333333333333334
+      },
+      "determination_exact": {
+        "numerator": 12,
+        "denominator": 12,
+        "rate": 1.0
+      },
+      "field_inconsistency": {
+        "numerator": 2,
+        "denominator": 12,
+        "rate": 0.16666666666666666
+      },
+      "high_score": {
+        "selected": {
+          "numerator": 2,
+          "denominator": 12,
+          "rate": 0.16666666666666666
+        },
+        "wrong_and_selected": {
+          "numerator": 0,
+          "denominator": 12,
+          "rate": 0.0
+        },
+        "wrong_among_selected": {
+          "numerator": 0,
+          "denominator": 2,
+          "rate": 0.0
+        },
+        "threshold": 0.9,
+        "fields": {
+          "action": {
+            "selected": {
+              "numerator": 2,
+              "denominator": 12,
+              "rate": 0.16666666666666666
+            },
+            "wrong_and_selected": {
+              "numerator": 0,
+              "denominator": 12,
+              "rate": 0.0
+            },
+            "wrong_among_selected": {
+              "numerator": 0,
+              "denominator": 2,
+              "rate": 0.0
+            }
+          },
+          "determination": {
+            "selected": {
+              "numerator": 9,
+              "denominator": 12,
+              "rate": 0.75
+            },
+            "wrong_and_selected": {
+              "numerator": 0,
+              "denominator": 12,
+              "rate": 0.0
+            },
+            "wrong_among_selected": {
+              "numerator": 0,
+              "denominator": 9,
+              "rate": 0.0
+            }
+          }
+        },
+        "fields_on_case_gate": {
+          "action": {
+            "selected": {
+              "numerator": 2,
+              "denominator": 12,
+              "rate": 0.16666666666666666
+            },
+            "wrong_and_selected": {
+              "numerator": 0,
+              "denominator": 12,
+              "rate": 0.0
+            },
+            "wrong_among_selected": {
+              "numerator": 0,
+              "denominator": 2,
+              "rate": 0.0
+            }
+          },
+          "determination": {
+            "selected": {
+              "numerator": 2,
+              "denominator": 12,
+              "rate": 0.16666666666666666
+            },
+            "wrong_and_selected": {
+              "numerator": 0,
+              "denominator": 12,
+              "rate": 0.0
+            },
+            "wrong_among_selected": {
+              "numerator": 0,
+              "denominator": 2,
+              "rate": 0.0
+            }
+          }
+        }
+      }
+    }
+  },
+  "invariant_pairs": {
+    "count": 48,
+    "both_correct": {
+      "numerator": 40,
+      "denominator": 48,
+      "rate": 0.8333333333333334
+    },
+    "observed_change": {
+      "numerator": 6,
+      "denominator": 48,
+      "rate": 0.125
+    },
+    "invalid_or_missing": {
+      "numerator": 0,
+      "denominator": 48,
+      "rate": 0.0
+    },
+    "missing_endpoint": {
+      "numerator": 0,
+      "denominator": 48,
+      "rate": 0.0
+    },
+    "invalid_existing_endpoint": {
+      "numerator": 0,
+      "denominator": 48,
+      "rate": 0.0
+    },
+    "stability": {
+      "numerator": 42,
+      "denominator": 48,
+      "rate": 0.875
+    },
+    "stable_correct": {
+      "numerator": 40,
+      "denominator": 48,
+      "rate": 0.8333333333333334
+    },
+    "stable_wrong": {
+      "numerator": 2,
+      "denominator": 48,
+      "rate": 0.041666666666666664
+    },
+    "failed_invariance": {
+      "numerator": 6,
+      "denominator": 48,
+      "rate": 0.125
+    },
+    "degradation": {
+      "numerator": 0,
+      "denominator": 48,
+      "rate": 0.0
+    },
+    "improvement": {
+      "numerator": 5,
+      "denominator": 48,
+      "rate": 0.10416666666666667
+    },
+    "both_incorrect": {
+      "numerator": 3,
+      "denominator": 48,
+      "rate": 0.0625
+    },
+    "observed_change_among_valid": {
+      "numerator": 6,
+      "denominator": 48,
+      "rate": 0.125
+    },
+    "conditional_loss_given_correct_canonical": {
+      "numerator": 0,
+      "denominator": 40,
+      "rate": 0.0
+    }
+  },
+  "ambiguity_controls": {
+    "count": 6,
+    "both_correct": {
+      "numerator": 3,
+      "denominator": 6,
+      "rate": 0.5
+    },
+    "observed_change": {
+      "numerator": 3,
+      "denominator": 6,
+      "rate": 0.5
+    },
+    "invalid_or_missing": {
+      "numerator": 0,
+      "denominator": 6,
+      "rate": 0.0
+    },
+    "missing_endpoint": {
+      "numerator": 0,
+      "denominator": 6,
+      "rate": 0.0
+    },
+    "invalid_existing_endpoint": {
+      "numerator": 0,
+      "denominator": 6,
+      "rate": 0.0
+    },
+    "correct_directional_change": {
+      "numerator": 3,
+      "denominator": 6,
+      "rate": 0.5
+    },
+    "changed_but_direction_wrong": {
+      "numerator": 0,
+      "denominator": 6,
+      "rate": 0.0
+    },
+    "observed_change_among_valid": {
+      "numerator": 3,
+      "denominator": 6,
+      "rate": 0.5
+    }
+  },
+  "cluster_robustness": {
+    "count": 12,
+    "all_five_correct": {
+      "numerator": 10,
+      "denominator": 12,
+      "rate": 0.8333333333333334
+    },
+    "all_five_valid": {
+      "numerator": 12,
+      "denominator": 12,
+      "rate": 1.0
+    }
+  },
+  "invariant_by_transformation": {
+    "typo": {
+      "count": 12,
+      "both_correct": {
+        "numerator": 10,
+        "denominator": 12,
+        "rate": 0.8333333333333334
+      },
+      "observed_change": {
+        "numerator": 1,
+        "denominator": 12,
+        "rate": 0.08333333333333333
+      },
+      "invalid_or_missing": {
+        "numerator": 0,
+        "denominator": 12,
+        "rate": 0.0
+      },
+      "missing_endpoint": {
+        "numerator": 0,
+        "denominator": 12,
+        "rate": 0.0
+      },
+      "invalid_existing_endpoint": {
+        "numerator": 0,
+        "denominator": 12,
+        "rate": 0.0
+      },
+      "stability": {
+        "numerator": 11,
+        "denominator": 12,
+        "rate": 0.9166666666666666
+      },
+      "stable_correct": {
+        "numerator": 10,
+        "denominator": 12,
+        "rate": 0.8333333333333334
+      },
+      "stable_wrong": {
+        "numerator": 1,
+        "denominator": 12,
+        "rate": 0.08333333333333333
+      },
+      "failed_invariance": {
+        "numerator": 1,
+        "denominator": 12,
+        "rate": 0.08333333333333333
+      },
+      "degradation": {
+        "numerator": 0,
+        "denominator": 12,
+        "rate": 0.0
+      },
+      "improvement": {
+        "numerator": 1,
+        "denominator": 12,
+        "rate": 0.08333333333333333
+      },
+      "both_incorrect": {
+        "numerator": 1,
+        "denominator": 12,
+        "rate": 0.08333333333333333
+      },
+      "observed_change_among_valid": {
+        "numerator": 1,
+        "denominator": 12,
+        "rate": 0.08333333333333333
+      },
+      "conditional_loss_given_correct_canonical": {
+        "numerator": 0,
+        "denominator": 10,
+        "rate": 0.0
+      }
+    },
+    "compact_colloquial": {
+      "count": 12,
+      "both_correct": {
+        "numerator": 10,
+        "denominator": 12,
+        "rate": 0.8333333333333334
+      },
+      "observed_change": {
+        "numerator": 2,
+        "denominator": 12,
+        "rate": 0.16666666666666666
+      },
+      "invalid_or_missing": {
+        "numerator": 0,
+        "denominator": 12,
+        "rate": 0.0
+      },
+      "missing_endpoint": {
+        "numerator": 0,
+        "denominator": 12,
+        "rate": 0.0
+      },
+      "invalid_existing_endpoint": {
+        "numerator": 0,
+        "denominator": 12,
+        "rate": 0.0
+      },
+      "stability": {
+        "numerator": 10,
+        "denominator": 12,
+        "rate": 0.8333333333333334
+      },
+      "stable_correct": {
+        "numerator": 10,
+        "denominator": 12,
+        "rate": 0.8333333333333334
+      },
+      "stable_wrong": {
+        "numerator": 0,
+        "denominator": 12,
+        "rate": 0.0
+      },
+      "failed_invariance": {
+        "numerator": 2,
+        "denominator": 12,
+        "rate": 0.16666666666666666
+      },
+      "degradation": {
+        "numerator": 0,
+        "denominator": 12,
+        "rate": 0.0
+      },
+      "improvement": {
+        "numerator": 2,
+        "denominator": 12,
+        "rate": 0.16666666666666666
+      },
+      "both_incorrect": {
+        "numerator": 0,
+        "denominator": 12,
+        "rate": 0.0
+      },
+      "observed_change_among_valid": {
+        "numerator": 2,
+        "denominator": 12,
+        "rate": 0.16666666666666666
+      },
+      "conditional_loss_given_correct_canonical": {
+        "numerator": 0,
+        "denominator": 10,
+        "rate": 0.0
+      }
+    },
+    "abbreviation": {
+      "count": 12,
+      "both_correct": {
+        "numerator": 10,
+        "denominator": 12,
+        "rate": 0.8333333333333334
+      },
+      "observed_change": {
+        "numerator": 2,
+        "denominator": 12,
+        "rate": 0.16666666666666666
+      },
+      "invalid_or_missing": {
+        "numerator": 0,
+        "denominator": 12,
+        "rate": 0.0
+      },
+      "missing_endpoint": {
+        "numerator": 0,
+        "denominator": 12,
+        "rate": 0.0
+      },
+      "invalid_existing_endpoint": {
+        "numerator": 0,
+        "denominator": 12,
+        "rate": 0.0
+      },
+      "stability": {
+        "numerator": 10,
+        "denominator": 12,
+        "rate": 0.8333333333333334
+      },
+      "stable_correct": {
+        "numerator": 10,
+        "denominator": 12,
+        "rate": 0.8333333333333334
+      },
+      "stable_wrong": {
+        "numerator": 0,
+        "denominator": 12,
+        "rate": 0.0
+      },
+      "failed_invariance": {
+        "numerator": 2,
+        "denominator": 12,
+        "rate": 0.16666666666666666
+      },
+      "degradation": {
+        "numerator": 0,
+        "denominator": 12,
+        "rate": 0.0
+      },
+      "improvement": {
+        "numerator": 2,
+        "denominator": 12,
+        "rate": 0.16666666666666666
+      },
+      "both_incorrect": {
+        "numerator": 0,
+        "denominator": 12,
+        "rate": 0.0
+      },
+      "observed_change_among_valid": {
+        "numerator": 2,
+        "denominator": 12,
+        "rate": 0.16666666666666666
+      },
+      "conditional_loss_given_correct_canonical": {
+        "numerator": 0,
+        "denominator": 10,
+        "rate": 0.0
+      }
+    },
+    "de_en_mix": {
+      "count": 12,
+      "both_correct": {
+        "numerator": 10,
+        "denominator": 12,
+        "rate": 0.8333333333333334
+      },
+      "observed_change": {
+        "numerator": 1,
+        "denominator": 12,
+        "rate": 0.08333333333333333
+      },
+      "invalid_or_missing": {
+        "numerator": 0,
+        "denominator": 12,
+        "rate": 0.0
+      },
+      "missing_endpoint": {
+        "numerator": 0,
+        "denominator": 12,
+        "rate": 0.0
+      },
+      "invalid_existing_endpoint": {
+        "numerator": 0,
+        "denominator": 12,
+        "rate": 0.0
+      },
+      "stability": {
+        "numerator": 11,
+        "denominator": 12,
+        "rate": 0.9166666666666666
+      },
+      "stable_correct": {
+        "numerator": 10,
+        "denominator": 12,
+        "rate": 0.8333333333333334
+      },
+      "stable_wrong": {
+        "numerator": 1,
+        "denominator": 12,
+        "rate": 0.08333333333333333
+      },
+      "failed_invariance": {
+        "numerator": 1,
+        "denominator": 12,
+        "rate": 0.08333333333333333
+      },
+      "degradation": {
+        "numerator": 0,
+        "denominator": 12,
+        "rate": 0.0
+      },
+      "improvement": {
+        "numerator": 0,
+        "denominator": 12,
+        "rate": 0.0
+      },
+      "both_incorrect": {
+        "numerator": 2,
+        "denominator": 12,
+        "rate": 0.16666666666666666
+      },
+      "observed_change_among_valid": {
+        "numerator": 1,
+        "denominator": 12,
+        "rate": 0.08333333333333333
+      },
+      "conditional_loss_given_correct_canonical": {
+        "numerator": 0,
+        "denominator": 10,
+        "rate": 0.0
+      }
+    }
+  },
+  "ambiguity_by_subtype": {
+    "answer_to_missing_fact": {
+      "count": 3,
+      "both_correct": {
+        "numerator": 3,
+        "denominator": 3,
+        "rate": 1.0
+      },
+      "observed_change": {
+        "numerator": 3,
+        "denominator": 3,
+        "rate": 1.0
+      },
+      "invalid_or_missing": {
+        "numerator": 0,
+        "denominator": 3,
+        "rate": 0.0
+      },
+      "missing_endpoint": {
+        "numerator": 0,
+        "denominator": 3,
+        "rate": 0.0
+      },
+      "invalid_existing_endpoint": {
+        "numerator": 0,
+        "denominator": 3,
+        "rate": 0.0
+      },
+      "correct_directional_change": {
+        "numerator": 3,
+        "denominator": 3,
+        "rate": 1.0
+      },
+      "changed_but_direction_wrong": {
+        "numerator": 0,
+        "denominator": 3,
+        "rate": 0.0
+      },
+      "observed_change_among_valid": {
+        "numerator": 3,
+        "denominator": 3,
+        "rate": 1.0
+      }
+    },
+    "answer_to_missing_target": {
+      "count": 3,
+      "both_correct": {
+        "numerator": 0,
+        "denominator": 3,
+        "rate": 0.0
+      },
+      "observed_change": {
+        "numerator": 0,
+        "denominator": 3,
+        "rate": 0.0
+      },
+      "invalid_or_missing": {
+        "numerator": 0,
+        "denominator": 3,
+        "rate": 0.0
+      },
+      "missing_endpoint": {
+        "numerator": 0,
+        "denominator": 3,
+        "rate": 0.0
+      },
+      "invalid_existing_endpoint": {
+        "numerator": 0,
+        "denominator": 3,
+        "rate": 0.0
+      },
+      "correct_directional_change": {
+        "numerator": 0,
+        "denominator": 3,
+        "rate": 0.0
+      },
+      "changed_but_direction_wrong": {
+        "numerator": 0,
+        "denominator": 3,
+        "rate": 0.0
+      },
+      "observed_change_among_valid": {
+        "numerator": 0,
+        "denominator": 3,
+        "rate": 0.0
+      }
+    }
+  },
+  "all_field_decisions": {
+    "numerator": 133,
+    "denominator": 144,
+    "rate": 0.9236111111111112
+  },
+  "by_domain": {
+    "banking": {
+      "all_cases": {
+        "count": 24,
+        "valid_outputs": {
+          "numerator": 24,
+          "denominator": 24,
+          "rate": 1.0
+        },
+        "all_fields_exact": {
+          "numerator": 20,
+          "denominator": 24,
+          "rate": 0.8333333333333334
+        },
+        "action_exact": {
+          "numerator": 22,
+          "denominator": 24,
+          "rate": 0.9166666666666666
+        },
+        "determination_exact": {
+          "numerator": 21,
+          "denominator": 24,
+          "rate": 0.875
+        },
+        "field_inconsistency": {
+          "numerator": 3,
+          "denominator": 24,
+          "rate": 0.125
+        },
+        "high_score": {
+          "selected": {
+            "numerator": 7,
+            "denominator": 24,
+            "rate": 0.2916666666666667
+          },
+          "wrong_and_selected": {
+            "numerator": 0,
+            "denominator": 24,
+            "rate": 0.0
+          },
+          "wrong_among_selected": {
+            "numerator": 0,
+            "denominator": 7,
+            "rate": 0.0
+          },
+          "threshold": 0.9,
+          "fields": {
+            "action": {
+              "selected": {
+                "numerator": 7,
+                "denominator": 24,
+                "rate": 0.2916666666666667
+              },
+              "wrong_and_selected": {
+                "numerator": 0,
+                "denominator": 24,
+                "rate": 0.0
+              },
+              "wrong_among_selected": {
+                "numerator": 0,
+                "denominator": 7,
+                "rate": 0.0
+              }
+            },
+            "determination": {
+              "selected": {
+                "numerator": 18,
+                "denominator": 24,
+                "rate": 0.75
+              },
+              "wrong_and_selected": {
+                "numerator": 1,
+                "denominator": 24,
+                "rate": 0.041666666666666664
+              },
+              "wrong_among_selected": {
+                "numerator": 1,
+                "denominator": 18,
+                "rate": 0.05555555555555555
+              }
+            }
+          },
+          "fields_on_case_gate": {
+            "action": {
+              "selected": {
+                "numerator": 7,
+                "denominator": 24,
+                "rate": 0.2916666666666667
+              },
+              "wrong_and_selected": {
+                "numerator": 0,
+                "denominator": 24,
+                "rate": 0.0
+              },
+              "wrong_among_selected": {
+                "numerator": 0,
+                "denominator": 7,
+                "rate": 0.0
+              }
+            },
+            "determination": {
+              "selected": {
+                "numerator": 7,
+                "denominator": 24,
+                "rate": 0.2916666666666667
+              },
+              "wrong_and_selected": {
+                "numerator": 0,
+                "denominator": 24,
+                "rate": 0.0
+              },
+              "wrong_among_selected": {
+                "numerator": 0,
+                "denominator": 7,
+                "rate": 0.0
+              }
+            }
+          }
+        }
+      },
+      "by_group": {
+        "invariant": {
+          "count": 20,
+          "valid_outputs": {
+            "numerator": 20,
+            "denominator": 20,
+            "rate": 1.0
+          },
+          "all_fields_exact": {
+            "numerator": 17,
+            "denominator": 20,
+            "rate": 0.85
+          },
+          "action_exact": {
+            "numerator": 19,
+            "denominator": 20,
+            "rate": 0.95
+          },
+          "determination_exact": {
+            "numerator": 18,
+            "denominator": 20,
+            "rate": 0.9
+          },
+          "field_inconsistency": {
+            "numerator": 3,
+            "denominator": 20,
+            "rate": 0.15
+          },
+          "high_score": {
+            "selected": {
+              "numerator": 6,
+              "denominator": 20,
+              "rate": 0.3
+            },
+            "wrong_and_selected": {
+              "numerator": 0,
+              "denominator": 20,
+              "rate": 0.0
+            },
+            "wrong_among_selected": {
+              "numerator": 0,
+              "denominator": 6,
+              "rate": 0.0
+            },
+            "threshold": 0.9,
+            "fields": {
+              "action": {
+                "selected": {
+                  "numerator": 6,
+                  "denominator": 20,
+                  "rate": 0.3
+                },
+                "wrong_and_selected": {
+                  "numerator": 0,
+                  "denominator": 20,
+                  "rate": 0.0
+                },
+                "wrong_among_selected": {
+                  "numerator": 0,
+                  "denominator": 6,
+                  "rate": 0.0
+                }
+              },
+              "determination": {
+                "selected": {
+                  "numerator": 14,
+                  "denominator": 20,
+                  "rate": 0.7
+                },
+                "wrong_and_selected": {
+                  "numerator": 0,
+                  "denominator": 20,
+                  "rate": 0.0
+                },
+                "wrong_among_selected": {
+                  "numerator": 0,
+                  "denominator": 14,
+                  "rate": 0.0
+                }
+              }
+            },
+            "fields_on_case_gate": {
+              "action": {
+                "selected": {
+                  "numerator": 6,
+                  "denominator": 20,
+                  "rate": 0.3
+                },
+                "wrong_and_selected": {
+                  "numerator": 0,
+                  "denominator": 20,
+                  "rate": 0.0
+                },
+                "wrong_among_selected": {
+                  "numerator": 0,
+                  "denominator": 6,
+                  "rate": 0.0
+                }
+              },
+              "determination": {
+                "selected": {
+                  "numerator": 6,
+                  "denominator": 20,
+                  "rate": 0.3
+                },
+                "wrong_and_selected": {
+                  "numerator": 0,
+                  "denominator": 20,
+                  "rate": 0.0
+                },
+                "wrong_among_selected": {
+                  "numerator": 0,
+                  "denominator": 6,
+                  "rate": 0.0
+                }
+              }
+            }
+          }
+        },
+        "ambiguity_change": {
+          "count": 4,
+          "valid_outputs": {
+            "numerator": 4,
+            "denominator": 4,
+            "rate": 1.0
+          },
+          "all_fields_exact": {
+            "numerator": 3,
+            "denominator": 4,
+            "rate": 0.75
+          },
+          "action_exact": {
+            "numerator": 3,
+            "denominator": 4,
+            "rate": 0.75
+          },
+          "determination_exact": {
+            "numerator": 3,
+            "denominator": 4,
+            "rate": 0.75
+          },
+          "field_inconsistency": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "high_score": {
+            "selected": {
+              "numerator": 1,
+              "denominator": 4,
+              "rate": 0.25
+            },
+            "wrong_and_selected": {
+              "numerator": 0,
+              "denominator": 4,
+              "rate": 0.0
+            },
+            "wrong_among_selected": {
+              "numerator": 0,
+              "denominator": 1,
+              "rate": 0.0
+            },
+            "threshold": 0.9,
+            "fields": {
+              "action": {
+                "selected": {
+                  "numerator": 1,
+                  "denominator": 4,
+                  "rate": 0.25
+                },
+                "wrong_and_selected": {
+                  "numerator": 0,
+                  "denominator": 4,
+                  "rate": 0.0
+                },
+                "wrong_among_selected": {
+                  "numerator": 0,
+                  "denominator": 1,
+                  "rate": 0.0
+                }
+              },
+              "determination": {
+                "selected": {
+                  "numerator": 4,
+                  "denominator": 4,
+                  "rate": 1.0
+                },
+                "wrong_and_selected": {
+                  "numerator": 1,
+                  "denominator": 4,
+                  "rate": 0.25
+                },
+                "wrong_among_selected": {
+                  "numerator": 1,
+                  "denominator": 4,
+                  "rate": 0.25
+                }
+              }
+            },
+            "fields_on_case_gate": {
+              "action": {
+                "selected": {
+                  "numerator": 1,
+                  "denominator": 4,
+                  "rate": 0.25
+                },
+                "wrong_and_selected": {
+                  "numerator": 0,
+                  "denominator": 4,
+                  "rate": 0.0
+                },
+                "wrong_among_selected": {
+                  "numerator": 0,
+                  "denominator": 1,
+                  "rate": 0.0
+                }
+              },
+              "determination": {
+                "selected": {
+                  "numerator": 1,
+                  "denominator": 4,
+                  "rate": 0.25
+                },
+                "wrong_and_selected": {
+                  "numerator": 0,
+                  "denominator": 4,
+                  "rate": 0.0
+                },
+                "wrong_among_selected": {
+                  "numerator": 0,
+                  "denominator": 1,
+                  "rate": 0.0
+                }
+              }
+            }
+          }
+        }
+      },
+      "invariant_views": {
+        "canonical": {
+          "count": 4,
+          "valid_outputs": {
+            "numerator": 4,
+            "denominator": 4,
+            "rate": 1.0
+          },
+          "all_fields_exact": {
+            "numerator": 3,
+            "denominator": 4,
+            "rate": 0.75
+          },
+          "action_exact": {
+            "numerator": 4,
+            "denominator": 4,
+            "rate": 1.0
+          },
+          "determination_exact": {
+            "numerator": 3,
+            "denominator": 4,
+            "rate": 0.75
+          },
+          "field_inconsistency": {
+            "numerator": 1,
+            "denominator": 4,
+            "rate": 0.25
+          },
+          "high_score": {
+            "selected": {
+              "numerator": 1,
+              "denominator": 4,
+              "rate": 0.25
+            },
+            "wrong_and_selected": {
+              "numerator": 0,
+              "denominator": 4,
+              "rate": 0.0
+            },
+            "wrong_among_selected": {
+              "numerator": 0,
+              "denominator": 1,
+              "rate": 0.0
+            },
+            "threshold": 0.9,
+            "fields": {
+              "action": {
+                "selected": {
+                  "numerator": 1,
+                  "denominator": 4,
+                  "rate": 0.25
+                },
+                "wrong_and_selected": {
+                  "numerator": 0,
+                  "denominator": 4,
+                  "rate": 0.0
+                },
+                "wrong_among_selected": {
+                  "numerator": 0,
+                  "denominator": 1,
+                  "rate": 0.0
+                }
+              },
+              "determination": {
+                "selected": {
+                  "numerator": 3,
+                  "denominator": 4,
+                  "rate": 0.75
+                },
+                "wrong_and_selected": {
+                  "numerator": 0,
+                  "denominator": 4,
+                  "rate": 0.0
+                },
+                "wrong_among_selected": {
+                  "numerator": 0,
+                  "denominator": 3,
+                  "rate": 0.0
+                }
+              }
+            },
+            "fields_on_case_gate": {
+              "action": {
+                "selected": {
+                  "numerator": 1,
+                  "denominator": 4,
+                  "rate": 0.25
+                },
+                "wrong_and_selected": {
+                  "numerator": 0,
+                  "denominator": 4,
+                  "rate": 0.0
+                },
+                "wrong_among_selected": {
+                  "numerator": 0,
+                  "denominator": 1,
+                  "rate": 0.0
+                }
+              },
+              "determination": {
+                "selected": {
+                  "numerator": 1,
+                  "denominator": 4,
+                  "rate": 0.25
+                },
+                "wrong_and_selected": {
+                  "numerator": 0,
+                  "denominator": 4,
+                  "rate": 0.0
+                },
+                "wrong_among_selected": {
+                  "numerator": 0,
+                  "denominator": 1,
+                  "rate": 0.0
+                }
+              }
+            }
+          }
+        },
+        "typo": {
+          "count": 4,
+          "valid_outputs": {
+            "numerator": 4,
+            "denominator": 4,
+            "rate": 1.0
+          },
+          "all_fields_exact": {
+            "numerator": 3,
+            "denominator": 4,
+            "rate": 0.75
+          },
+          "action_exact": {
+            "numerator": 4,
+            "denominator": 4,
+            "rate": 1.0
+          },
+          "determination_exact": {
+            "numerator": 3,
+            "denominator": 4,
+            "rate": 0.75
+          },
+          "field_inconsistency": {
+            "numerator": 1,
+            "denominator": 4,
+            "rate": 0.25
+          },
+          "high_score": {
+            "selected": {
+              "numerator": 1,
+              "denominator": 4,
+              "rate": 0.25
+            },
+            "wrong_and_selected": {
+              "numerator": 0,
+              "denominator": 4,
+              "rate": 0.0
+            },
+            "wrong_among_selected": {
+              "numerator": 0,
+              "denominator": 1,
+              "rate": 0.0
+            },
+            "threshold": 0.9,
+            "fields": {
+              "action": {
+                "selected": {
+                  "numerator": 1,
+                  "denominator": 4,
+                  "rate": 0.25
+                },
+                "wrong_and_selected": {
+                  "numerator": 0,
+                  "denominator": 4,
+                  "rate": 0.0
+                },
+                "wrong_among_selected": {
+                  "numerator": 0,
+                  "denominator": 1,
+                  "rate": 0.0
+                }
+              },
+              "determination": {
+                "selected": {
+                  "numerator": 3,
+                  "denominator": 4,
+                  "rate": 0.75
+                },
+                "wrong_and_selected": {
+                  "numerator": 0,
+                  "denominator": 4,
+                  "rate": 0.0
+                },
+                "wrong_among_selected": {
+                  "numerator": 0,
+                  "denominator": 3,
+                  "rate": 0.0
+                }
+              }
+            },
+            "fields_on_case_gate": {
+              "action": {
+                "selected": {
+                  "numerator": 1,
+                  "denominator": 4,
+                  "rate": 0.25
+                },
+                "wrong_and_selected": {
+                  "numerator": 0,
+                  "denominator": 4,
+                  "rate": 0.0
+                },
+                "wrong_among_selected": {
+                  "numerator": 0,
+                  "denominator": 1,
+                  "rate": 0.0
+                }
+              },
+              "determination": {
+                "selected": {
+                  "numerator": 1,
+                  "denominator": 4,
+                  "rate": 0.25
+                },
+                "wrong_and_selected": {
+                  "numerator": 0,
+                  "denominator": 4,
+                  "rate": 0.0
+                },
+                "wrong_among_selected": {
+                  "numerator": 0,
+                  "denominator": 1,
+                  "rate": 0.0
+                }
+              }
+            }
+          }
+        },
+        "compact_colloquial": {
+          "count": 4,
+          "valid_outputs": {
+            "numerator": 4,
+            "denominator": 4,
+            "rate": 1.0
+          },
+          "all_fields_exact": {
+            "numerator": 4,
+            "denominator": 4,
+            "rate": 1.0
+          },
+          "action_exact": {
+            "numerator": 4,
+            "denominator": 4,
+            "rate": 1.0
+          },
+          "determination_exact": {
+            "numerator": 4,
+            "denominator": 4,
+            "rate": 1.0
+          },
+          "field_inconsistency": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "high_score": {
+            "selected": {
+              "numerator": 2,
+              "denominator": 4,
+              "rate": 0.5
+            },
+            "wrong_and_selected": {
+              "numerator": 0,
+              "denominator": 4,
+              "rate": 0.0
+            },
+            "wrong_among_selected": {
+              "numerator": 0,
+              "denominator": 2,
+              "rate": 0.0
+            },
+            "threshold": 0.9,
+            "fields": {
+              "action": {
+                "selected": {
+                  "numerator": 2,
+                  "denominator": 4,
+                  "rate": 0.5
+                },
+                "wrong_and_selected": {
+                  "numerator": 0,
+                  "denominator": 4,
+                  "rate": 0.0
+                },
+                "wrong_among_selected": {
+                  "numerator": 0,
+                  "denominator": 2,
+                  "rate": 0.0
+                }
+              },
+              "determination": {
+                "selected": {
+                  "numerator": 3,
+                  "denominator": 4,
+                  "rate": 0.75
+                },
+                "wrong_and_selected": {
+                  "numerator": 0,
+                  "denominator": 4,
+                  "rate": 0.0
+                },
+                "wrong_among_selected": {
+                  "numerator": 0,
+                  "denominator": 3,
+                  "rate": 0.0
+                }
+              }
+            },
+            "fields_on_case_gate": {
+              "action": {
+                "selected": {
+                  "numerator": 2,
+                  "denominator": 4,
+                  "rate": 0.5
+                },
+                "wrong_and_selected": {
+                  "numerator": 0,
+                  "denominator": 4,
+                  "rate": 0.0
+                },
+                "wrong_among_selected": {
+                  "numerator": 0,
+                  "denominator": 2,
+                  "rate": 0.0
+                }
+              },
+              "determination": {
+                "selected": {
+                  "numerator": 2,
+                  "denominator": 4,
+                  "rate": 0.5
+                },
+                "wrong_and_selected": {
+                  "numerator": 0,
+                  "denominator": 4,
+                  "rate": 0.0
+                },
+                "wrong_among_selected": {
+                  "numerator": 0,
+                  "denominator": 2,
+                  "rate": 0.0
+                }
+              }
+            }
+          }
+        },
+        "abbreviation": {
+          "count": 4,
+          "valid_outputs": {
+            "numerator": 4,
+            "denominator": 4,
+            "rate": 1.0
+          },
+          "all_fields_exact": {
+            "numerator": 4,
+            "denominator": 4,
+            "rate": 1.0
+          },
+          "action_exact": {
+            "numerator": 4,
+            "denominator": 4,
+            "rate": 1.0
+          },
+          "determination_exact": {
+            "numerator": 4,
+            "denominator": 4,
+            "rate": 1.0
+          },
+          "field_inconsistency": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "high_score": {
+            "selected": {
+              "numerator": 1,
+              "denominator": 4,
+              "rate": 0.25
+            },
+            "wrong_and_selected": {
+              "numerator": 0,
+              "denominator": 4,
+              "rate": 0.0
+            },
+            "wrong_among_selected": {
+              "numerator": 0,
+              "denominator": 1,
+              "rate": 0.0
+            },
+            "threshold": 0.9,
+            "fields": {
+              "action": {
+                "selected": {
+                  "numerator": 1,
+                  "denominator": 4,
+                  "rate": 0.25
+                },
+                "wrong_and_selected": {
+                  "numerator": 0,
+                  "denominator": 4,
+                  "rate": 0.0
+                },
+                "wrong_among_selected": {
+                  "numerator": 0,
+                  "denominator": 1,
+                  "rate": 0.0
+                }
+              },
+              "determination": {
+                "selected": {
+                  "numerator": 3,
+                  "denominator": 4,
+                  "rate": 0.75
+                },
+                "wrong_and_selected": {
+                  "numerator": 0,
+                  "denominator": 4,
+                  "rate": 0.0
+                },
+                "wrong_among_selected": {
+                  "numerator": 0,
+                  "denominator": 3,
+                  "rate": 0.0
+                }
+              }
+            },
+            "fields_on_case_gate": {
+              "action": {
+                "selected": {
+                  "numerator": 1,
+                  "denominator": 4,
+                  "rate": 0.25
+                },
+                "wrong_and_selected": {
+                  "numerator": 0,
+                  "denominator": 4,
+                  "rate": 0.0
+                },
+                "wrong_among_selected": {
+                  "numerator": 0,
+                  "denominator": 1,
+                  "rate": 0.0
+                }
+              },
+              "determination": {
+                "selected": {
+                  "numerator": 1,
+                  "denominator": 4,
+                  "rate": 0.25
+                },
+                "wrong_and_selected": {
+                  "numerator": 0,
+                  "denominator": 4,
+                  "rate": 0.0
+                },
+                "wrong_among_selected": {
+                  "numerator": 0,
+                  "denominator": 1,
+                  "rate": 0.0
+                }
+              }
+            }
+          }
+        },
+        "de_en_mix": {
+          "count": 4,
+          "valid_outputs": {
+            "numerator": 4,
+            "denominator": 4,
+            "rate": 1.0
+          },
+          "all_fields_exact": {
+            "numerator": 3,
+            "denominator": 4,
+            "rate": 0.75
+          },
+          "action_exact": {
+            "numerator": 3,
+            "denominator": 4,
+            "rate": 0.75
+          },
+          "determination_exact": {
+            "numerator": 4,
+            "denominator": 4,
+            "rate": 1.0
+          },
+          "field_inconsistency": {
+            "numerator": 1,
+            "denominator": 4,
+            "rate": 0.25
+          },
+          "high_score": {
+            "selected": {
+              "numerator": 1,
+              "denominator": 4,
+              "rate": 0.25
+            },
+            "wrong_and_selected": {
+              "numerator": 0,
+              "denominator": 4,
+              "rate": 0.0
+            },
+            "wrong_among_selected": {
+              "numerator": 0,
+              "denominator": 1,
+              "rate": 0.0
+            },
+            "threshold": 0.9,
+            "fields": {
+              "action": {
+                "selected": {
+                  "numerator": 1,
+                  "denominator": 4,
+                  "rate": 0.25
+                },
+                "wrong_and_selected": {
+                  "numerator": 0,
+                  "denominator": 4,
+                  "rate": 0.0
+                },
+                "wrong_among_selected": {
+                  "numerator": 0,
+                  "denominator": 1,
+                  "rate": 0.0
+                }
+              },
+              "determination": {
+                "selected": {
+                  "numerator": 2,
+                  "denominator": 4,
+                  "rate": 0.5
+                },
+                "wrong_and_selected": {
+                  "numerator": 0,
+                  "denominator": 4,
+                  "rate": 0.0
+                },
+                "wrong_among_selected": {
+                  "numerator": 0,
+                  "denominator": 2,
+                  "rate": 0.0
+                }
+              }
+            },
+            "fields_on_case_gate": {
+              "action": {
+                "selected": {
+                  "numerator": 1,
+                  "denominator": 4,
+                  "rate": 0.25
+                },
+                "wrong_and_selected": {
+                  "numerator": 0,
+                  "denominator": 4,
+                  "rate": 0.0
+                },
+                "wrong_among_selected": {
+                  "numerator": 0,
+                  "denominator": 1,
+                  "rate": 0.0
+                }
+              },
+              "determination": {
+                "selected": {
+                  "numerator": 1,
+                  "denominator": 4,
+                  "rate": 0.25
+                },
+                "wrong_and_selected": {
+                  "numerator": 0,
+                  "denominator": 4,
+                  "rate": 0.0
+                },
+                "wrong_among_selected": {
+                  "numerator": 0,
+                  "denominator": 1,
+                  "rate": 0.0
+                }
+              }
+            }
+          }
+        }
+      },
+      "invariant_pairs": {
+        "count": 16,
+        "both_correct": {
+          "numerator": 12,
+          "denominator": 16,
+          "rate": 0.75
+        },
+        "observed_change": {
+          "numerator": 3,
+          "denominator": 16,
+          "rate": 0.1875
+        },
+        "invalid_or_missing": {
+          "numerator": 0,
+          "denominator": 16,
+          "rate": 0.0
+        },
+        "missing_endpoint": {
+          "numerator": 0,
+          "denominator": 16,
+          "rate": 0.0
+        },
+        "invalid_existing_endpoint": {
+          "numerator": 0,
+          "denominator": 16,
+          "rate": 0.0
+        },
+        "stability": {
+          "numerator": 13,
+          "denominator": 16,
+          "rate": 0.8125
+        },
+        "stable_correct": {
+          "numerator": 12,
+          "denominator": 16,
+          "rate": 0.75
+        },
+        "stable_wrong": {
+          "numerator": 1,
+          "denominator": 16,
+          "rate": 0.0625
+        },
+        "failed_invariance": {
+          "numerator": 3,
+          "denominator": 16,
+          "rate": 0.1875
+        },
+        "degradation": {
+          "numerator": 0,
+          "denominator": 16,
+          "rate": 0.0
+        },
+        "improvement": {
+          "numerator": 2,
+          "denominator": 16,
+          "rate": 0.125
+        },
+        "both_incorrect": {
+          "numerator": 2,
+          "denominator": 16,
+          "rate": 0.125
+        },
+        "observed_change_among_valid": {
+          "numerator": 3,
+          "denominator": 16,
+          "rate": 0.1875
+        },
+        "conditional_loss_given_correct_canonical": {
+          "numerator": 0,
+          "denominator": 12,
+          "rate": 0.0
+        }
+      },
+      "ambiguity_controls": {
+        "count": 2,
+        "both_correct": {
+          "numerator": 1,
+          "denominator": 2,
+          "rate": 0.5
+        },
+        "observed_change": {
+          "numerator": 1,
+          "denominator": 2,
+          "rate": 0.5
+        },
+        "invalid_or_missing": {
+          "numerator": 0,
+          "denominator": 2,
+          "rate": 0.0
+        },
+        "missing_endpoint": {
+          "numerator": 0,
+          "denominator": 2,
+          "rate": 0.0
+        },
+        "invalid_existing_endpoint": {
+          "numerator": 0,
+          "denominator": 2,
+          "rate": 0.0
+        },
+        "correct_directional_change": {
+          "numerator": 1,
+          "denominator": 2,
+          "rate": 0.5
+        },
+        "changed_but_direction_wrong": {
+          "numerator": 0,
+          "denominator": 2,
+          "rate": 0.0
+        },
+        "observed_change_among_valid": {
+          "numerator": 1,
+          "denominator": 2,
+          "rate": 0.5
+        }
+      },
+      "cluster_robustness": {
+        "count": 4,
+        "all_five_correct": {
+          "numerator": 3,
+          "denominator": 4,
+          "rate": 0.75
+        },
+        "all_five_valid": {
+          "numerator": 4,
+          "denominator": 4,
+          "rate": 1.0
+        }
+      },
+      "invariant_by_transformation": {
+        "typo": {
+          "count": 4,
+          "both_correct": {
+            "numerator": 3,
+            "denominator": 4,
+            "rate": 0.75
+          },
+          "observed_change": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "invalid_or_missing": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "missing_endpoint": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "invalid_existing_endpoint": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "stability": {
+            "numerator": 4,
+            "denominator": 4,
+            "rate": 1.0
+          },
+          "stable_correct": {
+            "numerator": 3,
+            "denominator": 4,
+            "rate": 0.75
+          },
+          "stable_wrong": {
+            "numerator": 1,
+            "denominator": 4,
+            "rate": 0.25
+          },
+          "failed_invariance": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "degradation": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "improvement": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "both_incorrect": {
+            "numerator": 1,
+            "denominator": 4,
+            "rate": 0.25
+          },
+          "observed_change_among_valid": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "conditional_loss_given_correct_canonical": {
+            "numerator": 0,
+            "denominator": 3,
+            "rate": 0.0
+          }
+        },
+        "compact_colloquial": {
+          "count": 4,
+          "both_correct": {
+            "numerator": 3,
+            "denominator": 4,
+            "rate": 0.75
+          },
+          "observed_change": {
+            "numerator": 1,
+            "denominator": 4,
+            "rate": 0.25
+          },
+          "invalid_or_missing": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "missing_endpoint": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "invalid_existing_endpoint": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "stability": {
+            "numerator": 3,
+            "denominator": 4,
+            "rate": 0.75
+          },
+          "stable_correct": {
+            "numerator": 3,
+            "denominator": 4,
+            "rate": 0.75
+          },
+          "stable_wrong": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "failed_invariance": {
+            "numerator": 1,
+            "denominator": 4,
+            "rate": 0.25
+          },
+          "degradation": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "improvement": {
+            "numerator": 1,
+            "denominator": 4,
+            "rate": 0.25
+          },
+          "both_incorrect": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "observed_change_among_valid": {
+            "numerator": 1,
+            "denominator": 4,
+            "rate": 0.25
+          },
+          "conditional_loss_given_correct_canonical": {
+            "numerator": 0,
+            "denominator": 3,
+            "rate": 0.0
+          }
+        },
+        "abbreviation": {
+          "count": 4,
+          "both_correct": {
+            "numerator": 3,
+            "denominator": 4,
+            "rate": 0.75
+          },
+          "observed_change": {
+            "numerator": 1,
+            "denominator": 4,
+            "rate": 0.25
+          },
+          "invalid_or_missing": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "missing_endpoint": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "invalid_existing_endpoint": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "stability": {
+            "numerator": 3,
+            "denominator": 4,
+            "rate": 0.75
+          },
+          "stable_correct": {
+            "numerator": 3,
+            "denominator": 4,
+            "rate": 0.75
+          },
+          "stable_wrong": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "failed_invariance": {
+            "numerator": 1,
+            "denominator": 4,
+            "rate": 0.25
+          },
+          "degradation": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "improvement": {
+            "numerator": 1,
+            "denominator": 4,
+            "rate": 0.25
+          },
+          "both_incorrect": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "observed_change_among_valid": {
+            "numerator": 1,
+            "denominator": 4,
+            "rate": 0.25
+          },
+          "conditional_loss_given_correct_canonical": {
+            "numerator": 0,
+            "denominator": 3,
+            "rate": 0.0
+          }
+        },
+        "de_en_mix": {
+          "count": 4,
+          "both_correct": {
+            "numerator": 3,
+            "denominator": 4,
+            "rate": 0.75
+          },
+          "observed_change": {
+            "numerator": 1,
+            "denominator": 4,
+            "rate": 0.25
+          },
+          "invalid_or_missing": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "missing_endpoint": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "invalid_existing_endpoint": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "stability": {
+            "numerator": 3,
+            "denominator": 4,
+            "rate": 0.75
+          },
+          "stable_correct": {
+            "numerator": 3,
+            "denominator": 4,
+            "rate": 0.75
+          },
+          "stable_wrong": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "failed_invariance": {
+            "numerator": 1,
+            "denominator": 4,
+            "rate": 0.25
+          },
+          "degradation": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "improvement": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "both_incorrect": {
+            "numerator": 1,
+            "denominator": 4,
+            "rate": 0.25
+          },
+          "observed_change_among_valid": {
+            "numerator": 1,
+            "denominator": 4,
+            "rate": 0.25
+          },
+          "conditional_loss_given_correct_canonical": {
+            "numerator": 0,
+            "denominator": 3,
+            "rate": 0.0
+          }
+        }
+      },
+      "ambiguity_by_subtype": {
+        "answer_to_missing_fact": {
+          "count": 1,
+          "both_correct": {
+            "numerator": 1,
+            "denominator": 1,
+            "rate": 1.0
+          },
+          "observed_change": {
+            "numerator": 1,
+            "denominator": 1,
+            "rate": 1.0
+          },
+          "invalid_or_missing": {
+            "numerator": 0,
+            "denominator": 1,
+            "rate": 0.0
+          },
+          "missing_endpoint": {
+            "numerator": 0,
+            "denominator": 1,
+            "rate": 0.0
+          },
+          "invalid_existing_endpoint": {
+            "numerator": 0,
+            "denominator": 1,
+            "rate": 0.0
+          },
+          "correct_directional_change": {
+            "numerator": 1,
+            "denominator": 1,
+            "rate": 1.0
+          },
+          "changed_but_direction_wrong": {
+            "numerator": 0,
+            "denominator": 1,
+            "rate": 0.0
+          },
+          "observed_change_among_valid": {
+            "numerator": 1,
+            "denominator": 1,
+            "rate": 1.0
+          }
+        },
+        "answer_to_missing_target": {
+          "count": 1,
+          "both_correct": {
+            "numerator": 0,
+            "denominator": 1,
+            "rate": 0.0
+          },
+          "observed_change": {
+            "numerator": 0,
+            "denominator": 1,
+            "rate": 0.0
+          },
+          "invalid_or_missing": {
+            "numerator": 0,
+            "denominator": 1,
+            "rate": 0.0
+          },
+          "missing_endpoint": {
+            "numerator": 0,
+            "denominator": 1,
+            "rate": 0.0
+          },
+          "invalid_existing_endpoint": {
+            "numerator": 0,
+            "denominator": 1,
+            "rate": 0.0
+          },
+          "correct_directional_change": {
+            "numerator": 0,
+            "denominator": 1,
+            "rate": 0.0
+          },
+          "changed_but_direction_wrong": {
+            "numerator": 0,
+            "denominator": 1,
+            "rate": 0.0
+          },
+          "observed_change_among_valid": {
+            "numerator": 0,
+            "denominator": 1,
+            "rate": 0.0
+          }
+        }
+      }
+    },
+    "insurance": {
+      "all_cases": {
+        "count": 24,
+        "valid_outputs": {
+          "numerator": 24,
+          "denominator": 24,
+          "rate": 1.0
+        },
+        "all_fields_exact": {
+          "numerator": 23,
+          "denominator": 24,
+          "rate": 0.9583333333333334
+        },
+        "action_exact": {
+          "numerator": 23,
+          "denominator": 24,
+          "rate": 0.9583333333333334
+        },
+        "determination_exact": {
+          "numerator": 23,
+          "denominator": 24,
+          "rate": 0.9583333333333334
+        },
+        "field_inconsistency": {
+          "numerator": 0,
+          "denominator": 24,
+          "rate": 0.0
+        },
+        "high_score": {
+          "selected": {
+            "numerator": 6,
+            "denominator": 24,
+            "rate": 0.25
+          },
+          "wrong_and_selected": {
+            "numerator": 0,
+            "denominator": 24,
+            "rate": 0.0
+          },
+          "wrong_among_selected": {
+            "numerator": 0,
+            "denominator": 6,
+            "rate": 0.0
+          },
+          "threshold": 0.9,
+          "fields": {
+            "action": {
+              "selected": {
+                "numerator": 6,
+                "denominator": 24,
+                "rate": 0.25
+              },
+              "wrong_and_selected": {
+                "numerator": 0,
+                "denominator": 24,
+                "rate": 0.0
+              },
+              "wrong_among_selected": {
+                "numerator": 0,
+                "denominator": 6,
+                "rate": 0.0
+              }
+            },
+            "determination": {
+              "selected": {
+                "numerator": 23,
+                "denominator": 24,
+                "rate": 0.9583333333333334
+              },
+              "wrong_and_selected": {
+                "numerator": 0,
+                "denominator": 24,
+                "rate": 0.0
+              },
+              "wrong_among_selected": {
+                "numerator": 0,
+                "denominator": 23,
+                "rate": 0.0
+              }
+            }
+          },
+          "fields_on_case_gate": {
+            "action": {
+              "selected": {
+                "numerator": 6,
+                "denominator": 24,
+                "rate": 0.25
+              },
+              "wrong_and_selected": {
+                "numerator": 0,
+                "denominator": 24,
+                "rate": 0.0
+              },
+              "wrong_among_selected": {
+                "numerator": 0,
+                "denominator": 6,
+                "rate": 0.0
+              }
+            },
+            "determination": {
+              "selected": {
+                "numerator": 6,
+                "denominator": 24,
+                "rate": 0.25
+              },
+              "wrong_and_selected": {
+                "numerator": 0,
+                "denominator": 24,
+                "rate": 0.0
+              },
+              "wrong_among_selected": {
+                "numerator": 0,
+                "denominator": 6,
+                "rate": 0.0
+              }
+            }
+          }
+        }
+      },
+      "by_group": {
+        "invariant": {
+          "count": 20,
+          "valid_outputs": {
+            "numerator": 20,
+            "denominator": 20,
+            "rate": 1.0
+          },
+          "all_fields_exact": {
+            "numerator": 20,
+            "denominator": 20,
+            "rate": 1.0
+          },
+          "action_exact": {
+            "numerator": 20,
+            "denominator": 20,
+            "rate": 1.0
+          },
+          "determination_exact": {
+            "numerator": 20,
+            "denominator": 20,
+            "rate": 1.0
+          },
+          "field_inconsistency": {
+            "numerator": 0,
+            "denominator": 20,
+            "rate": 0.0
+          },
+          "high_score": {
+            "selected": {
+              "numerator": 5,
+              "denominator": 20,
+              "rate": 0.25
+            },
+            "wrong_and_selected": {
+              "numerator": 0,
+              "denominator": 20,
+              "rate": 0.0
+            },
+            "wrong_among_selected": {
+              "numerator": 0,
+              "denominator": 5,
+              "rate": 0.0
+            },
+            "threshold": 0.9,
+            "fields": {
+              "action": {
+                "selected": {
+                  "numerator": 5,
+                  "denominator": 20,
+                  "rate": 0.25
+                },
+                "wrong_and_selected": {
+                  "numerator": 0,
+                  "denominator": 20,
+                  "rate": 0.0
+                },
+                "wrong_among_selected": {
+                  "numerator": 0,
+                  "denominator": 5,
+                  "rate": 0.0
+                }
+              },
+              "determination": {
+                "selected": {
+                  "numerator": 20,
+                  "denominator": 20,
+                  "rate": 1.0
+                },
+                "wrong_and_selected": {
+                  "numerator": 0,
+                  "denominator": 20,
+                  "rate": 0.0
+                },
+                "wrong_among_selected": {
+                  "numerator": 0,
+                  "denominator": 20,
+                  "rate": 0.0
+                }
+              }
+            },
+            "fields_on_case_gate": {
+              "action": {
+                "selected": {
+                  "numerator": 5,
+                  "denominator": 20,
+                  "rate": 0.25
+                },
+                "wrong_and_selected": {
+                  "numerator": 0,
+                  "denominator": 20,
+                  "rate": 0.0
+                },
+                "wrong_among_selected": {
+                  "numerator": 0,
+                  "denominator": 5,
+                  "rate": 0.0
+                }
+              },
+              "determination": {
+                "selected": {
+                  "numerator": 5,
+                  "denominator": 20,
+                  "rate": 0.25
+                },
+                "wrong_and_selected": {
+                  "numerator": 0,
+                  "denominator": 20,
+                  "rate": 0.0
+                },
+                "wrong_among_selected": {
+                  "numerator": 0,
+                  "denominator": 5,
+                  "rate": 0.0
+                }
+              }
+            }
+          }
+        },
+        "ambiguity_change": {
+          "count": 4,
+          "valid_outputs": {
+            "numerator": 4,
+            "denominator": 4,
+            "rate": 1.0
+          },
+          "all_fields_exact": {
+            "numerator": 3,
+            "denominator": 4,
+            "rate": 0.75
+          },
+          "action_exact": {
+            "numerator": 3,
+            "denominator": 4,
+            "rate": 0.75
+          },
+          "determination_exact": {
+            "numerator": 3,
+            "denominator": 4,
+            "rate": 0.75
+          },
+          "field_inconsistency": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "high_score": {
+            "selected": {
+              "numerator": 1,
+              "denominator": 4,
+              "rate": 0.25
+            },
+            "wrong_and_selected": {
+              "numerator": 0,
+              "denominator": 4,
+              "rate": 0.0
+            },
+            "wrong_among_selected": {
+              "numerator": 0,
+              "denominator": 1,
+              "rate": 0.0
+            },
+            "threshold": 0.9,
+            "fields": {
+              "action": {
+                "selected": {
+                  "numerator": 1,
+                  "denominator": 4,
+                  "rate": 0.25
+                },
+                "wrong_and_selected": {
+                  "numerator": 0,
+                  "denominator": 4,
+                  "rate": 0.0
+                },
+                "wrong_among_selected": {
+                  "numerator": 0,
+                  "denominator": 1,
+                  "rate": 0.0
+                }
+              },
+              "determination": {
+                "selected": {
+                  "numerator": 3,
+                  "denominator": 4,
+                  "rate": 0.75
+                },
+                "wrong_and_selected": {
+                  "numerator": 0,
+                  "denominator": 4,
+                  "rate": 0.0
+                },
+                "wrong_among_selected": {
+                  "numerator": 0,
+                  "denominator": 3,
+                  "rate": 0.0
+                }
+              }
+            },
+            "fields_on_case_gate": {
+              "action": {
+                "selected": {
+                  "numerator": 1,
+                  "denominator": 4,
+                  "rate": 0.25
+                },
+                "wrong_and_selected": {
+                  "numerator": 0,
+                  "denominator": 4,
+                  "rate": 0.0
+                },
+                "wrong_among_selected": {
+                  "numerator": 0,
+                  "denominator": 1,
+                  "rate": 0.0
+                }
+              },
+              "determination": {
+                "selected": {
+                  "numerator": 1,
+                  "denominator": 4,
+                  "rate": 0.25
+                },
+                "wrong_and_selected": {
+                  "numerator": 0,
+                  "denominator": 4,
+                  "rate": 0.0
+                },
+                "wrong_among_selected": {
+                  "numerator": 0,
+                  "denominator": 1,
+                  "rate": 0.0
+                }
+              }
+            }
+          }
+        }
+      },
+      "invariant_views": {
+        "canonical": {
+          "count": 4,
+          "valid_outputs": {
+            "numerator": 4,
+            "denominator": 4,
+            "rate": 1.0
+          },
+          "all_fields_exact": {
+            "numerator": 4,
+            "denominator": 4,
+            "rate": 1.0
+          },
+          "action_exact": {
+            "numerator": 4,
+            "denominator": 4,
+            "rate": 1.0
+          },
+          "determination_exact": {
+            "numerator": 4,
+            "denominator": 4,
+            "rate": 1.0
+          },
+          "field_inconsistency": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "high_score": {
+            "selected": {
+              "numerator": 1,
+              "denominator": 4,
+              "rate": 0.25
+            },
+            "wrong_and_selected": {
+              "numerator": 0,
+              "denominator": 4,
+              "rate": 0.0
+            },
+            "wrong_among_selected": {
+              "numerator": 0,
+              "denominator": 1,
+              "rate": 0.0
+            },
+            "threshold": 0.9,
+            "fields": {
+              "action": {
+                "selected": {
+                  "numerator": 1,
+                  "denominator": 4,
+                  "rate": 0.25
+                },
+                "wrong_and_selected": {
+                  "numerator": 0,
+                  "denominator": 4,
+                  "rate": 0.0
+                },
+                "wrong_among_selected": {
+                  "numerator": 0,
+                  "denominator": 1,
+                  "rate": 0.0
+                }
+              },
+              "determination": {
+                "selected": {
+                  "numerator": 4,
+                  "denominator": 4,
+                  "rate": 1.0
+                },
+                "wrong_and_selected": {
+                  "numerator": 0,
+                  "denominator": 4,
+                  "rate": 0.0
+                },
+                "wrong_among_selected": {
+                  "numerator": 0,
+                  "denominator": 4,
+                  "rate": 0.0
+                }
+              }
+            },
+            "fields_on_case_gate": {
+              "action": {
+                "selected": {
+                  "numerator": 1,
+                  "denominator": 4,
+                  "rate": 0.25
+                },
+                "wrong_and_selected": {
+                  "numerator": 0,
+                  "denominator": 4,
+                  "rate": 0.0
+                },
+                "wrong_among_selected": {
+                  "numerator": 0,
+                  "denominator": 1,
+                  "rate": 0.0
+                }
+              },
+              "determination": {
+                "selected": {
+                  "numerator": 1,
+                  "denominator": 4,
+                  "rate": 0.25
+                },
+                "wrong_and_selected": {
+                  "numerator": 0,
+                  "denominator": 4,
+                  "rate": 0.0
+                },
+                "wrong_among_selected": {
+                  "numerator": 0,
+                  "denominator": 1,
+                  "rate": 0.0
+                }
+              }
+            }
+          }
+        },
+        "typo": {
+          "count": 4,
+          "valid_outputs": {
+            "numerator": 4,
+            "denominator": 4,
+            "rate": 1.0
+          },
+          "all_fields_exact": {
+            "numerator": 4,
+            "denominator": 4,
+            "rate": 1.0
+          },
+          "action_exact": {
+            "numerator": 4,
+            "denominator": 4,
+            "rate": 1.0
+          },
+          "determination_exact": {
+            "numerator": 4,
+            "denominator": 4,
+            "rate": 1.0
+          },
+          "field_inconsistency": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "high_score": {
+            "selected": {
+              "numerator": 1,
+              "denominator": 4,
+              "rate": 0.25
+            },
+            "wrong_and_selected": {
+              "numerator": 0,
+              "denominator": 4,
+              "rate": 0.0
+            },
+            "wrong_among_selected": {
+              "numerator": 0,
+              "denominator": 1,
+              "rate": 0.0
+            },
+            "threshold": 0.9,
+            "fields": {
+              "action": {
+                "selected": {
+                  "numerator": 1,
+                  "denominator": 4,
+                  "rate": 0.25
+                },
+                "wrong_and_selected": {
+                  "numerator": 0,
+                  "denominator": 4,
+                  "rate": 0.0
+                },
+                "wrong_among_selected": {
+                  "numerator": 0,
+                  "denominator": 1,
+                  "rate": 0.0
+                }
+              },
+              "determination": {
+                "selected": {
+                  "numerator": 4,
+                  "denominator": 4,
+                  "rate": 1.0
+                },
+                "wrong_and_selected": {
+                  "numerator": 0,
+                  "denominator": 4,
+                  "rate": 0.0
+                },
+                "wrong_among_selected": {
+                  "numerator": 0,
+                  "denominator": 4,
+                  "rate": 0.0
+                }
+              }
+            },
+            "fields_on_case_gate": {
+              "action": {
+                "selected": {
+                  "numerator": 1,
+                  "denominator": 4,
+                  "rate": 0.25
+                },
+                "wrong_and_selected": {
+                  "numerator": 0,
+                  "denominator": 4,
+                  "rate": 0.0
+                },
+                "wrong_among_selected": {
+                  "numerator": 0,
+                  "denominator": 1,
+                  "rate": 0.0
+                }
+              },
+              "determination": {
+                "selected": {
+                  "numerator": 1,
+                  "denominator": 4,
+                  "rate": 0.25
+                },
+                "wrong_and_selected": {
+                  "numerator": 0,
+                  "denominator": 4,
+                  "rate": 0.0
+                },
+                "wrong_among_selected": {
+                  "numerator": 0,
+                  "denominator": 1,
+                  "rate": 0.0
+                }
+              }
+            }
+          }
+        },
+        "compact_colloquial": {
+          "count": 4,
+          "valid_outputs": {
+            "numerator": 4,
+            "denominator": 4,
+            "rate": 1.0
+          },
+          "all_fields_exact": {
+            "numerator": 4,
+            "denominator": 4,
+            "rate": 1.0
+          },
+          "action_exact": {
+            "numerator": 4,
+            "denominator": 4,
+            "rate": 1.0
+          },
+          "determination_exact": {
+            "numerator": 4,
+            "denominator": 4,
+            "rate": 1.0
+          },
+          "field_inconsistency": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "high_score": {
+            "selected": {
+              "numerator": 1,
+              "denominator": 4,
+              "rate": 0.25
+            },
+            "wrong_and_selected": {
+              "numerator": 0,
+              "denominator": 4,
+              "rate": 0.0
+            },
+            "wrong_among_selected": {
+              "numerator": 0,
+              "denominator": 1,
+              "rate": 0.0
+            },
+            "threshold": 0.9,
+            "fields": {
+              "action": {
+                "selected": {
+                  "numerator": 1,
+                  "denominator": 4,
+                  "rate": 0.25
+                },
+                "wrong_and_selected": {
+                  "numerator": 0,
+                  "denominator": 4,
+                  "rate": 0.0
+                },
+                "wrong_among_selected": {
+                  "numerator": 0,
+                  "denominator": 1,
+                  "rate": 0.0
+                }
+              },
+              "determination": {
+                "selected": {
+                  "numerator": 4,
+                  "denominator": 4,
+                  "rate": 1.0
+                },
+                "wrong_and_selected": {
+                  "numerator": 0,
+                  "denominator": 4,
+                  "rate": 0.0
+                },
+                "wrong_among_selected": {
+                  "numerator": 0,
+                  "denominator": 4,
+                  "rate": 0.0
+                }
+              }
+            },
+            "fields_on_case_gate": {
+              "action": {
+                "selected": {
+                  "numerator": 1,
+                  "denominator": 4,
+                  "rate": 0.25
+                },
+                "wrong_and_selected": {
+                  "numerator": 0,
+                  "denominator": 4,
+                  "rate": 0.0
+                },
+                "wrong_among_selected": {
+                  "numerator": 0,
+                  "denominator": 1,
+                  "rate": 0.0
+                }
+              },
+              "determination": {
+                "selected": {
+                  "numerator": 1,
+                  "denominator": 4,
+                  "rate": 0.25
+                },
+                "wrong_and_selected": {
+                  "numerator": 0,
+                  "denominator": 4,
+                  "rate": 0.0
+                },
+                "wrong_among_selected": {
+                  "numerator": 0,
+                  "denominator": 1,
+                  "rate": 0.0
+                }
+              }
+            }
+          }
+        },
+        "abbreviation": {
+          "count": 4,
+          "valid_outputs": {
+            "numerator": 4,
+            "denominator": 4,
+            "rate": 1.0
+          },
+          "all_fields_exact": {
+            "numerator": 4,
+            "denominator": 4,
+            "rate": 1.0
+          },
+          "action_exact": {
+            "numerator": 4,
+            "denominator": 4,
+            "rate": 1.0
+          },
+          "determination_exact": {
+            "numerator": 4,
+            "denominator": 4,
+            "rate": 1.0
+          },
+          "field_inconsistency": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "high_score": {
+            "selected": {
+              "numerator": 1,
+              "denominator": 4,
+              "rate": 0.25
+            },
+            "wrong_and_selected": {
+              "numerator": 0,
+              "denominator": 4,
+              "rate": 0.0
+            },
+            "wrong_among_selected": {
+              "numerator": 0,
+              "denominator": 1,
+              "rate": 0.0
+            },
+            "threshold": 0.9,
+            "fields": {
+              "action": {
+                "selected": {
+                  "numerator": 1,
+                  "denominator": 4,
+                  "rate": 0.25
+                },
+                "wrong_and_selected": {
+                  "numerator": 0,
+                  "denominator": 4,
+                  "rate": 0.0
+                },
+                "wrong_among_selected": {
+                  "numerator": 0,
+                  "denominator": 1,
+                  "rate": 0.0
+                }
+              },
+              "determination": {
+                "selected": {
+                  "numerator": 4,
+                  "denominator": 4,
+                  "rate": 1.0
+                },
+                "wrong_and_selected": {
+                  "numerator": 0,
+                  "denominator": 4,
+                  "rate": 0.0
+                },
+                "wrong_among_selected": {
+                  "numerator": 0,
+                  "denominator": 4,
+                  "rate": 0.0
+                }
+              }
+            },
+            "fields_on_case_gate": {
+              "action": {
+                "selected": {
+                  "numerator": 1,
+                  "denominator": 4,
+                  "rate": 0.25
+                },
+                "wrong_and_selected": {
+                  "numerator": 0,
+                  "denominator": 4,
+                  "rate": 0.0
+                },
+                "wrong_among_selected": {
+                  "numerator": 0,
+                  "denominator": 1,
+                  "rate": 0.0
+                }
+              },
+              "determination": {
+                "selected": {
+                  "numerator": 1,
+                  "denominator": 4,
+                  "rate": 0.25
+                },
+                "wrong_and_selected": {
+                  "numerator": 0,
+                  "denominator": 4,
+                  "rate": 0.0
+                },
+                "wrong_among_selected": {
+                  "numerator": 0,
+                  "denominator": 1,
+                  "rate": 0.0
+                }
+              }
+            }
+          }
+        },
+        "de_en_mix": {
+          "count": 4,
+          "valid_outputs": {
+            "numerator": 4,
+            "denominator": 4,
+            "rate": 1.0
+          },
+          "all_fields_exact": {
+            "numerator": 4,
+            "denominator": 4,
+            "rate": 1.0
+          },
+          "action_exact": {
+            "numerator": 4,
+            "denominator": 4,
+            "rate": 1.0
+          },
+          "determination_exact": {
+            "numerator": 4,
+            "denominator": 4,
+            "rate": 1.0
+          },
+          "field_inconsistency": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "high_score": {
+            "selected": {
+              "numerator": 1,
+              "denominator": 4,
+              "rate": 0.25
+            },
+            "wrong_and_selected": {
+              "numerator": 0,
+              "denominator": 4,
+              "rate": 0.0
+            },
+            "wrong_among_selected": {
+              "numerator": 0,
+              "denominator": 1,
+              "rate": 0.0
+            },
+            "threshold": 0.9,
+            "fields": {
+              "action": {
+                "selected": {
+                  "numerator": 1,
+                  "denominator": 4,
+                  "rate": 0.25
+                },
+                "wrong_and_selected": {
+                  "numerator": 0,
+                  "denominator": 4,
+                  "rate": 0.0
+                },
+                "wrong_among_selected": {
+                  "numerator": 0,
+                  "denominator": 1,
+                  "rate": 0.0
+                }
+              },
+              "determination": {
+                "selected": {
+                  "numerator": 4,
+                  "denominator": 4,
+                  "rate": 1.0
+                },
+                "wrong_and_selected": {
+                  "numerator": 0,
+                  "denominator": 4,
+                  "rate": 0.0
+                },
+                "wrong_among_selected": {
+                  "numerator": 0,
+                  "denominator": 4,
+                  "rate": 0.0
+                }
+              }
+            },
+            "fields_on_case_gate": {
+              "action": {
+                "selected": {
+                  "numerator": 1,
+                  "denominator": 4,
+                  "rate": 0.25
+                },
+                "wrong_and_selected": {
+                  "numerator": 0,
+                  "denominator": 4,
+                  "rate": 0.0
+                },
+                "wrong_among_selected": {
+                  "numerator": 0,
+                  "denominator": 1,
+                  "rate": 0.0
+                }
+              },
+              "determination": {
+                "selected": {
+                  "numerator": 1,
+                  "denominator": 4,
+                  "rate": 0.25
+                },
+                "wrong_and_selected": {
+                  "numerator": 0,
+                  "denominator": 4,
+                  "rate": 0.0
+                },
+                "wrong_among_selected": {
+                  "numerator": 0,
+                  "denominator": 1,
+                  "rate": 0.0
+                }
+              }
+            }
+          }
+        }
+      },
+      "invariant_pairs": {
+        "count": 16,
+        "both_correct": {
+          "numerator": 16,
+          "denominator": 16,
+          "rate": 1.0
+        },
+        "observed_change": {
+          "numerator": 0,
+          "denominator": 16,
+          "rate": 0.0
+        },
+        "invalid_or_missing": {
+          "numerator": 0,
+          "denominator": 16,
+          "rate": 0.0
+        },
+        "missing_endpoint": {
+          "numerator": 0,
+          "denominator": 16,
+          "rate": 0.0
+        },
+        "invalid_existing_endpoint": {
+          "numerator": 0,
+          "denominator": 16,
+          "rate": 0.0
+        },
+        "stability": {
+          "numerator": 16,
+          "denominator": 16,
+          "rate": 1.0
+        },
+        "stable_correct": {
+          "numerator": 16,
+          "denominator": 16,
+          "rate": 1.0
+        },
+        "stable_wrong": {
+          "numerator": 0,
+          "denominator": 16,
+          "rate": 0.0
+        },
+        "failed_invariance": {
+          "numerator": 0,
+          "denominator": 16,
+          "rate": 0.0
+        },
+        "degradation": {
+          "numerator": 0,
+          "denominator": 16,
+          "rate": 0.0
+        },
+        "improvement": {
+          "numerator": 0,
+          "denominator": 16,
+          "rate": 0.0
+        },
+        "both_incorrect": {
+          "numerator": 0,
+          "denominator": 16,
+          "rate": 0.0
+        },
+        "observed_change_among_valid": {
+          "numerator": 0,
+          "denominator": 16,
+          "rate": 0.0
+        },
+        "conditional_loss_given_correct_canonical": {
+          "numerator": 0,
+          "denominator": 16,
+          "rate": 0.0
+        }
+      },
+      "ambiguity_controls": {
+        "count": 2,
+        "both_correct": {
+          "numerator": 1,
+          "denominator": 2,
+          "rate": 0.5
+        },
+        "observed_change": {
+          "numerator": 1,
+          "denominator": 2,
+          "rate": 0.5
+        },
+        "invalid_or_missing": {
+          "numerator": 0,
+          "denominator": 2,
+          "rate": 0.0
+        },
+        "missing_endpoint": {
+          "numerator": 0,
+          "denominator": 2,
+          "rate": 0.0
+        },
+        "invalid_existing_endpoint": {
+          "numerator": 0,
+          "denominator": 2,
+          "rate": 0.0
+        },
+        "correct_directional_change": {
+          "numerator": 1,
+          "denominator": 2,
+          "rate": 0.5
+        },
+        "changed_but_direction_wrong": {
+          "numerator": 0,
+          "denominator": 2,
+          "rate": 0.0
+        },
+        "observed_change_among_valid": {
+          "numerator": 1,
+          "denominator": 2,
+          "rate": 0.5
+        }
+      },
+      "cluster_robustness": {
+        "count": 4,
+        "all_five_correct": {
+          "numerator": 4,
+          "denominator": 4,
+          "rate": 1.0
+        },
+        "all_five_valid": {
+          "numerator": 4,
+          "denominator": 4,
+          "rate": 1.0
+        }
+      },
+      "invariant_by_transformation": {
+        "typo": {
+          "count": 4,
+          "both_correct": {
+            "numerator": 4,
+            "denominator": 4,
+            "rate": 1.0
+          },
+          "observed_change": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "invalid_or_missing": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "missing_endpoint": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "invalid_existing_endpoint": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "stability": {
+            "numerator": 4,
+            "denominator": 4,
+            "rate": 1.0
+          },
+          "stable_correct": {
+            "numerator": 4,
+            "denominator": 4,
+            "rate": 1.0
+          },
+          "stable_wrong": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "failed_invariance": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "degradation": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "improvement": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "both_incorrect": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "observed_change_among_valid": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "conditional_loss_given_correct_canonical": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          }
+        },
+        "compact_colloquial": {
+          "count": 4,
+          "both_correct": {
+            "numerator": 4,
+            "denominator": 4,
+            "rate": 1.0
+          },
+          "observed_change": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "invalid_or_missing": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "missing_endpoint": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "invalid_existing_endpoint": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "stability": {
+            "numerator": 4,
+            "denominator": 4,
+            "rate": 1.0
+          },
+          "stable_correct": {
+            "numerator": 4,
+            "denominator": 4,
+            "rate": 1.0
+          },
+          "stable_wrong": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "failed_invariance": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "degradation": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "improvement": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "both_incorrect": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "observed_change_among_valid": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "conditional_loss_given_correct_canonical": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          }
+        },
+        "abbreviation": {
+          "count": 4,
+          "both_correct": {
+            "numerator": 4,
+            "denominator": 4,
+            "rate": 1.0
+          },
+          "observed_change": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "invalid_or_missing": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "missing_endpoint": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "invalid_existing_endpoint": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "stability": {
+            "numerator": 4,
+            "denominator": 4,
+            "rate": 1.0
+          },
+          "stable_correct": {
+            "numerator": 4,
+            "denominator": 4,
+            "rate": 1.0
+          },
+          "stable_wrong": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "failed_invariance": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "degradation": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "improvement": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "both_incorrect": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "observed_change_among_valid": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "conditional_loss_given_correct_canonical": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          }
+        },
+        "de_en_mix": {
+          "count": 4,
+          "both_correct": {
+            "numerator": 4,
+            "denominator": 4,
+            "rate": 1.0
+          },
+          "observed_change": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "invalid_or_missing": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "missing_endpoint": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "invalid_existing_endpoint": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "stability": {
+            "numerator": 4,
+            "denominator": 4,
+            "rate": 1.0
+          },
+          "stable_correct": {
+            "numerator": 4,
+            "denominator": 4,
+            "rate": 1.0
+          },
+          "stable_wrong": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "failed_invariance": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "degradation": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "improvement": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "both_incorrect": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "observed_change_among_valid": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "conditional_loss_given_correct_canonical": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          }
+        }
+      },
+      "ambiguity_by_subtype": {
+        "answer_to_missing_fact": {
+          "count": 1,
+          "both_correct": {
+            "numerator": 1,
+            "denominator": 1,
+            "rate": 1.0
+          },
+          "observed_change": {
+            "numerator": 1,
+            "denominator": 1,
+            "rate": 1.0
+          },
+          "invalid_or_missing": {
+            "numerator": 0,
+            "denominator": 1,
+            "rate": 0.0
+          },
+          "missing_endpoint": {
+            "numerator": 0,
+            "denominator": 1,
+            "rate": 0.0
+          },
+          "invalid_existing_endpoint": {
+            "numerator": 0,
+            "denominator": 1,
+            "rate": 0.0
+          },
+          "correct_directional_change": {
+            "numerator": 1,
+            "denominator": 1,
+            "rate": 1.0
+          },
+          "changed_but_direction_wrong": {
+            "numerator": 0,
+            "denominator": 1,
+            "rate": 0.0
+          },
+          "observed_change_among_valid": {
+            "numerator": 1,
+            "denominator": 1,
+            "rate": 1.0
+          }
+        },
+        "answer_to_missing_target": {
+          "count": 1,
+          "both_correct": {
+            "numerator": 0,
+            "denominator": 1,
+            "rate": 0.0
+          },
+          "observed_change": {
+            "numerator": 0,
+            "denominator": 1,
+            "rate": 0.0
+          },
+          "invalid_or_missing": {
+            "numerator": 0,
+            "denominator": 1,
+            "rate": 0.0
+          },
+          "missing_endpoint": {
+            "numerator": 0,
+            "denominator": 1,
+            "rate": 0.0
+          },
+          "invalid_existing_endpoint": {
+            "numerator": 0,
+            "denominator": 1,
+            "rate": 0.0
+          },
+          "correct_directional_change": {
+            "numerator": 0,
+            "denominator": 1,
+            "rate": 0.0
+          },
+          "changed_but_direction_wrong": {
+            "numerator": 0,
+            "denominator": 1,
+            "rate": 0.0
+          },
+          "observed_change_among_valid": {
+            "numerator": 0,
+            "denominator": 1,
+            "rate": 0.0
+          }
+        }
+      }
+    },
+    "finance": {
+      "all_cases": {
+        "count": 24,
+        "valid_outputs": {
+          "numerator": 24,
+          "denominator": 24,
+          "rate": 1.0
+        },
+        "all_fields_exact": {
+          "numerator": 21,
+          "denominator": 24,
+          "rate": 0.875
+        },
+        "action_exact": {
+          "numerator": 21,
+          "denominator": 24,
+          "rate": 0.875
+        },
+        "determination_exact": {
+          "numerator": 23,
+          "denominator": 24,
+          "rate": 0.9583333333333334
+        },
+        "field_inconsistency": {
+          "numerator": 2,
+          "denominator": 24,
+          "rate": 0.08333333333333333
+        },
+        "high_score": {
+          "selected": {
+            "numerator": 8,
+            "denominator": 24,
+            "rate": 0.3333333333333333
+          },
+          "wrong_and_selected": {
+            "numerator": 0,
+            "denominator": 24,
+            "rate": 0.0
+          },
+          "wrong_among_selected": {
+            "numerator": 0,
+            "denominator": 8,
+            "rate": 0.0
+          },
+          "threshold": 0.9,
+          "fields": {
+            "action": {
+              "selected": {
+                "numerator": 9,
+                "denominator": 24,
+                "rate": 0.375
+              },
+              "wrong_and_selected": {
+                "numerator": 0,
+                "denominator": 24,
+                "rate": 0.0
+              },
+              "wrong_among_selected": {
+                "numerator": 0,
+                "denominator": 9,
+                "rate": 0.0
+              }
+            },
+            "determination": {
+              "selected": {
+                "numerator": 18,
+                "denominator": 24,
+                "rate": 0.75
+              },
+              "wrong_and_selected": {
+                "numerator": 0,
+                "denominator": 24,
+                "rate": 0.0
+              },
+              "wrong_among_selected": {
+                "numerator": 0,
+                "denominator": 18,
+                "rate": 0.0
+              }
+            }
+          },
+          "fields_on_case_gate": {
+            "action": {
+              "selected": {
+                "numerator": 8,
+                "denominator": 24,
+                "rate": 0.3333333333333333
+              },
+              "wrong_and_selected": {
+                "numerator": 0,
+                "denominator": 24,
+                "rate": 0.0
+              },
+              "wrong_among_selected": {
+                "numerator": 0,
+                "denominator": 8,
+                "rate": 0.0
+              }
+            },
+            "determination": {
+              "selected": {
+                "numerator": 8,
+                "denominator": 24,
+                "rate": 0.3333333333333333
+              },
+              "wrong_and_selected": {
+                "numerator": 0,
+                "denominator": 24,
+                "rate": 0.0
+              },
+              "wrong_among_selected": {
+                "numerator": 0,
+                "denominator": 8,
+                "rate": 0.0
+              }
+            }
+          }
+        }
+      },
+      "by_group": {
+        "invariant": {
+          "count": 20,
+          "valid_outputs": {
+            "numerator": 20,
+            "denominator": 20,
+            "rate": 1.0
+          },
+          "all_fields_exact": {
+            "numerator": 18,
+            "denominator": 20,
+            "rate": 0.9
+          },
+          "action_exact": {
+            "numerator": 18,
+            "denominator": 20,
+            "rate": 0.9
+          },
+          "determination_exact": {
+            "numerator": 20,
+            "denominator": 20,
+            "rate": 1.0
+          },
+          "field_inconsistency": {
+            "numerator": 2,
+            "denominator": 20,
+            "rate": 0.1
+          },
+          "high_score": {
+            "selected": {
+              "numerator": 6,
+              "denominator": 20,
+              "rate": 0.3
+            },
+            "wrong_and_selected": {
+              "numerator": 0,
+              "denominator": 20,
+              "rate": 0.0
+            },
+            "wrong_among_selected": {
+              "numerator": 0,
+              "denominator": 6,
+              "rate": 0.0
+            },
+            "threshold": 0.9,
+            "fields": {
+              "action": {
+                "selected": {
+                  "numerator": 7,
+                  "denominator": 20,
+                  "rate": 0.35
+                },
+                "wrong_and_selected": {
+                  "numerator": 0,
+                  "denominator": 20,
+                  "rate": 0.0
+                },
+                "wrong_among_selected": {
+                  "numerator": 0,
+                  "denominator": 7,
+                  "rate": 0.0
+                }
+              },
+              "determination": {
+                "selected": {
+                  "numerator": 15,
+                  "denominator": 20,
+                  "rate": 0.75
+                },
+                "wrong_and_selected": {
+                  "numerator": 0,
+                  "denominator": 20,
+                  "rate": 0.0
+                },
+                "wrong_among_selected": {
+                  "numerator": 0,
+                  "denominator": 15,
+                  "rate": 0.0
+                }
+              }
+            },
+            "fields_on_case_gate": {
+              "action": {
+                "selected": {
+                  "numerator": 6,
+                  "denominator": 20,
+                  "rate": 0.3
+                },
+                "wrong_and_selected": {
+                  "numerator": 0,
+                  "denominator": 20,
+                  "rate": 0.0
+                },
+                "wrong_among_selected": {
+                  "numerator": 0,
+                  "denominator": 6,
+                  "rate": 0.0
+                }
+              },
+              "determination": {
+                "selected": {
+                  "numerator": 6,
+                  "denominator": 20,
+                  "rate": 0.3
+                },
+                "wrong_and_selected": {
+                  "numerator": 0,
+                  "denominator": 20,
+                  "rate": 0.0
+                },
+                "wrong_among_selected": {
+                  "numerator": 0,
+                  "denominator": 6,
+                  "rate": 0.0
+                }
+              }
+            }
+          }
+        },
+        "ambiguity_change": {
+          "count": 4,
+          "valid_outputs": {
+            "numerator": 4,
+            "denominator": 4,
+            "rate": 1.0
+          },
+          "all_fields_exact": {
+            "numerator": 3,
+            "denominator": 4,
+            "rate": 0.75
+          },
+          "action_exact": {
+            "numerator": 3,
+            "denominator": 4,
+            "rate": 0.75
+          },
+          "determination_exact": {
+            "numerator": 3,
+            "denominator": 4,
+            "rate": 0.75
+          },
+          "field_inconsistency": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "high_score": {
+            "selected": {
+              "numerator": 2,
+              "denominator": 4,
+              "rate": 0.5
+            },
+            "wrong_and_selected": {
+              "numerator": 0,
+              "denominator": 4,
+              "rate": 0.0
+            },
+            "wrong_among_selected": {
+              "numerator": 0,
+              "denominator": 2,
+              "rate": 0.0
+            },
+            "threshold": 0.9,
+            "fields": {
+              "action": {
+                "selected": {
+                  "numerator": 2,
+                  "denominator": 4,
+                  "rate": 0.5
+                },
+                "wrong_and_selected": {
+                  "numerator": 0,
+                  "denominator": 4,
+                  "rate": 0.0
+                },
+                "wrong_among_selected": {
+                  "numerator": 0,
+                  "denominator": 2,
+                  "rate": 0.0
+                }
+              },
+              "determination": {
+                "selected": {
+                  "numerator": 3,
+                  "denominator": 4,
+                  "rate": 0.75
+                },
+                "wrong_and_selected": {
+                  "numerator": 0,
+                  "denominator": 4,
+                  "rate": 0.0
+                },
+                "wrong_among_selected": {
+                  "numerator": 0,
+                  "denominator": 3,
+                  "rate": 0.0
+                }
+              }
+            },
+            "fields_on_case_gate": {
+              "action": {
+                "selected": {
+                  "numerator": 2,
+                  "denominator": 4,
+                  "rate": 0.5
+                },
+                "wrong_and_selected": {
+                  "numerator": 0,
+                  "denominator": 4,
+                  "rate": 0.0
+                },
+                "wrong_among_selected": {
+                  "numerator": 0,
+                  "denominator": 2,
+                  "rate": 0.0
+                }
+              },
+              "determination": {
+                "selected": {
+                  "numerator": 2,
+                  "denominator": 4,
+                  "rate": 0.5
+                },
+                "wrong_and_selected": {
+                  "numerator": 0,
+                  "denominator": 4,
+                  "rate": 0.0
+                },
+                "wrong_among_selected": {
+                  "numerator": 0,
+                  "denominator": 2,
+                  "rate": 0.0
+                }
+              }
+            }
+          }
+        }
+      },
+      "invariant_views": {
+        "canonical": {
+          "count": 4,
+          "valid_outputs": {
+            "numerator": 4,
+            "denominator": 4,
+            "rate": 1.0
+          },
+          "all_fields_exact": {
+            "numerator": 3,
+            "denominator": 4,
+            "rate": 0.75
+          },
+          "action_exact": {
+            "numerator": 3,
+            "denominator": 4,
+            "rate": 0.75
+          },
+          "determination_exact": {
+            "numerator": 4,
+            "denominator": 4,
+            "rate": 1.0
+          },
+          "field_inconsistency": {
+            "numerator": 1,
+            "denominator": 4,
+            "rate": 0.25
+          },
+          "high_score": {
+            "selected": {
+              "numerator": 1,
+              "denominator": 4,
+              "rate": 0.25
+            },
+            "wrong_and_selected": {
+              "numerator": 0,
+              "denominator": 4,
+              "rate": 0.0
+            },
+            "wrong_among_selected": {
+              "numerator": 0,
+              "denominator": 1,
+              "rate": 0.0
+            },
+            "threshold": 0.9,
+            "fields": {
+              "action": {
+                "selected": {
+                  "numerator": 1,
+                  "denominator": 4,
+                  "rate": 0.25
+                },
+                "wrong_and_selected": {
+                  "numerator": 0,
+                  "denominator": 4,
+                  "rate": 0.0
+                },
+                "wrong_among_selected": {
+                  "numerator": 0,
+                  "denominator": 1,
+                  "rate": 0.0
+                }
+              },
+              "determination": {
+                "selected": {
+                  "numerator": 3,
+                  "denominator": 4,
+                  "rate": 0.75
+                },
+                "wrong_and_selected": {
+                  "numerator": 0,
+                  "denominator": 4,
+                  "rate": 0.0
+                },
+                "wrong_among_selected": {
+                  "numerator": 0,
+                  "denominator": 3,
+                  "rate": 0.0
+                }
+              }
+            },
+            "fields_on_case_gate": {
+              "action": {
+                "selected": {
+                  "numerator": 1,
+                  "denominator": 4,
+                  "rate": 0.25
+                },
+                "wrong_and_selected": {
+                  "numerator": 0,
+                  "denominator": 4,
+                  "rate": 0.0
+                },
+                "wrong_among_selected": {
+                  "numerator": 0,
+                  "denominator": 1,
+                  "rate": 0.0
+                }
+              },
+              "determination": {
+                "selected": {
+                  "numerator": 1,
+                  "denominator": 4,
+                  "rate": 0.25
+                },
+                "wrong_and_selected": {
+                  "numerator": 0,
+                  "denominator": 4,
+                  "rate": 0.0
+                },
+                "wrong_among_selected": {
+                  "numerator": 0,
+                  "denominator": 1,
+                  "rate": 0.0
+                }
+              }
+            }
+          }
+        },
+        "typo": {
+          "count": 4,
+          "valid_outputs": {
+            "numerator": 4,
+            "denominator": 4,
+            "rate": 1.0
+          },
+          "all_fields_exact": {
+            "numerator": 4,
+            "denominator": 4,
+            "rate": 1.0
+          },
+          "action_exact": {
+            "numerator": 4,
+            "denominator": 4,
+            "rate": 1.0
+          },
+          "determination_exact": {
+            "numerator": 4,
+            "denominator": 4,
+            "rate": 1.0
+          },
+          "field_inconsistency": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "high_score": {
+            "selected": {
+              "numerator": 2,
+              "denominator": 4,
+              "rate": 0.5
+            },
+            "wrong_and_selected": {
+              "numerator": 0,
+              "denominator": 4,
+              "rate": 0.0
+            },
+            "wrong_among_selected": {
+              "numerator": 0,
+              "denominator": 2,
+              "rate": 0.0
+            },
+            "threshold": 0.9,
+            "fields": {
+              "action": {
+                "selected": {
+                  "numerator": 2,
+                  "denominator": 4,
+                  "rate": 0.5
+                },
+                "wrong_and_selected": {
+                  "numerator": 0,
+                  "denominator": 4,
+                  "rate": 0.0
+                },
+                "wrong_among_selected": {
+                  "numerator": 0,
+                  "denominator": 2,
+                  "rate": 0.0
+                }
+              },
+              "determination": {
+                "selected": {
+                  "numerator": 3,
+                  "denominator": 4,
+                  "rate": 0.75
+                },
+                "wrong_and_selected": {
+                  "numerator": 0,
+                  "denominator": 4,
+                  "rate": 0.0
+                },
+                "wrong_among_selected": {
+                  "numerator": 0,
+                  "denominator": 3,
+                  "rate": 0.0
+                }
+              }
+            },
+            "fields_on_case_gate": {
+              "action": {
+                "selected": {
+                  "numerator": 2,
+                  "denominator": 4,
+                  "rate": 0.5
+                },
+                "wrong_and_selected": {
+                  "numerator": 0,
+                  "denominator": 4,
+                  "rate": 0.0
+                },
+                "wrong_among_selected": {
+                  "numerator": 0,
+                  "denominator": 2,
+                  "rate": 0.0
+                }
+              },
+              "determination": {
+                "selected": {
+                  "numerator": 2,
+                  "denominator": 4,
+                  "rate": 0.5
+                },
+                "wrong_and_selected": {
+                  "numerator": 0,
+                  "denominator": 4,
+                  "rate": 0.0
+                },
+                "wrong_among_selected": {
+                  "numerator": 0,
+                  "denominator": 2,
+                  "rate": 0.0
+                }
+              }
+            }
+          }
+        },
+        "compact_colloquial": {
+          "count": 4,
+          "valid_outputs": {
+            "numerator": 4,
+            "denominator": 4,
+            "rate": 1.0
+          },
+          "all_fields_exact": {
+            "numerator": 4,
+            "denominator": 4,
+            "rate": 1.0
+          },
+          "action_exact": {
+            "numerator": 4,
+            "denominator": 4,
+            "rate": 1.0
+          },
+          "determination_exact": {
+            "numerator": 4,
+            "denominator": 4,
+            "rate": 1.0
+          },
+          "field_inconsistency": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "high_score": {
+            "selected": {
+              "numerator": 2,
+              "denominator": 4,
+              "rate": 0.5
+            },
+            "wrong_and_selected": {
+              "numerator": 0,
+              "denominator": 4,
+              "rate": 0.0
+            },
+            "wrong_among_selected": {
+              "numerator": 0,
+              "denominator": 2,
+              "rate": 0.0
+            },
+            "threshold": 0.9,
+            "fields": {
+              "action": {
+                "selected": {
+                  "numerator": 2,
+                  "denominator": 4,
+                  "rate": 0.5
+                },
+                "wrong_and_selected": {
+                  "numerator": 0,
+                  "denominator": 4,
+                  "rate": 0.0
+                },
+                "wrong_among_selected": {
+                  "numerator": 0,
+                  "denominator": 2,
+                  "rate": 0.0
+                }
+              },
+              "determination": {
+                "selected": {
+                  "numerator": 3,
+                  "denominator": 4,
+                  "rate": 0.75
+                },
+                "wrong_and_selected": {
+                  "numerator": 0,
+                  "denominator": 4,
+                  "rate": 0.0
+                },
+                "wrong_among_selected": {
+                  "numerator": 0,
+                  "denominator": 3,
+                  "rate": 0.0
+                }
+              }
+            },
+            "fields_on_case_gate": {
+              "action": {
+                "selected": {
+                  "numerator": 2,
+                  "denominator": 4,
+                  "rate": 0.5
+                },
+                "wrong_and_selected": {
+                  "numerator": 0,
+                  "denominator": 4,
+                  "rate": 0.0
+                },
+                "wrong_among_selected": {
+                  "numerator": 0,
+                  "denominator": 2,
+                  "rate": 0.0
+                }
+              },
+              "determination": {
+                "selected": {
+                  "numerator": 2,
+                  "denominator": 4,
+                  "rate": 0.5
+                },
+                "wrong_and_selected": {
+                  "numerator": 0,
+                  "denominator": 4,
+                  "rate": 0.0
+                },
+                "wrong_among_selected": {
+                  "numerator": 0,
+                  "denominator": 2,
+                  "rate": 0.0
+                }
+              }
+            }
+          }
+        },
+        "abbreviation": {
+          "count": 4,
+          "valid_outputs": {
+            "numerator": 4,
+            "denominator": 4,
+            "rate": 1.0
+          },
+          "all_fields_exact": {
+            "numerator": 4,
+            "denominator": 4,
+            "rate": 1.0
+          },
+          "action_exact": {
+            "numerator": 4,
+            "denominator": 4,
+            "rate": 1.0
+          },
+          "determination_exact": {
+            "numerator": 4,
+            "denominator": 4,
+            "rate": 1.0
+          },
+          "field_inconsistency": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "high_score": {
+            "selected": {
+              "numerator": 1,
+              "denominator": 4,
+              "rate": 0.25
+            },
+            "wrong_and_selected": {
+              "numerator": 0,
+              "denominator": 4,
+              "rate": 0.0
+            },
+            "wrong_among_selected": {
+              "numerator": 0,
+              "denominator": 1,
+              "rate": 0.0
+            },
+            "threshold": 0.9,
+            "fields": {
+              "action": {
+                "selected": {
+                  "numerator": 2,
+                  "denominator": 4,
+                  "rate": 0.5
+                },
+                "wrong_and_selected": {
+                  "numerator": 0,
+                  "denominator": 4,
+                  "rate": 0.0
+                },
+                "wrong_among_selected": {
+                  "numerator": 0,
+                  "denominator": 2,
+                  "rate": 0.0
+                }
+              },
+              "determination": {
+                "selected": {
+                  "numerator": 3,
+                  "denominator": 4,
+                  "rate": 0.75
+                },
+                "wrong_and_selected": {
+                  "numerator": 0,
+                  "denominator": 4,
+                  "rate": 0.0
+                },
+                "wrong_among_selected": {
+                  "numerator": 0,
+                  "denominator": 3,
+                  "rate": 0.0
+                }
+              }
+            },
+            "fields_on_case_gate": {
+              "action": {
+                "selected": {
+                  "numerator": 1,
+                  "denominator": 4,
+                  "rate": 0.25
+                },
+                "wrong_and_selected": {
+                  "numerator": 0,
+                  "denominator": 4,
+                  "rate": 0.0
+                },
+                "wrong_among_selected": {
+                  "numerator": 0,
+                  "denominator": 1,
+                  "rate": 0.0
+                }
+              },
+              "determination": {
+                "selected": {
+                  "numerator": 1,
+                  "denominator": 4,
+                  "rate": 0.25
+                },
+                "wrong_and_selected": {
+                  "numerator": 0,
+                  "denominator": 4,
+                  "rate": 0.0
+                },
+                "wrong_among_selected": {
+                  "numerator": 0,
+                  "denominator": 1,
+                  "rate": 0.0
+                }
+              }
+            }
+          }
+        },
+        "de_en_mix": {
+          "count": 4,
+          "valid_outputs": {
+            "numerator": 4,
+            "denominator": 4,
+            "rate": 1.0
+          },
+          "all_fields_exact": {
+            "numerator": 3,
+            "denominator": 4,
+            "rate": 0.75
+          },
+          "action_exact": {
+            "numerator": 3,
+            "denominator": 4,
+            "rate": 0.75
+          },
+          "determination_exact": {
+            "numerator": 4,
+            "denominator": 4,
+            "rate": 1.0
+          },
+          "field_inconsistency": {
+            "numerator": 1,
+            "denominator": 4,
+            "rate": 0.25
+          },
+          "high_score": {
+            "selected": {
+              "numerator": 0,
+              "denominator": 4,
+              "rate": 0.0
+            },
+            "wrong_and_selected": {
+              "numerator": 0,
+              "denominator": 4,
+              "rate": 0.0
+            },
+            "wrong_among_selected": {
+              "numerator": 0,
+              "denominator": 0,
+              "rate": null
+            },
+            "threshold": 0.9,
+            "fields": {
+              "action": {
+                "selected": {
+                  "numerator": 0,
+                  "denominator": 4,
+                  "rate": 0.0
+                },
+                "wrong_and_selected": {
+                  "numerator": 0,
+                  "denominator": 4,
+                  "rate": 0.0
+                },
+                "wrong_among_selected": {
+                  "numerator": 0,
+                  "denominator": 0,
+                  "rate": null
+                }
+              },
+              "determination": {
+                "selected": {
+                  "numerator": 3,
+                  "denominator": 4,
+                  "rate": 0.75
+                },
+                "wrong_and_selected": {
+                  "numerator": 0,
+                  "denominator": 4,
+                  "rate": 0.0
+                },
+                "wrong_among_selected": {
+                  "numerator": 0,
+                  "denominator": 3,
+                  "rate": 0.0
+                }
+              }
+            },
+            "fields_on_case_gate": {
+              "action": {
+                "selected": {
+                  "numerator": 0,
+                  "denominator": 4,
+                  "rate": 0.0
+                },
+                "wrong_and_selected": {
+                  "numerator": 0,
+                  "denominator": 4,
+                  "rate": 0.0
+                },
+                "wrong_among_selected": {
+                  "numerator": 0,
+                  "denominator": 0,
+                  "rate": null
+                }
+              },
+              "determination": {
+                "selected": {
+                  "numerator": 0,
+                  "denominator": 4,
+                  "rate": 0.0
+                },
+                "wrong_and_selected": {
+                  "numerator": 0,
+                  "denominator": 4,
+                  "rate": 0.0
+                },
+                "wrong_among_selected": {
+                  "numerator": 0,
+                  "denominator": 0,
+                  "rate": null
+                }
+              }
+            }
+          }
+        }
+      },
+      "invariant_pairs": {
+        "count": 16,
+        "both_correct": {
+          "numerator": 12,
+          "denominator": 16,
+          "rate": 0.75
+        },
+        "observed_change": {
+          "numerator": 3,
+          "denominator": 16,
+          "rate": 0.1875
+        },
+        "invalid_or_missing": {
+          "numerator": 0,
+          "denominator": 16,
+          "rate": 0.0
+        },
+        "missing_endpoint": {
+          "numerator": 0,
+          "denominator": 16,
+          "rate": 0.0
+        },
+        "invalid_existing_endpoint": {
+          "numerator": 0,
+          "denominator": 16,
+          "rate": 0.0
+        },
+        "stability": {
+          "numerator": 13,
+          "denominator": 16,
+          "rate": 0.8125
+        },
+        "stable_correct": {
+          "numerator": 12,
+          "denominator": 16,
+          "rate": 0.75
+        },
+        "stable_wrong": {
+          "numerator": 1,
+          "denominator": 16,
+          "rate": 0.0625
+        },
+        "failed_invariance": {
+          "numerator": 3,
+          "denominator": 16,
+          "rate": 0.1875
+        },
+        "degradation": {
+          "numerator": 0,
+          "denominator": 16,
+          "rate": 0.0
+        },
+        "improvement": {
+          "numerator": 3,
+          "denominator": 16,
+          "rate": 0.1875
+        },
+        "both_incorrect": {
+          "numerator": 1,
+          "denominator": 16,
+          "rate": 0.0625
+        },
+        "observed_change_among_valid": {
+          "numerator": 3,
+          "denominator": 16,
+          "rate": 0.1875
+        },
+        "conditional_loss_given_correct_canonical": {
+          "numerator": 0,
+          "denominator": 12,
+          "rate": 0.0
+        }
+      },
+      "ambiguity_controls": {
+        "count": 2,
+        "both_correct": {
+          "numerator": 1,
+          "denominator": 2,
+          "rate": 0.5
+        },
+        "observed_change": {
+          "numerator": 1,
+          "denominator": 2,
+          "rate": 0.5
+        },
+        "invalid_or_missing": {
+          "numerator": 0,
+          "denominator": 2,
+          "rate": 0.0
+        },
+        "missing_endpoint": {
+          "numerator": 0,
+          "denominator": 2,
+          "rate": 0.0
+        },
+        "invalid_existing_endpoint": {
+          "numerator": 0,
+          "denominator": 2,
+          "rate": 0.0
+        },
+        "correct_directional_change": {
+          "numerator": 1,
+          "denominator": 2,
+          "rate": 0.5
+        },
+        "changed_but_direction_wrong": {
+          "numerator": 0,
+          "denominator": 2,
+          "rate": 0.0
+        },
+        "observed_change_among_valid": {
+          "numerator": 1,
+          "denominator": 2,
+          "rate": 0.5
+        }
+      },
+      "cluster_robustness": {
+        "count": 4,
+        "all_five_correct": {
+          "numerator": 3,
+          "denominator": 4,
+          "rate": 0.75
+        },
+        "all_five_valid": {
+          "numerator": 4,
+          "denominator": 4,
+          "rate": 1.0
+        }
+      },
+      "invariant_by_transformation": {
+        "typo": {
+          "count": 4,
+          "both_correct": {
+            "numerator": 3,
+            "denominator": 4,
+            "rate": 0.75
+          },
+          "observed_change": {
+            "numerator": 1,
+            "denominator": 4,
+            "rate": 0.25
+          },
+          "invalid_or_missing": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "missing_endpoint": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "invalid_existing_endpoint": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "stability": {
+            "numerator": 3,
+            "denominator": 4,
+            "rate": 0.75
+          },
+          "stable_correct": {
+            "numerator": 3,
+            "denominator": 4,
+            "rate": 0.75
+          },
+          "stable_wrong": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "failed_invariance": {
+            "numerator": 1,
+            "denominator": 4,
+            "rate": 0.25
+          },
+          "degradation": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "improvement": {
+            "numerator": 1,
+            "denominator": 4,
+            "rate": 0.25
+          },
+          "both_incorrect": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "observed_change_among_valid": {
+            "numerator": 1,
+            "denominator": 4,
+            "rate": 0.25
+          },
+          "conditional_loss_given_correct_canonical": {
+            "numerator": 0,
+            "denominator": 3,
+            "rate": 0.0
+          }
+        },
+        "compact_colloquial": {
+          "count": 4,
+          "both_correct": {
+            "numerator": 3,
+            "denominator": 4,
+            "rate": 0.75
+          },
+          "observed_change": {
+            "numerator": 1,
+            "denominator": 4,
+            "rate": 0.25
+          },
+          "invalid_or_missing": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "missing_endpoint": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "invalid_existing_endpoint": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "stability": {
+            "numerator": 3,
+            "denominator": 4,
+            "rate": 0.75
+          },
+          "stable_correct": {
+            "numerator": 3,
+            "denominator": 4,
+            "rate": 0.75
+          },
+          "stable_wrong": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "failed_invariance": {
+            "numerator": 1,
+            "denominator": 4,
+            "rate": 0.25
+          },
+          "degradation": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "improvement": {
+            "numerator": 1,
+            "denominator": 4,
+            "rate": 0.25
+          },
+          "both_incorrect": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "observed_change_among_valid": {
+            "numerator": 1,
+            "denominator": 4,
+            "rate": 0.25
+          },
+          "conditional_loss_given_correct_canonical": {
+            "numerator": 0,
+            "denominator": 3,
+            "rate": 0.0
+          }
+        },
+        "abbreviation": {
+          "count": 4,
+          "both_correct": {
+            "numerator": 3,
+            "denominator": 4,
+            "rate": 0.75
+          },
+          "observed_change": {
+            "numerator": 1,
+            "denominator": 4,
+            "rate": 0.25
+          },
+          "invalid_or_missing": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "missing_endpoint": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "invalid_existing_endpoint": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "stability": {
+            "numerator": 3,
+            "denominator": 4,
+            "rate": 0.75
+          },
+          "stable_correct": {
+            "numerator": 3,
+            "denominator": 4,
+            "rate": 0.75
+          },
+          "stable_wrong": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "failed_invariance": {
+            "numerator": 1,
+            "denominator": 4,
+            "rate": 0.25
+          },
+          "degradation": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "improvement": {
+            "numerator": 1,
+            "denominator": 4,
+            "rate": 0.25
+          },
+          "both_incorrect": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "observed_change_among_valid": {
+            "numerator": 1,
+            "denominator": 4,
+            "rate": 0.25
+          },
+          "conditional_loss_given_correct_canonical": {
+            "numerator": 0,
+            "denominator": 3,
+            "rate": 0.0
+          }
+        },
+        "de_en_mix": {
+          "count": 4,
+          "both_correct": {
+            "numerator": 3,
+            "denominator": 4,
+            "rate": 0.75
+          },
+          "observed_change": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "invalid_or_missing": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "missing_endpoint": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "invalid_existing_endpoint": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "stability": {
+            "numerator": 4,
+            "denominator": 4,
+            "rate": 1.0
+          },
+          "stable_correct": {
+            "numerator": 3,
+            "denominator": 4,
+            "rate": 0.75
+          },
+          "stable_wrong": {
+            "numerator": 1,
+            "denominator": 4,
+            "rate": 0.25
+          },
+          "failed_invariance": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "degradation": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "improvement": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "both_incorrect": {
+            "numerator": 1,
+            "denominator": 4,
+            "rate": 0.25
+          },
+          "observed_change_among_valid": {
+            "numerator": 0,
+            "denominator": 4,
+            "rate": 0.0
+          },
+          "conditional_loss_given_correct_canonical": {
+            "numerator": 0,
+            "denominator": 3,
+            "rate": 0.0
+          }
+        }
+      },
+      "ambiguity_by_subtype": {
+        "answer_to_missing_fact": {
+          "count": 1,
+          "both_correct": {
+            "numerator": 1,
+            "denominator": 1,
+            "rate": 1.0
+          },
+          "observed_change": {
+            "numerator": 1,
+            "denominator": 1,
+            "rate": 1.0
+          },
+          "invalid_or_missing": {
+            "numerator": 0,
+            "denominator": 1,
+            "rate": 0.0
+          },
+          "missing_endpoint": {
+            "numerator": 0,
+            "denominator": 1,
+            "rate": 0.0
+          },
+          "invalid_existing_endpoint": {
+            "numerator": 0,
+            "denominator": 1,
+            "rate": 0.0
+          },
+          "correct_directional_change": {
+            "numerator": 1,
+            "denominator": 1,
+            "rate": 1.0
+          },
+          "changed_but_direction_wrong": {
+            "numerator": 0,
+            "denominator": 1,
+            "rate": 0.0
+          },
+          "observed_change_among_valid": {
+            "numerator": 1,
+            "denominator": 1,
+            "rate": 1.0
+          }
+        },
+        "answer_to_missing_target": {
+          "count": 1,
+          "both_correct": {
+            "numerator": 0,
+            "denominator": 1,
+            "rate": 0.0
+          },
+          "observed_change": {
+            "numerator": 0,
+            "denominator": 1,
+            "rate": 0.0
+          },
+          "invalid_or_missing": {
+            "numerator": 0,
+            "denominator": 1,
+            "rate": 0.0
+          },
+          "missing_endpoint": {
+            "numerator": 0,
+            "denominator": 1,
+            "rate": 0.0
+          },
+          "invalid_existing_endpoint": {
+            "numerator": 0,
+            "denominator": 1,
+            "rate": 0.0
+          },
+          "correct_directional_change": {
+            "numerator": 0,
+            "denominator": 1,
+            "rate": 0.0
+          },
+          "changed_but_direction_wrong": {
+            "numerator": 0,
+            "denominator": 1,
+            "rate": 0.0
+          },
+          "observed_change_among_valid": {
+            "numerator": 0,
+            "denominator": 1,
+            "rate": 0.0
+          }
+        }
+      }
+    }
+  },
+  "technical": {
+    "recorded": 72,
+    "valid": 72,
+    "missing": 0,
+    "invalid_existing": 0,
+    "valid_outputs": {
+      "numerator": 72,
+      "denominator": 72,
+      "rate": 1.0
+    },
+    "failures": {
+      "numerator": 0,
+      "denominator": 72,
+      "rate": 0.0
+    },
+    "complete_pairs": {
+      "numerator": 54,
+      "denominator": 54,
+      "rate": 1.0
+    },
+    "recorded_pairs": {
+      "numerator": 54,
+      "denominator": 54,
+      "rate": 1.0
+    },
+    "complete_pairs_by_group": {
+      "invariant": {
+        "numerator": 48,
+        "denominator": 48,
+        "rate": 1.0
+      },
+      "ambiguity_change": {
+        "numerator": 6,
+        "denominator": 6,
+        "rate": 1.0
+      }
+    },
+    "invalid_or_missing_ids": [],
+    "descriptive_unique_recorded_requests": {
+      "input_tokens": {
+        "count": 72,
+        "sum": 48433,
+        "min": 647,
+        "max": 712,
+        "median": 668.0,
+        "mean": 672.6805555555555
+      },
+      "encode_seconds": {
+        "count": 72,
+        "sum": 0.38185280199286353,
+        "min": 0.0034772239996527787,
+        "max": 0.01858103700033098,
+        "median": 0.005618363500616397,
+        "mean": 0.005303511138789772
+      },
+      "inference_seconds": {
+        "count": 72,
+        "sum": 1045.4070067880057,
+        "min": 13.009462346999499,
+        "max": 17.19520047900005,
+        "median": 14.427993668001363,
+        "mean": 14.519541760944524
+      },
+      "total_seconds": {
+        "count": 72,
+        "sum": 1045.7938627220028,
+        "min": 13.013183734998165,
+        "max": 17.201861519000886,
+        "median": 14.433579006500622,
+        "mean": 14.524914760027817
+      },
+      "latency_ms": {
+        "count": 72,
+        "sum": 1045407.0067880057,
+        "min": 13009.462346999499,
+        "max": 17195.20047900005,
+        "median": 14427.993668001363,
+        "mean": 14519.541760944523
+      },
+      "rss_bytes": {
+        "count": 72,
+        "sum": 459874000896,
+        "min": 6273294336,
+        "max": 6745436160,
+        "median": 6413158400.0,
+        "mean": 6387138901.333333
+      }
+    }
+  },
+  "provenance": {
+    "cases_sha256": "c97b02654b3b1e597bfad6ec1cd050b4cc2ef988d8faf546eed6cdbf93f4cede",
+    "gold_sha256": "70a5d8233d82367babdf2ecaa3648a64140019fb4c7e9040d4b103aa4dbefa61",
+    "pairs_sha256": "d3c7c150280c9ffabf2133d3f7b928458ed1b3e9c43ac008a2dcd062aa4dd755",
+    "requests_sha256": "0a5d7e070afdb17c10ee8fd4c74c321aafd3ee8197dcd0ef7d2d253d816c2e12",
+    "policy_sha256": "ac90be5b6b8449e072af6815647b44a2b2b772fc40c807db188d5770de07357d",
+    "encoding_preflight_sha256": "7f5c1cd243945c381ca56f42e66c3e89bd937aa700142c55578e2e108717eb5b",
+    "predictions_sha256": "8a41e6b16a42a9fdfe106c0545486587f786192133051671fc360deb0292732f",
+    "scorer_sha256": "a606df34726dffe8e7be59827d1cba5320733ca7bea651f2061601cc5a29a22b"
+  }
+}

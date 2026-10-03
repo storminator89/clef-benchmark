@@ -1,0 +1,224 @@
+[
+  {
+    "suite": "bank_support80",
+    "id": "bank_access_tan_01",
+    "status": "failed",
+    "error_code": "invalid_response_or_billing"
+  },
+  {
+    "suite": "finance100",
+    "id": "de_finance_advice_escalation_005",
+    "status": "failed",
+    "error_code": "invalid_response_or_billing"
+  },
+  {
+    "suite": "attack_ablation14",
+    "id": "de_finance_synthetic_rule_check_004__clean",
+    "status": "failed",
+    "error_code": "probability_sum_outside_tolerance"
+  },
+  {
+    "suite": "massive300",
+    "id": "massive_de_test_10759",
+    "status": "failed",
+    "error_code": "probability_sum_outside_tolerance"
+  },
+  {
+    "suite": "massive300",
+    "id": "massive_de_test_170",
+    "status": "failed",
+    "error_code": "probability_sum_outside_tolerance"
+  },
+  {
+    "suite": "massive300",
+    "id": "massive_de_test_322",
+    "status": "failed",
+    "error_code": "probability_sum_outside_tolerance"
+  },
+  {
+    "suite": "massive300",
+    "id": "massive_de_test_16158",
+    "status": "failed",
+    "error_code": "probability_sum_outside_tolerance"
+  },
+  {
+    "suite": "massive300",
+    "id": "massive_de_test_3595",
+    "status": "failed",
+    "error_code": "probability_sum_outside_tolerance"
+  },
+  {
+    "suite": "massive300",
+    "id": "massive_de_test_2717",
+    "status": "failed",
+    "error_code": "probability_sum_outside_tolerance"
+  },
+  {
+    "suite": "massive300",
+    "id": "massive_de_test_3184",
+    "status": "failed",
+    "error_code": "probability_sum_outside_tolerance"
+  },
+  {
+    "suite": "massive300",
+    "id": "massive_de_test_16874",
+    "status": "failed",
+    "error_code": "probability_sum_outside_tolerance"
+  },
+  {
+    "suite": "massive300",
+    "id": "massive_de_test_10868",
+    "status": "failed",
+    "error_code": "probability_sum_outside_tolerance"
+  },
+  {
+    "suite": "massive300",
+    "id": "massive_de_test_4702",
+    "status": "failed",
+    "error_code": "probability_sum_outside_tolerance"
+  },
+  {
+    "suite": "massive300",
+    "id": "massive_de_test_15382",
+    "status": "failed",
+    "error_code": "probability_sum_outside_tolerance"
+  },
+  {
+    "suite": "massive300",
+    "id": "massive_de_test_16275",
+    "status": "failed",
+    "error_code": "probability_sum_outside_tolerance"
+  },
+  {
+    "suite": "massive300",
+    "id": "massive_de_test_1640",
+    "status": "failed",
+    "error_code": "probability_sum_outside_tolerance"
+  },
+  {
+    "suite": "massive300",
+    "id": "massive_de_test_3460",
+    "status": "failed",
+    "error_code": "probability_sum_outside_tolerance"
+  },
+  {
+    "suite": "massive300",
+    "id": "massive_de_test_4268",
+    "status": "failed",
+    "error_code": "probability_sum_outside_tolerance"
+  },
+  {
+    "suite": "massive300",
+    "id": "massive_de_test_14",
+    "status": "failed",
+    "error_code": "probability_sum_outside_tolerance"
+  },
+  {
+    "suite": "massive300",
+    "id": "massive_de_test_11417",
+    "status": "failed",
+    "error_code": "probability_sum_outside_tolerance"
+  },
+  {
+    "suite": "massive300",
+    "id": "massive_de_test_17052",
+    "status": "failed",
+    "error_code": "probability_sum_outside_tolerance"
+  },
+  {
+    "suite": "massive300",
+    "id": "massive_de_test_1510",
+    "status": "failed",
+    "error_code": "probability_sum_outside_tolerance"
+  },
+  {
+    "suite": "massive300",
+    "id": "massive_de_test_5600",
+    "status": "failed",
+    "error_code": "probability_sum_outside_tolerance"
+  },
+  {
+    "suite": "massive300",
+    "id": "massive_de_test_1065",
+    "status": "failed",
+    "error_code": "probability_sum_outside_tolerance"
+  },
+  {
+    "suite": "massive300",
+    "id": "massive_de_test_2113",
+    "status": "failed",
+    "error_code": "probability_sum_outside_tolerance"
+  },
+  {
+    "suite": "massive300",
+    "id": "massive_de_test_6856",
+    "status": "failed",
+    "error_code": "probability_sum_outside_tolerance"
+  },
+  {
+    "suite": "massive300",
+    "id": "massive_de_test_5199",
+    "status": "failed",
+    "error_code": "probability_sum_outside_tolerance"
+  },
+  {
+    "suite": "massive300",
+    "id": "massive_de_test_10224",
+    "status": "failed",
+    "error_code": "probability_sum_outside_tolerance"
+  },
+  {
+    "suite": "massive300",
+    "id": "massive_de_test_1360",
+    "status": "failed",
+    "error_code": "probability_sum_outside_tolerance"
+  },
+  {
+    "suite": "massive300",
+    "id": "massive_de_test_15948",
+    "status": "failed",
+    "error_code": "probability_sum_outside_tolerance"
+  },
+  {
+    "suite": "massive300",
+    "id": "massive_de_test_15205",
+    "status": "failed",
+    "error_code": "probability_sum_outside_tolerance"
+  },
+  {
+    "suite": "massive300",
+    "id": "massive_de_test_1076",
+    "status": "failed",
+    "error_code": "probability_sum_outside_tolerance"
+  },
+  {
+    "suite": "massive300",
+    "id": "massive_de_test_16529",
+    "status": "failed",
+    "error_code": "probability_sum_outside_tolerance"
+  },
+  {
+    "suite": "massive300",
+    "id": "massive_de_test_7908",
+    "status": "failed",
+    "error_code": "probability_sum_outside_tolerance"
+  },
+  {
+    "suite": "massive300",
+    "id": "massive_de_test_10909",
+    "status": "failed",
+    "error_code": "probability_sum_outside_tolerance"
+  },
+  {
+    "suite": "massive300",
+    "id": "massive_de_test_9156",
+    "status": "failed",
+    "error_code": "probability_sum_outside_tolerance"
+  },
+  {
+    "suite": "massive300",
+    "id": "massive_de_test_9875",
+    "status": "failed",
+    "error_code": "probability_sum_outside_tolerance"
+  }
+]

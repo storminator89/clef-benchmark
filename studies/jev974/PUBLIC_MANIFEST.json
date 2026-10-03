@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "purpose": "completed Jev974 benchmark public evidence only",
+  "workflow_run_id": 37103896962,
+  "artifact_id": 11267865451,
+  "workflow_head": "db4812a0947166c4ecadd5aef921b1254996c87d",
+  "pinned_execution_source": "4babf938604dd4fa9cc3853b1dcf3ccff007f2f2",
+  "raw_archive_sha256": "16789401fddd231df50d8e382a5c52d219c142e034420a55bd079310d2991518",
+  "verification": "Independent audit and five scorer outputs re-executed offline and byte-identical; original collector files match audited hashes.",
+  "files_sha256": {
+    "README.md": "dce50cc8a5371be6d6fe419573be4f51bbebf8fe1f7130e9e2fa68e4f370fd36",
+    "audit.json": "bc050c30da2a138981d159923b7ca973b4ec0012f165d1f34eae585e2a583086",
+    "cost-accounting.json": "8c47fa12b4f5b4400df4b9a8a7b70d3a087950abd6e92e832ae794221072e94a",
+    "run/attempts.jsonl": "de94031863b4db043e050f1cc17282d49b4d2601b1c6085c9edd10497ed8976f",
+    "run/connection_check.json": "fcb58d8fc035eb8a2b9953084e11c1ae05032e6cc32f28357cbe7be6a1523f5d",
+    "run/flagged_native.jsonl": "6051955fb6848ba65b803fe54c64d3e7733b2be2892a5748fda3685bf403d53a",
+    "run/predictions.jsonl": "758a2fac4d9d6bd4c95996766caebffdb0c9e60ecce5b8a9fb5192811517e943",
+    "run/run_summary.json": "2d1ac393aadd1ef5a38939e50312f45b46065ba3d238ab459756c0fbe5d16311",
+    "run/validation_diagnostics.jsonl": "107909d40ea797696c926adc33c80cd492703798cdcf9521c13d588b1edd94c6",
+    "scoring/case_comparison.jsonl": "817b93fdcea947a4d19d648484de01dbfec50c5370e654614d03d1b89ab29736",
+    "scoring/comparison_summary.json": "df914c25dfe5087de792f1b87981d82bcebd5958d3f9c7b1863c5100f22b7cfe",
+    "scoring/field_metrics.json": "abb116b99e80dd403e795bd7d46ab0aa2f8ab0faa5352cb81f0e47cd677f12f9",
+    "scoring/latency.json": "ca651e97876c0f22ff159b5c06f59c9a5639550f26d1bc2fb901e23c158c6d4c",
+    "scoring/special_diagnostics.json": "9a36775e13196113f11dfce71680f1531c24d12f6322307ed043d32b56113d2a",
+    "strict-failures.json": "b736dd81ae7b6af4c8bf3caf806aadb463cb37c57e58d5b3f86dbd8b95f4e4e5",
+    "verification.json": "2b625f3ccf17d05f651a574b909257734a9801823768b788a3ced228c3e5636a"
+  },
+  "manifest_self_hash": "Published separately; omitted here to avoid recursion."
+}

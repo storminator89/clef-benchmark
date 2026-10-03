@@ -1,0 +1,142 @@
+{
+  "minimal_pairs48": {
+    "clef": {
+      "definition": "local CPU-NF4 forward only",
+      "n": 48,
+      "median_seconds": 17.298450598500494,
+      "p95_nearest_rank_seconds": 20.558421612993698
+    },
+    "jev": {
+      "definition": "hosted HTTP request through body read; network and provider queue included",
+      "n": 48,
+      "median_seconds": 0.12138543749999542,
+      "p95_nearest_rank_seconds": 0.16570347900000115
+    }
+  },
+  "clarification72": {
+    "clef": {
+      "definition": "local CPU-NF4 forward only",
+      "n": 72,
+      "median_seconds": 20.774946083998657,
+      "p95_nearest_rank_seconds": 25.37420533599652
+    },
+    "jev": {
+      "definition": "hosted HTTP request through body read; network and provider queue included",
+      "n": 72,
+      "median_seconds": 0.1253398584999985,
+      "p95_nearest_rank_seconds": 0.1647175230000073
+    }
+  },
+  "bank_support80": {
+    "clef": {
+      "definition": "local CPU-NF4 forward only",
+      "n": 80,
+      "median_seconds": 40.87685009449706,
+      "p95_nearest_rank_seconds": 45.10758731000533
+    },
+    "jev": {
+      "definition": "hosted HTTP request through body read; network and provider queue included",
+      "n": 79,
+      "median_seconds": 0.12141755999999759,
+      "p95_nearest_rank_seconds": 0.17647411000001512
+    }
+  },
+  "original_text180": {
+    "clef": {
+      "definition": "local CPU-NF4 forward only",
+      "n": 180,
+      "median_seconds": 9.802651598999546,
+      "p95_nearest_rank_seconds": 11.188723403998665
+    },
+    "jev": {
+      "definition": "hosted HTTP request through body read; network and provider queue included",
+      "n": 180,
+      "median_seconds": 0.09357807799997886,
+      "p95_nearest_rank_seconds": 0.15377349999999979
+    }
+  },
+  "finance100": {
+    "clef": {
+      "definition": "local CPU-NF4 forward only",
+      "n": 100,
+      "median_seconds": 11.306022878000476,
+      "p95_nearest_rank_seconds": 13.23230688700096
+    },
+    "jev": {
+      "definition": "hosted HTTP request through body read; network and provider queue included",
+      "n": 99,
+      "median_seconds": 0.09944735100009439,
+      "p95_nearest_rank_seconds": 0.2006506889999855
+    }
+  },
+  "insurance60": {
+    "clef": {
+      "definition": "local CPU-NF4 forward only",
+      "n": 60,
+      "median_seconds": 20.613111564000064,
+      "p95_nearest_rank_seconds": 24.66241773600268
+    },
+    "jev": {
+      "definition": "hosted HTTP request through body read; network and provider queue included",
+      "n": 60,
+      "median_seconds": 0.14473528399997804,
+      "p95_nearest_rank_seconds": 0.2131228359999966
+    }
+  },
+  "clean72": {
+    "clef": {
+      "definition": "local CPU-NF4 forward only",
+      "n": 72,
+      "median_seconds": 15.80853894900065,
+      "p95_nearest_rank_seconds": 17.278491646000475
+    },
+    "jev": {
+      "definition": "hosted HTTP request through body read; network and provider queue included",
+      "n": 72,
+      "median_seconds": 0.14217869350002843,
+      "p95_nearest_rank_seconds": 0.18318996200000015
+    }
+  },
+  "attack_ablation14": {
+    "clef": {
+      "definition": "local CPU-NF4 forward only",
+      "n": 14,
+      "median_seconds": 12.778012409500661,
+      "p95_nearest_rank_seconds": 14.258322358000441
+    },
+    "jev": {
+      "definition": "hosted HTTP request through body read; network and provider queue included",
+      "n": 13,
+      "median_seconds": 0.1392370190000065,
+      "p95_nearest_rank_seconds": 0.1779916649999791
+    }
+  },
+  "multidoc48": {
+    "clef": {
+      "definition": "local CPU-NF4 forward only",
+      "n": 48,
+      "median_seconds": 27.3191477520013,
+      "p95_nearest_rank_seconds": 32.563933559998986
+    },
+    "jev": {
+      "definition": "hosted HTTP request through body read; network and provider queue included",
+      "n": 48,
+      "median_seconds": 0.14809656649998715,
+      "p95_nearest_rank_seconds": 0.18399363999998286
+    }
+  },
+  "massive300": {
+    "clef": {
+      "definition": "local CPU-NF4 forward only",
+      "n": 0,
+      "median_seconds": null,
+      "p95_nearest_rank_seconds": null
+    },
+    "jev": {
+      "definition": "hosted HTTP request through body read; network and provider queue included",
+      "n": 266,
+      "median_seconds": 0.14291588750000983,
+      "p95_nearest_rank_seconds": 0.19297469099990394
+    }
+  }
+}

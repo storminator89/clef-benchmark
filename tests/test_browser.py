@@ -76,7 +76,7 @@ def verify_artifact(output, root=ROOT):
     require(manifest.get('status') == 'pass', 'This browser run did not pass; do not publish its images.')
     require(manifest.get('real_browser_rendering') is True, 'No successful genuine browser capture recorded.')
     require(manifest.get('model_inference_executed') is False, 'Gallery must not run new inference.')
-    require(manifest.get('synthetic_inputs_only') is True, 'Gallery must contain only public synthetic inputs.')
+    require(manifest.get('public_benchmark_inputs_only') is True and manifest.get('private_user_inputs_included') is False, 'Gallery must contain only reviewed public benchmark data and synthetic editor examples.')
     require(manifest.get('chromium_sandbox') is True, 'Sandbox-preserving capture required.')
     require(manifest.get('browser_channel') == 'chrome', 'Use the supported installed stable Chrome channel.')
     require(manifest.get('source_sha256') == source_hashes(root), 'Sources changed since capture. Run a new capture.')
@@ -99,7 +99,7 @@ def write_gallery_fragment(output):
     lines = [
         '## Ein Blick in die Workbench', '',
         'Echte Google-Chrome-Screenshots (Chromium) aus dem modellfreien Browserlauf. Gezeigt werden ausschließlich',
-        'synthetische Testdaten und bereits aufgezeichnete Benchmarkantworten. Der private Editor',
+        'öffentlich freigegebene Testdaten und bereits aufgezeichnete Benchmarkantworten. Der private Editor',
         'zeigt keine neue oder simulierte Modellinferenz.', '',
     ]
     for name, caption in GALLERY:
@@ -180,10 +180,11 @@ class BrowserChecks:
             'device_scale_factor': 1, 'full_page': full_page,
             'route': urlsplit(page.url).fragment,
             'theme': page.locator('html').get_attribute('data-theme'),
+            'selected_study': page.locator('[data-study][aria-pressed="true"]').get_attribute('data-study') if page.locator('#studies').is_visible() and page.locator('[data-study][aria-pressed="true"]').count() else None,
             'selected_case': page.locator('[data-case][aria-pressed="true"]').get_attribute('data-case')
                 if page.locator('[data-case][aria-pressed="true"]').count() else None,
             'custom_case': page.locator('#custom-case-id').text_content(),
-            'content_kind': 'synthetic_private_input_without_inference' if page.locator('#custom').is_visible() else 'public_synthetic_benchmark_or_results_only_editor',
+            'content_kind': 'synthetic_private_input_without_inference' if page.locator('#custom').is_visible() else 'public_benchmark_or_results_only_editor',
             'new_inference': False,
         })
 
@@ -615,6 +616,65 @@ class BrowserChecks:
         expect(page.locator('#custom-empty')).to_be_visible()
         self.check('Actual JSON/JSONL/CSV file input, preview/accept, invalid gold rejection, edit/discard, JSON download, search/status filters, replace/clear confirmations with cancel')
 
+    def studies(self):
+        page, expect = self.page, self.expect
+        page.set_viewport_size({'width': 1440, 'height': 1000})
+        page.goto(BASE_URL + '/#studies?study=language72', wait_until='networkidle')
+        overview_count = page.locator('#study-count').text_content()
+        index = json.loads((ROOT / 'web/studies-data/index.json').read_text())
+        expect(page.locator('#study-cards [data-study]')).to_have_count(len(index['studies']))
+        for entry in index['studies']:
+            page.locator(f'[data-study="{entry["id"]}"]').click()
+            expect(page.locator(f'[data-study="{entry["id"]}"]')).to_have_attribute('aria-pressed', 'true')
+            if entry['status'] == 'pending':
+                expect(page.locator('.study-pending')).to_contain_text('Keine Messwerte freigegeben')
+                expect(page.locator('.study-metrics')).to_have_count(0)
+                expect(page.locator('.study-case')).to_have_count(0)
+                continue
+            data = json.loads((ROOT / 'web' / entry['data_file'][2:]).read_text())
+            expect(page.locator('.study-case')).to_have_count(min(100, len(data['cases'])))
+            if entry['id'] == 'jev974':
+                self.capture('jev-matched-comparison-light.png', 'Same valid cases per partition, separate Jev coverage, no pooled score', full_page=False)
+            page.locator('#study-outcome').select_option('errors')
+            expect(page.locator('.study-case')).to_have_count(min(100, sum(row['valid'] and not row['correct'] for row in data['cases'])))
+            page.locator('[data-study-reset]').click()
+            page.locator('[data-study-reset]').click()
+            expect(page.locator('.study-case')).to_have_count(min(100, len(data['cases'])))
+            first = data['cases'][0]
+            page.locator('#study-search').fill(first['id'])
+            card = page.locator(f'[data-study-case="{first["id"]}"]')
+            expect(card).to_have_count(1)
+            card.locator(':scope > summary').click()
+            card.get_by_text('Vollständige Eingabe', exact=True).click()
+            if isinstance(first['input'], str):
+                expect(card.locator('pre').first).to_have_text(first['input'])
+            else:
+                require(json.loads(card.locator('pre').first.text_content()) == first['input'], 'Structured native input differs')
+            if first['valid']:
+                card.get_by_text('Native Wahrscheinlichkeiten · ungerundet', exact=True).click()
+                probability_panel = card.get_by_text('Native Wahrscheinlichkeiten · ungerundet', exact=True).locator('..')
+                require(json.loads(probability_panel.locator('pre').text_content()) == first['probabilities'], 'Displayed native probability values differ')
+            self.overflow('study native detail')
+        page.locator('[data-study="language72"]').click()
+        expect(page.locator('.study-case')).to_have_count(72)
+        self.capture('studies-overview-light.png', 'Independently audited language variants with separate denominators', full_page=False)
+        page.locator('#study-outcome').select_option('errors')
+        expect(page.locator('.study-case')).to_have_count(8)
+        page.locator('.study-case').first.locator(':scope > summary').click()
+        page.locator('.study-case').first.get_by_text('Vollständige Eingabe', exact=True).click()
+        self.capture('studies-errors-light.png', 'Actual target-ambiguity errors and unchanged full source context')
+        for width in (320, 390):
+            page.set_viewport_size({'width': width, 'height': 844})
+            self.overflow(f'studies mobile {width}')
+        self.capture('studies-390.png', 'Study cards and native-case evidence at 390 CSS pixels', full_page=False)
+        page.locator('[data-nav="overview"]').click()
+        expect(page.locator('#overview')).to_be_visible()
+        expect(page.locator('#study-count')).to_have_text(overview_count)
+        page.go_back()
+        expect(page.locator('#studies')).to_be_visible()
+        expect(page.locator('[data-study="language72"]')).to_have_attribute('aria-pressed', 'true')
+        self.check('Studies: pending/result separation, exact native input, errors, repeated reset, per-study counters, back navigation and 320/390px overflow')
+
     def phones(self):
         page, expect = self.page, self.expect
         self.import_example()
@@ -677,7 +737,7 @@ def capture_run(output, start_server):
         'os': platform.system(), 'architecture': platform.machine(), 'base_url': BASE_URL,
         'git_commit': None, 'workflow_run_url': None, 'chromium_sandbox': True,
         'browser_channel': 'chrome', 'browser_application': 'Google Chrome',
-        'real_browser_rendering': False, 'model_inference_executed': False, 'synthetic_inputs_only': True,
+        'real_browser_rendering': False, 'model_inference_executed': False, 'public_benchmark_inputs_only': True, 'private_user_inputs_included': False,
         'page_errors': [], 'console_errors': [], 'blocked_requests': [], 'request_failures': [], 'http_errors': [],
         'checks': [], 'screenshots': [],
     }
@@ -745,6 +805,7 @@ def capture_run(output, start_server):
                 checks.readiness()
                 checks.custom_import_edit_export()
                 checks.phones()
+                checks.studies()
                 for field in ('page_errors', 'console_errors', 'blocked_requests', 'request_failures', 'http_errors'):
                     require(not manifest[field], f'{field}: {manifest[field]}')
                 require(manifest['source_sha256'] == source_hashes(), 'Sources changed during capture; retry after edits finish.')
