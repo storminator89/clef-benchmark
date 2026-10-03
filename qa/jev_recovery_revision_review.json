@@ -12,9 +12,9 @@
   "remaining_unattempted": 520,
   "massive_native_baseline": "pending_owner_final_audit; missing offline overlay not reconstructed",
   "checks": {
-    "root_python_tests": 371,
+    "root_python_tests": 372,
     "frozen_jev_tests": 23,
-    "focused_final_revision_tests": 33,
+    "focused_final_revision_tests": 34,
     "offline_frozen_preflight": "passed",
     "independent_source_review": "passed after fixing final-case fatal outcome falsely relabelled complete; adversarial regressions included",
     "provider_calls": 0,
@@ -27,5 +27,6 @@
     "HTTP response body digests are linkage evidence; discarded raw bodies cannot be recomputed.",
     "Sum-only quarantined vectors remain technical failures; no normalization or promotion to scored-valid.",
     "No complete paired MASSIVE comparison is claimed."
-  ]
+  ],
+  "activation_readiness_correction": "Current-state test accepts only the two explicitly gated states; unknown-state rejection added. Both inert and correctly pinned activation can pass ordinary CI. Collector/auditor and source pins unchanged."
 }

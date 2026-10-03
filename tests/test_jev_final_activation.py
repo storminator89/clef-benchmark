@@ -9,7 +9,11 @@ class ActivationTests(unittest.TestCase):
   for name in [*gate.SOURCE_PINS,'provenance/jev_final_activation.json']:
    dest=root/name;dest.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(gate.ROOT/name,dest)
   shutil.copytree(gate.ROOT/'.github',root/'.github');return root
- def test_inert(self):self.assertEqual(gate.check()['activation_state'],'prepared_inert_not_activated')
+ def test_current_state_is_explicitly_gated(self):
+  result=gate.check();self.assertIn(result['activation_state'],('prepared_inert_not_activated','activated_awaiting_one_manual_dispatch'))
+ def test_unknown_state_is_rejected(self):
+  root=self.copy();f=root/'provenance/jev_final_activation.json';state=json.loads(f.read_text());state['status']='anything_else';f.write_text(json.dumps(state))
+  with self.assertRaises(ValueError):gate.check(root)
  def test_source_and_workflow_tamper_rejected(self):
   for name in ['scripts/run_jev_final_continuation.py','scripts/audit_jev_final_continuation.py','.github/workflows/jev-comparison.yml']:
    root=self.copy();f=root/name;f.write_bytes(f.read_bytes()+b'\n')
