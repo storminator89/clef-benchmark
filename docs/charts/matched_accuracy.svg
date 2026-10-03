@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="890" viewBox="0 0 1120 890" role="img" aria-labelledby="title desc">
+<title id="title">Vollständig richtige Fälle im direkten Vergleich</title><desc id="desc">Je Testgruppe dieselben Fälle für beide Modelle · alle geforderten Felder müssen stimmen</desc>
+<g font-family="DejaVu Sans, Arial, sans-serif">
+<rect x="0" y="0" width="1120.000" height="890" rx="0" fill="#ffffff"/>
+<text x="32" y="44" font-size="26" fill="#243247" font-weight="bold" text-anchor="start">Vollständig richtige Fälle im direkten Vergleich</text>
+<text x="32" y="74" font-size="15" fill="#526174" font-weight="normal" text-anchor="start">Je Testgruppe dieselben Fälle für beide Modelle · alle geforderten Felder müssen stimmen</text>
+<rect x="32" y="96" width="18.000" height="12" rx="0" fill="#355fa4"/>
+<text x="59" y="107" font-size="14" fill="#243247" font-weight="normal" text-anchor="start">Clef Flash 9B · CPU-NF4</text>
+<rect x="330" y="96" width="18.000" height="12" rx="0" fill="#087f78"/>
+<text x="357" y="107" font-size="14" fill="#243247" font-weight="normal" text-anchor="start">Jev 1.13.0 · gehostete API</text>
+<text x="890" y="142" font-size="13" fill="#243247" font-weight="normal" text-anchor="start">Richtig / gemeinsam</text>
+<text x="32" y="142" font-size="13" fill="#526174" font-weight="normal" text-anchor="start">Gemeinsam / geplant</text>
+<path d="M 380.0 164 V 798" stroke="#dce3eb" stroke-width="1"/>
+<text x="380.0" y="152" font-size="13" fill="#526174" font-weight="normal" text-anchor="middle">0 %</text>
+<path d="M 500.0 164 V 798" stroke="#dce3eb" stroke-width="1"/>
+<text x="500.0" y="152" font-size="13" fill="#526174" font-weight="normal" text-anchor="middle">25 %</text>
+<path d="M 620.0 164 V 798" stroke="#dce3eb" stroke-width="1"/>
+<text x="620.0" y="152" font-size="13" fill="#526174" font-weight="normal" text-anchor="middle">50 %</text>
+<path d="M 740.0 164 V 798" stroke="#dce3eb" stroke-width="1"/>
+<text x="740.0" y="152" font-size="13" fill="#526174" font-weight="normal" text-anchor="middle">75 %</text>
+<path d="M 860.0 164 V 798" stroke="#dce3eb" stroke-width="1"/>
+<text x="860.0" y="152" font-size="13" fill="#526174" font-weight="normal" text-anchor="middle">100 %</text>
+<text x="32" y="188" font-size="16" fill="#243247" font-weight="bold" text-anchor="start">Allgemeine Entscheidungen</text>
+<text x="32" y="211" font-size="14" fill="#526174" font-weight="normal" text-anchor="start">Abdeckung 120/120</text>
+<rect x="380" y="173" width="464.000" height="19" rx="2" fill="#355fa4"/>
+<text x="888" y="188" font-size="15" fill="#243247" font-weight="normal" text-anchor="start">116/120  ·  96,7 %</text>
+<rect x="380" y="201" width="476.000" height="19" rx="2" fill="#087f78"/>
+<text x="888" y="216" font-size="15" fill="#243247" font-weight="normal" text-anchor="start">119/120  ·  99,2 %</text>
+<text x="32" y="266" font-size="16" fill="#243247" font-weight="bold" text-anchor="start">Finanzen und Makler</text>
+<text x="32" y="289" font-size="14" fill="#526174" font-weight="normal" text-anchor="start">Abdeckung 79/80</text>
+<rect x="380" y="251" width="455.696" height="19" rx="2" fill="#355fa4"/>
+<text x="888" y="266" font-size="15" fill="#243247" font-weight="normal" text-anchor="start">75/79  ·  94,9 %</text>
+<rect x="380" y="279" width="473.924" height="19" rx="2" fill="#087f78"/>
+<text x="888" y="294" font-size="15" fill="#243247" font-weight="normal" text-anchor="start">78/79  ·  98,7 %</text>
+<text x="32" y="344" font-size="16" fill="#243247" font-weight="bold" text-anchor="start">Büroentscheidungen · clean72</text>
+<text x="32" y="367" font-size="14" fill="#526174" font-weight="normal" text-anchor="start">Abdeckung 72/72</text>
+<rect x="380" y="329" width="406.667" height="19" rx="2" fill="#355fa4"/>
+<text x="888" y="344" font-size="15" fill="#243247" font-weight="normal" text-anchor="start">61/72  ·  84,7 %</text>
+<rect x="380" y="357" width="446.667" height="19" rx="2" fill="#087f78"/>
+<text x="888" y="372" font-size="15" fill="#243247" font-weight="normal" text-anchor="start">67/72  ·  93,1 %</text>
+<text x="32" y="422" font-size="16" fill="#243247" font-weight="bold" text-anchor="start">Bank-Kundensupport</text>
+<text x="32" y="445" font-size="14" fill="#526174" font-weight="normal" text-anchor="start">Abdeckung 79/80</text>
+<rect x="380" y="407" width="407.089" height="19" rx="2" fill="#355fa4"/>
+<text x="888" y="422" font-size="15" fill="#243247" font-weight="normal" text-anchor="start">67/79  ·  84,8 %</text>
+<rect x="380" y="435" width="455.696" height="19" rx="2" fill="#087f78"/>
+<text x="888" y="450" font-size="15" fill="#243247" font-weight="normal" text-anchor="start">75/79  ·  94,9 %</text>
+<text x="32" y="500" font-size="16" fill="#243247" font-weight="bold" text-anchor="start">Versicherungsdokumente</text>
+<text x="32" y="523" font-size="14" fill="#526174" font-weight="normal" text-anchor="start">Abdeckung 60/60</text>
+<rect x="380" y="485" width="400.000" height="19" rx="2" fill="#355fa4"/>
+<text x="888" y="500" font-size="15" fill="#243247" font-weight="normal" text-anchor="start">50/60  ·  83,3 %</text>
+<rect x="380" y="513" width="448.000" height="19" rx="2" fill="#087f78"/>
+<text x="888" y="528" font-size="15" fill="#243247" font-weight="normal" text-anchor="start">56/60  ·  93,3 %</text>
+<text x="32" y="578" font-size="16" fill="#243247" font-weight="bold" text-anchor="start">Rückfragen statt Raten</text>
+<text x="32" y="601" font-size="14" fill="#526174" font-weight="normal" text-anchor="start">Abdeckung 72/72</text>
+<rect x="380" y="563" width="426.667" height="19" rx="2" fill="#355fa4"/>
+<text x="888" y="578" font-size="15" fill="#243247" font-weight="normal" text-anchor="start">64/72  ·  88,9 %</text>
+<rect x="380" y="591" width="473.333" height="19" rx="2" fill="#087f78"/>
+<text x="888" y="606" font-size="15" fill="#243247" font-weight="normal" text-anchor="start">71/72  ·  98,6 %</text>
+<text x="32" y="656" font-size="16" fill="#243247" font-weight="bold" text-anchor="start">Minimalpaare · einzelne Fälle</text>
+<text x="32" y="679" font-size="14" fill="#526174" font-weight="normal" text-anchor="start">Abdeckung 48/48</text>
+<rect x="380" y="641" width="390.000" height="19" rx="2" fill="#355fa4"/>
+<text x="888" y="656" font-size="15" fill="#243247" font-weight="normal" text-anchor="start">39/48  ·  81,2 %</text>
+<rect x="380" y="669" width="470.000" height="19" rx="2" fill="#087f78"/>
+<text x="888" y="684" font-size="15" fill="#243247" font-weight="normal" text-anchor="start">47/48  ·  97,9 %</text>
+<text x="32" y="734" font-size="16" fill="#243247" font-weight="bold" text-anchor="start">Mehrere Dokumente</text>
+<text x="32" y="757" font-size="14" fill="#526174" font-weight="normal" text-anchor="start">Abdeckung 48/48</text>
+<rect x="380" y="719" width="240.000" height="19" rx="2" fill="#355fa4"/>
+<text x="888" y="734" font-size="15" fill="#243247" font-weight="normal" text-anchor="start">24/48  ·  50,0 %</text>
+<rect x="380" y="747" width="440.000" height="19" rx="2" fill="#087f78"/>
+<text x="888" y="762" font-size="15" fill="#243247" font-weight="normal" text-anchor="start">44/48  ·  91,7 %</text>
+<text x="32" y="837" font-size="15" fill="#243247" font-weight="normal" text-anchor="start">Reihenfolge wie in der Ergebnistabelle. Keine Gesamtgenauigkeit über unterschiedliche Tests.</text>
+<text x="32" y="861" font-size="14" fill="#526174" font-weight="normal" text-anchor="start">Kleine, überwiegend synthetische und teils abhängige Fälle; keine allgemeine Modellrangliste.</text>
+</g></svg>

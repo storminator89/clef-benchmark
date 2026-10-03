@@ -85,3 +85,27 @@ Ein Modelllauf benötigt zusätzliche Pakete, die gepinnten Modellgewichte und a
 [Methodik und Evidenzpfade](docs/EVALUATION_GUIDE.md) · [Jev-Protokoll](experiments/jev_comparison/README.md) · [Lizenz](LICENSE) · [Quellen und Attribution](NOTICE)
 
 Unabhängiges Projekt, ohne Zugehörigkeit zu oder Unterstützung durch Cloudflare oder TypeSafe.
+
+## Visuelle Auswertung
+
+Die Grafiken ergänzen die Tabellen; die exakten Fallzahlen bleiben maßgeblich. Alle Balken beginnen bei 0 und enden spätestens bei 100 %. Die drei Ansichten trennen fachliche Richtigkeit, technische Abdeckung und Fehlerdiagnose.
+
+### 1. Gleiche Fälle, getrennte Testgruppen
+
+![Clef und Jev: vollständig richtige Fälle auf denselben acht deutschen Testgruppen, mit exakten Zählern und Abdeckung.](docs/charts/matched_accuracy.svg)
+
+Pro Zeile werden nur Fälle mit strikt gültiger Jev-Antwort und vorhandener Clef-Baseline verglichen. Bank und Finanzen enthalten deshalb jeweils 79 statt 80 Fälle. Die Balken zeigen bedingte Genauigkeit, keine Gesamtrangliste. [PNG-Ansicht](docs/charts/matched_accuracy.png)
+
+### 2. Technische Abdeckung bleibt sichtbar
+
+![Jev: alle 14 Ergebnisgruppen mit gültigen Antworten und technischen Ausschlüssen; insgesamt 937 von 974 gültig, MASSIVE 266 von 300.](docs/charts/jev_coverage.svg)
+
+Hier bedeutet ein grüner Balken technisch gültig, nicht fachlich richtig. Die 37 Ausschlüsse bleiben sichtbar; die 974 Anfragen werden ausschließlich zur Vollständigkeitsbilanz addiert. MASSIVE ist ohne auditierte Clef-Baseline kein direkter Modellvergleich. [PNG-Ansicht](docs/charts/jev_coverage.png)
+
+### 3. Sprachvarianten: Wo entstehen Fehler?
+
+![Clef-Sprachvarianten: bei unklarem Zielobjekt 5 von 13 Fällen vollständig richtig, bei allen übrigen Fällen 59 von 59.](docs/charts/language_diagnostic.svg)
+
+Die Einteilung folgt der Goldaktion `ask_target`, nicht der Modellvorhersage. Alle acht Fehler liegen in diesen 13 Fällen. Das ist eine nachträgliche Diagnose dieser kleinen Studie, kein kausaler Effekt; Varianten teilen Basen und sind nicht unabhängig. Einzelne Fälle und Paarmetriken werden nicht vermischt. [PNG-Ansicht](docs/charts/language_diagnostic.png)
+
+[Grafiken reproduzieren, Daten und Darstellungsregeln](docs/charts/README.md). Der Generator liest die auditierten JSON-Dateien, prüft Fallzahlen gegen die Summen und erzeugt die SVG-Dateien ohne Modell, Netzwerk oder zusätzliche Python-Pakete.

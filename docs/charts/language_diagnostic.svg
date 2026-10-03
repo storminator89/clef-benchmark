@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="450" viewBox="0 0 1120 450" role="img" aria-labelledby="title desc">
+<title id="title">Deutsche Sprachvarianten: Fehler konzentrieren sich auf Zielunklarheit</title><desc id="desc">Clef · 72 einzelne Fälle · deskriptive Aufteilung nach dem erwarteten Aktionstyp</desc>
+<g font-family="DejaVu Sans, Arial, sans-serif">
+<rect x="0" y="0" width="1120.000" height="450" rx="0" fill="#ffffff"/>
+<text x="32" y="44" font-size="26" fill="#243247" font-weight="bold" text-anchor="start">Deutsche Sprachvarianten: Fehler konzentrieren sich auf Zielunklarheit</text>
+<text x="32" y="74" font-size="15" fill="#526174" font-weight="normal" text-anchor="start">Clef · 72 einzelne Fälle · deskriptive Aufteilung nach dem erwarteten Aktionstyp</text>
+<rect x="32" y="99" width="18.000" height="12" rx="0" fill="#355fa4"/>
+<text x="59" y="110" font-size="14" fill="#243247" font-weight="normal" text-anchor="start">Alle Felder richtig</text>
+<rect x="285" y="99" width="18.000" height="12" rx="0" fill="#b36b23"/>
+<text x="313" y="110" font-size="14" fill="#243247" font-weight="normal" text-anchor="start">Mindestens ein Feld falsch</text>
+<text x="885" y="148" font-size="13" fill="#243247" font-weight="normal" text-anchor="start">Richtig / Fälle</text>
+<path d="M 380.0 172 V 310" stroke="#dce3eb" stroke-width="1"/>
+<text x="380.0" y="160" font-size="13" fill="#526174" font-weight="normal" text-anchor="middle">0 %</text>
+<path d="M 500.0 172 V 310" stroke="#dce3eb" stroke-width="1"/>
+<text x="500.0" y="160" font-size="13" fill="#526174" font-weight="normal" text-anchor="middle">25 %</text>
+<path d="M 620.0 172 V 310" stroke="#dce3eb" stroke-width="1"/>
+<text x="620.0" y="160" font-size="13" fill="#526174" font-weight="normal" text-anchor="middle">50 %</text>
+<path d="M 740.0 172 V 310" stroke="#dce3eb" stroke-width="1"/>
+<text x="740.0" y="160" font-size="13" fill="#526174" font-weight="normal" text-anchor="middle">75 %</text>
+<path d="M 860.0 172 V 310" stroke="#dce3eb" stroke-width="1"/>
+<text x="860.0" y="160" font-size="13" fill="#526174" font-weight="normal" text-anchor="middle">100 %</text>
+<text x="32" y="202" font-size="18" fill="#243247" font-weight="bold" text-anchor="start">Zielobjekt unklar</text>
+<text x="32" y="227" font-size="14" fill="#526174" font-weight="normal" text-anchor="start">8 Fehler unter 13 Fällen</text>
+<rect x="380" y="185" width="184.615" height="30" rx="0" fill="#355fa4"/>
+<rect x="564.6153846153846" y="185" width="295.385" height="30" rx="0" fill="#b36b23"/>
+<text x="885" y="206" font-size="15" fill="#243247" font-weight="normal" text-anchor="start">5/13 · 38,5 %</text>
+<text x="32" y="281" font-size="18" fill="#243247" font-weight="bold" text-anchor="start">Alle übrigen Fälle</text>
+<text x="32" y="306" font-size="14" fill="#526174" font-weight="normal" text-anchor="start">0 Fehler unter 59 Fällen</text>
+<rect x="380" y="264" width="480.000" height="30" rx="0" fill="#355fa4"/>
+<rect x="860.0" y="264" width="0.000" height="30" rx="0" fill="#b36b23"/>
+<text x="885" y="285" font-size="15" fill="#243247" font-weight="normal" text-anchor="start">59/59 · 100,0 %</text>
+<text x="32" y="355" font-size="14" fill="#243247" font-weight="normal" text-anchor="start">Zielunklarheit: Goldaktion ask_target; übrige Fälle: alle anderen Goldaktionen.</text>
+<text x="32" y="381" font-size="14" fill="#243247" font-weight="normal" text-anchor="start">Post-hoc Fehlerdiagnose, kein kausaler Effekt und kein unabhängiger Holdout.</text>
+<text x="32" y="407" font-size="14" fill="#526174" font-weight="normal" text-anchor="start">Varianten teilen Basen. Paarmetriken werden nicht mit einzelnen Fällen zusammengezählt.</text>
+</g></svg>
