@@ -1,3 +1,4 @@
+import { validateWahlerStudy } from './wahler-core.js';
 /** Small read-only contract for independently admitted scientific studies. */
 const object = value => value !== null && typeof value === 'object' && !Array.isArray(value);
 const fail = message => { throw new Error(message); };
@@ -15,6 +16,7 @@ export function validateStudyIndex(value) {
   return value;
 }
 export function validateStudyData(value, entry) {
+  if (entry.id === 'wahler580') return validateWahlerStudy(value,entry);
   if (!object(value) || value.format_version !== 1 || value.id !== entry.id || value.status !== 'completed') fail('Ergebnis gehört nicht zur ausgewählten Studie.');
   if (value.audit?.status !== 'passed' || !/^[0-9a-f]{64}$/.test(value.audit.source_manifest_sha256 || '')) fail('Verifizierte Quellenbindung fehlt.');
   if (!Array.isArray(value.cases) || value.cases.length !== entry.planned_requests || !Array.isArray(value.metrics)) fail('Geplanter Nenner stimmt nicht überein.');

@@ -3,7 +3,9 @@
     "studies/jev974-answer-correctness-v1/case_comparison.jsonl": "78e7f2ac9808558f9122bc1e1a6411ecb5cf21f4c83c35d8ce63e7cc5e8a027f",
     "studies/jev974-answer-correctness-v1/comparison_summary.json": "d6baab78043591bb3e99024ac1b7d866bf66766126dc4cfbe25db2a455d2b83d",
     "studies/language72/scored/case_scores.jsonl": "9d6c6c25a00d9e7a55e54473a01e2036fb6fd80f521ca24514f17f42c1565fde",
-    "studies/language72/scored/summary.json": "3da92c94c2f9d9bcd273d4393470f7369e7e9fcb301ccd6a88d460f622af46c5"
+    "studies/language72/scored/summary.json": "3da92c94c2f9d9bcd273d4393470f7369e7e9fcb301ccd6a88d460f622af46c5",
+    "studies/wahler580/comparison.json": "6a3b4017060bc110e03b849e8cb421343ce994cbbfa051e50d0fa1a95ff4f7a8",
+    "studies/wahler580/evidence/SHA256SUMS": "0d8dcf4256912bb675287b8eb8b39bf8878780ebd43390b8d39d6a2ec6988d35"
   },
   "partitions": [
     {
@@ -116,5 +118,234 @@
       "correct": 59,
       "total": 59
     }
-  ]
+  ],
+  "wahler580": {
+    "groups": [
+      {
+        "suite": "original_text180",
+        "label": "Allgemeine Entscheidungen",
+        "planned": 120,
+        "models": {
+          "clef": {
+            "correct": 116,
+            "planned": 120,
+            "classifiable": 120,
+            "missing_or_structurally_invalid": 0,
+            "sum_only_diagnostics": 0
+          },
+          "jev": {
+            "correct": 119,
+            "planned": 120,
+            "classifiable": 120,
+            "missing_or_structurally_invalid": 0,
+            "sum_only_diagnostics": 0
+          },
+          "wahler": {
+            "correct": 118,
+            "planned": 120,
+            "classifiable": 120,
+            "missing_or_structurally_invalid": 0,
+            "sum_only_diagnostics": 0
+          }
+        }
+      },
+      {
+        "suite": "finance100",
+        "label": "Finanzen und Makler",
+        "planned": 80,
+        "models": {
+          "clef": {
+            "correct": 76,
+            "planned": 80,
+            "classifiable": 80,
+            "missing_or_structurally_invalid": 0,
+            "sum_only_diagnostics": 0
+          },
+          "jev": {
+            "correct": 78,
+            "planned": 80,
+            "classifiable": 79,
+            "missing_or_structurally_invalid": 1,
+            "sum_only_diagnostics": 0
+          },
+          "wahler": {
+            "correct": 77,
+            "planned": 80,
+            "classifiable": 80,
+            "missing_or_structurally_invalid": 0,
+            "sum_only_diagnostics": 0
+          }
+        }
+      },
+      {
+        "suite": "clean72",
+        "label": "Büroentscheidungen · clean72",
+        "planned": 72,
+        "models": {
+          "clef": {
+            "correct": 61,
+            "planned": 72,
+            "classifiable": 72,
+            "missing_or_structurally_invalid": 0,
+            "sum_only_diagnostics": 0
+          },
+          "jev": {
+            "correct": 67,
+            "planned": 72,
+            "classifiable": 72,
+            "missing_or_structurally_invalid": 0,
+            "sum_only_diagnostics": 0
+          },
+          "wahler": {
+            "correct": 62,
+            "planned": 72,
+            "classifiable": 72,
+            "missing_or_structurally_invalid": 0,
+            "sum_only_diagnostics": 0
+          }
+        }
+      },
+      {
+        "suite": "bank_support80",
+        "label": "Bank-Kundensupport",
+        "planned": 80,
+        "models": {
+          "clef": {
+            "correct": 68,
+            "planned": 80,
+            "classifiable": 80,
+            "missing_or_structurally_invalid": 0,
+            "sum_only_diagnostics": 0
+          },
+          "jev": {
+            "correct": 75,
+            "planned": 80,
+            "classifiable": 79,
+            "missing_or_structurally_invalid": 1,
+            "sum_only_diagnostics": 0
+          },
+          "wahler": {
+            "correct": 61,
+            "planned": 80,
+            "classifiable": 80,
+            "missing_or_structurally_invalid": 0,
+            "sum_only_diagnostics": 0
+          }
+        }
+      },
+      {
+        "suite": "insurance60",
+        "label": "Versicherungsdokumente",
+        "planned": 60,
+        "models": {
+          "clef": {
+            "correct": 50,
+            "planned": 60,
+            "classifiable": 60,
+            "missing_or_structurally_invalid": 0,
+            "sum_only_diagnostics": 0
+          },
+          "jev": {
+            "correct": 56,
+            "planned": 60,
+            "classifiable": 60,
+            "missing_or_structurally_invalid": 0,
+            "sum_only_diagnostics": 0
+          },
+          "wahler": {
+            "correct": 48,
+            "planned": 60,
+            "classifiable": 60,
+            "missing_or_structurally_invalid": 0,
+            "sum_only_diagnostics": 0
+          }
+        }
+      },
+      {
+        "suite": "clarification72",
+        "label": "Rückfragen statt Raten",
+        "planned": 72,
+        "models": {
+          "clef": {
+            "correct": 64,
+            "planned": 72,
+            "classifiable": 72,
+            "missing_or_structurally_invalid": 0,
+            "sum_only_diagnostics": 0
+          },
+          "jev": {
+            "correct": 71,
+            "planned": 72,
+            "classifiable": 72,
+            "missing_or_structurally_invalid": 0,
+            "sum_only_diagnostics": 0
+          },
+          "wahler": {
+            "correct": 59,
+            "planned": 72,
+            "classifiable": 72,
+            "missing_or_structurally_invalid": 0,
+            "sum_only_diagnostics": 0
+          }
+        }
+      },
+      {
+        "suite": "minimal_pairs48",
+        "label": "Minimalpaare · einzelne Fälle",
+        "planned": 48,
+        "models": {
+          "clef": {
+            "correct": 39,
+            "planned": 48,
+            "classifiable": 48,
+            "missing_or_structurally_invalid": 0,
+            "sum_only_diagnostics": 0
+          },
+          "jev": {
+            "correct": 47,
+            "planned": 48,
+            "classifiable": 48,
+            "missing_or_structurally_invalid": 0,
+            "sum_only_diagnostics": 0
+          },
+          "wahler": {
+            "correct": 41,
+            "planned": 48,
+            "classifiable": 48,
+            "missing_or_structurally_invalid": 0,
+            "sum_only_diagnostics": 0
+          }
+        }
+      },
+      {
+        "suite": "multidoc48",
+        "label": "Mehrere Dokumente",
+        "planned": 48,
+        "models": {
+          "clef": {
+            "correct": 24,
+            "planned": 48,
+            "classifiable": 48,
+            "missing_or_structurally_invalid": 0,
+            "sum_only_diagnostics": 0
+          },
+          "jev": {
+            "correct": 44,
+            "planned": 48,
+            "classifiable": 48,
+            "missing_or_structurally_invalid": 0,
+            "sum_only_diagnostics": 0
+          },
+          "wahler": {
+            "correct": 19,
+            "planned": 48,
+            "classifiable": 48,
+            "missing_or_structurally_invalid": 0,
+            "sum_only_diagnostics": 0
+          }
+        }
+      }
+    ],
+    "evidence": "studies/wahler580/evidence/README.md"
+  }
 }

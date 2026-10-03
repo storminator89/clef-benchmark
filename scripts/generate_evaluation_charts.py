@@ -6,6 +6,7 @@ Use --check in CI to detect stale assets. Percentages are display-only.
 """
 import argparse
 import hashlib
+import importlib.util
 import json
 from html import escape
 from pathlib import Path
@@ -86,6 +87,70 @@ def axis(s, top, bottom, x=380, width=480):
 def pct(n,d):
     return f'{100*n/d:.1f}'.replace('.',',')+' %'
 
+
+WAHLER_STUDY = 'studies/wahler580'
+WAHLER_FILES = ('planned.jsonl','cases.jsonl','wahler-native-responses.jsonl',
+                'wahler-requests.jsonl','original-benchmark.py','recompute.py','provenance.json','README.md')
+
+def load_wahler_data(root):
+    """Only a complete audited public evidence bundle can replace the legacy chart."""
+    study=root/WAHLER_STUDY
+    if not study.exists(): return None
+    evidence=study/'evidence'
+    required=[study/'comparison.json']+[evidence/n for n in (*WAHLER_FILES,'SHA256SUMS')]
+    if not all(p.is_file() for p in required): raise ValueError('Incomplete Wähler evidence bundle')
+    hashes=json.loads((evidence/'SHA256SUMS').read_text())
+    if set(hashes)!=set(WAHLER_FILES): raise ValueError('Unexpected Wähler evidence manifest')
+    for name,digest in hashes.items():
+        if hashlib.sha256((evidence/name).read_bytes()).hexdigest()!=digest:
+            raise ValueError('Wähler evidence digest mismatch: '+name)
+    provenance=json.loads((evidence/'provenance.json').read_text())
+    if provenance['provenance']['unique_completed_cases']!=580 or provenance['provenance']['choice_fields']!=968:
+        raise ValueError('Wähler evidence must cover exactly 580 cases and 968 fields')
+    replay_path=Path(__file__).with_name('recompute_wahler_evidence.py')
+    replay_hash=hashlib.sha256(replay_path.read_bytes()).hexdigest()
+    if hashes['recompute.py']!=replay_hash or provenance['recompute_sha256']!=replay_hash:
+        raise ValueError('Wähler replay scorer differs from reviewed source')
+    spec=importlib.util.spec_from_file_location('wahler_replay',replay_path)
+    replay=importlib.util.module_from_spec(spec);spec.loader.exec_module(replay)
+    recomputed=replay.recompute(replay.records(evidence/'planned.jsonl'),replay.records(evidence/'cases.jsonl'))
+    comparison=json.loads((study/'comparison.json').read_text())
+    if comparison.get('schema_version')!=1 or comparison.get('metric')!='all_fields_native_exact_over_same_planned_cases':
+        raise ValueError('Unexpected Wähler comparison schema/metric')
+    if comparison['planned_sha256']!=hashes['planned.jsonl'] or comparison['score_sha256']!=provenance['final_score_sha256']:
+        raise ValueError('Wähler comparison provenance differs')
+    groups=comparison['groups']
+    if [g['suite'] for g in groups]!=[g[0] for g in GROUPS]: raise ValueError('Wähler group inventory differs')
+    for g,(_,_,label) in zip(groups,GROUPS):
+        actual=recomputed['groups'][g['suite']]
+        if g['planned']!=actual['planned'] or g['label']!=label or set(g['models'])!={'clef','jev','wahler'}:
+            raise ValueError('Wähler group denominator/label/model mismatch')
+        for model,count in actual['models'].items():
+            expected={'correct':count['correct'],'planned':actual['planned'],
+                      'classifiable':actual['planned']-count['missing'],
+                      'missing_or_structurally_invalid':count['missing'],
+                      'sum_only_diagnostics':count['sum_only_diagnostics']}
+            if g['models'][model]!=expected: raise ValueError('Wähler chart counts differ from native evidence')
+    return groups
+
+def render_wahler_chart(groups):
+    s=start('Vollständig richtige Fälle im direkten Vergleich',
+              'Gleiche geplante Fälle · alle geforderten Felder müssen stimmen',1080)
+    for x,m,label,color in [(32,'clef','Clef Flash 9B · CPU-NF4','#355fa4'),(370,'jev','Jev 1.13.0 · API','#087f78'),(680,'wahler','Wähler 4B · Q8','#9059a6')]:
+        s += [rect(x,96,18,12,color),txt(x+27,107,label,14)]
+    axis(s,164,954)
+    s += [txt(888,142,'Richtig / Fälle',13)]
+    for i,g in enumerate(groups):
+        y=185+i*98; n=g['planned']
+        s += [txt(32,y+10,g['label'],16,weight='bold'),txt(32,y+34,f'{n} Fälle pro Modell',14,color='#526174')]
+        for dy,m,color in [(-15,'clef','#355fa4'),(12,'jev','#087f78'),(39,'wahler','#9059a6')]:
+            count=g['models'][m]['correct']
+            s += [rect(380,y+dy,480*count/n,19,color,2),txt(888,y+dy+15,f'{count}/{n} · {pct(count,n)}',15)]
+    s += [txt(32,999,'Nicht auswertbare Antworten zählen nicht als richtig; je Gruppe bleibt der Nenner gleich.',15),
+          txt(32,1025,'Synthetische, teils abhängige Fälle; unterschiedliche Quantisierung und Hardware.',14),
+          txt(32,1051,'Keine allgemeine Modellrangliste oder faire Geschwindigkeitsmessung.',14)]
+    return '\n'.join(s+['</g></svg>'])+'\n'
+
 def render(root):
     partitions, diagnostic = load_data(root)
     lookup = {(p['suite'],p['split']):p for p in partitions}
@@ -121,6 +186,14 @@ def render(root):
     result['language_diagnostic.svg']='\n'.join(s+['</g></svg>'])+'\n'
     result['data.json']=json.dumps({'sources_sha256':{p:hashlib.sha256((root/p).read_bytes()).hexdigest() for p in SOURCES},
                                   'partitions':partitions,'language_diagnostic':diagnostic},ensure_ascii=False,indent=2)+'\n'
+    wahler=load_wahler_data(root)
+    if wahler is not None:
+        result['matched_accuracy.svg']=render_wahler_chart(wahler)
+        data=json.loads(result['data.json'])
+        data['wahler580']={'groups':wahler,'evidence':WAHLER_STUDY+'/evidence/README.md'}
+        for relative in (WAHLER_STUDY+'/comparison.json',WAHLER_STUDY+'/evidence/SHA256SUMS'):
+            data['sources_sha256'][relative]=hashlib.sha256((root/relative).read_bytes()).hexdigest()
+        result['data.json']=json.dumps(data,ensure_ascii=False,indent=2)+'\n'
     return result
 
 

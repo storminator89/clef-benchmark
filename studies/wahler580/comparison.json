@@ -1,0 +1,245 @@
+{
+  "schema_version": 1,
+  "base_commit": "7e5b41f6a579e2d7b10ce653f7b83bea95f66dad",
+  "planned_sha256": "dd681e97b92c78e60e294da548594845b3dda91b930b73a695e493e4526ce366",
+  "wahler_profile": {
+    "model_revision": "aeb171ee8ddd951cd8b4ee61cc0ed818d6b22cd8",
+    "model_sha256": "7d9a13c147ed69e7b7f3e83c5f4034043936ba83aae3993dbbe436b885d84989",
+    "runtime_commit": "c0d443cba86e7f1e2545db79a37d546027ac321c",
+    "calibration_sha256": "0b1d5e6ec91ae7eff186c3e8cf58a22f3f6716e66879a9e1141421761c1e78fa",
+    "quantization": "Q8",
+    "threads": 8,
+    "calibration": "native"
+  },
+  "metric": "all_fields_native_exact_over_same_planned_cases",
+  "groups": [
+    {
+      "suite": "original_text180",
+      "label": "Allgemeine Entscheidungen",
+      "planned": 120,
+      "models": {
+        "clef": {
+          "correct": 116,
+          "planned": 120,
+          "classifiable": 120,
+          "missing_or_structurally_invalid": 0,
+          "sum_only_diagnostics": 0
+        },
+        "jev": {
+          "correct": 119,
+          "planned": 120,
+          "classifiable": 120,
+          "missing_or_structurally_invalid": 0,
+          "sum_only_diagnostics": 0
+        },
+        "wahler": {
+          "correct": 118,
+          "planned": 120,
+          "classifiable": 120,
+          "missing_or_structurally_invalid": 0,
+          "sum_only_diagnostics": 0
+        }
+      }
+    },
+    {
+      "suite": "finance100",
+      "label": "Finanzen und Makler",
+      "planned": 80,
+      "models": {
+        "clef": {
+          "correct": 76,
+          "planned": 80,
+          "classifiable": 80,
+          "missing_or_structurally_invalid": 0,
+          "sum_only_diagnostics": 0
+        },
+        "jev": {
+          "correct": 78,
+          "planned": 80,
+          "classifiable": 79,
+          "missing_or_structurally_invalid": 1,
+          "sum_only_diagnostics": 0
+        },
+        "wahler": {
+          "correct": 77,
+          "planned": 80,
+          "classifiable": 80,
+          "missing_or_structurally_invalid": 0,
+          "sum_only_diagnostics": 0
+        }
+      }
+    },
+    {
+      "suite": "clean72",
+      "label": "Büroentscheidungen · clean72",
+      "planned": 72,
+      "models": {
+        "clef": {
+          "correct": 61,
+          "planned": 72,
+          "classifiable": 72,
+          "missing_or_structurally_invalid": 0,
+          "sum_only_diagnostics": 0
+        },
+        "jev": {
+          "correct": 67,
+          "planned": 72,
+          "classifiable": 72,
+          "missing_or_structurally_invalid": 0,
+          "sum_only_diagnostics": 0
+        },
+        "wahler": {
+          "correct": 62,
+          "planned": 72,
+          "classifiable": 72,
+          "missing_or_structurally_invalid": 0,
+          "sum_only_diagnostics": 0
+        }
+      }
+    },
+    {
+      "suite": "bank_support80",
+      "label": "Bank-Kundensupport",
+      "planned": 80,
+      "models": {
+        "clef": {
+          "correct": 68,
+          "planned": 80,
+          "classifiable": 80,
+          "missing_or_structurally_invalid": 0,
+          "sum_only_diagnostics": 0
+        },
+        "jev": {
+          "correct": 75,
+          "planned": 80,
+          "classifiable": 79,
+          "missing_or_structurally_invalid": 1,
+          "sum_only_diagnostics": 0
+        },
+        "wahler": {
+          "correct": 61,
+          "planned": 80,
+          "classifiable": 80,
+          "missing_or_structurally_invalid": 0,
+          "sum_only_diagnostics": 0
+        }
+      }
+    },
+    {
+      "suite": "insurance60",
+      "label": "Versicherungsdokumente",
+      "planned": 60,
+      "models": {
+        "clef": {
+          "correct": 50,
+          "planned": 60,
+          "classifiable": 60,
+          "missing_or_structurally_invalid": 0,
+          "sum_only_diagnostics": 0
+        },
+        "jev": {
+          "correct": 56,
+          "planned": 60,
+          "classifiable": 60,
+          "missing_or_structurally_invalid": 0,
+          "sum_only_diagnostics": 0
+        },
+        "wahler": {
+          "correct": 48,
+          "planned": 60,
+          "classifiable": 60,
+          "missing_or_structurally_invalid": 0,
+          "sum_only_diagnostics": 0
+        }
+      }
+    },
+    {
+      "suite": "clarification72",
+      "label": "Rückfragen statt Raten",
+      "planned": 72,
+      "models": {
+        "clef": {
+          "correct": 64,
+          "planned": 72,
+          "classifiable": 72,
+          "missing_or_structurally_invalid": 0,
+          "sum_only_diagnostics": 0
+        },
+        "jev": {
+          "correct": 71,
+          "planned": 72,
+          "classifiable": 72,
+          "missing_or_structurally_invalid": 0,
+          "sum_only_diagnostics": 0
+        },
+        "wahler": {
+          "correct": 59,
+          "planned": 72,
+          "classifiable": 72,
+          "missing_or_structurally_invalid": 0,
+          "sum_only_diagnostics": 0
+        }
+      }
+    },
+    {
+      "suite": "minimal_pairs48",
+      "label": "Minimalpaare · einzelne Fälle",
+      "planned": 48,
+      "models": {
+        "clef": {
+          "correct": 39,
+          "planned": 48,
+          "classifiable": 48,
+          "missing_or_structurally_invalid": 0,
+          "sum_only_diagnostics": 0
+        },
+        "jev": {
+          "correct": 47,
+          "planned": 48,
+          "classifiable": 48,
+          "missing_or_structurally_invalid": 0,
+          "sum_only_diagnostics": 0
+        },
+        "wahler": {
+          "correct": 41,
+          "planned": 48,
+          "classifiable": 48,
+          "missing_or_structurally_invalid": 0,
+          "sum_only_diagnostics": 0
+        }
+      }
+    },
+    {
+      "suite": "multidoc48",
+      "label": "Mehrere Dokumente",
+      "planned": 48,
+      "models": {
+        "clef": {
+          "correct": 24,
+          "planned": 48,
+          "classifiable": 48,
+          "missing_or_structurally_invalid": 0,
+          "sum_only_diagnostics": 0
+        },
+        "jev": {
+          "correct": 44,
+          "planned": 48,
+          "classifiable": 48,
+          "missing_or_structurally_invalid": 0,
+          "sum_only_diagnostics": 0
+        },
+        "wahler": {
+          "correct": 19,
+          "planned": 48,
+          "classifiable": 48,
+          "missing_or_structurally_invalid": 0,
+          "sum_only_diagnostics": 0
+        }
+      }
+    }
+  ],
+  "score_sha256": {
+    "summary.json": "bb4d47d054e80f8fef6ea68eaa773ae27711479ee5fbd37e1d2755d83650f5d2",
+    "cases.jsonl": "ad907dcae14c82807bda06c6e9490b2c50479a271427fd9d4afc6be59a69ce85"
+  }
+}

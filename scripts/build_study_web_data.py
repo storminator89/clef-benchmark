@@ -11,7 +11,7 @@ import json
 import math
 ROOT=Path(__file__).resolve().parents[1]
 # Populated only after the final public bundle has passed independent review.
-ADMISSIONS={'language72':{'path':'studies/language72','manifest':'PUBLIC_MANIFEST.json','sha256':'8d092cd96f86e4e5a79e2382cc81e430b96b18d7ebcf5310b45812c9f44a4427'},'jev974':{'path':'studies/jev974','manifest':'PUBLIC_MANIFEST.json','sha256':'af1055142305bc2cd2207f51e6396383ff58c54ee1af1da8b4760c661375ae35'}}
+ADMISSIONS={'language72':{'path':'studies/language72','manifest':'PUBLIC_MANIFEST.json','sha256':'8d092cd96f86e4e5a79e2382cc81e430b96b18d7ebcf5310b45812c9f44a4427'},'wahler580':{'path':'studies/wahler580','manifest':'PUBLIC_MANIFEST.json','sha256':'45860e97192ac8ebef50ba7359691ca0195ffa8653b7edcb3cc152202b4810b0'},'jev974':{'path':'studies/jev974','manifest':'PUBLIC_MANIFEST.json','sha256':'af1055142305bc2cd2207f51e6396383ff58c54ee1af1da8b4760c661375ae35'}}
 
 def require(value,message):
  if not value:raise ValueError(message)
@@ -96,7 +96,11 @@ def build_all(root=ROOT):
  result={}
  for ident,admission in ADMISSIONS.items():
   source=root/admission['path'];verify_bundle(source,admission['manifest'],admission['sha256'])
-  if ident=='jev974':
+  if ident=='wahler580':
+   namespace={'__file__':str(root/'scripts/study_wahler_adapter.py'),'__name__':'study_wahler_adapter'}
+   exec(compile((root/'scripts/study_wahler_adapter.py').read_bytes(),namespace['__file__'],'exec'),namespace)
+   result[ident]=namespace['build'](source,admission,root)
+  elif ident=='jev974':
    namespace={'__file__':str(root/'scripts/study_jev_adapter.py'),'__name__':'study_jev_adapter'}
    exec(compile((root/'scripts/study_jev_adapter.py').read_bytes(),namespace['__file__'],'exec'),namespace)
    result[ident]=namespace['build'](source,admission,root)

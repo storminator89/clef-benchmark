@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "files": {
+    "README.md": "5559daaf250375d1a15d611fbcfa25d0f8f4eafb9322ee65accb775bf74994ca",
+    "cases.jsonl": "78e2249e7cab3479bde225b9d6a377ca696b377aa6f34879fee2d2706e382888",
+    "comparison.json": "6a3b4017060bc110e03b849e8cb421343ce994cbbfa051e50d0fa1a95ff4f7a8",
+    "evidence/README.md": "bed54b90f2b350a29a791fa54c92f52a5504efd615ab6107256d7ddea1d95159",
+    "evidence/SHA256SUMS": "0d8dcf4256912bb675287b8eb8b39bf8878780ebd43390b8d39d6a2ec6988d35",
+    "evidence/cases.jsonl": "03ab52b12a882a636c8b2411b94104fe5342308b32d9adc113b77225393c8017",
+    "evidence/original-benchmark.py": "a855f6ea638b6c27aa6c5ba0c69db1fc5924d4d0ea9412ecb558b694a3cf0625",
+    "evidence/planned.jsonl": "dd681e97b92c78e60e294da548594845b3dda91b930b73a695e493e4526ce366",
+    "evidence/provenance.json": "1165ee15ea4a8d56e66a980e0a8ad8fd232ee148c6e7b07392a3c331e2aec294",
+    "evidence/recompute.py": "0b7fb832e31d54ae81904ac4b16036c84691507d76a5ce513d554f34d8076afc",
+    "evidence/wahler-native-responses.jsonl": "104584a5482fc0d030e2cbcaa48676195016f60ff98b3815131f139695d3f540",
+    "evidence/wahler-requests.jsonl": "f94a36a993367f9f6e87ebb63cc0a83467003a9a96613d7ab335bf307f33dec6",
+    "matched_accuracy.svg": "064a1dbe9d2cebbb398a416b7b96c7f0dd5dd29fc3fbc826cdb5aea6d2eb7bcf",
+    "method-details.md": "3889d1e135cfa1cd23d0ee8a4b00b0699e8e64a05c6b6e2802e8b27c4883a7a8",
+    "results.md": "7e97625d368e4c59c876b0afde83e59666882a9056a89f84d0aab8f6b80965be"
+  }
+}

@@ -5,7 +5,7 @@
   "type": "module",
   "description": "Offline-first Clef document intelligence workbench; no runtime npm dependencies",
   "scripts": {
-    "test": "node --test tests/test_web.mjs tests/test_workbench_dom.mjs tests/test_custom_cases.mjs tests/test_custom_review.mjs tests/test_pairs.mjs tests/test_reliability.mjs tests/test_studies.mjs tests/test_studies_dom.mjs",
+    "test": "node --test tests/test_web.mjs tests/test_workbench_dom.mjs tests/test_custom_cases.mjs tests/test_custom_review.mjs tests/test_pairs.mjs tests/test_reliability.mjs tests/test_studies.mjs tests/test_studies_dom.mjs tests/test_wahler_studies.mjs",
     "test:core": "node --test tests/test_web.mjs",
     "test:dom": "node --test tests/test_workbench_dom.mjs",
     "test:custom": "node --test tests/test_custom_cases.mjs tests/test_custom_review.mjs"

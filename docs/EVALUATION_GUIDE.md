@@ -6,7 +6,7 @@ Clef Lab prüft strukturierte Entscheidungen gegen vorab festgelegte Referenzlab
 
 Jeder Request enthält den Falltext, die jeweils geltende fiktive Regel, native Fragen und die angebotenen Antwortoptionen. Goldlabels und Begründungen bleiben außerhalb der Inferenz. Mehrere Fragen eines Falls gehören zum selben Request; verschiedene Fälle werden nicht zusammengepackt. Die Clef-Läufe verwenden den nativen Decision Head, keine ersatzweise generierte Chatantwort.
 
-Für Jev bleiben Zustand, Texte, Fragen, Feld- und Optionsreihenfolge sowie Aufgabenstruktur identisch. Nur die Modellkennung ändert sich. Die internen Tokenizer und die Verarbeitung der Anbieter können verschieden sein. Die vollständigen festgelegten Bedingungen stehen im [Vergleichsprotokoll](../experiments/jev_comparison/README.md).
+Für Jev und Wähler bleiben Zustand, Texte, Fragen, Feld- und Optionsreihenfolge sowie Aufgabenstruktur identisch. Nur die Modellkennung ändert sich. Die internen Tokenizer und die Verarbeitung der Anbieter können verschieden sein. Die vollständigen festgelegten Bedingungen stehen im [Vergleichsprotokoll](../experiments/jev_comparison/README.md).
 
 ## Wie Ergebnisse gezählt werden
 
@@ -15,7 +15,7 @@ Für Jev bleiben Zustand, Texte, Fragen, Feld- und Optionsreihenfolge sowie Aufg
 - **Paargenauigkeit:** beide vollständigen Endpunkte richtig. Ein beliebiger Ausgabewechsel ist kein korrekter Übergang; unveränderte Ausgaben können stabil falsch sein.
 - **Technische Gültigkeit:** Antwort erfüllt den festgelegten Vertrag für Felder, Optionen, vollständige Wahrscheinlichkeiten, Modellidentität und Nutzungsangaben. Das ist von fachlicher Richtigkeit getrennt.
 - **Gesamter geplanter Umfang:** vollständig richtige native Antworten geteilt durch alle geplanten Fälle. Nicht auswertbare Antworten erhöhen den Zähler nicht. Die Wahrscheinlichkeits-Summenprüfung bestimmt in der neuen Antwort-Richtigkeitsanalyse nicht die fachliche Bewertung.
-- **Direkter Modellvergleich:** beide Modelle verwenden dieselben geplanten Fälle und denselben Nenner je Gruppe. Nicht auswertbare Antworten zählen nicht als richtig und werden knapp benannt. Die separat erhaltene strikte Antwortvertragsanalyse hat eine andere Einschlussregel.
+- **Direkter Modellvergleich:** die beteiligten Modelle verwenden dieselben geplanten Fälle und denselben Nenner je Gruppe. Nicht auswertbare Antworten zählen nicht als richtig und werden knapp benannt. Die separat erhaltene strikte Antwortvertragsanalyse hat eine andere Einschlussregel.
 
 Suiten und Kontrollgruppen haben eigene Nenner. Es gibt keinen gepoolten Gesamtscore. Die 974 Jev-Requests und 1.362 nativen Fragen beschreiben den Ausführungsumfang, keine unabhängige Stichprobe. Für MASSIVE fehlt aktuell die auditierte Clef-Baseline; eine Null im technischen Baseline-Inventar bedeutet dort kein Modellresultat.
 
@@ -56,3 +56,7 @@ Die zugehörigen Hashmanifeste, Rohantworten und protokollspezifischen Grenzen s
 ## Übertragbarkeit
 
 Die Ergebnisse gelten für die dokumentierten Aufgaben und Konfigurationen. Es fehlen repräsentative Kundendaten, unabhängige menschliche Annotation, ein unangetasteter anwendungsspezifischer Holdout und Nachweise für reale Sicherheit, Wirtschaftlichkeit oder Compliance. Für eine praktische Evaluation müssen Fehlerkosten, menschliche Entscheidungsverantwortung, Datenfreigabe und Akzeptanzkriterien separat festgelegt und geprüft werden.
+
+## Drei Modelle auf demselben deutschen Fallumfang
+
+Der [Vergleich mit Wähler](WAEHLER_COMPARISON.md) verwendet 580 feste Fälle und 968 Choice-Felder in acht Gruppen. Wähler erhält native strukturierte Fragen mit deaktiviertem Reasoning und Abstention; seine nativen Optionscores werden unverändert gespeichert. Die [Belege](../studies/wahler580/evidence/README.md) enthalten exakte Requests, Antworten, Gold, vollständige Wahrscheinlichkeiten, den ursprünglichen Scorer sowie einen portablen modellfreien Replay-Scorer. Der größere Jev-Lauf bleibt als gesonderte Diagnose erhalten.

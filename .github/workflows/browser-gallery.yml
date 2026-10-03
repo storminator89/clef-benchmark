@@ -7,6 +7,9 @@ on:
     paths:
       - 'web/**'
       - 'tests/test_browser.py'
+      - 'tests/capture_wahler_browser.py'
+      - 'tests/test_wahler_capture_contract.py'
+      - 'studies/wahler580/**'
       - 'tests/test_browser_capture_contract.py'
       - 'tests/requirements-browser.txt'
       - 'examples/custom_cases/support.json'
@@ -106,5 +109,34 @@ jobs:
           name: clef-browser-gallery-${{ github.sha }}
           path: test-results/browser-gallery/
           if-no-files-found: warn
+          retention-days: 1
+          include-hidden-files: false
+
+      - name: Capture admitted Wähler three-model study on desktop and mobile
+        if: ${{ hashFiles('web/studies-data/wahler580.json') != '' }}
+        run: python tests/capture_wahler_browser.py --output test-results/wahler-browser
+      - name: Limit separate Wähler artifact to ten MiB
+        id: wahler-artifact-size
+        if: ${{ !cancelled() && hashFiles('web/studies-data/wahler580.json') != '' }}
+        run: |
+          python - <<'PYWAHLER'
+          from pathlib import Path
+          import hashlib, json
+          root = Path('test-results/wahler-browser')
+          manifest = json.loads((root/'capture.json').read_text())
+          assert manifest['status'] == 'passed' and manifest['chromium_sandbox'] is True
+          for name, digest in manifest['source_sha256'].items():
+              assert hashlib.sha256(Path(name).read_bytes()).hexdigest() == digest
+          for name, digest in manifest['screenshots'].items():
+              assert hashlib.sha256((root/name).read_bytes()).hexdigest() == digest
+          assert sum(p.stat().st_size for p in root.rglob('*') if p.is_file()) <= 10 * 1024 * 1024
+          PYWAHLER
+      - name: Preserve separate Wähler screenshots for review
+        if: ${{ !cancelled() && steps.wahler-artifact-size.outcome == 'success' }}
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: wahler-browser-${{ github.sha }}
+          path: test-results/wahler-browser/
+          if-no-files-found: error
           retention-days: 1
           include-hidden-files: false

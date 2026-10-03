@@ -633,6 +633,10 @@ class BrowserChecks:
                 continue
             data = json.loads((ROOT / 'web' / entry['data_file'][2:]).read_text())
             expect(page.locator('.study-case')).to_have_count(min(100, len(data['cases'])))
+            if entry['id'] == 'wahler580' and data.get('format_version') == 2:
+                expect(page.locator('.study-chart-group')).to_have_count(8)
+                self.check('Wähler three-model view loaded; full native-choice and mobile checks run in capture_wahler_browser.py')
+                continue
             if entry['id'] == 'jev974':
                 self.capture('jev-matched-comparison-light.png', 'Same valid cases per partition, separate Jev coverage, no pooled score', full_page=False)
             page.locator('#study-outcome').select_option('errors')

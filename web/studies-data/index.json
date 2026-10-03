@@ -2,6 +2,20 @@
   "format_version": 1,
   "studies": [
     {
+      "id": "wahler580",
+      "label": "Drei Modelle",
+      "subtitle": "Clef, Jev und Wähler auf denselben Fällen",
+      "status": "completed",
+      "planned_requests": 580,
+      "unit": "Anfragen",
+      "data_file": "./studies-data/wahler580.json",
+      "methods": [
+        "580 identische geplante deutsche Fälle in acht getrennten Gruppen, mit 968 Choice-Feldern.",
+        "Alle geforderten Felder müssen richtig sein. Zwei nicht auswertbare Jev-Antworten bleiben im jeweiligen Nenner.",
+        "Unterschiedliche Modellgrößen, Quantisierung und Ausführungsumgebungen; kein isolierter Architektur- oder Geschwindigkeitsvergleich."
+      ]
+    },
+    {
       "id": "language72",
       "label": "Sprachvarianten",
       "subtitle": "Gleiche Regeln, andere Formulierungen",

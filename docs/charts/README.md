@@ -8,11 +8,11 @@ python3 scripts/generate_evaluation_charts.py --check
 python3 -m unittest discover -s tests -p 'test_evaluation_charts.py' -v
 ```
 
-`--check` schreibt nichts und scheitert bei fehlenden oder veralteten SVG-/Daten-Dateien. `data.json` enthält die nachgerechneten Zähler und SHA-256-Hashes aller vier Eingabedateien. Keine Auswertung startet Inferenz oder ruft einen Dienst auf.
+`--check` schreibt nichts und scheitert bei fehlenden oder veralteten SVG-/Daten-Dateien. `data.json` enthält die nachgerechneten Zähler und SHA-256-Hashes der Eingabedateien und des vollständigen Wähler-Evidenzmanifests. Keine Auswertung startet Inferenz oder ruft einen Dienst auf.
 
 ## Daten und Nenner
 
-- `matched_accuracy.svg`: acht Gruppen in der Reihenfolge der README-Tabelle. Beide Modelle haben je Gruppe denselben vollständigen geplanten Fallumfang. Der Dateiname bleibt zur Linkkompatibilität bestehen; die Grafik zeigt jetzt den direkten Vergleich über alle geplanten Fälle. Der Generator prüft die nativen Auswahlwerte gegen die Goldlabels und zählt [case_comparison.jsonl](../../studies/jev974-answer-correctness-v1/case_comparison.jsonl) gegen [comparison_summary.json](../../studies/jev974-answer-correctness-v1/comparison_summary.json) nach. Zwei nicht auswertbare Jev-Antworten zählen nicht als richtig. Die unveränderten ursprünglichen Daten bleiben erhalten; die neue [Antwortauswertung](../../studies/jev974-answer-correctness-v1/README.md) erklärt die Metrik.
+- `matched_accuracy.svg`: acht Gruppen in der Reihenfolge der README-Tabelle. Clef, Jev und Wähler haben je Gruppe denselben vollständigen geplanten Fallumfang. Die [native Evidenz](../../studies/wahler580/evidence/README.md) wird offline erneut bewertet und gegen die [Gruppenzähler](../../studies/wahler580/comparison.json) geprüft. Zwei nicht auswertbare Jev-Antworten zählen nicht als richtig. Ein unvollständiges Wähler-Bundle wird abgelehnt; ohne dieses Bundle bleibt der historische Zwei-Modell-Generator reproduzierbar.
 - `language_diagnostic.svg`: Fallzeilen aus [case_scores.jsonl](../../studies/language72/scored/case_scores.jsonl), geprüft gegen [summary.json](../../studies/language72/scored/summary.json). Goldaktion `ask_target` trennt die Zielunklarheitsgruppe von sämtlichen übrigen Fällen. Das ist eine post-hoc Fehlerdiagnose auf einzelnen Fällen, kein Paar- oder Kausaleffekt. Die 13 Fälle sind nicht die 12 Fälle der separat definierten Ambiguitätsänderungsgruppe.
 
 ## Darstellung und Grenzen

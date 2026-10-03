@@ -76,7 +76,7 @@ Das Ausgabeverzeichnis darf noch keine Scorerdateien enthalten. Der unabhängige
 
 ## Noch offene Baselines
 
-MASSIVE und Mehrturntests bleiben bis zu ihren abgeschlossenen Audits offen; frühere nicht verfügbare native Ergebnisse sind kein Ersatz.
+Für MASSIVE ist kein vollständiger Clef-Vergleich enthalten.
 
 ## Jev nachrechnen oder neu ausführen
 
@@ -92,6 +92,16 @@ python3 experiments/jev_comparison/scripts/compare.py \
 `/tmp/jev974-replay` darf noch nicht existieren. Diese Befehle reproduzieren den ursprünglichen strikten Antwortvertrag; der Scorer erzeugt dessen getrennte Vergleichsdateien neu. Die Antwort-Richtigkeitsanalyse der aktuellen Tabellen ist separat versioniert; ihre Befehle stehen in [dieser Anleitung](../studies/jev974-answer-correctness-v1/README.md). Die Ergebnisse sollten den Dateien unter [studies/jev974/scoring](../studies/jev974/scoring/) entsprechen. Die vollständige Clef-MASSIVE-Baseline ist nicht verfügbar. Die Summenregel `abs(math.fsum(p.values()) - 1) <= 1e-5` ist eine lokale Benchmarkregel, keine bestätigte Jev-Anbietergarantie; [Details zur Auswertungsdefinition](JEV_COMPARISON.md).
 
 Neue API-Aufrufe sind ein eigener, kostenpflichtiger und datenübertragender Lauf: Modellversion, freigegebene Eingaben, Anbieterbedingungen und Budget müssen vorher feststehen. Einen API-Schlüssel niemals in Chat, Repository oder Kommandozeile ablegen. Die [eingefrorene Vorbereitung](../experiments/jev_comparison/README.md) dokumentiert den ursprünglichen Vertrag; historische Preise dort sind keine aktuelle Preiszusage.
+
+## Drei-Modell-Vergleich nachrechnen
+
+```bash
+python3 studies/wahler580/evidence/recompute.py --evidence studies/wahler580/evidence
+python3 scripts/build_study_web_data.py --check
+python3 scripts/generate_evaluation_charts.py --check
+```
+
+Diese Befehle verwenden ausschließlich gespeicherte native Antworten und Referenzen. Die [Evidenzanleitung](../studies/wahler580/evidence/README.md) dokumentiert Dateihashes und das Replay; [Modellprofile und Grenzen](WAEHLER_COMPARISON.md) erklären die unterschiedlichen Ausführungsbedingungen. Keine Modellgewichte oder API-Schlüssel sind nötig.
 
 ## Datenherkunft und Lizenz
 
